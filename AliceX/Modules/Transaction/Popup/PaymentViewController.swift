@@ -12,15 +12,32 @@ class PaymentViewController: UIViewController {
     
     @IBOutlet weak var payButton: UIControl!
     @IBOutlet weak var progressIndicator: RPCircularProgress!
-    
     @IBOutlet weak var payButtonContainer: UIView!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     var timer: Timer?
     var process: Int = 0
     var toggle:Bool = false
 
+    var toAddress: String?
+    var amount: String?
+    var successBlock: StringBlock?
+    
+    class func makeViewController(toAddress: String, amount: String, successBlock:@escaping StringBlock) -> PaymentViewController{
+        let vc = PaymentViewController()
+        vc.toAddress = toAddress
+        vc.amount = amount
+        vc.successBlock = successBlock
+        return vc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addressLabel.text = toAddress
+        amountLabel.text = "Amount: " + "\(amount!)"
         
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true
@@ -125,9 +142,9 @@ class PaymentViewController: UIViewController {
                     DispatchQueue.main.async {
                         if success {
                             // User authenticated successfully, take appropriate action
-                            let txHash = try! TransactionManager.shared.sendEtherSync(to: "0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB", amount: "0.1", password: "")
+                            let txHash = try! TransactionManager.shared.sendEtherSync(to: self.toAddress!, amount: self.amount!, password: "")
                             print(txHash)
-                            
+                            self.successBlock!(txHash)
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             
