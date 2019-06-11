@@ -14,9 +14,9 @@ import BigInt
 class TransactionManager {
     static let shared = TransactionManager()
     
-    class func showPaymentView() {
+    class func showPaymentView(toAddress: String, amount: String, success:@escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = PaymentViewController()
+        let modal = PaymentViewController.makeViewController(toAddress: toAddress, amount: amount, successBlock: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
         transitionDelegate.customHeight = 500
         modal.transitioningDelegate = transitionDelegate
