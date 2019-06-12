@@ -29,6 +29,22 @@ class WalletManager {
         return true
     }
     
+    class func addKeyStoreIfNeeded() {
+        if !WalletManager.hasWallet() {
+            return
+        }
+        
+        guard let keystore = WalletManager.shared.keystore else {
+            return
+        }
+        
+        if let _ = WalletManager.web3Net.provider.attachedKeystoreManager {
+            return
+        }
+        
+        WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+    }
+    
     class func loadFromCache() {
         guard let keystore = try? WalletManager.shared.loadKeystore() else {
             return
@@ -39,6 +55,7 @@ class WalletManager {
         let address = keystore.addresses!.first!.address
         let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
         WalletManager.wallet = wallet
+        WalletManager.addKeyStoreIfNeeded()
     }
     
     class func createAccount(completion: VoidBlock?) {
