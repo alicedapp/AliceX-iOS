@@ -8,6 +8,7 @@ target 'AliceX' do
   pod 'web3.swift.pod', '~> 2.2.0'
   pod 'KeychainSwift', '~> 16.0'
   pod 'SPStorkController'
+  pod 'IQKeyboardManagerSwift'
 
   # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

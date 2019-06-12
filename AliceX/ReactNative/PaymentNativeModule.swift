@@ -23,4 +23,17 @@ class PaymentNativeModule : NSObject {
             })
         }
     }
+    
+    @objc func smartContract(_ contractAddress: String, method:String, ABI:String, parameter:[Any], callback successCallback: @escaping RCTResponseSenderBlock) {
+        //    @objc func payment(_ to:String, value: String) {
+        
+        // You won't be on the main thread when called from JavaScript
+        DispatchQueue.main.async {
+            guard let tx = try? TransactionManager.callSmartContract(contractAddress: contractAddress, method: method, ABI: ABI, parameter: parameter) else {
+                successCallback(["error"])
+                return
+            }
+            successCallback([tx])
+        }
+    }
 }

@@ -54,6 +54,15 @@ class WelcomeViewController: BaseViewController {
         }
     }
     
+    @IBAction func callSmartContract() {
+        
+        let ABI = """
+[{"constant":false,"inputs":[],"name":"cookingOrder","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"finishOrder","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_foodItem","type":"string"},{"name":"_name","type":"string"}],"name":"setOrder","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_orderStatus","type":"string"}],"name":"setOrderStatus","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"foodItem","type":"string"},{"indexed":false,"name":"name","type":"string"}],"name":"FoodFinished","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"foodItem","type":"string"},{"indexed":false,"name":"name","type":"string"}],"name":"OrderReceived","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"orderStatus","type":"string"}],"name":"OrderStatus","type":"event"},{"constant":true,"inputs":[],"name":"getOrder","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]
+"""
+        
+        try! TransactionManager.callSmartContract(contractAddress: "0x68F7202dcb25360FA6042F6739B7F6526AfcA66E", method: "setOrder", ABI: ABI, parameter: ["Burrito", "Hao"])
+    }
+    
     @IBAction func popUp() {
         let vc = UIViewController()
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")

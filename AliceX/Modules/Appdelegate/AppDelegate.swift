@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 fileprivate var navi: UINavigationController?
 
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = UINavigationController.init(rootViewController: vc)
         navi = rootVC
         self.window?.rootViewController = rootVC
+        
+         IQKeyboardManager.shared.enable = true
         
         return true
     }

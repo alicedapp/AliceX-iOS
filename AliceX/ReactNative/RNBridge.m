@@ -15,6 +15,7 @@
 
 // Type 1: Calling a Swift function from JavaScript
 RCT_EXTERN_METHOD(payment:(NSString *)to value:(NSString *)value callback:(RCTResponseSenderBlock *)successCallback)
-//RCT_EXTERN_METHOD(payment:(NSString *)to value:(NSString *)value)
+
+RCT_EXTERN_METHOD(smartContract:(NSString *)contractAddress method:(NSString *)method ABI:(NSString *)ABI parameter:(NSArray *)parameter callback:(RCTResponseSenderBlock *)successCallback)
 
 @end

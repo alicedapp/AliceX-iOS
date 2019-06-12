@@ -55,16 +55,25 @@ class TransactionManager {
     }
     
     public func sendEtherSync(to address: String, amount: String, password: String, gasPrice: String?) throws -> String {
-        guard let toAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
-        let keystore = WalletManager.shared.keystore
+        
+        guard let toAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
         
         let etherBalance = try etherBalanceSync()
-        guard let etherBalanceInDouble = Double(etherBalance) else { throw WalletError.conversionFailure }
-        guard let amountInDouble = Double(amount) else { throw WalletError.conversionFailure }
-        guard etherBalanceInDouble >= amountInDouble else { throw WalletError.notEnoughBalance }
+        guard let etherBalanceInDouble = Double(etherBalance) else {
+            throw WalletError.conversionFailure
+        }
         
-        let keystoreManager = KeystoreManager([keystore!])
-        WalletManager.web3Net.addKeystoreManager(keystoreManager)
+        guard let amountInDouble = Double(amount) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard etherBalanceInDouble >= amountInDouble else {
+            throw WalletError.notEnoughBalance
+        }
+        
+        WalletManager.addKeyStoreIfNeeded()
         
         let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
         let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
@@ -80,12 +89,58 @@ class TransactionManager {
             extraData: Data(),
             transactionOptions: options)!
         
+        
         guard let sendResult = try? tx.send() else {
             throw WalletError.networkFailure
         }
         
         return sendResult.hash
+    }
+    
+    //MARK: - Call Smart Contract
 
+    public class func callSmartContract(contractAddress: String, method:String, ABI:String, parameter:[Any]) throws -> String {
+        
+        guard let address = WalletManager.wallet?.address else {
+            throw WalletError.invalidAddress
+        }
+        
+        
+        guard let walletAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let contractAddress = EthereumAddress(contractAddress) else {
+            throw WalletError.invalidAddress
+        }
+        
+        WalletManager.addKeyStoreIfNeeded()
+        
+        let value = "0.0"
+        let contractMethod = method
+        let contractABI = ABI
+        let abiVersion = 2
+        let parameters: [Any] = parameter
+        let extraData: Data = Data() // Extra data for contract method
+        let contract = WalletManager.web3Net.contract(contractABI, at: contractAddress, abiVersion: abiVersion)
+        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+        
+        var options = TransactionOptions.defaultOptions
+        options.value = amount
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        let tx = contract!.write(
+            contractMethod,
+            parameters: parameters as [AnyObject],
+            extraData: extraData,
+            transactionOptions: options)!
+        
+        guard let sendResult = try? tx.send() else {
+            throw WalletError.networkFailure
+        }
+        
+        return sendResult.hash
     }
     
 }
