@@ -8,15 +8,16 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import React
 
 fileprivate var navi: UINavigationController?
+fileprivate var bridge: RCTBridge?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -31,7 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi = rootVC
         self.window?.rootViewController = rootVC
         
-         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = true
+        
+        let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
+        bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: nil)
         
         return true
     }
@@ -59,5 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    class func rnBridge() -> RCTBridge {
+        return bridge!
+    }
 }
 

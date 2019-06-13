@@ -70,4 +70,10 @@ class WelcomeViewController: BaseViewController {
         vc.view = rnView
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func payment() {
+        TransactionManager.showPaymentView(toAddress: "0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB", amount: "0.001", success: { (tx) -> (Void) in
+            print(tx)
+        })
+    }
 }

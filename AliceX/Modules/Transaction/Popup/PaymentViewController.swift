@@ -17,6 +17,8 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
+    @IBOutlet weak var RNContainer: UIView!
+    
     var timer: Timer?
     var process: Int = 0
     var toggle:Bool = false
@@ -66,6 +68,9 @@ class PaymentViewController: UIViewController {
 //        progressView.addSubview(progressIndicator)
         
         progressIndicator.updateProgress(0)
+        
+        let testView = RNTestVIew.instanceFromNib()
+        RNContainer.addSubview(testView)
     }
     
     @objc func timeUpdate() {

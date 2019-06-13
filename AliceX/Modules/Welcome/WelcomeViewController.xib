@@ -71,15 +71,24 @@
                         <action selector="callSmartContract" destination="-1" eventType="touchUpInside" id="VxF-1R-XNH"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffZ-nQ-eg0">
+                    <rect key="frame" x="192" y="668" width="30" height="30"/>
+                    <state key="normal" title="Pop"/>
+                    <connections>
+                        <action selector="payment" destination="-1" eventType="touchUpInside" id="ipS-38-ASP"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstItem="Sty-RX-Jrk" firstAttribute="top" secondItem="ccB-o8-RLG" secondAttribute="bottom" constant="20" id="4m6-Rh-RyN"/>
+                <constraint firstItem="ccB-o8-RLG" firstAttribute="top" secondItem="ffZ-nQ-eg0" secondAttribute="bottom" constant="24" id="A4D-Fv-deP"/>
                 <constraint firstItem="Bgl-ia-qxi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="BOk-Sg-xK9"/>
                 <constraint firstAttribute="trailing" secondItem="zxB-iW-WBg" secondAttribute="trailing" constant="20" id="C9s-f5-B1f"/>
                 <constraint firstItem="mXe-on-iDR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="Cra-ne-h3m"/>
                 <constraint firstItem="mXe-on-iDR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Evn-5w-I8S"/>
                 <constraint firstItem="Qms-Nh-69Z" firstAttribute="top" secondItem="Bgl-ia-qxi" secondAttribute="bottom" constant="35" id="HK2-tr-sND"/>
+                <constraint firstItem="ffZ-nQ-eg0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JnI-ex-89V"/>
                 <constraint firstItem="Qms-Nh-69Z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RqP-gG-ZAH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bgl-ia-qxi" secondAttribute="trailing" constant="20" id="S40-bs-qPU"/>
                 <constraint firstItem="zxB-iW-WBg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="SMW-bf-dmv"/>
