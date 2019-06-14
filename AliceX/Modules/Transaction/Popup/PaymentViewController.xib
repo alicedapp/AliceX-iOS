@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="RNContainer" destination="aDf-dZ-exU" id="ing-uN-k52"/>
+                <outlet property="RNContainerHeight" destination="3rm-PW-eCM" id="OFV-zY-Lqh"/>
                 <outlet property="addressLabel" destination="KqM-JQ-cVl" id="r1z-cQ-yW1"/>
                 <outlet property="amountLabel" destination="SyH-Y9-v3i" id="29k-n4-Mga"/>
                 <outlet property="payButton" destination="Gfw-IQ-sjL" id="zSg-Q3-BTt"/>
@@ -156,10 +159,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-dZ-exU">
-                            <rect key="frame" x="20" y="90" width="374" height="200"/>
+                            <rect key="frame" x="20" y="90" width="374" height="568"/>
                             <color key="backgroundColor" red="0.65490196079999996" green="0.26274509800000001" blue="0.92549019610000005" alpha="0.28774207746478875" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="LAs-Id-a2u"/>
+                                <constraint firstAttribute="height" constant="568" id="3rm-PW-eCM"/>
                             </constraints>
                         </view>
                     </subviews>

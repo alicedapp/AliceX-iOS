@@ -14,11 +14,11 @@ import BigInt
 class TransactionManager {
     static let shared = TransactionManager()
     
-    class func showPaymentView(toAddress: String, amount: String, success:@escaping StringBlock) {
+    class func showPaymentView(toAddress: String, amount: String, height: CGFloat = 500,success:@escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = PaymentViewController.makeViewController(toAddress: toAddress, amount: amount, successBlock: success)
+        let modal = PaymentViewController.makeViewController(toAddress: toAddress, amount: amount, height: height, successBlock: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 500
+        transitionDelegate.customHeight = height
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)

@@ -65,8 +65,7 @@ class WelcomeViewController: BaseViewController {
     
     @IBAction func popUp() {
         let vc = UIViewController()
-        let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
-        let rnView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "alice", initialProperties: nil, launchOptions: nil)
+        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "alice", initialProperties: nil)
         vc.view = rnView
         navigationController?.pushViewController(vc, animated: true)
     }

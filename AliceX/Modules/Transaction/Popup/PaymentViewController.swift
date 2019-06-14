@@ -18,6 +18,7 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     
     @IBOutlet weak var RNContainer: UIView!
+    @IBOutlet weak var RNContainerHeight: NSLayoutConstraint!
     
     var timer: Timer?
     var process: Int = 0
@@ -27,16 +28,31 @@ class PaymentViewController: UIViewController {
     var amount: String?
     var successBlock: StringBlock?
     
-    class func makeViewController(toAddress: String, amount: String, successBlock:@escaping StringBlock) -> PaymentViewController{
+    var height: CGFloat = 500
+    
+    let footerHeight: CGFloat = 80+60+20
+    let headerHeight: CGFloat = 10+60+20
+    
+    class func makeViewController(toAddress: String, amount: String, height:CGFloat, successBlock:@escaping StringBlock) -> PaymentViewController{
         let vc = PaymentViewController()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = successBlock
+        vc.height = height
         return vc
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+//        self.layout
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        RNContainerHeight.constant = height - footerHeight - headerHeight - 40
+        self.view.layoutIfNeeded()
         
         addressLabel.text = toAddress
         amountLabel.text = "Amount: " + "\(amount!)"
@@ -69,8 +85,10 @@ class PaymentViewController: UIViewController {
         
         progressIndicator.updateProgress(0)
         
-        let testView = RNTestVIew.instanceFromNib()
-        RNContainer.addSubview(testView)
+        
+        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "EmbeddedView", initialProperties: nil)!
+        rnView.frame = RNContainer.bounds
+        RNContainer.addSubview(rnView) 
     }
     
     @objc func timeUpdate() {
