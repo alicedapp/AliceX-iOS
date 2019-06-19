@@ -1,5 +1,5 @@
 //
-//  PaymentViewController.swift
+//  RNCustomPopUp.swift
 //  Alice
 //
 //  Created by lmcmz on 5/6/19.
@@ -8,7 +8,7 @@
 import UIKit
 import LocalAuthentication
 
-class PaymentViewController: UIViewController {
+class RNCustomPopUp: UIViewController {
     
     @IBOutlet weak var payButton: UIControl!
     @IBOutlet weak var progressIndicator: RPCircularProgress!
@@ -22,7 +22,7 @@ class PaymentViewController: UIViewController {
     
     var timer: Timer?
     var process: Int = 0
-    var toggle:Bool = false
+    var toggle: Bool = false
 
     var toAddress: String?
     var amount: String?
@@ -33,8 +33,9 @@ class PaymentViewController: UIViewController {
     let footerHeight: CGFloat = 80+60+20
     let headerHeight: CGFloat = 10+60+20
     
-    class func makeViewController(toAddress: String, amount: String, height:CGFloat, successBlock:@escaping StringBlock) -> PaymentViewController{
-        let vc = PaymentViewController()
+    class func makeViewController(toAddress: String, amount: String, height: CGFloat,
+                                  successBlock: @escaping StringBlock) -> RNCustomPopUp {
+        let vc = RNCustomPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = successBlock
@@ -46,7 +47,6 @@ class PaymentViewController: UIViewController {
         super.viewWillLayoutSubviews()
 //        self.layout
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,21 +61,19 @@ class PaymentViewController: UIViewController {
         payButtonContainer.layer.masksToBounds = true
         
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [UIColor(hex:"659BEF").cgColor, UIColor(hex:"2060CB").cgColor]
-        gradient.locations = [0.0 , 1.0]
+        gradient.colors = [UIColor(hex: "659BEF").cgColor, UIColor(hex: "2060CB").cgColor]
+        gradient.locations = [0.0, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.frame = payButton.bounds
         payButtonContainer.layer.insertSublayer(gradient, at: 0)
         
-        
         payButton.layer.masksToBounds = false
         payButton.layer.cornerRadius = 8
-        payButton.layer.shadowColor = UIColor(hex:"2060CB").cgColor
+        payButton.layer.shadowColor = UIColor(hex: "2060CB").cgColor
         payButton.layer.shadowRadius = 10
         payButton.layer.shadowOffset = CGSize.zero
         payButton.layer.shadowOpacity = 0.3
-        
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         longPressGesture.minimumPressDuration = 0
@@ -84,7 +82,6 @@ class PaymentViewController: UIViewController {
 //        progressView.addSubview(progressIndicator)
         
         progressIndicator.updateProgress(0)
-        
         
         let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "EmbeddedView", initialProperties: nil)!
         rnView.frame = RNContainer.bounds
@@ -121,7 +118,8 @@ class PaymentViewController: UIViewController {
                 self.payButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
             
-            timer = Timer(timeInterval: 0.01, target: self, selector: #selector(timeUpdate), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: 0.01, target: self, selector: #selector(timeUpdate),
+                          userInfo: nil, repeats: true)
             RunLoop.current.add(timer!, forMode: .default)
             timer!.fire()
             
@@ -145,29 +143,32 @@ class PaymentViewController: UIViewController {
             self.progressIndicator.updateProgress(0.2, animated: true, initialDelay: 0, duration: 0.2, completion: {
                 self.progressIndicator.updateProgress(0)
             })
-        }) { (finish) in
+        }) { (_) in
             UIView.animate(withDuration: 0.2) {
                 self.payButton.transform = CGAffineTransform.identity
             }
         }
     }
     
-    func biometricsVerify()
-    {
+    func biometricsVerify() {
         let myContext = LAContext()
         let myLocalizedReasonString = "Payment Verify"
         
         var authError: NSError?
         if #available(iOS 8.0, macOS 10.12.1, *) {
             if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
+                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                         localizedReason: myLocalizedReasonString)
+                 { success, evaluateError in
                     
                     DispatchQueue.main.async {
                         if success {
                             // User authenticated successfully, take appropriate action
-                            let txHash = try! TransactionManager.shared.sendEtherSync(to: self.toAddress!, amount: self.amount!, password: "")
+                            let txHash = try! TransactionManager.shared.sendEtherSync(
+                                to: self.toAddress!, amount: self.amount!, password: "")
                             print(txHash)
                             self.successBlock!(txHash)
+                            self.dismiss(animated: true, completion: nil)
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             

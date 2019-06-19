@@ -23,13 +23,15 @@ extension WalletManager {
         }
         if !FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
             do {
-                try FileManager.default.createDirectory(atPath: userDir + Setting.KeystoreDirectoryName, withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(atPath: userDir +
+                    Setting.KeystoreDirectoryName, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 throw WalletError.invalidPath
             }
         }
         
-        FileManager.default.createFile(atPath: userDir + Setting.KeystoreDirectoryName + Setting.KeystoreFileName, contents: keystoreData, attributes: nil)
+        FileManager.default.createFile(atPath: userDir + Setting.KeystoreDirectoryName +
+            Setting.KeystoreFileName, contents: keystoreData, attributes: nil)
         
     }
     
@@ -38,10 +40,12 @@ extension WalletManager {
             return keystore
         }
         
-        guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+        guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask,
+                                                                true).first else {
             throw WalletError.invalidPath
         }
-        guard let keystoreManager = KeystoreManager.managerForPath(userDir + Setting.KeystoreDirectoryName, scanForHDwallets: true) else {
+        guard let keystoreManager = KeystoreManager.managerForPath(userDir + Setting.KeystoreDirectoryName,
+                                                                   scanForHDwallets: true) else {
             throw WalletError.malformedKeystore
         }
         guard let address = keystoreManager.addresses?.first else {
@@ -60,11 +64,12 @@ extension WalletManager {
             throw WalletError.invalidPath
         }
         
-        if  (keystore != nil) {
+        if keystore != nil {
             
             if FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
                 do {
-                    try FileManager.default.removeItem(atPath: userDir + Setting.KeystoreDirectoryName + Setting.KeystoreFileName)
+                    try FileManager.default.removeItem(atPath: userDir +
+                        Setting.KeystoreDirectoryName + Setting.KeystoreFileName)
                     keystore = nil
                 } catch {
                     print(error.localizedDescription)

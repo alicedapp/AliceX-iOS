@@ -9,6 +9,8 @@ target 'AliceX' do
   pod 'KeychainSwift', '~> 16.0'
   pod 'SPStorkController'
   pod 'IQKeyboardManagerSwift'
+  pod 'HandyJSON', '~> 5.0.0'
+  pod 'Moya', '~> 13.0'
 
   # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

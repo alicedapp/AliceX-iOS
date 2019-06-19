@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias VoidBlock = (() -> (Void))?
-typealias StringBlock = ((String) -> (Void))
+typealias VoidBlock = (() -> Void)?
+typealias StringBlock = ((String) -> Void)
 
 class Setting {
     static let AliceKeychainPrefix = "AliceKeychain"
@@ -20,6 +20,4 @@ class Setting {
 }
 
 class Constant {
-    
-    
 }

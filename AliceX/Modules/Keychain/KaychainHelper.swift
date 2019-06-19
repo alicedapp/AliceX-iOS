@@ -16,7 +16,7 @@ class KeychainHepler {
         keychain.set(value, forKey: key)
     }
     
-    class func fetchKeychain(key: String) -> String?{
+    class func fetchKeychain(key: String) -> String? {
         return keychain.get(key)
     }
 }

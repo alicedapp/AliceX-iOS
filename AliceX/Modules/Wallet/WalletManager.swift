@@ -20,13 +20,13 @@ class WalletManager {
     static var web3Net = Web3.InfuraMainnetWeb3()
     #endif
     
-    var keystore:BIP32Keystore?
+    var keystore: BIP32Keystore?
     
     class func hasWallet() -> Bool {
-        guard let _ = WalletManager.wallet else {
-            return false
+        if WalletManager.wallet != nil {
+            return true
         }
-        return true
+        return false
     }
     
     class func addKeyStoreIfNeeded() {
@@ -38,7 +38,7 @@ class WalletManager {
             return
         }
         
-        if let _ = WalletManager.web3Net.provider.attachedKeystoreManager {
+        if WalletManager.web3Net.provider.attachedKeystoreManager == nil {
             return
         }
         
