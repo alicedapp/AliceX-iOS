@@ -33,7 +33,7 @@ class RNCustomPopUp: UIViewController {
     let footerHeight: CGFloat = 80+60+20
     let headerHeight: CGFloat = 10+60+20
     
-    class func makeViewController(toAddress: String, amount: String, height: CGFloat,
+    class func make(toAddress: String, amount: String, height: CGFloat,
                                   successBlock: @escaping StringBlock) -> RNCustomPopUp {
         let vc = RNCustomPopUp()
         vc.toAddress = toAddress
@@ -41,11 +41,6 @@ class RNCustomPopUp: UIViewController {
         vc.successBlock = successBlock
         vc.height = height
         return vc
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-//        self.layout
     }
     
     override func viewDidLoad() {

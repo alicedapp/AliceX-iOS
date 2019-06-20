@@ -82,6 +82,43 @@ struct AddressInfo: HandyJSON {
 
 // MARK: - Tx
 
-struct TXInfo {
+struct TxLogInfo {
+    var address: String!
+    var topics: String!
+    var data: String!
     
+    init() {
+    }
+}
+
+struct TxOperation {
+    var timestamp: Int!
+    var transactionHash: String!
+    var tokenInfo: TokenInfo?
+    var type: String!
+    var address: String!
+    var from: String!
+    var to: String!
+    var value: Double!
+}
+
+struct TransactionInfo {
+    var hash: String!
+    var timestamp: Int!
+    var blockNumber: Int!
+    var confirmations: Int!
+    var success: Bool!
+    var from: String!
+    var to: String!
+    var value: Double!
+    var input: String!
+    var gasLimit: Int!
+    var gasUsed: Int!
+    
+    var logs: [TxLogInfo]?
+    
+    var operations: [TxOperation]?
+    
+    init() {
+    }
 }

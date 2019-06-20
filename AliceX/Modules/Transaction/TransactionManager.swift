@@ -14,10 +14,20 @@ import BigInt
 class TransactionManager {
     static let shared = TransactionManager()
     
-    class func showPaymentView(toAddress: String, amount: String, height: CGFloat = 500,
+    class func showPaymentView(toAddress: String, amount: String, symbol: String, success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, symbol: symbol, success: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 400
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
+    }
+    
+    class func showRNCustomPaymentView(toAddress: String, amount: String, height: CGFloat = 500,
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = RNCustomPopUp.makeViewController(toAddress: toAddress, amount: amount,
+        let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
                                                      height: height, successBlock: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
         transitionDelegate.customHeight = height

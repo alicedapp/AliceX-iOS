@@ -18,7 +18,7 @@ class PaymentNativeModule: NSObject {
     
         // You won't be on the main thread when called from JavaScript
         DispatchQueue.main.async {
-            TransactionManager.showPaymentView(toAddress: to, amount: value, success: { (tx) -> Void in
+            TransactionManager.showRNCustomPaymentView(toAddress: to, amount: value, success: { (tx) -> Void in
                 successCallback([tx])
             })
         }

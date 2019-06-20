@@ -66,9 +66,14 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func payment() {
-        TransactionManager.showPaymentView(toAddress: "0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB",
-                                           amount: "0.001", success: { (tx) -> Void in
-            print(tx)
-        })
+//        TransactionManager.showRNCustomPaymentView(toAddress: "0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB",
+//                                           amount: "0.001", success: { (tx) -> Void in
+//            print(tx)
+//        })
+        
+        TransactionManager.showPaymentView(toAddress: "Hello", amount: "0.001",
+                                           symbol: "ETH") { (tx) in
+            print("tx")
+        }
     }
 }

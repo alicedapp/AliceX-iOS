@@ -25,6 +25,10 @@
 		1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1587395722B9E16A00F36F92 /* PaymentPopUp.xib */; };
 		1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395B22B9E5C900F36F92 /* CryptoCoin.swift */; };
 		1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395D22B9EAB300F36F92 /* EthplorerModel.swift */; };
+		1587396122BA070300F36F92 /* Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396022BA070300F36F92 /* Ethplorer.swift */; };
+		1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */; };
+		1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396922BB48FC00F36F92 /* BaseControl.swift */; };
+		1587396E22BB6E9800F36F92 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396D22BB6E9800F36F92 /* UIView.swift */; };
 		158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */; };
 		158B375922AF5DB3005FECAB /* RNBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B375822AF5DB3005FECAB /* RNBridge.m */; };
 		15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86B5822AA043F00110C06 /* AppDelegate.swift */; };
@@ -56,6 +60,10 @@
 		1587395722B9E16A00F36F92 /* PaymentPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPopUp.xib; sourceTree = "<group>"; };
 		1587395B22B9E5C900F36F92 /* CryptoCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoin.swift; sourceTree = "<group>"; };
 		1587395D22B9EAB300F36F92 /* EthplorerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthplorerModel.swift; sourceTree = "<group>"; };
+		1587396022BA070300F36F92 /* Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethplorer.swift; sourceTree = "<group>"; };
+		1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+HandyJSON.swift"; sourceTree = "<group>"; };
+		1587396922BB48FC00F36F92 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
+		1587396D22BB6E9800F36F92 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AliceX-Bridging-Header.h"; sourceTree = "<group>"; };
 		158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNativeModule.swift; sourceTree = "<group>"; };
 		158B375822AF5DB3005FECAB /* RNBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridge.m; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 		1527872F22AE207400D63C7F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				1587396B22BB4A1500F36F92 /* GasFee */,
 				1527873122AE209100D63C7F /* Popup */,
 				1527873922AE216C00D63C7F /* TransactionManager.swift */,
 			);
@@ -132,10 +141,43 @@
 		1587395A22B9E5A000F36F92 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1587396822BA0ECF00F36F92 /* WebSocket */,
+				1587396722BA0EB900F36F92 /* API */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1587396222BA073800F36F92 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1587396722BA0EB900F36F92 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1587396222BA073800F36F92 /* Util */,
+				1587396022BA070300F36F92 /* Ethplorer.swift */,
 				1587395B22B9E5C900F36F92 /* CryptoCoin.swift */,
 				1587395D22B9EAB300F36F92 /* EthplorerModel.swift */,
 			);
-			path = Network;
+			path = API;
+			sourceTree = "<group>";
+		};
+		1587396822BA0ECF00F36F92 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		1587396B22BB4A1500F36F92 /* GasFee */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GasFee;
 			sourceTree = "<group>";
 		};
 		158B375022AF5BF0005FECAB /* ReactNative */ = {
@@ -196,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
+				1587396922BB48FC00F36F92 /* BaseControl.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -240,6 +283,7 @@
 				1527872222ADEE3500D63C7F /* UITableView.swift */,
 				1527872422ADEE6300D63C7F /* NSObject.swift */,
 				1527873B22AE21B200D63C7F /* UIApplication.swift */,
+				1587396D22BB6E9800F36F92 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -491,11 +535,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
+				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
@@ -504,6 +550,7 @@
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */,
+				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
@@ -512,6 +559,7 @@
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
 				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

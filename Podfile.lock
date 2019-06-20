@@ -5,6 +5,8 @@ PODS:
   - boost-for-react-native (1.63.0)
   - CryptoSwift (1.0.0)
   - DoubleConversion (1.1.5)
+  - fluid-slider (1.1.0):
+    - pop
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -18,6 +20,7 @@ PODS:
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
+  - pop (1.0.12)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
     - PromiseKit/Foundation (= 6.8.4)
@@ -102,6 +105,7 @@ PODS:
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
+  - fluid-slider
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - HandyJSON (~> 5.0.0)
   - IQKeyboardManagerSwift
@@ -131,11 +135,13 @@ SPEC REPOS:
     - boost-for-react-native
     - CryptoSwift
     - DoubleConversion
+    - fluid-slider
     - glog
     - HandyJSON
     - IQKeyboardManagerSwift
     - KeychainSwift
     - Moya
+    - pop
     - PromiseKit
     - Result
     - secp256k1.c
@@ -164,12 +170,14 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
+  fluid-slider: 68037ac7247f16a89f3e24ff5d0167c8eea6f50b
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   KeychainSwift: 4209611373ca4a098e09b1e547eebd87c544dcc4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 702c01e2ebbe26c9fb1ad24101282fbb26e9e00b
@@ -183,6 +191,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: a6dbe22e3c275d9a9ddcccaff0566323a832bafb
+PODFILE CHECKSUM: ce59e6823b36c4111ed957d1947447212be12161
 
 COCOAPODS: 1.7.1
