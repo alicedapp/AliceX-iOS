@@ -9,12 +9,12 @@
 import UIKit
 
 extension UITableView {
-    func registerCell(nibName:String) {
+    func registerCell(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
         self.register(nib, forCellReuseIdentifier: nibName)
     }
     
-    func registerHeaderFooter(nibName:String) {
+    func registerHeaderFooter(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
         self.register(nib, forHeaderFooterViewReuseIdentifier: nibName)
     }

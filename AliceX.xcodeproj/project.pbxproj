@@ -16,11 +16,19 @@
 		1527872922ADF6F800D63C7F /* WalletError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872822ADF6F800D63C7F /* WalletError.swift */; };
 		1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872B22AE080C00D63C7F /* KaychainHelper.swift */; };
 		1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */; };
-		1527873422AE20C800D63C7F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873222AE20C800D63C7F /* PaymentViewController.swift */; };
-		1527873522AE20C800D63C7F /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1527873322AE20C800D63C7F /* PaymentViewController.xib */; };
+		1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873222AE20C800D63C7F /* RNCustomPopUp.swift */; };
+		1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1527873322AE20C800D63C7F /* RNCustomPopUp.xib */; };
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395622B9E16A00F36F92 /* PaymentPopUp.swift */; };
+		1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1587395722B9E16A00F36F92 /* PaymentPopUp.xib */; };
+		1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395B22B9E5C900F36F92 /* CryptoCoin.swift */; };
+		1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395D22B9EAB300F36F92 /* EthplorerModel.swift */; };
+		1587396122BA070300F36F92 /* Ethplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396022BA070300F36F92 /* Ethplorer.swift */; };
+		1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */; };
+		1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396922BB48FC00F36F92 /* BaseControl.swift */; };
+		1587396E22BB6E9800F36F92 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396D22BB6E9800F36F92 /* UIView.swift */; };
 		158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */; };
 		158B375922AF5DB3005FECAB /* RNBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B375822AF5DB3005FECAB /* RNBridge.m */; };
 		15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86B5822AA043F00110C06 /* AppDelegate.swift */; };
@@ -30,7 +38,6 @@
 		15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB122AA1D2900110C06 /* BaseViewController.swift */; };
 		15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */; };
 		15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */; };
-		15BD01E422B22E9D00A00FE3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD01E322B22E9D00A00FE3 /* SwiftUIView.swift */; };
 		2E7561238A5B58887293CB85 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1C42B180B0B7768976013 /* Pods_AliceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,11 +51,19 @@
 		1527872822ADF6F800D63C7F /* WalletError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletError.swift; sourceTree = "<group>"; };
 		1527872B22AE080C00D63C7F /* KaychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaychainHelper.swift; sourceTree = "<group>"; };
 		1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+Keystore.swift"; sourceTree = "<group>"; };
-		1527873222AE20C800D63C7F /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		1527873322AE20C800D63C7F /* PaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		1527873222AE20C800D63C7F /* RNCustomPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCustomPopUp.swift; sourceTree = "<group>"; };
+		1527873322AE20C800D63C7F /* RNCustomPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNCustomPopUp.xib; sourceTree = "<group>"; };
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		1587395622B9E16A00F36F92 /* PaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPopUp.swift; sourceTree = "<group>"; };
+		1587395722B9E16A00F36F92 /* PaymentPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPopUp.xib; sourceTree = "<group>"; };
+		1587395B22B9E5C900F36F92 /* CryptoCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoin.swift; sourceTree = "<group>"; };
+		1587395D22B9EAB300F36F92 /* EthplorerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthplorerModel.swift; sourceTree = "<group>"; };
+		1587396022BA070300F36F92 /* Ethplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethplorer.swift; sourceTree = "<group>"; };
+		1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+HandyJSON.swift"; sourceTree = "<group>"; };
+		1587396922BB48FC00F36F92 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
+		1587396D22BB6E9800F36F92 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AliceX-Bridging-Header.h"; sourceTree = "<group>"; };
 		158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNativeModule.swift; sourceTree = "<group>"; };
 		158B375822AF5DB3005FECAB /* RNBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridge.m; sourceTree = "<group>"; };
@@ -61,7 +76,6 @@
 		15B86BB122AA1D2900110C06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		15BD01E322B22E9D00A00FE3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		33A1C42B180B0B7768976013 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BDC2B111256CCBB6D42CF3 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 		9CAE163987FDFAD0BE83976B /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +104,7 @@
 		1527872F22AE207400D63C7F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				1587396B22BB4A1500F36F92 /* GasFee */,
 				1527873122AE209100D63C7F /* Popup */,
 				1527873922AE216C00D63C7F /* TransactionManager.swift */,
 			);
@@ -99,11 +114,70 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				1527873222AE20C800D63C7F /* PaymentViewController.swift */,
-				1527873322AE20C800D63C7F /* PaymentViewController.xib */,
-				15BD01E322B22E9D00A00FE3 /* SwiftUIView.swift */,
+				1587395522B9E12A00F36F92 /* Payment */,
+				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		1587395422B9E11000F36F92 /* RNCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				1527873222AE20C800D63C7F /* RNCustomPopUp.swift */,
+				1527873322AE20C800D63C7F /* RNCustomPopUp.xib */,
+			);
+			path = RNCustomView;
+			sourceTree = "<group>";
+		};
+		1587395522B9E12A00F36F92 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				1587395622B9E16A00F36F92 /* PaymentPopUp.swift */,
+				1587395722B9E16A00F36F92 /* PaymentPopUp.xib */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		1587395A22B9E5A000F36F92 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1587396822BA0ECF00F36F92 /* WebSocket */,
+				1587396722BA0EB900F36F92 /* API */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1587396222BA073800F36F92 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1587396722BA0EB900F36F92 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1587396222BA073800F36F92 /* Util */,
+				1587396022BA070300F36F92 /* Ethplorer.swift */,
+				1587395B22B9E5C900F36F92 /* CryptoCoin.swift */,
+				1587395D22B9EAB300F36F92 /* EthplorerModel.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1587396822BA0ECF00F36F92 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		1587396B22BB4A1500F36F92 /* GasFee */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GasFee;
 			sourceTree = "<group>";
 		};
 		158B375022AF5BF0005FECAB /* ReactNative */ = {
@@ -164,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
+				1587396922BB48FC00F36F92 /* BaseControl.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -208,6 +283,7 @@
 				1527872222ADEE3500D63C7F /* UITableView.swift */,
 				1527872422ADEE6300D63C7F /* NSObject.swift */,
 				1527873B22AE21B200D63C7F /* UIApplication.swift */,
+				1587396D22BB6E9800F36F92 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -240,6 +316,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1587395A22B9E5A000F36F92 /* Network */,
 				1527872F22AE207400D63C7F /* Transaction */,
 				1527872A22AE07FA00D63C7F /* Keychain */,
 				15B86BBB22AA1E9400110C06 /* Appdelegate */,
@@ -315,6 +392,7 @@
 				15B86B5322AA043F00110C06 /* Resources */,
 				15B86BA522AA09DE00110C06 /* Bundle React Native code and images */,
 				0269F8012CC9977E43548B28 /* [CP] Embed Pods Frameworks */,
+				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -367,7 +445,8 @@
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
-				1527873522AE20C800D63C7F /* PaymentViewController.xib in Resources */,
+				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
+				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +469,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		15B86BA522AA09DE00110C06 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -438,26 +535,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
+				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */,
-				1527873422AE20C800D63C7F /* PaymentViewController.swift in Sources */,
+				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */,
+				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
-				15BD01E422B22E9D00A00FE3 /* SwiftUIView.swift in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
+				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
+				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
+				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
