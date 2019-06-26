@@ -78,9 +78,19 @@ class RNCustomPopUp: UIViewController {
         
         progressIndicator.updateProgress(0)
         
+        
+//        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "EmbeddedView", initialProperties: nil)!
+//        rnView.frame = RNContainer.bounds
+//        RNContainer.addSubview(rnView)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layoutIfNeeded()
         let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "EmbeddedView", initialProperties: nil)!
         rnView.frame = RNContainer.bounds
-        RNContainer.addSubview(rnView) 
+        RNContainer.addSubview(rnView)
     }
     
     @objc func timeUpdate() {

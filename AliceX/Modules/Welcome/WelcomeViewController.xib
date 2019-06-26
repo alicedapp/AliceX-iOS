@@ -75,7 +75,7 @@
                     <rect key="frame" x="192" y="668" width="30" height="30"/>
                     <state key="normal" title="Pop"/>
                     <connections>
-                        <action selector="payment" destination="-1" eventType="touchUpInside" id="ipS-38-ASP"/>
+                        <action selector="sendTransaction" destination="-1" eventType="touchUpInside" id="uy2-ZU-Odg"/>
                     </connections>
                 </button>
             </subviews>

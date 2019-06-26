@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -155,7 +156,7 @@
                                 <constraint firstAttribute="trailing" secondItem="voU-tU-wQf" secondAttribute="trailing" id="pI4-DC-4Za"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-dZ-exU">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-dZ-exU">
                             <rect key="frame" x="20" y="90" width="374" height="568"/>
                             <color key="backgroundColor" red="0.65490196079999996" green="0.26274509800000001" blue="0.92549019610000005" alpha="0.28774207746478875" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>

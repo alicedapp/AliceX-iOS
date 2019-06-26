@@ -30,6 +30,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.5):
     - PromiseKit/CorePromise
+  - QuickLayout (3.0.0)
   - React (0.59.9):
     - React/Core (= 0.59.9)
   - react-native-camera (2.10.1):
@@ -98,6 +99,8 @@ PODS:
   - SipHash (1.2.2)
   - SPStorkController (1.6.5)
   - Starscream (3.1.0)
+  - SwiftEntryKit (1.0.2):
+    - QuickLayout (= 3.0.0)
   - web3.swift.pod (2.2.0):
     - BigInt (~> 3.1)
     - CryptoSwift (~> 1.0.0)
@@ -128,6 +131,7 @@ DEPENDENCIES:
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - SPStorkController
+  - SwiftEntryKit (= 1.0.2)
   - web3.swift.pod (~> 2.2.0)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -146,11 +150,13 @@ SPEC REPOS:
     - Moya
     - pop
     - PromiseKit
+    - QuickLayout
     - Result
     - secp256k1.c
     - SipHash
     - SPStorkController
     - Starscream
+    - SwiftEntryKit
     - web3.swift.pod
 
 EXTERNAL SOURCES:
@@ -182,6 +188,7 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 702c01e2ebbe26c9fb1ad24101282fbb26e9e00b
   react-native-mapbox-gl: a01d1781ac71d2a1a85b465436dbe741b28d873a
@@ -191,9 +198,10 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
+  SwiftEntryKit: 7bcd42b3dbff59c431d60d6513129fd3679e4aaf
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: eadf9bbd907e7ce3714e86ab82b4ad09cf49ffec
+PODFILE CHECKSUM: 8e87766b4c13b61cabf63359029cec073d2bde20
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2

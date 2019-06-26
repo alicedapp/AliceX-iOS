@@ -47,6 +47,9 @@ class PaymentPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addressLabel.text = toAddress
+        amountLabel.text = amount
+        
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true
         
@@ -199,11 +202,7 @@ class PaymentPopUp: UIViewController {
                     DispatchQueue.main.async {
                         if success {
                             // User authenticated successfully, take appropriate action
-                            let txHash = try! TransactionManager.shared.sendEtherSync(
-                                to: self.toAddress!, amount: self.amount!, password: "")
-                            print(txHash)
-                            self.successBlock!(txHash)
-                            self.dismiss(animated: true, completion: nil)
+                            self.sendTx()
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             
@@ -215,6 +214,20 @@ class PaymentPopUp: UIViewController {
             }
         } else {
             // Fallback on earlier versions
+        }
+    }
+    
+    func sendTx() {
+        do {
+            let txHash = try TransactionManager.shared.sendEtherSync(
+                to: self.toAddress!, amount: self.amount!, password: "")
+            print(txHash)
+            self.successBlock!(txHash)
+            self.dismiss(animated: true, completion: nil)
+        } catch let error as WalletError {
+            HUDManager.shared.showError(text: error.errorMessage)
+        } catch {
+            HUDManager.shared.showError()
         }
     }
 

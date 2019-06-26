@@ -12,11 +12,76 @@ public enum WalletError: Error {
     case invalidPath
     case invalidKey
     case invalidAddress
+//    case invalidBiometricsVerify
     case malformedKeystore
     case networkFailure
     case conversionFailure
-    case notEnoughBalance
+    case insufficientBalance
     case contractFailure
+    
+    public var code: Int {
+        switch self {
+        case .hasAccount:
+            return 1701
+        case .accountDoesNotExist:
+            return 1702
+        case .invalidPath:
+            return 1703
+        case .invalidKey:
+            return 1704
+        case .invalidAddress:
+            return 1705
+//        case .invalidBiometricsVerify:
+//            return 1706
+        case .malformedKeystore:
+            return 1707
+        case .networkFailure:
+            return 1708
+        case .conversionFailure:
+            return 1709
+        case .insufficientBalance:
+            return 1710
+        case .contractFailure:
+            return 1711
+        default:
+            return -1
+        }
+    }
+    
+    public var errorDescription: String {
+        switch self {
+        case .hasAccount:
+            return "Already has a acoount"
+        case .accountDoesNotExist:
+            return "Account does not exist"
+        case .invalidPath:
+            return "Invaild path"
+        case .invalidKey:
+            return "Account does not exist"
+        case .invalidAddress:
+            return "Invalid address"
+//        case .invalidBiometricsVerify:
+//            return "Invalid biometrics verify"
+        case .malformedKeystore:
+            return "Malformed keystore"
+        case .networkFailure:
+            return "Network failure"
+        case .conversionFailure:
+            return "Conversion failure"
+        case .insufficientBalance:
+            return "Insufficient balance"
+        case .contractFailure:
+            return "Contract failure"
+        default:
+            return "Wallet Unknow Error"
+        }
+    }
+    
+    public var errorMessage: String {
+        let errorCode = "code: " + "\(self.code) - "
+        return "\(errorCode)" + self.errorDescription
+    }
+    
 }
 
 public enum ContractError: Error {
