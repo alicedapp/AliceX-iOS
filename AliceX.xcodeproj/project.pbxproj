@@ -29,7 +29,7 @@
 		1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */; };
 		1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396922BB48FC00F36F92 /* BaseControl.swift */; };
 		1587396E22BB6E9800F36F92 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587396D22BB6E9800F36F92 /* UIView.swift */; };
-		158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */; };
+		158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* WalletModule.swift */; };
 		158B375922AF5DB3005FECAB /* RNBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B375822AF5DB3005FECAB /* RNBridge.m */; };
 		15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86B5822AA043F00110C06 /* AppDelegate.swift */; };
 		15B86B6022AA044000110C06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B86B5F22AA044000110C06 /* Assets.xcassets */; };
@@ -38,7 +38,7 @@
 		15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB122AA1D2900110C06 /* BaseViewController.swift */; };
 		15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */; };
 		15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */; };
-		2E7561238A5B58887293CB85 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1C42B180B0B7768976013 /* Pods_AliceX.framework */; };
+		D62F70BEF62176ACBF55DB36 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1CE53D914D7275A684C79 /* Pods_AliceX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +65,7 @@
 		1587396922BB48FC00F36F92 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
 		1587396D22BB6E9800F36F92 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AliceX-Bridging-Header.h"; sourceTree = "<group>"; };
-		158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNativeModule.swift; sourceTree = "<group>"; };
+		158B375622AF5C8B005FECAB /* WalletModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModule.swift; sourceTree = "<group>"; };
 		158B375822AF5DB3005FECAB /* RNBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridge.m; sourceTree = "<group>"; };
 		15B86B5522AA043F00110C06 /* AliceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B86B5822AA043F00110C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +76,9 @@
 		15B86BB122AA1D2900110C06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		33A1C42B180B0B7768976013 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99BDC2B111256CCBB6D42CF3 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
-		9CAE163987FDFAD0BE83976B /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
+		B4C1CE53D914D7275A684C79 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5E8792E675B63059DC743C /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
+		E1554FD6CF7ECDD5648E96F8 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E7561238A5B58887293CB85 /* Pods_AliceX.framework in Frameworks */,
+				D62F70BEF62176ACBF55DB36 /* Pods_AliceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */,
-				158B375622AF5C8B005FECAB /* PaymentNativeModule.swift */,
+				158B375622AF5C8B005FECAB /* WalletModule.swift */,
 				158B375822AF5DB3005FECAB /* RNBridge.m */,
 			);
 			path = ReactNative;
@@ -196,7 +196,7 @@
 				15B86B5722AA043F00110C06 /* AliceX */,
 				15B86B5622AA043F00110C06 /* Products */,
 				876CA3F15BC9D26DB41AD374 /* Pods */,
-				5854AD135E07BE5ADB511559 /* Frameworks */,
+				E140F226DB6F1398B69A36F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -351,21 +351,21 @@
 			path = Appdelegate;
 			sourceTree = "<group>";
 		};
-		5854AD135E07BE5ADB511559 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				33A1C42B180B0B7768976013 /* Pods_AliceX.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		876CA3F15BC9D26DB41AD374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				99BDC2B111256CCBB6D42CF3 /* Pods-AliceX.debug.xcconfig */,
-				9CAE163987FDFAD0BE83976B /* Pods-AliceX.release.xcconfig */,
+				BF5E8792E675B63059DC743C /* Pods-AliceX.debug.xcconfig */,
+				E1554FD6CF7ECDD5648E96F8 /* Pods-AliceX.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E140F226DB6F1398B69A36F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1CE53D914D7275A684C79 /* Pods_AliceX.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,14 +385,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B86B6722AA044000110C06 /* Build configuration list for PBXNativeTarget "AliceX" */;
 			buildPhases = (
-				467E1CD84FE28DBF86B33F62 /* [CP] Check Pods Manifest.lock */,
+				36129F9DFA7CDAAA6239874C /* [CP] Check Pods Manifest.lock */,
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
 				15B86B5322AA043F00110C06 /* Resources */,
 				15B86BA522AA09DE00110C06 /* Bundle React Native code and images */,
-				0269F8012CC9977E43548B28 /* [CP] Embed Pods Frameworks */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
+				E4EE167DF7C0390DF81542C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,23 +453,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0269F8012CC9977E43548B28 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,7 +489,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		467E1CD84FE28DBF86B33F62 /* [CP] Check Pods Manifest.lock */ = {
+		36129F9DFA7CDAAA6239874C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,6 +509,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4EE167DF7C0390DF81542C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -549,7 +549,7 @@
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
-				158B375722AF5C8B005FECAB /* PaymentNativeModule.swift in Sources */,
+				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
@@ -696,7 +696,7 @@
 		};
 		15B86B6822AA044000110C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99BDC2B111256CCBB6D42CF3 /* Pods-AliceX.debug.xcconfig */;
+			baseConfigurationReference = BF5E8792E675B63059DC743C /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -719,7 +719,7 @@
 		};
 		15B86B6922AA044000110C06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CAE163987FDFAD0BE83976B /* Pods-AliceX.release.xcconfig */;
+			baseConfigurationReference = E1554FD6CF7ECDD5648E96F8 /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

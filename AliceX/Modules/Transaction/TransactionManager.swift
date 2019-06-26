@@ -35,6 +35,11 @@ class TransactionManager {
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
     }
+    
+    class func getAddress() throws -> String {
+        guard let address = WalletManager.wallet?.address else { throw WalletError.accountDoesNotExist }
+        return address
+    }
 
     // MARK: - Balance
     

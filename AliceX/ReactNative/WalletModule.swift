@@ -1,5 +1,5 @@
 //
-//  PaymentNativeModule.swift
+//  WalletModule.swift
 //  AliceX
 //
 //  Created by lmcmz on 11/6/19.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-@objc(PaymentNativeModule)
-class PaymentNativeModule: NSObject {
+@objc(WalletModule)
+class WalletModule: NSObject {
     
     // This is the method exposed to React Native. It can't handle
     // the first parameter being named. http://stackoverflow.com/a/39840952/155186
-    @objc func payment(_ to: String, value: String, callback successCallback: @escaping RCTResponseSenderBlock) {
-//    @objc func payment(_ to:String, value: String) {
+    @objc func sendTransaction(_ to: String, value: String, callback successCallback: @escaping RCTResponseSenderBlock) {
+//    @objc func sendTransaction(_ to:String, value: String) {
     
         // You won't be on the main thread when called from JavaScript
         DispatchQueue.main.async {
@@ -24,9 +24,20 @@ class PaymentNativeModule: NSObject {
         }
     }
     
+    @objc func getAddress(_ successCallback: @escaping RCTResponseSenderBlock) {
+        DispatchQueue.main.async {
+            guard let address = try? TransactionManager.getAddress()
+                else {
+                    successCallback(["No address"])
+                    return
+            }
+            successCallback([address])
+        }
+    }
+    
     @objc func smartContract(_ contractAddress: String, method: String, ABI: String,
                              parameter: [Any], callback successCallback: @escaping RCTResponseSenderBlock) {
-        //    @objc func payment(_ to:String, value: String) {
+        //    @objc func sendTransaction(_ to:String, value: String) {
         
         // You won't be on the main thread when called from JavaScript
         DispatchQueue.main.async {

@@ -13,7 +13,7 @@ PODS:
     - glog
   - glog (0.3.4)
   - HandyJSON (5.0.0)
-  - IQKeyboardManagerSwift (6.3.0)
+  - IQKeyboardManagerSwift (6.4.0)
   - KeychainSwift (16.0.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -21,14 +21,14 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - pop (1.0.12)
-  - PromiseKit (6.8.4):
-    - PromiseKit/CorePromise (= 6.8.4)
-    - PromiseKit/Foundation (= 6.8.4)
-    - PromiseKit/UIKit (= 6.8.4)
-  - PromiseKit/CorePromise (6.8.4)
-  - PromiseKit/Foundation (6.8.4):
+  - PromiseKit (6.8.5):
+    - PromiseKit/CorePromise (= 6.8.5)
+    - PromiseKit/Foundation (= 6.8.5)
+    - PromiseKit/UIKit (= 6.8.5)
+  - PromiseKit/CorePromise (6.8.5)
+  - PromiseKit/Foundation (6.8.5):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.8.4):
+  - PromiseKit/UIKit (6.8.5):
     - PromiseKit/CorePromise
   - React (0.59.9):
     - React/Core (= 0.59.9)
@@ -76,6 +76,8 @@ PODS:
     - React/Core
   - React/RCTBlob (0.59.9):
     - React/Core
+  - React/RCTGeolocation (0.59.9):
+    - React/Core
   - React/RCTImage (0.59.9):
     - React/Core
     - React/RCTNetwork
@@ -118,6 +120,7 @@ DEPENDENCIES:
   - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTActionSheet (from `../node_modules/react-native`)
   - React/RCTAnimation (from `../node_modules/react-native`)
+  - React/RCTGeolocation (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
   - React/RCTLinkingIOS (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
@@ -174,11 +177,11 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   KeychainSwift: 4209611373ca4a098e09b1e547eebd87c544dcc4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 702c01e2ebbe26c9fb1ad24101282fbb26e9e00b
   react-native-mapbox-gl: a01d1781ac71d2a1a85b465436dbe741b28d873a
@@ -191,6 +194,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: ce59e6823b36c4111ed957d1947447212be12161
+PODFILE CHECKSUM: eadf9bbd907e7ce3714e86ab82b4ad09cf49ffec
 
 COCOAPODS: 1.7.1

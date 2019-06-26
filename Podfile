@@ -13,12 +13,13 @@ target 'AliceX' do
   pod 'Moya', '~> 13.0'
   pod 'fluid-slider'
 
-  # React Native Dependencies
+#   React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
   'Core',
   'CxxBridge',
   'DevSupport',
   'RCTText',
+  'RCTGeolocation',
   'RCTAnimation',
   'RCTImage',
   'RCTActionSheet',
@@ -26,7 +27,7 @@ target 'AliceX' do
   'RCTWebSocket',
   'RCTLinkingIOS'
   ]
-  
+
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
