@@ -14,6 +14,8 @@ import BigInt
 class TransactionManager {
     static let shared = TransactionManager()
     
+    // MARK: - Payment Popup
+    
     class func showPaymentView(toAddress: String, amount: String, symbol: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, symbol: symbol, success: success)
@@ -31,6 +33,26 @@ class TransactionManager {
                                                      height: height, successBlock: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
         transitionDelegate.customHeight = height
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
+    }
+    
+    // MARK: - Smart Contract Popup
+    
+    class func showContractWriteView(contractAddress: String,
+                                     functionName: String,
+                                     abi: String,
+                                     parameters: [Any],
+                                     value: String,
+                                     extraData: String,
+                                     success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = ContractPopUp.make(contractAddress: contractAddress,
+                                       functionName: functionName, parameters: parameters,
+                                       extraData: extraData, value: value, abi: abi, success: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 500
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -122,8 +144,8 @@ class TransactionManager {
     public class func writeSmartContract(contractAddress: String,
                                          functionName: String,
                                          abi: String,
-                                         parameter: [Any],
-                                         extraData:Data = Data(),
+                                         parameters: [Any],
+                                         extraData: Data = Data(),
                                          value: String = "0.0") throws -> String {
         
         guard let address = WalletManager.wallet?.address else {
@@ -139,7 +161,6 @@ class TransactionManager {
         }
         
         let abiVersion = 2
-        let parameters: [Any] = parameter
         let extraData: Data = extraData
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
         let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
@@ -163,7 +184,7 @@ class TransactionManager {
     }
     
     public class func readSmartContract(contractAddress: String, functionName: String,
-                                        abi: String, parameter: [Any], value: String = "0.0") throws -> String {
+                                        abi: String, parameters: [Any], value: String = "0.0") throws -> String {
         
         guard let address = WalletManager.wallet?.address else {
             throw WalletError.invalidAddress
@@ -189,7 +210,7 @@ class TransactionManager {
         options.gasLimit = .automatic
         let tx = contract!.read(
             functionName,
-            parameters: parameter as [AnyObject],
+            parameters: parameters as [AnyObject],
             extraData: extraData,
             transactionOptions: options)
         

@@ -91,9 +91,6 @@
                                 <constraint firstItem="MAL-K3-KMN" firstAttribute="leading" secondItem="9a4-Pv-3Rp" secondAttribute="leading" id="fED-D2-jXC"/>
                                 <constraint firstAttribute="width" constant="314" id="jdr-te-8v7"/>
                             </constraints>
-                            <connections>
-                                <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="N1Q-PM-f4K"/>
-                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-64-fZg" customClass="UIControl">
                             <rect key="frame" x="65" y="285" width="284" height="30"/>

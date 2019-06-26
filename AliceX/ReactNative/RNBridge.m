@@ -28,7 +28,7 @@ RCT_EXTERN_METHOD(getAddress:(RCTResponseSenderBlock *)successCallback)
 RCT_EXTERN_METHOD(write:(NSString *)contractAddress
                   abi:(NSString *)abi
                   functionName:(NSString *)functionName
-                  parameter:(NSArray *)parameter
+                  parameters:(NSArray *)parameters
                   value:(NSString *)value
                   callback:(RCTResponseSenderBlock *)successCallback)
 
@@ -36,7 +36,7 @@ RCT_EXTERN_METHOD(write:(NSString *)contractAddress
 RCT_EXTERN_METHOD(read:(NSString *)contractAddress
                   abi:(NSString *)abi
                   functionName:(NSString *)functionName
-                  parameter:(NSArray *)parameter
+                  parameters:(NSArray *)parameters
                   callback:(RCTResponseSenderBlock *)successCallback)
 
 @end

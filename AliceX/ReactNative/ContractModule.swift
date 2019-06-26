@@ -13,26 +13,25 @@ class ContractModule: NSObject {
     
     @objc func write(_ contractAddress: String, abi: String,
                      functionName: String,
-                     parameter: [Any],
+                     parameters: [Any],
                      value: String,
+                     data: String,
                      callback successCallback: @escaping RCTResponseSenderBlock) {
         
         DispatchQueue.main.async {
-            do {
-                let tx = try TransactionManager.writeSmartContract(contractAddress: contractAddress,
-                                                                   functionName: functionName,
-                                                                   abi: abi,
-                                                                   parameter: parameter,
-                                                                   value: value)
-                successCallback([tx])
-            } catch {
-                print(error)
-                successCallback([error])
+            
+            TransactionManager.showContractWriteView(contractAddress: contractAddress,
+                                                     functionName: functionName,
+                                                     abi: abi,
+                                                     parameters: parameters,
+                                                     value: value,
+                                                     extraData: data) { (txHash) in
+                    successCallback([txHash])
             }
         }
     }
     
-    @objc func read(_ contractAddress: String, abi: String, functionName: String, parameter: [Any],
+    @objc func read(_ contractAddress: String, abi: String, functionName: String, parameters: [Any],
                     callback successCallback: @escaping RCTResponseSenderBlock) {
         
         DispatchQueue.main.async {
@@ -40,7 +39,7 @@ class ContractModule: NSObject {
                 let tx = try TransactionManager.readSmartContract(contractAddress: contractAddress,
                                                                   functionName: functionName,
                                                                   abi: abi,
-                                                                  parameter: parameter)
+                                                                  parameters: parameters)
                 successCallback([tx])
             } catch {
                 print(error)

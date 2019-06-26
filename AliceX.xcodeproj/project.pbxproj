@@ -40,6 +40,8 @@
 		15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
+		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
+		15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985E522C34E1400942357 /* ContractPopUp.swift */; };
 		D62F70BEF62176ACBF55DB36 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1CE53D914D7275A684C79 /* Pods_AliceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
+		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
+		15F985E522C34E1400942357 /* ContractPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractPopUp.swift; sourceTree = "<group>"; };
 		B4C1CE53D914D7275A684C79 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5E8792E675B63059DC743C /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 		E1554FD6CF7ECDD5648E96F8 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				15F985E022C34D6000942357 /* Contract */,
 				1587395522B9E12A00F36F92 /* Payment */,
 				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
@@ -365,6 +370,15 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		15F985E022C34D6000942357 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				15F985E322C34DAF00942357 /* ContractPopUp.xib */,
+				15F985E522C34E1400942357 /* ContractPopUp.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
 		876CA3F15BC9D26DB41AD374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +472,7 @@
 			files = (
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */,
+				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
@@ -575,6 +590,7 @@
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
 				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
 				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,
 			);
