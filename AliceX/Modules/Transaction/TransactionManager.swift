@@ -234,7 +234,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = SignMessagePopUp.make(message: message, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 500
+        transitionDelegate.customHeight = 480
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)

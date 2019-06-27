@@ -19,6 +19,8 @@ RCT_EXTERN_METHOD(sendTransaction:(NSString *)to value:(NSString *)value callbac
 
 RCT_EXTERN_METHOD(getAddress:(RCTResponseSenderBlock *)successCallback)
 
+RCT_EXTERN_METHOD(signMessage:(NSString *)message callback:(RCTResponseSenderBlock *)successCallback)
+
 @end
 
 # pragma - Smart Contract

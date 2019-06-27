@@ -49,4 +49,12 @@ class WalletModule: NSObject {
             })
         }
     }
+    
+    @objc func signMessage(_ message: String, callback successCallback: @escaping RCTResponseSenderBlock) {
+        DispatchQueue.main.async {
+            TransactionManager.showSignMessageView(message: message) { (signData) in
+                successCallback([signData])
+            }
+        }
+    }
 }
