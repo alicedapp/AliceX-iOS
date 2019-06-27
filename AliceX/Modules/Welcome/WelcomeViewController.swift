@@ -71,9 +71,24 @@ class WelcomeViewController: BaseViewController {
 //            print(tx)
 //        })
         
-        TransactionManager.showPaymentView(toAddress: "Hello", amount: "0.001",
-                                           symbol: "ETH") { (tx) in
-            print("tx")
+//        TransactionManager.showPaymentView(toAddress: "0xA60f8a3E6586aA590a4AD9EE0F264A1473Bab7cB", amount: "0.01",
+//                                           symbol: "ETH") { (tx) in
+//            print(tx)
+        
+//        do {
+//            let txHash = try TransactionManager.shared.sendEtherSync(
+//                to: "0xA60f8a3E6586aA590a4AD9EE0F264A1473Bab7cB", amount: "0.01", password: "")
+//            print(txHash)
+//        } catch let error as WalletError {
+//            HUDManager.shared.showError(text: error.errorMessage)
+//        } catch {
+//            print(error)
+//            HUDManager.shared.showError()
+//        }
+        
+        TransactionManager.showSignMessageView(message: "111") { (signData) in
+            print(signData)
         }
     }
 }
+

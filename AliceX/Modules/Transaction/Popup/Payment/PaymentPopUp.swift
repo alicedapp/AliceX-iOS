@@ -119,7 +119,13 @@ class PaymentPopUp: UIViewController {
         }
         
         if toggle == false {
+            
+            #if DEBUG
+            sendTx()
+            #else
             biometricsVerify()
+            #endif
+            
             toggle = true
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
@@ -227,6 +233,7 @@ class PaymentPopUp: UIViewController {
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
         } catch {
+            print(error)
             HUDManager.shared.showError()
         }
     }

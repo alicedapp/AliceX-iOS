@@ -70,7 +70,7 @@ class TransactionManager {
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
         
         guard let balanceInWeiUnitResult = try? WalletManager.web3Net.eth.getBalance(address: ethereumAddress) else {
-            throw WalletError.networkFailure
+            throw WalletError.insufficientBalance
         }
 
         guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
@@ -102,22 +102,20 @@ class TransactionManager {
         guard let toAddress = EthereumAddress(address) else {
             throw WalletError.invalidAddress
         }
-        
+
         let etherBalance = try etherBalanceSync()
         guard let etherBalanceInDouble = Double(etherBalance) else {
             throw WalletError.conversionFailure
         }
-        
+
         guard let amountInDouble = Double(amount) else {
             throw WalletError.conversionFailure
         }
-        
+
         guard etherBalanceInDouble >= amountInDouble else {
             throw WalletError.insufficientBalance
         }
-        
-//        WalletManager.addKeyStoreIfNeeded()
-        
+
         let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
         let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
         let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
@@ -126,17 +124,21 @@ class TransactionManager {
         options.from = walletAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
+
         let tx = contract.write(
             "fallback",
             parameters: [AnyObject](),
             extraData: Data(),
             transactionOptions: options)!
-        
-        guard let sendResult = try? tx.send() else {
-            throw WalletError.networkFailure
+
+        do {
+            let sendResult = try tx.send()
+            return sendResult.hash
+        } catch let error as Web3Error {
+            HUDManager.shared.showError(text: error.errorDescription)
         }
-        
-        return sendResult.hash
+//
+        return "Error"
     }
     
     // MARK: - Call Smart Contract
@@ -161,7 +163,7 @@ class TransactionManager {
         }
         
         let abiVersion = 2
-        let extraData: Data = extraData
+//        let extraData: Data = extraData
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
         let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
         
@@ -173,14 +175,18 @@ class TransactionManager {
         let tx = contract!.write(
             functionName,
             parameters: parameters as [AnyObject],
-            extraData: extraData,
+            extraData: Data(),
+//            extraData,
             transactionOptions: options)!
         
-        guard let sendResult = try? tx.send() else {
-            throw WalletError.networkFailure
+        do {
+            let sendResult = try tx.send()
+            return sendResult.hash
+        } catch let error as Web3Error {
+            HUDManager.shared.showError(text: error.errorDescription)
         }
         
-        return sendResult.hash
+        return "Error"
     }
     
     public class func readSmartContract(contractAddress: String, functionName: String,
@@ -222,4 +228,42 @@ class TransactionManager {
         return ""
     }
     
+    // MARK: - Sign
+    
+    class func showSignMessageView(message: String, success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = SignMessagePopUp.make(message: message, success: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 500
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
+    }
+    
+    class func signMessage(message: String) throws -> String? {
+        
+        guard let address = WalletManager.wallet?.address else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let walletAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
+        
+        let msgData = try! message.data(using: .utf8)
+        
+        do {
+            let signedData = try Web3Signer.signPersonalMessage(msgData!,
+                                                                 keystore: keystore,
+                                                                 account: walletAddress,
+                                                                 password: "web3swift")
+            return (signedData?.toHexString())!
+        } catch {
+            throw WalletError.messageFailedToData
+        }
+    }
 }

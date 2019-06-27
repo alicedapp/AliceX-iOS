@@ -15,7 +15,8 @@ class WalletManager {
     static var wallet: Wallet?
     
     #if DEBUG
-    static var web3Net = Web3.InfuraRopstenWeb3()
+    static var web3Net = Web3.InfuraRinkebyWeb3()
+//        Web3.InfuraRopstenWeb3()
     #else
     static var web3Net = Web3.InfuraMainnetWeb3()
     #endif
@@ -38,7 +39,7 @@ class WalletManager {
             return
         }
         
-        if WalletManager.web3Net.provider.attachedKeystoreManager == nil {
+        if WalletManager.web3Net.provider.attachedKeystoreManager != nil {
             return
         }
         
@@ -59,6 +60,8 @@ class WalletManager {
     }
     
     class func createAccount(completion: VoidBlock?) {
+        
+//        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
         
         if WalletManager.hasWallet() {
             return

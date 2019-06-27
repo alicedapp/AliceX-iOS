@@ -1,64 +1,41 @@
 //
-//  ContractPopUp.swift
+//  SignMessagePopUp.swift
 //  AliceX
 //
-//  Created by lmcmz on 26/6/19.
+//  Created by lmcmz on 27/6/19.
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
 import UIKit
 import LocalAuthentication
-import MarqueeLabel
 
-class ContractPopUp: UIViewController {
+class SignMessagePopUp: UIViewController {
 
     @IBOutlet weak var payButton: UIControl!
     @IBOutlet weak var progressIndicator: RPCircularProgress!
     @IBOutlet weak var payButtonContainer: UIView!
     
-//    @IBOutlet weak var sliderContainer: UIView!
+    @IBOutlet weak var messageTextView: UITextView!
     
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var functionLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var paramterLabel: MarqueeLabel!
+    var message: String?
     
     var timer: Timer?
     var process: Int = 0
     var toggle: Bool = false
     
-    var contractAddress: String?
-    var functionName: String?
-    var abi: String?
-    var parameters: [Any]?
-    var value: String?
-    var extraData: String?
     var successBlock: StringBlock?
     
-    class func make(contractAddress: String,
-                    functionName: String,
-                    parameters: [Any],
-                    extraData: String,
-                    value: String,
-                    abi: String,
-                    success: @escaping StringBlock) -> ContractPopUp {
-        let vc = ContractPopUp()
-        vc.contractAddress = contractAddress
-        vc.functionName = functionName
+    class func make(message: String, success: @escaping StringBlock) -> SignMessagePopUp {
+        let vc = SignMessagePopUp()
+        vc.message = message
         vc.successBlock = success
-        vc.parameters = parameters
-        vc.extraData = extraData
-        vc.value = value
-        vc.abi = abi
         return vc
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addressLabel.text = self.contractAddress
-        valueLabel.text = self.value
-        functionLabel.text = self.functionName
+        messageTextView.text = message
         
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true
@@ -82,27 +59,8 @@ class ContractPopUp: UIViewController {
         longPressGesture.minimumPressDuration = 0
         payButton.addGestureRecognizer(longPressGesture)
         progressIndicator.updateProgress(0)
-        
-        paramterLabel.type = .continuous
-        paramterLabel.speed = .duration(10)
-        paramterLabel.fadeLength = 10.0
-        paramterLabel.trailingBuffer = 30.0
-        paramterLabel.text = (parameters as! [String]).compactMap({$0}).joined(separator: ", ")
-        
-        paramterLabel.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pauseTap))
-        tapRecognizer.numberOfTapsRequired = 1
-        tapRecognizer.numberOfTouchesRequired = 1
-        paramterLabel.addGestureRecognizer(tapRecognizer)
     }
-    
-    @objc func pauseTap(_ recognizer: UIGestureRecognizer) {
-        let continuousLabel2 = recognizer.view as! MarqueeLabel
-        if recognizer.state == .ended {
-            continuousLabel2.isPaused ? continuousLabel2.unpauseLabel() : continuousLabel2.pauseLabel()
-        }
-    }
-    
+
     @objc func timeUpdate() {
         process += 1
         var precentage = (Double(process) / 100)
@@ -118,7 +76,7 @@ class ContractPopUp: UIViewController {
         
         if toggle == false {
             #if DEBUG
-            sendTx()
+            send()
             #else
             biometricsVerify()
             #endif
@@ -167,11 +125,11 @@ class ContractPopUp: UIViewController {
                 myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
                                          localizedReason: myLocalizedReasonString)
                 { success, evaluateError in
-  
+                    
                     DispatchQueue.main.async {
                         if success {
                             // User authenticated successfully, take appropriate action
-                            self.sendTx()
+                            self.send()
                         } else {
                             // User did not authenticate successfully, look at error and take appropriate action
                             
@@ -186,16 +144,11 @@ class ContractPopUp: UIViewController {
         }
     }
     
-    func sendTx() {
+    func send() {
         do {
-            let txHash = try TransactionManager.writeSmartContract(contractAddress: contractAddress!,
-                                                                   functionName: functionName!,
-                                                                   abi: abi!,
-                                                                   parameters: parameters!,
-                                                                   extraData: value!.data(using: .utf8)!,
-                                                                   value: value!)
-            print(txHash)
-            self.successBlock!(txHash)
+            let signData = try TransactionManager.signMessage(message: message!)!
+            print(signData)
+            self.successBlock!(signData)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
@@ -204,4 +157,5 @@ class ContractPopUp: UIViewController {
             HUDManager.shared.showError()
         }
     }
+
 }

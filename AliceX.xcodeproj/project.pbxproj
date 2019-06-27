@@ -21,6 +21,8 @@
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */; };
+		156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */; };
 		1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395622B9E16A00F36F92 /* PaymentPopUp.swift */; };
 		1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1587395722B9E16A00F36F92 /* PaymentPopUp.xib */; };
 		1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395B22B9E5C900F36F92 /* CryptoCoin.swift */; };
@@ -60,6 +62,8 @@
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessagePopUp.swift; sourceTree = "<group>"; };
+		156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignMessagePopUp.xib; sourceTree = "<group>"; };
 		1587395622B9E16A00F36F92 /* PaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPopUp.swift; sourceTree = "<group>"; };
 		1587395722B9E16A00F36F92 /* PaymentPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPopUp.xib; sourceTree = "<group>"; };
 		1587395B22B9E5C900F36F92 /* CryptoCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoin.swift; sourceTree = "<group>"; };
@@ -122,11 +126,21 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				156BCD5C22C4A3F600B380DF /* SignMessage */,
 				15F985E022C34D6000942357 /* Contract */,
 				1587395522B9E12A00F36F92 /* Payment */,
 				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		156BCD5C22C4A3F600B380DF /* SignMessage */ = {
+			isa = PBXGroup;
+			children = (
+				156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */,
+				156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */,
+			);
+			path = SignMessage;
 			sourceTree = "<group>";
 		};
 		1587395422B9E11000F36F92 /* RNCustomView */ = {
@@ -471,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
+				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
@@ -569,6 +584,7 @@
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
+				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,

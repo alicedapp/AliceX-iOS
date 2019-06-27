@@ -10,6 +10,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContractPopUp" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="addressLabel" destination="p7L-ym-B5a" id="uAk-Fe-cvc"/>
+                <outlet property="functionLabel" destination="LhF-db-0Ix" id="IsS-MS-cyu"/>
+                <outlet property="paramterLabel" destination="gat-1b-DCr" id="9VT-2L-EXS"/>
+                <outlet property="payButton" destination="yvE-gt-6jM" id="ENa-yg-YTd"/>
+                <outlet property="payButtonContainer" destination="iBm-xC-h5w" id="mbE-ZS-wuc"/>
+                <outlet property="progressIndicator" destination="mGT-Uw-Q4t" id="hUE-tl-DFY"/>
+                <outlet property="valueLabel" destination="SQn-q2-tQa" id="AUz-Nk-lT8"/>
                 <outlet property="view" destination="guu-fJ-3Xr" id="ejO-zh-Avz"/>
             </connections>
         </placeholder>
@@ -144,6 +151,14 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" red="0.37973593750000001" green="0.60121566120000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -178,8 +193,8 @@
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhF-db-0Ix">
-                                            <rect key="frame" x="150" y="19.5" width="32" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhF-db-0Ix">
+                                            <rect key="frame" x="150" y="19.5" width="222" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -192,6 +207,7 @@
                                         <constraint firstItem="mld-Rj-HRp" firstAttribute="leading" secondItem="wf3-JK-EST" secondAttribute="leading" constant="12" id="IkR-wp-Qhb"/>
                                         <constraint firstAttribute="bottom" secondItem="mld-Rj-HRp" secondAttribute="bottom" id="NYz-4A-qxJ"/>
                                         <constraint firstAttribute="trailing" secondItem="mld-Rj-HRp" secondAttribute="trailing" constant="12" id="QKq-Vh-9BS"/>
+                                        <constraint firstAttribute="trailing" secondItem="LhF-db-0Ix" secondAttribute="trailing" constant="12" id="Tax-4H-BfK"/>
                                         <constraint firstItem="LhF-db-0Ix" firstAttribute="centerY" secondItem="wf3-JK-EST" secondAttribute="centerY" id="Uzy-cQ-ZfW"/>
                                         <constraint firstItem="lfh-K0-VhA" firstAttribute="leading" secondItem="wf3-JK-EST" secondAttribute="leading" constant="12" id="YYc-M8-FpZ"/>
                                         <constraint firstAttribute="height" constant="60" id="x2w-aG-lMA"/>
@@ -213,8 +229,8 @@
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-q2-tQa">
-                                            <rect key="frame" x="150" y="19.5" width="32" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-q2-tQa">
+                                            <rect key="frame" x="150" y="19.5" width="222" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -226,6 +242,7 @@
                                         <constraint firstItem="SQn-q2-tQa" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="150" id="41B-JJ-c0d"/>
                                         <constraint firstItem="0hy-g7-T1K" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="12" id="Air-OR-aOb"/>
                                         <constraint firstItem="SQn-q2-tQa" firstAttribute="centerY" secondItem="etR-fZ-OKS" secondAttribute="centerY" id="Ifb-up-hAP"/>
+                                        <constraint firstAttribute="trailing" secondItem="SQn-q2-tQa" secondAttribute="trailing" constant="12" id="QPv-CY-3zN"/>
                                         <constraint firstAttribute="bottom" secondItem="0hy-g7-T1K" secondAttribute="bottom" id="eee-uj-R2d"/>
                                         <constraint firstAttribute="trailing" secondItem="0hy-g7-T1K" secondAttribute="trailing" constant="12" id="fq6-An-7A4"/>
                                         <constraint firstItem="Ddo-gS-L8N" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="12" id="jBT-4m-rlP"/>
@@ -248,16 +265,26 @@
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gat-1b-DCr">
-                                            <rect key="frame" x="150" y="19.5" width="32" height="21"/>
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gat-1b-DCr" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                            <rect key="frame" x="150" y="19.5" width="222" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="tapToScroll" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="bGW-Pq-pfR" secondAttribute="bottom" id="3d6-Od-zOy"/>
+                                        <constraint firstAttribute="trailing" secondItem="gat-1b-DCr" secondAttribute="trailing" constant="12" id="Apd-Mq-aKb"/>
                                         <constraint firstItem="p29-Qv-4Km" firstAttribute="leading" secondItem="pDh-de-Tcr" secondAttribute="leading" constant="12" id="CO8-6p-ARc"/>
                                         <constraint firstItem="p29-Qv-4Km" firstAttribute="centerY" secondItem="pDh-de-Tcr" secondAttribute="centerY" id="H1T-w5-T12"/>
                                         <constraint firstItem="bGW-Pq-pfR" firstAttribute="leading" secondItem="pDh-de-Tcr" secondAttribute="leading" constant="12" id="HAn-Pz-K0U"/>

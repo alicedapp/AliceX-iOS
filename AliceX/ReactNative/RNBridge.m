@@ -30,6 +30,7 @@ RCT_EXTERN_METHOD(write:(NSString *)contractAddress
                   functionName:(NSString *)functionName
                   parameters:(NSArray *)parameters
                   value:(NSString *)value
+                  data:(NSString *)data
                   callback:(RCTResponseSenderBlock *)successCallback)
 
 

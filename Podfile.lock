@@ -15,6 +15,7 @@ PODS:
   - HandyJSON (5.0.0)
   - IQKeyboardManagerSwift (6.4.0)
   - KeychainSwift (16.0.1)
+  - MarqueeLabel (4.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -115,6 +116,7 @@ DEPENDENCIES:
   - HandyJSON (~> 5.0.0)
   - IQKeyboardManagerSwift
   - KeychainSwift (~> 16.0)
+  - MarqueeLabel
   - Moya (~> 13.0)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-mapbox-gl (from `../node_modules/@mapbox/react-native-mapbox-gl`)"
@@ -147,6 +149,7 @@ SPEC REPOS:
     - HandyJSON
     - IQKeyboardManagerSwift
     - KeychainSwift
+    - MarqueeLabel
     - Moya
     - pop
     - PromiseKit
@@ -185,6 +188,7 @@ SPEC CHECKSUMS:
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   KeychainSwift: 4209611373ca4a098e09b1e547eebd87c544dcc4
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
@@ -202,6 +206,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 8e87766b4c13b61cabf63359029cec073d2bde20
+PODFILE CHECKSUM: eeadb85feed449739680b58f22e9a9245ad3252c
 
 COCOAPODS: 1.7.2

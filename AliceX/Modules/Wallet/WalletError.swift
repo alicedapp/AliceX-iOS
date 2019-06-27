@@ -12,7 +12,7 @@ public enum WalletError: Error {
     case invalidPath
     case invalidKey
     case invalidAddress
-//    case invalidBiometricsVerify
+    case messageFailedToData
     case malformedKeystore
     case networkFailure
     case conversionFailure
@@ -31,8 +31,8 @@ public enum WalletError: Error {
             return 1704
         case .invalidAddress:
             return 1705
-//        case .invalidBiometricsVerify:
-//            return 1706
+        case .messageFailedToData:
+            return 1706
         case .malformedKeystore:
             return 1707
         case .networkFailure:
@@ -60,8 +60,8 @@ public enum WalletError: Error {
             return "Account does not exist"
         case .invalidAddress:
             return "Invalid address"
-//        case .invalidBiometricsVerify:
-//            return "Invalid biometrics verify"
+        case .messageFailedToData:
+            return "Fail to covert message to data"
         case .malformedKeystore:
             return "Malformed keystore"
         case .networkFailure:

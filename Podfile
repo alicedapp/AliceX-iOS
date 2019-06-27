@@ -13,6 +13,7 @@ target 'AliceX' do
   pod 'Moya', '~> 13.0'
   pod 'fluid-slider'
   pod 'SwiftEntryKit', '1.0.2'
+  pod 'MarqueeLabel'
 
 #   React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
