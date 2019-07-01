@@ -81,5 +81,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PlayfairDisplay-Black.ttf</string>
+	</array>
 </dict>
 </plist>

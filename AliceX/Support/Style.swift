@@ -9,5 +9,8 @@
 import UIKit
 
 class AliceColor {
-//    let alphaBlue = UIColor(hex: "1B8BB6", alpha: 0.6)
+    static let dark = UIColor(hex: "444444", alpha: 0.8)
+    static let lightDark = UIColor(hex: "9D9D9D", alpha: 0.8)
+    static let grey = UIColor(hex: "DBDFE2", alpha: 1)
+    static let lightGrey = UIColor(hex: "EAEDEF", alpha: 1)
 }

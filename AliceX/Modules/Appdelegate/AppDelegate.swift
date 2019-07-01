@@ -37,14 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.clear
         window?.makeKeyAndVisible()
         
-        let vc = UIViewController()
-        
-        // Create the React Native view that will render the module with the properties
-        let view = RCTRootView(bundleURL: jsCodeLocation, moduleName: moduleName, initialProperties: initialProperties, launchOptions: launchOptions)
-        view?.backgroundColor = UIColor.white
-        // Create the controller to display the view
-        vc.view = view
-        
+//        let vc = WelcomeViewController()
+        let vc = LandingViewController()
         let rootVC = UINavigationController.init(rootViewController: vc)
         navi = rootVC
         self.window?.rootViewController = rootVC

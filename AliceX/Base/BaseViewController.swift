@@ -10,13 +10,14 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidLoad() {

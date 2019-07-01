@@ -21,6 +21,9 @@
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
+		153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A654722C9CE2B0035EB2C /* LandingViewController.xib */; };
+		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
 		156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */; };
 		156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */; };
 		1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395622B9E16A00F36F92 /* PaymentPopUp.swift */; };
@@ -40,6 +43,7 @@
 		15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB122AA1D2900110C06 /* BaseViewController.swift */; };
 		15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */; };
 		15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */; };
+		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
@@ -62,6 +66,9 @@
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		153A654722C9CE2B0035EB2C /* LandingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
 		156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessagePopUp.swift; sourceTree = "<group>"; };
 		156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignMessagePopUp.xib; sourceTree = "<group>"; };
 		1587395622B9E16A00F36F92 /* PaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPopUp.swift; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 		15B86BB122AA1D2900110C06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
@@ -132,6 +140,15 @@
 				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		153A654522C9CDE40035EB2C /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				153A654622C9CE2B0035EB2C /* LandingViewController.swift */,
+				153A654722C9CE2B0035EB2C /* LandingViewController.xib */,
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 		156BCD5C22C4A3F600B380DF /* SignMessage */ = {
@@ -263,6 +280,7 @@
 			children = (
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
 				1587396922BB48FC00F36F92 /* BaseControl.swift */,
+				153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -270,7 +288,7 @@
 		15B86BA822AA1C5400110C06 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				15B86BB022AA1D1100110C06 /* fronts */,
+				15B86BB022AA1D1100110C06 /* fonts */,
 				15B86BAB22AA1C6E00110C06 /* sounds */,
 				15B86BAA22AA1C6600110C06 /* music */,
 				15B86BA922AA1C5F00110C06 /* image */,
@@ -320,11 +338,12 @@
 			path = Libary;
 			sourceTree = "<group>";
 		};
-		15B86BB022AA1D1100110C06 /* fronts */ = {
+		15B86BB022AA1D1100110C06 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */,
 			);
-			path = fronts;
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		15B86BB322AA1D9100110C06 /* Support */ = {
@@ -340,6 +359,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				153A654522C9CDE40035EB2C /* Landing */,
 				15F985DD22C33AE000942357 /* HUD */,
 				1587395A22B9E5A000F36F92 /* Network */,
 				1527872F22AE207400D63C7F /* Transaction */,
@@ -491,7 +511,9 @@
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
+				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
+				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,10 +635,12 @@
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
+				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
+				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
