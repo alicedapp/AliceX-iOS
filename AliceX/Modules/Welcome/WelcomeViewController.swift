@@ -59,9 +59,7 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func popUp() {
-        let vc = UIViewController()
-        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "alice", initialProperties: nil)
-        vc.view = rnView
+        let vc = RNModule.makeViewController(module: .alice)
         navigationController?.pushViewController(vc, animated: true)
     }
     

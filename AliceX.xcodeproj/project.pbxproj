@@ -44,6 +44,9 @@
 		15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */; };
 		15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
+		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
+		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
+		15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3D22CA1B96004B45A2 /* RNModule.swift */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
@@ -92,6 +95,9 @@
 		15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		15B86BB722AA1E5100110C06 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
+		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
+		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
+		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 		153A654522C9CDE40035EB2C /* Landing */ = {
 			isa = PBXGroup;
 			children = (
+				15DE8E3822C9DD23004B45A2 /* Import */,
 				153A654622C9CE2B0035EB2C /* LandingViewController.swift */,
 				153A654722C9CE2B0035EB2C /* LandingViewController.xib */,
 			);
@@ -227,6 +234,7 @@
 				158B375622AF5C8B005FECAB /* WalletModule.swift */,
 				15F985DA22C3205700942357 /* ContractModule.swift */,
 				158B375822AF5DB3005FECAB /* RNBridge.m */,
+				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -396,6 +404,15 @@
 			path = Appdelegate;
 			sourceTree = "<group>";
 		};
+		15DE8E3822C9DD23004B45A2 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */,
+				15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
 		15F985DD22C33AE000942357 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +526,7 @@
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15B86BB922AA1E5100110C06 /* WelcomeViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
+				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
@@ -630,6 +648,8 @@
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
+				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
+				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,

@@ -18,33 +18,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
+        launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         WalletManager.loadFromCache()
-        
-        // Setup any initial properties we want included
-        let initialProperties: [String: Any] = [:]
-        // Define the name of the initial module
-        let moduleName = "alice"
-        //        // Define the url that will be used to find the entry file
-        //        let bundleURL = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "src/index", fallbackResource: nil)
-        
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: nil)
-        
+
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.clear
-        window?.makeKeyAndVisible()
         
-//        let vc = WelcomeViewController()
-        let vc = LandingViewController()
+        var vc = UIViewController()
+        
+        if WalletManager.hasWallet() {
+            vc = RNModule.makeViewController(module: .alice)
+        } else {
+            vc = LandingViewController()
+        }
+        
         let rootVC = UINavigationController.init(rootViewController: vc)
-        navi = rootVC
-        self.window?.rootViewController = rootVC
+        rootVC.hero.isEnabled = true
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
-        
-        
+        navi = rootVC
+    
         return true
     }
 

@@ -64,6 +64,7 @@ class WalletManager {
 //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
         
         if WalletManager.hasWallet() {
+            HUDManager.shared.showError(text: "You already had a wallet")
             return
         }
         

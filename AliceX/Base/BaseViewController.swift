@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class BaseViewController: UIViewController {
     
@@ -17,11 +18,24 @@ class BaseViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hero.isEnabled = true
+    }
+    
+    @IBAction func backButtonClicked(sender: UIControl) {
+        guard self.navigationController != nil else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
         
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

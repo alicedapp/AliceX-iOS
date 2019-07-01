@@ -13,6 +13,7 @@ PODS:
     - glog
   - glog (0.3.4)
   - HandyJSON (5.0.0)
+  - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.4.0)
   - KeychainSwift (16.0.1)
   - MarqueeLabel (4.0.0)
@@ -114,6 +115,7 @@ DEPENDENCIES:
   - fluid-slider
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - HandyJSON (~> 5.0.0)
+  - Hero
   - IQKeyboardManagerSwift
   - KeychainSwift (~> 16.0)
   - MarqueeLabel
@@ -147,6 +149,7 @@ SPEC REPOS:
     - fluid-slider
     - glog
     - HandyJSON
+    - Hero
     - IQKeyboardManagerSwift
     - KeychainSwift
     - MarqueeLabel
@@ -186,6 +189,7 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   KeychainSwift: 4209611373ca4a098e09b1e547eebd87c544dcc4
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
@@ -206,6 +210,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: eeadb85feed449739680b58f22e9a9245ad3252c
+PODFILE CHECKSUM: f8543cf662795be7fbf8b7d4c40d0f15dc2980da
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2
