@@ -431,8 +431,9 @@
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
-				15B86B5322AA043F00110C06 /* Resources */,
 				15B86BA522AA09DE00110C06 /* Bundle React Native code and images */,
+				BD80632022C9CD8100C1D25F /* Launch React Native Packager */,
+				15B86B5322AA043F00110C06 /* Resources */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 				E4EE167DF7C0390DF81542C9 /* [CP] Embed Pods Frameworks */,
 			);
@@ -554,6 +555,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BD80632022C9CD8100C1D25F /* Launch React Native Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Launch React Native Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Launch React Native Packager\nif nc -w 5 -z localhost 8081 ; then\nif ! curl -s \"http://localhost:8081/status\" | grep -q \"packager-status:running\" ; then\necho \"Port 8081 already in use, packager is either not running or not running correctly\"\nexit 2\nfi\nelse\nopen -a Terminal $SRCROOT/../node_modules/react-native/scripts/launchPackager.command || echo \"Can't start packager automatically\"\nfi\n";
 		};
 		E4EE167DF7C0390DF81542C9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
