@@ -21,7 +21,14 @@ class ImportWalletViewController: BaseViewController {
     }
     
     @IBAction func importButtonClicked() {
-        let mnemonics = textView.text
+        var mnemonics = textView.text
+        mnemonics = mnemonics?.trimmingCharacters(in: .whitespaces)
+        if mnemonics?.count == 0 {
+            HUDManager.shared.showError(text: "mnemonics is empty")
+            return
+        }
+        
+        mnemonics = mnemonics?.lowercased()
         
         do {
             try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in

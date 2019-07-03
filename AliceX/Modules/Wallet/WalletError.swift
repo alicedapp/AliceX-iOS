@@ -18,6 +18,8 @@ public enum WalletError: Error {
     case conversionFailure
     case insufficientBalance
     case contractFailure
+    case netCacheFailure
+    case netSwitchFailure
     
     public var code: Int {
         switch self {
@@ -43,6 +45,10 @@ public enum WalletError: Error {
             return 1710
         case .contractFailure:
             return 1711
+        case .netCacheFailure:
+            return 1712
+        case .netSwitchFailure:
+            return 1713
         default:
             return -1
         }
@@ -72,6 +78,10 @@ public enum WalletError: Error {
             return "Insufficient balance"
         case .contractFailure:
             return "Contract failure"
+        case .netCacheFailure:
+            return "Web3Net cache failure"
+        case .netSwitchFailure:
+            return "Switch network failure"
         default:
             return "Wallet Unknow Error"
         }

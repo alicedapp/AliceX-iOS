@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB" customClass="MnemonicsView" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="265"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9H-8g-xxm">
+                    <rect key="frame" x="0.0" y="0.0" width="389" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sde-gn-Iw8">
+                            <rect key="frame" x="74" y="-34" width="240" height="128"/>
+                            <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="fgV-L9-INB"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mnemonics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tl3-4I-3EB">
+                            <rect key="frame" x="150.5" y="19.5" width="88.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1m-Z0-6xN">
+                            <rect key="frame" x="336" y="15" width="38" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Show"/>
+                            <connections>
+                                <action selector="showClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="sXm-Qz-39j"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Sde-gn-Iw8" secondAttribute="trailing" id="0zM-oK-WAU"/>
+                        <constraint firstAttribute="height" constant="60" id="2pr-ed-uv2"/>
+                        <constraint firstItem="tl3-4I-3EB" firstAttribute="centerX" secondItem="k9H-8g-xxm" secondAttribute="centerX" id="TYe-Ha-goq"/>
+                        <constraint firstAttribute="trailing" secondItem="A1m-Z0-6xN" secondAttribute="trailing" constant="15" id="UVd-0t-c5k"/>
+                        <constraint firstAttribute="bottom" secondItem="Sde-gn-Iw8" secondAttribute="bottom" id="VJM-2T-gvM"/>
+                        <constraint firstItem="A1m-Z0-6xN" firstAttribute="centerY" secondItem="k9H-8g-xxm" secondAttribute="centerY" id="Yqr-2U-Dxf"/>
+                        <constraint firstItem="Sde-gn-Iw8" firstAttribute="leading" secondItem="k9H-8g-xxm" secondAttribute="leading" id="dyU-wS-WYX"/>
+                        <constraint firstItem="tl3-4I-3EB" firstAttribute="centerY" secondItem="k9H-8g-xxm" secondAttribute="centerY" id="hM5-28-KO0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-H1-Wki">
+                    <rect key="frame" x="15" y="70" width="359" height="250"/>
+                    <subviews>
+                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L44-Sj-vdK">
+                            <rect key="frame" x="12" y="12" width="335" height="226"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="7X2-QU-Stw"/>
+                        <constraint firstItem="L44-Sj-vdK" firstAttribute="leading" secondItem="fgi-H1-Wki" secondAttribute="leading" constant="12" id="IMp-lj-GlJ"/>
+                        <constraint firstAttribute="trailing" secondItem="L44-Sj-vdK" secondAttribute="trailing" constant="12" id="LXZ-ok-xKJ"/>
+                        <constraint firstItem="L44-Sj-vdK" firstAttribute="top" secondItem="fgi-H1-Wki" secondAttribute="top" constant="12" id="htV-VV-kur"/>
+                        <constraint firstAttribute="bottom" secondItem="L44-Sj-vdK" secondAttribute="bottom" constant="12" id="pvw-W8-AaT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fgi-H1-Wki" secondAttribute="trailing" constant="15" id="3YG-hZ-sfJ"/>
+                <constraint firstAttribute="trailing" secondItem="k9H-8g-xxm" secondAttribute="trailing" id="CXY-4J-TeT"/>
+                <constraint firstAttribute="bottom" secondItem="fgi-H1-Wki" secondAttribute="bottom" constant="10" id="GtY-Bh-iWG"/>
+                <constraint firstItem="k9H-8g-xxm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jyn-Pe-kN7"/>
+                <constraint firstItem="fgi-H1-Wki" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="QIl-Ii-Hn6"/>
+                <constraint firstItem="fgi-H1-Wki" firstAttribute="top" secondItem="k9H-8g-xxm" secondAttribute="bottom" constant="10" id="YsJ-o7-QZo"/>
+                <constraint firstItem="k9H-8g-xxm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="u2z-Ia-Yd6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="secretLabel" destination="L44-Sj-vdK" id="3Sf-AG-fbu"/>
+            </connections>
+            <point key="canvasLocation" x="-2.8985507246376816" y="26.116071428571427"/>
+        </view>
+    </objects>
+</document>

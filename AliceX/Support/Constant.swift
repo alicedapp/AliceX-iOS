@@ -17,8 +17,6 @@ class Setting {
     static let WalletName = "AliceWallet"
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
-    
-    
 }
 
 typealias MainFont = Font.HelveticaNeue
@@ -44,5 +42,10 @@ enum Font {
     }
 }
 
+extension Notification.Name {
+    static let networkChange = Notification.Name("networkChange")
+}
+
 class Constant {
 }
+

@@ -16,7 +16,6 @@ class WalletManager {
     
     #if DEBUG
     static var web3Net = Web3.InfuraRinkebyWeb3()
-//        Web3.InfuraRopstenWeb3()
     #else
     static var web3Net = Web3.InfuraMainnetWeb3()
     #endif
@@ -50,6 +49,9 @@ class WalletManager {
         guard let keystore = try? WalletManager.shared.loadKeystore() else {
             return
         }
+        // Load web3 net from user default
+        web3Net = Web3Net.fetchFromCache()
+        
         WalletManager.shared.keystore = keystore
         let name = Setting.WalletName
         let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
@@ -111,5 +113,32 @@ class WalletManager {
         
         guard let completion = completion else { return }
         completion!()
+    }
+    
+    // MARK: - Notification
+    
+//    init() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateNetwork),
+//                                               name: .networkChange, object: nil)
+//    }
+//
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+    
+    class func updateNetwork(type: Web3NetEnum) {
+//        let web3:web3 = Web3Net.fetchFromCache()
+        do {
+            let net = try Web3Net.make(type: type)
+            WalletManager.web3Net = net
+            Web3Net.storeInCache(type: type)
+            Web3Net.currentNetwork = type
+            NotificationCenter.default.post(name: .networkChange, object: type)
+            
+        } catch let error as WalletError {
+            HUDManager.shared.showError(text: error.errorDescription)
+        } catch {
+            HUDManager.shared.showError()
+        }
     }
 }
