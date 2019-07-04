@@ -24,6 +24,7 @@
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
 		153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A654722C9CE2B0035EB2C /* LandingViewController.xib */; };
 		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
+		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */; };
 		156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */; };
 		157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */; };
@@ -131,6 +132,7 @@
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		153A654722C9CE2B0035EB2C /* LandingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
+		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessagePopUp.swift; sourceTree = "<group>"; };
 		156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignMessagePopUp.xib; sourceTree = "<group>"; };
 		157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */,
 				158B375622AF5C8B005FECAB /* WalletModule.swift */,
 				15F985DA22C3205700942357 /* ContractModule.swift */,
+				156548E622CDB6B4005C8B2D /* NativeVCModule.swift */,
 				158B375822AF5DB3005FECAB /* RNBridge.m */,
 				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
 			);
@@ -1095,6 +1098,7 @@
 				157AA66222CC935C008AF3A5 /* Assets.swift in Sources */,
 				157AA65B22CC935C008AF3A5 /* LocaleInfo.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
+				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				157AA64C22CC935C008AF3A5 /* String+Extensions.swift in Sources */,
 				157AA67322CC935C008AF3A5 /* TelegramPickerViewController.swift in Sources */,
@@ -1290,7 +1294,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1312,17 +1316,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lmcmz.AliceX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -67,11 +67,22 @@ class Web3Net {
     
     // MARK: - Cache
     
+    class func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
     class func storeInCache(type: Web3NetEnum) {
         UserDefaults.standard.set(type.rawValue, forKey: web3NetStoreKey)
     }
     
     class func fetchFromCache() -> web3 {
+        
+        // Not find the key in UserDefault use MainNet
+        if !Web3Net.isKeyPresentInUserDefaults(key: web3NetStoreKey) {
+            Web3Net.storeInCache(type: .main)
+            return Web3.InfuraMainnetWeb3()
+        }
+        
         guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
             let type = Web3NetEnum(rawValue: typeString) else {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)

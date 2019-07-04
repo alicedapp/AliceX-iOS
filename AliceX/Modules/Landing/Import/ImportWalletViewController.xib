@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -68,6 +69,9 @@
                                 <constraint firstItem="7RZ-TX-gfk" firstAttribute="centerX" secondItem="bAI-Uy-FpM" secondAttribute="centerX" id="Oas-oa-aVe"/>
                                 <constraint firstAttribute="width" constant="60" id="VYz-mZ-3fd"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="hero_dismissViewController" destination="-1" eventType="touchUpInside" id="DNF-AE-EAb"/>
                             </connections>

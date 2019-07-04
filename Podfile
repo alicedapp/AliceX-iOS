@@ -2,6 +2,8 @@ platform :ios, '10.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
+plugin 'cocoapods-wholemodule'
+
 target 'AliceX' do
   use_frameworks!
   
@@ -15,8 +17,8 @@ target 'AliceX' do
   pod 'SwiftEntryKit', '1.0.2'
   pod 'MarqueeLabel'
   pod 'Hero'
-  pod 'lottie-ios'
-  pod 'SwipeableTabBarController'
+#  pod 'lottie-ios'
+#  pod 'SwipeableTabBarController'
 
 #   React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

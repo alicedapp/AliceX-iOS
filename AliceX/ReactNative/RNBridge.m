@@ -43,3 +43,12 @@ RCT_EXTERN_METHOD(read:(NSString *)contractAddress
                   callback:(RCTResponseSenderBlock *)successCallback)
 
 @end
+
+# pragma - Native View Controller
+
+
+@interface RCT_EXTERN_MODULE(NativeVCModule, NSObject)
+
+RCT_EXTERN_METHOD(setting)
+
+@end

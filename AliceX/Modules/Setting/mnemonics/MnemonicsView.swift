@@ -11,7 +11,7 @@ import UIKit
 class MnemonicsView: UIView {
     
 //    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var secretLabel: UITextField!
+    @IBOutlet weak var secretView: UITextField!
     
     class func instanceFromNib() -> MnemonicsView {
         let view = UINib(nibName: self.nameOfClass, bundle: nil)
@@ -24,14 +24,13 @@ class MnemonicsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.roundCorners([.topLeft, .topRight], radius: 20)
+        self.roundCorners([.topLeft, .topRight], radius: 10)
         let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
-        secretLabel.text = mnemonics
+        secretView.text = mnemonics
     }
     
-    @IBAction func showClicked(){
-        secretLabel.isSecureTextEntry = !secretLabel.isSecureTextEntry
+    @IBAction func showClicked() {
+        secretView.isSecureTextEntry = !secretView.isSecureTextEntry
     }
     
-
 }

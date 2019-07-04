@@ -20,9 +20,9 @@ class SettingViewController: BaseViewController {
         updateNetwork()
     }
     
-    @IBAction func mnemonicsClicked() {
-        
-        biometricsVerify()
+    @ IBAction func replaceClicked() {
+        let vc = ImportWalletViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func netButtonClicked() {
@@ -30,22 +30,28 @@ class SettingViewController: BaseViewController {
                                       message: "Change transaction blockchain",
                                       preferredStyle: .actionSheet)
         
-        let pickerViewValues: [String] = Web3NetEnum.allCases.map
-        { "\($0)".firstUppercased }.filter{$0 != "Custom"}
+        let pickerViewValues: [String] = Web3NetEnum.allCases.map{
+            "\($0)".firstUppercased }.filter{$0 != "Custom"}
         
         let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0,
                                                                        row: pickerViewValues
             .firstIndex(of: Web3Net.fetchFromCache().firstUppercased) ?? 0)
         
         alert.addPickerView(values: [pickerViewValues],
-                            initialSelection: pickerViewSelectedValue)
-        { vc, picker, index, values in
+                            initialSelection: pickerViewSelectedValue) {
+                                vc, picker, index, values in
             let string = values[0][index.row].lowercased()
             Web3Net.upodateNetworkSelection(type: Web3NetEnum(rawValue: string)!)
         }
         
         alert.addAction(title: "Done", style: .cancel)
         alert.show()
+    }
+    
+    // MARK: - mnemonics
+    
+    @IBAction func mnemonicsClicked() {
+        biometricsVerify()
     }
     
     @objc func updateNetwork() {

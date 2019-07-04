@@ -35,6 +35,8 @@ class ImportWalletViewController: BaseViewController {
                 let vc = RNModule.makeViewController(module: .alice)
                 self.navigationController?.pushViewController(vc, animated: true)
             })
+        } catch let error as WalletError {
+            HUDManager.shared.showError(text: error.errorDescription)
         } catch {
             HUDManager.shared.showError(text: "Incorrect seed phrase")
             print(error.localizedDescription)
