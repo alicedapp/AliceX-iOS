@@ -16,7 +16,6 @@ PODS:
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.4.0)
   - KeychainSwift (16.0.1)
-  - lottie-ios (3.1.0)
   - MarqueeLabel (4.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -104,7 +103,6 @@ PODS:
   - Starscream (3.1.0)
   - SwiftEntryKit (1.0.2):
     - QuickLayout (= 3.0.0)
-  - SwipeableTabBarController (2.1.1)
   - web3.swift.pod (2.2.0):
     - BigInt (~> 3.1)
     - CryptoSwift (~> 1.0.0)
@@ -120,7 +118,6 @@ DEPENDENCIES:
   - Hero
   - IQKeyboardManagerSwift
   - KeychainSwift (~> 16.0)
-  - lottie-ios
   - MarqueeLabel
   - Moya (~> 13.0)
   - react-native-camera (from `../node_modules/react-native-camera`)
@@ -139,7 +136,6 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - SPStorkController
   - SwiftEntryKit (= 1.0.2)
-  - SwipeableTabBarController
   - web3.swift.pod (~> 2.2.0)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -156,7 +152,6 @@ SPEC REPOS:
     - Hero
     - IQKeyboardManagerSwift
     - KeychainSwift
-    - lottie-ios
     - MarqueeLabel
     - Moya
     - pop
@@ -168,7 +163,6 @@ SPEC REPOS:
     - SPStorkController
     - Starscream
     - SwiftEntryKit
-    - SwipeableTabBarController
     - web3.swift.pod
 
 EXTERNAL SOURCES:
@@ -198,7 +192,6 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
   KeychainSwift: 4209611373ca4a098e09b1e547eebd87c544dcc4
-  lottie-ios: 9467723922dfff46f6d4e3019c32594a62440b7c
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
@@ -214,10 +207,9 @@ SPEC CHECKSUMS:
   SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SwiftEntryKit: 7bcd42b3dbff59c431d60d6513129fd3679e4aaf
-  SwipeableTabBarController: 8f7f04275f510c5babb630f7be1161b5f28567e0
   web3.swift.pod: 54e02dfe2807ed2cb04c85575713500e6f440822
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 9a10ed213b95495c9c9b8ebcf104fd4f8007ff82
+PODFILE CHECKSUM: 897744fa030c1cd8dd3f77e2717e4817a8e64dd0
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.3

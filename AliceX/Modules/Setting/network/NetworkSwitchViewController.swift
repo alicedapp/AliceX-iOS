@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftEntryKit
 
 class NetworkSwitchViewController: UIViewController {
 

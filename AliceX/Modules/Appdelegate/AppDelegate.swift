@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        IQKeyboardManager.shared.enable = true
+        
         WalletManager.loadFromCache()
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: nil)

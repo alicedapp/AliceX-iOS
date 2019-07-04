@@ -10,15 +10,11 @@ import UIKit
 
 class MnemonicsView: UIView {
     
-//    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secretView: UITextField!
     
     class func instanceFromNib() -> MnemonicsView {
         let view = UINib(nibName: self.nameOfClass, bundle: nil)
             .instantiate(withOwner: nil, options: nil)[0] as! MnemonicsView
-//        view.comfirmBlock = comfirmBlock
-//        view.cancelBlock = cancelBlock
-//        view.titleLabel.text = title
         return view
     }
     
@@ -31,6 +27,8 @@ class MnemonicsView: UIView {
     
     @IBAction func copyClicked() {
         UIPasteboard.general.string = secretView.text
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     @IBAction func showClicked() {

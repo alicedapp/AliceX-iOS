@@ -33,6 +33,8 @@
 		156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156548F422CDC5BB005C8B2D /* NetworkTableViewCell.xib */; };
 		156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */; };
 		156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */; };
+		157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A676822CDE12E00DA83AB /* SignYesViewController.swift */; };
+		157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157A676922CDE12E00DA83AB /* SignYesViewController.xib */; };
 		157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */; };
 		157AA56C22CC6CE0008AF3A5 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157AA56A22CC6CE0008AF3A5 /* SettingViewController.xib */; };
 		157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */; };
@@ -93,6 +95,8 @@
 		156548F422CDC5BB005C8B2D /* NetworkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkTableViewCell.xib; sourceTree = "<group>"; };
 		156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessagePopUp.swift; sourceTree = "<group>"; };
 		156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignMessagePopUp.xib; sourceTree = "<group>"; };
+		157A676822CDE12E00DA83AB /* SignYesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignYesViewController.swift; sourceTree = "<group>"; };
+		157A676922CDE12E00DA83AB /* SignYesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignYesViewController.xib; sourceTree = "<group>"; };
 		157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		157AA56A22CC6CE0008AF3A5 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+Network.swift"; sourceTree = "<group>"; };
@@ -209,9 +213,19 @@
 			path = SignMessage;
 			sourceTree = "<group>";
 		};
+		157A676722CDE0F500DA83AB /* signYes */ = {
+			isa = PBXGroup;
+			children = (
+				157A676822CDE12E00DA83AB /* SignYesViewController.swift */,
+				157A676922CDE12E00DA83AB /* SignYesViewController.xib */,
+			);
+			path = signYes;
+			sourceTree = "<group>";
+		};
 		157AA56822CC6CC9008AF3A5 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				157A676722CDE0F500DA83AB /* signYes */,
 				156548EE22CDC30F005C8B2D /* network */,
 				157AA67B22CCAA33008AF3A5 /* mnemonics */,
 				157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */,
@@ -593,6 +607,7 @@
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
+				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
@@ -748,6 +763,7 @@
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
 				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
 				156548F522CDC5BB005C8B2D /* NetworkTableViewCell.swift in Sources */,

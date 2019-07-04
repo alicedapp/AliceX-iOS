@@ -17,6 +17,7 @@ class ImportWalletViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hero.isEnabled = true
+        hideKeyboardWhenTappedAround()
         importBtn.hero.id = "importWallet"
     }
     

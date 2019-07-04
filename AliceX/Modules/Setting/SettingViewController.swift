@@ -20,7 +20,7 @@ class SettingViewController: BaseViewController {
         updateNetwork()
     }
     
-    @ IBAction func replaceClicked() {
+    @IBAction func replaceClicked() {
         let vc = ImportWalletViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -10,13 +10,20 @@ import Foundation
 import KeychainSwift
 
 class KeychainHepler {
-    static let keychain = KeychainSwift(keyPrefix: Setting.AliceKeychainPrefix)
+    static let shared = KeychainHepler()
+    
+    var keychain: KeychainSwift?
+    
+    private init() {
+        keychain = KeychainSwift(keyPrefix: Setting.AliceKeychainPrefix)
+        keychain!.synchronizable = true
+    }
     
     class func saveToKeychain(value: String, key: String) {
-        keychain.set(value, forKey: key)
+        KeychainHepler.shared.keychain!.set(value, forKey: key)
     }
     
     class func fetchKeychain(key: String) -> String? {
-        return keychain.get(key)
+        return KeychainHepler.shared.keychain!.get(key)
     }
 }

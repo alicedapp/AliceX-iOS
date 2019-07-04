@@ -92,8 +92,14 @@ class WalletManager {
     class func importAccount(mnemonics: String, completion: VoidBlock?) throws {
         
         if WalletManager.hasWallet() {
-            throw WalletError.hasAccount
+//            throw WalletError.hasAccount
+            let vc = SignYesViewController.make {
+                WalletManager.replaceAccount(mnemonics: mnemonics, completion: nil)
+            }
+            HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+            return
         }
+        
         
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
@@ -115,6 +121,31 @@ class WalletManager {
         completion!()
     }
     
+    
+    class func replaceAccount(mnemonics: String, completion: VoidBlock?) {
+        guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
+            // TODO: ENSURE
+//            throw WalletError.malformedKeystore
+            HUDManager.shared.showError(text: WalletError.malformedKeystore.errorDescription)
+            return
+        }
+        
+        KeychainHepler.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+        
+        let name = Setting.WalletName
+        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+        let address = keystore.addresses!.first!.address
+        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+        
+        WalletManager.wallet = wallet
+        WalletManager.shared.keystore = keystore
+        try! WalletManager.shared.saveKeystore(keystore)
+        
+//        guard let completion = completion else { return }
+        
+        HUDManager.shared.showSuccess(text: "Replace wallet success")
+    }
+    
     // MARK: - Notification
     
 //    init() {
@@ -134,6 +165,9 @@ class WalletManager {
             Web3Net.storeInCache(type: type)
             Web3Net.currentNetwork = type
             NotificationCenter.default.post(name: .networkChange, object: type)
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
             
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
