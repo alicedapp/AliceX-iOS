@@ -22,36 +22,23 @@ class SettingViewController: BaseViewController {
     
     @ IBAction func replaceClicked() {
         let vc = ImportWalletViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func netButtonClicked() {
-        let alert = UIAlertController(title: "Switch Network",
-                                      message: "Change transaction blockchain",
-                                      preferredStyle: .actionSheet)
-        
-        let pickerViewValues: [String] = Web3NetEnum.allCases.map{
-            "\($0)".firstUppercased }.filter{$0 != "Custom"}
-        
-        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0,
-                                                                       row: pickerViewValues
-            .firstIndex(of: Web3Net.fetchFromCache().firstUppercased) ?? 0)
-        
-        alert.addPickerView(values: [pickerViewValues],
-                            initialSelection: pickerViewSelectedValue) {
-                                vc, picker, index, values in
-            let string = values[0][index.row].lowercased()
-            Web3Net.upodateNetworkSelection(type: Web3NetEnum(rawValue: string)!)
-        }
-        
-        alert.addAction(title: "Done", style: .cancel)
-        alert.show()
+        let vc = NetworkSwitchViewController()
+        navigationController?.pushViewController(vc, animated: true)
+//        HUDManager.shared.showAlertViewController(viewController: vc)
     }
     
     // MARK: - mnemonics
     
     @IBAction func mnemonicsClicked() {
-        biometricsVerify()
+        #if DEBUG
+            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+        #else
+            biometricsVerify()
+        #endif
     }
     
     @objc func updateNetwork() {

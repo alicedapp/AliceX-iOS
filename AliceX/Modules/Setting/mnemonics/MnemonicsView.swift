@@ -24,9 +24,13 @@ class MnemonicsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.roundCorners([.topLeft, .topRight], radius: 10)
+        self.roundCorners(corners: [.topLeft, .topRight], radius: 10)
         let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
         secretView.text = mnemonics
+    }
+    
+    @IBAction func copyClicked() {
+        UIPasteboard.general.string = secretView.text
     }
     
     @IBAction func showClicked() {

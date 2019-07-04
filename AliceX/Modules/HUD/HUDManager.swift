@@ -67,4 +67,28 @@ class HUDManager: NSObject {
         }
     }
     
+    func showAlertViewController(viewController: UIViewController) {
+        
+        DispatchQueue.main.async {
+            
+            var attributes: EKAttributes = EKAttributes()
+            attributes = .bottomFloat
+            attributes.displayDuration = .infinity
+            attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
+            attributes.entryBackground = .color(color: .white)
+            attributes.screenInteraction = .dismiss
+            attributes.entryInteraction = .absorbTouches
+            attributes.scroll = .edgeCrossingDisabled(swipeable: true)
+            
+            attributes.entranceAnimation = .init(translate: .init(duration: 0.5, spring: .init(damping: 1, initialVelocity: 0)))
+            attributes.exitAnimation = .init(translate: .init(duration: 0.35))
+            attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.35)))
+            attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 6))
+            attributes.positionConstraints.size = .init(width: .fill, height: .ratio(value: 0.6))
+            attributes.positionConstraints.verticalOffset = 0
+            attributes.positionConstraints.safeArea = .overridden
+            
+            SwiftEntryKit.display(entry: viewController, using: attributes)
+        }
+    }
 }

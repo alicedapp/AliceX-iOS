@@ -26,9 +26,9 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mnemonics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tl3-4I-3EB">
-                            <rect key="frame" x="150.5" y="19.5" width="88.5" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="143.5" y="18.5" width="102.5" height="23"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1m-Z0-6xN">
@@ -39,15 +39,25 @@
                                 <action selector="showClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="sXm-Qz-39j"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1B-zq-1FR">
+                            <rect key="frame" x="15" y="14" width="38" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Copy"/>
+                            <connections>
+                                <action selector="copyClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="fwH-eL-XXg"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Sde-gn-Iw8" secondAttribute="trailing" id="0zM-oK-WAU"/>
                         <constraint firstAttribute="height" constant="60" id="2pr-ed-uv2"/>
+                        <constraint firstItem="Z1B-zq-1FR" firstAttribute="leading" secondItem="k9H-8g-xxm" secondAttribute="leading" constant="15" id="7GL-cC-g0W"/>
                         <constraint firstItem="tl3-4I-3EB" firstAttribute="centerX" secondItem="k9H-8g-xxm" secondAttribute="centerX" id="TYe-Ha-goq"/>
                         <constraint firstAttribute="trailing" secondItem="A1m-Z0-6xN" secondAttribute="trailing" constant="15" id="UVd-0t-c5k"/>
                         <constraint firstAttribute="bottom" secondItem="Sde-gn-Iw8" secondAttribute="bottom" id="VJM-2T-gvM"/>
                         <constraint firstItem="A1m-Z0-6xN" firstAttribute="centerY" secondItem="k9H-8g-xxm" secondAttribute="centerY" id="Yqr-2U-Dxf"/>
+                        <constraint firstItem="Z1B-zq-1FR" firstAttribute="centerY" secondItem="k9H-8g-xxm" secondAttribute="centerY" id="cPd-hc-Buz"/>
                         <constraint firstItem="Sde-gn-Iw8" firstAttribute="leading" secondItem="k9H-8g-xxm" secondAttribute="leading" id="dyU-wS-WYX"/>
                         <constraint firstItem="tl3-4I-3EB" firstAttribute="centerY" secondItem="k9H-8g-xxm" secondAttribute="centerY" id="hM5-28-KO0"/>
                     </constraints>

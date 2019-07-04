@@ -12,15 +12,18 @@ import SPStorkController
 @objc(NativeVCModule)
 class NativeVCModule: NSObject {
     @objc func setting() {
-        let topVC = UIApplication.topViewController()
-        let modal = SettingViewController()
-        let navi = UINavigationController(rootViewController: modal)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        navi.transitioningDelegate = transitionDelegate
-        navi.modalPresentationStyle = .custom
-        transitionDelegate.showIndicator = false
-        transitionDelegate.indicatorColor = UIColor.white
-        transitionDelegate.hideIndicatorWhenScroll = true
-        topVC?.present(navi, animated: true, completion: nil)
+        
+        DispatchQueue.main.async {
+            let topVC = UIApplication.topViewController()
+            let modal = SettingViewController()
+            let navi = BaseNavigationController(rootViewController: modal)
+            let transitionDelegate = SPStorkTransitioningDelegate()
+            navi.transitioningDelegate = transitionDelegate
+            navi.modalPresentationStyle = .custom
+            transitionDelegate.showIndicator = false
+            transitionDelegate.indicatorColor = UIColor.white
+            transitionDelegate.hideIndicatorWhenScroll = true
+            topVC?.present(navi, animated: true, completion: nil)
+        }
     }
 }

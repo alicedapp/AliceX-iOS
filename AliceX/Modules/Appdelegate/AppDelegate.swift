@@ -31,15 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var vc = UIViewController()
         
-        if !WalletManager.hasWallet() {
+        if WalletManager.hasWallet() {
             vc = RNModule.makeViewController(module: .alice)
 //            vc = SettingViewController()
         } else {
             vc = LandingViewController()
         }
         
-        let rootVC = UINavigationController.init(rootViewController: vc)
-        rootVC.hero.isEnabled = true
+        let rootVC = BaseNavigationController.init(rootViewController: vc)
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         navi = rootVC
