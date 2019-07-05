@@ -144,6 +144,7 @@ class WalletManager {
 //        guard let completion = completion else { return }
         
         HUDManager.shared.showSuccess(text: "Replace wallet success")
+        CallRNModule.sendWalletChangedEvent(address: address)
     }
     
     // MARK: - Notification

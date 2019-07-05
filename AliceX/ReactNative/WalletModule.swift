@@ -27,6 +27,18 @@ class WalletModule: NSObject {
         }
     }
     
+    @objc func getAddress(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            guard let address = try? TransactionManager.getAddress()
+                else {
+                    reject("1", "Fetch address failure", nil)
+                    return
+            }
+            resolve(address)
+        }
+    }
+    
+    
     @objc func sendTransaction(_ to: String, value: String,
                                callback successCallback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {

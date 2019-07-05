@@ -18,6 +18,7 @@
 RCT_EXTERN_METHOD(sendTransaction:(NSString *)to value:(NSString *)value callback:(RCTResponseSenderBlock *)successCallback)
 
 RCT_EXTERN_METHOD(getAddress:(RCTResponseSenderBlock *)successCallback)
+RCT_EXTERN_METHOD(getAddress:(RCTPromiseResolveBlock)resolve rejecte:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(signMessage:(NSString *)message callback:(RCTResponseSenderBlock *)successCallback)
 
@@ -46,9 +47,15 @@ RCT_EXTERN_METHOD(read:(NSString *)contractAddress
 
 # pragma - Native View Controller
 
-
 @interface RCT_EXTERN_MODULE(NativeVCModule, NSObject)
 
 RCT_EXTERN_METHOD(setting)
+
+@end
+
+
+# pragma - Broadcasting to RN
+
+@interface RCT_EXTERN_MODULE(CallRNModule, RCTEventEmitter)
 
 @end

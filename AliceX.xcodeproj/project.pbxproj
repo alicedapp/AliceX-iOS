@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */; };
 		1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871C22ADEBEE00D63C7F /* Constant.swift */; };
 		1527871F22ADEDAB00D63C7F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871E22ADEDAB00D63C7F /* Style.swift */; };
 		1527872122ADEE0900D63C7F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872022ADEE0900D63C7F /* UIColor.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRNModule.swift; sourceTree = "<group>"; };
 		1527871C22ADEBEE00D63C7F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1527871E22ADEDAB00D63C7F /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		1527872022ADEE0900D63C7F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				156548E622CDB6B4005C8B2D /* NativeVCModule.swift */,
 				158B375822AF5DB3005FECAB /* RNBridge.m */,
 				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
+				151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
 				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
+				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
