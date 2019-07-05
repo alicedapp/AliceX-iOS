@@ -12,7 +12,7 @@ import React
 @objc(CallRNModule)
 class CallRNModule: RCTEventEmitter {
     
-    static let walletChangedEvent = "WalletChange"
+    static let walletChangedEvent = "walletChangedEvent"
     static let address = "walletAddress"
     
     // MARK: RCTEventEmitter
