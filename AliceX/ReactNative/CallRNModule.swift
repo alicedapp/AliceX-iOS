@@ -13,7 +13,7 @@ import React
 class CallRNModule: RCTEventEmitter {
     
     static let walletChangedEvent = "walletChangedEvent"
-    static let address = "walletAddress"
+    static let addressKey = "address"
     
     // MARK: RCTEventEmitter
     override func supportedEvents() -> [String]! {
@@ -26,7 +26,7 @@ class CallRNModule: RCTEventEmitter {
                 return
         }
         
-        let counterEventInfo: [String: Any] = [address: address]
-        rnEventEmitter.sendEvent(withName: walletChangedEvent, body: counterEventInfo)
+        let walletInfo: [String: Any] = [addressKey: address]
+        rnEventEmitter.sendEvent(withName: walletChangedEvent, body: walletInfo)
     }
 }
