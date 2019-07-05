@@ -16,16 +16,16 @@ class WalletModule: NSObject {
 
     // You won't be on the main thread when called from JavaScript
 //    
-//    @objc func getAddress(_ successCallback: @escaping RCTResponseSenderBlock) {
-//        DispatchQueue.main.async {
-//            guard let address = try? TransactionManager.getAddress()
-//                else {
-//                    successCallback(["No address"])
-//                    return
-//            }
-//            successCallback([address])
-//        }
-//    }
+    @objc func getAddressCallback(_ successCallback: @escaping RCTResponseSenderBlock) {
+        DispatchQueue.main.async {
+            guard let address = try? TransactionManager.getAddress()
+                else {
+                    successCallback(["No address"])
+                    return
+            }
+            successCallback([address])
+        }
+    }
     
     @objc func getAddress(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
@@ -37,7 +37,6 @@ class WalletModule: NSObject {
             resolve(address)
         }
     }
-    
     
     @objc func sendTransaction(_ to: String, value: String,
                                callback successCallback: @escaping RCTResponseSenderBlock) {

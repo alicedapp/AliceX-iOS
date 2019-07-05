@@ -18,7 +18,7 @@
 RCT_EXTERN_METHOD(sendTransaction:(NSString *)to value:(NSString *)value callback:(RCTResponseSenderBlock *)successCallback)
 
 //RCT_EXTERN_METHOD(getAddress:(RCTResponseSenderBlock *)successCallback)
-RCT_EXTERN_METHOD(getAddress:(RCTPromiseResolveBlock)resolve rejecte:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(getAddress:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(signMessage:(NSString *)message callback:(RCTResponseSenderBlock *)successCallback)
 
