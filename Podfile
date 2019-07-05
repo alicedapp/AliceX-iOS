@@ -2,12 +2,13 @@ platform :ios, '10.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
-plugin 'cocoapods-wholemodule'
+pre_install do |installer|
+    def installer.verify_no_static_framework_transitive_dependencies; end
+end
 
 target 'AliceX' do
   use_frameworks!
 
-pod 'OneSignal', '~> 2.10'  
   pod 'web3.swift.pod', '~> 2.2.0'
   pod 'KeychainSwift', '~> 16.0'
   pod 'SPStorkController'
