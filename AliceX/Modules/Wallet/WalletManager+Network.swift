@@ -13,13 +13,34 @@ private let web3NetStoreKey = "alice.web3.net"
 
 enum Web3NetEnum: String, CaseIterable {
     case main
-    case rinkeby
     case ropsten
     case kovan
+    case rinkeby
     case goerli
     case poa
     
     case custom
+}
+
+extension Web3NetEnum {
+    var color: UIColor {
+        switch self {
+        case .main:
+            return UIColor(hex: "#45A9A5")
+        case .ropsten:
+            return UIColor(hex: "#EF5081")
+        case .kovan:
+            return UIColor(hex: "#6746F9")
+        case .rinkeby:
+            return UIColor(hex: "#EDBF49")
+        case .goerli:
+            return UIColor(hex: "#4383DE")
+        case .poa:
+            return UIColor(hex: "#F19164")
+        default:
+            return UIColor.white
+        }
+    }
 }
 
 class Web3Net {

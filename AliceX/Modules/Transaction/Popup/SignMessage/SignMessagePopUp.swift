@@ -88,6 +88,19 @@ class SignMessagePopUp: UIViewController {
         
     }
     
+    @IBAction func payButtonClick() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            self.payButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self.progressIndicator.updateProgress(0.2, animated: true, initialDelay: 0, duration: 0.2, completion: {
+                self.progressIndicator.updateProgress(0)
+            })
+        }) { (_) in
+            UIView.animate(withDuration: 0.2) {
+                self.payButton.transform = CGAffineTransform.identity
+            }
+        }
+    }
+    
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
         
         switch gesture.state {

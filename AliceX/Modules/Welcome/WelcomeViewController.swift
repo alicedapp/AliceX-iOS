@@ -19,7 +19,7 @@ class WelcomeViewController: BaseViewController {
         super.viewDidLoad()
         nLable.isEditable = false
         
-        let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
+        let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
         nLable.text = mnemonics
         
         let address = WalletManager.wallet?.address
@@ -29,7 +29,7 @@ class WelcomeViewController: BaseViewController {
     
     @IBAction func createAccount() {
         WalletManager.createAccount { () -> Void in
-            let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
+            let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
             self.nLable.text = mnemonics
             
             let address = WalletManager.wallet?.address
@@ -43,7 +43,7 @@ class WelcomeViewController: BaseViewController {
         
         do {
             try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in
-                let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
+                let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
                 self.nLable.text = mnemonics
                 
                 let address = WalletManager.wallet?.address

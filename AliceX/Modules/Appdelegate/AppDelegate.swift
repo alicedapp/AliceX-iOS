@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         WalletManager.loadFromCache()
-        let jsCodeLocation = URL(string: "http://172.20.10.12:8081/index.bundle?platform=ios")
+        let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: nil)
 
         window = UIWindow.init(frame: UIScreen.main.bounds)

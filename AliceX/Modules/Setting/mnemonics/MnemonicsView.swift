@@ -21,7 +21,7 @@ class MnemonicsView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.roundCorners(corners: [.topLeft, .topRight], radius: 10)
-        let mnemonics = KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
+        let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
         secretView.text = mnemonics
     }
     

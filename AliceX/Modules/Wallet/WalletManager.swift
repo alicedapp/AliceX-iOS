@@ -73,7 +73,7 @@ class WalletManager {
         let bitsOfEntropy: Int = 128 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
         let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
         
-        KeychainHepler.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
         
         let keystore = try! BIP32Keystore(mnemonics: mnemonics)
         let name = Setting.WalletName
@@ -106,7 +106,7 @@ class WalletManager {
             throw WalletError.malformedKeystore
         }
         
-        KeychainHepler.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
         
         let name = Setting.WalletName
         let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
@@ -130,7 +130,7 @@ class WalletManager {
             return
         }
         
-        KeychainHepler.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
         
         let name = Setting.WalletName
         let keyData = try! JSONEncoder().encode(keystore.keystoreParams)

@@ -7,23 +7,22 @@
 //
 
 import Foundation
-import KeychainSwift
+import KeychainAccess
 
 class KeychainHepler {
     static let shared = KeychainHepler()
     
-    var keychain: KeychainSwift?
+    var keychain: Keychain?
     
     private init() {
-        keychain = KeychainSwift(keyPrefix: Setting.AliceKeychainPrefix)
-        keychain!.synchronizable = true
+        keychain = Keychain(service: Setting.AliceKeychainPrefix)
     }
     
-    class func saveToKeychain(value: String, key: String) {
-        KeychainHepler.shared.keychain!.set(value, forKey: key)
+    func saveToKeychain(value: String, key: String) {
+        keychain![key] = value
     }
     
-    class func fetchKeychain(key: String) -> String? {
-        return KeychainHepler.shared.keychain!.get(key)
+    func fetchKeychain(key: String) -> String? {
+        return keychain![key]
     }
 }

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NetworkTableViewCell" rowHeight="59" id="KGk-i7-Jjw" customClass="NetworkTableViewCell" customModule="AliceX" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NetworkTableViewCell" rowHeight="59" id="KGk-i7-Jjw" customClass="NetworkTableViewCell" customModule="AliceX" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="334" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainNet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc0-E0-Asa">
-                        <rect key="frame" x="20" y="19.5" width="64" height="20"/>
+                        <rect key="frame" x="35" y="19.5" width="64" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -38,19 +38,35 @@
                             <constraint firstAttribute="height" constant="1" id="7Bk-il-geG"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZz-oo-2bE">
+                        <rect key="frame" x="11.5" y="23.5" width="12" height="12"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="Suq-aX-e8Z"/>
+                            <constraint firstAttribute="width" constant="12" id="yD1-pO-mJH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Pig-T1-xvv" secondAttribute="trailing" constant="20" id="Dda-f6-o3U"/>
+                    <constraint firstItem="fZz-oo-2bE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K3g-SH-wsH"/>
                     <constraint firstAttribute="trailing" secondItem="oTX-p4-UQJ" secondAttribute="trailing" id="M8e-CO-jkp"/>
+                    <constraint firstItem="fZz-oo-2bE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11.5" id="RDS-Ua-nv3"/>
                     <constraint firstAttribute="bottom" secondItem="oTX-p4-UQJ" secondAttribute="bottom" id="Vj9-Ov-DuX"/>
                     <constraint firstItem="oTX-p4-UQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="WUr-Aw-icF"/>
                     <constraint firstItem="Mc0-E0-Asa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZC2-zv-sR4"/>
-                    <constraint firstItem="Mc0-E0-Asa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="glN-U8-60P"/>
+                    <constraint firstItem="Mc0-E0-Asa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="glN-U8-60P"/>
                     <constraint firstItem="Pig-T1-xvv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="skG-Rw-VfZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="colorView" destination="fZz-oo-2bE" id="f9J-cQ-Cd9"/>
                 <outlet property="nameLabel" destination="Mc0-E0-Asa" id="Awi-So-Skj"/>
                 <outlet property="selectLabel" destination="Pig-T1-xvv" id="wut-ZT-6zC"/>
             </connections>

@@ -12,6 +12,7 @@ class NetworkTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var selectLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,12 @@ class NetworkTableViewCell: UITableViewCell {
 //            selectLabel.isHidden = false
 //            isSelected = true
 //        }
+        colorView.backgroundColor = Web3NetEnum(rawValue: network.lowercased())?.color
         nameLabel.text = network
     }
+    
+//    @IBAction func cellClicked() {
+//        let netName = nameLabel.text?.lowercased()
+//        Web3Net.upodateNetworkSelection(type: Web3NetEnum(rawValue: netName!)!)
+//    }
 }

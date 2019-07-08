@@ -1,16 +1,15 @@
 platform :ios, '10.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
-
-pre_install do |installer|
-    def installer.verify_no_static_framework_transitive_dependencies; end
-end
+plugin 'cocoapods-binary'
 
 target 'AliceX' do
   use_frameworks!
+  keep_source_code_for_prebuilt_frameworks!
+  enable_bitcode_for_prebuilt_frameworks!
 
-  pod 'web3.swift.pod', '~> 2.2.0'
-  pod 'KeychainSwift', '~> 16.0'
+  pod 'web3.swift.pod', '~> 2.2.1' , :binary => true
+  pod 'KeychainAccess'
   pod 'SPStorkController'
   pod 'IQKeyboardManagerSwift'
   pod 'HandyJSON', '~> 5.0.0'
@@ -20,7 +19,6 @@ target 'AliceX' do
   pod 'MarqueeLabel'
   pod 'Hero'
 #  pod 'lottie-ios'
-#  pod 'SwipeableTabBarController'
 
 #   React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
@@ -45,5 +43,4 @@ target 'AliceX' do
   pod 'react-native-onesignal',
   :path => "../node_modules/react-native-onesignal/react-native-onesignal.podspec",
   :inhibit_warnings => true
-
 end
