@@ -1,7 +1,13 @@
 PODS:
   - Alamofire (4.8.2)
+  - Base64 (1.1.2)
   - BigInt (4.0.0)
   - boost-for-react-native (1.63.0)
+  - CodePush (5.6.0):
+    - Base64 (~> 1.1)
+    - JWT (~> 3.0.0-beta.7)
+    - React
+    - SSZipArchive (~> 2.1)
   - CryptoSwift (1.0.0)
   - DoubleConversion (1.1.5)
   - fluid-slider (1.1.0):
@@ -14,6 +20,8 @@ PODS:
   - HandyJSON (5.0.0)
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.4.0)
+  - JWT (3.0.0-beta.11):
+    - Base64 (~> 1.1.2)
   - KeychainAccess (3.2.0)
   - MarqueeLabel (4.0.0)
   - Moya (13.0.1):
@@ -43,7 +51,7 @@ PODS:
     - React
   - react-native-camera/RN (2.10.1):
     - React
-  - react-native-mapbox-gl (6.1.4):
+  - react-native-mapbox-gl (7.0.0-rc3):
     - React
   - react-native-onesignal (3.2.14):
     - OneSignal (= 2.10.0)
@@ -102,6 +110,7 @@ PODS:
     - React
   - secp256k1.c (0.1.2)
   - SPStorkController (1.6.6)
+  - SSZipArchive (2.2.2)
   - Starscream (3.1.0)
   - SwiftEntryKit (1.0.2):
     - QuickLayout (= 3.0.0)
@@ -114,6 +123,7 @@ PODS:
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
+  - CodePush (from `../node_modules/react-native-code-push`)
   - fluid-slider
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - HandyJSON (~> 5.0.0)
@@ -123,7 +133,7 @@ DEPENDENCIES:
   - MarqueeLabel
   - Moya (~> 13.0)
   - react-native-camera (from `../node_modules/react-native-camera`)
-  - "react-native-mapbox-gl (from `../node_modules/@mapbox/react-native-mapbox-gl`)"
+  - "react-native-mapbox-gl (from `../node_modules/@react-native-mapbox-gl/maps`)"
   - react-native-onesignal (from `../node_modules/react-native-onesignal/react-native-onesignal.podspec`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -145,6 +155,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Base64
     - BigInt
     - boost-for-react-native
     - CryptoSwift
@@ -154,6 +165,7 @@ SPEC REPOS:
     - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
+    - JWT
     - KeychainAccess
     - MarqueeLabel
     - Moya
@@ -164,11 +176,14 @@ SPEC REPOS:
     - Result
     - secp256k1.c
     - SPStorkController
+    - SSZipArchive
     - Starscream
     - SwiftEntryKit
     - web3.swift.pod
 
 EXTERNAL SOURCES:
+  CodePush:
+    :path: "../node_modules/react-native-code-push"
   Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   React:
@@ -176,7 +191,7 @@ EXTERNAL SOURCES:
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-mapbox-gl:
-    :path: "../node_modules/@mapbox/react-native-mapbox-gl"
+    :path: "../node_modules/@react-native-mapbox-gl/maps"
   react-native-onesignal:
     :path: "../node_modules/react-native-onesignal/react-native-onesignal.podspec"
   RNGestureHandler:
@@ -186,8 +201,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  CodePush: 300e90b3481fa82569090406165b83745de3613a
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
   fluid-slider: 68037ac7247f16a89f3e24ff5d0167c8eea6f50b
@@ -196,6 +213,7 @@ SPEC CHECKSUMS:
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -205,17 +223,18 @@ SPEC CHECKSUMS:
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 702c01e2ebbe26c9fb1ad24101282fbb26e9e00b
-  react-native-mapbox-gl: a01d1781ac71d2a1a85b465436dbe741b28d873a
+  react-native-mapbox-gl: 26cabddce8bf6f39164c7be4dceb781e6fab0fdc
   react-native-onesignal: 9a4e80101699f2363575841bf8dacb39c26ba4cd
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SPStorkController: cebb6a1e3814b830f8e3e34ddbbc7178b869f278
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SwiftEntryKit: 7bcd42b3dbff59c431d60d6513129fd3679e4aaf
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: b5ef202f97d66629522e658f7df5ccb7907486c1
+PODFILE CHECKSUM: fb295a9699455800929e40495e2e2e31d4cc9657
 
 COCOAPODS: 1.6.0

@@ -39,8 +39,10 @@ target 'AliceX' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'react-native-camera', path: '../node_modules/react-native-camera'
-  pod 'react-native-mapbox-gl', :path => '../node_modules/@mapbox/react-native-mapbox-gl'
+  pod 'react-native-mapbox-gl', :path => '../node_modules/@react-native-mapbox-gl/maps'
   pod 'react-native-onesignal',
   :path => "../node_modules/react-native-onesignal/react-native-onesignal.podspec",
   :inhibit_warnings => true
+  
+  pod 'CodePush', :path => '../node_modules/react-native-code-push'
 end

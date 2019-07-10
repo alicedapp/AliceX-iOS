@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import React
+import CodePush
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -26,9 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         WalletManager.loadFromCache()
         let jsCodeLocation: URL
+        func sourceURL(bridge: RCTBridge?) -> URL? {
+            #if DEBUG
+            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+            #else
+            return CodePush.bundleURL()
+            #endif
+        }
+
+//        jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource:nil)
         
-        jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource:nil)
-        bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: nil)
+        bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.clear

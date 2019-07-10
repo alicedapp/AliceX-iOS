@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AppSecret</key>
+	<string>8a87316c-76fe-457e-aaea-351e92b8d881</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -17,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.0.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -31,6 +33,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CodePushDeploymentKey</key>
+	<string>8a87316c-76fe-457e-aaea-351e92b8d881</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NFCReaderUsageDescription</key>
@@ -39,6 +43,11 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>codepush.azurewebsites.net</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
@@ -72,6 +81,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -91,5 +101,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
