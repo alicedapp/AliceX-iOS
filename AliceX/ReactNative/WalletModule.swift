@@ -63,12 +63,12 @@ class WalletModule: NSObject {
         }
     }
     
-    @objc func sendTransactionWithDapplet(_ to: String, value: String,
+    @objc func sendTransactionWithDapplet(_ to: String, value: String, data: String,
                                           resolve: @escaping RCTPromiseResolveBlock,
                                           reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showRNCustomPaymentView(toAddress: to,
-                                                       amount: value,
+                                                       amount: value, data: data,
                                                        success: { (tx) -> Void in
                 resolve(tx)
             })
