@@ -163,6 +163,7 @@ class WalletManager {
         do {
             let net = try Web3Net.make(type: type)
             WalletManager.web3Net = net
+            addKeyStoreIfNeeded()
             Web3Net.storeInCache(type: type)
             Web3Net.currentNetwork = type
             NotificationCenter.default.post(name: .networkChange, object: type)

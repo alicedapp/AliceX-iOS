@@ -17,6 +17,7 @@
 
 RCT_EXTERN_METHOD(sendTransaction:(NSString *)to
                   value:(NSString *)value
+                  data:(NSString *)data
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 

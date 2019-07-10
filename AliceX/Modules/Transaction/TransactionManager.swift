@@ -119,6 +119,10 @@ class TransactionManager {
         guard etherBalanceInDouble >= amountInDouble else {
             throw WalletError.insufficientBalance
         }
+        
+        guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
 
         let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
         let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
@@ -168,8 +172,12 @@ class TransactionManager {
             throw WalletError.invalidAddress
         }
         
+        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
+        print(keystore)
+        
         let abiVersion = 2
-//        let extraData: Data = extraData
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
         let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
         
@@ -181,8 +189,7 @@ class TransactionManager {
         let tx = contract!.write(
             functionName,
             parameters: parameters as [AnyObject],
-            extraData: Data(),
-//            extraData,
+            extraData: extraData,
             transactionOptions: options)!
         
         do {
