@@ -39,39 +39,43 @@ class WalletModule: NSObject {
     }
     
     @objc func sendTransaction(_ to: String, value: String,
-                               callback successCallback: @escaping RCTResponseSenderBlock) {
+                               resolve: @escaping RCTPromiseResolveBlock,
+                               reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showPaymentView(toAddress: to,
                                                amount: value,
                                                symbol: "ETH",
                                                success: { (tx) -> Void in
-                successCallback([tx])
+                                                resolve(tx)
             })
         }
     }
     
     @objc func sendTransactionWithDapplet(_ to: String, value: String,
-                                          callback successCallback: @escaping RCTResponseSenderBlock) {
+                                          resolve: @escaping RCTPromiseResolveBlock,
+                                          reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showRNCustomPaymentView(toAddress: to,
                                                        amount: value,
                                                        success: { (tx) -> Void in
-                successCallback([tx])
+                resolve(tx)
             })
         }
     }
     
-    @objc func signMessage(_ message: String, callback successCallback: @escaping RCTResponseSenderBlock) {
+    @objc func signMessage(_ message: String,
+                           resolve: @escaping RCTPromiseResolveBlock,
+                           reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showSignMessageView(message: message) { (signData) in
-                successCallback([signData])
+                resolve(signData)
             }
         }
     }
     
     @objc func signTransaction(_ to: String, value: String, data: String,
                                resolve: @escaping RCTPromiseResolveBlock,
-                               reject: @escaping RCTPromiseRejectBlock ) {
+                               reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showSignTransactionView(to: to, value: value, data: data, success: { (signJson) in
                 resolve(signJson)

@@ -271,7 +271,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 680
+        transitionDelegate.customHeight = 630
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -312,8 +312,8 @@ class TransactionManager {
                                   account: walletAddress,
                                   password: Setting.password)
             
-            let test = tx
-            print(test.toJsonString())
+            print(tx.description)
+            return tx.toJsonString()
         } catch {
             HUDManager.shared.showError()
         }

@@ -16,7 +16,8 @@ class ContractModule: NSObject {
                      parameters: [Any],
                      value: String,
                      data: String,
-                     callback successCallback: @escaping RCTResponseSenderBlock) {
+                     resolve: @escaping RCTPromiseResolveBlock,
+                     reject: @escaping RCTPromiseRejectBlock) {
         
         DispatchQueue.main.async {
             
@@ -26,13 +27,15 @@ class ContractModule: NSObject {
                                                      parameters: parameters,
                                                      value: value,
                                                      extraData: data) { (txHash) in
-                    successCallback([txHash])
+                    resolve(txHash)
             }
         }
     }
     
-    @objc func read(_ contractAddress: String, abi: String, functionName: String, parameters: [Any],
-                    callback successCallback: @escaping RCTResponseSenderBlock) {
+    @objc func read(_ contractAddress: String, abi: String,
+                    functionName: String, parameters: [Any],
+                    resolve: @escaping RCTPromiseResolveBlock,
+                    reject: @escaping RCTPromiseRejectBlock) {
         
         DispatchQueue.main.async {
             do {
@@ -40,10 +43,10 @@ class ContractModule: NSObject {
                                                                   functionName: functionName,
                                                                   abi: abi,
                                                                   parameters: parameters)
-                successCallback([tx])
+                resolve(tx)
             } catch {
                 print(error)
-                successCallback([error])
+                reject("1", error.localizedDescription, nil)
             }
         }
     }

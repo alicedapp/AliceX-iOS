@@ -40,6 +40,8 @@ class SignTransactionPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        amountLabel.text = amount
+        
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true
         
@@ -163,8 +165,9 @@ class SignTransactionPopUp: UIViewController {
     func send() {
         do {
             let signJson = try TransactionManager.signTransaction(to: toAddress!, amount: amount!, dataString: data!)
+            messageTextView.text = signJson
             successBlock!(signJson)
-            
+            self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
         } catch {

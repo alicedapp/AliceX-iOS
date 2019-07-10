@@ -23,7 +23,6 @@ struct EthereumTransactionModel: HandyJSON {
     var s: String?
     var chainID: String?
     var inferedChainID: String?
-//    var intrinsicChainID: String?
     var from: String?
     var hash: String?
     
@@ -47,8 +46,8 @@ extension EthereumTransaction {
         model.s = String(self.s)
         model.chainID = String(describing: self.intrinsicChainID)
         model.inferedChainID = String(describing: self.inferedChainID)
-        model.from = String(describing: self.sender?.address)
-        model.hash = String(describing: self.hash?.toHexString().addHexPrefix())
+        model.from = String(describing: self.sender!.address)
+        model.hash = String(describing: self.hash!.toHexString().addHexPrefix())
         return model.toJSONString(prettyPrint: true)!
     }
 }
