@@ -24,6 +24,9 @@ RCT_EXTERN_METHOD(sendTransaction:(NSString *)to
 RCT_EXTERN_METHOD(getAddress:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(getBalance:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(signMessage:(NSString *)message
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)

@@ -38,6 +38,17 @@ class WalletModule: NSObject {
         }
     }
     
+    @objc func getBalance(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            do {
+                let balance = try TransactionManager.shared.etherBalanceSync()
+                resolve(balance)
+            } catch {
+                reject("1", error.localizedDescription, nil)
+            }
+        }
+    }
+    
     @objc func sendTransaction(_ to: String, value: String,
                                resolve: @escaping RCTPromiseResolveBlock,
                                reject: @escaping RCTPromiseRejectBlock) {
