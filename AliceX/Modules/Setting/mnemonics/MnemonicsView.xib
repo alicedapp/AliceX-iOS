@@ -65,20 +65,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-H1-Wki">
                     <rect key="frame" x="15" y="70" width="359" height="250"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sadasdsa" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmv-eb-o3d">
-                            <rect key="frame" x="10" y="10" width="339" height="230"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-IZ-Aha">
+                            <rect key="frame" x="12" y="12" width="335" height="226"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="7XY-IZ-Aha" firstAttribute="leading" secondItem="fgi-H1-Wki" secondAttribute="leading" constant="12" id="5yH-Rl-RDh"/>
                         <constraint firstAttribute="height" constant="250" id="7X2-QU-Stw"/>
-                        <constraint firstItem="dmv-eb-o3d" firstAttribute="leading" secondItem="fgi-H1-Wki" secondAttribute="leading" constant="10" id="FjQ-Pf-THt"/>
-                        <constraint firstItem="dmv-eb-o3d" firstAttribute="top" secondItem="fgi-H1-Wki" secondAttribute="top" constant="10" id="Uvo-qH-eFn"/>
-                        <constraint firstAttribute="trailing" secondItem="dmv-eb-o3d" secondAttribute="trailing" constant="10" id="Wd3-fH-0GS"/>
-                        <constraint firstAttribute="bottom" secondItem="dmv-eb-o3d" secondAttribute="bottom" constant="10" id="z9F-JG-Jrd"/>
+                        <constraint firstItem="7XY-IZ-Aha" firstAttribute="top" secondItem="fgi-H1-Wki" secondAttribute="top" constant="12" id="I2C-iO-eI1"/>
+                        <constraint firstAttribute="trailing" secondItem="7XY-IZ-Aha" secondAttribute="trailing" constant="12" id="dZA-0c-Y2v"/>
+                        <constraint firstAttribute="bottom" secondItem="7XY-IZ-Aha" secondAttribute="bottom" constant="12" id="dhL-iO-dyy"/>
                     </constraints>
                 </view>
             </subviews>
@@ -94,7 +95,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="secretView" destination="dmv-eb-o3d" id="QsT-BT-Me8"/>
+                <outlet property="secretView" destination="7XY-IZ-Aha" id="hhz-un-6sx"/>
             </connections>
             <point key="canvasLocation" x="-3.6231884057971016" y="48.214285714285715"/>
         </view>

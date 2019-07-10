@@ -10,7 +10,11 @@ import UIKit
 
 class MnemonicsView: UIView {
     
-    @IBOutlet weak var secretView: UITextField!
+    @IBOutlet weak var secretView: UITextView!
+    
+    var isShown: Bool = false
+    var secertText = "🎩👱‍♀️🐇🕳   ✨😺 🤡☕     🍰🧁💨🐛    🐇🕒🏰    ♠️♣️❤️👸"
+    let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
     
     class func instanceFromNib() -> MnemonicsView {
         let view = UINib(nibName: self.nameOfClass, bundle: nil)
@@ -21,18 +25,27 @@ class MnemonicsView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.roundCorners(corners: [.topLeft, .topRight], radius: 10)
-        let mnemonics = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
-        secretView.text = mnemonics
+        secretView.text = secertText
     }
     
     @IBAction func copyClicked() {
-        UIPasteboard.general.string = secretView.text
+        UIPasteboard.general.string = mnemonics
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
     
     @IBAction func showClicked() {
-        secretView.isSecureTextEntry = !secretView.isSecureTextEntry
+        isShown = !isShown
+        updateText()
+    }
+    
+    func updateText() {
+        if isShown {
+            secretView.text = mnemonics
+            return
+        }
+        
+        secretView.text = secertText
     }
     
 }
