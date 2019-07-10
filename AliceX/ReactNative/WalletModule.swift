@@ -49,12 +49,13 @@ class WalletModule: NSObject {
         }
     }
     
-    @objc func sendTransaction(_ to: String, value: String,
+    @objc func sendTransaction(_ to: String, value: String, data: String,
                                resolve: @escaping RCTPromiseResolveBlock,
                                reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             TransactionManager.showPaymentView(toAddress: to,
                                                amount: value,
+                                               data: data,
                                                symbol: "ETH",
                                                success: { (tx) -> Void in
                                                 resolve(tx)

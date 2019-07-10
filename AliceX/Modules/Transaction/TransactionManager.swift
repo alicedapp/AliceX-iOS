@@ -16,9 +16,12 @@ class TransactionManager {
     
     // MARK: - Payment Popup
     
-    class func showPaymentView(toAddress: String, amount: String, symbol: String, success: @escaping StringBlock) {
+    class func showPaymentView(toAddress: String,
+                               amount: String,
+                               data: String,
+                               symbol: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, symbol: symbol, success: success)
+        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data,symbol: symbol, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
         transitionDelegate.customHeight = 400
         modal.transitioningDelegate = transitionDelegate
@@ -26,11 +29,12 @@ class TransactionManager {
         topVC?.present(modal, animated: true, completion: nil)
     }
     
-    class func showRNCustomPaymentView(toAddress: String, amount: String, height: CGFloat = 500,
+    class func showRNCustomPaymentView(toAddress: String, amount: String,
+                                       height: CGFloat = 500, data: String,
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
-                                                     height: height, successBlock: success)
+                                       height: height, data: data, successBlock: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
         transitionDelegate.customHeight = height
         modal.transitioningDelegate = transitionDelegate
@@ -92,11 +96,11 @@ class TransactionManager {
 
     // MARK: - Send Transaction
 
-    public func sendEtherSync(to address: String, amount: String, password: String) throws -> String {
-        return try sendEtherSync(to: address, amount: amount, password: password, gasPrice: nil)
+    public func sendEtherSync(to address: String, amount: String, data: String, password: String) throws -> String {
+        return try sendEtherSync(to: address, amount: amount, dataString: data, password: password, gasPrice: nil)
     }
 
-    public func sendEtherSync(to address: String, amount: String,
+    public func sendEtherSync(to address: String, amount: String, dataString: String,
                               password: String, gasPrice: String?) throws -> String {
         
         guard let toAddress = EthereumAddress(address) else {
@@ -125,10 +129,12 @@ class TransactionManager {
         options.gasPrice = .automatic
         options.gasLimit = .automatic
 
+        let data = dataString.data(using: .utf8)!
+        
         let tx = contract.write(
             "fallback",
             parameters: [AnyObject](),
-            extraData: Data(),
+            extraData: data,
             transactionOptions: options)!
 
         do {

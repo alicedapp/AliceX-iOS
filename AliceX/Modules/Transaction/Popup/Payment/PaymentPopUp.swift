@@ -29,18 +29,21 @@ class PaymentPopUp: UIViewController {
     
     var toAddress: String?
     var amount: String?
+    var data: String?
     var successBlock: StringBlock?
     
     var slider: Slider = Slider()
     
     class func make(toAddress: String,
                     amount: String,
+                    data: String,
                     symbol: String,
                     success: @escaping StringBlock) -> PaymentPopUp {
         let vc = PaymentPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = success
+        vc.data = data
         return vc 
     }
     
@@ -226,7 +229,7 @@ class PaymentPopUp: UIViewController {
     func sendTx() {
         do {
             let txHash = try TransactionManager.shared.sendEtherSync(
-                to: self.toAddress!, amount: self.amount!, password: "")
+                to: self.toAddress!, amount: self.amount!, data: self.data!, password: "")
             print(txHash)
             self.successBlock!(txHash)
             self.dismiss(animated: true, completion: nil)

@@ -26,6 +26,7 @@ class RNCustomPopUp: UIViewController {
 
     var toAddress: String?
     var amount: String?
+    var data: String?
     var successBlock: StringBlock?
     
     var height: CGFloat = 500
@@ -33,13 +34,14 @@ class RNCustomPopUp: UIViewController {
     let footerHeight: CGFloat = 80+60+20
     let headerHeight: CGFloat = 10+60+20
     
-    class func make(toAddress: String, amount: String, height: CGFloat,
+    class func make(toAddress: String, amount: String, height: CGFloat, data: String,
                                   successBlock: @escaping StringBlock) -> RNCustomPopUp {
         let vc = RNCustomPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = successBlock
         vc.height = height
+        vc.data = data
         return vc
     }
     
@@ -170,7 +172,7 @@ class RNCustomPopUp: UIViewController {
                         if success {
                             // User authenticated successfully, take appropriate action
                             let txHash = try! TransactionManager.shared.sendEtherSync(
-                                to: self.toAddress!, amount: self.amount!, password: "")
+                                to: self.toAddress!, amount: self.amount!, data: self.data!, password: "")
                             print(txHash)
                             self.successBlock!(txHash)
                             self.dismiss(animated: true, completion: nil)
