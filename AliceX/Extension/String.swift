@@ -9,6 +9,14 @@
 import Foundation
 
 extension String {
+    
+    func addHexPrefix() -> String {
+        if !self.hasPrefix("0x") {
+            return "0x" + self
+        }
+        return self
+    }
+    
     var firstUppercased: String {
         return prefix(1).uppercased() + dropFirst()
     }

@@ -17,6 +17,7 @@ class Setting {
     static let WalletName = "AliceWallet"
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
+    static let password = "web3swift"
 }
 
 typealias MainFont = Font.HelveticaNeue

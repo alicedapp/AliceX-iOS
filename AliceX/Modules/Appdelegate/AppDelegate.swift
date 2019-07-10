@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         WalletManager.loadFromCache()
 
-        
         func sourceURL(bridge: RCTBridge?) -> URL? {
             #if DEBUG
             return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
@@ -37,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
-
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.clear

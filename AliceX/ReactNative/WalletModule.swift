@@ -68,4 +68,14 @@ class WalletModule: NSObject {
             }
         }
     }
+    
+    @objc func signTransaction(_ to: String, value: String, data: String,
+                               resolve: @escaping RCTPromiseResolveBlock,
+                               reject: @escaping RCTPromiseRejectBlock ) {
+        DispatchQueue.main.async {
+            TransactionManager.showSignTransactionView(to: to, value: value, data: data, success: { (signJson) in
+                resolve(signJson)
+            })
+        }
+    }
 }

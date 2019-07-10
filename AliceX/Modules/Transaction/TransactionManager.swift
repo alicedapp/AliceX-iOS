@@ -138,7 +138,7 @@ class TransactionManager {
             HUDManager.shared.showError(text: error.errorDescription)
         }
 //
-        return "Error"
+        return "error"
     }
     
     // MARK: - Call Smart Contract
@@ -260,10 +260,64 @@ class TransactionManager {
             let signedData = try Web3Signer.signPersonalMessage(msgData!,
                                                                  keystore: keystore,
                                                                  account: walletAddress,
-                                                                 password: "web3swift")
+                                                                 password: Setting.password)
             return (signedData?.toHexString())!
         } catch {
             throw WalletError.messageFailedToData
         }
+    }
+    
+    class func showSignTransactionView(to:String, value:String, data:String, success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 680
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
+    }
+    
+    class func signTransaction(to address: String, amount: String, dataString: String) throws -> String {
+        
+        guard let toAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let address = WalletManager.wallet?.address else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let walletAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
+        
+        let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
+        var options = TransactionOptions.defaultOptions
+        options.value = value
+        options.from = walletAddress
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        
+        let data = dataString.data(using: .utf8)
+        
+        var tx = EthereumTransaction(to: toAddress, data: data!, options: options)
+        
+        do {
+            try Web3Signer.signTX(transaction: &tx,
+                                  keystore: keystore,
+                                  account: walletAddress,
+                                  password: Setting.password)
+            
+            let test = tx
+            print(test.toJsonString())
+        } catch {
+            HUDManager.shared.showError()
+        }
+        
+        return "error"
     }
 }
