@@ -128,6 +128,7 @@
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
 		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
+		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		57DB9A04430958D600B66500 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 		8D38A72490D041400F0A6626 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_onesignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3C2A6322CF24880072FACE /* AliceX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		CD32284C64790E491D04155B /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,7 +342,6 @@
 		15B86B5722AA043F00110C06 /* AliceX */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C2A6322CF24880072FACE /* AliceX.entitlements */,
 				158B375022AF5BF0005FECAB /* ReactNative */,
 				15B86BA722AA1C4F00110C06 /* Base */,
 				15B86BB522AA1DC700110C06 /* Storyboard */,
@@ -444,6 +443,7 @@
 		15B86BB322AA1D9100110C06 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
@@ -1004,7 +1004,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1028,7 +1028,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

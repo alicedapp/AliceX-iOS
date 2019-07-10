@@ -95,3 +95,4 @@ AlphaWalletTests/Snapshots/FailureDiffs
 
 # Additions
 .idea/
+Podfile.lock
