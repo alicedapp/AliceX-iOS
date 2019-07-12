@@ -30,6 +30,7 @@ class WalletManager {
     }
     
     class func addKeyStoreIfNeeded() {
+        
         if !WalletManager.hasWallet() {
             return
         }

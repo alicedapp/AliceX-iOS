@@ -26,4 +26,12 @@ class NativeVCModule: NSObject {
             topVC?.present(navi, animated: true, completion: nil)
         }
     }
+    
+    @objc func browser() {
+        DispatchQueue.main.async {
+            let topVC = UIApplication.topViewController()
+            let modal = BrowserViewController()
+            topVC?.present(model, animated: true, completion: nil)
+        }
+    }
 }

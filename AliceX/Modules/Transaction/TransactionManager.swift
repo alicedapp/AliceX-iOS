@@ -267,14 +267,40 @@ class TransactionManager {
             throw WalletError.malformedKeystore
         }
         
-        let msgData = try! message.data(using: .utf8)
+//        let msgData = try! message.data(using: .utf8)
+        let msgData = Data.fromHex(message)
         
         do {
             let signedData = try Web3Signer.signPersonalMessage(msgData!,
                                                                  keystore: keystore,
                                                                  account: walletAddress,
                                                                  password: Setting.password)
-            return (signedData?.toHexString())!
+            return (signedData?.toHexString().addHexPrefix())!
+        } catch {
+            throw WalletError.messageFailedToData
+        }
+    }
+    
+    class func signMessage(data: Data) throws -> String? {
+        
+        guard let address = WalletManager.wallet?.address else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let walletAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
+        
+        do {
+            let signedData = try Web3Signer.signPersonalMessage(data,
+                                                                keystore: keystore,
+                                                                account: walletAddress,
+                                                                password: Setting.password)
+            return (signedData?.toHexString().addHexPrefix())!
         } catch {
             throw WalletError.messageFailedToData
         }
@@ -326,7 +352,9 @@ class TransactionManager {
                                   password: Setting.password)
             
             print(tx.description)
-            return tx.toJsonString()
+            return (tx.encode(forSignature: false, chainID: nil)?.toHexString().addHexPrefix())!
+            // TODO return JSON
+//            return tx.toJsonString()
         } catch {
             HUDManager.shared.showError()
         }

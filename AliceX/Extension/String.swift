@@ -10,6 +10,38 @@ import Foundation
 
 extension String {
     
+    func index(from: Int) -> Index {
+        return index(startIndex, offsetBy: from)
+    }
+    
+    func substring(with r: Range<Int>) -> String {
+        let startIndex = index(from: r.lowerBound)
+        let endIndex = index(from: r.upperBound)
+        return String(self[startIndex..<endIndex])
+    }
+
+    
+    var drop0x: String {
+        if count > 2 && substring(with: 0..<2) == "0x" {
+            return String(dropFirst(2))
+        }
+        return self
+    }
+    
+    func addHttpsPrefix() -> String {
+        if !self.hasPrefix("https://") {
+            return "https://" + self
+        }
+        return self
+    }
+    
+    func addHttpPrefix() -> String {
+        if !self.hasPrefix("http://") {
+            return "http://" + self
+        }
+        return self
+    }
+    
     func addHexPrefix() -> String {
         if !self.hasPrefix("0x") {
             return "0x" + self
