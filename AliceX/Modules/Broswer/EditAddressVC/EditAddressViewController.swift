@@ -66,6 +66,7 @@ extension EditAddressViewController: UITextFieldDelegate {
         var urlString = self.addressField.text!
         
         if !(urlString.validateUrl()) {
+            urlString = urlString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)!
             urlString = "https://www.google.com/search?q=\(urlString)"
         }
         

@@ -12,13 +12,18 @@ import BigInt
 
 class BrowserViewController: BaseViewController {
 
+    @IBOutlet weak var progressWidth: NSLayoutConstraint!
     @IBOutlet weak var webContainer: UIView!
     @IBOutlet weak var navBarContainer: UIView!
 //    @IBOutlet weak var navBarShadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressView: UIView!
+    
+    @IBOutlet weak var refreshImage: UIImageView!
 
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
+    var urlString: String = "http://www.google.com"
 
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -59,14 +64,16 @@ class BrowserViewController: BaseViewController {
                                height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
 
 //        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
-        let url = URL(string: "https://www.cryptokitties.co/")
+//        let url = URL(string: "https://www.cryptokitties.co/")
 //        let url = URL(string: "https://uniswap.exchange/swap")
 
+        let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webview.load(request)
         webContainer.addSubview(webview)
+        
+        webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
-
 
     override func viewWillLayoutSubviews() {
         webContainer.layoutIfNeeded()
@@ -76,6 +83,18 @@ class BrowserViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         titleLabel.isHidden = false
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            let progress = webview.estimatedProgress
+            let length = CGFloat(Double(Constant.SCREEN_WIDTH - 40) * progress)
+            let cur = self.progressView.transform.tx
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.progressView.transform = CGAffineTransform(translationX: length, y: 0)
+            })
+        }
     }
 
     func goTo(url: URL) {
@@ -95,6 +114,11 @@ class BrowserViewController: BaseViewController {
     }
 
     @IBAction func refreshButtonClick() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.refreshImage.transform = CGAffineTransform(rotationAngle: CGFloat( Double.pi))
+        }) { (_) in
+            self.refreshImage.transform = CGAffineTransform.identity
+        }
         self.webview.reload()
     }
 
@@ -130,7 +154,8 @@ class BrowserViewController: BaseViewController {
 extension BrowserViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        
+//        progressView.isHidden = false
+//        progressWidth.constant = 0
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -143,6 +168,13 @@ extension BrowserViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.titleLabel.text = webview.title
+
+        UIView.animate(withDuration: 0.3, animations: {
+            self.progressView.alpha = 0
+        }) { (_) in
+            self.progressView.transform = CGAffineTransform.identity
+            self.progressView.alpha = 1
+        }
     }
 }
 
@@ -169,8 +201,6 @@ extension BrowserViewController: UIScrollViewDelegate {
 extension BrowserViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let message = message
-        print(message.name)
-        print("12121211")
 
         switch message.name {
         case Method.signPersonalMessage.rawValue:
