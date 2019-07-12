@@ -16,82 +16,92 @@ class BrowserViewController: BaseViewController {
     @IBOutlet weak var navBarContainer: UIView!
 //    @IBOutlet weak var navBarShadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
+
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNeedsStatusBarAppearanceUpdate()
+
+        self.navigationController?.navigationBar.barStyle = .default
+
         let config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
                                                  address: WalletManager.wallet!.address,
                                                  in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
-        
+
 //        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
 //            records.forEach { record in
 //                config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
 //                print("[WebCacheCleaner] Record \(record) deleted")
 //            }
 //        }
-        
-        self.view.layoutIfNeeded()
-        
+
+//        self.view.layoutIfNeeded()
+
         webview =  WKWebView(frame: .zero, configuration: config)
         webview.allowsBackForwardNavigationGestures = true
-        
+
         navBarContainer.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.2).cgColor
         navBarContainer.layer.shadowOpacity = 0.5
         navBarContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
         navBarContainer.layer.shadowRadius = 5
-        
-        webContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+
         webview.navigationDelegate = self
         webview.scrollView.delegate = self
-        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: Constant.SCREEN_HEIGHT - 44)
-        
+        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
+                               height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
+
 //        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
-//        let url = URL(string: "https://www.cryptokitties.co/")
-        let url = URL(string: "https://uniswap.exchange/swap")
-        
+        let url = URL(string: "https://www.cryptokitties.co/")
+//        let url = URL(string: "https://uniswap.exchange/swap")
+
         let request = URLRequest(url: url!)
         webview.load(request)
         webContainer.addSubview(webview)
     }
-    
+
+
+    override func viewWillLayoutSubviews() {
+        webContainer.layoutIfNeeded()
+        webContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         titleLabel.isHidden = false
     }
-    
+
     func goTo(url: URL) {
         webview.load(URLRequest(url: url))
     }
-    
+
     @IBAction func backButtonClick() {
         if self.webview.canGoBack {
             self.webview.goBack()
         }
     }
-    
+
     @IBAction func forwordButton() {
         if self.webview.canGoForward {
             self.webview.goForward()
         }
     }
-    
+
     @IBAction func refreshButtonClick() {
         self.webview.reload()
     }
-    
+
     @IBAction func closeButtonClick() {
 //        self.navigationController?.popViewController(animated: true)
     }
-    
+
     @IBAction func addressButtonClick() {
         let vc = EditAddressViewController()
         vc.address = webview.url?.absoluteString
@@ -100,7 +110,7 @@ class BrowserViewController: BaseViewController {
 //        titleLabel.isHidden = true
         self.present(vc, animated: true, completion: nil)
     }
-    
+
     func notifyFinish(callbackID: Int, value: String) {
 //        let script: String = {
 //            switch value {
@@ -110,11 +120,11 @@ class BrowserViewController: BaseViewController {
 //                return "executeCallback(\(callbackID), \"\(error)\", null)"
 //            }
 //        }()
-        
+
         let script: String = "executeCallback(\(callbackID), null, \"\(value)\")"
         webview.evaluateJavaScript(script, completionHandler: nil)
     }
-    
+
 }
 
 extension BrowserViewController: WKNavigationDelegate {
@@ -124,12 +134,12 @@ extension BrowserViewController: WKNavigationDelegate {
 }
 
 extension BrowserViewController: UIScrollViewDelegate {
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+
 //        webview.scrollView.contentOffset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 //        var offsetY = scrollView.contentOffset.y
-        
+
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         if translation.y > 0 {
             UIView.animate(withDuration: 0.3) {
@@ -148,7 +158,7 @@ extension BrowserViewController: WKScriptMessageHandler {
         let message = message
         print(message.name)
         print("12121211")
-        
+
         switch message.name {
         case Method.signPersonalMessage.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }
@@ -158,7 +168,7 @@ extension BrowserViewController: WKScriptMessageHandler {
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
         case Method.signMessage.rawValue:
-            
+
             print("signMessage")
         case Method.signTransaction.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }
@@ -169,28 +179,28 @@ extension BrowserViewController: WKScriptMessageHandler {
             transactionOptions.from = options.from
             transactionOptions.to = options.to
             transactionOptions.value = options.value != nil ? options.value! : BigUInt(0)
-            
+
             let realValue = Double(transactionOptions.value!) / Double(pow(Double(10), Double(17)))
-            
+
             TransactionManager.showSignTransactionView(to: options.to!.address,
                                                        value: String(realValue),
                                                        data: "") { (signData) in
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
-            
+
             print("signTransaction")
-            
+
         case Method.signTypedMessage.rawValue:
             print("signTypedMessage")
-            
+
         case Method.sendTransaction.rawValue:
             print("sendTransaction")
         default:
             print("Error")
         }
-        
-        
-        
+
+
+
 //        guard let command = DappAction.fromMessage(message) else { return }
 //        let requester = DAppRequester(title: webView.title, url: webView.url)
 //        let token = TokensDataStore.token(forServer: server)
