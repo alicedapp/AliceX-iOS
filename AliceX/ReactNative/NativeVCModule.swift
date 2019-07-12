@@ -31,7 +31,7 @@ class NativeVCModule: NSObject {
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = BrowserViewController()
-            topVC?.present(model, animated: true, completion: nil)
+            topVC?.present(modal, animated: true, completion: nil)
         }
     }
 }
