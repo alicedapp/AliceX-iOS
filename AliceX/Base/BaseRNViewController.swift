@@ -12,5 +12,6 @@ class BaseRNViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hero.isEnabled = true
     }
 }

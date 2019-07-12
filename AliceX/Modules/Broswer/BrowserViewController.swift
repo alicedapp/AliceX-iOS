@@ -128,6 +128,19 @@ class BrowserViewController: BaseViewController {
 }
 
 extension BrowserViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else {return}
+            webView.load(URLRequest(url: url))
+        }
+        decisionHandler(.allow)
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.titleLabel.text = webview.title
     }

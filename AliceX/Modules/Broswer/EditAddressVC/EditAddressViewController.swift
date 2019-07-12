@@ -63,12 +63,19 @@ class EditAddressViewController: BaseViewController {
 extension EditAddressViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        guard let url = URL(string: (self.addressField.text!.addHttpPrefix())) else {
-            HUDManager.shared.showError(text: "Check the address")
-            return false
+        var urlString = self.addressField.text!
+        
+        if !(urlString.validateUrl()) {
+            urlString = "https://www.google.com/search?q=\(urlString)"
         }
         
-        self.browerRef!.goTo(url: url)
+        if !urlString.hasPrefix("http://") && !urlString.hasPrefix("https://") {
+            urlString = urlString.addHttpPrefix()
+        }
+        
+        let url = URL(string: urlString)
+        
+        self.browerRef!.goTo(url: url!)
         self.backButtonClicked(sender: self.addressField)
         return true
     }
