@@ -31,7 +31,8 @@ class NativeVCModule: NSObject {
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = BrowserViewController()
-            topVC?.present(model, animated: true, completion: nil)
+            modal.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
+            topVC?.present(modal, animated: true, completion: nil)
         }
     }
 }
