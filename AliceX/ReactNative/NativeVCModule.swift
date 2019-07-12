@@ -12,7 +12,7 @@ import SPStorkController
 @objc(NativeVCModule)
 class NativeVCModule: NSObject {
     @objc func setting() {
-        
+
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = SettingViewController()
@@ -26,11 +26,12 @@ class NativeVCModule: NSObject {
             topVC?.present(navi, animated: true, completion: nil)
         }
     }
-    
+
     @objc func browser() {
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = BrowserViewController()
+            modal.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
             topVC?.present(modal, animated: true, completion: nil)
         }
     }
