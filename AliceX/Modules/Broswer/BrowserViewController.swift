@@ -20,6 +20,10 @@ class BrowserViewController: BaseViewController {
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +39,8 @@ class BrowserViewController: BaseViewController {
 //            }
 //        }
         
+        self.view.layoutIfNeeded()
+        
         webview =  WKWebView(frame: .zero, configuration: config)
         webview.allowsBackForwardNavigationGestures = true
         
@@ -46,11 +52,11 @@ class BrowserViewController: BaseViewController {
         webContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20)
         webview.navigationDelegate = self
         webview.scrollView.delegate = self
-        webview.frame = webContainer.bounds
+        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: Constant.SCREEN_HEIGHT - 44)
         
 //        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
-        let url = URL(string: "https://www.cryptokitties.co/")
-//        let url = URL(string: "https://uniswap.exchange/swap")
+//        let url = URL(string: "https://www.cryptokitties.co/")
+        let url = URL(string: "https://uniswap.exchange/swap")
         
         let request = URLRequest(url: url!)
         webview.load(request)
