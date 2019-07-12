@@ -18,7 +18,7 @@ enum Web3NetEnum: String, CaseIterable {
     case rinkeby
     case goerli
     case poa
-    
+//    case xDai
     case custom
 }
 
@@ -41,6 +41,39 @@ extension Web3NetEnum {
             return UIColor.white
         }
     }
+    
+    var chainID: Int {
+        switch self {
+        case .main: return 1
+        case .kovan: return 42
+        case .ropsten: return 3
+        case .rinkeby: return 4
+        case .poa: return 99
+//        case .xDai: return 100
+        case .goerli: return 5
+//        case .custom(let custom):
+//            return custom.chainID
+        // TODO Custom
+        case .custom: return -1
+        }
+    }
+    
+    var rpcURL: URL {
+        let urlString: String = {
+            switch self {
+            case .main: return "https://mainnet.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+            case .kovan: return "https://kovan.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+            case .ropsten: return "https://ropsten.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+            case .rinkeby: return "https://rinkeby.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+            case .poa: return "https://core.poa.network"
+            case .goerli: return "https://goerli.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+//            case .xDai: return "https://dai.poa.network"
+            case .custom: return ""
+            }
+        }()
+        return URL(string: urlString)!
+    }
+
 }
 
 class Web3Net {

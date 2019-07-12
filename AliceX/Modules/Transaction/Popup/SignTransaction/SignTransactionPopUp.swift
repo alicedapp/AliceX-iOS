@@ -40,7 +40,7 @@ class SignTransactionPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        amountLabel.text = amount
+        amountLabel.text = String(Double(amount!)!.rounded(toPlaces: 2))
         
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true

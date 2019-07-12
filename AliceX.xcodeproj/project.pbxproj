@@ -44,6 +44,16 @@
 		157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */; };
 		157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA67C22CCAA63008AF3A5 /* MnemonicsView.swift */; };
 		157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */; };
+		1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */; };
+		1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1022D8390D00B74F30 /* BrowserViewController.xib */; };
+		1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */; };
+		1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */; };
+		1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1922D8661200B74F30 /* BroswerWKWebConfiguration.swift */; };
+		1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1C22D8685E00B74F30 /* web3-min.js */; };
+		1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1E22D86A9B00B74F30 /* ScriptMessageProxy.swift */; };
+		1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC2122D88A0300B74F30 /* Dapp.swift */; };
+		1581EC2422D88F0F00B74F30 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC2322D88F0F00B74F30 /* Data.swift */; };
+		1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC2522D8AE6D00B74F30 /* Double.swift */; };
 		1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395622B9E16A00F36F92 /* PaymentPopUp.swift */; };
 		1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1587395722B9E16A00F36F92 /* PaymentPopUp.xib */; };
 		1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587395B22B9E5C900F36F92 /* CryptoCoin.swift */; };
@@ -110,6 +120,16 @@
 		157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+Network.swift"; sourceTree = "<group>"; };
 		157AA67C22CCAA63008AF3A5 /* MnemonicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicsView.swift; sourceTree = "<group>"; };
 		157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsView.xib; sourceTree = "<group>"; };
+		1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		1581EC1022D8390D00B74F30 /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
+		1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
+		1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAddressViewController.xib; sourceTree = "<group>"; };
+		1581EC1922D8661200B74F30 /* BroswerWKWebConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroswerWKWebConfiguration.swift; sourceTree = "<group>"; };
+		1581EC1C22D8685E00B74F30 /* web3-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
+		1581EC1E22D86A9B00B74F30 /* ScriptMessageProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptMessageProxy.swift; sourceTree = "<group>"; };
+		1581EC2122D88A0300B74F30 /* Dapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dapp.swift; sourceTree = "<group>"; };
+		1581EC2322D88F0F00B74F30 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1581EC2522D8AE6D00B74F30 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		1587395622B9E16A00F36F92 /* PaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPopUp.swift; sourceTree = "<group>"; };
 		1587395722B9E16A00F36F92 /* PaymentPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentPopUp.xib; sourceTree = "<group>"; };
 		1587395B22B9E5C900F36F92 /* CryptoCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoin.swift; sourceTree = "<group>"; };
@@ -206,13 +226,6 @@
 			path = Landing;
 			sourceTree = "<group>";
 		};
-		156548E822CDBD53005C8B2D /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		156548EE22CDC30F005C8B2D /* network */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +274,52 @@
 				157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */,
 			);
 			path = mnemonics;
+			sourceTree = "<group>";
+		};
+		1581EC0E22D837FE00B74F30 /* Broswer */ = {
+			isa = PBXGroup;
+			children = (
+				1581EC2022D889EE00B74F30 /* Dapp */,
+				1581EC1422D8564E00B74F30 /* EditAddressVC */,
+				1581EC1322D83D9100B74F30 /* Configuration */,
+				1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */,
+				1581EC1022D8390D00B74F30 /* BrowserViewController.xib */,
+			);
+			path = Broswer;
+			sourceTree = "<group>";
+		};
+		1581EC1322D83D9100B74F30 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1581EC1922D8661200B74F30 /* BroswerWKWebConfiguration.swift */,
+				1581EC1E22D86A9B00B74F30 /* ScriptMessageProxy.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1581EC1422D8564E00B74F30 /* EditAddressVC */ = {
+			isa = PBXGroup;
+			children = (
+				1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */,
+				1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */,
+			);
+			path = EditAddressVC;
+			sourceTree = "<group>";
+		};
+		1581EC1B22D8685600B74F30 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				1581EC1C22D8685E00B74F30 /* web3-min.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		1581EC2022D889EE00B74F30 /* Dapp */ = {
+			isa = PBXGroup;
+			children = (
+				1581EC2122D88A0300B74F30 /* Dapp.swift */,
+			);
+			path = Dapp;
 			sourceTree = "<group>";
 		};
 		1587395422B9E11000F36F92 /* RNCustomView */ = {
@@ -396,6 +455,7 @@
 		15B86BA822AA1C5400110C06 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1581EC1B22D8685600B74F30 /* js */,
 				15B86BB022AA1D1100110C06 /* fonts */,
 				15B86BAB22AA1C6E00110C06 /* sounds */,
 				15B86BAA22AA1C6600110C06 /* music */,
@@ -437,6 +497,8 @@
 				159085D822CCAC32000BA7E4 /* CGRect.swift */,
 				156548E922CDBD6E005C8B2D /* String.swift */,
 				151E346422D59C9A0037157C /* EthereumTransaction.swift */,
+				1581EC2322D88F0F00B74F30 /* Data.swift */,
+				1581EC2522D8AE6D00B74F30 /* Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -471,7 +533,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				156548E822CDBD53005C8B2D /* Extension */,
+				1581EC0E22D837FE00B74F30 /* Broswer */,
 				157AA56822CC6CC9008AF3A5 /* Setting */,
 				153A654522C9CDE40035EB2C /* Landing */,
 				15F985DD22C33AE000942357 /* HUD */,
@@ -642,6 +704,7 @@
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
+				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				15B86B6022AA044000110C06 /* Assets.xcassets in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				157AA56C22CC6CE0008AF3A5 /* SettingViewController.xib in Resources */,
@@ -649,6 +712,8 @@
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
+				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
+				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 			);
@@ -826,6 +891,7 @@
 			files = (
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
+				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
@@ -834,8 +900,10 @@
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
+				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
+				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
@@ -849,11 +917,14 @@
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
+				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
 				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
 				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
+				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
+				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
@@ -864,6 +935,7 @@
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
+				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
@@ -1010,7 +1082,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AliceX/AliceX.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
@@ -1019,7 +1091,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1034,7 +1106,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AliceX/AliceX.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1044,7 +1116,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";

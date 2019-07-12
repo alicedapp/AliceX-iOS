@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if WalletManager.hasWallet() {
             vc = RNModule.makeViewController(module: .alice)
-//            vc = SettingViewController()
+//            vc = BrowserViewController()
         } else {
             vc = LandingViewController()
         }

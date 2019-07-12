@@ -48,5 +48,7 @@ extension Notification.Name {
 }
 
 class Constant {
+    static let SCREEN_WIDTH : CGFloat = UIScreen.main.bounds.width
+    static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
 }
 
