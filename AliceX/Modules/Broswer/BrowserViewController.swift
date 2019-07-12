@@ -19,9 +19,17 @@ class BrowserViewController: BaseViewController {
     
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
+        
+        self.navigationController?.navigationBar.barStyle = .default
         
         let config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
                                                  address: WalletManager.wallet!.address,
@@ -35,6 +43,8 @@ class BrowserViewController: BaseViewController {
 //            }
 //        }
         
+//        self.view.layoutIfNeeded()
+        
         webview =  WKWebView(frame: .zero, configuration: config)
         webview.allowsBackForwardNavigationGestures = true
         
@@ -43,10 +53,10 @@ class BrowserViewController: BaseViewController {
         navBarContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
         navBarContainer.layer.shadowRadius = 5
         
-        webContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20)
         webview.navigationDelegate = self
         webview.scrollView.delegate = self
-        webview.frame = webContainer.bounds
+        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
+                               height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
         
 //        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
         let url = URL(string: "https://www.cryptokitties.co/")
@@ -55,6 +65,12 @@ class BrowserViewController: BaseViewController {
         let request = URLRequest(url: url!)
         webview.load(request)
         webContainer.addSubview(webview)
+    }
+    
+    
+    override func viewWillLayoutSubviews() {
+        webContainer.layoutIfNeeded()
+        webContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20)
     }
     
     override func viewWillAppear(_ animated: Bool) {
