@@ -16,9 +16,13 @@ class BrowserViewController: BaseViewController {
     @IBOutlet weak var navBarContainer: UIView!
 //    @IBOutlet weak var navBarShadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressView: UIView!
+    
+    @IBOutlet weak var refreshImage: UIImageView!
 
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
+    var urlString: String = "http://www.google.com"
 
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -31,19 +35,10 @@ class BrowserViewController: BaseViewController {
 
         self.navigationController?.navigationBar.barStyle = .default
 
-        let config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
+        config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
                                                  address: WalletManager.wallet!.address,
                                                  in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
-
-//        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-//            records.forEach { record in
-//                config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-//                print("[WebCacheCleaner] Record \(record) deleted")
-//            }
-//        }
-
-//        self.view.layoutIfNeeded()
 
         webview =  WKWebView(frame: .zero, configuration: config)
         webview.allowsBackForwardNavigationGestures = true
@@ -59,14 +54,17 @@ class BrowserViewController: BaseViewController {
                                height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
 
 //        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
-        let url = URL(string: "https://www.cryptokitties.co/")
+//        let url = URL(string: "https://www.cryptokitties.co/")
 //        let url = URL(string: "https://uniswap.exchange/swap")
 
+        urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
+        let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webview.load(request)
         webContainer.addSubview(webview)
+        
+        webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
-
 
     override func viewWillLayoutSubviews() {
         webContainer.layoutIfNeeded()
@@ -76,6 +74,27 @@ class BrowserViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         titleLabel.isHidden = false
+    }
+    
+    func cleanCache() {
+        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                self.config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("[WebCacheCleaner] Record \(record) deleted")
+            }
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            let progress = webview.estimatedProgress
+            let length = CGFloat(Double(Constant.SCREEN_WIDTH - 40) * progress)
+//            let cur = self.progressView.transform.tx
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.progressView.transform = CGAffineTransform(translationX: length, y: 0)
+            })
+        }
     }
 
     func goTo(url: URL) {
@@ -88,13 +107,18 @@ class BrowserViewController: BaseViewController {
         }
     }
 
-    @IBAction func forwordButton() {
-        if self.webview.canGoForward {
-            self.webview.goForward()
-        }
+    @IBAction func moreButton() {
+        let view = BrowserPanelView.instanceFromNib()
+        view.vcRef = self
+        HUDManager.shared.showAlertView(view: view, backgroundColor: .clear)
     }
 
     @IBAction func refreshButtonClick() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.refreshImage.transform = CGAffineTransform(rotationAngle: CGFloat( Double.pi))
+        }) { (_) in
+            self.refreshImage.transform = CGAffineTransform.identity
+        }
         self.webview.reload()
     }
 
@@ -112,14 +136,6 @@ class BrowserViewController: BaseViewController {
     }
 
     func notifyFinish(callbackID: Int, value: String) {
-//        let script: String = {
-//            switch value {
-////            case .success(let result):
-//                return "executeCallback(\(callbackID), null, \"\(result.value.object)\")"
-////            case .failure(let error):
-//                return "executeCallback(\(callbackID), \"\(error)\", null)"
-//            }
-//        }()
 
         let script: String = "executeCallback(\(callbackID), null, \"\(value)\")"
         webview.evaluateJavaScript(script, completionHandler: nil)
@@ -128,8 +144,32 @@ class BrowserViewController: BaseViewController {
 }
 
 extension BrowserViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.navBarContainer.transform = CGAffineTransform.identity
+        })
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else {return}
+            webView.load(URLRequest(url: url))
+        }
+        decisionHandler(.allow)
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.titleLabel.text = webview.title
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.navBarContainer.transform = CGAffineTransform.identity
+            self.progressView.alpha = 0
+        }) { (_) in
+            self.progressView.transform = CGAffineTransform.identity
+            self.progressView.alpha = 1
+        }
     }
 }
 
@@ -147,7 +187,7 @@ extension BrowserViewController: UIScrollViewDelegate {
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 90)
+                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 100)
             }
         }
     }
@@ -156,8 +196,6 @@ extension BrowserViewController: UIScrollViewDelegate {
 extension BrowserViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let message = message
-        print(message.name)
-        print("12121211")
 
         switch message.name {
         case Method.signPersonalMessage.rawValue:

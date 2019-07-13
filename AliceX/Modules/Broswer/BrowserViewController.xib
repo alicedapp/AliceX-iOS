@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowserViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="navBarContainer" destination="tdh-xY-wYY" id="rZL-AI-sxT"/>
+                <outlet property="progressView" destination="5Ch-QG-hHG" id="XZI-qn-Ntq"/>
+                <outlet property="refreshImage" destination="bGQ-Q2-lZE" id="Q47-fo-H87"/>
                 <outlet property="titleLabel" destination="P66-p1-FuT" id="yy4-Vj-oPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webContainer" destination="uTl-1e-1Ho" id="iNa-DI-E5f"/>
@@ -30,9 +32,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-xY-wYY">
                     <rect key="frame" x="0.0" y="802" width="414" height="94"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XX8-vd-Tk3">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XX8-vd-Tk3">
                             <rect key="frame" x="20" y="0.0" width="374" height="60"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-QG-hHG">
+                                    <rect key="frame" x="-374" y="0.0" width="374" height="60"/>
+                                    <color key="backgroundColor" red="0.33087173464839348" green="0.51910628493542044" blue="0.99045990805648676" alpha="0.443084286971831" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="30"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nd2-Xx-arx" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <subviews>
@@ -97,6 +108,9 @@
                                         <constraint firstItem="n6x-9o-emb" firstAttribute="centerY" secondItem="zDW-uQ-2tl" secondAttribute="centerY" id="Ore-j6-PDA"/>
                                         <constraint firstAttribute="width" constant="60" id="cdT-Pg-3ZE"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="moreButton" destination="-1" eventType="touchUpInside" id="vEe-Dn-u5v"/>
+                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv0-SI-L7x" customClass="UIControl">
                                     <rect key="frame" x="132" y="8" width="110" height="44"/>
@@ -127,11 +141,15 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="5Ch-QG-hHG" secondAttribute="bottom" id="06C-xm-ocn"/>
+                                <constraint firstItem="5Ch-QG-hHG" firstAttribute="width" secondItem="XX8-vd-Tk3" secondAttribute="width" id="1GQ-uK-plm"/>
+                                <constraint firstItem="5Ch-QG-hHG" firstAttribute="top" secondItem="XX8-vd-Tk3" secondAttribute="top" id="47v-qu-2tb"/>
                                 <constraint firstItem="Hv0-SI-L7x" firstAttribute="leading" secondItem="04O-98-abD" secondAttribute="trailing" constant="12" id="4Mo-EJ-yYk"/>
                                 <constraint firstItem="zDW-uQ-2tl" firstAttribute="leading" secondItem="Hv0-SI-L7x" secondAttribute="trailing" constant="12" id="5Ge-7W-96E"/>
                                 <constraint firstItem="04O-98-abD" firstAttribute="top" secondItem="XX8-vd-Tk3" secondAttribute="top" id="6yv-7F-Udk"/>
                                 <constraint firstAttribute="bottom" secondItem="nd2-Xx-arx" secondAttribute="bottom" id="Aaq-qt-JtU"/>
                                 <constraint firstItem="04O-98-abD" firstAttribute="leading" secondItem="nd2-Xx-arx" secondAttribute="trailing" id="D8S-1m-6pJ"/>
+                                <constraint firstAttribute="leading" secondItem="5Ch-QG-hHG" secondAttribute="trailing" id="Dva-SV-btq"/>
                                 <constraint firstAttribute="bottom" secondItem="zDW-uQ-2tl" secondAttribute="bottom" id="I6C-o9-kQZ"/>
                                 <constraint firstItem="zDW-uQ-2tl" firstAttribute="top" secondItem="XX8-vd-Tk3" secondAttribute="top" id="Sz2-Sz-f2D"/>
                                 <constraint firstAttribute="bottom" secondItem="4Ge-Rk-qKi" secondAttribute="bottom" id="WBu-cC-CO8"/>

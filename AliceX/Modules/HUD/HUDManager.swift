@@ -67,7 +67,7 @@ class HUDManager: NSObject {
             attributes = .bottomFloat
             attributes.hapticFeedbackType = haptic
             attributes.displayDuration = .infinity
-            attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
+            attributes.screenBackground = .color(color: UIColor(white: 100.0/255.0, alpha: 0.3))
             attributes.entryBackground = .color(color: backgroundColor)
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .forward
