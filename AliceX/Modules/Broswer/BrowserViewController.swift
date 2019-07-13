@@ -12,7 +12,6 @@ import BigInt
 
 class BrowserViewController: BaseViewController {
 
-    @IBOutlet weak var progressWidth: NSLayoutConstraint!
     @IBOutlet weak var webContainer: UIView!
     @IBOutlet weak var navBarContainer: UIView!
 //    @IBOutlet weak var navBarShadowView: UIView!
@@ -36,7 +35,7 @@ class BrowserViewController: BaseViewController {
 
         self.navigationController?.navigationBar.barStyle = .default
 
-        let config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
+        config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
                                                  address: WalletManager.wallet!.address,
                                                  in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
@@ -67,6 +66,7 @@ class BrowserViewController: BaseViewController {
 //        let url = URL(string: "https://www.cryptokitties.co/")
 //        let url = URL(string: "https://uniswap.exchange/swap")
 
+        urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webview.load(request)
@@ -136,14 +136,6 @@ class BrowserViewController: BaseViewController {
     }
 
     func notifyFinish(callbackID: Int, value: String) {
-//        let script: String = {
-//            switch value {
-////            case .success(let result):
-//                return "executeCallback(\(callbackID), null, \"\(result.value.object)\")"
-////            case .failure(let error):
-//                return "executeCallback(\(callbackID), \"\(error)\", null)"
-//            }
-//        }()
 
         let script: String = "executeCallback(\(callbackID), null, \"\(value)\")"
         webview.evaluateJavaScript(script, completionHandler: nil)
@@ -154,8 +146,10 @@ class BrowserViewController: BaseViewController {
 extension BrowserViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//        progressView.isHidden = false
-//        progressWidth.constant = 0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.navBarContainer.transform = CGAffineTransform.identity
+        })
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -168,8 +162,9 @@ extension BrowserViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.titleLabel.text = webview.title
-
+        
         UIView.animate(withDuration: 0.3, animations: {
+            self.navBarContainer.transform = CGAffineTransform.identity
             self.progressView.alpha = 0
         }) { (_) in
             self.progressView.transform = CGAffineTransform.identity
@@ -192,7 +187,7 @@ extension BrowserViewController: UIScrollViewDelegate {
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 90)
+                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 100)
             }
         }
     }

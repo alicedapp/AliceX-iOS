@@ -27,22 +27,24 @@ class NativeVCModule: NSObject {
         }
     }
 
-    @objc func browser() {
+    @objc func browser(_ url: String) {
         DispatchQueue.main.async {
             
             if #available(iOS 13.0, *) {
                 let topVC = UIApplication.topViewController()
-                let modal = BrowserViewController()
+                let vc = BrowserViewController()
+                vc.urlString = url
                 topVC!.hero.isEnabled = true
-                modal.hero.isEnabled = true
-                modal.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
-                topVC?.navigationController?.pushViewController(modal, animated: true)
+                vc.hero.isEnabled = true
+                vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
+                topVC?.navigationController?.pushViewController(vc, animated: true)
                 return
             }
             let topVC = UIApplication.topViewController()
-            let modal = BrowserViewController()
-            modal.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
-            topVC?.present(modal, animated: true, completion: nil)
+            let vc = BrowserViewController()
+            vc.urlString = url
+            vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
+            topVC?.present(vc, animated: true, completion: nil)
         }
     }
 }

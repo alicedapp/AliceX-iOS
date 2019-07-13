@@ -37,7 +37,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-QG-hHG">
                                     <rect key="frame" x="-374" y="0.0" width="374" height="60"/>
-                                    <color key="backgroundColor" red="1" green="0.96054236746808441" blue="0.50286950598467617" alpha="0.45155699823943662" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.33087173464839348" green="0.51910628493542044" blue="0.99045990805648676" alpha="0.443084286971831" colorSpace="custom" customColorSpace="displayP3"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="30"/>

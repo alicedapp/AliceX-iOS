@@ -68,7 +68,7 @@ RCT_EXTERN_METHOD(read:(NSString *)contractAddress
 @interface RCT_EXTERN_MODULE(NativeVCModule, NSObject)
 
 RCT_EXTERN_METHOD(setting)
-RCT_EXTERN_METHOD(browser)
+RCT_EXTERN_METHOD(browser:(NSString *)url)
 
 @end
 
