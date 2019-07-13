@@ -108,6 +108,9 @@
                                         <constraint firstItem="n6x-9o-emb" firstAttribute="centerY" secondItem="zDW-uQ-2tl" secondAttribute="centerY" id="Ore-j6-PDA"/>
                                         <constraint firstAttribute="width" constant="60" id="cdT-Pg-3ZE"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="moreButton" destination="-1" eventType="touchUpInside" id="vEe-Dn-u5v"/>
+                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv0-SI-L7x" customClass="UIControl">
                                     <rect key="frame" x="132" y="8" width="110" height="44"/>

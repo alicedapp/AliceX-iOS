@@ -40,15 +40,6 @@ class BrowserViewController: BaseViewController {
                                                  in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
 
-//        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-//            records.forEach { record in
-//                config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-//                print("[WebCacheCleaner] Record \(record) deleted")
-//            }
-//        }
-
-//        self.view.layoutIfNeeded()
-
         webview =  WKWebView(frame: .zero, configuration: config)
         webview.allowsBackForwardNavigationGestures = true
 
@@ -85,11 +76,20 @@ class BrowserViewController: BaseViewController {
         titleLabel.isHidden = false
     }
     
+    func cleanCache() {
+        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                self.config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("[WebCacheCleaner] Record \(record) deleted")
+            }
+        }
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             let progress = webview.estimatedProgress
             let length = CGFloat(Double(Constant.SCREEN_WIDTH - 40) * progress)
-            let cur = self.progressView.transform.tx
+//            let cur = self.progressView.transform.tx
             
             UIView.animate(withDuration: 0.3, animations: {
                 self.progressView.transform = CGAffineTransform(translationX: length, y: 0)
@@ -107,10 +107,10 @@ class BrowserViewController: BaseViewController {
         }
     }
 
-    @IBAction func forwordButton() {
-        if self.webview.canGoForward {
-            self.webview.goForward()
-        }
+    @IBAction func moreButton() {
+        let view = BrowserPanelView.instanceFromNib()
+        view.vcRef = self
+        HUDManager.shared.showAlertView(view: view, backgroundColor: .clear)
     }
 
     @IBAction func refreshButtonClick() {
