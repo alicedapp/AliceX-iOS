@@ -9,6 +9,7 @@
 import UIKit
 import web3swift
 import BigInt
+import Kingfisher
 
 class BrowserViewController: BaseViewController {
 
@@ -23,7 +24,8 @@ class BrowserViewController: BaseViewController {
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
     var urlString: String = "http://www.google.com"
-
+    
+    public var hk_iconImage: UIImage!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -41,7 +43,9 @@ class BrowserViewController: BaseViewController {
         config.websiteDataStore = WKWebsiteDataStore.default()
 
         webview =  WKWebView(frame: .zero, configuration: config)
-        webview.allowsBackForwardNavigationGestures = true
+        
+        // TODO Conflict with Pin
+//        webview.allowsBackForwardNavigationGestures = true
 
         navBarContainer.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.2).cgColor
         navBarContainer.layer.shadowOpacity = 0.5
@@ -150,6 +154,22 @@ extension BrowserViewController: WKNavigationDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity
         })
+        
+        guard let hostURL = webView.url?.host else {
+            return
+        }
+        
+        let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+        let downloader = ImageDownloader.default
+        downloader.downloadImage(with: favIcon) { result in
+            switch result {
+            case .success(let value):
+                self.hk_iconImage = value.image
+                HKFloatManager.updateFloat(self.hk_iconImage)
+            case .failure(_):
+                self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+            }
+        }
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -176,10 +196,21 @@ extension BrowserViewController: WKNavigationDelegate {
 extension BrowserViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-//        webview.scrollView.contentOffset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        var offsetY = scrollView.contentOffset.y
-
+        
+        if #available(iOS 13.0, *) {
+//            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+//            if translation.y > 0 {
+//                UIView.animate(withDuration: 0.3) {
+//                    self.navBarContainer.transform = CGAffineTransform.identity
+//                }
+//            } else {
+//                UIView.animate(withDuration: 0.3) {
+//                    self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: -94)
+//                }
+//            }
+            return
+        }
+        
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         if translation.y > 0 {
             UIView.animate(withDuration: 0.3) {
@@ -187,7 +218,7 @@ extension BrowserViewController: UIScrollViewDelegate {
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 100)
+                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 94)
             }
         }
     }

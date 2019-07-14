@@ -20,8 +20,11 @@ class DAppListViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCell(nibName: "DappTableViewCell")
-        
         loadData()
+    }
+    
+    @IBAction func dismissView() {
+        HUDManager.shared.dismiss()
     }
     
     func loadData() {

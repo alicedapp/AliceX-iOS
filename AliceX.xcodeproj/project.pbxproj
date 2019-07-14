@@ -85,6 +85,19 @@
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
 		15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3D22CA1B96004B45A2 /* RNModule.swift */; };
+		15E845E622DBA141008F8AD2 /* HKTransitionPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845D722DBA141008F8AD2 /* HKTransitionPush.m */; };
+		15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845D822DBA141008F8AD2 /* HKTransitionPop.m */; };
+		15E845E822DBA141008F8AD2 /* HKTransitionPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845D922DBA141008F8AD2 /* HKTransitionPush.h */; };
+		15E845E922DBA141008F8AD2 /* HKTransitionPop.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */; };
+		15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */; };
+		15E845EB22DBA141008F8AD2 /* NSObject+hkvc.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */; };
+		15E845EC22DBA141008F8AD2 /* HKMarco.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DE22DBA141008F8AD2 /* HKMarco.h */; };
+		15E845ED22DBA141008F8AD2 /* HKFloatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845DF22DBA141008F8AD2 /* HKFloatManager.m */; };
+		15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845E122DBA141008F8AD2 /* HKFloatBall.m */; };
+		15E845EF22DBA141008F8AD2 /* HKFloatAreaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */; };
+		15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */; };
+		15E845F122DBA141008F8AD2 /* HKFloatBall.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E422DBA141008F8AD2 /* HKFloatBall.h */; };
+		15E845F222DBA141008F8AD2 /* HKFloatManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E522DBA141008F8AD2 /* HKFloatManager.h */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
@@ -175,6 +188,19 @@
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
 		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
+		15E845D722DBA141008F8AD2 /* HKTransitionPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTransitionPush.m; sourceTree = "<group>"; };
+		15E845D822DBA141008F8AD2 /* HKTransitionPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTransitionPop.m; sourceTree = "<group>"; };
+		15E845D922DBA141008F8AD2 /* HKTransitionPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTransitionPush.h; sourceTree = "<group>"; };
+		15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTransitionPop.h; sourceTree = "<group>"; };
+		15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+hkvc.m"; sourceTree = "<group>"; };
+		15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+hkvc.h"; sourceTree = "<group>"; };
+		15E845DE22DBA141008F8AD2 /* HKMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKMarco.h; sourceTree = "<group>"; };
+		15E845DF22DBA141008F8AD2 /* HKFloatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatManager.m; sourceTree = "<group>"; };
+		15E845E122DBA141008F8AD2 /* HKFloatBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatBall.m; sourceTree = "<group>"; };
+		15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatAreaView.h; sourceTree = "<group>"; };
+		15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatAreaView.m; sourceTree = "<group>"; };
+		15E845E422DBA141008F8AD2 /* HKFloatBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatBall.h; sourceTree = "<group>"; };
+		15E845E522DBA141008F8AD2 /* HKFloatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatManager.h; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
@@ -531,6 +557,7 @@
 		15B86BAF22AA1CE200110C06 /* Libary */ = {
 			isa = PBXGroup;
 			children = (
+				15E845D522DBA141008F8AD2 /* HKFloatBall */,
 				1527873622AE210200D63C7F /* RPCircularProgress.swift */,
 			);
 			path = Libary;
@@ -650,6 +677,50 @@
 			path = Import;
 			sourceTree = "<group>";
 		};
+		15E845D522DBA141008F8AD2 /* HKFloatBall */ = {
+			isa = PBXGroup;
+			children = (
+				15E845D622DBA141008F8AD2 /* Transition */,
+				15E845DB22DBA141008F8AD2 /* Ohter */,
+				15E845DF22DBA141008F8AD2 /* HKFloatManager.m */,
+				15E845E022DBA141008F8AD2 /* View */,
+				15E845E522DBA141008F8AD2 /* HKFloatManager.h */,
+			);
+			path = HKFloatBall;
+			sourceTree = "<group>";
+		};
+		15E845D622DBA141008F8AD2 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				15E845D722DBA141008F8AD2 /* HKTransitionPush.m */,
+				15E845D822DBA141008F8AD2 /* HKTransitionPop.m */,
+				15E845D922DBA141008F8AD2 /* HKTransitionPush.h */,
+				15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		15E845DB22DBA141008F8AD2 /* Ohter */ = {
+			isa = PBXGroup;
+			children = (
+				15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */,
+				15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */,
+				15E845DE22DBA141008F8AD2 /* HKMarco.h */,
+			);
+			path = Ohter;
+			sourceTree = "<group>";
+		};
+		15E845E022DBA141008F8AD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15E845E122DBA141008F8AD2 /* HKFloatBall.m */,
+				15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */,
+				15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */,
+				15E845E422DBA141008F8AD2 /* HKFloatBall.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		15F985DD22C33AE000942357 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +763,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E845EC22DBA141008F8AD2 /* HKMarco.h in Headers */,
+				15E845F122DBA141008F8AD2 /* HKFloatBall.h in Headers */,
+				15E845F222DBA141008F8AD2 /* HKFloatManager.h in Headers */,
+				15E845E922DBA141008F8AD2 /* HKTransitionPop.h in Headers */,
+				15E845EF22DBA141008F8AD2 /* HKFloatAreaView.h in Headers */,
+				15E845EB22DBA141008F8AD2 /* NSObject+hkvc.h in Headers */,
+				15E845E822DBA141008F8AD2 /* HKTransitionPush.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,9 +939,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Base64/Base64.framework",
-				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${PODS_ROOT}/BigInt/BigInt.framework",
+				"${PODS_ROOT}/BigInt/BigInt.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/CodePush/CodePush.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${PODS_ROOT}/CryptoSwift/CryptoSwift.framework",
+				"${PODS_ROOT}/CryptoSwift/CryptoSwift.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -874,7 +954,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${PODS_ROOT}/PromiseKit/PromiseKit.framework",
+				"${PODS_ROOT}/PromiseKit/PromiseKit.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework",
 				"${BUILT_PRODUCTS_DIR}/RNReactNativeHapticFeedback/RNReactNativeHapticFeedback.framework",
@@ -883,7 +964,8 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${PODS_ROOT}/Starscream/Starscream.framework",
+				"${PODS_ROOT}/Starscream/Starscream.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
@@ -891,8 +973,10 @@
 				"${BUILT_PRODUCTS_DIR}/react-native-camera/react_native_camera.framework",
 				"${PODS_ROOT}/../../node_modules/@react-native-mapbox-gl/maps/ios/Mapbox.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-mapbox-gl/react_native_mapbox_gl.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.c/secp256k1.framework",
-				"${BUILT_PRODUCTS_DIR}/web3.swift.pod/web3swift.framework",
+				"${PODS_ROOT}/secp256k1.c/secp256k1.framework",
+				"${PODS_ROOT}/secp256k1.c/secp256k1.framework.dSYM",
+				"${PODS_ROOT}/web3.swift.pod/web3swift.framework",
+				"${PODS_ROOT}/web3.swift.pod/web3swift.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -902,8 +986,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/BigInt.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodePush.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/CryptoSwift.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
@@ -915,6 +1001,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/PromiseKit.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNGestureHandler.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNReactNativeHapticFeedback.framework",
@@ -924,6 +1011,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Starscream.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
@@ -932,7 +1020,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_mapbox_gl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/secp256k1.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/web3swift.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -996,8 +1086,10 @@
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
+				15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */,
+				15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
@@ -1012,8 +1104,11 @@
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
+				15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
+				15E845E622DBA141008F8AD2 /* HKTransitionPush.m in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
+				15E845ED22DBA141008F8AD2 /* HKFloatManager.m in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
@@ -1023,6 +1118,7 @@
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
 				15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */,
@@ -1170,7 +1266,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1182,7 +1278,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1194,7 +1290,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1208,7 +1304,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
