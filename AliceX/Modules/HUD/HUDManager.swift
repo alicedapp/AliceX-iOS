@@ -80,7 +80,7 @@ class HUDManager: NSObject {
                                                                 scale: .init(from: 1, to: 0.8, duration: 0.3)))
             attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 6))
             attributes.positionConstraints.verticalOffset = 0
-            attributes.positionConstraints.size = .init(width: .offset(value: 0), height: .intrinsic)
+            attributes.positionConstraints.size = .init(width: .offset(value: 0), height: .fill)
             attributes.positionConstraints.safeArea = .overridden
 //                .empty(fillSafeArea: true)
             attributes.positionConstraints.maxSize = .init(width:
@@ -133,7 +133,7 @@ class HUDManager: NSObject {
             attributes.exitAnimation = .init(translate: .init(duration: 0.35))
             attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.35)))
             attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 6))
-            attributes.positionConstraints.size = .init(width: .fill, height: .ratio(value: 0.6))
+            attributes.positionConstraints.size = .init(width: .fill, height: .fill)
             attributes.positionConstraints.verticalOffset = 0
             attributes.positionConstraints.safeArea = .empty(fillSafeArea: false)
             

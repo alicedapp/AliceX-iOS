@@ -31,6 +31,8 @@ class BrowserPanelView: BaseView {
     }
     
     @IBAction func dappButton() {
-        
+        let vc = DAppListViewController()
+        vc.vcRef = vcRef
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
 }

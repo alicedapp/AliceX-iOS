@@ -69,6 +69,9 @@
                                                 <constraint firstItem="1jC-3O-iCz" firstAttribute="top" secondItem="OyE-Lt-fAF" secondAttribute="top" constant="20" id="x0p-ge-7a3"/>
                                                 <constraint firstItem="igM-dx-e4q" firstAttribute="top" secondItem="1jC-3O-iCz" secondAttribute="bottom" constant="8" id="yAf-Fb-dZB"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="dappButton" destination="iN0-l3-epB" eventType="touchUpInside" id="iSm-dr-9vO"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WH-ha-wEI" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                                             <rect key="frame" x="187" y="0.0" width="93.5" height="100"/>

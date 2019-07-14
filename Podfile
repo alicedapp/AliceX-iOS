@@ -1,13 +1,13 @@
 platform :ios, '10.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
-plugin 'cocoapods-binary'
+#plugin 'cocoapods-binary'
 
 target 'AliceX' do
   use_frameworks!
-  keep_source_code_for_prebuilt_frameworks!
-  enable_bitcode_for_prebuilt_frameworks!
-
+  #keep_source_code_for_prebuilt_frameworks!
+  #enable_bitcode_for_prebuilt_frameworks!
+  
   pod 'web3.swift.pod', '~> 2.2.1' , :binary => true
   pod 'KeychainAccess'
   pod 'SPStorkController'
@@ -18,6 +18,7 @@ target 'AliceX' do
   pod 'SwiftEntryKit', '1.0.2'
   pod 'MarqueeLabel'
   pod 'Hero'
+  pod 'Kingfisher'
 #  pod 'lottie-ios'
 
 #   React Native Dependencies
