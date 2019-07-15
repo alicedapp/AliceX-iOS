@@ -1132,7 +1132,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1158,7 +1158,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
