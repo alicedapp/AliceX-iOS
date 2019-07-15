@@ -24,7 +24,7 @@ class RNModule {
     }
     
     class func makeView(module: AliceRN) -> RCTRootView? {
-        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.rawValue, initialProperties: nil)
+        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.rawValue.firstUppercased, initialProperties: nil)
         return rnView
     }
 }

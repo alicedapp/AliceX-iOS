@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import web3swift
 
 extension WKWebViewConfiguration {
     
@@ -21,9 +22,11 @@ extension WKWebViewConfiguration {
         
         js += try! String(contentsOfFile: bundlePath)
         
+        let addressCheckSum = EthereumAddress.toChecksumAddress(address)
+        
         js +=
         """
-        const addressHex = "\(address.lowercased())"
+        const addressHex = "\(address)"
         const rpcURL = "\(server.rpcURL.absoluteString)"
         const chainID = "\(server.chainID)"
         
@@ -32,7 +35,7 @@ extension WKWebViewConfiguration {
         }
         
         AlphaWallet.init(rpcURL, {
-        getAccounts: function (cb) { cb(null, [addressHex]) },
+        getAccounts: function (cb) { alert('hello'); cb(null, [addressHex]) },
         processTransaction: function (tx, cb){
         console.log('signing a transaction', tx)
         const { id = 8888 } = tx
