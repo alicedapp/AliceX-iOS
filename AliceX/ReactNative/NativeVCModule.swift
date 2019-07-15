@@ -44,7 +44,8 @@ class NativeVCModule: NSObject {
             let vc = BrowserViewController()
             vc.urlString = url
             vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
-            topVC?.present(vc, animated: true, completion: nil)
+//            topVC?.present(vc, animated: true, completion: nil)
+            topVC?.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
