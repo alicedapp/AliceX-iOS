@@ -38,7 +38,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NFCReaderUsageDescription</key>
-	<string></string>
+	<string>For reading nfc information</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -58,25 +58,25 @@
 		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
-	<string></string>
+	<string>Sharing photos</string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>Scanning QR codes, Pictures</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Use Face ID to comfirm your identity</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>For dapps using maps</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>For dapps using maps</string>
 	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>For dapps using maps</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>For dapps using maps</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>For voice features</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>Sharing photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Sharing photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PlayfairDisplay-Black.ttf</string>
