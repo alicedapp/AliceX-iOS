@@ -23,7 +23,7 @@ extension WKWebViewConfiguration {
         
         js +=
         """
-        const addressHex = "\(address.lowercased())"
+        const addressHex = "\(address)"
         const rpcURL = "\(server.rpcURL.absoluteString)"
         const chainID = "\(server.chainID)"
         
