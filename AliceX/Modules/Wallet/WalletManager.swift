@@ -97,10 +97,10 @@ class WalletManager {
             let vc = SignYesViewController.make {
                 WalletManager.replaceAccount(mnemonics: mnemonics, completion: nil)
             }
+//            HUDManager.shared.showAlertVCNoBackground(viewController: vc, entryInteraction: .absorbTouches)
             HUDManager.shared.showAlertVCNoBackground(viewController: vc)
             return
         }
-        
         
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE

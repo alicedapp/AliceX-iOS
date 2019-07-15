@@ -74,10 +74,30 @@
 		15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DAF22DA465900313CA9 /* BrowserPanelView.swift */; };
 		15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DB122DA466400313CA9 /* BrowserPanelView.xib */; };
 		15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DB322DA495000313CA9 /* BaseView.swift */; };
+		15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DB622DAD02C00313CA9 /* DAppListViewController.swift */; };
+		15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DB822DAD03700313CA9 /* DAppListViewController.xib */; };
+		15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DBB22DAD82E00313CA9 /* DappTableViewCell.swift */; };
+		15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DBC22DAD82E00313CA9 /* DappTableViewCell.xib */; };
+		15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DC022DAF50F00313CA9 /* dapps.json */; };
+		15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC322DAF58100313CA9 /* DAppModel.swift */; };
+		15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC522DAFAE800313CA9 /* UIImage.swift */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
 		15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3D22CA1B96004B45A2 /* RNModule.swift */; };
+		15E845E622DBA141008F8AD2 /* HKTransitionPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845D722DBA141008F8AD2 /* HKTransitionPush.m */; };
+		15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845D822DBA141008F8AD2 /* HKTransitionPop.m */; };
+		15E845E822DBA141008F8AD2 /* HKTransitionPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845D922DBA141008F8AD2 /* HKTransitionPush.h */; };
+		15E845E922DBA141008F8AD2 /* HKTransitionPop.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */; };
+		15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */; };
+		15E845EB22DBA141008F8AD2 /* NSObject+hkvc.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */; };
+		15E845EC22DBA141008F8AD2 /* HKMarco.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845DE22DBA141008F8AD2 /* HKMarco.h */; };
+		15E845ED22DBA141008F8AD2 /* HKFloatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845DF22DBA141008F8AD2 /* HKFloatManager.m */; };
+		15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845E122DBA141008F8AD2 /* HKFloatBall.m */; };
+		15E845EF22DBA141008F8AD2 /* HKFloatAreaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */; };
+		15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */; };
+		15E845F122DBA141008F8AD2 /* HKFloatBall.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E422DBA141008F8AD2 /* HKFloatBall.h */; };
+		15E845F222DBA141008F8AD2 /* HKFloatManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E522DBA141008F8AD2 /* HKFloatManager.h */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
@@ -157,10 +177,30 @@
 		15BC4DAF22DA465900313CA9 /* BrowserPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserPanelView.swift; sourceTree = "<group>"; };
 		15BC4DB122DA466400313CA9 /* BrowserPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserPanelView.xib; sourceTree = "<group>"; };
 		15BC4DB322DA495000313CA9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		15BC4DB622DAD02C00313CA9 /* DAppListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppListViewController.swift; sourceTree = "<group>"; };
+		15BC4DB822DAD03700313CA9 /* DAppListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DAppListViewController.xib; sourceTree = "<group>"; };
+		15BC4DBB22DAD82E00313CA9 /* DappTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappTableViewCell.swift; sourceTree = "<group>"; };
+		15BC4DBC22DAD82E00313CA9 /* DappTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DappTableViewCell.xib; sourceTree = "<group>"; };
+		15BC4DC022DAF50F00313CA9 /* dapps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dapps.json; path = DappList/dapps.json; sourceTree = SOURCE_ROOT; };
+		15BC4DC322DAF58100313CA9 /* DAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppModel.swift; sourceTree = "<group>"; };
+		15BC4DC522DAFAE800313CA9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
 		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
+		15E845D722DBA141008F8AD2 /* HKTransitionPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTransitionPush.m; sourceTree = "<group>"; };
+		15E845D822DBA141008F8AD2 /* HKTransitionPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTransitionPop.m; sourceTree = "<group>"; };
+		15E845D922DBA141008F8AD2 /* HKTransitionPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTransitionPush.h; sourceTree = "<group>"; };
+		15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTransitionPop.h; sourceTree = "<group>"; };
+		15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+hkvc.m"; sourceTree = "<group>"; };
+		15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+hkvc.h"; sourceTree = "<group>"; };
+		15E845DE22DBA141008F8AD2 /* HKMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKMarco.h; sourceTree = "<group>"; };
+		15E845DF22DBA141008F8AD2 /* HKFloatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatManager.m; sourceTree = "<group>"; };
+		15E845E122DBA141008F8AD2 /* HKFloatBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatBall.m; sourceTree = "<group>"; };
+		15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatAreaView.h; sourceTree = "<group>"; };
+		15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKFloatAreaView.m; sourceTree = "<group>"; };
+		15E845E422DBA141008F8AD2 /* HKFloatBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatBall.h; sourceTree = "<group>"; };
+		15E845E522DBA141008F8AD2 /* HKFloatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatManager.h; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
@@ -285,8 +325,9 @@
 		1581EC0E22D837FE00B74F30 /* Broswer */ = {
 			isa = PBXGroup;
 			children = (
+				15BC4DB522DAD00500313CA9 /* DAppList */,
 				15BC4DAE22DA461700313CA9 /* Panel */,
-				1581EC2022D889EE00B74F30 /* Dapp */,
+				1581EC2022D889EE00B74F30 /* DApps */,
 				1581EC1422D8564E00B74F30 /* EditAddressVC */,
 				1581EC1322D83D9100B74F30 /* Configuration */,
 				1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */,
@@ -321,12 +362,12 @@
 			path = js;
 			sourceTree = "<group>";
 		};
-		1581EC2022D889EE00B74F30 /* Dapp */ = {
+		1581EC2022D889EE00B74F30 /* DApps */ = {
 			isa = PBXGroup;
 			children = (
 				1581EC2122D88A0300B74F30 /* Dapp.swift */,
 			);
-			path = Dapp;
+			path = DApps;
 			sourceTree = "<group>";
 		};
 		1587395422B9E11000F36F92 /* RNCustomView */ = {
@@ -463,6 +504,7 @@
 		15B86BA822AA1C5400110C06 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				15BC4DBF22DAF4EC00313CA9 /* json */,
 				1581EC1B22D8685600B74F30 /* js */,
 				15B86BB022AA1D1100110C06 /* fonts */,
 				15B86BAB22AA1C6E00110C06 /* sounds */,
@@ -507,6 +549,7 @@
 				151E346422D59C9A0037157C /* EthereumTransaction.swift */,
 				1581EC2322D88F0F00B74F30 /* Data.swift */,
 				1581EC2522D8AE6D00B74F30 /* Double.swift */,
+				15BC4DC522DAFAE800313CA9 /* UIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -514,6 +557,7 @@
 		15B86BAF22AA1CE200110C06 /* Libary */ = {
 			isa = PBXGroup;
 			children = (
+				15E845D522DBA141008F8AD2 /* HKFloatBall */,
 				1527873622AE210200D63C7F /* RPCircularProgress.swift */,
 			);
 			path = Libary;
@@ -588,6 +632,42 @@
 			path = Panel;
 			sourceTree = "<group>";
 		};
+		15BC4DB522DAD00500313CA9 /* DAppList */ = {
+			isa = PBXGroup;
+			children = (
+				15BC4DC222DAF55E00313CA9 /* model */,
+				15BC4DBA22DAD74B00313CA9 /* cell */,
+				15BC4DB622DAD02C00313CA9 /* DAppListViewController.swift */,
+				15BC4DB822DAD03700313CA9 /* DAppListViewController.xib */,
+			);
+			path = DAppList;
+			sourceTree = "<group>";
+		};
+		15BC4DBA22DAD74B00313CA9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				15BC4DBB22DAD82E00313CA9 /* DappTableViewCell.swift */,
+				15BC4DBC22DAD82E00313CA9 /* DappTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		15BC4DBF22DAF4EC00313CA9 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				15BC4DC022DAF50F00313CA9 /* dapps.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		15BC4DC222DAF55E00313CA9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				15BC4DC322DAF58100313CA9 /* DAppModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		15DE8E3822C9DD23004B45A2 /* Import */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +675,50 @@
 				15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */,
 			);
 			path = Import;
+			sourceTree = "<group>";
+		};
+		15E845D522DBA141008F8AD2 /* HKFloatBall */ = {
+			isa = PBXGroup;
+			children = (
+				15E845D622DBA141008F8AD2 /* Transition */,
+				15E845DB22DBA141008F8AD2 /* Ohter */,
+				15E845DF22DBA141008F8AD2 /* HKFloatManager.m */,
+				15E845E022DBA141008F8AD2 /* View */,
+				15E845E522DBA141008F8AD2 /* HKFloatManager.h */,
+			);
+			path = HKFloatBall;
+			sourceTree = "<group>";
+		};
+		15E845D622DBA141008F8AD2 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				15E845D722DBA141008F8AD2 /* HKTransitionPush.m */,
+				15E845D822DBA141008F8AD2 /* HKTransitionPop.m */,
+				15E845D922DBA141008F8AD2 /* HKTransitionPush.h */,
+				15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		15E845DB22DBA141008F8AD2 /* Ohter */ = {
+			isa = PBXGroup;
+			children = (
+				15E845DC22DBA141008F8AD2 /* NSObject+hkvc.m */,
+				15E845DD22DBA141008F8AD2 /* NSObject+hkvc.h */,
+				15E845DE22DBA141008F8AD2 /* HKMarco.h */,
+			);
+			path = Ohter;
+			sourceTree = "<group>";
+		};
+		15E845E022DBA141008F8AD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15E845E122DBA141008F8AD2 /* HKFloatBall.m */,
+				15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */,
+				15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */,
+				15E845E422DBA141008F8AD2 /* HKFloatBall.h */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		15F985DD22C33AE000942357 /* HUD */ = {
@@ -639,6 +763,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E845EC22DBA141008F8AD2 /* HKMarco.h in Headers */,
+				15E845F122DBA141008F8AD2 /* HKFloatBall.h in Headers */,
+				15E845F222DBA141008F8AD2 /* HKFloatManager.h in Headers */,
+				15E845E922DBA141008F8AD2 /* HKTransitionPop.h in Headers */,
+				15E845EF22DBA141008F8AD2 /* HKFloatAreaView.h in Headers */,
+				15E845EB22DBA141008F8AD2 /* NSObject+hkvc.h in Headers */,
+				15E845E822DBA141008F8AD2 /* HKTransitionPush.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +848,9 @@
 			files = (
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
+				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
+				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
@@ -726,6 +859,7 @@
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				157AA56C22CC6CE0008AF3A5 /* SettingViewController.xib in Resources */,
 				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
+				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
@@ -817,6 +951,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JWT/JWT.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${PODS_ROOT}/PromiseKit/PromiseKit.framework",
@@ -862,6 +997,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -933,22 +1069,27 @@
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
+				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
+				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
+				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
+				15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */,
+				15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
@@ -963,8 +1104,11 @@
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
+				15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
+				15E845E622DBA141008F8AD2 /* HKTransitionPush.m in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
+				15E845ED22DBA141008F8AD2 /* HKFloatManager.m in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
@@ -974,8 +1118,10 @@
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
+				15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */,
 				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
 				156548F522CDC5BB005C8B2D /* NetworkTableViewCell.swift in Sources */,
 				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,
@@ -1120,7 +1266,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1144,7 +1290,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

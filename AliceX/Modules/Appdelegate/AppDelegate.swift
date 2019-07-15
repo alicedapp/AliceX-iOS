@@ -54,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         navi = rootVC
     
+        HKFloatManager.addFloatVcs([ NSStringFromClass(BrowserViewController.self) ])
+        
         return true
     }
 
