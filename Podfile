@@ -5,8 +5,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'AliceX' do
   use_frameworks!
-  #keep_source_code_for_prebuilt_frameworks!
-  #enable_bitcode_for_prebuilt_frameworks!
+ # keep_source_code_for_prebuilt_frameworks!
+ # enable_bitcode_for_prebuilt_frameworks!
   
   pod 'web3.swift.pod', '~> 2.2.1' , :binary => true
   pod 'KeychainAccess'
@@ -48,3 +48,4 @@ target 'AliceX' do
   
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 end
+
