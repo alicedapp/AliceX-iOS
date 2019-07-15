@@ -12,11 +12,7 @@ import Hero
 class BaseViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .default
-        }
+        return .default
     }
     
     override func viewWillAppear(_ animated: Bool) {

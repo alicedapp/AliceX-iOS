@@ -25,7 +25,7 @@ class BrowserViewController: BaseViewController {
     var webview: WKWebView!
     var urlString: String = "http://www.google.com"
     
-    public var hk_iconImage: UIImage!
+    @objc var hk_iconImage: UIImage!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -165,7 +165,6 @@ extension BrowserViewController: WKNavigationDelegate {
             switch result {
             case .success(let value):
                 self.hk_iconImage = value.image
-                HKFloatManager.updateFloat(self.hk_iconImage)
             case .failure(_):
                 self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
             }

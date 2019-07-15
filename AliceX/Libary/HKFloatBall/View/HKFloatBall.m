@@ -31,7 +31,7 @@
 - (UIImageView *)iconImageView {
     if (!_iconImageView) {
         _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-        _iconImageView.backgroundColor = [UIColor yellowColor];
+        _iconImageView.backgroundColor = [UIColor whiteColor];
         _iconImageView.layer.borderWidth = 8;
         _iconImageView.layer.borderColor = [UIColor grayColor].CGColor;
         _iconImageView.layer.cornerRadius = self.bounds.size.width / 2;
