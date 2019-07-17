@@ -126,6 +126,7 @@
                                     <constraints>
                                         <constraint firstItem="P66-p1-FuT" firstAttribute="leading" secondItem="Hv0-SI-L7x" secondAttribute="leading" constant="8" id="Mrn-46-mM4"/>
                                         <constraint firstAttribute="trailing" secondItem="P66-p1-FuT" secondAttribute="trailing" constant="8" id="mNE-gS-0xK"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="nL3-fq-dfx"/>
                                         <constraint firstItem="P66-p1-FuT" firstAttribute="centerY" secondItem="Hv0-SI-L7x" secondAttribute="centerY" id="wcq-cL-0ec"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -144,8 +145,9 @@
                                 <constraint firstAttribute="bottom" secondItem="5Ch-QG-hHG" secondAttribute="bottom" id="06C-xm-ocn"/>
                                 <constraint firstItem="5Ch-QG-hHG" firstAttribute="width" secondItem="XX8-vd-Tk3" secondAttribute="width" id="1GQ-uK-plm"/>
                                 <constraint firstItem="5Ch-QG-hHG" firstAttribute="top" secondItem="XX8-vd-Tk3" secondAttribute="top" id="47v-qu-2tb"/>
-                                <constraint firstItem="Hv0-SI-L7x" firstAttribute="leading" secondItem="04O-98-abD" secondAttribute="trailing" constant="12" id="4Mo-EJ-yYk"/>
-                                <constraint firstItem="zDW-uQ-2tl" firstAttribute="leading" secondItem="Hv0-SI-L7x" secondAttribute="trailing" constant="12" id="5Ge-7W-96E"/>
+                                <constraint firstItem="Hv0-SI-L7x" firstAttribute="leading" secondItem="04O-98-abD" secondAttribute="trailing" priority="999" constant="12" id="4Mo-EJ-yYk"/>
+                                <constraint firstItem="zDW-uQ-2tl" firstAttribute="leading" secondItem="Hv0-SI-L7x" secondAttribute="trailing" priority="999" constant="12" id="5Ge-7W-96E"/>
+                                <constraint firstItem="Hv0-SI-L7x" firstAttribute="centerX" secondItem="XX8-vd-Tk3" secondAttribute="centerX" id="6Hh-Pz-4g1"/>
                                 <constraint firstItem="04O-98-abD" firstAttribute="top" secondItem="XX8-vd-Tk3" secondAttribute="top" id="6yv-7F-Udk"/>
                                 <constraint firstAttribute="bottom" secondItem="nd2-Xx-arx" secondAttribute="bottom" id="Aaq-qt-JtU"/>
                                 <constraint firstItem="04O-98-abD" firstAttribute="leading" secondItem="nd2-Xx-arx" secondAttribute="trailing" id="D8S-1m-6pJ"/>
