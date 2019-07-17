@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import web3swift
-import BigInt
-import Kingfisher
 
 class BrowserViewController: BaseViewController {
 
@@ -89,12 +86,12 @@ class BrowserViewController: BaseViewController {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+                               change: [NSKeyValueChangeKey: Any]?,
+                               context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             let progress = webview.estimatedProgress
             let length = CGFloat(Double(Constant.SCREEN_WIDTH - 40) * progress)
-//            let cur = self.progressView.transform.tx
-            
             UIView.animate(withDuration: 0.3, animations: {
                 self.progressView.transform = CGAffineTransform(translationX: length, y: 0)
             })
@@ -137,144 +134,5 @@ class BrowserViewController: BaseViewController {
         vc.browerRef = self
 //        titleLabel.isHidden = true
         self.present(vc, animated: true, completion: nil)
-    }
-
-    func notifyFinish(callbackID: Int, value: String) {
-
-        let script: String = "executeCallback(\(callbackID), null, \"\(value)\")"
-        webview.evaluateJavaScript(script, completionHandler: nil)
-    }
-
-}
-
-extension BrowserViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.navBarContainer.transform = CGAffineTransform.identity
-        })
-        
-        guard let hostURL = webView.url?.host else {
-            return
-        }
-        
-        let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-        let downloader = ImageDownloader.default
-        downloader.downloadImage(with: favIcon) { result in
-            switch result {
-            case .success(let value):
-                self.hk_iconImage = value.image
-            case .failure(_):
-                self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
-            }
-        }
-    }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if navigationAction.navigationType == .linkActivated {
-            guard let url = navigationAction.request.url else {return}
-            webView.load(URLRequest(url: url))
-        }
-        decisionHandler(.allow)
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.titleLabel.text = webview.title
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.navBarContainer.transform = CGAffineTransform.identity
-            self.progressView.alpha = 0
-        }) { (_) in
-            self.progressView.transform = CGAffineTransform.identity
-            self.progressView.alpha = 1
-        }
-    }
-}
-
-extension BrowserViewController: UIScrollViewDelegate {
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if #available(iOS 13.0, *) {
-//            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-//            if translation.y > 0 {
-//                UIView.animate(withDuration: 0.3) {
-//                    self.navBarContainer.transform = CGAffineTransform.identity
-//                }
-//            } else {
-//                UIView.animate(withDuration: 0.3) {
-//                    self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: -94)
-//                }
-//            }
-            return
-        }
-        
-        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-        if translation.y > 0 {
-            UIView.animate(withDuration: 0.3) {
-                self.navBarContainer.transform = CGAffineTransform.identity
-            }
-        } else {
-            UIView.animate(withDuration: 0.3) {
-                self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: 94)
-            }
-        }
-    }
-}
-
-extension BrowserViewController: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        let message = message
-
-        switch message.name {
-        case Method.signPersonalMessage.rawValue:
-            guard var body = message.body as? [String: AnyObject] else { return }
-            var object = body["object"] as? [String: AnyObject]
-            var dataString = object!["data"] as! String
-            TransactionManager.showSignMessageView(message: dataString) { (signData) in
-                self.notifyFinish(callbackID: 8888, value: signData)
-            }
-        case Method.signMessage.rawValue:
-
-            print("signMessage")
-        case Method.signTransaction.rawValue:
-            guard var body = message.body as? [String: AnyObject] else { return }
-            var transactionJSON = body["object"] as! [String: Any]
-            guard let transaction = EthereumTransaction.fromJSON(transactionJSON) else {return}
-            guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
-            var transactionOptions = TransactionOptions()
-            transactionOptions.from = options.from
-            transactionOptions.to = options.to
-            transactionOptions.value = options.value != nil ? options.value! : BigUInt(0)
-
-            let realValue = Double(transactionOptions.value!) / Double(pow(Double(10), Double(17)))
-
-            TransactionManager.showSignTransactionView(to: options.to!.address,
-                                                       value: String(realValue),
-                                                       data: "") { (signData) in
-                self.notifyFinish(callbackID: 8888, value: signData)
-            }
-
-            print("signTransaction")
-
-        case Method.signTypedMessage.rawValue:
-            print("signTypedMessage")
-
-        case Method.sendTransaction.rawValue:
-            print("sendTransaction")
-        default:
-            print("Error")
-        }
-
-
-
-//        guard let command = DappAction.fromMessage(message) else { return }
-//        let requester = DAppRequester(title: webView.title, url: webView.url)
-//        let token = TokensDataStore.token(forServer: server)
-//        let transfer = Transfer(server: server, type: .dapp(token, requester))
-//        let action = DappAction.fromCommand(command, transfer: transfer)
-//
-//        delegate?.didCall(action: action, callbackID: command.id, inBrowserViewController: self)
     }
 }

@@ -150,14 +150,6 @@ class WalletManager {
     
     // MARK: - Notification
     
-//    init() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(updateNetwork),
-//                                               name: .networkChange, object: nil)
-//    }
-//
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
     
     class func updateNetwork(type: Web3NetEnum) {
 //        let web3:web3 = Web3Net.fetchFromCache()
@@ -169,8 +161,8 @@ class WalletManager {
             Web3Net.currentNetwork = type
             NotificationCenter.default.post(name: .networkChange, object: type)
             
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
             
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)

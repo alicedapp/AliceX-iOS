@@ -35,7 +35,8 @@
     CGRect floatBallRect = [HKFloatManager shared].floatBall.frame;
     [fromVC.view addSubview:self.coverView];
     UIBezierPath *maskStartBP = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(floatBallRect.origin.x, floatBallRect.origin.y, floatBallRect.size.width, floatBallRect.size.height) cornerRadius:floatBallRect.size.height / 2];
-    UIBezierPath *maskFinalBP = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) cornerRadius:floatBallRect.size.width / 2];
+    UIBezierPath *maskFinalBP = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 1600, 1600) cornerRadius:800];
+//    [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) cornerRadius:floatBallRect.size.width / 2];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskFinalBP.CGPath;
     toVC.view.layer.mask = maskLayer;

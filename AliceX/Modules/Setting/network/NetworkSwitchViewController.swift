@@ -34,6 +34,10 @@ extension NetworkSwitchViewController: UITableViewDataSource, UITableViewDelegat
         return data.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NetworkTableViewCell.nameOfClass)
             as! NetworkTableViewCell
