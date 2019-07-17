@@ -21,6 +21,8 @@ extension BrowserViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let message = message
         
+        WalletManager.web3Net.browserFunctions
+        
         switch message.name {
         case Method.signPersonalMessage.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }
@@ -34,7 +36,10 @@ extension BrowserViewController: WKScriptMessageHandler {
             print("signMessage")
         case Method.signTransaction.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }
-            let transactionJSON = body["object"] as! [String: Any]
+            var transactionJSON = body["object"] as! [String: Any]
+            if !transactionJSON.keys.contains("value") {
+                transactionJSON["value"] = String(BigUInt(0))
+            }
             guard let _ = EthereumTransaction.fromJSON(transactionJSON) else {return}
             guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
             var transactionOptions = TransactionOptions()
