@@ -38,6 +38,10 @@
 		156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */; };
 		156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */; };
 		1572598522E0A114004D0CC4 /* PriceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572598422E0A114004D0CC4 /* PriceHelper.swift */; };
+		1572598822E0B516004D0CC4 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572598622E0B516004D0CC4 /* CurrencyViewController.swift */; };
+		1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1572598722E0B516004D0CC4 /* CurrencyViewController.xib */; };
+		1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572598B22E0B628004D0CC4 /* CurrencyTableViewCell.swift */; };
+		1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */; };
 		157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A676822CDE12E00DA83AB /* SignYesViewController.swift */; };
 		157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157A676922CDE12E00DA83AB /* SignYesViewController.xib */; };
 		157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */; };
@@ -143,6 +147,10 @@
 		156BCD5D22C4A41B00B380DF /* SignMessagePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessagePopUp.swift; sourceTree = "<group>"; };
 		156BCD5E22C4A41B00B380DF /* SignMessagePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignMessagePopUp.xib; sourceTree = "<group>"; };
 		1572598422E0A114004D0CC4 /* PriceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHelper.swift; sourceTree = "<group>"; };
+		1572598622E0B516004D0CC4 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		1572598722E0B516004D0CC4 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
+		1572598B22E0B628004D0CC4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		157A676822CDE12E00DA83AB /* SignYesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignYesViewController.swift; sourceTree = "<group>"; };
 		157A676922CDE12E00DA83AB /* SignYesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignYesViewController.xib; sourceTree = "<group>"; };
 		157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -308,9 +316,21 @@
 		1572598322E0A0E9004D0CC4 /* Price */ = {
 			isa = PBXGroup;
 			children = (
+				1572598A22E0B560004D0CC4 /* View */,
 				1572598422E0A114004D0CC4 /* PriceHelper.swift */,
 			);
 			path = Price;
+			sourceTree = "<group>";
+		};
+		1572598A22E0B560004D0CC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1572598622E0B516004D0CC4 /* CurrencyViewController.swift */,
+				1572598722E0B516004D0CC4 /* CurrencyViewController.xib */,
+				1572598B22E0B628004D0CC4 /* CurrencyTableViewCell.swift */,
+				1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		157A676722CDE0F500DA83AB /* signYes */ = {
@@ -889,12 +909,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
+				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
+				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
@@ -1141,6 +1163,7 @@
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
 				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
 				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
+				1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
@@ -1156,6 +1179,7 @@
 				15E845ED22DBA141008F8AD2 /* HKFloatManager.m in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
 				15B86B5922AA043F00110C06 /* AppDelegate.swift in Sources */,
+				1572598822E0B516004D0CC4 /* CurrencyViewController.swift in Sources */,
 				1572598522E0A114004D0CC4 /* PriceHelper.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,

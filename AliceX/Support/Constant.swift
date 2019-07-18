@@ -45,6 +45,7 @@ enum Font {
 
 extension Notification.Name {
     static let networkChange = Notification.Name("networkChange")
+    static let currencyChange = Notification.Name("currencyChange")
 }
 
 class Constant {

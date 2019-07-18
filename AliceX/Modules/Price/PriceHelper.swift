@@ -28,6 +28,7 @@ class PriceHelper {
             self.exchangeRate = self.reponse!.price!
             self.updateDate = self.reponse!.last_updated!
             self.storeInUserDefault()
+            HUDManager.shared.showSuccess(text: "Switch currency success")
         }
     }
     
@@ -36,23 +37,25 @@ class PriceHelper {
     }
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
-        return UserDefaults.standard.object(forKey: key) != nil
+        return UserDefaults.standard.string(forKey: key) != nil
     }
     
     func fetchFromCache() {
         if isKeyPresentInUserDefaults(key: AliceCurrencyKey) {
             let typeString = UserDefaults.standard.string(forKey: AliceCurrencyKey)
             let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: typeString)
-            self.reponse = currencyModel
-            self.currentCurrency = (currencyModel?.currency)!
-            self.exchangeRate = currencyModel!.price!
-            self.updateDate = currencyModel!.last_updated!
+            reponse = currencyModel
+            currentCurrency = (currencyModel?.currency)!
+            exchangeRate = currencyModel!.price!
+            updateDate = currencyModel!.last_updated!
+            getExchangePrice(currency: currentCurrency, callback: nil)
+            return
         }
         
         getExchangePrice(currency: .USD, callback: nil)
     }
     
-    // TODO ONLY SUPPORT ETH
+    // TODO MORE THAN SUPPORT ETH
     func getExchangePrice(currency: Currency, callback: VoidBlock) {
         coinMarketCapAPI.request(.latest(currency: currency)) { (result) in
             
@@ -60,7 +63,7 @@ class PriceHelper {
             case let .success(response):
                 let model = response.mapObject(CoinMarketCapModel.self)
                 let quote =  model?.data?.first?.quote?.toJSON()
-                let price = quote![self.currentCurrency.rawValue] as! [String: Any]
+                let price = quote![currency.rawValue] as! [String: Any]
                 var currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price)
                 currencyModel?.currency = currency
                 self.reponse = currencyModel

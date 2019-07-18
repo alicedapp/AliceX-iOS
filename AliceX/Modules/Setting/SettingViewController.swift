@@ -12,12 +12,16 @@ import LocalAuthentication
 class SettingViewController: BaseViewController {
 
     @IBOutlet weak var networkLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateNetwork),
                                                name: .networkChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrency),
+                                               name: .currencyChange, object: nil)
         updateNetwork()
+        updateCurrency()
     }
     
     @IBAction func replaceClicked() {
@@ -33,6 +37,11 @@ class SettingViewController: BaseViewController {
     
     @IBAction func cacheButtonClicked() {
         BrowserViewController.cleanCache()
+    }
+    
+    @IBAction func currencyBtnClicked() {
+        let vc = CurrencyViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func closeButtonClicked() {
@@ -56,6 +65,10 @@ class SettingViewController: BaseViewController {
     
     @objc func updateNetwork() {
         networkLabel.text = Web3Net.currentNetwork.rawValue.firstUppercased
+    }
+    
+    @objc func updateCurrency() {
+        currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
     }
     
     func biometricsVerify() {

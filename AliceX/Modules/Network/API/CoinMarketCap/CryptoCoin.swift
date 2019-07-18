@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import HandyJSON
 
 // https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions
-enum Currency: String, CaseIterable {
+enum Currency: String, CaseIterable, HandyJSONEnum{
     case USD
     case EUR
     case CNY
@@ -83,6 +84,37 @@ enum Currency: String, CaseIterable {
             return "Canadian Dollar"
         case .HKD:
             return "Hong Kong Dollar"
+        }
+    }
+    
+    var flag: String {
+        switch self {
+        case .USD:
+            return "🇺🇸"
+        case .EUR:
+            return "🇪🇺"
+        case .CNY:
+            return "🇨🇳"
+        case .AUD:
+            return "🇦🇺"
+        case .CAD:
+            return "🇨🇦"
+        case .KRW:
+            return "🇰🇷"
+        case .HKD:
+            return "🇭🇰"
+        case .SGD:
+            return "🇸🇬"
+        case .RUB:
+            return "🇷🇺"
+        case .JPY:
+            return "🇯🇵"
+        case .TWD:
+            return "🇹🇼"
+        case .CHF:
+            return "🇨🇭"
+        case .MXN:
+            return "🇲🇽"
         }
     }
     
