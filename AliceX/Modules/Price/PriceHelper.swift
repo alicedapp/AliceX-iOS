@@ -29,6 +29,7 @@ class PriceHelper {
             self.updateDate = self.reponse!.last_updated!
             self.storeInUserDefault()
             HUDManager.shared.showSuccess(text: "Switch currency success")
+            self.postNotification()
         }
     }
     
@@ -78,5 +79,9 @@ class PriceHelper {
                 HUDManager.shared.showError(text: "Fetch currency fail")
             }
         }
+    }
+    
+    func postNotification() {
+        NotificationCenter.default.post(name: .currencyChange, object: nil)
     }
 }

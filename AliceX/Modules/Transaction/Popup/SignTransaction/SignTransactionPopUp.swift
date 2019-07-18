@@ -45,7 +45,7 @@ class SignTransactionPopUp: UIViewController {
         amountLabel.text = String(Double(amount!)!.rounded(toPlaces: 3))
         
         let price = Float(amount!)! * PriceHelper.shared.exchangeRate
-        priceLabel.text = "\(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
+        priceLabel.text = "\(PriceHelper.shared.currentCurrency.rawValue) \(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
         
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
