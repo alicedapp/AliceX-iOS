@@ -17,7 +17,7 @@ class SignMessagePopUp: UIViewController {
     
     @IBOutlet weak var messageTextView: UITextView!
     
-    var message: String?
+    var message: String!
     
     var timer: Timer?
     var process: Int = 0
@@ -35,7 +35,15 @@ class SignMessagePopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messageTextView.text = message
+        
+        guard let msgData = Data.fromHex(message!),
+            let msgText = String(data: msgData, encoding: .utf8) else {
+                self.dismiss(animated: true, completion: nil)
+                HUDManager.shared.showError(text: "Message hex can't be decode")
+                return
+        }
+        
+        messageTextView.text = msgText
         
         payButtonContainer.layer.cornerRadius = 10
         payButtonContainer.layer.masksToBounds = true

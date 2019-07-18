@@ -139,6 +139,7 @@ class Web3Net {
         
         guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
             let type = Web3NetEnum(rawValue: typeString) else {
+            // TODO 
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return Web3.InfuraMainnetWeb3()
         }

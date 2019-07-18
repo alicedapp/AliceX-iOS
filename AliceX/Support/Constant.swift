@@ -51,13 +51,13 @@ class Constant {
     
     static var SAFE_TOP: CGFloat {
         if #available(iOS 11, *) {
-            return (UIApplication.topViewController()?.view.safeAreaInsets.top)!
+            return UIApplication.shared.keyWindow!.safeAreaInsets.top
         }
         return 0
     }
     static var SAFE_BTTOM: CGFloat {
         if #available(iOS 11, *) {
-            return (UIApplication.topViewController()?.view.safeAreaInsets.bottom)!
+            return UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
         return 0
     }
