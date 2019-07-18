@@ -72,6 +72,16 @@ extension String {
         return prefix(1).capitalized + dropFirst()
     }
     
+    var hexDecodeUTF8: String? {
+        guard let data = Data.fromHex(self) else {
+            return nil
+        }
+        guard let decode = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+        return decode
+    }
+    
     func split(by length: Int) -> [String] {
         var startIndex = self.startIndex
         var results = [Substring]()

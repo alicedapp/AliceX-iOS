@@ -77,11 +77,12 @@ class BrowserViewController: BaseViewController {
         titleLabel.isHidden = false
     }
     
-    func cleanCache() {
-        config.websiteDataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+    class func cleanCache() {
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
             records.forEach { record in
-                self.config.websiteDataStore.removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
                 print("[WebCacheCleaner] Record \(record) deleted")
+                HUDManager.shared.showSuccess(text: "Cache have been cleaned")
             }
         }
     }

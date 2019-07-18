@@ -36,11 +36,10 @@ class SignMessagePopUp: UIViewController {
         super.viewDidLoad()
         
         
-        guard let msgData = Data.fromHex(message!),
-            let msgText = String(data: msgData, encoding: .utf8) else {
-                self.dismiss(animated: true, completion: nil)
-                HUDManager.shared.showError(text: "Message hex can't be decode")
-                return
+        guard let msgText = message.hexDecodeUTF8 else {
+            HUDManager.shared.showError(text: "Message hex can't be decode")
+            self.dismiss(animated: true, completion: nil)
+            return
         }
         
         messageTextView.text = msgText

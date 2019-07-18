@@ -31,6 +31,10 @@ class SettingViewController: BaseViewController {
 //        HUDManager.shared.showAlertViewController(viewController: vc)
     }
     
+    @IBAction func cacheButtonClicked() {
+        BrowserViewController.cleanCache()
+    }
+    
     // MARK: - mnemonics
     
     @IBAction func mnemonicsClicked() {

@@ -354,7 +354,7 @@ class TransactionManager {
             print(tx.description)
             return (tx.encode(forSignature: false, chainID: nil)?.toHexString().addHexPrefix())!
             // TODO return JSON
-//            return tx.toJsonString()
+            // return tx.toJsonString()
         } catch {
             HUDManager.shared.showError()
         }
