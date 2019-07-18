@@ -236,7 +236,7 @@ class TransactionManager {
         guard let sendResult = try? tx?.call() else {
             throw WalletError.networkFailure
         }
-        print(sendResult)
+        print(sendResult.keys)
         
         return ""
     }
@@ -306,7 +306,7 @@ class TransactionManager {
         }
     }
     
-    class func showSignTransactionView(to:String, value:String, data:String, success: @escaping StringBlock) {
+    class func showSignTransactionView(to:String, value: String, data: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()

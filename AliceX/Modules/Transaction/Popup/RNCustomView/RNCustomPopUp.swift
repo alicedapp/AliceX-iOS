@@ -54,11 +54,11 @@ class RNCustomPopUp: UIViewController {
         addressLabel.text = toAddress
         amountLabel.text = "Amount: " + "\(amount!)"
         
-        payButtonContainer.layer.cornerRadius = 10
+        payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
         
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [UIColor(hex: "659BEF").cgColor, UIColor(hex: "2060CB").cgColor]
+        gradient.colors = [UIColor(hex: "333333").cgColor, UIColor(hex: "333333").cgColor]
         gradient.locations = [0.0, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
@@ -66,7 +66,7 @@ class RNCustomPopUp: UIViewController {
         payButtonContainer.layer.insertSublayer(gradient, at: 0)
         
         payButton.layer.masksToBounds = false
-        payButton.layer.cornerRadius = 8
+        payButton.layer.cornerRadius = 20
         payButton.layer.shadowColor = UIColor(hex: "2060CB").cgColor
         payButton.layer.shadowRadius = 10
         payButton.layer.shadowOffset = CGSize.zero

@@ -21,8 +21,6 @@ extension BrowserViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let message = message
         
-        WalletManager.web3Net.browserFunctions
-        
         switch message.name {
         case Method.signPersonalMessage.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }

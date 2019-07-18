@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         WalletManager.loadFromCache()
+        PriceHelper.shared.fetchFromCache()
 
         func sourceURL(bridge: RCTBridge?) -> URL? {
             #if DEBUG
@@ -44,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if WalletManager.hasWallet() {
             vc = RNModule.makeViewController(module: .alice)
-//            vc = BrowserViewController()
         } else {
             vc = LandingViewController()
         }

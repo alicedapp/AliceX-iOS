@@ -21,6 +21,8 @@ class PaymentPopUp: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     
     var timer: Timer?
@@ -53,6 +55,9 @@ class PaymentPopUp: UIViewController {
         addressLabel.text = toAddress
         amountLabel.text = amount
         
+        var price = Float(amount!)! * PriceHelper.shared.exchangeRate
+        priceLabel.text = "\(PriceHelper.shared.currentCurrency.rawValue) \(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
+        
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
         
@@ -76,37 +81,10 @@ class PaymentPopUp: UIViewController {
         longPressGesture.minimumPressDuration = 0
         payButton.addGestureRecognizer(longPressGesture)
         progressIndicator.updateProgress(0)
-        
-//        let labelTextAttributes: [NSAttributedString.Key: Any] =
-//            [.font: UIFont.systemFont(ofSize: 20, weight: .bold), .foregroundColor: UIColor.white]
-//        slider.attributedTextForFraction = { fraction in
-//            let formatter = NumberFormatter()
-//            formatter.maximumIntegerDigits = 3
-//            formatter.maximumFractionDigits = 0
-//            let string = formatter.string(from: (fraction * 500) as NSNumber) ?? ""
-//            return NSAttributedString(string: string)
-//        }
-//        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
-//        slider.setMaximumLabelAttributedText(NSAttributedString(string: "500", attributes: labelTextAttributes))
-//        slider.fraction = 0.5
-//        slider.shadowOffset = CGSize.zero
-//        slider.shadowBlur = 5
-//        slider.shadowColor = UIColor(hex: "2060CB")
-//        slider.contentViewColor = UIColor(hex: "2060CB")
-////        let gradientSec = CAGradientLayer()
-////        gradientSec.contents = gradient.contents
-////        gradientSec.frame = gradient.frame
-//        slider.layer.insertSublayer(gradient, at: 0)
-//        slider.valueViewColor = .white
-//        slider.frame = sliderContainer.bounds
-//        sliderContainer.addSubview(slider)
-//
-//        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
     }
     
-    @objc func sliderValueChanged() {
-//        self.slider.contentViewColor = UIColor(hex: "FF0000")
-//        self.slider.fraction
+    func getGasPriceAndTime() {
+//        TransactionManager.getGasLimit(to: <#T##String#>, amount: <#T##String#>, dataString: <#T##String#>)
     }
     
     @objc func timeUpdate() {

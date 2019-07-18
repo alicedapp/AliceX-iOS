@@ -16,6 +16,7 @@
                 <outlet property="messageTextView" destination="XF0-aq-zcl" id="cfR-qs-ZhW"/>
                 <outlet property="payButton" destination="kWP-zq-0yx" id="QRI-qI-HA9"/>
                 <outlet property="payButtonContainer" destination="QKD-Tc-ZH4" id="6Xe-o4-ZjG"/>
+                <outlet property="priceLabel" destination="F4T-Wr-W6U" id="4nF-ik-rOu"/>
                 <outlet property="progressIndicator" destination="gvd-2K-Kog" id="I1P-YY-PgX"/>
                 <outlet property="view" destination="450-AK-cNv" id="u7r-uI-5mF"/>
             </connections>
@@ -194,39 +195,47 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdJ-FN-vJi">
-                                            <rect key="frame" x="89" y="20" width="34" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <rect key="frame" x="89" y="20" width="42.5" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peg-Xy-f1c">
-                                            <rect key="frame" x="89" y="47" width="98" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                            <rect key="frame" x="89" y="52.5" width="81" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAf-BQ-l0m">
-                                            <rect key="frame" x="323.5" y="32" width="35.5" height="26.5"/>
+                                            <rect key="frame" x="323.5" y="20" width="35.5" height="26.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4T-Wr-W6U">
+                                            <rect key="frame" x="330" y="52.5" width="27" height="14.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="nuG-Yd-SYq" firstAttribute="bottom" secondItem="EMZ-7N-slN" secondAttribute="bottom" id="8A2-iK-Dkb"/>
+                                        <constraint firstItem="F4T-Wr-W6U" firstAttribute="trailing" secondItem="nAf-BQ-l0m" secondAttribute="trailing" constant="-2" id="98I-4I-yp4"/>
                                         <constraint firstAttribute="height" constant="90" id="9PE-21-al3"/>
                                         <constraint firstItem="peg-Xy-f1c" firstAttribute="top" secondItem="fdJ-FN-vJi" secondAttribute="bottom" constant="6" id="AIP-ka-D04"/>
                                         <constraint firstItem="nuG-Yd-SYq" firstAttribute="top" secondItem="EMZ-7N-slN" secondAttribute="top" id="BxY-sa-drA"/>
+                                        <constraint firstItem="nAf-BQ-l0m" firstAttribute="centerY" secondItem="fdJ-FN-vJi" secondAttribute="centerY" id="JJv-pG-W85"/>
                                         <constraint firstItem="EMZ-7N-slN" firstAttribute="leading" secondItem="HsN-Jx-u1f" secondAttribute="leading" constant="15" id="KlM-fH-JhT"/>
                                         <constraint firstItem="fdJ-FN-vJi" firstAttribute="top" secondItem="EMZ-7N-slN" secondAttribute="top" id="R1u-wq-BQF"/>
                                         <constraint firstAttribute="trailing" secondItem="nAf-BQ-l0m" secondAttribute="trailing" constant="15" id="RPW-oC-BLE"/>
                                         <constraint firstItem="fdJ-FN-vJi" firstAttribute="leading" secondItem="EMZ-7N-slN" secondAttribute="trailing" constant="24" id="UgJ-La-BKN"/>
                                         <constraint firstItem="EMZ-7N-slN" firstAttribute="centerY" secondItem="HsN-Jx-u1f" secondAttribute="centerY" id="Uxz-pp-vFg"/>
                                         <constraint firstItem="peg-Xy-f1c" firstAttribute="leading" secondItem="EMZ-7N-slN" secondAttribute="trailing" constant="24" id="VpL-bU-pFe"/>
+                                        <constraint firstItem="F4T-Wr-W6U" firstAttribute="centerY" secondItem="peg-Xy-f1c" secondAttribute="centerY" id="YN1-p9-Cxc"/>
                                         <constraint firstItem="nuG-Yd-SYq" firstAttribute="trailing" secondItem="EMZ-7N-slN" secondAttribute="trailing" id="ogU-6e-lMu"/>
                                         <constraint firstItem="nuG-Yd-SYq" firstAttribute="leading" secondItem="EMZ-7N-slN" secondAttribute="leading" id="rvh-xl-7lQ"/>
-                                        <constraint firstItem="nAf-BQ-l0m" firstAttribute="centerY" secondItem="HsN-Jx-u1f" secondAttribute="centerY" id="vbw-4p-ZoW"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
