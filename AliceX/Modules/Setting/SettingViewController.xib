@@ -33,11 +33,11 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnJ-FT-awO" customClass="UIControl">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnJ-FT-awO" customClass="UIControl">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
-                                    <rect key="frame" x="24" y="21" width="12" height="18"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
+                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,6 +49,9 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeButtonClicked" destination="-1" eventType="touchUpInside" id="lpC-NG-MgO"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qii-GM-jaZ">
                             <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
@@ -411,7 +414,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back-arrow-light-dark" width="12" height="18"/>
+        <image name="close-dark" width="17" height="17"/>
         <image name="right-arrow-light-dark" width="12" height="18"/>
     </resources>
 </document>

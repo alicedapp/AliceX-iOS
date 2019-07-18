@@ -53,7 +53,7 @@ class PaymentPopUp: UIViewController {
         addressLabel.text = toAddress
         amountLabel.text = amount
         
-        payButtonContainer.layer.cornerRadius = 15
+        payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
         
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -66,7 +66,7 @@ class PaymentPopUp: UIViewController {
         payButtonContainer.layer.insertSublayer(gradient, at: 0)
         
         payButton.layer.masksToBounds = false
-        payButton.layer.cornerRadius = 15
+        payButton.layer.cornerRadius = 20
         payButton.layer.shadowColor = UIColor(hex: "2060CB").cgColor
         payButton.layer.shadowRadius = 10
         payButton.layer.shadowOffset = CGSize.zero

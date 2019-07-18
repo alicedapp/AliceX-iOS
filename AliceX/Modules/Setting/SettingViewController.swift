@@ -35,6 +35,15 @@ class SettingViewController: BaseViewController {
         BrowserViewController.cleanCache()
     }
     
+    @IBAction func closeButtonClicked() {
+        guard let navi = self.navigationController else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        navi.dismiss(animated: true, completion: nil)
+        
+    }
+    
     // MARK: - mnemonics
     
     @IBAction func mnemonicsClicked() {
