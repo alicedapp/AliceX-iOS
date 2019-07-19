@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,6 +65,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.26051744818687439" green="0.26052439212799072" blue="0.26052063703536987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="ane-UW-mYX" firstAttribute="centerY" secondItem="sZW-QN-SzH" secondAttribute="centerY" id="AhQ-C9-AKa"/>
                                                 <constraint firstItem="5KS-Y9-BCd" firstAttribute="top" secondItem="sZW-QN-SzH" secondAttribute="top" constant="12" id="E6H-9R-VuE"/>
@@ -84,20 +83,20 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.26051744818687439" green="0.26052439212799072" blue="0.26052063703536987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="sZW-QN-SzH" firstAttribute="leading" secondItem="600-L2-Keh" secondAttribute="leading" id="02A-We-2yr"/>
                                         <constraint firstAttribute="trailing" secondItem="sZW-QN-SzH" secondAttribute="trailing" id="07x-V4-AVd"/>
                                         <constraint firstAttribute="width" constant="314" id="95k-Kb-nFc"/>
                                         <constraint firstAttribute="bottom" secondItem="sZW-QN-SzH" secondAttribute="bottom" id="CAs-KM-zLl"/>
                                         <constraint firstItem="sZW-QN-SzH" firstAttribute="top" secondItem="600-L2-Keh" secondAttribute="top" id="Sie-r1-N2L"/>
-                                        <constraint firstAttribute="height" constant="60" id="yXk-om-2qu"/>
+                                        <constraint firstAttribute="height" constant="70" id="yXk-om-2qu"/>
                                     </constraints>
                                     <connections>
                                         <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="6nF-1A-qKw"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VY-fJ-Pv0" customClass="UIControl">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VY-fJ-Pv0" customClass="UIControl">
                                     <rect key="frame" x="65" y="355" width="284" height="30"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fee: $0.024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zT-dF-6AG">
@@ -184,7 +183,7 @@
                                 <constraint firstItem="600-L2-Keh" firstAttribute="centerX" secondItem="cKj-FS-NAg" secondAttribute="centerX" id="HEa-4P-U3p"/>
                                 <constraint firstItem="600-L2-Keh" firstAttribute="leading" secondItem="cKj-FS-NAg" secondAttribute="leading" priority="999" constant="50" id="KdW-5u-Kjh"/>
                                 <constraint firstAttribute="trailing" secondItem="Q5p-kB-MUb" secondAttribute="trailing" id="PmO-fb-a8Q"/>
-                                <constraint firstAttribute="bottom" secondItem="600-L2-Keh" secondAttribute="bottom" constant="70" id="axX-5B-dD2"/>
+                                <constraint firstAttribute="bottom" secondItem="600-L2-Keh" secondAttribute="bottom" constant="60" id="axX-5B-dD2"/>
                                 <constraint firstAttribute="trailing" secondItem="wwN-b6-JtX" secondAttribute="trailing" constant="20" id="e9e-4I-80D"/>
                                 <constraint firstItem="wwN-b6-JtX" firstAttribute="top" secondItem="Q5p-kB-MUb" secondAttribute="bottom" constant="20" id="gob-2L-uqZ"/>
                                 <constraint firstItem="5VY-fJ-Pv0" firstAttribute="leading" secondItem="600-L2-Keh" secondAttribute="leading" constant="15" id="rUe-tQ-1K7"/>

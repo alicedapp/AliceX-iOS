@@ -46,13 +46,13 @@ class SignMessagePopUp: UIViewController {
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
         
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [UIColor(hex: "333333").cgColor, UIColor(hex: "333333").cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.frame = payButton.bounds
-        payButtonContainer.layer.insertSublayer(gradient, at: 0)
+//        let gradient: CAGradientLayer = CAGradientLayer()
+//        gradient.colors = [UIColor(hex: "333333").cgColor, UIColor(hex: "333333").cgColor]
+//        gradient.locations = [0.0, 1.0]
+//        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+//        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+//        gradient.frame = payButton.bounds
+//        payButtonContainer.layer.insertSublayer(gradient, at: 0)
         
         payButton.layer.masksToBounds = false
         payButton.layer.cornerRadius = 20

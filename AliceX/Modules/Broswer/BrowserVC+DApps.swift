@@ -45,10 +45,10 @@ extension BrowserViewController: WKScriptMessageHandler {
             transactionOptions.to = options.to
             transactionOptions.value = options.value != nil ? options.value! : BigUInt(0)
             
-            let realValue = Double(transactionOptions.value!) / Double(pow(Double(10), Double(17)))
+            let realValue = Web3Utils.formatToEthereumUnits(transactionOptions.value!, toUnits: .eth, decimals: 4, decimalSeparator: ".")
             
             TransactionManager.showSignTransactionView(to: options.to!.address,
-                                                       value: String(realValue),
+                                                       value: realValue!,
                                                        data: "") { (signData) in
                                                         self.notifyFinish(callbackID: 8888, value: signData)
             }

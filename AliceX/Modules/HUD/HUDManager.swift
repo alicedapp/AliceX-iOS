@@ -128,6 +128,7 @@ class HUDManager: NSObject {
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .absorbTouches
             attributes.scroll = .edgeCrossingDisabled(swipeable: true)
+            attributes.statusBar = .currentStatusBar
             
             attributes.entranceAnimation = .init(translate: .init(duration: 0.5, spring: .init(damping: 1, initialVelocity: 0)))
             attributes.exitAnimation = .init(translate: .init(duration: 0.35))

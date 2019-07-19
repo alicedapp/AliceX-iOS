@@ -58,20 +58,6 @@ extension BrowserViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if #available(iOS 13.0, *) {
-            //            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-            //            if translation.y > 0 {
-            //                UIView.animate(withDuration: 0.3) {
-            //                    self.navBarContainer.transform = CGAffineTransform.identity
-            //                }
-            //            } else {
-            //                UIView.animate(withDuration: 0.3) {
-            //                    self.navBarContainer.transform = CGAffineTransform.init(translationX: 0, y: -94)
-            //                }
-            //            }
-            return
-        }
-        
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         if translation.y > 0 {
             UIView.animate(withDuration: 0.3) {
