@@ -21,9 +21,9 @@ class TransactionManager {
                                data: String,
                                symbol: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data,symbol: symbol, success: success)
+        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data, symbol: symbol, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 425
+        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -56,7 +56,7 @@ class TransactionManager {
                                        functionName: functionName, parameters: parameters,
                                        extraData: extraData, value: value, abi: abi, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 500
+        transitionDelegate.customHeight = 525 - 34 + Constant.SAFE_BTTOM
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -249,7 +249,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = SignMessagePopUp.make(message: message, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 480
+        transitionDelegate.customHeight = 420 - 34 + Constant.SAFE_BTTOM
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -312,7 +312,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 425
+        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)

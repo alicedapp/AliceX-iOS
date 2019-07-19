@@ -62,7 +62,8 @@ class PaymentPopUp: UIViewController {
         addressLabel.text = toAddress
         amountLabel.text = amount
         
-        priceLabel.text = Float(amount!)!.currencyString
+        let price = Float(amount!)! * PriceHelper.shared.exchangeRate
+        priceLabel.text = price.currencyString
         
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true

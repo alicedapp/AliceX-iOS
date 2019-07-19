@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import MarqueeLabel
+import PromiseKit
 
 class ContractPopUp: UIViewController {
 
@@ -24,6 +25,10 @@ class ContractPopUp: UIViewController {
     @IBOutlet weak var paramterLabel: MarqueeLabel!
     
     @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var gasPriceLabel: UILabel!
+    @IBOutlet weak var gasTimeLabel: UILabel!
+    @IBOutlet weak var gasBtn: UIControl!
     
     var timer: Timer?
     var process: Int = 0
@@ -99,7 +104,47 @@ class ContractPopUp: UIViewController {
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.numberOfTouchesRequired = 1
         paramterLabel.addGestureRecognizer(tapRecognizer)
+        
+        gasBtn.isUserInteractionEnabled = false
+        
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(gasChange(_:)),
+//                                               name: .gasSelectionCahnge, object: nil)
+        
+//        firstly{
+//            GasPriceHelper.shared.getGasPrice()
+//            }.then {
+//                TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!)
+//            }.done { (gasLimit) in
+//                self.gasLimit = gasLimit
+//                self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
+//                self.gasBtn.isUserInteractionEnabled = true
+//                self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+//        }
     }
+    
+    // MARK: - GAS Notification
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+//
+//    @IBAction func gasButtonClick() {
+//        let vc = GasFeeViewController.make(gasLimit: self.gasLimit!)
+//        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+//    }
+//
+//    @objc func gasChange(_ notification: Notification) {
+//        guard let text = notification.userInfo?["gasPrice"] as? String else { return }
+//        let gasPrice = GasPrice(rawValue: text)!
+//        self.gasPrice = gasPrice
+//        updateGas()
+//    }
+//
+//    func updateGas() {
+//        gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+//        self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: self.gasLimit!)
+//    }
     
     @IBAction func payButtonClick() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {

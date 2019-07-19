@@ -25,6 +25,10 @@ class GasFeeViewController: BaseViewController {
     @IBOutlet weak var fastEthLabel: UILabel!
     @IBOutlet weak var fastTimeLabel: UILabel!
     
+    @IBOutlet weak var highlightCenter: NSLayoutConstraint!
+    @IBOutlet weak var highlightView: UIView!
+    
+    
     var gasLimit: BigUInt!
     
     class func make(gasLimit: BigUInt) -> GasFeeViewController {
@@ -60,7 +64,11 @@ class GasFeeViewController: BaseViewController {
         slowLabel.text = "\(prefix) \(slowPrice)"
         aveLabel.text = "\(prefix) \(avePrice)"
         fastLabel.text = "\(prefix) \(fastPrice)"
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+        self.view.layoutIfNeeded()
         self.container.roundCorners(corners: [.topLeft, .topRight], radius: 10)
     }
     
