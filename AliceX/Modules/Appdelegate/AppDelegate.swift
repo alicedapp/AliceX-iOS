@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         WalletManager.loadFromCache()
         PriceHelper.shared.fetchFromCache()
+        
+        GasPriceHelper.shared.getGasPrice()
 
         func sourceURL(bridge: RCTBridge?) -> URL? {
             #if DEBUG

@@ -23,7 +23,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data,symbol: symbol, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 400
+        transitionDelegate.customHeight = 425
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
@@ -78,7 +78,7 @@ class TransactionManager {
         }
 
         guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
-                                                                           toUnits: Web3.Utils.Units.eth,
+                                                                           toUnits: .eth,
                                                                            decimals: 6, decimalSeparator: ".")
             else { throw WalletError.conversionFailure }
         
@@ -97,11 +97,12 @@ class TransactionManager {
     // MARK: - Send Transaction
 
     public func sendEtherSync(to address: String, amount: String, data: String, password: String) throws -> String {
-        return try sendEtherSync(to: address, amount: amount, dataString: data, password: password, gasPrice: nil)
+        return try sendEtherSync(to: address, amount: amount, dataString: data, password: password)
     }
 
-    public func sendEtherSync(to address: String, amount: String, dataString: String,
-                              password: String, gasPrice: String?) throws -> String {
+    public func sendEtherSync(to address: String, amount: String,
+                              dataString: String, password: String,
+                              gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let toAddress = EthereumAddress(address) else {
             throw WalletError.invalidAddress
@@ -123,14 +124,15 @@ class TransactionManager {
         guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
             throw WalletError.malformedKeystore
         }
-
+        
+        let gasPrice = GasPrice.average.wei
         let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
         let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
         let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
         var options = TransactionOptions.defaultOptions
         options.value = value
         options.from = walletAddress
-        options.gasPrice = .automatic
+        options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
 
         let data = dataString.data(using: .utf8)!
@@ -158,7 +160,8 @@ class TransactionManager {
                                          abi: String,
                                          parameters: [Any],
                                          extraData: Data = Data(),
-                                         value: String = "0.0") throws -> String {
+                                         value: String = "0.0",
+                                         gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let address = WalletManager.wallet?.address else {
             throw WalletError.invalidAddress
@@ -175,16 +178,15 @@ class TransactionManager {
         guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
             throw WalletError.malformedKeystore
         }
-        print(keystore)
         
-        let abiVersion = 2
-        let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
+        let gasPrice = GasPrice.average.wei
+        let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2)
         let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
         
         var options = TransactionOptions.defaultOptions
         options.value = amount
         options.from = walletAddress
-        options.gasPrice = .automatic
+        options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
         let tx = contract!.write(
             functionName,
@@ -310,13 +312,16 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 630
+        transitionDelegate.customHeight = 425
         modal.transitioningDelegate = transitionDelegate
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
     }
     
-    class func signTransaction(to address: String, amount: String, dataString: String) throws -> String {
+    class func signTransaction(to address: String,
+                               amount: String,
+                               dataString: String,
+                               gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let toAddress = EthereumAddress(address) else {
             throw WalletError.invalidAddress
@@ -334,11 +339,12 @@ class TransactionManager {
             throw WalletError.malformedKeystore
         }
         
+        let gasPrice = GasPrice.average.wei
         let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
         var options = TransactionOptions.defaultOptions
         options.value = value
         options.from = walletAddress
-        options.gasPrice = .automatic
+        options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
         
         let data = dataString.data(using: .utf8)

@@ -28,6 +28,14 @@
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
 		153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A654722C9CE2B0035EB2C /* LandingViewController.xib */; };
 		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
+		15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3922E15B03008E3230 /* EthGasStation.swift */; };
+		15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3C22E15B4C008E3230 /* Moya+Util.swift */; };
+		15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */; };
+		15477B4122E15C16008E3230 /* EthGasStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4022E15C16008E3230 /* EthGasStationModel.swift */; };
+		15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4222E161A0008E3230 /* GasFeeViewController.swift */; };
+		15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15477B4322E161A0008E3230 /* GasFeeViewController.xib */; };
+		15477B4722E184AA008E3230 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4622E184AA008E3230 /* BigInt.swift */; };
+		15477B4922E1AE18008E3230 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4822E1AE18008E3230 /* API.swift */; };
 		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
@@ -77,7 +85,6 @@
 		15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B86B6122AA044000110C06 /* LaunchScreen.storyboard */; };
 		15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BAC22AA1C9000110C06 /* WalletManager.swift */; };
 		15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB122AA1D2900110C06 /* BaseViewController.swift */; };
-		15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */; };
 		15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DAF22DA465900313CA9 /* BrowserPanelView.swift */; };
 		15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DB122DA466400313CA9 /* BrowserPanelView.xib */; };
 		15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DB322DA495000313CA9 /* BaseView.swift */; };
@@ -137,6 +144,14 @@
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		153A654722C9CE2B0035EB2C /* LandingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
+		15477B3922E15B03008E3230 /* EthGasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthGasStation.swift; sourceTree = "<group>"; };
+		15477B3C22E15B4C008E3230 /* Moya+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Util.swift"; sourceTree = "<group>"; };
+		15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasPriceHelper.swift; sourceTree = "<group>"; };
+		15477B4022E15C16008E3230 /* EthGasStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthGasStationModel.swift; sourceTree = "<group>"; };
+		15477B4222E161A0008E3230 /* GasFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasFeeViewController.swift; sourceTree = "<group>"; };
+		15477B4322E161A0008E3230 /* GasFeeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GasFeeViewController.xib; sourceTree = "<group>"; };
+		15477B4622E184AA008E3230 /* BigInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
+		15477B4822E1AE18008E3230 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -189,7 +204,6 @@
 		15B86B6422AA044000110C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B86BAC22AA1C9000110C06 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		15B86BB122AA1D2900110C06 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		15BC4DAF22DA465900313CA9 /* BrowserPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserPanelView.swift; sourceTree = "<group>"; };
 		15BC4DB122DA466400313CA9 /* BrowserPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserPanelView.xib; sourceTree = "<group>"; };
 		15BC4DB322DA495000313CA9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -293,6 +307,15 @@
 			path = Landing;
 			sourceTree = "<group>";
 		};
+		15477B3B22E15B09008E3230 /* EthGasStation */ = {
+			isa = PBXGroup;
+			children = (
+				15477B3922E15B03008E3230 /* EthGasStation.swift */,
+				15477B4022E15C16008E3230 /* EthGasStationModel.swift */,
+			);
+			path = EthGasStation;
+			sourceTree = "<group>";
+		};
 		156548EE22CDC30F005C8B2D /* network */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +341,7 @@
 			children = (
 				1572598A22E0B560004D0CC4 /* View */,
 				1572598422E0A114004D0CC4 /* PriceHelper.swift */,
+				15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */,
 			);
 			path = Price;
 			sourceTree = "<group>";
@@ -444,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */,
+				15477B3C22E15B4C008E3230 /* Moya+Util.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -451,9 +476,11 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				15477B3B22E15B09008E3230 /* EthGasStation */,
 				15AF403D22E05A3C0059FB18 /* CoinMarketCap */,
 				15AF403C22E05A170059FB18 /* Ethplorer */,
 				1587396222BA073800F36F92 /* Util */,
+				15477B4822E1AE18008E3230 /* API.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -468,6 +495,8 @@
 		1587396B22BB4A1500F36F92 /* GasFee */ = {
 			isa = PBXGroup;
 			children = (
+				15477B4222E161A0008E3230 /* GasFeeViewController.swift */,
+				15477B4322E161A0008E3230 /* GasFeeViewController.xib */,
 			);
 			path = GasFee;
 			sourceTree = "<group>";
@@ -611,6 +640,7 @@
 				1581EC2322D88F0F00B74F30 /* Data.swift */,
 				1581EC2522D8AE6D00B74F30 /* Double.swift */,
 				15BC4DC522DAFAE800313CA9 /* UIImage.swift */,
+				15477B4622E184AA008E3230 /* BigInt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -655,7 +685,6 @@
 				1527872F22AE207400D63C7F /* Transaction */,
 				1527872A22AE07FA00D63C7F /* Keychain */,
 				15B86BBB22AA1E9400110C06 /* Appdelegate */,
-				15B86BBA22AA1E5700110C06 /* Welcome */,
 				15B86BA622AA1C4600110C06 /* Wallet */,
 			);
 			path = Modules;
@@ -667,14 +696,6 @@
 				15B86B6122AA044000110C06 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		15B86BBA22AA1E5700110C06 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				15B86BB622AA1E5100110C06 /* WelcomeViewController.swift */,
-			);
-			path = Welcome;
 			sourceTree = "<group>";
 		};
 		15B86BBB22AA1E9400110C06 /* Appdelegate */ = {
@@ -928,6 +949,7 @@
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
+				15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */,
 				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
@@ -1126,6 +1148,7 @@
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
+				15477B4722E184AA008E3230 /* BigInt.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
@@ -1136,10 +1159,12 @@
 				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
+				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
+				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
 				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
@@ -1153,11 +1178,11 @@
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
 				15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
-				15B86BB822AA1E5100110C06 /* WelcomeViewController.swift in Sources */,
 				15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
+				15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */,
 				15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
@@ -1172,6 +1197,7 @@
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
+				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
 				15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
 				15E845E622DBA141008F8AD2 /* HKTransitionPush.m in Sources */,
@@ -1190,11 +1216,13 @@
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */,
 				15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
 				15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */,
 				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
+				15477B4122E15C16008E3230 /* EthGasStationModel.swift in Sources */,
 				156548F522CDC5BB005C8B2D /* NetworkTableViewCell.swift in Sources */,
 				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,
 			);

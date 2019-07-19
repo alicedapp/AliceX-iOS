@@ -14,15 +14,6 @@ typealias SuccessCallback = ((Response) -> (Void))
 let coinMarketCapAPI = MoyaProvider<CoinMarketCap>(plugins:
     [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-private func JSONResponseDataFormatter(_ data: Data) -> Data {
-    do {
-        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-        return prettyData
-    } catch {
-        return data // fallback to original data if it can't be serialized.
-    }
-}
 
 // Due to Coinmarketcap plan, just support ETH in
 enum CoinMarketCap {

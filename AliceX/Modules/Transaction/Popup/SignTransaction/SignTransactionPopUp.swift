@@ -8,6 +8,8 @@
 
 import UIKit
 import LocalAuthentication
+import PromiseKit
+import BigInt
 
 class SignTransactionPopUp: UIViewController {
 
@@ -15,10 +17,14 @@ class SignTransactionPopUp: UIViewController {
     @IBOutlet weak var progressIndicator: RPCircularProgress!
     @IBOutlet weak var payButtonContainer: UIView!
     
-    @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var gasPriceLabel: UILabel!
+    @IBOutlet weak var gasTimeLabel: UILabel!
+    @IBOutlet weak var gasBtn: UIControl!
     
     var toAddress: String?
     var amount: String?
@@ -27,6 +33,10 @@ class SignTransactionPopUp: UIViewController {
     var timer: Timer?
     var process: Int = 0
     var toggle: Bool = false
+    
+    var gasLimit: BigUInt?
+    
+    var gasPrice: GasPrice = GasPrice.average
     
     var successBlock: StringBlock?
     
@@ -42,6 +52,7 @@ class SignTransactionPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addressLabel.text = toAddress
         amountLabel.text = String(Double(amount!)!.rounded(toPlaces: 3))
         
         let price = Float(amount!)! * PriceHelper.shared.exchangeRate
@@ -69,6 +80,46 @@ class SignTransactionPopUp: UIViewController {
         longPressGesture.minimumPressDuration = 0
         payButton.addGestureRecognizer(longPressGesture)
         progressIndicator.updateProgress(0)
+        
+        gasBtn.isUserInteractionEnabled = false
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(gasChange(_:)),
+                                               name: .gasSelectionCahnge, object: nil)
+        
+        firstly{
+            GasPriceHelper.shared.getGasPrice()
+        }.then {
+            TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!)
+        }.done { (gasLimit) in
+            self.gasLimit = gasLimit
+            self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
+            self.gasBtn.isUserInteractionEnabled = true
+            self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        }
+    }
+    
+    // MARK: - GAS Notification
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @IBAction func gasButtonClick() {
+        let vc = GasFeeViewController.make(gasLimit: self.gasLimit!)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+    }
+    
+    @objc func gasChange(_ notification: Notification) {
+        guard let text = notification.userInfo?["gasPrice"] as? String else { return }
+        let gasPrice = GasPrice(rawValue: text)!
+        self.gasPrice = gasPrice
+        updateGas()
+    }
+    
+    func updateGas() {
+        gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: self.gasLimit!)
     }
     
     @objc func timeUpdate() {
@@ -170,7 +221,6 @@ class SignTransactionPopUp: UIViewController {
     func send() {
         do {
             let signJson = try TransactionManager.signTransaction(to: toAddress!, amount: amount!, dataString: data!)
-            messageTextView.text = signJson
             successBlock!(signJson)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {

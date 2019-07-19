@@ -8,8 +8,10 @@
 
 import UIKit
 import LocalAuthentication
-import fluid_slider
+import BigInt
+import PromiseKit
 
+// Can't be BaseVIewController
 class PaymentPopUp: UIViewController {
 
     @IBOutlet weak var payButton: UIControl!
@@ -23,7 +25,10 @@ class PaymentPopUp: UIViewController {
     
     @IBOutlet weak var priceLabel: UILabel!
     
-    @IBOutlet weak var containerHeight: NSLayoutConstraint!
+    @IBOutlet weak var gasPriceLabel: UILabel!
+    @IBOutlet weak var gasTimeLabel: UILabel!
+    
+    @IBOutlet weak var gasBtn: UIControl!
     
     var timer: Timer?
     var process: Int = 0
@@ -34,7 +39,9 @@ class PaymentPopUp: UIViewController {
     var data: String?
     var successBlock: StringBlock?
     
-    var slider: Slider = Slider()
+    var gasLimit: BigUInt?
+    
+    var gasPrice: GasPrice = GasPrice.average
     
     class func make(toAddress: String,
                     amount: String,
@@ -55,8 +62,7 @@ class PaymentPopUp: UIViewController {
         addressLabel.text = toAddress
         amountLabel.text = amount
         
-        var price = Float(amount!)! * PriceHelper.shared.exchangeRate
-        priceLabel.text = "\(PriceHelper.shared.currentCurrency.rawValue) \(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
+        priceLabel.text = Float(amount!)!.currencyString
         
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
@@ -81,11 +87,51 @@ class PaymentPopUp: UIViewController {
         longPressGesture.minimumPressDuration = 0
         payButton.addGestureRecognizer(longPressGesture)
         progressIndicator.updateProgress(0)
+        
+        gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        
+        gasBtn.isUserInteractionEnabled = false
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(gasChange(_:)),
+                                               name: .gasSelectionCahnge, object: nil)
+        
+        firstly{
+            GasPriceHelper.shared.getGasPrice()
+        }.then {
+            TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!)
+        }.done { (gasLimit) in
+            self.gasLimit = gasLimit
+            self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
+            self.gasBtn.isUserInteractionEnabled = true
+            self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        }
     }
     
-    func getGasPriceAndTime() {
-//        TransactionManager.getGasLimit(to: <#T##String#>, amount: <#T##String#>, dataString: <#T##String#>)
+    // MARK: - GAS Notification
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
+    
+    @IBAction func gasButtonClick() {
+        let vc = GasFeeViewController.make(gasLimit: self.gasLimit!)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+    }
+    
+    @objc func gasChange(_ notification: Notification) {
+        guard let text = notification.userInfo?["gasPrice"] as? String else { return }
+        let gasPrice = GasPrice(rawValue: text)!
+        self.gasPrice = gasPrice
+        updateGas()
+    }
+    
+    func updateGas() {
+        gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: self.gasLimit!)
+    }
+    
+    // MARK: - Button Animation
     
     @objc func timeUpdate() {
         process += 1
@@ -155,26 +201,7 @@ class PaymentPopUp: UIViewController {
         }
     }
     
-    @IBAction func gasButtonClick() {
-        
-        if sliderContainer.isHidden {
-            self.sliderContainer.alpha = 0
-            self.sliderContainer.transform = CGAffineTransform(translationX: 0, y: 30)
-            UIView.animate(withDuration: 0.3) {
-                self.sliderContainer.isHidden = false
-                self.sliderContainer.alpha = 1
-                self.sliderContainer.transform = CGAffineTransform.identity
-            }
-            return
-        }
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.sliderContainer.alpha = 0
-            self.sliderContainer.transform = CGAffineTransform(translationX: 0, y: 30)
-        }) { (_) in
-            self.sliderContainer.isHidden = true
-        }
-    }
+    // MARK: - Verify
     
     func biometricsVerify() {
         let myContext = LAContext()
@@ -208,14 +235,17 @@ class PaymentPopUp: UIViewController {
     func sendTx() {
         do {
             let txHash = try TransactionManager.shared.sendEtherSync(
-                to: self.toAddress!, amount: self.amount!, data: self.data!, password: "")
-            print(txHash)
+                to: self.toAddress!,
+                amount: self.amount!,
+                dataString: self.data!,
+                password: "",
+                gasPrice: self.gasPrice)
+            
             self.successBlock!(txHash)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
         } catch {
-            print(error)
             HUDManager.shared.showError()
         }
     }
