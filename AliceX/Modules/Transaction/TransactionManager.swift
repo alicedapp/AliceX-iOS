@@ -108,7 +108,7 @@ class TransactionManager {
             throw WalletError.invalidAddress
         }
 
-        let etherBalance = try etherBalanceSync()
+        let etherBalance = try TransactionManager.shared.etherBalanceSync()
         guard let etherBalanceInDouble = Double(etherBalance) else {
             throw WalletError.conversionFailure
         }
@@ -333,6 +333,19 @@ class TransactionManager {
         
         guard let walletAddress = EthereumAddress(address) else {
             throw WalletError.invalidAddress
+        }
+        
+        let etherBalance = try TransactionManager.shared.etherBalanceSync()
+        guard let etherBalanceInDouble = Double(etherBalance) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard let amountInDouble = Double(amount) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard etherBalanceInDouble >= amountInDouble else {
+            throw WalletError.insufficientBalance
         }
         
         guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
