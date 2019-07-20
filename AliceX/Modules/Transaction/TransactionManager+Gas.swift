@@ -39,6 +39,10 @@ extension TransactionManager {
             
             tx.estimateGasPromise().done { (value) in
                 seal.fulfill(value)
+            }.catch { (error) in
+                print(error.localizedDescription)
+//                HUDManager.shared.showError(text: "Fetch gas faild")
+                seal.reject(error)
             }
         }
     }

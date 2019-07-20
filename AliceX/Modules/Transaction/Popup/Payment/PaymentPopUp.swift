@@ -106,6 +106,9 @@ class PaymentPopUp: UIViewController {
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        }.catch { (_) in
+            self.gasPriceLabel.text = "Failed to get gas"
+            self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
         }
     }
     

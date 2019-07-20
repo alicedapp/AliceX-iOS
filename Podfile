@@ -14,7 +14,6 @@ target 'AliceX' do
   pod 'IQKeyboardManagerSwift'
   pod 'HandyJSON', '~> 5.0.0'
   pod 'Moya', '~> 13.0'
-  pod 'fluid-slider'
   pod 'SwiftEntryKit', '1.0.2'
   pod 'MarqueeLabel'
   pod 'Hero'
