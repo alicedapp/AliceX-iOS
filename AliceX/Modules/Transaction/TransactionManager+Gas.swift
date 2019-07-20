@@ -17,7 +17,7 @@ private let defaultGasLimitForTokenTransfer = 100000
 extension TransactionManager {
     
     // Return GWEI
-    func gasForSendingEth(to address: String, amount: String) -> Promise<BigUInt>  {
+    func gasForSendingEth(to address: String, amount: String) -> Promise<BigUInt> {
         
         return Promise { seal in
             guard let toAddress = EthereumAddress(address) else {
@@ -39,11 +39,10 @@ extension TransactionManager {
             
             tx.estimateGasPromise().done { (value) in
                 seal.fulfill(value)
-            }.catch { (error) in
+            }.catch({ (error) in
                 print(error.localizedDescription)
-//                HUDManager.shared.showError(text: "Fetch gas faild")
                 seal.reject(error)
-            }
+            })
         }
     }
     

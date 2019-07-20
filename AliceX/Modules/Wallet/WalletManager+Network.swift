@@ -78,7 +78,7 @@ extension Web3NetEnum {
 
 class Web3Net {
     
-    static var currentNetwork: Web3NetEnum = Web3Net.fetchFromCache()
+    static var currentNetwork: Web3NetEnum = .main
     
     class func make(type: Web3NetEnum, customURL: String = "https://mainnet.infura.io/v3/") throws -> web3 {
         switch type {
@@ -146,6 +146,7 @@ class Web3Net {
         
         do {
             let net = try Web3Net.make(type: type)
+            Web3Net.currentNetwork = type
             return net
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)

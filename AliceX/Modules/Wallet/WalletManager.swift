@@ -85,6 +85,7 @@ class WalletManager {
         WalletManager.wallet = wallet
         WalletManager.shared.keystore = keystore
         try! WalletManager.shared.saveKeystore(keystore!)
+        WalletManager.addKeyStoreIfNeeded()
         
         guard let completion = completion else { return }
         completion!()
