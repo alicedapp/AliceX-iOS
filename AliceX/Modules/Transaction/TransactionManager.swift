@@ -90,7 +90,7 @@ class TransactionManager {
         
         do {
             let result = try TransactionManager.writeSmartContract(contractAddress: address,
-                                                                   functionName: "transfer",
+                                                                   functionName: "fallback",
                                                                    abi: Web3.Utils.coldWalletABI,
                                                                    parameters: [AnyObject](),
                                                                    extraData: data,
@@ -340,7 +340,7 @@ class TransactionManager {
             throw WalletError.malformedKeystore
         }
         
-        let gasPrice = GasPrice.average.wei
+        let gasPrice = gasPrice.wei
         let value = amount
         var options = TransactionOptions.defaultOptions
         options.value = value

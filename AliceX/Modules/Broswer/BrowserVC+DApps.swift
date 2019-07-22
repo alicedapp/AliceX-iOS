@@ -30,9 +30,11 @@ extension BrowserViewController: WKScriptMessageHandler {
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
         case Method.signMessage.rawValue:
-            
             print("signMessage")
-        case Method.signTransaction.rawValue:
+        case Method.signTransaction.rawValue, Method.sendTransaction.rawValue:
+            
+            
+            
             guard var body = message.body as? [String: AnyObject] else { return }
             var transactionJSON = body["object"] as! [String: Any]
             if !transactionJSON.keys.contains("value") {
@@ -43,19 +45,16 @@ extension BrowserViewController: WKScriptMessageHandler {
             guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
             let value = options.value != nil ? options.value! : BigUInt(0)
             
-            TransactionManager.showSignTransactionView(to: tx.to.address,
-                                                       value: tx.value,
-                                                       data: tx.data) { (signData) in
-                self.notifyFinish(callbackID: 8888, value: signData)
+            TransactionManager.showPaymentView(toAddress: tx.to.address,
+                                               amount: tx.value,
+                                               data: tx.data,
+                                               symbol: "ETH") { (signData) in
+                    self.notifyFinish(callbackID: 8888, value: signData)
             }
-            
-            print("signTransaction")
             
         case Method.signTypedMessage.rawValue:
             print("signTypedMessage")
             
-        case Method.sendTransaction.rawValue:
-            print("sendTransaction")
         default:
             print("Error")
         }

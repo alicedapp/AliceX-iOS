@@ -30,12 +30,19 @@ extension String {
         }
     }
     
-    func validateUrl () -> Bool {
-        let urlRegEx = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: self)
+//    func validateUrl () -> Bool {
+//        let urlRegEx = "^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$"
+//        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: self)
+//    }
+    
+    func validateUrl() -> Bool {
+        guard let url = URL(string: self) else {
+                return false
+        }
+        
+        return UIApplication.shared.canOpenURL(url)
     }
 
-    
     var drop0x: String {
         if count > 2 && substring(with: 0..<2) == "0x" {
             return String(dropFirst(2))
