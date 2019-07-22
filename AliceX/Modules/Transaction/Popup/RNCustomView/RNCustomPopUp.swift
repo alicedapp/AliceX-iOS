@@ -7,6 +7,7 @@
 
 import UIKit
 import LocalAuthentication
+import BigInt
 
 class RNCustomPopUp: UIViewController {
     
@@ -24,9 +25,9 @@ class RNCustomPopUp: UIViewController {
     var process: Int = 0
     var toggle: Bool = false
 
-    var toAddress: String?
-    var amount: String?
-    var data: String?
+    var toAddress: String!
+    var amount: BigUInt!
+    var data: Data!
     var successBlock: StringBlock?
     
     var height: CGFloat = 500
@@ -34,7 +35,7 @@ class RNCustomPopUp: UIViewController {
     let footerHeight: CGFloat = 80+60+20
     let headerHeight: CGFloat = 10+60+20
     
-    class func make(toAddress: String, amount: String, height: CGFloat, data: String,
+    class func make(toAddress: String, amount: BigUInt, height: CGFloat, data: Data,
                                   successBlock: @escaping StringBlock) -> RNCustomPopUp {
         let vc = RNCustomPopUp()
         vc.toAddress = toAddress

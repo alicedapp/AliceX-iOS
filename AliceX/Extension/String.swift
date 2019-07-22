@@ -94,4 +94,8 @@ extension String {
         
         return results.map { String($0) }
     }
+    
+    func round( decimal: Int) -> String {
+        return String(Float(self)!.rounded(toPlaces: decimal))
+    }
 }

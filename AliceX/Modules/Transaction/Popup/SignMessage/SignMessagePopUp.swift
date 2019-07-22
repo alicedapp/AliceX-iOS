@@ -165,7 +165,8 @@ class SignMessagePopUp: UIViewController {
     
     func send() {
         do {
-            let signData = try TransactionManager.signMessage(message: message!)!
+            let data = Data.fromHex(message)
+            let signData = try TransactionManager.signMessage(message: data!)!
             print(signData)
             self.successBlock!(signData)
             self.dismiss(animated: true, completion: nil)

@@ -35,8 +35,8 @@ class PaymentPopUp: UIViewController {
     var toggle: Bool = false
     
     var toAddress: String?
-    var amount: String?
-    var data: String?
+    var amount: BigUInt!
+    var data: Data!
     var successBlock: StringBlock?
     
     var gasLimit: BigUInt?
@@ -44,8 +44,8 @@ class PaymentPopUp: UIViewController {
     var gasPrice: GasPrice = GasPrice.average
     
     class func make(toAddress: String,
-                    amount: String,
-                    data: String,
+                    amount: BigUInt,
+                    data: Data,
                     symbol: String,
                     success: @escaping StringBlock) -> PaymentPopUp {
         let vc = PaymentPopUp()
@@ -60,9 +60,10 @@ class PaymentPopUp: UIViewController {
         super.viewDidLoad()
 
         addressLabel.text = toAddress
-        amountLabel.text = amount
         
-        let price = Float(amount!)! * PriceHelper.shared.exchangeRate
+        let value = amount.readableValue
+        amountLabel.text = value.round(decimal: 4)
+        let price = Float(value)! * PriceHelper.shared.exchangeRate
         priceLabel.text = price.currencyString
         
         payButtonContainer.layer.cornerRadius = 20
@@ -100,7 +101,7 @@ class PaymentPopUp: UIViewController {
         firstly{
             GasPriceHelper.shared.getGasPrice()
         }.then {
-            TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!)
+            TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!, data: self.data)
         }.done { (gasLimit) in
             self.gasLimit = gasLimit
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
@@ -241,7 +242,7 @@ class PaymentPopUp: UIViewController {
             let txHash = try TransactionManager.shared.sendEtherSync(
                 to: self.toAddress!,
                 amount: self.amount!,
-                dataString: self.data!,
+                data: self.data!,
                 password: "",
                 gasPrice: self.gasPrice)
             

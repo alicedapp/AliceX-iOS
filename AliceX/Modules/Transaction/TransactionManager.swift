@@ -11,36 +11,9 @@ import SPStorkController
 import web3swift
 import BigInt
 
+// TODO: Change all function to Promise
 class TransactionManager {
     static let shared = TransactionManager()
-    
-    // MARK: - Payment Popup
-    
-    class func showPaymentView(toAddress: String,
-                               amount: String,
-                               data: String,
-                               symbol: String, success: @escaping StringBlock) {
-        let topVC = UIApplication.topViewController()
-        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data, symbol: symbol, success: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
-    }
-    
-    class func showRNCustomPaymentView(toAddress: String, amount: String,
-                                       height: CGFloat = 500, data: String,
-                               success: @escaping StringBlock) {
-        let topVC = UIApplication.topViewController()
-        let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
-                                       height: height, data: data, successBlock: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = height
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
-    }
     
     // MARK: - Smart Contract Popup
     
@@ -95,13 +68,24 @@ class TransactionManager {
     }
 
     // MARK: - Send Transaction
-
-    public func sendEtherSync(to address: String, amount: String, data: String, password: String) throws -> String {
-        return try sendEtherSync(to: address, amount: amount, dataString: data, password: password)
+    
+    class func showPaymentView(toAddress: String,
+                               amount: BigUInt,
+                               data: Data,
+                               symbol: String, success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data, symbol: symbol, success: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
     }
 
-    public func sendEtherSync(to address: String, amount: String,
-                              dataString: String, password: String,
+    public func sendEtherSync(to address: String,
+                              amount: BigUInt,
+                              data: Data,
+                              password: String,
                               gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let toAddress = EthereumAddress(address) else {
@@ -113,7 +97,7 @@ class TransactionManager {
             throw WalletError.conversionFailure
         }
 
-        guard let amountInDouble = Double(amount) else {
+        guard let amountInDouble = Double(amount.readableValue) else {
             throw WalletError.conversionFailure
         }
 
@@ -128,14 +112,12 @@ class TransactionManager {
         let gasPrice = GasPrice.average.wei
         let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
         let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
-        let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
+        let value = Web3.Utils.parseToBigUInt(String(amount), units: .eth)
         var options = TransactionOptions.defaultOptions
         options.value = value
         options.from = walletAddress
         options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
-
-        let data = dataString.data(using: .utf8)!
         
         let tx = contract.write(
             "fallback",
@@ -150,7 +132,24 @@ class TransactionManager {
             HUDManager.shared.showError(text: error.errorDescription)
         }
 //
-        return "error"
+        return "Send Transaction Failed"
+    }
+    
+    // MARK: - Payment Popup
+    
+    class func showRNCustomPaymentView(toAddress: String,
+                                       amount: BigUInt,
+                                       height: CGFloat = 500,
+                                       data: Data,
+                                       success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
+                                       height: height, data: data, successBlock: success)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = height
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        topVC?.present(modal, animated: true, completion: nil)
     }
     
     // MARK: - Call Smart Contract
@@ -243,7 +242,7 @@ class TransactionManager {
         return ""
     }
     
-    // MARK: - Sign
+    // MARK: - Sign Message
     
     class func showSignMessageView(message: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
@@ -255,7 +254,7 @@ class TransactionManager {
         topVC?.present(modal, animated: true, completion: nil)
     }
     
-    class func signMessage(message: String) throws -> String? {
+    class func signMessage(message: Data) throws -> String? {
         
         guard let address = WalletManager.wallet?.address else {
             throw WalletError.invalidAddress
@@ -269,11 +268,8 @@ class TransactionManager {
             throw WalletError.malformedKeystore
         }
         
-//        let msgData = try! message.data(using: .utf8)
-        let msgData = Data.fromHex(message)
-        
         do {
-            let signedData = try Web3Signer.signPersonalMessage(msgData!,
+            let signedData = try Web3Signer.signPersonalMessage(message,
                                                                  keystore: keystore,
                                                                  account: walletAddress,
                                                                  password: Setting.password)
@@ -283,32 +279,9 @@ class TransactionManager {
         }
     }
     
-    class func signMessage(data: Data) throws -> String? {
-        
-        guard let address = WalletManager.wallet?.address else {
-            throw WalletError.invalidAddress
-        }
-        
-        guard let walletAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-        
-        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
-            throw WalletError.malformedKeystore
-        }
-        
-        do {
-            let signedData = try Web3Signer.signPersonalMessage(data,
-                                                                keystore: keystore,
-                                                                account: walletAddress,
-                                                                password: Setting.password)
-            return (signedData?.toHexString().addHexPrefix())!
-        } catch {
-            throw WalletError.messageFailedToData
-        }
-    }
+    // MARK: - Sign Transaction
     
-    class func showSignTransactionView(to:String, value: String, data: String, success: @escaping StringBlock) {
+    class func showSignTransactionView(to:String, value: BigUInt, data: Data, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -319,8 +292,8 @@ class TransactionManager {
     }
     
     class func signTransaction(to address: String,
-                               amount: String,
-                               dataString: String,
+                               amount: BigUInt,
+                               data: Data,
                                gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let toAddress = EthereumAddress(address) else {
@@ -340,7 +313,7 @@ class TransactionManager {
             throw WalletError.conversionFailure
         }
         
-        guard let amountInDouble = Double(amount) else {
+        guard let amountInDouble = Double(amount.readableValue) else {
             throw WalletError.conversionFailure
         }
         
@@ -353,17 +326,14 @@ class TransactionManager {
         }
         
         let gasPrice = GasPrice.average.wei
-        let value = Web3.Utils.parseToBigUInt(amount, units: .eth)
+        let value = amount
         var options = TransactionOptions.defaultOptions
         options.value = value
         options.from = walletAddress
         options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
         
-        let data = dataString.data(using: .utf8)
-        
-        var tx = EthereumTransaction(to: toAddress, data: data!, options: options)
-        
+        var tx = EthereumTransaction(to: toAddress, data: data, options: options)
         do {
             try Web3Signer.signTX(transaction: &tx,
                                   keystore: keystore,
@@ -372,12 +342,48 @@ class TransactionManager {
             
             print(tx.description)
             return (tx.encode(forSignature: false, chainID: nil)?.toHexString().addHexPrefix())!
-            // TODO return JSON
             // return tx.toJsonString()
         } catch {
             HUDManager.shared.showError()
         }
         
-        return "error"
+        return "Sign Transaction Failed"
+    }
+    
+    // MARK: - Validator
+    
+    
+    func validator(address: String, data: Data, value: BigUInt) throws -> Bool {
+        
+        guard let toAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let address = WalletManager.wallet?.address else {
+            throw WalletError.invalidAddress
+        }
+        
+        guard let walletAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        let etherBalance = try TransactionManager.shared.etherBalanceSync()
+        guard let etherBalanceInDouble = Double(etherBalance) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard let amountInDouble = Double(value.readableValue) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard etherBalanceInDouble >= amountInDouble else {
+            throw WalletError.insufficientBalance
+        }
+        
+        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+            throw WalletError.malformedKeystore
+        }
+        
+        return true
     }
 }

@@ -42,4 +42,8 @@ extension BigUInt {
         let currency = PriceHelper.shared.currentCurrency
         return "\(currency.rawValue) \(currency.symbol) \(self.currency)"
     }
+    
+    var readableValue: String {
+        return Web3Utils.formatToEthereumUnits(self, toUnits: .eth, decimals: 5, decimalSeparator: ".")!
+    }
 }

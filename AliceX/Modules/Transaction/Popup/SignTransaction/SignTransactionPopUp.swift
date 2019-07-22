@@ -26,9 +26,9 @@ class SignTransactionPopUp: UIViewController {
     @IBOutlet weak var gasTimeLabel: UILabel!
     @IBOutlet weak var gasBtn: UIControl!
     
-    var toAddress: String?
-    var amount: String?
-    var data: String?
+    var toAddress: String!
+    var amount: BigUInt!
+    var data: Data!
     
     var timer: Timer?
     var process: Int = 0
@@ -40,7 +40,7 @@ class SignTransactionPopUp: UIViewController {
     
     var successBlock: StringBlock?
     
-    class func make(toAddress: String, amount:String, data:String, success: @escaping StringBlock) -> SignTransactionPopUp {
+    class func make(toAddress: String, amount:BigUInt, data:Data, success: @escaping StringBlock) -> SignTransactionPopUp {
         let vc = SignTransactionPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
@@ -53,9 +53,10 @@ class SignTransactionPopUp: UIViewController {
         super.viewDidLoad()
         
         addressLabel.text = toAddress
-        amountLabel.text = String(Double(amount!)!.rounded(toPlaces: 3))
         
-        let price = Float(amount!)! * PriceHelper.shared.exchangeRate
+        let value = amount.readableValue
+        amountLabel.text = value.round(decimal: 4)
+        let price = Float(value)! * PriceHelper.shared.exchangeRate
         priceLabel.text = price.currencyString
         
         payButtonContainer.layer.cornerRadius = 20
@@ -90,7 +91,7 @@ class SignTransactionPopUp: UIViewController {
         firstly{
             GasPriceHelper.shared.getGasPrice()
         }.then {
-            TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!)
+            TransactionManager.shared.gasForSendingEth(to: self.toAddress, amount: self.amount, data: self.data)
         }.done { (gasLimit) in
             self.gasLimit = gasLimit
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
@@ -223,7 +224,7 @@ class SignTransactionPopUp: UIViewController {
     
     func send() {
         do {
-            let signJson = try TransactionManager.signTransaction(to: toAddress!, amount: amount!, dataString: data!)
+            let signJson = try TransactionManager.signTransaction(to: toAddress!, amount: amount!, data: data!)
             successBlock!(signJson)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {

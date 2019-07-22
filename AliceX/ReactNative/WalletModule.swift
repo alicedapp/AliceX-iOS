@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BigInt
 
 @objc(WalletModule)
 class WalletModule: NSObject {
@@ -53,6 +54,12 @@ class WalletModule: NSObject {
                                resolve: @escaping RCTPromiseResolveBlock,
                                reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
+            
+            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+                HUDManager.shared.showError(text: "Parameters is invaild")
+                return
+            }
+            
             TransactionManager.showPaymentView(toAddress: to,
                                                amount: value,
                                                data: data,
@@ -67,6 +74,12 @@ class WalletModule: NSObject {
                                           resolve: @escaping RCTPromiseResolveBlock,
                                           reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
+            
+            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+                HUDManager.shared.showError(text: "Parameters is invaild")
+                return
+            }
+            
             TransactionManager.showRNCustomPaymentView(toAddress: to,
                                                        amount: value, data: data,
                                                        success: { (tx) -> Void in
@@ -89,6 +102,12 @@ class WalletModule: NSObject {
                                resolve: @escaping RCTPromiseResolveBlock,
                                reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
+            
+            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+                HUDManager.shared.showError(text: "Parameters is invaild")
+                return
+            }
+            
             TransactionManager.showSignTransactionView(to: to, value: value, data: data, success: { (signJson) in
                 resolve(signJson)
             })

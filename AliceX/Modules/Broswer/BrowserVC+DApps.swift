@@ -38,19 +38,14 @@ extension BrowserViewController: WKScriptMessageHandler {
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))
             }
-            guard let _ = EthereumTransaction.fromJSON(transactionJSON) else {return}
+            guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {return}
             guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
-            var transactionOptions = TransactionOptions()
-            transactionOptions.from = options.from
-            transactionOptions.to = options.to
-            transactionOptions.value = options.value != nil ? options.value! : BigUInt(0)
+            let value = options.value != nil ? options.value! : BigUInt(0)
             
-            let realValue = Web3Utils.formatToEthereumUnits(transactionOptions.value!, toUnits: .eth, decimals: 4, decimalSeparator: ".")
-            
-            TransactionManager.showSignTransactionView(to: options.to!.address,
-                                                       value: realValue!,
-                                                       data: "") { (signData) in
-                                                        self.notifyFinish(callbackID: 8888, value: signData)
+            TransactionManager.showSignTransactionView(to: tx.to.address,
+                                                       value: tx.value,
+                                                       data: tx.data) { (signData) in
+                self.notifyFinish(callbackID: 8888, value: signData)
             }
             
             print("signTransaction")
