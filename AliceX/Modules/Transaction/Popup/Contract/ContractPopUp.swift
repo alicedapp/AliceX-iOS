@@ -10,6 +10,7 @@ import UIKit
 import LocalAuthentication
 import MarqueeLabel
 import PromiseKit
+import BigInt
 
 class ContractPopUp: UIViewController {
 
@@ -34,19 +35,19 @@ class ContractPopUp: UIViewController {
     var process: Int = 0
     var toggle: Bool = false
     
-    var contractAddress: String?
-    var functionName: String?
-    var abi: String?
+    var contractAddress: String!
+    var functionName: String!
+    var abi: String!
     var parameters: [Any]?
-    var value: String?
-    var extraData: String?
+    var value: BigUInt!
+    var extraData: Data!
     var successBlock: StringBlock?
     
     class func make(contractAddress: String,
                     functionName: String,
                     parameters: [Any],
-                    extraData: String,
-                    value: String,
+                    extraData: Data,
+                    value: BigUInt,
                     abi: String,
                     success: @escaping StringBlock) -> ContractPopUp {
         let vc = ContractPopUp()
@@ -64,7 +65,7 @@ class ContractPopUp: UIViewController {
         super.viewDidLoad()
         
         addressLabel.text = self.contractAddress
-        valueLabel.text = self.value
+        valueLabel.text = value.readableValue
         functionLabel.text = self.functionName
         
 //        let price = Float(value!)! * PriceHelper.shared.exchangeRate
@@ -255,9 +256,8 @@ class ContractPopUp: UIViewController {
                                                                    functionName: functionName!,
                                                                    abi: abi!,
                                                                    parameters: parameters!,
-                                                                   extraData: value!.data(using: .utf8)!,
+                                                                   extraData: extraData,
                                                                    value: value!)
-            print(txHash)
             self.successBlock!(txHash)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {

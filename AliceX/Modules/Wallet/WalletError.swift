@@ -6,7 +6,10 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import web3swift
+
 public enum WalletError: Error {
+
     case hasAccount
     case accountDoesNotExist
     case invalidPath

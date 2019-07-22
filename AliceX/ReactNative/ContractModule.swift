@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import BigInt
 
 @objc(ContractModule)
 class ContractModule: NSObject {
     
-    @objc func write(_ contractAddress: String, abi: String,
+    @objc func write(_ contractAddress: String,
+                     abi: String,
                      functionName: String,
                      parameters: [Any],
                      value: String,
@@ -20,6 +22,11 @@ class ContractModule: NSObject {
                      reject: @escaping RCTPromiseRejectBlock) {
         
         DispatchQueue.main.async {
+            
+            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+                HUDManager.shared.showError(text: "Parameters is invaild")
+                return
+            }
             
             TransactionManager.showContractWriteView(contractAddress: contractAddress,
                                                      functionName: functionName,

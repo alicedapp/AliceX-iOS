@@ -21,8 +21,8 @@ class TransactionManager {
                                      functionName: String,
                                      abi: String,
                                      parameters: [Any],
-                                     value: String,
-                                     extraData: String,
+                                     value: BigUInt,
+                                     extraData: Data,
                                      success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = ContractPopUp.make(contractAddress: contractAddress,
@@ -88,51 +88,22 @@ class TransactionManager {
                               password: String,
                               gasPrice: GasPrice = GasPrice.average) throws -> String {
         
-        guard let toAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-
-        let etherBalance = try TransactionManager.shared.etherBalanceSync()
-        guard let etherBalanceInDouble = Double(etherBalance) else {
-            throw WalletError.conversionFailure
-        }
-
-        guard let amountInDouble = Double(amount.readableValue) else {
-            throw WalletError.conversionFailure
-        }
-
-        guard etherBalanceInDouble >= amountInDouble else {
-            throw WalletError.insufficientBalance
-        }
-        
-        guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
-            throw WalletError.malformedKeystore
-        }
-        
-        let gasPrice = GasPrice.average.wei
-        let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
-        let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
-        let value = Web3.Utils.parseToBigUInt(String(amount), units: .eth)
-        var options = TransactionOptions.defaultOptions
-        options.value = value
-        options.from = walletAddress
-        options.gasPrice = .manual(gasPrice)
-        options.gasLimit = .automatic
-        
-        let tx = contract.write(
-            "fallback",
-            parameters: [AnyObject](),
-            extraData: data,
-            transactionOptions: options)!
-
         do {
-            let sendResult = try tx.send()
-            return sendResult.hash
+            let result = try TransactionManager.writeSmartContract(contractAddress: address,
+                                                                   functionName: "transfer",
+                                                                   abi: Web3.Utils.coldWalletABI,
+                                                                   parameters: [AnyObject](),
+                                                                   extraData: data,
+                                                                   value: amount)
+            return result
+        } catch let error as WalletError {
+            HUDManager.shared.showError(text: error.errorDescription)
         } catch let error as Web3Error {
             HUDManager.shared.showError(text: error.errorDescription)
+        } catch {
+            HUDManager.shared.showError(text: "Send ERC20 Failed")
         }
-//
-        return "Send Transaction Failed"
+        return "Send ETH Failed"
     }
     
     // MARK: - Payment Popup
@@ -152,14 +123,46 @@ class TransactionManager {
         topVC?.present(modal, animated: true, completion: nil)
     }
     
+    // MARK: - Send ERC20
+    
+    public func sendERC20Token(to address: String,
+                               amount: BigUInt,
+                               data: Data,
+                               password: String,
+                               gasPrice: GasPrice = GasPrice.average) throws -> String {
+        
+        guard let toAddress = EthereumAddress(address) else {
+            throw WalletError.invalidAddress
+        }
+        
+        let parameters = [toAddress, amount] as [AnyObject]
+        
+        do {
+            let result = try TransactionManager.writeSmartContract(contractAddress: address,
+                                                               functionName: "transfer",
+                                                               abi: Web3.Utils.erc20ABI,
+                                                               parameters: parameters,
+                                                               extraData: data,
+                                                               value: amount)
+            return result
+        } catch let error as WalletError {
+            HUDManager.shared.showError(text: error.errorDescription)
+        } catch let error as Web3Error {
+            HUDManager.shared.showError(text: error.errorDescription)
+        } catch {
+            HUDManager.shared.showError(text: "Send ERC20 Failed")
+        }
+        return "Send ERC20 Failed"
+    }
+    
     // MARK: - Call Smart Contract
 
     public class func writeSmartContract(contractAddress: String,
                                          functionName: String,
                                          abi: String,
                                          parameters: [Any],
-                                         extraData: Data = Data(),
-                                         value: String = "0.0",
+                                         extraData: Data,
+                                         value: BigUInt,
                                          gasPrice: GasPrice = GasPrice.average) throws -> String {
         
         guard let address = WalletManager.wallet?.address else {
@@ -174,16 +177,28 @@ class TransactionManager {
             throw WalletError.invalidAddress
         }
         
+        let etherBalance = try TransactionManager.shared.etherBalanceSync()
+        guard let etherBalanceInDouble = Double(etherBalance) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard let amountInDouble = Double(value.readableValue) else {
+            throw WalletError.conversionFailure
+        }
+        
+        guard etherBalanceInDouble >= amountInDouble else {
+            throw WalletError.insufficientBalance
+        }
+        
         guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
             throw WalletError.malformedKeystore
         }
         
         let gasPrice = GasPrice.average.wei
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2)
-        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
         
         var options = TransactionOptions.defaultOptions
-        options.value = amount
+        options.value = value
         options.from = walletAddress
         options.gasPrice = .manual(gasPrice)
         options.gasLimit = .automatic
