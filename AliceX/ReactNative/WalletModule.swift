@@ -55,7 +55,8 @@ class WalletModule: NSObject {
                                reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             
-            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+            guard let value = BigUInt(value.stripHexPrefix(), radix: 16),
+                let data = Data.fromHex(data) else {
                 HUDManager.shared.showError(text: "Parameters is invaild")
                 return
             }
@@ -75,7 +76,8 @@ class WalletModule: NSObject {
                                           reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             
-            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+            guard let value = BigUInt(value.stripHexPrefix(), radix: 16),
+                let data = Data.fromHex(data) else {
                 HUDManager.shared.showError(text: "Parameters is invaild")
                 return
             }
@@ -103,7 +105,8 @@ class WalletModule: NSObject {
                                reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             
-            guard let value = BigUInt(value), let data = Data.fromHex(data) else {
+            guard let value = BigUInt(value.stripHexPrefix(), radix: 16),
+                let data = Data.fromHex(data) else {
                 HUDManager.shared.showError(text: "Parameters is invaild")
                 return
             }

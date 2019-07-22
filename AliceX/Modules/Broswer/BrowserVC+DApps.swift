@@ -38,6 +38,7 @@ extension BrowserViewController: WKScriptMessageHandler {
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))
             }
+            
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {return}
             guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
             let value = options.value != nil ? options.value! : BigUInt(0)

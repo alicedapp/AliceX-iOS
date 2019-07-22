@@ -115,6 +115,8 @@
 		15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */; };
 		15E845F122DBA141008F8AD2 /* HKFloatBall.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E422DBA141008F8AD2 /* HKFloatBall.h */; };
 		15E845F222DBA141008F8AD2 /* HKFloatManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E845E522DBA141008F8AD2 /* HKFloatManager.h */; };
+		15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */; };
+		15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
@@ -235,6 +237,8 @@
 		15E845E422DBA141008F8AD2 /* HKFloatBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatBall.h; sourceTree = "<group>"; };
 		15E845E522DBA141008F8AD2 /* HKFloatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKFloatManager.h; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
+		15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendERC20PopUp.swift; sourceTree = "<group>"; };
+		15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendERC20PopUp.xib; sourceTree = "<group>"; };
 		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				15F6E1F622E591D50006A24A /* SendToken */,
 				151E345F22D5961B0037157C /* SignTransaction */,
 				156BCD5C22C4A3F600B380DF /* SignMessage */,
 				15F985E022C34D6000942357 /* Contract */,
@@ -804,6 +809,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		15F6E1F622E591D50006A24A /* SendToken */ = {
+			isa = PBXGroup;
+			children = (
+				15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */,
+				15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */,
+			);
+			path = SendToken;
+			sourceTree = "<group>";
+		};
 		15F985DD22C33AE000942357 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +952,7 @@
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
+				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
@@ -1146,6 +1161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
+				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
 				15477B4722E184AA008E3230 /* BigInt.swift in Sources */,

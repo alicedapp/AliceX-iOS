@@ -98,4 +98,13 @@ extension String {
     func round( decimal: Int) -> String {
         return String(Float(self)!.rounded(toPlaces: decimal))
     }
+    
+    func stripHexPrefix() -> String {
+        if self.hasPrefix("0x") {
+            let indexStart = self.index(self.startIndex, offsetBy: 2)
+            return String(self[indexStart...])
+        }
+        return self
+    }
+    
 }
