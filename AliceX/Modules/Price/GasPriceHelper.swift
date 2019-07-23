@@ -15,7 +15,9 @@ enum GasPrice: String, CaseIterable {
     case fast
     case average
     case slow
+//    case custom(BigUInt)
     
+    // GWei
     var price: Float {
         switch self {
         case .fast:
@@ -24,6 +26,8 @@ enum GasPrice: String, CaseIterable {
             return GasPriceHelper.shared.average ?? 3
         case .slow:
             return GasPriceHelper.shared.safeLow ?? 1
+//        case .custom(let wei):
+//            return wei.
         }
     }
     

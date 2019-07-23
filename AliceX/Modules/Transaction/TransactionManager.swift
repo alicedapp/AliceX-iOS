@@ -72,7 +72,8 @@ class TransactionManager {
     class func showPaymentView(toAddress: String,
                                amount: BigUInt,
                                data: Data,
-                               symbol: String, success: @escaping StringBlock) {
+                               symbol: String,
+                               success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data, symbol: symbol, success: success)
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -81,6 +82,8 @@ class TransactionManager {
         modal.modalPresentationStyle = .custom
         topVC?.present(modal, animated: true, completion: nil)
     }
+    
+//    class  func showPaymentView(transaction: )
 
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
@@ -194,13 +197,15 @@ class TransactionManager {
             throw WalletError.malformedKeystore
         }
         
-        let gasPrice = GasPrice.average.wei
+        let gasPrice = gasPrice.wei
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2)
         
         var options = TransactionOptions.defaultOptions
         options.value = value
         options.from = walletAddress
-        options.gasPrice = .manual(gasPrice)
+        options.gasPrice =
+//            .automatic
+            .manual(gasPrice)
         options.gasLimit = .automatic
         let tx = contract!.write(
             functionName,

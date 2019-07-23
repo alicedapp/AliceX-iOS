@@ -240,11 +240,11 @@ class PaymentPopUp: UIViewController {
     func sendTx() {
         do {
             let txHash = try TransactionManager.shared.sendEtherSync(
-                to: self.toAddress!,
-                amount: self.amount!,
-                data: self.data!,
+                to: toAddress!,
+                amount: amount!,
+                data: data!,
                 password: "",
-                gasPrice: self.gasPrice)
+                gasPrice: gasPrice)
             
             self.successBlock!(txHash)
             self.dismiss(animated: true, completion: nil)

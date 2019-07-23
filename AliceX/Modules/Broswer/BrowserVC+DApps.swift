@@ -31,22 +31,24 @@ extension BrowserViewController: WKScriptMessageHandler {
             }
         case Method.signMessage.rawValue:
             print("signMessage")
-        case Method.signTransaction.rawValue, Method.sendTransaction.rawValue:
-            
-            
-            
+        case Method.signTransaction.rawValue,
+             Method.sendTransaction.rawValue:
             guard var body = message.body as? [String: AnyObject] else { return }
             var transactionJSON = body["object"] as! [String: Any]
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))
             }
             
+//            let result = WalletManager.web3Net.browserFunctions.sendTransaction(transactionJSON)
+//
+//            self.notifyFinish(callbackID: 8888, value: result!["txhash"] as! String)
+            
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {return}
             guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
             let value = options.value != nil ? options.value! : BigUInt(0)
-            
+
             TransactionManager.showPaymentView(toAddress: tx.to.address,
-                                               amount: tx.value,
+                                               amount: value,
                                                data: tx.data,
                                                symbol: "ETH") { (signData) in
                     self.notifyFinish(callbackID: 8888, value: signData)
