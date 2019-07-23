@@ -13,7 +13,6 @@ import BigInt
 extension BrowserViewController: WKScriptMessageHandler {
     
     func notifyFinish(callbackID: Int, value: String) {
-        
         let script: String = "executeCallback(\(callbackID), null, \"\(value)\")"
         webview.evaluateJavaScript(script, completionHandler: nil)
     }

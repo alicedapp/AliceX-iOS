@@ -32,7 +32,7 @@ class NativeVCModule: NSObject {
             
             if #available(iOS 13.0, *) {
                 let topVC = UIApplication.topViewController()
-                let vc = BrowserViewController()
+                let vc = BrowserWrapperViewController()
                 vc.urlString = url
                 topVC!.hero.isEnabled = true
                 vc.hero.isEnabled = true
@@ -41,7 +41,8 @@ class NativeVCModule: NSObject {
                 return
             }
             let topVC = UIApplication.topViewController()
-            let vc = BrowserViewController()
+            let vc = BrowserWrapperViewController()
+//                BrowserViewController()
             vc.urlString = url
             vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
 //            topVC?.present(vc, animated: true, completion: nil)

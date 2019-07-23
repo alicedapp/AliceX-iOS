@@ -37,31 +37,31 @@ extension WKWebViewConfiguration {
         AlphaWallet.init(rpcURL, {
         getAccounts: function (cb) { alert('hello'); cb(null, [addressHex]) },
         processTransaction: function (tx, cb){
-        console.log('signing a transaction', tx)
-        const { id = 8888 } = tx
-        AlphaWallet.addCallback(id, cb)
-        webkit.messageHandlers.signTransaction.postMessage({"name": "signTransaction", "object": tx, id: id})
+            console.log('signing a transaction', tx)
+            const { id = 8888 } = tx
+            AlphaWallet.addCallback(id, cb)
+            webkit.messageHandlers.signTransaction.postMessage({"name": "signTransaction", "object": tx, id: id})
         },
         signMessage: function (msgParams, cb) {
-        const { data } = msgParams
-        const { id = 8888 } = msgParams
-        console.log("signing a message", msgParams)
-        AlphaWallet.addCallback(id, cb)
-        webkit.messageHandlers.signMessage.postMessage({"name": "signMessage", "object": { data }, id: id})
+            const { data } = msgParams
+            const { id = 8888 } = msgParams
+            console.log("signing a message", msgParams)
+            AlphaWallet.addCallback(id, cb)
+            webkit.messageHandlers.signMessage.postMessage({"name": "signMessage", "object": { data }, id: id})
         },
         signPersonalMessage: function (msgParams, cb) {
-        const { data } = msgParams
-        const { id = 8888 } = msgParams
-        console.log("signing a personal message", msgParams)
-        AlphaWallet.addCallback(id, cb)
-        webkit.messageHandlers.signPersonalMessage.postMessage({"name": "signPersonalMessage", "object": { data }, id: id})
+            const { data } = msgParams
+            const { id = 8888 } = msgParams
+            console.log("signing a personal message", msgParams)
+            AlphaWallet.addCallback(id, cb)
+            webkit.messageHandlers.signPersonalMessage.postMessage({"name": "signPersonalMessage", "object": { data }, id: id})
         },
         signTypedMessage: function (msgParams, cb) {
-        const { data } = msgParams
-        const { id = 8888 } = msgParams
-        console.log("signing a typed message", msgParams)
-        AlphaWallet.addCallback(id, cb)
-        webkit.messageHandlers.signTypedMessage.postMessage({"name": "signTypedMessage", "object": { data }, id: id})
+            const { data } = msgParams
+            const { id = 8888 } = msgParams
+            console.log("signing a typed message", msgParams)
+            AlphaWallet.addCallback(id, cb)
+            webkit.messageHandlers.signTypedMessage.postMessage({"name": "signTypedMessage", "object": { data }, id: id})
         },
         enable: function() {
         return new Promise(function(resolve, reject) {

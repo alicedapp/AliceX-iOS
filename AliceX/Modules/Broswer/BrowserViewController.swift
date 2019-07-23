@@ -20,7 +20,10 @@ class BrowserViewController: BaseViewController {
 
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
-    var urlString: String = "http://www.google.com"
+    var urlString: String = "https://uniswap.exchange"
+//    "https://app.compound.finance/"
+//    "http://www.google.com"
+    
     
     @objc var hk_iconImage: UIImage!
 
@@ -39,7 +42,7 @@ class BrowserViewController: BaseViewController {
                                                  in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
 
-        webview =  WKWebView(frame: .zero, configuration: config)
+        webview = WKWebView(frame: .zero, configuration: config)
         
         // TODO Conflict with Pin
 //        webview.allowsBackForwardNavigationGestures = true
@@ -65,6 +68,10 @@ class BrowserViewController: BaseViewController {
         webContainer.addSubview(webview)
         
         webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewWillLayoutSubviews() {

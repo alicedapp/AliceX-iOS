@@ -35,4 +35,11 @@ class BrowserPanelView: BaseView {
         vc.vcRef = vcRef
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
+    
+    @IBAction func networkButton() {
+        HUDManager.shared.dismiss()
+        let vc = NetworkSwitchViewController()
+        let topVC = UIApplication.topViewController()
+        topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
+    }
 }

@@ -61,14 +61,26 @@ class EditAddressViewController: BaseViewController {
     
     class func makeUrlIfNeeded(urlString: String) -> String {
         var urlString = urlString
-        if !(urlString.validateUrl()) {
-            urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            urlString = "https://www.google.com/search?q=\(urlString)"
-        }
         
         if !urlString.hasPrefix("http://") && !urlString.hasPrefix("https://") {
             urlString = urlString.addHttpPrefix()
         }
+        
+        if urlString.validateUrl() {
+            return urlString
+        }
+        
+        if urlString.hasPrefix("http://") {
+            urlString = String(urlString.dropLast(7))
+        }
+        
+        if urlString.hasPrefix("https://") {
+            urlString = String(urlString.dropLast(8))
+        }
+        
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        urlString = "https://www.google.com/search?q=\(urlString)"
+        
         return urlString
     }
 }
@@ -77,11 +89,8 @@ extension EditAddressViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         var urlString = self.addressField.text!
-        
         urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
-        
         let url = URL(string: urlString)
-        
         self.browerRef!.goTo(url: url!)
         self.backButtonClicked(sender: self.addressField)
         return true
