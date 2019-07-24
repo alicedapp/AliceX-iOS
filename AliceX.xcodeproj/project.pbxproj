@@ -11,6 +11,9 @@
 		151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151E346122D5967B0037157C /* SignTransactionPopUp.xib */; };
 		151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346422D59C9A0037157C /* EthereumTransaction.swift */; };
 		151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */; };
+		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
+		1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1526B62322E89526007663E5 /* HideMaskViewController.xib */; };
+		1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62622E89C6A007663E5 /* HideHelper.swift */; };
 		1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871C22ADEBEE00D63C7F /* Constant.swift */; };
 		1527871F22ADEDAB00D63C7F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871E22ADEDAB00D63C7F /* Style.swift */; };
 		1527872122ADEE0900D63C7F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872022ADEE0900D63C7F /* UIColor.swift */; };
@@ -130,6 +133,9 @@
 		151E346122D5967B0037157C /* SignTransactionPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignTransactionPopUp.xib; sourceTree = "<group>"; };
 		151E346422D59C9A0037157C /* EthereumTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTransaction.swift; sourceTree = "<group>"; };
 		151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRNModule.swift; sourceTree = "<group>"; };
+		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
+		1526B62322E89526007663E5 /* HideMaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HideMaskViewController.xib; sourceTree = "<group>"; };
+		1526B62622E89C6A007663E5 /* HideHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideHelper.swift; sourceTree = "<group>"; };
 		1527871C22ADEBEE00D63C7F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1527871E22ADEDAB00D63C7F /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		1527872022ADEE0900D63C7F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -270,6 +276,16 @@
 				151E346122D5967B0037157C /* SignTransactionPopUp.xib */,
 			);
 			path = SignTransaction;
+			sourceTree = "<group>";
+		};
+		1526B61F22E894CF007663E5 /* Hide */ = {
+			isa = PBXGroup;
+			children = (
+				1526B62222E89526007663E5 /* HideMaskViewController.swift */,
+				1526B62322E89526007663E5 /* HideMaskViewController.xib */,
+				1526B62622E89C6A007663E5 /* HideHelper.swift */,
+			);
+			path = Hide;
 			sourceTree = "<group>";
 		};
 		1527872A22AE07FA00D63C7F /* Keychain */ = {
@@ -684,6 +700,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1526B61F22E894CF007663E5 /* Hide */,
 				1572598322E0A0E9004D0CC4 /* Price */,
 				1581EC0E22D837FE00B74F30 /* Broswer */,
 				157AA56822CC6CC9008AF3A5 /* Setting */,
@@ -972,6 +989,7 @@
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
+				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,6 +1182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
+				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
@@ -1227,6 +1246,7 @@
 				1572598822E0B516004D0CC4 /* CurrencyViewController.swift in Sources */,
 				1572598522E0A114004D0CC4 /* PriceHelper.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
+				1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */,
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,

@@ -63,24 +63,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-
+        HideHelper.shared.start()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
+        HideHelper.shared.stop()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-
     }
+    
+    
 
     class func rnBridge() -> RCTBridge {
         return bridge!
