@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransferPopUp" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="addressField" destination="Ane-n7-5TR" id="Qki-nS-QZP"/>
+                <outlet property="bgView" destination="lY9-5e-2Ph" id="U3t-2f-lQr"/>
+                <outlet property="containView" destination="pAp-vm-Fy7" id="cK9-UQ-LRT"/>
                 <outlet property="priceLabel" destination="pHb-wi-Nih" id="dId-eU-bJg"/>
                 <outlet property="titleLabel" destination="N70-QR-LpU" id="dQX-2c-iZD"/>
                 <outlet property="valueField" destination="Yj4-qQ-NG6" id="PWy-eA-bsZ"/>
@@ -24,6 +26,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lY9-5e-2Ph">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38215228873239437" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAp-vm-Fy7">
                     <rect key="frame" x="20" y="44" width="374" height="325"/>
                     <subviews>
@@ -120,7 +126,7 @@
                                         <constraint firstItem="z4u-Te-UMm" firstAttribute="centerX" secondItem="JQZ-4q-svP" secondAttribute="centerX" id="oXZ-M5-agE"/>
                                     </constraints>
                                     <connections>
-                                        <action selector="cancelBtnClicked" destination="-1" eventType="touchUpInside" id="SVD-jt-IqV"/>
+                                        <action selector="cancelBtnClicked" destination="-1" eventType="touchDragInside" id="pDx-K6-d6m"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSE-0P-nPu" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
@@ -305,9 +311,13 @@
                 </view>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="lY9-5e-2Ph" secondAttribute="bottom" id="3GM-S6-7i8"/>
+                <constraint firstItem="lY9-5e-2Ph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bw5-ur-qoV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pAp-vm-Fy7" secondAttribute="trailing" constant="20" id="Gr7-RD-rR9"/>
+                <constraint firstAttribute="trailing" secondItem="lY9-5e-2Ph" secondAttribute="trailing" id="NDh-SB-yxV"/>
                 <constraint firstItem="pAp-vm-Fy7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bgM-zK-Ie1"/>
                 <constraint firstItem="pAp-vm-Fy7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cps-MJ-mwZ"/>
+                <constraint firstItem="lY9-5e-2Ph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mU8-tP-o8b"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>

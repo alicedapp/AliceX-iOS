@@ -18,10 +18,13 @@ class TransferPopUp: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    var address: String?
-    var value: String?
+    @IBOutlet weak var containView: UIView!
+    @IBOutlet weak var bgView: UIView!
     
-    class func make(address: String?, value: String?) -> TransferPopUp {
+    var address: String?
+    var value: BigUInt!
+    
+    class func make(address: String?, value: BigUInt! = BigUInt(0)) -> TransferPopUp {
         let vc = TransferPopUp()
         vc.value = value
         vc.address = address
@@ -31,12 +34,59 @@ class TransferPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addressField.text = address
-        valueField.text = value
+        valueField.text = value.readableValue
         valueFieldDidChange(self.valueField)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        containView.transform = CGAffineTransform(translationX: 0, y: -400)
+        bgView.alpha = 0
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: {
+                        self.bgView.alpha = 1
+                        self.containView.transform = CGAffineTransform.identity
+        }, completion: { (_) in
+            if self.address != nil {
+                self.valueField.becomeFirstResponder()
+                return
+            }
+            self.addressField.becomeFirstResponder()
+        })
+    }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        UIView.animate(withDuration: 0.3,
+//                       delay: 0,
+//                       usingSpringWithDamping: 0.9,
+//                       initialSpringVelocity: 0,
+//                       options: [],
+//                       animations: {
+//            self.bgView.alpha = 0
+//            self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+//        }, completion: nil)
+//    }
+    
     @IBAction func cancelBtnClicked() {
-        HUDManager.shared.dismiss()
+        view.endEditing(true)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: {
+                        self.bgView.alpha = 0
+                        self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+        }, completion: { (_) in
+            self.dismiss(animated: false, completion: nil)
+        })
     }
     
     @IBAction func pasteBtnClicked() {
@@ -48,8 +98,8 @@ class TransferPopUp: UIViewController {
     }
     
     @IBAction func cameraBtnClicked() {
-//        let vc = SettingViewController()
-//        self.present(vc, animated: true, completion: nil)
+        let vc = SettingViewController()
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func comfirmBtnClicked() {
@@ -63,11 +113,12 @@ class TransferPopUp: UIViewController {
             return
         }
         
-        HUDManager.shared.dismiss()
+        
         TransactionManager.showPaymentView(toAddress:ethAddress.address,
                                            amount: amount,
                                            data: Data(),
                                            symbol: "ETH") { (txHash) in
+                                            self.cancelBtnClicked()
         }
     }
     

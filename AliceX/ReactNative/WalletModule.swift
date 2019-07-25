@@ -145,14 +145,23 @@ class WalletModule: NSObject {
         }
     }
     
-    @objc func transfer(to: String,
+    @objc func transfer(_ to: String,
                         value: String,
                         resolve: @escaping RCTPromiseResolveBlock,
                         reject: @escaping RCTPromiseRejectBlock) {
         
         DispatchQueue.main.async {
-            let vc = TransferPopUp.make(address: to, value: value)
-            HUDManager.shared.showAlertVCNoBackground(viewController: vc, type: .topFloat)
+            
+            var amount = BigUInt(0)
+            if let hexValue = BigUInt(value.stripHexPrefix(), radix: 16) {
+                amount = hexValue
+            }
+            
+            let vc = TransferPopUp.make(address: to, value: amount)
+//            HUDManager.shared.showAlertVCNoBackground(viewController: vc, type: .topFloat)
+            vc.modalPresentationStyle = .overCurrentContext
+            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+            
             resolve("Success")
         }
     }

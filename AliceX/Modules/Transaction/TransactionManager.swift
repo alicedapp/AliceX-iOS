@@ -78,6 +78,7 @@ class TransactionManager {
                                       symbol: symbol,
                                       success: success)
         let height = 430 - 34 + Constant.SAFE_BTTOM
+        modal.modalPresentationStyle = .overCurrentContext
         topVC?.presentAsStork(modal, height: height)
     }
     
