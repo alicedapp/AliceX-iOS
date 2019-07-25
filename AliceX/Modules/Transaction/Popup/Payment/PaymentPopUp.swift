@@ -152,11 +152,11 @@ class PaymentPopUp: UIViewController {
         
         if toggle == false {
             
-//            #if DEBUG
-//            sendTx()
-//            #else
+            #if DEBUG
+            sendTx()
+            #else
             biometricsVerify()
-//            #endif
+            #endif
             
             toggle = true
             let generator = UINotificationFeedbackGenerator()

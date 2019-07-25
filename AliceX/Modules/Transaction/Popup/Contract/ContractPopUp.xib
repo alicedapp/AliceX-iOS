@@ -133,7 +133,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-a0-aHd" customClass="UIControl">
                                     <rect key="frame" x="65" y="415" width="284" height="30"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUR-5P-1vo" customClass="UIControl">
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUR-5P-1vo" customClass="UIControl">
                                             <rect key="frame" x="-8" y="3.5" width="92.5" height="23"/>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <userDefinedRuntimeAttributes>
@@ -167,6 +167,9 @@
                                         <constraint firstAttribute="trailing" secondItem="kzs-3t-SFQ" secondAttribute="trailing" id="uKN-Uv-XXK"/>
                                         <constraint firstAttribute="height" constant="30" id="yWT-oK-5Mb"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="gasButtonClick" destination="-1" eventType="touchUpInside" id="ICO-T8-s7v"/>
+                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwZ-2z-Kn4">
                                     <rect key="frame" x="0.0" y="40" width="414" height="60"/>
