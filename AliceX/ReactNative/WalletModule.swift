@@ -144,4 +144,15 @@ class WalletModule: NSObject {
             
         }
     }
+    
+    @objc func transfer(to: String,
+                        value: String,
+                        resolve: @escaping RCTPromiseResolveBlock,
+                        reject: @escaping RCTPromiseRejectBlock) {
+        
+        DispatchQueue.main.async {
+            let vc = TransferPopUp.make(address: to, value: value)
+            HUDManager.shared.showAlertVCNoBackground(viewController: vc, type: .topFloat)
+        }
+    }
 }

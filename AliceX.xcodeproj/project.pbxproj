@@ -54,6 +54,10 @@
 		1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1572598722E0B516004D0CC4 /* CurrencyViewController.xib */; };
 		1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572598B22E0B628004D0CC4 /* CurrencyTableViewCell.swift */; };
 		1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */; };
+		15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15764E1022E9E12900784848 /* TransferPopUp.swift */; };
+		15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15764E1122E9E12900784848 /* TransferPopUp.xib */; };
+		15764E1522E9F93A00784848 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15764E1422E9F93A00784848 /* GCD.swift */; };
+		15764E1822E9F99700784848 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15764E1722E9F99700784848 /* Color.swift */; };
 		157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A676822CDE12E00DA83AB /* SignYesViewController.swift */; };
 		157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157A676922CDE12E00DA83AB /* SignYesViewController.xib */; };
 		157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */; };
@@ -177,6 +181,10 @@
 		1572598722E0B516004D0CC4 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
 		1572598B22E0B628004D0CC4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
+		15764E1022E9E12900784848 /* TransferPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPopUp.swift; sourceTree = "<group>"; };
+		15764E1122E9E12900784848 /* TransferPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopUp.xib; sourceTree = "<group>"; };
+		15764E1422E9F93A00784848 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		15764E1722E9F99700784848 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		157A676822CDE12E00DA83AB /* SignYesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignYesViewController.swift; sourceTree = "<group>"; };
 		157A676922CDE12E00DA83AB /* SignYesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignYesViewController.xib; sourceTree = "<group>"; };
 		157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				15764E0F22E9E10300784848 /* Transfer */,
 				15F6E1F622E591D50006A24A /* SendToken */,
 				151E345F22D5961B0037157C /* SignTransaction */,
 				156BCD5C22C4A3F600B380DF /* SignMessage */,
@@ -381,6 +390,15 @@
 				1572598C22E0B628004D0CC4 /* CurrencyTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15764E0F22E9E10300784848 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				15764E1022E9E12900784848 /* TransferPopUp.swift */,
+				15764E1122E9E12900784848 /* TransferPopUp.xib */,
+			);
+			path = Transfer;
 			sourceTree = "<group>";
 		};
 		157A676722CDE0F500DA83AB /* signYes */ = {
@@ -668,6 +686,7 @@
 				1581EC2522D8AE6D00B74F30 /* Double.swift */,
 				15BC4DC522DAFAE800313CA9 /* UIImage.swift */,
 				15477B4622E184AA008E3230 /* BigInt.swift */,
+				15764E1422E9F93A00784848 /* GCD.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -696,6 +715,7 @@
 				15B86B6422AA044000110C06 /* Info.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
+				15764E1722E9F99700784848 /* Color.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -985,6 +1005,7 @@
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
+				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
 				15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */,
@@ -1086,11 +1107,9 @@
 				"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Base64/Base64.framework",
-				"${PODS_ROOT}/BigInt/BigInt.framework",
-				"${PODS_ROOT}/BigInt/BigInt.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CodePush/CodePush.framework",
-				"${PODS_ROOT}/CryptoSwift/CryptoSwift.framework",
-				"${PODS_ROOT}/CryptoSwift/CryptoSwift.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1101,8 +1120,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${PODS_ROOT}/PromiseKit/PromiseKit.framework",
-				"${PODS_ROOT}/PromiseKit/PromiseKit.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework",
 				"${BUILT_PRODUCTS_DIR}/RNReactNativeHapticFeedback/RNReactNativeHapticFeedback.framework",
@@ -1111,19 +1129,14 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
-				"${PODS_ROOT}/Starscream/Starscream.framework",
-				"${PODS_ROOT}/Starscream/Starscream.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
-				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-camera/react_native_camera.framework",
 				"${PODS_ROOT}/../../node_modules/@react-native-mapbox-gl/maps/ios/Mapbox.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-mapbox-gl/react_native_mapbox_gl.framework",
-				"${PODS_ROOT}/secp256k1.c/secp256k1.framework",
-				"${PODS_ROOT}/secp256k1.c/secp256k1.framework.dSYM",
-				"${PODS_ROOT}/web3.swift.pod/web3swift.framework",
-				"${PODS_ROOT}/web3.swift.pod/web3swift.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.c/secp256k1.framework",
+				"${BUILT_PRODUCTS_DIR}/web3.swift.pod/web3swift.framework",
 				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1133,10 +1146,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/BigInt.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodePush.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/CryptoSwift.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
@@ -1148,7 +1159,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/PromiseKit.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNGestureHandler.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNReactNativeHapticFeedback.framework",
@@ -1158,18 +1168,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Starscream.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_camera.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_mapbox_gl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/secp256k1.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/web3swift.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1197,6 +1202,7 @@
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
+				15764E1822E9F99700784848 /* Color.swift in Sources */,
 				1526B62922E962E6007663E5 /* FaceIDHelper.swift in Sources */,
 				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
@@ -1235,6 +1241,7 @@
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
+				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
@@ -1252,6 +1259,7 @@
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
 				1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */,
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,
+				15764E1522E9F93A00784848 /* GCD.swift in Sources */,
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,

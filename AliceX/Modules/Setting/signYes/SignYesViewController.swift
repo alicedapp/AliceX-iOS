@@ -30,6 +30,7 @@ class SignYesViewController: BaseViewController {
     }
     
     @IBAction func confirmClicked() {
+        
         var text = comfirmTextField.text?.lowercased()
         text = text?.trimmingCharacters(in: .whitespaces)
         

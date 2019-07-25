@@ -114,12 +114,12 @@ class HUDManager: NSObject {
         }
     }
     
-    func showAlertVCNoBackground(viewController: UIViewController) {
+    func showAlertVCNoBackground(viewController: UIViewController, type: EKAttributes = .centerFloat ) {
         
         DispatchQueue.main.async {
             
             var attributes: EKAttributes = EKAttributes()
-            attributes = .centerFloat
+            attributes = type
             attributes.displayDuration = .infinity
             attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
             attributes.entryBackground = .color(color: .clear)

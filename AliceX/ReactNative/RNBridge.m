@@ -51,6 +51,11 @@ RCT_EXTERN_METHOD(sendToken:(NSString *)tokenAddress
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(transfer:(NSString *)to
+                  value:(NSString *)value
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 @end
 
 # pragma - Smart Contract
