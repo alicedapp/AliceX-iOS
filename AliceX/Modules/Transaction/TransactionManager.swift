@@ -128,6 +128,20 @@ class TransactionManager {
     
     // MARK: - Send ERC20
     
+    class func showTokenView(tokenAdress: String,
+                             toAddress: String,
+                             amount: BigUInt,
+                             data: Data,
+                             success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = SendERC20PopUp.make(tokenAdress: tokenAdress,
+                                       toAddress: toAddress,
+                                       amount: amount,
+                                       data: data,
+                                       success: success)
+        topVC?.presentAsStork(modal)
+    }
+    
     public func sendERC20Token(to address: String,
                                amount: BigUInt,
                                data: Data,

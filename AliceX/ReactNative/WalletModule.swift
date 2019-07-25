@@ -8,6 +8,7 @@
 
 import Foundation
 import BigInt
+import web3swift
 
 @objc(WalletModule)
 class WalletModule: NSObject {
@@ -114,6 +115,33 @@ class WalletModule: NSObject {
             TransactionManager.showSignTransactionView(to: to, value: value, data: data, success: { (signJson) in
                 resolve(signJson)
             })
+        }
+    }
+    
+    @objc func sendToken(_ tokenAddress: String,
+                         to: String,
+                         value: String,
+                         data: String,
+                         resolve: @escaping RCTPromiseResolveBlock,
+                         reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            
+            guard let toAddress = EthereumAddress(to),
+                let token = EthereumAddress(tokenAddress),
+                let value = BigUInt(value.stripHexPrefix(), radix: 16),
+                let data = Data.fromHex(data) else {
+                    HUDManager.shared.showError(text: "Parameters is invaild")
+                    return
+            }
+            
+            TransactionManager.showTokenView(tokenAdress: tokenAddress,
+                                             toAddress: to,
+                                             amount: value,
+                                             data: data,
+                                             success: { (txHash) in
+                                                resolve(txHash)
+            })
+            
         }
     }
 }

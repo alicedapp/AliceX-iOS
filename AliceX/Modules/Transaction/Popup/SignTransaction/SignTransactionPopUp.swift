@@ -34,7 +34,6 @@ class SignTransactionPopUp: UIViewController {
     var toggle: Bool = false
     
     var gasLimit: BigUInt?
-    
     var gasPrice: GasPrice = GasPrice.average
     
     var successBlock: StringBlock?
