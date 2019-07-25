@@ -14,6 +14,7 @@
 		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
 		1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1526B62322E89526007663E5 /* HideMaskViewController.xib */; };
 		1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62622E89C6A007663E5 /* HideHelper.swift */; };
+		1526B62922E962E6007663E5 /* FaceIDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62822E962E6007663E5 /* FaceIDHelper.swift */; };
 		1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871C22ADEBEE00D63C7F /* Constant.swift */; };
 		1527871F22ADEDAB00D63C7F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527871E22ADEDAB00D63C7F /* Style.swift */; };
 		1527872122ADEE0900D63C7F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872022ADEE0900D63C7F /* UIColor.swift */; };
@@ -136,6 +137,7 @@
 		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
 		1526B62322E89526007663E5 /* HideMaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HideMaskViewController.xib; sourceTree = "<group>"; };
 		1526B62622E89C6A007663E5 /* HideHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideHelper.swift; sourceTree = "<group>"; };
+		1526B62822E962E6007663E5 /* FaceIDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDHelper.swift; sourceTree = "<group>"; };
 		1527871C22ADEBEE00D63C7F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1527871E22ADEDAB00D63C7F /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		1527872022ADEE0900D63C7F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				1526B62222E89526007663E5 /* HideMaskViewController.swift */,
 				1526B62322E89526007663E5 /* HideMaskViewController.xib */,
 				1526B62622E89C6A007663E5 /* HideHelper.swift */,
+				1526B62822E962E6007663E5 /* FaceIDHelper.swift */,
 			);
 			path = Hide;
 			sourceTree = "<group>";
@@ -1194,6 +1197,7 @@
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
+				1526B62922E962E6007663E5 /* FaceIDHelper.swift in Sources */,
 				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,

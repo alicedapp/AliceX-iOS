@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         WalletManager.loadFromCache()
         PriceHelper.shared.fetchFromCache()
-        
-        GasPriceHelper.shared.getGasPrice()
+//        GasPriceHelper.shared.getGasPrice()
 
         func sourceURL(bridge: RCTBridge?) -> URL? {
             #if DEBUG
@@ -78,8 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
-    
-    
 
     class func rnBridge() -> RCTBridge {
         return bridge!

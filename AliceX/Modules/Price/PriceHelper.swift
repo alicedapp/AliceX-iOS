@@ -21,7 +21,6 @@ class PriceHelper {
     var updateDate: Date?
     var reponse: CoinMarketCapCurrencyModel?
     
-    
     func changeCurrency(currency: Currency) {
         self.getExchangePrice(currency: currency) {
             self.currentCurrency = currency

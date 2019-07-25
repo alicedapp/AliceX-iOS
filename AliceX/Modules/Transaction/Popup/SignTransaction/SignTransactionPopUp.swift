@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LocalAuthentication
 import PromiseKit
 import BigInt
 
@@ -194,31 +193,10 @@ class SignTransactionPopUp: UIViewController {
     }
     
     func biometricsVerify() {
-        let myContext = LAContext()
-        let myLocalizedReasonString = "Payment Verify"
-        
-        var authError: NSError?
-        if #available(iOS 8.0, macOS 10.12.1, *) {
-            if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                         localizedReason: myLocalizedReasonString)
-                { success, evaluateError in
-                    
-                    DispatchQueue.main.async {
-                        if success {
-                            // User authenticated successfully, take appropriate action
-                            self.send()
-                        } else {
-                            // User did not authenticate successfully, look at error and take appropriate action
-                            
-                        }
-                    }
-                }
-            } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
-            }
-        } else {
-            // Fallback on earlier versions
+        firstly {
+            FaceIDHelper.shared.faceID()
+        }.done { (_) in
+            self.send()
         }
     }
     

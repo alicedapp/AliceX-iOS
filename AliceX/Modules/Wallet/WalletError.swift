@@ -24,6 +24,8 @@ public enum WalletError: Error {
     case netCacheFailure
     case netSwitchFailure
     
+    case custom(String)
+    
     public var code: Int {
         switch self {
         case .hasAccount:
