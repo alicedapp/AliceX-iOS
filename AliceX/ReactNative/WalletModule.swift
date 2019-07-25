@@ -153,6 +153,7 @@ class WalletModule: NSObject {
         DispatchQueue.main.async {
             let vc = TransferPopUp.make(address: to, value: value)
             HUDManager.shared.showAlertVCNoBackground(viewController: vc, type: .topFloat)
+            resolve("Success")
         }
     }
 }
