@@ -118,13 +118,19 @@ class ContractPopUp: UIViewController {
         firstly {
             GasPriceHelper.shared.getGasPrice()
             }.then {
-                TransactionManager.shared.gasForSendingEth(to: self.contractAddress, amount: self.value, data: self.extraData)
+                TransactionManager.shared.gasForContractMethod(to: self.contractAddress,
+                                                               contractABI: self.abi,
+                                                               methodName: self.functionName,
+                                                               methodParams: self.parameters as! [AnyObject],
+                                                               amount: self.value,
+                                                               data: self.extraData)
             }.done { (gasLimit) in
                 self.gasLimit = gasLimit
                 self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
                 self.gasBtn.isUserInteractionEnabled = true
                 self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
-            }.catch { (_) in
+            }.catch { (error) in
+                print(error.localizedDescription)
                 self.gasPriceLabel.text = "Failed to get gas"
                 self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
         }

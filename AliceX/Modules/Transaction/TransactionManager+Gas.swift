@@ -19,32 +19,6 @@ extension TransactionManager {
     // Return GWEI
     func gasForSendingEth(to address: String, amount: BigUInt, data: Data) -> Promise<BigUInt> {
         
-//        return Promise { seal in
-//            guard let toAddress = EthereumAddress(address) else {
-//                seal.reject(WalletError.accountDoesNotExist)
-//                return
-//            }
-//
-//            let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
-//            let contract = WalletManager.web3Net.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
-//            let value = Web3.Utils.parseToBigUInt(String(amount), units: .eth)
-//            var options = TransactionOptions.defaultOptions
-//            options.value = value
-//            options.from = walletAddress
-//
-//            let tx = contract.write( "fallback",
-//                                     parameters: [AnyObject](),
-//                                     extraData: data,
-//                                     transactionOptions: options)!
-//
-//            tx.estimateGasPromise().done { (value) in
-//                seal.fulfill(value)
-//            }.catch({ (error) in
-//                print(error.localizedDescription)
-//                seal.reject(error)
-//            })
-//        }
-        
         return gasForContractMethod(to: address,
                                     contractABI: Web3.Utils.coldWalletABI,
                                     methodName: "fallback",
