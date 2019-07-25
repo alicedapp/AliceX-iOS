@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -192,8 +190,8 @@
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Send To Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-n7-5TR">
-                                    <rect key="frame" x="15" y="23" width="328" height="41.5"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Send To Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="13" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-n7-5TR">
+                                    <rect key="frame" x="15" y="23" width="343" height="41.5"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
@@ -214,7 +212,7 @@
                                 <constraint firstItem="DoJ-rn-tOW" firstAttribute="top" secondItem="Ane-n7-5TR" secondAttribute="bottom" constant="5" id="DWV-1v-huT"/>
                                 <constraint firstItem="DoJ-rn-tOW" firstAttribute="leading" secondItem="Phl-8n-n9w" secondAttribute="leading" id="JV4-4M-5r7"/>
                                 <constraint firstItem="Ane-n7-5TR" firstAttribute="leading" secondItem="Phl-8n-n9w" secondAttribute="leading" constant="15" id="Ll8-d6-RDQ"/>
-                                <constraint firstAttribute="trailing" secondItem="Ane-n7-5TR" secondAttribute="trailing" constant="15" id="Q4R-MV-JDb"/>
+                                <constraint firstAttribute="trailing" secondItem="Ane-n7-5TR" secondAttribute="trailing" id="Q4R-MV-JDb"/>
                                 <constraint firstAttribute="trailing" secondItem="DoJ-rn-tOW" secondAttribute="trailing" id="R5k-7K-nEL"/>
                                 <constraint firstItem="Ane-n7-5TR" firstAttribute="top" secondItem="o1M-P6-bYD" secondAttribute="bottom" constant="5" id="a0I-wC-7tk"/>
                                 <constraint firstAttribute="bottom" secondItem="DoJ-rn-tOW" secondAttribute="bottom" id="lPE-qP-054"/>
@@ -230,7 +228,7 @@
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount To Send" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj4-qQ-NG6">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount To Send" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yj4-qQ-NG6">
                                     <rect key="frame" x="15" y="23" width="261" height="41.5"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
@@ -249,7 +247,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-lO-mm6">
                                     <rect key="frame" x="284" y="31.5" width="41" height="25"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-icon" translatesAutoresizingMaskIntoConstraints="NO" id="bxR-PD-Wbf">

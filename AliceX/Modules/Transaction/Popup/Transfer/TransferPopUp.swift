@@ -113,6 +113,10 @@ class TransferPopUp: UIViewController {
             return
         }
         
+        if amount <= 0  {
+            errorAlert(text: "Can't be zero")
+            return
+        }
         
         TransactionManager.showPaymentView(toAddress:ethAddress.address,
                                            amount: amount,
