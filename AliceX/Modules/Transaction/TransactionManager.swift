@@ -28,11 +28,8 @@ class TransactionManager {
         let modal = ContractPopUp.make(contractAddress: contractAddress,
                                        functionName: functionName, parameters: parameters,
                                        extraData: extraData, value: value, abi: abi, success: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 525 - 34 + Constant.SAFE_BTTOM
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
+        let height =  525 - 34 + Constant.SAFE_BTTOM
+        topVC?.presentAsStork(modal, height: height)
     }
     
     class func getAddress() throws -> String {
@@ -75,12 +72,13 @@ class TransactionManager {
                                symbol: String,
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = PaymentPopUp.make(toAddress: toAddress, amount: amount, data: data, symbol: symbol, success: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
+        let modal = PaymentPopUp.make(toAddress: toAddress,
+                                      amount: amount,
+                                      data: data,
+                                      symbol: symbol,
+                                      success: success)
+        let height = 430 - 34 + Constant.SAFE_BTTOM
+        topVC?.presentAsStork(modal, height: height)
     }
     
 //    class  func showPaymentView(transaction: )
@@ -119,11 +117,7 @@ class TransactionManager {
         let topVC = UIApplication.topViewController()
         let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
                                        height: height, data: data, successBlock: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = height
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
+        topVC?.presentAsStork(modal, height: height)
     }
     
     // MARK: - Send ERC20
@@ -281,11 +275,8 @@ class TransactionManager {
     class func showSignMessageView(message: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignMessagePopUp.make(message: message, success: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 420 - 34 + Constant.SAFE_BTTOM
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
+        let height = 420 - 34 + Constant.SAFE_BTTOM
+        topVC?.presentAsStork(modal, height: height)
     }
     
     class func signMessage(message: Data) throws -> String? {
@@ -315,14 +306,11 @@ class TransactionManager {
     
     // MARK: - Sign Transaction
     
-    class func showSignTransactionView(to:String, value: BigUInt, data: Data, success: @escaping StringBlock) {
+    class func showSignTransactionView(to: String, value: BigUInt, data: Data, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 430 - 34 + Constant.SAFE_BTTOM
-        modal.transitioningDelegate = transitionDelegate
-        modal.modalPresentationStyle = .custom
-        topVC?.present(modal, animated: true, completion: nil)
+        let height = 430 - 34 + Constant.SAFE_BTTOM
+        topVC?.presentAsStork(modal, height: height)
     }
     
     class func signTransaction(to address: String,
