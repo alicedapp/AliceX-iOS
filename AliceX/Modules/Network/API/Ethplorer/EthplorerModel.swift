@@ -27,7 +27,7 @@ struct TokenInfo: HandyJSON {
     var description: String?
     var website: String?
     var ethTransfersCount: Int?
-    var pricre: PriceInfo?
+    var price: PriceInfo?
     var image: String?
     
     init() {

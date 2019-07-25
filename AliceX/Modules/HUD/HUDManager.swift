@@ -53,7 +53,6 @@ class HUDManager: NSObject {
             attributes.shadow = .active(with: .init(color: UIColor(hex: "000000", alpha: 0.3), opacity: 0.5, radius: 2))
             attributes.statusBar = .light
             
-            
             SwiftEntryKit.display(entry: contentView, using: attributes)
         }
     }
@@ -85,7 +84,6 @@ class HUDManager: NSObject {
 //                .empty(fillSafeArea: true)
             attributes.positionConstraints.maxSize = .init(width:
                 .constant(value: UIScreen.main.bounds.minEdge), height: .intrinsic)
-            
             
             SwiftEntryKit.display(entry: view, using: attributes)
         }

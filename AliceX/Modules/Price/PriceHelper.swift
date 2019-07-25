@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 private let AliceCurrencyKey = "alice.currency.key"
 //private let AliceCurrencyResponseKey = "alice.currency.key"
@@ -77,6 +78,17 @@ class PriceHelper {
             case let .failure(_):
                 HUDManager.shared.showError(text: "Fetch currency fail")
             }
+        }
+    }
+    
+    func getTokenInfo(tokenAdress: String) -> Promise<TokenInfo> {
+        return Promise{ seal in firstly { () -> Promise<TokenInfo> in
+            return API(Ethplorer.getTokenInfo(address: tokenAdress))
+        }.done { (model) in
+            seal.fulfill(model)
+        }.catch({ (error) in
+            seal.reject(error)
+        })
         }
     }
     

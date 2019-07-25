@@ -19,9 +19,9 @@ enum MyError: Error {
 }
 
 func API<T: HandyJSON, U: TargetType>(_ target: U,
-                                                  showLoading: Bool = false,
-                                                  showErrorHUD: Bool = false,
-                                                  useCache: Bool = false) -> Promise<T> {
+                                      showLoading: Bool = false,
+                                      showErrorHUD: Bool = false,
+                                      useCache: Bool = false) -> Promise<T> {
     return Promise<T> { seal in
         let provider = MoyaProvider<U>()
         provider.request(target, completion: { (result) in

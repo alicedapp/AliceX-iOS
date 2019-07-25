@@ -41,6 +41,8 @@ extension Ethplorer: TargetType {
     
     var path: String {
         switch self {
+        case .getTokenInfo(let address):
+            return "getTokenInfo/\(address)"
         default:
             return ""
         }
@@ -56,7 +58,8 @@ extension Ethplorer: TargetType {
     var task: Task {
         switch self {
         default:
-            return .requestPlain
+            let dict = ["apiKey":"freekey"]
+            return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }
     

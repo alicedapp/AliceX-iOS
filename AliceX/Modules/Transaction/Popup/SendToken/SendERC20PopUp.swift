@@ -9,6 +9,8 @@
 import UIKit
 import BigInt
 import PromiseKit
+import Kingfisher
+import web3swift
 
 class SendERC20PopUp: UIViewController {
 
@@ -19,7 +21,11 @@ class SendERC20PopUp: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var tokenImage: UIImageView!
     
     @IBOutlet weak var gasPriceLabel: UILabel!
     @IBOutlet weak var gasTimeLabel: UILabel!
@@ -37,6 +43,8 @@ class SendERC20PopUp: UIViewController {
     var gasLimit: BigUInt?
     var gasPrice: GasPrice = GasPrice.average
     var successBlock: StringBlock!
+    
+    var tokenInfo: TokenInfo?
     
     class func make(tokenAdress: String,
                     toAddress: String,
@@ -58,9 +66,9 @@ class SendERC20PopUp: UIViewController {
         addressLabel.text = toAddress
         
         let value = amount.readableValue
-        amountLabel.text = value.round(decimal: 4)
-        let price = Float(value)! * PriceHelper.shared.exchangeRate
-        priceLabel.text = price.currencyString
+//        amountLabel.text = value.round(decimal: 4)
+//        let price = Float(value)! * PriceHelper.shared.exchangeRate
+//        priceLabel.text = price.currencyString
         
         payButtonContainer.layer.cornerRadius = 20
         payButtonContainer.layer.masksToBounds = true
@@ -90,24 +98,54 @@ class SendERC20PopUp: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
+
+        firstly {
+            PriceHelper.shared.getTokenInfo(tokenAdress: self.tokenAdress)
+        }.done { (model) in
+            self.tokenInfo = model
+            self.updateToken()
+        }.catch { (error) in
+            print(error.localizedDescription)
+            self.priceLabel.text = "Failed to get price"
+            self.priceLabel.textColor = UIColor(hex: "FF7E79")
+        }
         
         firstly{
             GasPriceHelper.shared.getGasPrice()
-            }.then {
-                TransactionManager.shared.gasForSendingEth(to: self.toAddress, amount: self.amount, data: self.data)
-            }.done { (gasLimit) in
-                self.gasLimit = gasLimit
-                self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
-                self.gasBtn.isUserInteractionEnabled = true
-                self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
-            }.catch { (_) in
-                self.gasPriceLabel.text = "Failed to get gas"
-                self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
+        }.then {
+            TransactionManager.shared.gasForContractMethod(to: self.toAddress,
+                                                           contractABI: Web3.Utils.erc20ABI,
+                                                           methodName: "transfer",
+                                                           methodParams: [self.toAddress.ethAddress!, self.amount] as [AnyObject],
+                                                           amount: self.amount,
+                                                           data: self.data)
+        }.done { (gasLimit) in
+            self.gasLimit = gasLimit
+            self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
+            self.gasBtn.isUserInteractionEnabled = true
+            self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
+        }.catch { (_) in
+            self.gasPriceLabel.text = "Failed to get gas"
+            self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
         }
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    func updateToken() {
+        guard let info = self.tokenInfo else {
+            return
+        }
+        
+        nameLabel.text = info.symbol
+        symbolLabel.text = info.symbol
+        descLabel.text = info.name
+        tokenImage.kf.setImage(with: URL(string: info.image!))
+        let rate = (info.price!.rate * Double(amount.readableValue)!).rounded(toPlaces: 4)
+        priceLabel.text = "\(info.price!.currency!) \(rate)"
     }
     
     @IBAction func gasButtonClick() {

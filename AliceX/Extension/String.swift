@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import web3swift
 
 extension String {
     
@@ -87,6 +88,13 @@ extension String {
             return nil
         }
         return decode
+    }
+    
+    var ethAddress: EthereumAddress? {
+        guard let address = EthereumAddress(self) else {
+            return nil
+        }
+        return address
     }
     
     func split(by length: Int) -> [String] {

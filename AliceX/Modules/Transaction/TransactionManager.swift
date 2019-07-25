@@ -133,7 +133,8 @@ class TransactionManager {
                                        amount: amount,
                                        data: data,
                                        success: success)
-        topVC?.presentAsStork(modal)
+        let height = 430 - 34 + Constant.SAFE_BTTOM
+        topVC?.presentAsStork(modal, height: height)
     }
     
     public func sendERC20Token(to address: String,
