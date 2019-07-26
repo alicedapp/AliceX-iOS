@@ -236,15 +236,19 @@ class SendERC20PopUp: UIViewController {
         firstly {
             FaceIDHelper.shared.faceID()
         }.done { (_) in
-                self.send()
+            self.send()
         }
     }
     
     func send() {
         do {
+            guard let value = Web3Utils.parseToBigUInt(amount.readableValue, units: .eth) else {
+                HUDManager.shared.showError(text: "Value is invalid")
+                return
+            }
             let txHash = try TransactionManager.shared.sendERC20Token(tokenAddrss: tokenAdress,
                                                                       to: toAddress,
-                                                                      amount: amount,
+                                                                      amount: value,
                                                                       data: data,
                                                                       password: "",
                                                                       gasPrice: gasPrice)

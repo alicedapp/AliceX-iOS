@@ -159,7 +159,7 @@ class TransactionManager {
                                                                    parameters: parameters,
                                                                    extraData: Data(),
                                                                    value: amount,
-                                                                   checkBalance: false)
+                                                                   notERC20: false)
             return result
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
@@ -180,7 +180,7 @@ class TransactionManager {
                                          extraData: Data,
                                          value: BigUInt,
                                          gasPrice: GasPrice = GasPrice.average,
-                                         checkBalance: Bool = true) throws -> String {
+                                         notERC20: Bool = true) throws -> String {
         
         guard let address = WalletManager.wallet?.address else {
             throw WalletError.invalidAddress
@@ -203,7 +203,7 @@ class TransactionManager {
             throw WalletError.conversionFailure
         }
         
-        if checkBalance {
+        if notERC20 {
             guard etherBalanceInDouble >= amountInDouble else {
                 throw WalletError.insufficientBalance
             }
@@ -217,11 +217,11 @@ class TransactionManager {
         let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2)
         
         var options = TransactionOptions.defaultOptions
-        options.value = value
+        options.value = notERC20 ? value : nil
         options.from = walletAddress
         options.gasPrice =
-            .automatic
-//            .manual(gasPrice)
+//            .automatic
+            .manual(gasPrice)
         options.gasLimit = .automatic
         let tx = contract!.write(
             functionName,
