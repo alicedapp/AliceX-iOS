@@ -165,6 +165,7 @@ class WalletManager {
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
             
+            CallRNModule.sendNetworkChangedEvent(network: type)
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
         } catch {
