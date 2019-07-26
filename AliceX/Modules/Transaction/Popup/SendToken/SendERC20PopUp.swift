@@ -242,11 +242,12 @@ class SendERC20PopUp: UIViewController {
     
     func send() {
         do {
-            let txHash = try TransactionManager.shared.sendERC20Token(to: toAddress,
-                                                                        amount: amount,
-                                                                        data: data,
-                                                                        password: "",
-                                                                        gasPrice: gasPrice)
+            let txHash = try TransactionManager.shared.sendERC20Token(tokenAddrss: tokenAdress,
+                                                                      to: toAddress,
+                                                                      amount: amount,
+                                                                      data: data,
+                                                                      password: "",
+                                                                      gasPrice: gasPrice)
             successBlock(txHash)
             self.dismiss(animated: true, completion: nil)
         } catch let error as WalletError {
