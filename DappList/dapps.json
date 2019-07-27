@@ -1,5 +1,33 @@
 [
     {
+        "link": "http://www.cryptokitties.co",
+        "img": "https://cdn.stateofthedapps.com/dapps/cryptokitties/icon_small_cryptokitties_f10091871f0167a36c0b4fc6ed225a9fdbd48cb54d1b12d94f61803ce1e2e56a_opti.png",
+        "name": "CryptoKitties",
+        "description": "Collect and breed digital cats",
+        "category": "Marketplaces"
+    },
+    {
+        "link": "https://uniswap.exchange/",
+        "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
+        "name": "Uniswap",
+        "description": "Protocol for automated token exchange",
+        "category": "Exchanges"
+    },
+    {
+        "link": "https://map.foam.space/",
+        "img": "https://cdn.stateofthedapps.com/dapps/foam/icon_small_foam_3e0582514d5557dd9c5edf0b66734fba7581a83aeb16b790126a3e3ec32b23c6_opti.png",
+        "name": "FOAM",
+        "description": "The consensus-driven map of the world",
+        "category": "Property"
+    },
+    {
+        "link": "https://www.airswap.io/trade",
+        "img": "https://cdn.stateofthedapps.com/dapps/airswap/icon_small_airswap_92fc838f38499148b90ed1dd13ff1811bbbf870223a03b6ccde575782f0a60b6_opti.png",
+        "name": "AirSwap",
+        "description": "Simple wallet-to-wallet token trading",
+        "category": "Exchanges"
+    },
+    {
         "link": "https://cdp.makerdao.com/",
         "img": "https://cdn.stateofthedapps.com/dapps/makerdao/icon_makerdao_330d28465b81a279ee17b47a2886b82711d0a522d72684dbc65e5d1616b42778_opti.png",
         "name": "MakerDAO",
@@ -117,13 +145,6 @@
         "name": "Golem",
         "description": "Distributed computation",
         "category": "Development"
-    },
-    {
-        "link": "https://uniswap.exchange/",
-        "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
-        "name": "Uniswap",
-        "description": "Protocol for automated token exchange",
-        "category": "Exchanges"
     },
     {
         "link": "https://storj.io/",
@@ -252,13 +273,6 @@
         "category": "Marketplaces"
     },
     {
-        "link": "https://www.airswap.io/trade",
-        "img": "https://cdn.stateofthedapps.com/dapps/airswap/icon_small_airswap_92fc838f38499148b90ed1dd13ff1811bbbf870223a03b6ccde575782f0a60b6_opti.png",
-        "name": "AirSwap",
-        "description": "Simple wallet-to-wallet token trading",
-        "category": "Exchanges"
-    },
-    {
         "link": "https://mycontract.co/",
         "img": "https://cdn.stateofthedapps.com/dapps/mycontract/icon_small_mycontract_3ab01e570872a2221427f7635289efadc6e872cc71142b98ec3acfca926ff07b_opti.png",
         "name": "Mycontract",
@@ -314,13 +328,7 @@
         "description": "Privacy protocol layer",
         "category": "Development"
     },
-    {
-        "link": "http://www.cryptokitties.co",
-        "img": "https://cdn.stateofthedapps.com/dapps/cryptokitties/icon_small_cryptokitties_f10091871f0167a36c0b4fc6ed225a9fdbd48cb54d1b12d94f61803ce1e2e56a_opti.png",
-        "name": "CryptoKitties",
-        "description": "Collect and breed digital cats",
-        "category": "Marketplaces"
-    },
+
     {
         "link": "https://www.paxos.com/standard/",
         "img": "https://cdn.stateofthedapps.com/dapps/paxos-standard/icon_small_paxos-standard_e4bcbfcadeb836a35f1351f3242afe1217104276a2d5dc4fd396294acfb2de26_opti.png",
@@ -334,13 +342,6 @@
         "name": "Etheremon",
         "description": "Capture, train, evolve, battle and trade Etheremons",
         "category": "Games"
-    },
-    {
-        "link": "https://map.foam.space/",
-        "img": "https://cdn.stateofthedapps.com/dapps/foam/icon_small_foam_3e0582514d5557dd9c5edf0b66734fba7581a83aeb16b790126a3e3ec32b23c6_opti.png",
-        "name": "FOAM",
-        "description": "The consensus-driven map of the world",
-        "category": "Property"
     },
     {
         "link": "https://protocol.quantstamp.com/",

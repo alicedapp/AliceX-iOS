@@ -104,7 +104,6 @@ class WalletManager {
         }
         
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
-            // TODO: ENSURE
             throw WalletError.malformedKeystore
         }
         
@@ -122,7 +121,6 @@ class WalletManager {
         guard let completion = completion else { return }
         completion!()
     }
-    
     
     class func replaceAccount(mnemonics: String, completion: VoidBlock?) {
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {

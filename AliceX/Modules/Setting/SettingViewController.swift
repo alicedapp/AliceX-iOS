@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocalAuthentication
+import PromiseKit
 
 class SettingViewController: BaseViewController {
 
@@ -63,40 +63,19 @@ class SettingViewController: BaseViewController {
         #endif
     }
     
+    func biometricsVerify() {
+        firstly {
+            FaceIDHelper.shared.faceID()
+        }.done { (_) in
+            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+        }
+    }
+    
     @objc func updateNetwork() {
         networkLabel.text = Web3Net.currentNetwork.rawValue.firstUppercased
     }
     
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
-    }
-    
-    func biometricsVerify() {
-        let myContext = LAContext()
-        let myLocalizedReasonString = "Indentity Verify"
-        
-        var authError: NSError?
-        if #available(iOS 8.0, macOS 10.12.1, *) {
-            if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                         localizedReason: myLocalizedReasonString)
-                { success, evaluateError in
-                    
-                    DispatchQueue.main.async {
-                        if success {
-                            // User authenticated successfully, take appropriate action
-                            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
-                        } else {
-                            // User did not authenticate successfully, look at error and take appropriate action
-                            
-                        }
-                    }
-                }
-            } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
+    }    
 }

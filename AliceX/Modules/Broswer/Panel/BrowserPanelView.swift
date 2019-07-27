@@ -30,6 +30,12 @@ class BrowserPanelView: BaseView {
         
     }
     
+    @IBAction func forwardButton() {
+        if vcRef!.webview.canGoForward {
+            vcRef?.webview.goForward()
+        }
+    }
+    
     @IBAction func dappButton() {
         let vc = DAppListViewController()
         vc.vcRef = vcRef
