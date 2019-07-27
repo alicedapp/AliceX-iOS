@@ -11,6 +11,15 @@
 		151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151E346122D5967B0037157C /* SignTransactionPopUp.xib */; };
 		151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346422D59C9A0037157C /* EthereumTransaction.swift */; };
 		151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */; };
+		152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151DE22ECB76200A4613A /* LBXScanNetAnimation.swift */; };
+		152151E622ECB76200A4613A /* LBXScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151DF22ECB76200A4613A /* LBXScanView.swift */; };
+		152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E022ECB76200A4613A /* LBXScanViewController.swift */; };
+		152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E122ECB76200A4613A /* LBXScanLineAnimation.swift */; };
+		152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E222ECB76200A4613A /* LBXScanViewStyle.swift */; };
+		152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E322ECB76200A4613A /* LBXPermissions.swift */; };
+		152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E422ECB76200A4613A /* LBXScanWrapper.swift */; };
+		152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */; };
+		152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */; };
 		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
 		1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1526B62322E89526007663E5 /* HideMaskViewController.xib */; };
 		1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62622E89C6A007663E5 /* HideHelper.swift */; };
@@ -32,6 +41,8 @@
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
 		153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A654722C9CE2B0035EB2C /* LandingViewController.xib */; };
 		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
+		153A737222ECDCF0003371D3 /* MyQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A737022ECDCF0003371D3 /* MyQRCodeViewController.swift */; };
+		153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */; };
 		15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3922E15B03008E3230 /* EthGasStation.swift */; };
 		15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3C22E15B4C008E3230 /* Moya+Util.swift */; };
 		15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */; };
@@ -138,6 +149,15 @@
 		151E346122D5967B0037157C /* SignTransactionPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignTransactionPopUp.xib; sourceTree = "<group>"; };
 		151E346422D59C9A0037157C /* EthereumTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTransaction.swift; sourceTree = "<group>"; };
 		151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRNModule.swift; sourceTree = "<group>"; };
+		152151DE22ECB76200A4613A /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
+		152151DF22ECB76200A4613A /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
+		152151E022ECB76200A4613A /* LBXScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
+		152151E122ECB76200A4613A /* LBXScanLineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanLineAnimation.swift; sourceTree = "<group>"; };
+		152151E222ECB76200A4613A /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
+		152151E322ECB76200A4613A /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
+		152151E422ECB76200A4613A /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
+		152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeReaderViewController.xib; sourceTree = "<group>"; };
 		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
 		1526B62322E89526007663E5 /* HideMaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HideMaskViewController.xib; sourceTree = "<group>"; };
 		1526B62622E89C6A007663E5 /* HideHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideHelper.swift; sourceTree = "<group>"; };
@@ -159,6 +179,8 @@
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		153A654722C9CE2B0035EB2C /* LandingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
+		153A737022ECDCF0003371D3 /* MyQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQRCodeViewController.swift; sourceTree = "<group>"; };
+		153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyQRCodeViewController.xib; sourceTree = "<group>"; };
 		15477B3922E15B03008E3230 /* EthGasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthGasStation.swift; sourceTree = "<group>"; };
 		15477B3C22E15B4C008E3230 /* Moya+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Util.swift"; sourceTree = "<group>"; };
 		15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasPriceHelper.swift; sourceTree = "<group>"; };
@@ -288,6 +310,29 @@
 			path = SignTransaction;
 			sourceTree = "<group>";
 		};
+		152151DD22ECB76200A4613A /* SwiftScan */ = {
+			isa = PBXGroup;
+			children = (
+				152151DE22ECB76200A4613A /* LBXScanNetAnimation.swift */,
+				152151DF22ECB76200A4613A /* LBXScanView.swift */,
+				152151E022ECB76200A4613A /* LBXScanViewController.swift */,
+				152151E122ECB76200A4613A /* LBXScanLineAnimation.swift */,
+				152151E222ECB76200A4613A /* LBXScanViewStyle.swift */,
+				152151E322ECB76200A4613A /* LBXPermissions.swift */,
+				152151E422ECB76200A4613A /* LBXScanWrapper.swift */,
+			);
+			path = SwiftScan;
+			sourceTree = "<group>";
+		};
+		152151EC22ECB7A300A4613A /* QRcode */ = {
+			isa = PBXGroup;
+			children = (
+				153A736F22ECDCD2003371D3 /* MyQRCode */,
+				153A736E22ECDCC6003371D3 /* Scaner */,
+			);
+			path = QRcode;
+			sourceTree = "<group>";
+		};
 		1526B61F22E894CF007663E5 /* Hide */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +387,24 @@
 			path = Landing;
 			sourceTree = "<group>";
 		};
+		153A736E22ECDCC6003371D3 /* Scaner */ = {
+			isa = PBXGroup;
+			children = (
+				152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */,
+				152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */,
+			);
+			path = Scaner;
+			sourceTree = "<group>";
+		};
+		153A736F22ECDCD2003371D3 /* MyQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				153A737022ECDCF0003371D3 /* MyQRCodeViewController.swift */,
+				153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */,
+			);
+			path = MyQRCode;
+			sourceTree = "<group>";
+		};
 		15477B3B22E15B09008E3230 /* EthGasStation */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +414,7 @@
 			path = EthGasStation;
 			sourceTree = "<group>";
 		};
-		156548EE22CDC30F005C8B2D /* network */ = {
+		156548EE22CDC30F005C8B2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				156548EF22CDC330005C8B2D /* NetworkSwitchViewController.swift */,
@@ -359,7 +422,7 @@
 				156548F322CDC5BB005C8B2D /* NetworkTableViewCell.swift */,
 				156548F422CDC5BB005C8B2D /* NetworkTableViewCell.xib */,
 			);
-			path = network;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		156BCD5C22C4A3F600B380DF /* SignMessage */ = {
@@ -401,34 +464,34 @@
 			path = Transfer;
 			sourceTree = "<group>";
 		};
-		157A676722CDE0F500DA83AB /* signYes */ = {
+		157A676722CDE0F500DA83AB /* SignYes */ = {
 			isa = PBXGroup;
 			children = (
 				157A676822CDE12E00DA83AB /* SignYesViewController.swift */,
 				157A676922CDE12E00DA83AB /* SignYesViewController.xib */,
 			);
-			path = signYes;
+			path = SignYes;
 			sourceTree = "<group>";
 		};
 		157AA56822CC6CC9008AF3A5 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				157A676722CDE0F500DA83AB /* signYes */,
-				156548EE22CDC30F005C8B2D /* network */,
-				157AA67B22CCAA33008AF3A5 /* mnemonics */,
+				157A676722CDE0F500DA83AB /* SignYes */,
+				156548EE22CDC30F005C8B2D /* Network */,
+				157AA67B22CCAA33008AF3A5 /* Mnemonics */,
 				157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */,
 				157AA56A22CC6CE0008AF3A5 /* SettingViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		157AA67B22CCAA33008AF3A5 /* mnemonics */ = {
+		157AA67B22CCAA33008AF3A5 /* Mnemonics */ = {
 			isa = PBXGroup;
 			children = (
 				157AA67C22CCAA63008AF3A5 /* MnemonicsView.swift */,
 				157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */,
 			);
-			path = mnemonics;
+			path = Mnemonics;
 			sourceTree = "<group>";
 		};
 		1581EC0E22D837FE00B74F30 /* Broswer */ = {
@@ -694,6 +757,7 @@
 		15B86BAF22AA1CE200110C06 /* Libary */ = {
 			isa = PBXGroup;
 			children = (
+				152151DD22ECB76200A4613A /* SwiftScan */,
 				15E845D522DBA141008F8AD2 /* HKFloatBall */,
 				1527873622AE210200D63C7F /* RPCircularProgress.swift */,
 			);
@@ -723,6 +787,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				152151EC22ECB7A300A4613A /* QRcode */,
 				1526B61F22E894CF007663E5 /* Hide */,
 				1572598322E0A0E9004D0CC4 /* Price */,
 				1581EC0E22D837FE00B74F30 /* Broswer */,
@@ -994,6 +1059,7 @@
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
+				153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
@@ -1014,6 +1080,7 @@
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
+				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1209,11 +1276,14 @@
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
+				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
+				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
 				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
+				153A737222ECDCF0003371D3 /* MyQRCodeViewController.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
@@ -1226,6 +1296,7 @@
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
 				15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
+				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
 				15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
@@ -1238,10 +1309,13 @@
 				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
+				152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
+				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
+				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
@@ -1263,7 +1337,9 @@
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
+				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
+				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,

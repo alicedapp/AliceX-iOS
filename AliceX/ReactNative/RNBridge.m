@@ -87,6 +87,8 @@ RCT_EXTERN_METHOD(read:(NSString *)contractAddress
 
 RCT_EXTERN_METHOD(setting)
 RCT_EXTERN_METHOD(browser:(NSString *)url)
+RCT_EXTERN_METHOD(qrScanner:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
 
 @end
 

@@ -98,7 +98,13 @@ class TransferPopUp: UIViewController {
     }
     
     @IBAction func cameraBtnClicked() {
-        let vc = SettingViewController()
+        let vc = QRCodeReaderViewController.make { (hash) in
+            guard let address = EthereumAddress(hash) else {
+                self.errorAlert(text: "Addess invalid")
+                return
+            }
+            self.addressField.text? = hash
+        }
         self.present(vc, animated: true, completion: nil)
     }
     

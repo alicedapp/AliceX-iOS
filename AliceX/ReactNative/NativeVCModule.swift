@@ -49,4 +49,19 @@ class NativeVCModule: NSObject {
             topVC?.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    @objc func qrScanner(_ resolve: @escaping RCTPromiseResolveBlock,
+                         reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            let topVC = UIApplication.topViewController()
+            let vc = QRCodeReaderViewController.make { (result) in
+                resolve(result)
+            }
+            guard let _ = topVC?.navigationController else {
+                topVC?.present(vc, animated: true, completion: nil)
+                return
+            }
+            topVC?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
