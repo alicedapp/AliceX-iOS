@@ -44,6 +44,13 @@ class BrowserPanelView: BaseView {
     
     @IBAction func networkButton() {
         HUDManager.shared.dismiss()
+        
+        if #available(iOS 13.0, *) {
+            let vc = NetworkSwitchViewController()
+            vcRef!.present(vc, animated: true, completion: nil)
+            return
+        }
+        
         let vc = NetworkSwitchViewController()
         let topVC = UIApplication.topViewController()
         topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
