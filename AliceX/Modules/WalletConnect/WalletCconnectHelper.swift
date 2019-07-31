@@ -9,6 +9,7 @@
 import Foundation
 import WalletConnect
 import web3swift
+import BigInt
 
 class WalletCconnectHelper {
     
@@ -47,31 +48,17 @@ class WalletCconnectHelper {
         
         interactor.onSessionRequest = { [weak self] (id, peer) in
             let message = [peer.description, peer.url].joined(separator: "\n")
-//            let alert = UIAlertController(title: peer.name, message: message, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Reject", style: .destructive, handler: { _ in
-//                self?.interactor?.rejectSession().cauterize()
-//            }))
-//            alert.addAction(UIAlertAction(title: "Approve", style: .default, handler: { _ in
-//                self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
-//            }))
-//
-//            let topVC = UIApplication.topViewController()
-//            topVC?.show(alert, sender: nil)
             
-            let view = BaseAlertView.instanceFromNib(title: peer.name,
-                                          content: message,
-                                          comfirmText: "Approve",
-                                          cancelText: "Reject",
-                                          comfirmBlock: {
-                    self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
+            self?.showAlert(title: peer.name,
+                            content: message,
+                            comfirmText: "Approve",
+                            cancelText: "Reject",
+                            comfirmBlock: {
+                self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
+                HUDManager.shared.dismiss()
             }) {
-                    self?.interactor?.rejectSession().cauterize()
+                self?.interactor?.rejectSession().cauterize()
             }
-            HUDManager.shared.showAlertView(view: view,
-                                            backgroundColor: .clear,
-                                            haptic: .none,
-                                            type: .centerFloat)
-//            HUDManager.shared.showAlert
         }
         
         interactor.onDisconnect = { [weak self] (error) in
@@ -79,36 +66,65 @@ class WalletCconnectHelper {
         }
         
         interactor.onEthSign = { [weak self] (id, params) in
-            let alert = UIAlertController(title: "eth_sign", message: params[1], preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-            alert.addAction(UIAlertAction(title: "Sign", style: .default, handler: { _ in
-                self?.signEth(id: id, message: params[1])
-            }))
-            let topVC = UIApplication.topViewController()
-            topVC?.show(alert, sender: nil)
+            
+            self?.showAlert(title: "Sign", content: params[1],
+                            comfirmText: "Sign",
+                            cancelText: "Cancel",
+                            comfirmBlock: {
+                                self?.signEth(id: id, message: params[1])
+            }, cancelBlock: nil)
         }
         
         interactor.onEthSendTransaction = { [weak self] (id, transaction) in
             let data = try! JSONEncoder().encode(transaction)
             let message = String(data: data, encoding: .utf8)
-            let alert = UIAlertController(title: "eth_sendTransaction", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Reject", style: .destructive, handler: { _ in
+            
+            self?.showAlert(title: "SendTransaction",
+                            content: message!,
+                            comfirmText: "Send",
+                            cancelText: "Reject",
+                            comfirmBlock: {
+                                self?.sendEth(id: id, transactionJSON: message?.toJSON() as! [String : Any])
+            }){
                 self?.interactor?.rejectRequest(id: id, message: "I don't have ethers").cauterize()
-            }))
-            let topVC = UIApplication.topViewController()
-            topVC?.show(alert, sender: nil)
+            }
         }
         
         interactor.onBnbSign = { [weak self] (id, order) in
             let message = order.encodedString
-            let alert = UIAlertController(title: "bnb_sign", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-            alert.addAction(UIAlertAction(title: "Sign", style: .default, handler: { [weak self] _ in
-                self?.signBnbOrder(id: id, order: order)
-            }))
-            let topVC = UIApplication.topViewController()
-            topVC?.show(alert, sender: nil)
+            self?.showAlert(title: "BNB Sign",
+                            content: message,
+                            comfirmText: "Sign",
+                            cancelText: "Cancel",
+                            comfirmBlock: {
+                                self?.signBnbOrder(id: id, order: order)
+            }, cancelBlock: nil)
         }
+    }
+    
+    
+    func showAlert(title: String = "Alert",
+                   content: String,
+                   comfirmText: String = "Comfirm",
+                   cancelText: String = "Cancel",
+                   comfirmBlock: VoidBlock?,
+                   cancelBlock: VoidBlock?) {
+        
+        let view = BaseAlertView.instanceFromNib(title: title,
+                                                 content: content,
+                                                 comfirmText: comfirmText,
+                                                 cancelText: cancelText,
+                                                 comfirmBlock: {
+                                                    comfirmBlock!!()
+        }) {
+            cancelBlock!!()
+        }
+        
+        HUDManager.shared.showAlertView(view: view,
+                                        backgroundColor: .clear,
+                                        haptic: .none,
+                                        type: .centerFloat,
+                                        widthIsFull: false)
     }
     
     func approve(accounts: [String], chainId: Int) {
@@ -127,6 +143,21 @@ class WalletCconnectHelper {
 //        var result = TransactionManager.signMessage(message: Data.fromHex(finalMessage)!)
 //        result[64] += 27
 //        self.interactor?.approveRequest(id: id, result: result.hexString).cauterize()
+    }
+    
+    func sendEth(id: Int64, transactionJSON: [String: Any]) {
+        
+        guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {return}
+        guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
+        let value = options.value != nil ? options.value! : BigUInt(0)
+        
+        TransactionManager.showPaymentView(toAddress: tx.to.address,
+                                           amount: value,
+                                           data: tx.data,
+                                           symbol: "ETH") { (signData) in
+            self.interactor?.approveRequest(id: id, result: signData).cauterize()
+            HUDManager.shared.dismiss()
+        }
     }
     
     func signBnbOrder(id: Int64, order: WCBinanceOrder) {

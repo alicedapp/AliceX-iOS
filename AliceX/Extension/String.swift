@@ -11,6 +11,11 @@ import web3swift
 
 extension String {
     
+    func toJSON() -> Any? {
+        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+        return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+    }
+    
     func index(from: Int) -> Index {
         return index(startIndex, offsetBy: from)
     }

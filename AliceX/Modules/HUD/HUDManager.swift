@@ -58,12 +58,14 @@ class HUDManager: NSObject {
     }
     
     func showAlertView(view: UIView, backgroundColor: UIColor = .white,
-                       haptic:EKAttributes.NotificationHapticFeedback = .none ) {
+                       haptic:EKAttributes.NotificationHapticFeedback = .none,
+                       type: EKAttributes = .bottomFloat,
+                       widthIsFull: Bool = true) {
         
         DispatchQueue.main.async {
             
             var attributes: EKAttributes = EKAttributes()
-            attributes = .bottomFloat
+            attributes = type
             attributes.hapticFeedbackType = haptic
             attributes.displayDuration = .infinity
             attributes.screenBackground = .color(color: UIColor(white: 100.0/255.0, alpha: 0.3))
@@ -82,8 +84,14 @@ class HUDManager: NSObject {
             attributes.positionConstraints.size = .init(width: .offset(value: 0), height: .fill)
             attributes.positionConstraints.safeArea = .overridden
 //                .empty(fillSafeArea: true)
-            attributes.positionConstraints.maxSize = .init(width:
-                .constant(value: UIScreen.main.bounds.minEdge), height: .intrinsic)
+            
+//            let edge = .constant(value: UIScreen.main.bounds.minEdge)
+//            if widthIsFull {
+//                edge = .constant(value: UIScreen.main.bounds.minEdge)
+//            }
+            attributes.positionConstraints.maxSize = .init(width: widthIsFull ?
+                .constant(value: UIScreen.main.bounds.minEdge) :  .ratio(value: 0.8),
+                                                           height: .intrinsic)
             
             SwiftEntryKit.display(entry: view, using: attributes)
         }
