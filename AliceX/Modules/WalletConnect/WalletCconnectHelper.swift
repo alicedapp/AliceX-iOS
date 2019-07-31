@@ -11,6 +11,7 @@ import WalletConnect
 import web3swift
 import BigInt
 
+// TODO Complete it
 class WalletCconnectHelper {
     
     static let shared = WalletCconnectHelper()
@@ -134,15 +135,24 @@ class WalletCconnectHelper {
     }
     
     func signEth(id: Int64, message: String) {
+        
+//        guard let data = Data.fromHex(message) else {
+//            HUDManager.shared.showError(text: "Wallet Connect: Message invaild")
+//            return
+//        }
+        
+        TransactionManager.showSignMessageView(message: message) { (signData) in
+            self.interactor?.approveRequest(id: id, result: signData ).cauterize()
+        }
+        
 //        guard let data = message.data(using: .utf8) else {
 //            print("invalid message")
 //            return
 //        }
-//        let prefix = "\u{19}Ethereum Signed Message:\n\(data.count)"
+
 //        let finalMessage = "\(prefix)\(message)"
 //        var result = TransactionManager.signMessage(message: Data.fromHex(finalMessage)!)
 //        result[64] += 27
-//        self.interactor?.approveRequest(id: id, result: result.hexString).cauterize()
     }
     
     func sendEth(id: Int64, transactionJSON: [String: Any]) {
