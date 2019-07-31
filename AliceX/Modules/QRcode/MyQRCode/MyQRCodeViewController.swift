@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyQRCodeViewController: UIViewController {
+class MyQRCodeViewController: BaseViewController {
 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var qrcodeView: UIImageView!
@@ -29,7 +29,6 @@ class MyQRCodeViewController: UIViewController {
         let index = address.index(address.startIndex, offsetBy: halfLength)
         address.insert("\n", at: index)
 //        let result = address.split(separator: "\n")
-        
         addressLabel.text = address
     }
     

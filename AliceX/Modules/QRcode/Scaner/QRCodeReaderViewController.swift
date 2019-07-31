@@ -16,6 +16,10 @@ class QRCodeReaderViewController: LBXScanViewController {
     
     var block: StringBlock!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     class func make(block: @escaping StringBlock) -> LBXScanViewController   {
         let vc = QRCodeReaderViewController()
         vc.block = block
@@ -62,7 +66,10 @@ class QRCodeReaderViewController: LBXScanViewController {
     
     @IBAction func myqrcodeClicked() {
         let vc = MyQRCodeViewController()
-        present(vc, animated: true, completion: nil)
+//        vc.modalPresentationStyle = .currentContext
+//        present(vc, animated: true, completion: nil)
+        
+      HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
     
     @IBAction func backButtonClicked() {
@@ -83,7 +90,7 @@ extension QRCodeReaderViewController: LBXScanViewControllerDelegate {
             return
         }
         
-        block(scanResult.strScanned ?? "")
+        block(scanResult.strScanned!.dropEthPrefix())
         self.backButtonClicked()
     }
     

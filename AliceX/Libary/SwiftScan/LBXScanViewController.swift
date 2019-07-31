@@ -73,7 +73,9 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
         
         drawScanView()
         
-        perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
+        }
     }
     
     @objc open func startScan()

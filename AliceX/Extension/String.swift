@@ -72,6 +72,13 @@ extension String {
         return self
     }
     
+    func dropEthPrefix() -> String {
+        if self.hasPrefix("ethereum:") {
+            return String(dropFirst(9))
+        }
+        return self
+    }
+    
     var firstUppercased: String {
         return prefix(1).uppercased() + dropFirst()
     }

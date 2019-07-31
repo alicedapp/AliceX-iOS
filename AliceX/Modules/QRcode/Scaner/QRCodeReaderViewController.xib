@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,13 +65,30 @@
                                         <constraint firstAttribute="height" constant="0.5" id="4Jf-Fd-dvS"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yxz-l3-vWE" customClass="UIControl">
+                                    <rect key="frame" x="315" y="0.0" width="60" height="60"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet-connect" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-9e-mnd">
+                                            <rect key="frame" x="16" y="21" width="28" height="18"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="dcY-9e-mnd" firstAttribute="centerX" secondItem="Yxz-l3-vWE" secondAttribute="centerX" id="Phw-1b-vgA"/>
+                                        <constraint firstAttribute="width" constant="60" id="h5S-4o-ppF"/>
+                                        <constraint firstItem="dcY-9e-mnd" firstAttribute="centerY" secondItem="Yxz-l3-vWE" secondAttribute="centerY" id="uBf-D8-PUV"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.67650987694300513" green="0.67650987694300513" blue="0.67650987694300513" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="LkL-ku-RAI" firstAttribute="leading" secondItem="yvW-sD-aSW" secondAttribute="leading" id="0uV-a7-9RG"/>
+                                <constraint firstItem="iuc-1t-hVm" firstAttribute="trailing" secondItem="Yxz-l3-vWE" secondAttribute="trailing" id="4r1-fg-rJU"/>
                                 <constraint firstItem="LkL-ku-RAI" firstAttribute="top" secondItem="yvW-sD-aSW" secondAttribute="top" id="8nm-K3-3De"/>
                                 <constraint firstItem="TRR-Jy-9zU" firstAttribute="centerY" secondItem="yvW-sD-aSW" secondAttribute="centerY" id="8vR-l0-txR"/>
+                                <constraint firstItem="Yxz-l3-vWE" firstAttribute="top" secondItem="iuc-1t-hVm" secondAttribute="top" id="AjV-wB-DBp"/>
                                 <constraint firstAttribute="bottom" secondItem="s95-jD-EVz" secondAttribute="bottom" id="HLw-La-TKn"/>
+                                <constraint firstAttribute="bottom" secondItem="Yxz-l3-vWE" secondAttribute="bottom" id="Sfr-Zs-INb"/>
                                 <constraint firstItem="s95-jD-EVz" firstAttribute="leading" secondItem="yvW-sD-aSW" secondAttribute="leading" id="Za4-wg-Kmr"/>
                                 <constraint firstAttribute="height" constant="60" id="cYm-PN-Xgn"/>
                                 <constraint firstItem="TRR-Jy-9zU" firstAttribute="centerX" secondItem="yvW-sD-aSW" secondAttribute="centerX" id="new-yK-Wth"/>
@@ -199,5 +218,6 @@
         <image name="flash-light" width="21" height="40"/>
         <image name="flash-light-highlight" width="19" height="38"/>
         <image name="qr-code" width="30" height="30"/>
+        <image name="wallet-connect" width="28" height="18"/>
     </resources>
 </document>
