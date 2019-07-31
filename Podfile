@@ -18,6 +18,7 @@ target 'AliceX' do
   pod 'MarqueeLabel'
   pod 'Hero'
   pod 'Kingfisher'
+  pod 'WalletConnect', git: 'https://github.com/alicedapp/swift-walletconnect-lib', branch: 'master'
 #  pod 'lottie-ios'
 
 #   React Native Dependencies

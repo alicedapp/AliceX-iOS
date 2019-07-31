@@ -90,6 +90,11 @@ extension QRCodeReaderViewController: LBXScanViewControllerDelegate {
             return
         }
         
+        if (scanResult.strScanned?.hasPrefix("wc:"))! {
+            WalletCconnectHelper.shared.fromQRCode(scanString: scanResult.strScanned!)
+            return
+        }
+        
         block(scanResult.strScanned!.dropEthPrefix())
         self.backButtonClicked()
     }

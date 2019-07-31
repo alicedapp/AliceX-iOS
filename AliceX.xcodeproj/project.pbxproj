@@ -38,6 +38,7 @@
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		1535C2C122F1550200C62FDC /* WalletCconnectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535C2C022F1550200C62FDC /* WalletCconnectHelper.swift */; };
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
 		153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A654722C9CE2B0035EB2C /* LandingViewController.xib */; };
 		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
@@ -176,6 +177,7 @@
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		1535C2C022F1550200C62FDC /* WalletCconnectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalletCconnectHelper.swift; path = "../../../../../../../System/Volumes/Data/Users/lmcmz/alicex-dev/ios/AliceX/Modules/QRcode/WalletCconnectHelper.swift"; sourceTree = "<group>"; };
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		153A654722C9CE2B0035EB2C /* LandingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				153A736F22ECDCD2003371D3 /* MyQRCode */,
 				153A736E22ECDCC6003371D3 /* Scaner */,
+				1535C2C022F1550200C62FDC /* WalletCconnectHelper.swift */,
 			);
 			path = QRcode;
 			sourceTree = "<group>";
@@ -1198,6 +1201,7 @@
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/WalletConnect/WalletConnect.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
 				"${BUILT_PRODUCTS_DIR}/react-native-camera/react_native_camera.framework",
 				"${PODS_ROOT}/../../node_modules/@react-native-mapbox-gl/maps/ios/Mapbox.framework",
@@ -1236,6 +1240,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WalletConnect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_camera.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
@@ -1265,6 +1270,7 @@
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
+				1535C2C122F1550200C62FDC /* WalletCconnectHelper.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
