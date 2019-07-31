@@ -118,8 +118,6 @@
 		15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC322DAF58100313CA9 /* DAppModel.swift */; };
 		15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC522DAFAE800313CA9 /* UIImage.swift */; };
 		15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA59F22DEF594006BB60D /* Assets.xcassets */; };
-		15CB1F2822F16B2B00E3075C /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2622F16B2B00E3075C /* BaseAlertViewController.swift */; };
-		15CB1F2922F16B2B00E3075C /* BaseAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15CB1F2722F16B2B00E3075C /* BaseAlertViewController.xib */; };
 		15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2C22F16E8200E3075C /* WalletCconnectHelper.swift */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
@@ -264,8 +262,6 @@
 		15BC4DC322DAF58100313CA9 /* DAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppModel.swift; sourceTree = "<group>"; };
 		15BC4DC522DAFAE800313CA9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		15BFA59F22DEF594006BB60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		15CB1F2622F16B2B00E3075C /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseAlertViewController.swift; path = "../../../../../../../System/Volumes/Data/Users/lmcmz/alicex-dev/ios/AliceX/Base/AlertVC/BaseAlertViewController.swift"; sourceTree = "<group>"; };
-		15CB1F2722F16B2B00E3075C /* BaseAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BaseAlertViewController.xib; path = "../../../../../../../System/Volumes/Data/Users/lmcmz/alicex-dev/ios/AliceX/Base/AlertVC/BaseAlertViewController.xib"; sourceTree = "<group>"; };
 		15CB1F2C22F16E8200E3075C /* WalletCconnectHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCconnectHelper.swift; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
@@ -709,7 +705,6 @@
 		15B86BA722AA1C4F00110C06 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				15CB1F2522F16B0B00E3075C /* AlertVC */,
 				1535C2CA22F1643500C62FDC /* Alert */,
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
 				1587396922BB48FC00F36F92 /* BaseControl.swift */,
@@ -884,15 +879,6 @@
 				15BC4DC322DAF58100313CA9 /* DAppModel.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		15CB1F2522F16B0B00E3075C /* AlertVC */ = {
-			isa = PBXGroup;
-			children = (
-				15CB1F2622F16B2B00E3075C /* BaseAlertViewController.swift */,
-				15CB1F2722F16B2B00E3075C /* BaseAlertViewController.xib */,
-			);
-			path = AlertVC;
 			sourceTree = "<group>";
 		};
 		15CB1F2A22F16C4900E3075C /* WalletConnect */ = {
@@ -1120,7 +1106,6 @@
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
-				15CB1F2922F16B2B00E3075C /* BaseAlertViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1381,7 +1366,6 @@
 				15764E1522E9F93A00784848 /* GCD.swift in Sources */,
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
-				15CB1F2822F16B2B00E3075C /* BaseAlertViewController.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
