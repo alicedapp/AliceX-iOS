@@ -50,7 +50,7 @@ class WalletCconnectHelper {
         interactor.onSessionRequest = { [weak self] (id, peer) in
             let message = [peer.description, peer.url].joined(separator: "\n")
             
-            self?.showAlert(title: peer.name,
+            self?.showAlert(title: "Login",
                             content: message,
                             comfirmText: "Approve",
                             cancelText: "Reject",
@@ -68,11 +68,17 @@ class WalletCconnectHelper {
         
         interactor.onEthSign = { [weak self] (id, params) in
             
-            self?.showAlert(title: "Sign", content: params[1],
+            guard let msgText = params[0].hexDecodeUTF8 else {
+                HUDManager.shared.showError(text: "Message hex can't be decode")
+                return
+            }
+            
+            self?.showAlert(title: "Sign",
+                            content: msgText,
                             comfirmText: "Sign",
                             cancelText: "Cancel",
                             comfirmBlock: {
-                                self?.signEth(id: id, message: params[1])
+                                self?.signEth(id: id, message: params[0])
             }, cancelBlock: nil)
         }
         
@@ -135,24 +141,10 @@ class WalletCconnectHelper {
     }
     
     func signEth(id: Int64, message: String) {
-        
-//        guard let data = Data.fromHex(message) else {
-//            HUDManager.shared.showError(text: "Wallet Connect: Message invaild")
-//            return
-//        }
-        
         TransactionManager.showSignMessageView(message: message) { (signData) in
             self.interactor?.approveRequest(id: id, result: signData ).cauterize()
+            HUDManager.shared.dismiss()
         }
-        
-//        guard let data = message.data(using: .utf8) else {
-//            print("invalid message")
-//            return
-//        }
-
-//        let finalMessage = "\(prefix)\(message)"
-//        var result = TransactionManager.signMessage(message: Data.fromHex(finalMessage)!)
-//        result[64] += 27
     }
     
     func sendEth(id: Int64, transactionJSON: [String: Any]) {
