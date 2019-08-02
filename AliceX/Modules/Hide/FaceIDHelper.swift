@@ -54,7 +54,7 @@ class FaceIDHelper {
         }
     }
     
-    func faceID(block:VoidBlock) {
+    func faceID(block: VoidBlock) {
 //        FaceIDHelper
     }
 }

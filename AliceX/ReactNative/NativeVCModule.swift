@@ -11,8 +11,9 @@ import SPStorkController
 
 @objc(NativeVCModule)
 class NativeVCModule: NSObject {
+    
     @objc func setting() {
-
+        
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = SettingViewController()
@@ -28,8 +29,8 @@ class NativeVCModule: NSObject {
     }
 
     @objc func browser(_ url: String) {
+        
         DispatchQueue.main.async {
-            
             if #available(iOS 13.0, *) {
                 let topVC = UIApplication.topViewController()
                 let vc = BrowserWrapperViewController()
@@ -52,6 +53,7 @@ class NativeVCModule: NSObject {
     
     @objc func qrScanner(_ resolve: @escaping RCTPromiseResolveBlock,
                          reject: @escaping RCTPromiseRejectBlock) {
+        
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let vc = QRCodeReaderViewController.make { (result) in

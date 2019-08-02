@@ -85,7 +85,6 @@ class WalletCconnectHelper {
         interactor.onEthSendTransaction = { [weak self] (id, transaction) in
             let data = try! JSONEncoder().encode(transaction)
             let message = String(data: data, encoding: .utf8)
-            
             self?.showAlert(title: "SendTransaction",
                             content: message!,
                             comfirmText: "Send",
