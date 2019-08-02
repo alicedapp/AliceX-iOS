@@ -6,12 +6,11 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import web3swift
-import HandyJSON
 import BigInt
+import HandyJSON
+import web3swift
 
 struct EthereumTransactionModel: HandyJSON {
-    
     var nonce: String?
     var gasPrice: String?
     var gasLimit: String?
@@ -25,7 +24,7 @@ struct EthereumTransactionModel: HandyJSON {
     var inferedChainID: String?
     var from: String?
     var hash: String?
-    
+
     init() {
         return
     }
@@ -34,20 +33,20 @@ struct EthereumTransactionModel: HandyJSON {
 extension EthereumTransaction {
     func toJsonString() -> String {
         var model = EthereumTransactionModel()
-        
-        model.nonce = String(self.nonce)
-        model.gasPrice = String(self.gasPrice)
-        model.gasLimit = String(describing: self.gasLimit)
-        model.to = self.to.address
-        model.value = String(self.value)
-        model.data = self.data.toHexString().addHexPrefix().lowercased()
-        model.v = String(self.v)
-        model.r = String(self.r)
-        model.s = String(self.s)
-        model.chainID = String(describing: self.intrinsicChainID)
-        model.inferedChainID = String(describing: self.inferedChainID)
-        model.from = String(describing: self.sender!.address)
-        model.hash = String(describing: self.hash!.toHexString().addHexPrefix())
+
+        model.nonce = String(nonce)
+        model.gasPrice = String(gasPrice)
+        model.gasLimit = String(describing: gasLimit)
+        model.to = to.address
+        model.value = String(value)
+        model.data = data.toHexString().addHexPrefix().lowercased()
+        model.v = String(v)
+        model.r = String(r)
+        model.s = String(s)
+        model.chainID = String(describing: intrinsicChainID)
+        model.inferedChainID = String(describing: inferedChainID)
+        model.from = String(describing: sender!.address)
+        model.hash = String(describing: hash!.toHexString().addHexPrefix())
         return model.toJSONString(prettyPrint: true)!
     }
 }

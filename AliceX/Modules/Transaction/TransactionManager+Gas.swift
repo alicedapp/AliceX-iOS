@@ -6,19 +6,17 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import Foundation
-import web3swift
 import BigInt
+import Foundation
 import PromiseKit
+import web3swift
 
-private let defaultGasLimitForTransaction = 100000
-private let defaultGasLimitForTokenTransfer = 100000
+private let defaultGasLimitForTransaction = 100_000
+private let defaultGasLimitForTokenTransfer = 100_000
 
 extension TransactionManager {
-    
     // Return GWEI
     func gasForSendingEth(to address: String, amount: BigUInt, data: Data) -> Promise<BigUInt> {
-        
         return gasForContractMethod(to: address,
                                     contractABI: Web3.Utils.coldWalletABI,
                                     methodName: "fallback",
@@ -26,7 +24,7 @@ extension TransactionManager {
                                     amount: amount,
                                     data: data)
     }
-    
+
     func gasForContractMethod(to address: String,
                               contractABI: String,
                               methodName: String,
@@ -38,7 +36,7 @@ extension TransactionManager {
                 seal.reject(WalletError.accountDoesNotExist)
                 return
             }
-            
+
             let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
             let contract = WalletManager.web3Net.contract(contractABI, at: toAddress, abiVersion: 2)!
             let value = amount
@@ -46,19 +44,18 @@ extension TransactionManager {
             options.value = value
             options.from = walletAddress
             options.to = toAddress
-            
-            let tx = contract.write( methodName,
-                                     parameters: methodParams,
-                                     extraData: data,
-                                     transactionOptions: options)!
-            
-            tx.estimateGasPromise().done { (value) in
+
+            let tx = contract.write(methodName,
+                                    parameters: methodParams,
+                                    extraData: data,
+                                    transactionOptions: options)!
+
+            tx.estimateGasPromise().done { value in
                 seal.fulfill(value)
-            }.catch({ (error) in
+            }.catch { error in
                 print(error.localizedDescription)
                 seal.reject(error)
-            })
-            
+            }
         }
     }
 }

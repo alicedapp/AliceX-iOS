@@ -10,8 +10,8 @@ import Foundation
 
 typealias DelayTask = (_ cancel: Bool) -> Void
 
-func delay(_ time: TimeInterval, task: @escaping () -> ()) -> DelayTask? {
-    func dispatch_later(block: @escaping () -> ()) {
+func delay(_ time: TimeInterval, task: @escaping () -> Void) -> DelayTask? {
+    func dispatch_later(block: @escaping () -> Void) {
         let t = DispatchTime.now() + time
         DispatchQueue.main.asyncAfter(deadline: t, execute: block)
     }
@@ -19,7 +19,7 @@ func delay(_ time: TimeInterval, task: @escaping () -> ()) -> DelayTask? {
     var result: DelayTask?
     let delayedClosure: DelayTask = { cancel in
         if let internalClosure = closure {
-            if (cancel == false) {
+            if cancel == false {
                 DispatchQueue.main.async(execute: internalClosure)
             }
         }
@@ -40,16 +40,14 @@ func cancel(_ task: DelayTask?) {
 }
 
 extension DispatchQueue {
-    static func background(delay: Double = 0.0, background: (()->Void)? = nil, completion: (() -> Void)? = nil) {
+    static func background(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
         DispatchQueue.global(qos: .background).async {
-            
             if let completion = completion {
-                DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                     background?()
                     completion()
-                })
+                }
             }
         }
     }
-    
 }

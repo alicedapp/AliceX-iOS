@@ -9,11 +9,10 @@
 import UIKit
 
 class BaseRNViewController: BaseViewController {
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true

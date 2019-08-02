@@ -6,10 +6,11 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import HandyJSON
 import BigInt
+import HandyJSON
 
 // MARK: - Token
+
 struct TokenInfo: HandyJSON {
     var address: String!
     var totalSupply: String!
@@ -29,9 +30,8 @@ struct TokenInfo: HandyJSON {
     var ethTransfersCount: Int?
     var price: PriceInfo?
     var image: String?
-    
-    init() {
-    }
+
+    init() {}
 }
 
 // MARK: - Address
@@ -57,9 +57,8 @@ struct TokenArrayItem: HandyJSON {
     var balance: String!
     var totalIn: Int!
     var totalOut: Int!
-    
-    init() {
-    }
+
+    init() {}
 }
 
 struct ContractInfo: HandyJSON {
@@ -75,9 +74,8 @@ struct AddressInfo: HandyJSON {
     var countTxs: String!
     var tokens: [TokenArrayItem]!
     var tokenInfo: TokenInfo?
-    
-    init() {
-    }
+
+    init() {}
 }
 
 // MARK: - Tx
@@ -86,9 +84,8 @@ struct TxLogInfo {
     var address: String!
     var topics: String!
     var data: String!
-    
-    init() {
-    }
+
+    init() {}
 }
 
 struct TxOperation {
@@ -114,11 +111,10 @@ struct TransactionInfo {
     var input: String!
     var gasLimit: Int!
     var gasUsed: Int!
-    
+
     var logs: [TxLogInfo]?
-    
+
     var operations: [TxOperation]?
-    
-    init() {
-    }
+
+    init() {}
 }

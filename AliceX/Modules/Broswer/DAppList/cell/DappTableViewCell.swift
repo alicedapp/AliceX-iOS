@@ -6,18 +6,17 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 class DappTableViewCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descLabel: UILabel!
+    @IBOutlet var logoView: UIImageView!
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var logoView: UIImageView!
-    
-    @IBOutlet weak var tagName: UILabel!
-    @IBOutlet weak var tagView: UIView!
-    
+    @IBOutlet var tagName: UILabel!
+    @IBOutlet var tagView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,7 +24,7 @@ class DappTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     func configure(model: DAppModel) {
         titleLabel.text = model.name
         descLabel.text = model.description
@@ -33,5 +32,4 @@ class DappTableViewCell: UITableViewCell {
         logoView.kf.setImage(with: URL(string: model.img!)!,
                              placeholder: UIImage.imageWithColor(color: UIColor(hex: "F1F5F8")))
     }
-    
 }

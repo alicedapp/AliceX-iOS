@@ -15,14 +15,13 @@ enum AliceRN: String {
 }
 
 class RNModule {
-    
     class func makeViewController(module: AliceRN) -> UIViewController {
         let vc = BaseRNViewController()
         let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.rawValue, initialProperties: nil)
         vc.view = rnView
         return vc
     }
-    
+
     class func makeView(module: AliceRN) -> RCTRootView? {
         let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.rawValue.firstUppercased, initialProperties: nil)
         return rnView

@@ -6,31 +6,31 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import CoreImage
 import Foundation
 import UIKit
-import CoreImage
 
 extension Data {
     struct HexEncodingOptions: OptionSet {
         let rawValue: Int
         static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
     }
-    
+
     func hex(options: HexEncodingOptions = []) -> String {
         let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
         return map { String(format: format, $0) }.joined()
     }
-    
+
     var hexEncoded: String {
-        return "0x" + self.hex()
+        return "0x" + hex()
     }
-    
+
     init(hex: String) {
         let len = hex.count / 2
         var data = Data(capacity: len)
-        for i in 0..<len {
-            let from = hex.index(hex.startIndex, offsetBy: i*2)
-            let to = hex.index(hex.startIndex, offsetBy: i*2 + 2)
+        for i in 0 ..< len {
+            let from = hex.index(hex.startIndex, offsetBy: i * 2)
+            let to = hex.index(hex.startIndex, offsetBy: i * 2 + 2)
             let bytes = hex[from ..< to]
             if var num = UInt8(bytes, radix: 16) {
                 data.append(&num, count: 1)
@@ -38,7 +38,7 @@ extension Data {
         }
         self = data
     }
-    
+
     init?(fromHexEncodedString string: String) {
         // Convert 0 ... 9, a ... f, A ...F to their decimal value,
         // return nil for all other input characters
@@ -54,8 +54,8 @@ extension Data {
                 return nil
             }
         }
-        
-        self.init(capacity: string.utf16.count/2)
+
+        self.init(capacity: string.utf16.count / 2)
         var even = true
         var byte: UInt8 = 0
         for c in string.utf16 {
@@ -70,11 +70,11 @@ extension Data {
         }
         guard even else { return nil }
     }
-    
+
     func toString() -> String? {
         return String(data: self, encoding: .utf8)
     }
-    
+
     func toQRCode() -> UIImage? {
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(self, forKey: "inputMessage")

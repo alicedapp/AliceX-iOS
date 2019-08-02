@@ -6,22 +6,21 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import Foundation
 import WalletConnect
 import web3swift
-import BigInt
 
-// TODO Complete it
+// TODO: Complete it
 class WalletCconnectHelper {
-    
     static let shared = WalletCconnectHelper()
-    
+
     var interactor: WCInteractor?
     let clientMeta = WCPeerMeta(name: "WalletConnect SDK",
                                 url: "https://github.com/alicedapp/wallet-connect-swift")
     var defaultAddress: String = WalletManager.wallet!.address
     var defaultChainId: Int = Web3Net.currentNetwork.chainID
-    
+
     func fromQRCode(scanString: String) {
         guard let session = WCSession.from(string: scanString) else {
             print("WC: invalid url")
@@ -29,50 +28,50 @@ class WalletCconnectHelper {
         }
         connect(session: session)
     }
-    
+
     func connect(session: WCSession) {
         print("==> session", session)
         let interactor = WCInteractor(session: session, meta: clientMeta)
-        
+
         configure(interactor: interactor)
-        
+
         interactor.connect().done { [weak self] connected in
             self?.connectionStatusUpdated(connected)
         }.cauterize()
-        
+
         self.interactor = interactor
     }
-    
+
     func configure(interactor: WCInteractor) {
         let accounts = [defaultAddress]
         let chainId = defaultChainId
-        
-        interactor.onSessionRequest = { [weak self] (id, peer) in
+
+        interactor.onSessionRequest = { [weak self] _, peer in
             let message = [peer.description, peer.url].joined(separator: "\n")
-            
+
             self?.showAlert(title: "Login",
                             content: message,
                             comfirmText: "Approve",
                             cancelText: "Reject",
                             comfirmBlock: {
-                self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
-                HUDManager.shared.dismiss()
+                                self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
+                                HUDManager.shared.dismiss()
             }) {
                 self?.interactor?.rejectSession().cauterize()
             }
         }
-        
-        interactor.onDisconnect = { [weak self] (error) in
+
+        interactor.onDisconnect = { [weak self] _ in
             self?.connectionStatusUpdated(false)
         }
-        
-        interactor.onEthSign = { [weak self] (id, params) in
-            
+
+        interactor.onEthSign = { [weak self] id, params in
+
             guard let msgText = params[0].hexDecodeUTF8 else {
                 HUDManager.shared.showError(text: "Message hex can't be decode")
                 return
             }
-            
+
             self?.showAlert(title: "Sign",
                             content: msgText,
                             comfirmText: "Sign",
@@ -81,8 +80,8 @@ class WalletCconnectHelper {
                                 self?.signEth(id: id, message: params[0])
             }, cancelBlock: nil)
         }
-        
-        interactor.onEthSendTransaction = { [weak self] (id, transaction) in
+
+        interactor.onEthSendTransaction = { [weak self] id, transaction in
             let data = try! JSONEncoder().encode(transaction)
             let message = String(data: data, encoding: .utf8)
             self?.showAlert(title: "SendTransaction",
@@ -90,13 +89,13 @@ class WalletCconnectHelper {
                             comfirmText: "Send",
                             cancelText: "Reject",
                             comfirmBlock: {
-                                self?.sendEth(id: id, transactionJSON: message?.toJSON() as! [String : Any])
-            }){
+                                self?.sendEth(id: id, transactionJSON: message?.toJSON() as! [String: Any])
+            }) {
                 self?.interactor?.rejectRequest(id: id, message: "I don't have ethers").cauterize()
             }
         }
-        
-        interactor.onBnbSign = { [weak self] (id, order) in
+
+        interactor.onBnbSign = { [weak self] id, order in
             let message = order.encodedString
             self?.showAlert(title: "BNB Sign",
                             content: message,
@@ -107,61 +106,58 @@ class WalletCconnectHelper {
             }, cancelBlock: nil)
         }
     }
-    
-    
+
     func showAlert(title: String = "Alert",
                    content: String,
                    comfirmText: String = "Comfirm",
                    cancelText: String = "Cancel",
                    comfirmBlock: VoidBlock?,
                    cancelBlock: VoidBlock?) {
-        
         let view = BaseAlertView.instanceFromNib(title: title,
                                                  content: content,
                                                  comfirmText: comfirmText,
                                                  cancelText: cancelText,
                                                  comfirmBlock: {
-                                                    comfirmBlock!!()
+                                                     comfirmBlock!!()
         }) {
             cancelBlock!!()
         }
-        
+
         HUDManager.shared.showAlertView(view: view,
                                         backgroundColor: .clear,
                                         haptic: .none,
                                         type: .centerFloat,
                                         widthIsFull: false)
     }
-    
-    func approve(accounts: [String], chainId: Int) {
+
+    func approve(accounts _: [String], chainId _: Int) {
 //        interactor?.approveSession(accounts: accounts, chainId: chainId).done {
 //            print("<== approveSession done")
 //        }.cauterize()
     }
-    
+
     func signEth(id: Int64, message: String) {
-        TransactionManager.showSignMessageView(message: message) { (signData) in
-            self.interactor?.approveRequest(id: id, result: signData ).cauterize()
-            HUDManager.shared.dismiss()
-        }
-    }
-    
-    func sendEth(id: Int64, transactionJSON: [String: Any]) {
-        
-        guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {return}
-        guard let options = TransactionOptions.fromJSON(transactionJSON) else {return}
-        let value = options.value != nil ? options.value! : BigUInt(0)
-        
-        TransactionManager.showPaymentView(toAddress: tx.to.address,
-                                           amount: value,
-                                           data: tx.data,
-                                           symbol: "ETH") { (signData) in
+        TransactionManager.showSignMessageView(message: message) { signData in
             self.interactor?.approveRequest(id: id, result: signData).cauterize()
             HUDManager.shared.dismiss()
         }
     }
-    
-    func signBnbOrder(id: Int64, order: WCBinanceOrder) {
+
+    func sendEth(id: Int64, transactionJSON: [String: Any]) {
+        guard let tx = EthereumTransaction.fromJSON(transactionJSON) else { return }
+        guard let options = TransactionOptions.fromJSON(transactionJSON) else { return }
+        let value = options.value != nil ? options.value! : BigUInt(0)
+
+        TransactionManager.showPaymentView(toAddress: tx.to.address,
+                                           amount: value,
+                                           data: tx.data,
+                                           symbol: "ETH") { signData in
+            self.interactor?.approveRequest(id: id, result: signData).cauterize()
+            HUDManager.shared.dismiss()
+        }
+    }
+
+    func signBnbOrder(id _: Int64, order _: WCBinanceOrder) {
 //        let data = order.encoded
 //        print("==> signbnbOrder", String(data: data, encoding: .utf8)!)
 //        let signature = privateKey.sign(digest: Hash.sha256(data: data), curve: .secp256k1)!
@@ -173,12 +169,12 @@ class WalletCconnectHelper {
 //            print("<== approveBnbOrder", confirm)
 //        }).cauterize()
     }
-    
-    func connectionStatusUpdated(_ connected: Bool) {
+
+    func connectionStatusUpdated(_: Bool) {
 //        self.approveButton.isEnabled = connected
 //        self.connectButton.setTitle(!connected ? "Connect" : "Disconnect", for: .normal)
     }
-    
+
 //    @IBAction func connectTapped() {
 //        guard let string = uriField.text, let session = WCSession.from(string: string) else {
 //            print("invalid uri: \(String(describing: uriField.text))")
@@ -193,7 +189,7 @@ class WalletCconnectHelper {
 //            connect(session: session)
 //        }
 //    }
-    
+
 //    @IBAction func approveTapped() {
 //        guard let address = addressField.text,
 //            let chainIdString = chainIdField.text else {

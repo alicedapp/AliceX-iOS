@@ -9,18 +9,17 @@
 import UIKit
 
 class ImportWalletViewController: BaseViewController {
-    
     @IBOutlet var importBtn: BaseControl!
 
-    @IBOutlet weak var textView: UITextView!
-    
+    @IBOutlet var textView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hero.isEnabled = true
+        hero.isEnabled = true
         hideKeyboardWhenTappedAround()
         importBtn.hero.id = "importWallet"
     }
-    
+
     @IBAction func importButtonClicked() {
         var mnemonics = textView.text
         mnemonics = mnemonics?.trimmingCharacters(in: .whitespaces)
@@ -28,9 +27,9 @@ class ImportWalletViewController: BaseViewController {
             HUDManager.shared.showError(text: "mnemonics is empty")
             return
         }
-        
+
         mnemonics = mnemonics?.lowercased()
-        
+
         do {
             try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in
                 let vc = RNModule.makeViewController(module: .alice)

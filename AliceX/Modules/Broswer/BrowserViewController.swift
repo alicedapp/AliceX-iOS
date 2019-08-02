@@ -9,23 +9,21 @@
 import UIKit
 
 class BrowserViewController: BaseViewController {
-
-    @IBOutlet weak var webContainer: UIView!
-    @IBOutlet weak var navBarContainer: UIView!
+    @IBOutlet var webContainer: UIView!
+    @IBOutlet var navBarContainer: UIView!
 //    @IBOutlet weak var navBarShadowView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var progressView: UIView!
-    
-    @IBOutlet weak var refreshImage: UIImageView!
-    @IBOutlet weak var backButtonImage: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var progressView: UIView!
+
+    @IBOutlet var refreshImage: UIImageView!
+    @IBOutlet var backButtonImage: UIImageView!
 
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
     var urlString: String = "https://uniswap.exchange"
 //    "https://app.compound.finance/"
 //    "http://www.google.com"
-    
-    
+
     @objc var hk_iconImage: UIImage!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -36,16 +34,16 @@ class BrowserViewController: BaseViewController {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
 
-        self.navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.barStyle = .default
 
         config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
-                                                 address: WalletManager.wallet!.address,
-                                                 in: ScriptMessageProxy(delegate: self))
+                                             address: WalletManager.wallet!.address,
+                                             in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()
 
         webview = WKWebView(frame: .zero, configuration: config)
-        
-        // TODO Conflict with Pin
+
+        // TODO: Conflict with Pin
 //        webview.allowsBackForwardNavigationGestures = true
 
         navBarContainer.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.2).cgColor
@@ -67,10 +65,10 @@ class BrowserViewController: BaseViewController {
         let request = URLRequest(url: url!)
         webview.load(request)
         webContainer.addSubview(webview)
-        
+
         webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -84,7 +82,7 @@ class BrowserViewController: BaseViewController {
         super.viewWillAppear(animated)
         titleLabel.isHidden = false
     }
-    
+
     class func cleanCache() {
         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
             records.forEach { record in
@@ -94,10 +92,10 @@ class BrowserViewController: BaseViewController {
             }
         }
     }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?,
-                               change: [NSKeyValueChangeKey: Any]?,
-                               context: UnsafeMutableRawPointer?) {
+
+    override func observeValue(forKeyPath keyPath: String?, of _: Any?,
+                               change _: [NSKeyValueChangeKey: Any]?,
+                               context _: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             let progress = webview.estimatedProgress
             let length = CGFloat(Double(Constant.SCREEN_WIDTH - 40) * progress)
@@ -112,10 +110,10 @@ class BrowserViewController: BaseViewController {
     }
 
     @IBAction func backButtonClick() {
-        if self.webview.canGoBack {
-            self.webview.goBack()
+        if webview.canGoBack {
+            webview.goBack()
         } else {
-            self.backButtonClicked()
+            backButtonClicked()
         }
     }
 
@@ -127,11 +125,11 @@ class BrowserViewController: BaseViewController {
 
     @IBAction func refreshButtonClick() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.refreshImage.transform = CGAffineTransform(rotationAngle: CGFloat( Double.pi))
-        }) { (_) in
+            self.refreshImage.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        }) { _ in
             self.refreshImage.transform = CGAffineTransform.identity
         }
-        self.webview.reload()
+        webview.reload()
     }
 
     @IBAction func closeButtonClick() {
@@ -144,6 +142,6 @@ class BrowserViewController: BaseViewController {
         vc.hero.modalAnimationType = .fade
         vc.browerRef = self
 //        titleLabel.isHidden = true
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }

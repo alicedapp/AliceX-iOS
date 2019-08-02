@@ -6,78 +6,74 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
+import CodePush
 import IQKeyboardManagerSwift
 import React
-import CodePush
+import UIKit
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions
-        launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    func application(_: UIApplication, didFinishLaunchingWithOptions
+        _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         IQKeyboardManager.shared.enable = true
-        
+
         WalletManager.loadFromCache()
         PriceHelper.shared.fetchFromCache()
 //        GasPriceHelper.shared.getGasPrice()
 
-        func sourceURL(bridge: RCTBridge?) -> URL? {
+        func sourceURL(bridge _: RCTBridge?) -> URL? {
             #if DEBUG
-            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+                return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
             #else
-            return CodePush.bundleURL()
+                return CodePush.bundleURL()
             #endif
         }
-        
+
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
 
-        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.clear
-        
+
         var vc = UIViewController()
-        
+
         if WalletManager.hasWallet() {
 //            vc = QRCodeReaderViewController()
-             vc = RNModule.makeViewController(module: .alice)
+            vc = RNModule.makeViewController(module: .alice)
         } else {
             vc = LandingViewController()
         }
-        
-        let rootVC = BaseNavigationController.init(rootViewController: vc)
+
+        let rootVC = BaseNavigationController(rootViewController: vc)
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         navi = rootVC
-    
-        HKFloatManager.addFloatVcs([ NSStringFromClass(BrowserViewController.self),
-                                     NSStringFromClass(BrowserWrapperViewController.self)])
-        
+
+        HKFloatManager.addFloatVcs([NSStringFromClass(BrowserViewController.self),
+                                    NSStringFromClass(BrowserWrapperViewController.self)])
+
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    func applicationWillResignActive(_: UIApplication) {
         HideHelper.shared.start()
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
+    func applicationDidEnterBackground(_: UIApplication) {}
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
+    func applicationWillEnterForeground(_: UIApplication) {}
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    func applicationDidBecomeActive(_: UIApplication) {
         HideHelper.shared.stop()
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-    }
+    func applicationWillTerminate(_: UIApplication) {}
 
     class func rnBridge() -> RCTBridge {
         return bridge!

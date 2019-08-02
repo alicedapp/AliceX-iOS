@@ -11,11 +11,11 @@ import UIKit
 extension UITableView {
     func registerCell(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
-        self.register(nib, forCellReuseIdentifier: nibName)
+        register(nib, forCellReuseIdentifier: nibName)
     }
-    
+
     func registerHeaderFooter(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
-        self.register(nib, forHeaderFooterViewReuseIdentifier: nibName)
+        register(nib, forHeaderFooterViewReuseIdentifier: nibName)
     }
 }

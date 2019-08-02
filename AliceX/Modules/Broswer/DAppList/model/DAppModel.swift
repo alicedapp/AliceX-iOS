@@ -14,7 +14,6 @@ class DAppModel: HandyJSON {
     var link: String!
     var img: String?
     var category: String?
-    
-    required init() {
-    }
+
+    required init() {}
 }

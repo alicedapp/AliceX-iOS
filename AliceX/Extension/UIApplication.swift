@@ -16,13 +16,13 @@ extension UIApplication {
             if let expirationHandler = expirationHandler {
                 taskID = self.beginBackgroundTask(expirationHandler: expirationHandler)
             } else {
-                taskID = self.beginBackgroundTask(expirationHandler: { })
+                taskID = self.beginBackgroundTask(expirationHandler: {})
             }
             closure()
             self.endBackgroundTask(taskID)
         }
     }
-    
+
     /// EZSE: Get the top most view controller from the base view controller;
     /// default param is UIWindow's rootViewController
     public class func topViewController(_ base: UIViewController? =

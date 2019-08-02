@@ -10,7 +10,7 @@ import Foundation
 import HandyJSON
 
 // https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions
-enum Currency: String, CaseIterable, HandyJSONEnum{
+enum Currency: String, CaseIterable, HandyJSONEnum {
     case USD
     case EUR
     case CNY
@@ -24,7 +24,7 @@ enum Currency: String, CaseIterable, HandyJSONEnum{
     case TWD
     case CHF
     case MXN
-    
+
     var symbol: String {
         switch self {
         case .USD:
@@ -55,7 +55,7 @@ enum Currency: String, CaseIterable, HandyJSONEnum{
             return "$"
         }
     }
-    
+
     var name: String {
         switch self {
         case .USD:
@@ -86,7 +86,7 @@ enum Currency: String, CaseIterable, HandyJSONEnum{
             return "Hong Kong Dollar"
         }
     }
-    
+
     var flag: String {
         switch self {
         case .USD:
@@ -117,7 +117,6 @@ enum Currency: String, CaseIterable, HandyJSONEnum{
             return "🇲🇽"
         }
     }
-    
 }
 
 enum CryptoCoin {

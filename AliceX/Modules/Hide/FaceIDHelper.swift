@@ -7,28 +7,26 @@
 //
 
 import Foundation
-import PromiseKit
 import LocalAuthentication
+import PromiseKit
 
 class FaceIDHelper {
     static let shared = FaceIDHelper()
     var isUsing: Bool = false
-    
+
     func faceID() -> Promise<Void> {
-        
         isUsing = true
-        
+
         return Promise { seal in
             let myContext = LAContext()
             let myLocalizedReasonString = "Payment Verify"
-            
+
             var authError: NSError?
             if #available(iOS 8.0, macOS 10.12.1, *) {
                 if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
                     myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                                             localizedReason: myLocalizedReasonString)
-                    { success, evaluateError in
-                        
+                                             localizedReason: myLocalizedReasonString) { success, evaluateError in
+
                         DispatchQueue.main.async {
                             if success {
                                 // User authenticated successfully, take appropriate action
@@ -53,8 +51,8 @@ class FaceIDHelper {
             }
         }
     }
-    
-    func faceID(block: VoidBlock) {
+
+    func faceID(block _: VoidBlock) {
 //        FaceIDHelper
     }
 }

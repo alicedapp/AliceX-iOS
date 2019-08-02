@@ -9,9 +9,7 @@
 import web3swift
 
 extension WalletManager {
-    
     func saveKeystore(_ keystore: BIP32Keystore) throws {
-
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             throw WalletError.invalidPath
         }
@@ -29,17 +27,16 @@ extension WalletManager {
                 throw WalletError.invalidPath
             }
         }
-        
+
         FileManager.default.createFile(atPath: userDir + Setting.KeystoreDirectoryName +
             Setting.KeystoreFileName, contents: keystoreData, attributes: nil)
-        
     }
-    
+
     func loadKeystore() throws -> BIP32Keystore {
         if let keystore = keystore {
             return keystore
         }
-        
+
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask,
                                                                 true).first else {
             throw WalletError.invalidPath
@@ -54,18 +51,16 @@ extension WalletManager {
         guard let keystore = keystoreManager.walletForAddress(address) as? BIP32Keystore else {
             throw WalletError.malformedKeystore
         }
-        
+
         return keystore
     }
-    
+
     public func killKeystore() throws {
-        
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             throw WalletError.invalidPath
         }
-        
+
         if keystore != nil {
-            
             if FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
                 do {
                     try FileManager.default.removeItem(atPath: userDir +
@@ -76,6 +71,5 @@ extension WalletManager {
                 }
             }
         }
-        
     }
 }

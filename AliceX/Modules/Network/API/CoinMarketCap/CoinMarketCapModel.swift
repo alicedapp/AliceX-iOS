@@ -9,7 +9,6 @@
 import Foundation
 import HandyJSON
 
-
 struct CoinMarketCapModel: HandyJSON {
     var data: [CoinMarketCapDataModel]?
 }
@@ -21,16 +20,14 @@ struct CoinMarketCapDataModel: HandyJSON {
     var slug: String!
     var last_updated: Date?
     var quote: CoinMarketCapQuoteModel?
-    
+
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
             last_updated <-- CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     }
-
 }
 
 struct CoinMarketCapQuoteModel: HandyJSON {
-    
     var USD: CoinMarketCapCurrencyModel?
     var EUR: CoinMarketCapCurrencyModel?
     var CNY: CoinMarketCapCurrencyModel?
@@ -55,7 +52,7 @@ struct CoinMarketCapCurrencyModel: HandyJSON {
     var market_cap: Float?
     var last_updated: Date?
     var currency: Currency?
-    
+
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
             last_updated <-- CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")

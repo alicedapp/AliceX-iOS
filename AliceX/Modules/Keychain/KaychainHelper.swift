@@ -11,17 +11,17 @@ import KeychainAccess
 
 class KeychainHepler {
     static let shared = KeychainHepler()
-    
+
     var keychain: Keychain?
-    
+
     private init() {
         keychain = Keychain(service: Setting.AliceKeychainPrefix)
     }
-    
+
     func saveToKeychain(value: String, key: String) {
         keychain![key] = value
     }
-    
+
     func fetchKeychain(key: String) -> String? {
         return keychain![key]
     }

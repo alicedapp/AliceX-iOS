@@ -9,13 +9,11 @@
 import UIKit
 
 class BaseView: UIView {
-    
     class func instanceFromNib() -> BaseView {
-        let view = UINib(nibName: self.nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BaseView
+        let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BaseView
         view.configure()
         return view
     }
-    
+
     func configure() {}
-    
 }

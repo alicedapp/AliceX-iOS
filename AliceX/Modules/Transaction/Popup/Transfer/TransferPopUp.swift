@@ -6,61 +6,60 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import UIKit
 import web3swift
-import BigInt
 
 class TransferPopUp: UIViewController {
-    
-    @IBOutlet weak var addressField: UITextField!
-    @IBOutlet weak var valueField: UITextField!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
-    @IBOutlet weak var containView: UIView!
-    @IBOutlet weak var bgView: UIView!
-    
+    @IBOutlet var addressField: UITextField!
+    @IBOutlet var valueField: UITextField!
+
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+
+    @IBOutlet var containView: UIView!
+    @IBOutlet var bgView: UIView!
+
     var address: String?
     var value: BigUInt!
-    
+
     class func make(address: String?, value: BigUInt! = BigUInt(0)) -> TransferPopUp {
         let vc = TransferPopUp()
         vc.value = value
         vc.address = address
         return vc
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addressField.text = address
         valueField.text = value.readableValue
-        valueFieldDidChange(self.valueField)
+        valueFieldDidChange(valueField)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
+
+    override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        
+
         containView.transform = CGAffineTransform(translationX: 0, y: -400)
         bgView.alpha = 0
-        
+
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 0.9,
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                        self.bgView.alpha = 1
-                        self.containView.transform = CGAffineTransform.identity
-        }, completion: { (_) in
-            if self.address != nil {
-                self.valueField.becomeFirstResponder()
-                return
-            }
-            self.addressField.becomeFirstResponder()
+                           self.bgView.alpha = 1
+                           self.containView.transform = CGAffineTransform.identity
+                       }, completion: { _ in
+                           if self.address != nil {
+                               self.valueField.becomeFirstResponder()
+                               return
+                           }
+                           self.addressField.becomeFirstResponder()
         })
     }
-    
+
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillAppear(true)
 //        UIView.animate(withDuration: 0.3,
@@ -73,7 +72,7 @@ class TransferPopUp: UIViewController {
 //            self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
 //        }, completion: nil)
 //    }
-    
+
     @IBAction func cancelBtnClicked() {
         view.endEditing(true)
         UIView.animate(withDuration: 0.5,
@@ -82,13 +81,13 @@ class TransferPopUp: UIViewController {
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                        self.bgView.alpha = 0
-                        self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
-        }, completion: { (_) in
-            self.dismiss(animated: false, completion: nil)
+                           self.bgView.alpha = 0
+                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+                       }, completion: { _ in
+                           self.dismiss(animated: false, completion: nil)
         })
     }
-    
+
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
         guard let ethAddress = address?.ethAddress else {
@@ -96,18 +95,18 @@ class TransferPopUp: UIViewController {
         }
         addressField.text = ethAddress.address
     }
-    
+
     @IBAction func cameraBtnClicked() {
-        let vc = QRCodeReaderViewController.make { (hash) in
+        let vc = QRCodeReaderViewController.make { hash in
             guard let address = EthereumAddress(hash) else {
                 self.errorAlert(text: "Addess invalid")
                 return
             }
             self.addressField.text? = hash
         }
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
-    
+
     @IBAction func comfirmBtnClicked() {
         guard let ethAddress = addressField.text?.ethAddress else {
             errorAlert(text: "Addess invalid")
@@ -118,30 +117,30 @@ class TransferPopUp: UIViewController {
             errorAlert(text: "Value invalid")
             return
         }
-        
-        if amount <= 0  {
+
+        if amount <= 0 {
             errorAlert(text: "Can't be zero")
             return
         }
-        
-        TransactionManager.showPaymentView(toAddress:ethAddress.address,
+
+        TransactionManager.showPaymentView(toAddress: ethAddress.address,
                                            amount: amount,
                                            data: Data(),
-                                           symbol: "ETH") { (txHash) in
-                                            self.cancelBtnClicked()
+                                           symbol: "ETH") { _ in
+            self.cancelBtnClicked()
         }
     }
-    
+
     @IBAction func valueFieldDidChange(_ textField: UITextField) {
-        guard let text = textField.text , let amount = Float(text) else {
+        guard let text = textField.text, let amount = Float(text) else {
             return
         }
         let price = amount * PriceHelper.shared.exchangeRate
         priceLabel.text = price.currencyString
     }
-    
+
     // MARK: Error
-    
+
     func errorAlert(text: String) {
         erorAnimation()
         titleLabel.text = text
@@ -152,7 +151,7 @@ class TransferPopUp: UIViewController {
             self.titleLabel.textColor = UIColor.lightGray
         }
     }
-    
+
     func erorAnimation() {
         let transition = CATransition()
         transition.duration = 0.3

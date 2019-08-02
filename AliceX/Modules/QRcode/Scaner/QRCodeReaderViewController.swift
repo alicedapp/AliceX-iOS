@@ -9,94 +9,91 @@
 import UIKit
 
 class QRCodeReaderViewController: LBXScanViewController {
+    @IBOutlet var lightButton: UIImageView!
+    @IBOutlet var containView: UIView!
+    @IBOutlet var navView: UIView!
 
-    @IBOutlet weak var lightButton: UIImageView!
-    @IBOutlet weak var containView: UIView!
-    @IBOutlet weak var navView: UIView!
-    
     var block: StringBlock!
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    class func make(block: @escaping StringBlock) -> LBXScanViewController   {
+
+    class func make(block: @escaping StringBlock) -> LBXScanViewController {
         let vc = QRCodeReaderViewController()
         vc.block = block
         return vc
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         scanResultDelegate = self
-        
+
         var style = LBXScanViewStyle()
         style.animationImage = UIImage(named: "qrcode_scan_blue")
         scanStyle = style
         setNeedCodeImage(needCodeImg: true)
         scanStyle?.centerUpOffset += 10
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         view.bringSubviewToFront(containView)
         view.bringSubviewToFront(navView)
     }
-    
+
     @IBAction func openOrCloseFlash() {
         scanObj?.changeTorch()
         lightButton.isHighlighted = !lightButton.isHighlighted
     }
-    
+
     @IBAction func albumBtnClicked() {
         openPhotoAlbum()
     }
-    
+
     @IBAction func myqrcodeClicked() {
         let vc = MyQRCodeViewController()
 //        vc.modalPresentationStyle = .currentContext
 //        present(vc, animated: true, completion: nil)
-        
-      HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
-    
+
     @IBAction func backButtonClicked() {
-        guard self.navigationController != nil else {
-            self.dismiss(animated: true, completion: nil)
+        guard navigationController != nil else {
+            dismiss(animated: true, completion: nil)
             return
         }
-        
-        self.navigationController?.popViewController(animated: true)
+
+        navigationController?.popViewController(animated: true)
     }
 }
 
 extension QRCodeReaderViewController: LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {
-        
         if error != nil {
             scanObj?.start()
             return
         }
-        
+
         if (scanResult.strScanned?.hasPrefix("wc:"))! {
             WalletCconnectHelper.shared.fromQRCode(scanString: scanResult.strScanned!)
             return
         }
-        
+
         block(scanResult.strScanned!.dropEthPrefix())
-        self.backButtonClicked()
+        backButtonClicked()
     }
-    
 }

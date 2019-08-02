@@ -9,7 +9,6 @@
 import web3swift
 
 public enum WalletError: Error {
-
     case hasAccount
     case accountDoesNotExist
     case invalidPath
@@ -23,9 +22,9 @@ public enum WalletError: Error {
     case contractFailure
     case netCacheFailure
     case netSwitchFailure
-    
+
     case custom(String)
-    
+
     public var code: Int {
         switch self {
         case .hasAccount:
@@ -58,7 +57,7 @@ public enum WalletError: Error {
             return -1
         }
     }
-    
+
     public var errorDescription: String {
         switch self {
         case .hasAccount:
@@ -91,12 +90,11 @@ public enum WalletError: Error {
             return "Wallet Unknow Error"
         }
     }
-    
+
     public var errorMessage: String {
         let errorCode = "code: " + "\(self.code) - "
         return "\(errorCode)" + self.errorDescription
     }
-    
 }
 
 public enum ContractError: Error {

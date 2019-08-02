@@ -6,8 +6,8 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import web3swift
 import BigInt
+import web3swift
 
 extension BigInt {
     var eth: Float {
@@ -17,14 +17,13 @@ extension BigInt {
                                                         decimalSeparator: ".")
         return Float(ethValue!) as! Float
     }
-    
+
     var currency: Float {
-        return self.eth * PriceHelper.shared.exchangeRate
+        return eth * PriceHelper.shared.exchangeRate
     }
 }
 
 extension BigUInt {
-    
     var gweiToEth: Float {
         // Gwei 9  Eth 18
         let ethValue = Web3.Utils.formatToEthereumUnits(self,
@@ -33,16 +32,16 @@ extension BigUInt {
                                                         decimalSeparator: ".")
         return Float(ethValue!)!
     }
-    
+
     var currency: Float {
-        return (self.gweiToEth * PriceHelper.shared.exchangeRate).rounded(toPlaces: 3)
+        return (gweiToEth * PriceHelper.shared.exchangeRate).rounded(toPlaces: 3)
     }
-    
+
     var currencyLabel: String {
         let currency = PriceHelper.shared.currentCurrency
         return "\(currency.rawValue) \(currency.symbol) \(self.currency)"
     }
-    
+
     var readableValue: String {
         return Web3Utils.formatToEthereumUnits(self, toUnits: .eth, decimals: 5, decimalSeparator: ".")!
     }

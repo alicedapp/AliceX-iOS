@@ -7,29 +7,28 @@
 //
 
 import Foundation
-import PromiseKit
-import Moya
 import HandyJSON
+import Moya
+import PromiseKit
 
-public protocol BasicResponseProtocol: HandyJSON {
-}
+public protocol BasicResponseProtocol: HandyJSON {}
 
 enum MyError: Error {
     case FoundNil(String)
 }
 
 func API<T: HandyJSON, U: TargetType>(_ target: U,
-                                      showLoading: Bool = false,
-                                      showErrorHUD: Bool = false,
-                                      useCache: Bool = false) -> Promise<T> {
+                                      showLoading _: Bool = false,
+                                      showErrorHUD _: Bool = false,
+                                      useCache _: Bool = false) -> Promise<T> {
     return Promise<T> { seal in
         let provider = MoyaProvider<U>()
-        provider.request(target, completion: { (result) in
+        provider.request(target, completion: { result in
             switch result {
             case let .success(response):
                 let model = try! T.deserialize(from: response.mapString())
                 seal.fulfill(model!)
-            case .failure(let error):
+            case let .failure(error):
                 seal.reject(error)
             }
         })

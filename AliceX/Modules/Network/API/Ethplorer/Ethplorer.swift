@@ -8,7 +8,7 @@
 
 import Moya
 
-//Doc Address: https://github.com/EverexIO/Ethplorer/wiki/Ethplorer-API
+// Doc Address: https://github.com/EverexIO/Ethplorer/wiki/Ethplorer-API
 
 let ethplorerAPI = MoyaProvider<Ethplorer>(plugins:
     [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
@@ -27,42 +27,41 @@ enum Ethplorer {
 }
 
 extension Ethplorer: TargetType {
-    
     var headers: [String: String]? {
         switch self {
         default:
             return ["Content-Type": "application/json"]
         }
     }
-    
+
     var baseURL: URL {
-        return URL.init(string: "https://api.ethplorer.io/")!
+        return URL(string: "https://api.ethplorer.io/")!
     }
-    
+
     var path: String {
         switch self {
-        case .getTokenInfo(let address):
+        case let .getTokenInfo(address):
             return "getTokenInfo/\(address)"
         default:
             return ""
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         default:
             return .get
         }
     }
-    
+
     var task: Task {
         switch self {
         default:
-            let dict = ["apiKey":"freekey"]
+            let dict = ["apiKey": "freekey"]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }
-    
+
     var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!
     }

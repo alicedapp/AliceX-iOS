@@ -11,9 +11,7 @@ import SPStorkController
 
 @objc(NativeVCModule)
 class NativeVCModule: NSObject {
-    
     @objc func setting() {
-        
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
             let modal = SettingViewController()
@@ -29,7 +27,6 @@ class NativeVCModule: NSObject {
     }
 
     @objc func browser(_ url: String) {
-        
         DispatchQueue.main.async {
             if #available(iOS 13.0, *) {
                 let topVC = UIApplication.topViewController()
@@ -37,7 +34,7 @@ class NativeVCModule: NSObject {
                 vc.urlString = url
                 topVC!.hero.isEnabled = true
                 vc.hero.isEnabled = true
-                vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
+                vc.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
                 topVC?.navigationController?.pushViewController(vc, animated: true)
                 return
             }
@@ -45,18 +42,17 @@ class NativeVCModule: NSObject {
             let vc = BrowserWrapperViewController()
 //                BrowserViewController()
             vc.urlString = url
-            vc.hero.modalAnimationType = .selectBy(presenting:.cover(direction: .up), dismissing:.uncover(direction: .down))
+            vc.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
 //            topVC?.present(vc, animated: true, completion: nil)
             topVC?.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     @objc func qrScanner(_ resolve: @escaping RCTPromiseResolveBlock,
-                         reject: @escaping RCTPromiseRejectBlock) {
-        
+                         reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()
-            let vc = QRCodeReaderViewController.make { (result) in
+            let vc = QRCodeReaderViewController.make { result in
                 resolve(result)
             }
             guard let _ = topVC?.navigationController else {

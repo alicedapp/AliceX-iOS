@@ -6,48 +6,46 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import Moya
 import HandyJSON
+import Moya
 
 extension Response {
-    func mapObject<T: HandyJSON>(_ type: T.Type) -> T? {
-        
-        guard let dataString = String.init(data: self.data, encoding: .utf8),
+    func mapObject<T: HandyJSON>(_: T.Type) -> T? {
+        guard let dataString = String(data: self.data, encoding: .utf8),
             let object = JSONDeserializer<T>.deserializeFrom(json: dataString)
-            else {
-                return nil
+        else {
+            return nil
         }
-        
+
         return object
     }
-    
-    func mapObject<T: HandyJSON>(_ type: T.Type, designatedPath: String) -> T? {
-        
+
+    func mapObject<T: HandyJSON>(_: T.Type, designatedPath: String) -> T? {
         guard let dataString = String(data: self.data, encoding: .utf8),
             let object = JSONDeserializer<T>.deserializeFrom(json: dataString, designatedPath: designatedPath)
-            else {
-                return nil
+        else {
+            return nil
         }
-        
+
         return object
     }
-    
-    func mapArray<T: HandyJSON>(_ type: T.Type) -> [T?]? {
-        
+
+    func mapArray<T: HandyJSON>(_: T.Type) -> [T?]? {
         guard let dataString = String(data: self.data, encoding: .utf8),
             let object = JSONDeserializer<T>.deserializeModelArrayFrom(json: dataString)
-            else {
-                return nil
+        else {
+            return nil
         }
         return object
     }
-    
-    func mapArray<T: HandyJSON>(_ type: T.Type, designatedPath: String ) -> [T?]? {
+
+    func mapArray<T: HandyJSON>(_: T.Type, designatedPath: String) -> [T?]? {
         guard let dataString = String(data: self.data, encoding: .utf8),
             let object = JSONDeserializer<T>.deserializeModelArrayFrom(
-                json: dataString, designatedPath: designatedPath)
-            else {
-                return nil
+                json: dataString, designatedPath: designatedPath
+            )
+        else {
+            return nil
         }
         return object
     }

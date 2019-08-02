@@ -9,31 +9,31 @@
 import Foundation
 
 enum Method: String, Decodable {
-    //case getAccounts
+    // case getAccounts
     case sendTransaction
     case signTransaction
     case signPersonalMessage
     case signMessage
     case signTypedMessage
     case unknown
-    
+
     init(string: String) {
         self = Method(rawValue: string) ?? .unknown
     }
 }
 
-//struct DappCommand: Decodable {
+// struct DappCommand: Decodable {
 //    let name: Method
 //    let id: Int
 //    let object: [String: DappCommandObjectValue]
-//}
+// }
 //
-//struct DappCallback {
+// struct DappCallback {
 //    let id: Int
 //    let value: DappCallbackValue
-//}
+// }
 //
-//enum DappCallbackValue {
+// enum DappCallbackValue {
 //    case signTransaction(Data)
 //    case sentTransaction(Data)
 //    case signMessage(Data)
@@ -54,9 +54,9 @@ enum Method: String, Decodable {
 //            return data.hexEncoded
 //        }
 //    }
-//}
+// }
 //
-//struct DappCommandObjectValue: Decodable {
+// struct DappCommandObjectValue: Decodable {
 //    public var value: String = ""
 //    public var array: [EthTypedData] = []
 //    public init(from coder: Decoder) throws {
@@ -72,10 +72,10 @@ enum Method: String, Decodable {
 //            }
 //        }
 //    }
-//}
+// }
 
 //
-//enum SolidityJSONValue: Decodable {
+// enum SolidityJSONValue: Decodable {
 //    case none
 //    case bool(value: Bool)
 //    case string(value: String)
@@ -120,9 +120,9 @@ enum Method: String, Decodable {
 //            self = .none
 //        }
 //    }
-//}
+// }
 //
-//enum AddressValidatorType {
+// enum AddressValidatorType {
 //    case ethereum
 //
 //    var addressLength: Int {
@@ -130,18 +130,18 @@ enum Method: String, Decodable {
 //        case .ethereum: return 42
 //        }
 //    }
-//}
+// }
 //
-//struct CryptoAddressValidator {
+// struct CryptoAddressValidator {
 //    static func isValidAddress(_ value: String?, type: AddressValidatorType = .ethereum) -> Bool {
 //        guard value?.count == type.addressLength else {
 //            return false
 //        }
 //        return true
 //    }
-//}
+// }
 //
-//extension FixedWidthInteger {
+// extension FixedWidthInteger {
 //    func getHexData() -> Data {
 //        var string = String(self, radix: 16)
 //        if string.count % 2 != 0 {
@@ -163,9 +163,9 @@ enum Method: String, Decodable {
 //        }
 //        return data
 //    }
-//}
+// }
 //
-//private func parseIntSize(type: String, prefix: String) -> Int {
+// private func parseIntSize(type: String, prefix: String) -> Int {
 //    guard type.starts(with: prefix) else {
 //        return -1
 //    }
@@ -180,4 +180,4 @@ enum Method: String, Decodable {
 //        return -1
 //    }
 //    return size
-//}
+// }

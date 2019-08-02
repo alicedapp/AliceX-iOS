@@ -41,7 +41,7 @@ extension Web3NetEnum {
             return UIColor.white
         }
     }
-    
+
     var chainID: Int {
         switch self {
         case .main: return 1
@@ -53,11 +53,11 @@ extension Web3NetEnum {
         case .goerli: return 5
 //        case .custom(let custom):
 //            return custom.chainID
-        // TODO Custom
+        // TODO: Custom
         case .custom: return -1
         }
     }
-    
+
     var rpcURL: URL {
         let urlString: String = {
             switch self {
@@ -73,13 +73,11 @@ extension Web3NetEnum {
         }()
         return URL(string: urlString)!
     }
-
 }
 
 class Web3Net {
-    
     static var currentNetwork: Web3NetEnum = .main
-    
+
     class func make(type: Web3NetEnum, customURL: String = "https://mainnet.infura.io/v3/") throws -> web3 {
         switch type {
         case .main:
@@ -107,10 +105,10 @@ class Web3Net {
                 throw error
             }
         }
-        
+
 //        return Web3.InfuraMainnetWeb3()
     }
-    
+
     class func customNet(url: String) throws -> web3 {
         guard let URL = URL(string: url), let web3Url = Web3HttpProvider(URL) else {
             throw WalletError.netSwitchFailure
@@ -118,32 +116,31 @@ class Web3Net {
         let net = web3(provider: web3Url)
         return net
     }
-    
+
     // MARK: - Cache
-    
+
     class func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
-    
+
     class func storeInCache(type: Web3NetEnum) {
         UserDefaults.standard.set(type.rawValue, forKey: web3NetStoreKey)
     }
-    
+
     class func fetchFromCache() -> web3 {
-        
         // Not find the key in UserDefault use MainNet
         if !Web3Net.isKeyPresentInUserDefaults(key: web3NetStoreKey) {
             Web3Net.storeInCache(type: .main)
             return Web3.InfuraMainnetWeb3()
         }
-        
+
         guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
             let type = Web3NetEnum(rawValue: typeString) else {
-            // TODO 
+            // TODO:
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return Web3.InfuraMainnetWeb3()
         }
-        
+
         do {
             let net = try Web3Net.make(type: type)
             Web3Net.currentNetwork = type
@@ -153,32 +150,31 @@ class Web3Net {
         } catch {
             HUDManager.shared.showError()
         }
-        
+
         return Web3.InfuraMainnetWeb3()
     }
-    
+
     class func fetchFromCache() -> String {
         guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
             let type = Web3NetEnum(rawValue: typeString) else {
-                HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
-                return "Main"
+            HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
+            return "Main"
         }
         return typeString
     }
-    
+
     class func fetchFromCache() -> Web3NetEnum {
         guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
             let type = Web3NetEnum(rawValue: typeString) else {
-                HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
-                return .main
+            HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
+            return .main
         }
         return type
     }
-    
+
     // MARK: - Update
-    
+
     class func upodateNetworkSelection(type: Web3NetEnum) {
         WalletManager.updateNetwork(type: type)
     }
-    
 }
