@@ -30,7 +30,7 @@ class BaseViewController: UIViewController {
         hero.isEnabled = true
     }
     
-    @IBAction func backButtonClicked(sender: UIControl) {
+    @IBAction func backButtonClicked() {
         guard self.navigationController != nil else {
             self.dismiss(animated: true, completion: nil)
             return

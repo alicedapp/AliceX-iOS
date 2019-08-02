@@ -17,6 +17,7 @@ class BrowserViewController: BaseViewController {
     @IBOutlet weak var progressView: UIView!
     
     @IBOutlet weak var refreshImage: UIImageView!
+    @IBOutlet weak var backButtonImage: UIImageView!
 
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
@@ -113,6 +114,8 @@ class BrowserViewController: BaseViewController {
     @IBAction func backButtonClick() {
         if self.webview.canGoBack {
             self.webview.goBack()
+        } else {
+            self.backButtonClicked()
         }
     }
 

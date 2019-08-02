@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowserViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="backButtonImage" destination="sUd-L8-7ix" id="JMs-4B-PKC"/>
                 <outlet property="navBarContainer" destination="tdh-xY-wYY" id="rZL-AI-sxT"/>
                 <outlet property="progressView" destination="5Ch-QG-hHG" id="XZI-qn-Ntq"/>
                 <outlet property="refreshImage" destination="bGQ-Q2-lZE" id="Q47-fo-H87"/>
@@ -47,8 +48,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nd2-Xx-arx" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="sUd-L8-7ix">
-                                            <rect key="frame" x="24" y="20.5" width="12" height="19"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-arrow-light-dark" highlightedImage="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="sUd-L8-7ix">
+                                            <rect key="frame" x="24" y="21" width="12" height="18"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,6 +198,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back-arrow-light-dark" width="12" height="18"/>
         <image name="back-dark" width="12" height="19"/>
         <image name="close-dark" width="17" height="17"/>
         <image name="more-dark" width="5" height="18"/>

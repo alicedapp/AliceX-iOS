@@ -92,7 +92,7 @@ extension EditAddressViewController: UITextFieldDelegate {
         urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
         let url = URL(string: urlString)
         self.browerRef!.goTo(url: url!)
-        self.backButtonClicked(sender: self.addressField)
+        self.backButtonClicked()
         return true
     }
 }

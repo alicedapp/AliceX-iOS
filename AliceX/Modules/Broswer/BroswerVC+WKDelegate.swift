@@ -44,6 +44,8 @@ extension BrowserViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.titleLabel.text = webview.title
         
+        self.backButtonImage.isHighlighted = self.webview.canGoBack
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity
             self.progressView.alpha = 0
