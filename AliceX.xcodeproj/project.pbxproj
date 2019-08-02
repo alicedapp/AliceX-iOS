@@ -1017,6 +1017,7 @@
 				15B86BA522AA09DE00110C06 /* Bundle React Native code and images */,
 				BD80632022C9CD8100C1D25F /* Launch React Native Packager */,
 				15B86B5322AA043F00110C06 /* Resources */,
+				152B192C22F407E200EBDA9E /* Swift Format */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 				F34E13E7AA824BB153574021 /* [CP] Embed Pods Frameworks */,
 			);
@@ -1113,6 +1114,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		152B192C22F407E200EBDA9E /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
 		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
