@@ -21,7 +21,7 @@ target 'AliceX' do
   pod 'WalletConnect', git: 'https://github.com/alicedapp/swift-walletconnect-lib', branch: 'master'
 #  pod 'lottie-ios'
 
-#   React Native Dependencies
+# React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
   'Core',
   'CxxBridge',
@@ -44,8 +44,7 @@ target 'AliceX' do
   pod 'react-native-onesignal', :git => 'https://github.com/alicedapp/react-native-onesignal', :branch => 'master'
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
-
-  
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
+  
 end
 

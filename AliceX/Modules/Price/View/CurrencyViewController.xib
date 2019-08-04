@@ -50,7 +50,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="backButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="fA5-2K-44a"/>
+                                <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="DuI-oI-Rc6"/>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9V-Th-7Yn">

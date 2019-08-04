@@ -93,7 +93,7 @@
                                         <constraint firstItem="RGQ-9i-wsH" firstAttribute="centerY" secondItem="4Ge-Rk-qKi" secondAttribute="centerY" id="w9A-Lf-PHo"/>
                                     </constraints>
                                     <connections>
-                                        <action selector="backButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="bIe-QY-3pN"/>
+                                        <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="Fgr-K8-HTo"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDW-uQ-2tl" customClass="UIControl">

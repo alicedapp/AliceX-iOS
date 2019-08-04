@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <action selector="backButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="v6w-ND-vh4"/>
+                        <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="Is6-MW-6cS"/>
                     </connections>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wH-Kr-1EU">
