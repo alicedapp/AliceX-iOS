@@ -40,7 +40,7 @@ class CallRNModule: RCTEventEmitter {
             return
         }
 
-        let networkInfo: [String: Any] = [networkKey: network.rawValue.lowercased()]
-        rnEventEmitter.sendEvent(withName: networkChangedEvent, body: networkInfo)
+        let networkInfo: [String: Any] = [networkKey: network.model.toJSONString()]
+        rnEventEmitter.sendEvent(withName: walletChangedEvent, body: networkInfo)
     }
 }

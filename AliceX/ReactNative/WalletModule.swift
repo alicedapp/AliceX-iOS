@@ -17,6 +17,8 @@ class WalletModule: NSObject {
 
     // You won't be on the main thread when called from JavaScript
 //
+    
+    
     @objc func getAddressCallback(_ successCallback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
             guard let address = try? TransactionManager.getAddress()
@@ -39,6 +41,13 @@ class WalletModule: NSObject {
         }
     }
 
+    @objc func getNetwork(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            let network = Web3Net.currentNetwork.model.toJSONString()
+            resolve(network)
+        }
+    }
+    
     @objc func getBalance(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             do {

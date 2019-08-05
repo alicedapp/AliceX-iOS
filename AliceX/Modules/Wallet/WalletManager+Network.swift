@@ -8,6 +8,14 @@
 
 import Foundation
 import web3swift
+import HandyJSON
+
+struct Web3NetModel: HandyJSON {
+    var name: String!
+    var chainID: Int!
+    var color: String!
+    var rpcURL: String!
+}
 
 private let web3NetStoreKey = "alice.web3.net"
 
@@ -72,6 +80,13 @@ extension Web3NetEnum {
             }
         }()
         return URL(string: urlString)!
+    }
+    
+    var model: Web3NetModel {
+        return  Web3NetModel(name: self.rawValue,
+                             chainID: self.chainID,
+                             color: self.color.toHexString(),
+                             rpcURL: self.rpcURL.absoluteString)
     }
 }
 
@@ -178,3 +193,5 @@ class Web3Net {
         WalletManager.updateNetwork(type: type)
     }
 }
+
+
