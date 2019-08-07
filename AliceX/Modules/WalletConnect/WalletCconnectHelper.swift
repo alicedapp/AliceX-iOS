@@ -78,7 +78,10 @@ class WalletCconnectHelper {
                             cancelText: "Cancel",
                             comfirmBlock: {
                                 self?.signEth(id: id, message: params[0])
-            }, cancelBlock: nil)
+                            }, cancelBlock: {
+                                _ = self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
+                                HUDManager.shared.dismiss()
+            })
         }
 
         interactor.onEthSendTransaction = { [weak self] id, transaction in
@@ -103,7 +106,10 @@ class WalletCconnectHelper {
                             cancelText: "Cancel",
                             comfirmBlock: {
                                 self?.signBnbOrder(id: id, order: order)
-            }, cancelBlock: nil)
+            }) {
+                self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
+                HUDManager.shared.dismiss()
+            }
         }
     }
 
@@ -117,11 +123,8 @@ class WalletCconnectHelper {
                                                  content: content,
                                                  comfirmText: comfirmText,
                                                  cancelText: cancelText,
-                                                 comfirmBlock: {
-                                                     comfirmBlock!!()
-        }) {
-            cancelBlock!!()
-        }
+                                                 comfirmBlock: comfirmBlock!,
+                                                 cancelBlock: cancelBlock!)
 
         HUDManager.shared.showAlertView(view: view,
                                         backgroundColor: .clear,

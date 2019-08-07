@@ -14,8 +14,8 @@ class BaseAlertView: BaseView {
     @IBOutlet var comfirmLabel: UILabel!
     @IBOutlet var cancelLabel: UILabel!
 
-    var comfirmBlock: VoidBlock?
-    var cancelBlock: VoidBlock?
+    var comfirmBlock: VoidBlock!
+    var cancelBlock: VoidBlock!
 
     var title: String?
     var content: String?
@@ -26,8 +26,8 @@ class BaseAlertView: BaseView {
                                content: String,
                                comfirmText: String = "Comfirm",
                                cancelText: String = "Cancel",
-                               comfirmBlock: VoidBlock?,
-                               cancelBlock: VoidBlock?) -> BaseAlertView {
+                               comfirmBlock: VoidBlock,
+                               cancelBlock: VoidBlock) -> BaseAlertView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BaseAlertView
         view.title = title
         view.content = content
@@ -52,6 +52,10 @@ class BaseAlertView: BaseView {
     }
 
     @IBAction func cancelBtnClicked() {
+        guard let block = cancelBlock else {
+            HUDManager.shared.dismiss()
+            return
+        }
         cancelBlock!!()
         HUDManager.shared.dismiss()
     }
