@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import web3swift
 import HandyJSON
+import web3swift
 
 struct Web3NetModel: HandyJSON {
     var name: String!
@@ -81,12 +81,12 @@ extension Web3NetEnum {
         }()
         return URL(string: urlString)!
     }
-    
+
     var model: Web3NetModel {
-        return  Web3NetModel(name: self.rawValue,
-                             chainID: self.chainID,
-                             color: self.color.toHexString(),
-                             rpcURL: self.rpcURL.absoluteString)
+        return Web3NetModel(name: rawValue,
+                            chainID: self.chainID,
+                            color: self.color.toHexString(),
+                            rpcURL: rpcURL.absoluteString)
     }
 }
 
@@ -193,5 +193,3 @@ class Web3Net {
         WalletManager.updateNetwork(type: type)
     }
 }
-
-

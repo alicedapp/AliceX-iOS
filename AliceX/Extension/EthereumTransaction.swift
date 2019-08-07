@@ -33,7 +33,6 @@ struct EthereumTransactionModel: HandyJSON {
 extension EthereumTransaction {
     func toJsonString() -> String {
         var model = EthereumTransactionModel()
-
         model.nonce = String(nonce)
         model.gasPrice = String(gasPrice)
         model.gasLimit = String(describing: gasLimit)

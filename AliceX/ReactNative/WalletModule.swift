@@ -17,8 +17,7 @@ class WalletModule: NSObject {
 
     // You won't be on the main thread when called from JavaScript
 //
-    
-    
+
     @objc func getAddressCallback(_ successCallback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
             guard let address = try? TransactionManager.getAddress()
@@ -41,13 +40,13 @@ class WalletModule: NSObject {
         }
     }
 
-    @objc func getNetwork(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+    @objc func getNetwork(_ resolve: @escaping RCTPromiseResolveBlock, reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             let network = Web3Net.currentNetwork.model.toJSONString()
             resolve(network)
         }
     }
-    
+
     @objc func getBalance(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             do {
@@ -79,7 +78,9 @@ class WalletModule: NSObject {
         }
     }
 
-    @objc func sendTransactionWithDapplet(_ to: String, value: String, data: String,
+    @objc func sendTransactionWithDapplet(_ to: String,
+                                          value: String,
+                                          data: String,
                                           resolve: @escaping RCTPromiseResolveBlock,
                                           reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
@@ -107,7 +108,10 @@ class WalletModule: NSObject {
         }
     }
 
-    @objc func signTransaction(_ to: String, value: String, data: String,
+    @objc func signTransaction(_ to: String,
+                               value: String,
+                               data: String,
+                               detailObject: Bool = false,
                                resolve: @escaping RCTPromiseResolveBlock,
                                reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
@@ -117,8 +121,12 @@ class WalletModule: NSObject {
                 return
             }
 
-            TransactionManager.showSignTransactionView(to: to, value: value, data: data, success: { signJson in
-                resolve(signJson)
+            TransactionManager.showSignTransactionView(to: to,
+                                                       value: value,
+                                                       data: data,
+                                                       detailObject: detailObject,
+                                                       success: { signJson in
+                                                           resolve(signJson)
             })
         }
     }

@@ -311,9 +311,17 @@ class TransactionManager {
 
     // MARK: - Sign Transaction
 
-    class func showSignTransactionView(to: String, value: BigUInt, data: Data, success: @escaping StringBlock) {
+    class func showSignTransactionView(to: String,
+                                       value: BigUInt,
+                                       data: Data,
+                                       detailObject: Bool = false,
+                                       success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = SignTransactionPopUp.make(toAddress: to, amount: value, data: data, success: success)
+        let modal = SignTransactionPopUp.make(toAddress: to,
+                                              amount: value,
+                                              data: data,
+                                              detailObject: detailObject,
+                                              success: success)
         let height = 430 - 34 + Constant.SAFE_BTTOM
         topVC?.presentAsStork(modal, height: height)
     }
@@ -321,6 +329,7 @@ class TransactionManager {
     class func signTransaction(to address: String,
                                amount: BigUInt,
                                data: Data,
+                               detailObject: Bool = false,
                                gasPrice: GasPrice = GasPrice.average) throws -> String {
         guard let toAddress = EthereumAddress(address) else {
             throw WalletError.invalidAddress
@@ -366,9 +375,11 @@ class TransactionManager {
                                   account: walletAddress,
                                   password: Setting.password)
 
-            print(tx.description)
+//            print(tx.description)
+            if detailObject {
+                return tx.toJsonString()
+            }
             return (tx.encode(forSignature: false, chainID: nil)?.toHexString().addHexPrefix())!
-            // return tx.toJsonString()
         } catch {
             HUDManager.shared.showError()
         }

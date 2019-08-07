@@ -27,6 +27,7 @@ class SignTransactionPopUp: UIViewController {
     var toAddress: String!
     var amount: BigUInt!
     var data: Data!
+    var detailObject: Bool!
 
     var timer: Timer?
     var process: Int = 0
@@ -37,11 +38,16 @@ class SignTransactionPopUp: UIViewController {
 
     var successBlock: StringBlock?
 
-    class func make(toAddress: String, amount: BigUInt, data: Data, success: @escaping StringBlock) -> SignTransactionPopUp {
+    class func make(toAddress: String,
+                    amount: BigUInt,
+                    data: Data,
+                    detailObject: Bool = false,
+                    success: @escaping StringBlock) -> SignTransactionPopUp {
         let vc = SignTransactionPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.data = data
+        vc.detailObject = detailObject
         vc.successBlock = success
         return vc
     }
@@ -198,7 +204,10 @@ class SignTransactionPopUp: UIViewController {
 
     func send() {
         do {
-            let signJson = try TransactionManager.signTransaction(to: toAddress!, amount: amount!, data: data!)
+            let signJson = try TransactionManager.signTransaction(to: toAddress!,
+                                                                  amount: amount!,
+                                                                  data: data!,
+                                                                  detailObject: detailObject)
             successBlock!(signJson)
             dismiss(animated: true, completion: nil)
         } catch let error as WalletError {

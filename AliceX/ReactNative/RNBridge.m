@@ -38,6 +38,7 @@ RCT_EXTERN_METHOD(signMessage:(NSString *)message
 RCT_EXTERN_METHOD(signTransaction:(NSString *)to
                   value:(NSString *)value
                   data:(NSString *)data
+                  detailObject:(BOOL *)detailObject
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
