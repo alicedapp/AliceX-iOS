@@ -62,4 +62,12 @@ class NativeVCModule: NSObject {
             topVC?.navigationController?.pushViewController(vc, animated: true)
         }
     }
+
+    @objc func getOrientation(_ resolve: @escaping RCTPromiseResolveBlock,
+                              reject _: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            let result = CallRNModule.getOrientation()
+            resolve(resolve)
+        }
+    }
 }
