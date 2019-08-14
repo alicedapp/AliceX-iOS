@@ -80,6 +80,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>PlayfairDisplay-Black.ttf</string>
+		<string>exocet-heavy.ttf</string>
+		<string>exocet.light.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

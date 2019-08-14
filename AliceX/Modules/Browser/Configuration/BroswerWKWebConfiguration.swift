@@ -30,36 +30,36 @@ extension WKWebViewConfiguration {
             const chainID = "\(server.chainID)"
             
             function executeCallback (id, error, value) {
-            AlphaWallet.executeCallback(id, error, value)
+            Alice.executeCallback(id, error, value)
             }
             
-            AlphaWallet.init(rpcURL, {
+            Alice.init(rpcURL, {
             getAccounts: function (cb) { alert('hello'); cb(null, [addressHex]) },
             processTransaction: function (tx, cb){
                 console.log('signing a transaction', tx)
                 const { id = 8888 } = tx
-                AlphaWallet.addCallback(id, cb)
+                Alice.addCallback(id, cb)
                 webkit.messageHandlers.signTransaction.postMessage({"name": "signTransaction", "object": tx, id: id})
             },
             signMessage: function (msgParams, cb) {
                 const { data } = msgParams
                 const { id = 8888 } = msgParams
                 console.log("signing a message", msgParams)
-                AlphaWallet.addCallback(id, cb)
+                Alice.addCallback(id, cb)
                 webkit.messageHandlers.signMessage.postMessage({"name": "signMessage", "object": { data }, id: id})
             },
             signPersonalMessage: function (msgParams, cb) {
                 const { data } = msgParams
                 const { id = 8888 } = msgParams
                 console.log("signing a personal message", msgParams)
-                AlphaWallet.addCallback(id, cb)
+                Alice.addCallback(id, cb)
                 webkit.messageHandlers.signPersonalMessage.postMessage({"name": "signPersonalMessage", "object": { data }, id: id})
             },
             signTypedMessage: function (msgParams, cb) {
                 const { data } = msgParams
                 const { id = 8888 } = msgParams
                 console.log("signing a typed message", msgParams)
-                AlphaWallet.addCallback(id, cb)
+                Alice.addCallback(id, cb)
                 webkit.messageHandlers.signTypedMessage.postMessage({"name": "signTypedMessage", "object": { data }, id: id})
             },
             enable: function() {
@@ -74,7 +74,7 @@ extension WKWebViewConfiguration {
             })
             
             web3.setProvider = function () {
-            console.debug('AlphaWallet Wallet - overrode web3.setProvider')
+            console.debug('Alice - overrode web3.setProvider')
             }
             
             web3.eth.defaultAccount = addressHex
