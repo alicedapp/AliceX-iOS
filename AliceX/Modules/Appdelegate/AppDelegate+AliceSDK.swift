@@ -59,7 +59,25 @@ func handleAliceURL(url: URL) -> Bool {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
 
-//    case "sendTransaction":
+    case "sendTransaction":
+        guard let to = dict["to"],
+            let valueRaw = dict["value"] else {
+            return false
+        }
+        guard let value = BigUInt(valueRaw.stripHexPrefix(), radix: 16) else {
+            HUDManager.shared.showError(text: "Parameters is invaild")
+            return false
+        }
+
+        TransactionManager.showPaymentView(toAddress: to,
+                                           amount: value,
+                                           data: Data(),
+                                           symbol: "ETH") { txHash in
+            let url = URL(string: "\(callback)://")!
+                .appending("method", value: method)
+                .appending("txHash", value: txHash)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
 
     default:
         break
