@@ -53,6 +53,8 @@
 		15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15477B4322E161A0008E3230 /* GasFeeViewController.xib */; };
 		15477B4722E184AA008E3230 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4622E184AA008E3230 /* BigInt.swift */; };
 		15477B4922E1AE18008E3230 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4822E1AE18008E3230 /* API.swift */; };
+		154E7F322306A9A200D571A8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F312306A9A100D571A8 /* URL.swift */; };
+		154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */; };
 		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
@@ -196,6 +198,8 @@
 		15477B4322E161A0008E3230 /* GasFeeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GasFeeViewController.xib; sourceTree = "<group>"; };
 		15477B4622E184AA008E3230 /* BigInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
 		15477B4822E1AE18008E3230 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		154E7F312306A9A100D571A8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+AliceSDK.swift"; sourceTree = "<group>"; };
 		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -770,6 +774,7 @@
 				15BC4DC522DAFAE800313CA9 /* UIImage.swift */,
 				15477B4622E184AA008E3230 /* BigInt.swift */,
 				15764E1422E9F93A00784848 /* GCD.swift */,
+				154E7F312306A9A100D571A8 /* URL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -838,6 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86B5822AA043F00110C06 /* AppDelegate.swift */,
+				154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -1314,6 +1320,7 @@
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
+				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
 				15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
@@ -1399,6 +1406,7 @@
 				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
+				154E7F322306A9A200D571A8 /* URL.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
 				15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */,
@@ -1558,6 +1566,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AliceX/ReactNative",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
@@ -1582,6 +1594,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

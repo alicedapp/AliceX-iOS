@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
-//            vc = QRCodeReaderViewController()
             vc = RNModule.makeViewController(module: .alice)
         } else {
             vc = LandingViewController()
@@ -77,5 +76,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     class func rnBridge() -> RCTBridge {
         return bridge!
+    }
+
+    func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        handleAliceURL(url: url)
+        return true
     }
 }
