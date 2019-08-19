@@ -16,7 +16,7 @@ class WalletCconnectHelper {
     static let shared = WalletCconnectHelper()
 
     var interactor: WCInteractor?
-    let clientMeta = WCPeerMeta(name: "WalletConnect SDK",
+    let clientMeta = WCPeerMeta(name: "Alice",
                                 url: "https://github.com/alicedapp/wallet-connect-swift")
     var defaultAddress: String = WalletManager.wallet!.address
     var defaultChainId: Int = Web3Net.currentNetwork.chainID
@@ -36,7 +36,8 @@ class WalletCconnectHelper {
         configure(interactor: interactor)
 
         interactor.connect().done { [weak self] connected in
-            self?.connectionStatusUpdated(connected)
+            guard let self = self else { return }
+            self.connectionStatusUpdated(connected)
         }.cauterize()
 
         self.interactor = interactor
@@ -47,17 +48,18 @@ class WalletCconnectHelper {
         let chainId = defaultChainId
 
         interactor.onSessionRequest = { [weak self] _, peer in
+            guard let self = self else { return }
             let message = [peer.description, peer.url].joined(separator: "\n")
 
-            self?.showAlert(title: "Login",
-                            content: message,
-                            comfirmText: "Approve",
-                            cancelText: "Reject",
-                            comfirmBlock: {
-                                self?.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
-                                HUDManager.shared.dismiss()
+            self.showAlert(title: "Login",
+                           content: message,
+                           comfirmText: "Approve",
+                           cancelText: "Reject",
+                           comfirmBlock: {
+                               self.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
+                               HUDManager.shared.dismiss()
             }) {
-                self?.interactor?.rejectSession().cauterize()
+                self.interactor?.rejectSession().cauterize()
             }
         }
 
@@ -110,6 +112,14 @@ class WalletCconnectHelper {
                 self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
                 HUDManager.shared.dismiss()
             }
+        }
+
+        interactor.onDappletCheck = { [weak self] id, _ in
+            self?.interactor?.approveRequest(id: id, result: "true").cauterize()
+        }
+
+        interactor.onDappletLoad = { [weak self] _, message in
+            CallRNModule.dappletEvent(message: message.first!)
         }
     }
 

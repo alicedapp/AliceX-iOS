@@ -17,6 +17,7 @@ class CallRNModule: RCTEventEmitter {
     static let addressKey = "address"
     static let networkKey = "network"
     static let orientationKey = "orientation"
+    static let dappletKey = "dapplets"
 
     // MARK: RCTEventEmitter
 
@@ -76,5 +77,16 @@ class CallRNModule: RCTEventEmitter {
             result = "portrait"
         }
         return result
+    }
+
+    // Daplet
+    static func dappletEvent(message: String) {
+        guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
+            print("CallRNModule - Failed to bridge")
+            return
+        }
+
+        let dappletInfo: [String: Any] = [dappletKey: message]
+        rnEventEmitter.sendEvent(withName: aliceEvent, body: dappletInfo)
     }
 }
