@@ -18,6 +18,7 @@ class CallRNModule: RCTEventEmitter {
     static let networkKey = "network"
     static let orientationKey = "orientation"
     static let dappletKey = "dapplets"
+    static let deeplinkKey = "deeplink"
 
     // MARK: RCTEventEmitter
 
@@ -77,6 +78,17 @@ class CallRNModule: RCTEventEmitter {
             result = "portrait"
         }
         return result
+    }
+
+    // Depp Link
+    static func deeplinkEvent(url: String) {
+        guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
+            print("CallRNModule - Failed to bridge")
+            return
+        }
+
+        let info: [String: Any] = [deeplinkKey: url]
+        rnEventEmitter.sendEvent(withName: aliceEvent, body: info)
     }
 
     // Daplet

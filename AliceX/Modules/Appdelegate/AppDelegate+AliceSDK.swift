@@ -18,6 +18,11 @@ func handleAliceURL(url: URL) -> Bool {
         }
     }
 
+    guard let _ = dict["toRN"] else {
+        CallRNModule.deeplinkEvent(url: url.absoluteString)
+        return true
+    }
+
     guard let method = dict["method"], let callback = dict["callback"] else {
         return false
     }
