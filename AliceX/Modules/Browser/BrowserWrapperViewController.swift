@@ -11,7 +11,8 @@ import Foundation
 // Wrapper Broswer For Switch Network
 class BrowserWrapperViewController: BaseViewController {
     var vc: BrowserViewController!
-    var urlString: String! = "https://www.duckduckgo.com/"
+    var urlString: String = "https://www.duckduckgo.com/"
+    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
     class func make(urlString: String) -> BrowserWrapperViewController {
         let vc = BrowserWrapperViewController()
@@ -35,6 +36,7 @@ class BrowserWrapperViewController: BaseViewController {
     func addBrowser() {
         vc = BrowserViewController()
         vc.urlString = urlString
+        vc.wrapper = self
         vc.willMove(toParent: self)
         vc.view.frame = view.bounds
         view.addSubview(vc.view)

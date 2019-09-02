@@ -116,7 +116,6 @@
             if (self.showFloatBall) {
                 self.floatViewController = self.tempFloatViewController;
                 if ([self haveIconImage]) {
-                    //TODO OC -> Swift error
                     self.floatBall.iconImageView.image = [self.floatViewController valueForKey:@"hk_iconImage"];
                 }
                 self.floatBall.alpha = 1;

@@ -24,7 +24,13 @@ class BrowserViewController: BaseViewController {
 //    "https://app.compound.finance/"
 //    "http://www.google.com"
 
-    @objc var hk_iconImage: UIImage!
+    weak var wrapper: BrowserWrapperViewController?
+
+    @objc var hk_iconImage: UIImage? {
+        didSet {
+            self.wrapper!.hk_iconImage = hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+        }
+    }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

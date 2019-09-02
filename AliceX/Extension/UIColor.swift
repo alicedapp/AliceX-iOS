@@ -54,4 +54,8 @@ extension UIColor {
                            alpha: CGFloat(alpha1 + (alpha2 - alpha1) * percentage))
         }
     }
+
+    class var random: UIColor {
+        return UIColor(red: .random(in: 0 ... 1), green: .random(in: 0 ... 1), blue: .random(in: 0 ... 1), alpha: 1.0)
+    }
 }

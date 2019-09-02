@@ -45,6 +45,14 @@
 		153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */; };
 		153A737222ECDCF0003371D3 /* MyQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A737022ECDCF0003371D3 /* MyQRCodeViewController.swift */; };
 		153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */; };
+		153B2808231B75250062B2E8 /* FloatBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B2807231B75250062B2E8 /* FloatBall.swift */; };
+		153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B2809231B7EBF0062B2E8 /* FloatPinView.swift */; };
+		153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B280C231BB89B0062B2E8 /* PinManager.swift */; };
+		153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B280E231BB8C60062B2E8 /* PinListViewController.swift */; };
+		153B2811231BB8C60062B2E8 /* PinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B280F231BB8C60062B2E8 /* PinListViewController.xib */; };
+		153B2814231BBA060062B2E8 /* PinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B2812231BBA060062B2E8 /* PinListCell.swift */; };
+		153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B2813231BBA060062B2E8 /* PinListCell.xib */; };
+		153B2817231BBE1F0062B2E8 /* FloatBall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B2816231BBE1F0062B2E8 /* FloatBall.xib */; };
 		15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3922E15B03008E3230 /* EthGasStation.swift */; };
 		15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3C22E15B4C008E3230 /* Moya+Util.swift */; };
 		15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */; };
@@ -190,6 +198,14 @@
 		153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNViewController.swift; sourceTree = "<group>"; };
 		153A737022ECDCF0003371D3 /* MyQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQRCodeViewController.swift; sourceTree = "<group>"; };
 		153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyQRCodeViewController.xib; sourceTree = "<group>"; };
+		153B2807231B75250062B2E8 /* FloatBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatBall.swift; sourceTree = "<group>"; };
+		153B2809231B7EBF0062B2E8 /* FloatPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatPinView.swift; sourceTree = "<group>"; };
+		153B280C231BB89B0062B2E8 /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
+		153B280E231BB8C60062B2E8 /* PinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListViewController.swift; sourceTree = "<group>"; };
+		153B280F231BB8C60062B2E8 /* PinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinListViewController.xib; sourceTree = "<group>"; };
+		153B2812231BBA060062B2E8 /* PinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListCell.swift; sourceTree = "<group>"; };
+		153B2813231BBA060062B2E8 /* PinListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinListCell.xib; sourceTree = "<group>"; };
+		153B2816231BBE1F0062B2E8 /* FloatBall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatBall.xib; sourceTree = "<group>"; };
 		15477B3922E15B03008E3230 /* EthGasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthGasStation.swift; sourceTree = "<group>"; };
 		15477B3C22E15B4C008E3230 /* Moya+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Util.swift"; sourceTree = "<group>"; };
 		15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasPriceHelper.swift; sourceTree = "<group>"; };
@@ -426,6 +442,53 @@
 				153A737122ECDCF0003371D3 /* MyQRCodeViewController.xib */,
 			);
 			path = MyQRCode;
+			sourceTree = "<group>";
+		};
+		153B2803231B74940062B2E8 /* Pin */ = {
+			isa = PBXGroup;
+			children = (
+				153B280B231BB8890062B2E8 /* ViewController */,
+				153B2806231B74EB0062B2E8 /* View */,
+				153B2805231B74E20062B2E8 /* Other */,
+				153B2804231B74D70062B2E8 /* Transition */,
+				153B280C231BB89B0062B2E8 /* PinManager.swift */,
+			);
+			path = Pin;
+			sourceTree = "<group>";
+		};
+		153B2804231B74D70062B2E8 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		153B2805231B74E20062B2E8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		153B2806231B74EB0062B2E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				153B2807231B75250062B2E8 /* FloatBall.swift */,
+				153B2816231BBE1F0062B2E8 /* FloatBall.xib */,
+				153B2809231B7EBF0062B2E8 /* FloatPinView.swift */,
+				153B2812231BBA060062B2E8 /* PinListCell.swift */,
+				153B2813231BBA060062B2E8 /* PinListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		153B280B231BB8890062B2E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				153B280E231BB8C60062B2E8 /* PinListViewController.swift */,
+				153B280F231BB8C60062B2E8 /* PinListViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		15477B3B22E15B09008E3230 /* EthGasStation */ = {
@@ -814,6 +877,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				153B2803231B74940062B2E8 /* Pin */,
 				15CB1F2A22F16C4900E3075C /* WalletConnect */,
 				152151EC22ECB7A300A4613A /* QRcode */,
 				1526B61F22E894CF007663E5 /* Hide */,
@@ -946,10 +1010,10 @@
 		15E845E022DBA141008F8AD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				15E845E122DBA141008F8AD2 /* HKFloatBall.m */,
-				15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */,
-				15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */,
 				15E845E422DBA141008F8AD2 /* HKFloatBall.h */,
+				15E845E122DBA141008F8AD2 /* HKFloatBall.m */,
+				15E845E322DBA141008F8AD2 /* HKFloatAreaView.m */,
+				15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1096,6 +1160,7 @@
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
+				153B2817231BBE1F0062B2E8 /* FloatBall.xib in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
@@ -1115,8 +1180,10 @@
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
 				15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */,
+				153B2811231BB8C60062B2E8 /* PinListViewController.xib in Resources */,
 				BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */,
 				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
+				153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
@@ -1328,6 +1395,7 @@
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,
+				153B2814231BBA060062B2E8 /* PinListCell.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
@@ -1338,6 +1406,7 @@
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
+				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
@@ -1353,6 +1422,7 @@
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */,
+				153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */,
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
@@ -1383,7 +1453,9 @@
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
+				153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
+				153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */,
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
 				15E845EA22DBA141008F8AD2 /* NSObject+hkvc.m in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,

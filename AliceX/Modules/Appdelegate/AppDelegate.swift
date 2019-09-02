@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             #if DEBUG
                 return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
             #else
-                return CodePush.bundleURL()
+                return CodePush.addFloatVcsbundleURL()
             #endif
         }
 
@@ -54,8 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         navi = rootVC
 
-        HKFloatManager.addFloatVcs([NSStringFromClass(BrowserViewController.self),
-                                    NSStringFromClass(BrowserWrapperViewController.self)])
+//        HKFloatManager.addFloatVcs([NSStringFromClass(BrowserViewController.self),
+//                                    NSStringFromClass(BrowserWrapperViewController.self)])
+
+        PinManager.shared.show()
 
         return true
     }
