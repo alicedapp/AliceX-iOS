@@ -73,7 +73,7 @@
                                     <constraint firstItem="10j-dH-89h" firstAttribute="centerY" secondItem="fpY-k5-OhX" secondAttribute="centerY" id="sbX-fC-kPW"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="closButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="llA-lI-NfN"/>
+                                    <action selector="closeButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nwP-rS-xtY"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -97,6 +97,9 @@
                                 <color key="value" red="0.89218896380360269" green="0.89218896380360269" blue="0.89218896380360269" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="enterClickWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LHn-zo-3ep"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>

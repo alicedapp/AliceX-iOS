@@ -38,6 +38,7 @@
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529411B231D82940044C92D /* PinTransitionPop.swift */; };
 		1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1535C2CB22F1643500C62FDC /* BaseAlertView.xib */; };
 		1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535C2CC22F1643500C62FDC /* BaseAlertView.swift */; };
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
@@ -53,6 +54,8 @@
 		153B2814231BBA060062B2E8 /* PinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B2812231BBA060062B2E8 /* PinListCell.swift */; };
 		153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B2813231BBA060062B2E8 /* PinListCell.xib */; };
 		153B2817231BBE1F0062B2E8 /* FloatBall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B2816231BBE1F0062B2E8 /* FloatBall.xib */; };
+		153B2819231CFDBB0062B2E8 /* PinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B2818231CFDBB0062B2E8 /* PinItem.swift */; };
+		153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B281B231D465D0062B2E8 /* PinTransitionPush.swift */; };
 		15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3922E15B03008E3230 /* EthGasStation.swift */; };
 		15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3C22E15B4C008E3230 /* Moya+Util.swift */; };
 		15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */; };
@@ -191,6 +194,7 @@
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		1529411B231D82940044C92D /* PinTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTransitionPop.swift; sourceTree = "<group>"; };
 		1535C2CB22F1643500C62FDC /* BaseAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseAlertView.xib; sourceTree = "<group>"; };
 		1535C2CC22F1643500C62FDC /* BaseAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertView.swift; sourceTree = "<group>"; };
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		153B2812231BBA060062B2E8 /* PinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListCell.swift; sourceTree = "<group>"; };
 		153B2813231BBA060062B2E8 /* PinListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinListCell.xib; sourceTree = "<group>"; };
 		153B2816231BBE1F0062B2E8 /* FloatBall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatBall.xib; sourceTree = "<group>"; };
+		153B2818231CFDBB0062B2E8 /* PinItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinItem.swift; sourceTree = "<group>"; };
+		153B281B231D465D0062B2E8 /* PinTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTransitionPush.swift; sourceTree = "<group>"; };
 		15477B3922E15B03008E3230 /* EthGasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthGasStation.swift; sourceTree = "<group>"; };
 		15477B3C22E15B4C008E3230 /* Moya+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Util.swift"; sourceTree = "<group>"; };
 		15477B3E22E15BDA008E3230 /* GasPriceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasPriceHelper.swift; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				153B2805231B74E20062B2E8 /* Other */,
 				153B2804231B74D70062B2E8 /* Transition */,
 				153B280C231BB89B0062B2E8 /* PinManager.swift */,
+				153B2818231CFDBB0062B2E8 /* PinItem.swift */,
 			);
 			path = Pin;
 			sourceTree = "<group>";
@@ -459,6 +466,8 @@
 		153B2804231B74D70062B2E8 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
+				153B281B231D465D0062B2E8 /* PinTransitionPush.swift */,
+				1529411B231D82940044C92D /* PinTransitionPop.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -989,10 +998,10 @@
 		15E845D622DBA141008F8AD2 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
-				15E845D722DBA141008F8AD2 /* HKTransitionPush.m */,
-				15E845D822DBA141008F8AD2 /* HKTransitionPop.m */,
 				15E845D922DBA141008F8AD2 /* HKTransitionPush.h */,
+				15E845D722DBA141008F8AD2 /* HKTransitionPush.m */,
 				15E845DA22DBA141008F8AD2 /* HKTransitionPop.h */,
+				15E845D822DBA141008F8AD2 /* HKTransitionPop.m */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -1387,6 +1396,7 @@
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
+				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
 				15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
@@ -1408,6 +1418,7 @@
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
+				153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */,
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
@@ -1421,6 +1432,7 @@
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
+				153B2819231CFDBB0062B2E8 /* PinItem.swift in Sources */,
 				15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */,
 				153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */,
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,

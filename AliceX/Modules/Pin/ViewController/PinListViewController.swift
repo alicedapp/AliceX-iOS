@@ -10,7 +10,9 @@ import UIKit
 
 class PinListViewController: BaseViewController {
     var pinList: [Any]?
-//    @IBOutlet var visualView: UIVisualEffectView!
+
+    var previousVC: UIViewController?
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var tableHeight: NSLayoutConstraint!
 
@@ -35,6 +37,7 @@ class PinListViewController: BaseViewController {
         }) { _ in
             self.dismiss(animated: false, completion: nil)
             self.view.alpha = 1
+            PinManager.show()
         }
     }
 
@@ -60,6 +63,8 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PinListCell.nameOfClass, for: indexPath) as! PinListCell
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        cell.previousVC = previousVC
+        cell.parentVC = self
         switch indexPath.item {
         case 0:
             cell.configure(image: UIImage.imageWithColor(color: UIColor.random), text: "AAAA", isTransaction: false)
@@ -87,3 +92,19 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt _: IndexPath) {}
 }
+
+// extension PinListViewController: UINavigationControllerDelegate {
+//    func navigationController(_: UINavigationController,
+//                              animationControllerFor operation: UINavigationController.Operation,
+//                              from _: UIViewController,
+//                              to _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .push:
+//            return PinTransitionPush()
+////        case .pop:
+////            return FadePopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+// }

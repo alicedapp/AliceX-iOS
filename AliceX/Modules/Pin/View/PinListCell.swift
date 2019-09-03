@@ -9,6 +9,9 @@
 import UIKit
 
 class PinListCell: UITableViewCell {
+    var previousVC: UIViewController?
+    var parentVC: UIViewController?
+
     @IBOutlet var pinImageView: UIImageView!
     @IBOutlet var pinTextLabel: UILabel!
     @IBOutlet var progressView: RPCircularProgress!
@@ -41,5 +44,23 @@ class PinListCell: UITableViewCell {
         progressView.isHidden = !isTransaction
     }
 
-    @IBAction func closButtonClick() {}
+    @IBAction func enterClick(sender: UIControl) {
+        guard let frame = sender.superview?.convert(sender.frame, from: UIApplication.topViewController()?.view) else {
+            return
+        }
+//        if (frame?.origin.y)! < CGFloat(0) {
+//            frame?.origin.y = -(frame?.origin.y)!
+//        }
+        PinTransitionPush.pushCellFrame = CGRect(x: frame.origin.x,
+                                                 y: -frame.origin.y,
+                                                 width: frame.width,
+                                                 height: frame.height)
+
+        parentVC?.dismiss(animated: true, completion: {
+            let vc = BrowserWrapperViewController()
+            self.previousVC?.navigationController?.pushViewController(vc, animated: true)
+        })
+    }
+
+    @IBAction func closeButtonClick() {}
 }
