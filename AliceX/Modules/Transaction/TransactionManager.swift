@@ -206,12 +206,14 @@ class TransactionManager {
             }
         }
 
-        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+        guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
             throw WalletError.malformedKeystore
         }
 
         let gasPrice = gasPrice.wei
-        let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2)
+        guard let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2) else {
+            throw WalletError.contractFailure
+        }
 
         var options = TransactionOptions.defaultOptions
         options.value = notERC20 ? value : nil
@@ -220,12 +222,15 @@ class TransactionManager {
 //            .automatic
             .manual(gasPrice)
         options.gasLimit = .automatic
-        let tx = contract!.write(
+
+        guard let tx = contract.write(
             functionName,
             parameters: parameters as [AnyObject],
             extraData: extraData,
             transactionOptions: options
-        )!
+        ) else {
+            throw WalletError.contractFailure
+        }
 
         do {
             let sendResult = try tx.send()

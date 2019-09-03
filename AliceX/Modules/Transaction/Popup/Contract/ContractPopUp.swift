@@ -99,7 +99,7 @@ class ContractPopUp: UIViewController {
         paramterLabel.speed = .duration(10)
         paramterLabel.fadeLength = 10.0
         paramterLabel.trailingBuffer = 30.0
-        paramterLabel.text = (parameters as! [String]).compactMap { $0 }.joined(separator: ", ")
+        paramterLabel.text = parameters!.compactMap { "\($0)" }.joined(separator: ", ")
 
         paramterLabel.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pauseTap))

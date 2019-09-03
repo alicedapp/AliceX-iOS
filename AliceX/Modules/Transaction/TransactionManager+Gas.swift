@@ -38,17 +38,25 @@ extension TransactionManager {
             }
 
             let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
-            let contract = WalletManager.web3Net.contract(contractABI, at: toAddress, abiVersion: 2)!
+            guard let contract = WalletManager.web3Net.contract(contractABI, at: toAddress, abiVersion: 2) else {
+                seal.reject(WalletError.contractFailure)
+                return
+            }
             let value = amount
             var options = TransactionOptions.defaultOptions
             options.value = value
             options.from = walletAddress
             options.to = toAddress
 
-            let tx = contract.write(methodName,
-                                    parameters: methodParams,
-                                    extraData: data,
-                                    transactionOptions: options)!
+            guard let tx = contract.write(
+                methodName,
+                parameters: methodParams,
+                extraData: data,
+                transactionOptions: options
+            ) else {
+                seal.reject(WalletError.contractFailure)
+                return
+            }
 
             tx.estimateGasPromise().done { value in
                 seal.fulfill(value)
