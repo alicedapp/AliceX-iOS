@@ -10,6 +10,7 @@ import CodePush
 import IQKeyboardManagerSwift
 import React
 import UIKit
+import web3swift
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -57,8 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        HKFloatManager.addFloatVcs([NSStringFromClass(BrowserViewController.self),
 //                                    NSStringFromClass(BrowserWrapperViewController.self)])
 
-        PinManager.shared
-        PinManager.show()
+//        PinManager.shared
+//        PinManager.show()
 
         return true
     }

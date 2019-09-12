@@ -10,6 +10,17 @@ import Foundation
 import web3swift
 
 extension String {
+    
+    func isEmptyAfterTrim() -> Bool {
+        let string = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return string.count == 0
+    }
+    
+    func trimed() -> String {
+        let string = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return string
+    }
+    
     func toJSON() -> Any? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)

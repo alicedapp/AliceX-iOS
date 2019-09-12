@@ -47,6 +47,15 @@ extension Notification.Name {
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
+//    static let addCustomRPC = Notification.Name("addCustomRPC")
+//    static let updateCustomRPC = Notification.Name("updateRPC")
+    static let customRPCChange = Notification.Name("customRPCChange")
+}
+
+
+class CacheKey {
+    static let web3NetStoreKey = "alice.web3.net"
+    static let web3CustomRPCKey = "alice.web3.custom.rpc"
 }
 
 class Constant {
@@ -66,4 +75,8 @@ class Constant {
 
     static let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.width
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
+}
+
+extension Constant {
+    static let infuraKey = "da3717f25f824cc1baa32d812386d93f"
 }

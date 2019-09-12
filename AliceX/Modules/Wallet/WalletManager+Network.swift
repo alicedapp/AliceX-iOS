@@ -6,31 +6,95 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import Foundation
 import HandyJSON
 import web3swift
 
-struct Web3NetModel: HandyJSON {
+struct Web3NetModel: HandyJSON, Equatable{
     var name: String!
     var chainID: Int!
     var color: String!
     var rpcURL: String!
+    
+//    static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
+//        return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL
+//    }
 }
 
-private let web3NetStoreKey = "alice.web3.net"
+struct Web3NetModelList: HandyJSON {
+    var list: [Web3NetModel]!
+}
 
-enum Web3NetEnum: String, CaseIterable {
+enum Web3NetEnum: CaseIterable, Equatable {
     case main
     case ropsten
     case kovan
     case rinkeby
     case goerli
     case poa
-//    case xDai
-    case custom
+    case xDai
+    case custom(Web3NetModel)
+    
+    init(model: Web3NetModel) {
+        switch model {
+        case Web3NetEnum.main.model:
+            self = Web3NetEnum.main
+        case Web3NetEnum.ropsten.model:
+            self = Web3NetEnum.ropsten
+        case Web3NetEnum.kovan.model:
+            self = Web3NetEnum.kovan
+        case Web3NetEnum.rinkeby.model:
+            self = Web3NetEnum.rinkeby
+        case Web3NetEnum.goerli.model:
+            self = Web3NetEnum.goerli
+        case Web3NetEnum.poa.model:
+            self = Web3NetEnum.poa
+        case Web3NetEnum.xDai.model:
+            self = Web3NetEnum.xDai
+        default: // Custom
+            self = Web3NetEnum.custom(model)
+        }
+    }
+    
+    static var allCases: [Web3NetEnum] {
+        let defaultList: [Web3NetEnum] = [.main, .ropsten, .kovan, .rinkeby, .goerli, .poa, .xDai]
+        let customList = WalletManager.customNetworkList.map{
+            Web3NetEnum(model: $0)
+        }
+        return defaultList + customList
+    }
+    
+    static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
+        return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL && lhs.name == rhs.name
+    }
 }
 
 extension Web3NetEnum {
+    
+    var name: String {
+        switch self {
+        case .main:
+            return "Main"
+        case .ropsten:
+            return "Ropsten"
+        case .kovan:
+            return "Kovan"
+        case .rinkeby:
+            return "Rinkeby"
+        case .goerli:
+            return "Goerli"
+        case .poa:
+            return "Poa"
+        case .xDai:
+            return "xDai"
+        case .custom(let model):
+            return model.name
+        default:
+            return "Custom"
+        }
+    }
+    
     var color: UIColor {
         switch self {
         case .main:
@@ -45,8 +109,12 @@ extension Web3NetEnum {
             return UIColor(hex: "#4383DE")
         case .poa:
             return UIColor(hex: "#F19164")
+        case .xDai:
+            return UIColor(hex: "#98CEED")
+        case .custom(let model):
+            return UIColor(hex: model.color)
         default:
-            return UIColor.white
+            return UIColor.lightGray
         }
     }
 
@@ -57,43 +125,76 @@ extension Web3NetEnum {
         case .ropsten: return 3
         case .rinkeby: return 4
         case .poa: return 99
-//        case .xDai: return 100
+        case .xDai: return 100
         case .goerli: return 5
-//        case .custom(let custom):
-//            return custom.chainID
-        // TODO: Custom
-        case .custom: return -1
+//        case .custom(let chainID): return chainID
+        case .custom(let model):
+            return model.chainID
         }
     }
 
     var rpcURL: URL {
         let urlString: String = {
             switch self {
-            case .main: return "https://mainnet.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
-            case .kovan: return "https://kovan.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
-            case .ropsten: return "https://ropsten.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
-            case .rinkeby: return "https://rinkeby.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
+            case .main: return "https://mainnet.infura.io/v3/\(Constant.infuraKey)"
+            case .kovan: return "https://kovan.infura.io/v3/\(Constant.infuraKey)"
+            case .ropsten: return "https://ropsten.infura.io/v3/\(Constant.infuraKey)"
+            case .rinkeby: return "https://rinkeby.infura.io/v3/\(Constant.infuraKey)"
             case .poa: return "https://core.poa.network"
-            case .goerli: return "https://goerli.infura.io/v3/da3717f25f824cc1baa32d812386d93f"
-//            case .xDai: return "https://dai.poa.network"
-            case .custom: return ""
+            case .goerli: return "https://goerli.infura.io/v3/\(Constant.infuraKey)"
+            case .xDai: return "https://dai.poa.network"
+            case .custom(let model):
+                return model.rpcURL
             }
         }()
         return URL(string: urlString)!
     }
+    
+    var isUsingInfura: Bool {
+        switch self {
+        case .main, .ropsten, .kovan, .rinkeby, .goerli:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var isCustom: Bool {
+        switch self {
+        case .main, .ropsten, .kovan, .rinkeby, .goerli, .poa, .xDai:
+            return false
+        default:
+            return true
+        }
+    }
 
     var model: Web3NetModel {
-        return Web3NetModel(name: rawValue,
-                            chainID: self.chainID,
-                            color: self.color.toHexString(),
+        return Web3NetModel(name: name,
+                            chainID: chainID,
+                            color: color.toHexString(),
                             rpcURL: rpcURL.absoluteString)
     }
+
+    var network: Networks {
+        switch self {
+        case .main: return .Mainnet
+        case .rinkeby: return .Rinkeby
+        case .ropsten: return .Ropsten
+        case .kovan: return .Kovan
+        case .goerli: return .Custom(networkID: 5)
+        case .poa: return .Custom(networkID: 99)
+        case .xDai: return .Custom(networkID: 100)
+        case .custom(let model):
+            return .Custom(networkID: BigUInt(model.chainID))
+//        case .custom(let chainID): return .Custom(networkID: chainID)
+        }
+    }
+    
 }
 
-class Web3Net {
-    static var currentNetwork: Web3NetEnum = .main
+extension WalletManager {
 
-    class func make(type: Web3NetEnum, customURL: String = "https://mainnet.infura.io/v3/") throws -> web3 {
+    class func make(type: Web3NetEnum, customURL _: String = "https://mainnet.infura.io/v3/") throws -> web3 {
         switch type {
         case .main:
             return Web3.InfuraMainnetWeb3()
@@ -105,16 +206,9 @@ class Web3Net {
             return web3(provider: InfuraProvider(.Kovan)!)
         case .goerli:
             return web3(provider: InfuraProvider(.Custom(networkID: 5))!)
-        case .poa:
+        case .xDai, .poa, .custom:
             do {
-                let net = try Web3Net.customNet(url: "https://core.poa.network")
-                return net
-            } catch {
-                throw error
-            }
-        case .custom:
-            do {
-                let net = try Web3Net.customNet(url: customURL)
+                let net = try WalletManager.customNet(url: type.rpcURL.absoluteString)
                 return net
             } catch {
                 throw error
@@ -128,6 +222,7 @@ class Web3Net {
         guard let URL = URL(string: url), let web3Url = Web3HttpProvider(URL) else {
             throw WalletError.netSwitchFailure
         }
+
         let net = web3(provider: web3Url)
         return net
     }
@@ -138,27 +233,31 @@ class Web3Net {
         return UserDefaults.standard.object(forKey: key) != nil
     }
 
-    class func storeInCache(type: Web3NetEnum) {
-        UserDefaults.standard.set(type.rawValue, forKey: web3NetStoreKey)
+    class func storeInCache(type: Web3NetModel) {
+        UserDefaults.standard.set(type.toJSONString(), forKey: CacheKey.web3NetStoreKey)
     }
 
     class func fetchFromCache() -> web3 {
+
         // Not find the key in UserDefault use MainNet
-        if !Web3Net.isKeyPresentInUserDefaults(key: web3NetStoreKey) {
-            Web3Net.storeInCache(type: .main)
+        if !WalletManager.isKeyPresentInUserDefaults(key: CacheKey.web3NetStoreKey) {
+            let net = Web3NetEnum.main
+            WalletManager.storeInCache(type: net.model)
             return Web3.InfuraMainnetWeb3()
         }
 
-        guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
-            let type = Web3NetEnum(rawValue: typeString) else {
+        guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
+            let model = Web3NetModel.deserialize(from: typeString) else {
             // TODO:
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return Web3.InfuraMainnetWeb3()
         }
+        
+        let type = Web3NetEnum(model: model)
 
         do {
-            let net = try Web3Net.make(type: type)
-            Web3Net.currentNetwork = type
+            let net = try WalletManager.make(type: type)
+            WalletManager.currentNetwork = type
             return net
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
@@ -170,26 +269,29 @@ class Web3Net {
     }
 
     class func fetchFromCache() -> String {
-        guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
-            let type = Web3NetEnum(rawValue: typeString) else {
+        guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
+            let model = Web3NetModel.deserialize(from: typeString) else {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return "Main"
         }
-        return typeString
+        let type = Web3NetEnum(model: model)
+        return type.name
     }
 
     class func fetchFromCache() -> Web3NetEnum {
-        guard let typeString = UserDefaults.standard.string(forKey: web3NetStoreKey),
-            let type = Web3NetEnum(rawValue: typeString) else {
+        guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
+            let model = Web3NetModel.deserialize(from: typeString) else {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return .main
         }
+        
+        let type = Web3NetEnum(model: model)
         return type
     }
 
     // MARK: - Update
 
-    class func upodateNetworkSelection(type: Web3NetEnum) {
+    class func updateNetworkSelection(type: Web3NetEnum) {
         WalletManager.updateNetwork(type: type)
     }
 }

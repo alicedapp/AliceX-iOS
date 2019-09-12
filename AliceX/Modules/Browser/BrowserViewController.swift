@@ -42,7 +42,7 @@ class BrowserViewController: BaseViewController {
 
         navigationController?.navigationBar.barStyle = .default
 
-        config = WKWebViewConfiguration.make(forServer: Web3Net.currentNetwork,
+        config = WKWebViewConfiguration.make(forServer: WalletManager.currentNetwork,
                                              address: WalletManager.wallet!.address,
                                              in: ScriptMessageProxy(delegate: self))
         config.websiteDataStore = WKWebsiteDataStore.default()

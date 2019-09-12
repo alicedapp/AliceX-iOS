@@ -15,6 +15,17 @@ import web3swift
 class TransactionManager {
     static let shared = TransactionManager()
 
+    var socketProvider: WebsocketProvider?
+
+    init() {
+        guard let provider = WebsocketProvider(WalletManager.currentNetwork.rpcURL, delegate: self) else {
+            return
+        }
+        socketProvider = provider
+        socketProvider?.connectSocket()
+//        try! socketProvider?.subscribeOnLogs(addresses: [EthereumAddress(WalletManager.wallet!.address)!], topics: [""])
+    }
+
     // MARK: - Smart Contract Popup
 
     class func showContractWriteView(contractAddress: String,

@@ -42,7 +42,7 @@ class WalletModule: NSObject {
 
     @objc func getNetwork(_ resolve: @escaping RCTPromiseResolveBlock, reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
-            let network = Web3Net.currentNetwork.model.toJSONString()
+            let network = WalletManager.currentNetwork.model.toJSONString()
             resolve(network)
         }
     }

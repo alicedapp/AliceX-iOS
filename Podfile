@@ -21,6 +21,9 @@ target 'AliceX' do
   pod 'Kingfisher'
   pod 'WalletConnect', git: 'https://github.com/alicedapp/swift-walletconnect-lib', branch: 'master'
 #  pod 'lottie-ios'
+#  pod 'Track', :git => 'https://github.com/maquannene/Track.git', :branch => 'master'
+#  pod 'Cache'
+#  pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

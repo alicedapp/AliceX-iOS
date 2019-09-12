@@ -32,7 +32,7 @@ class FloatBall: UIView {
     func configure() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
         addGestureRecognizer(tap)
-        imageView.image = UIImage.imageWithColor(color: Web3Net.currentNetwork.color)
+        imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
 
         progressView.enableIndeterminate()
 

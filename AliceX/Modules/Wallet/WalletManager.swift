@@ -12,6 +12,9 @@ import web3swift
 class WalletManager {
     static let shared = WalletManager()
     static var wallet: Wallet?
+    static var currentNetwork: Web3NetEnum = .main
+    
+    static var customNetworkList: [Web3NetModel] = []
 
     #if DEBUG
         static var web3Net = Web3.InfuraRinkebyWeb3()
@@ -49,7 +52,9 @@ class WalletManager {
             return
         }
         // Load web3 net from user default
-        web3Net = Web3Net.fetchFromCache()
+        web3Net = WalletManager.fetchFromCache()
+        
+        WalletManager.shared.loadRPCFromCache()
 
         WalletManager.shared.keystore = keystore
         let name = Setting.WalletName
@@ -148,11 +153,11 @@ class WalletManager {
     class func updateNetwork(type: Web3NetEnum) {
 //        let web3:web3 = Web3Net.fetchFromCache()
         do {
-            let net = try Web3Net.make(type: type)
+            let net = try WalletManager.make(type: type)
             WalletManager.web3Net = net
             addKeyStoreIfNeeded()
-            Web3Net.storeInCache(type: type)
-            Web3Net.currentNetwork = type
+            WalletManager.storeInCache(type: type.model)
+            WalletManager.currentNetwork = type
             NotificationCenter.default.post(name: .networkChange, object: type)
 
             let generator = UIImpactFeedbackGenerator(style: .light)

@@ -23,17 +23,17 @@ class NetworkTableViewCell: UITableViewCell {
         selectLabel.isHidden = !selected
     }
 
-    func configure(network: String) {
+    func configure(network: Web3NetEnum) {
 //        if network.lowercased() == Web3Net.currentNetwork.rawValue {
 //            selectLabel.isHidden = false
 //            isSelected = true
 //        }
-        colorView.backgroundColor = Web3NetEnum(rawValue: network.lowercased())?.color
-        nameLabel.text = network
+        colorView.backgroundColor = network.color
+        nameLabel.text = network.name
     }
 
 //    @IBAction func cellClicked() {
 //        let netName = nameLabel.text?.lowercased()
-//        Web3Net.upodateNetworkSelection(type: Web3NetEnum(rawValue: netName!)!)
+//        Web3Net.updateNetworkSelection(type: Web3NetEnum(rawValue: netName!)!)
 //    }
 }

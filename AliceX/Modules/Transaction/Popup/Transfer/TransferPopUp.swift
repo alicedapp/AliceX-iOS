@@ -142,17 +142,17 @@ class TransferPopUp: UIViewController {
     // MARK: Error
 
     func errorAlert(text: String) {
-        erorAnimation()
+        errorAnimation()
         titleLabel.text = text
         titleLabel.textColor = Color.red
         delay(3) {
-            self.erorAnimation()
+            self.errorAnimation()
             self.titleLabel.text = "🤑 Transfer"
             self.titleLabel.textColor = UIColor.lightGray
         }
     }
 
-    func erorAnimation() {
+    func errorAnimation() {
         let transition = CATransition()
         transition.duration = 0.3
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)

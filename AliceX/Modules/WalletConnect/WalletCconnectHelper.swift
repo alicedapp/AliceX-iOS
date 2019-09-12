@@ -19,7 +19,7 @@ class WalletCconnectHelper {
     let clientMeta = WCPeerMeta(name: "Alice",
                                 url: "https://github.com/alicedapp/wallet-connect-swift")
     var defaultAddress: String = WalletManager.wallet!.address
-    var defaultChainId: Int = Web3Net.currentNetwork.chainID
+    var defaultChainId: Int = WalletManager.currentNetwork.chainID
 
     func fromQRCode(scanString: String) {
         guard let session = WCSession.from(string: scanString) else {

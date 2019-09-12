@@ -113,6 +113,16 @@
 		158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* WalletModule.swift */; };
 		158B375922AF5DB3005FECAB /* RNBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B375822AF5DB3005FECAB /* RNBridge.m */; };
 		159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159085D822CCAC32000BA7E4 /* CGRect.swift */; };
+		15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */; };
+		15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A18161232922E400DFE686 /* RPCCustomViewController.swift */; };
+		15A18164232922E400DFE686 /* RPCCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A18162232922E400DFE686 /* RPCCustomViewController.xib */; };
+		15A181672329246100DFE686 /* RPCCustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A181662329246100DFE686 /* RPCCustomFooterView.swift */; };
+		15A18169232924B000DFE686 /* RPCCustomFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A18168232924B000DFE686 /* RPCCustomFooterView.xib */; };
+		15A18177232A304F00DFE686 /* WalletManager+CustomRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A18176232A304F00DFE686 /* WalletManager+CustomRPC.swift */; };
+		15A18179232A40EA00DFE686 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A18178232A40EA00DFE686 /* Util.swift */; };
+		15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0EE232A6A46007A63A3 /* CacheManager.swift */; };
+		15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F0232A7E73007A63A3 /* CustomNetworkCell.swift */; };
+		15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */; };
 		15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403822E043550059FB18 /* TransactionManager+Gas.swift */; };
 		15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */; };
 		15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */; };
@@ -270,6 +280,16 @@
 		158B375622AF5C8B005FECAB /* WalletModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModule.swift; sourceTree = "<group>"; };
 		158B375822AF5DB3005FECAB /* RNBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridge.m; sourceTree = "<group>"; };
 		159085D822CCAC32000BA7E4 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Pending.swift"; sourceTree = "<group>"; };
+		15A18161232922E400DFE686 /* RPCCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RPCCustomViewController.swift; path = AliceX/Modules/Setting/Network/RPCCustomViewController.swift; sourceTree = SOURCE_ROOT; };
+		15A18162232922E400DFE686 /* RPCCustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RPCCustomViewController.xib; path = AliceX/Modules/Setting/Network/RPCCustomViewController.xib; sourceTree = SOURCE_ROOT; };
+		15A181662329246100DFE686 /* RPCCustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RPCCustomFooterView.swift; path = AliceX/Modules/Setting/Network/Cell/RPCCustomFooterView.swift; sourceTree = SOURCE_ROOT; };
+		15A18168232924B000DFE686 /* RPCCustomFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RPCCustomFooterView.xib; path = AliceX/Modules/Setting/Network/Cell/RPCCustomFooterView.xib; sourceTree = SOURCE_ROOT; };
+		15A18176232A304F00DFE686 /* WalletManager+CustomRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+CustomRPC.swift"; sourceTree = "<group>"; };
+		15A18178232A40EA00DFE686 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		15A4F0EE232A6A46007A63A3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		15A4F0F0232A7E73007A63A3 /* CustomNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AliceX/Modules/Setting/network/Cell/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
+		15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AliceX/Modules/Setting/network/Cell/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
 		15AF403822E043550059FB18 /* TransactionManager+Gas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Gas.swift"; sourceTree = "<group>"; };
 		15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinmarketcap.swift; sourceTree = "<group>"; };
 		15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapModel.swift; sourceTree = "<group>"; };
@@ -395,6 +415,7 @@
 				1527873122AE209100D63C7F /* Popup */,
 				1527873922AE216C00D63C7F /* TransactionManager.swift */,
 				15AF403822E043550059FB18 /* TransactionManager+Gas.swift */,
+				15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -512,10 +533,11 @@
 		156548EE22CDC30F005C8B2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				15A181652329242500DFE686 /* Cell */,
 				156548EF22CDC330005C8B2D /* NetworkSwitchViewController.swift */,
 				156548F022CDC330005C8B2D /* NetworkSwitchViewController.xib */,
-				156548F322CDC5BB005C8B2D /* NetworkTableViewCell.swift */,
-				156548F422CDC5BB005C8B2D /* NetworkTableViewCell.xib */,
+				15A18161232922E400DFE686 /* RPCCustomViewController.swift */,
+				15A18162232922E400DFE686 /* RPCCustomViewController.xib */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -718,6 +740,27 @@
 			path = ReactNative;
 			sourceTree = "<group>";
 		};
+		15A181652329242500DFE686 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15A181662329246100DFE686 /* RPCCustomFooterView.swift */,
+				15A18168232924B000DFE686 /* RPCCustomFooterView.xib */,
+				156548F322CDC5BB005C8B2D /* NetworkTableViewCell.swift */,
+				156548F422CDC5BB005C8B2D /* NetworkTableViewCell.xib */,
+				15A4F0F0232A7E73007A63A3 /* CustomNetworkCell.swift */,
+				15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		15A1817A232A4F9400DFE686 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				15A4F0EE232A6A46007A63A3 /* CacheManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		15AF403C22E05A170059FB18 /* Ethplorer */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,6 +818,7 @@
 			children = (
 				15B86BAC22AA1C9000110C06 /* WalletManager.swift */,
 				157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */,
+				15A18176232A304F00DFE686 /* WalletManager+CustomRPC.swift */,
 				1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */,
 				1527872622ADF5EA00D63C7F /* WalletStruct.swift */,
 				1527872822ADF6F800D63C7F /* WalletError.swift */,
@@ -877,6 +921,7 @@
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
+				15A18178232A40EA00DFE686 /* Util.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
 				15764E1722E9F99700784848 /* Color.swift */,
 			);
@@ -886,6 +931,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15A1817A232A4F9400DFE686 /* Cache */,
 				153B2803231B74940062B2E8 /* Pin */,
 				15CB1F2A22F16C4900E3075C /* WalletConnect */,
 				152151EC22ECB7A300A4613A /* QRcode */,
@@ -1170,6 +1216,7 @@
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
 				153B2817231BBE1F0062B2E8 /* FloatBall.xib in Resources */,
+				15A18164232922E400DFE686 /* RPCCustomViewController.xib in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
@@ -1190,8 +1237,10 @@
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
 				15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */,
 				153B2811231BB8C60062B2E8 /* PinListViewController.xib in Resources */,
+				15A18169232924B000DFE686 /* RPCCustomFooterView.xib in Resources */,
 				BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */,
 				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
+				15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */,
 				153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
@@ -1220,7 +1269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n#swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1297,6 +1346,7 @@
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/HanekeSwift/Haneke.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JWT/JWT.framework",
@@ -1336,6 +1386,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haneke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
@@ -1399,7 +1450,10 @@
 				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
 				15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */,
+				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
+				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
+				15A181672329246100DFE686 /* RPCCustomFooterView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
 				15477B4722E184AA008E3230 /* BigInt.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
@@ -1409,6 +1463,7 @@
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
+				15A18177232A304F00DFE686 /* WalletManager+CustomRPC.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
 				15764E1822E9F99700784848 /* Color.swift in Sources */,
 				1526B62922E962E6007663E5 /* FaceIDHelper.swift in Sources */,
@@ -1422,6 +1477,7 @@
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
+				15A18179232A40EA00DFE686 /* Util.swift in Sources */,
 				1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
@@ -1437,6 +1493,7 @@
 				153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */,
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
+				15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
@@ -1487,6 +1544,7 @@
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
+				15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */,
 				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,

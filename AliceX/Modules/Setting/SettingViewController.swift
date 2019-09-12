@@ -12,6 +12,8 @@ import UIKit
 class SettingViewController: BaseViewController {
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
+    
+    @IBOutlet var versionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,8 @@ class SettingViewController: BaseViewController {
                                                name: .currencyChange, object: nil)
         updateNetwork()
         updateCurrency()
+        
+        versionLabel.text = "v \(Util.version)(\(Util.build))"
     }
 
     @IBAction func replaceClicked() {
@@ -70,7 +74,7 @@ class SettingViewController: BaseViewController {
     }
 
     @objc func updateNetwork() {
-        networkLabel.text = Web3Net.currentNetwork.rawValue.firstUppercased
+        networkLabel.text = WalletManager.currentNetwork.name
     }
 
     @objc func updateCurrency() {
