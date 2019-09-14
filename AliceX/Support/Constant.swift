@@ -61,7 +61,7 @@ class CacheKey {
 class Constant {
     
     static let AliceCommunityTelegram = URL(string: "https://t.me/alicecommunity")!
-    static let AliceCommunityTelegramScheme = URL(string: "tg://domain=alicecommunity")!
+    static let AliceCommunityTelegramScheme = URL(string: "tg://resolve?domain=alicecommunity")!
     
     static let AliceTwitterScheme = URL(string: "twitter://user?screen_name=heyaliceapp")!
     static let AliceTwitter = URL(string: "https://twitter.com/heyaliceapp")!
