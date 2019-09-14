@@ -46,6 +46,11 @@ class SettingViewController: BaseViewController {
         let vc = CurrencyViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func aboutBtnClicked() {
+        let vc = AboutViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     @IBAction func closeButtonClicked() {
         guard let navi = self.navigationController else {

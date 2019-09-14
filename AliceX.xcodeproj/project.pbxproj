@@ -123,6 +123,8 @@
 		15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0EE232A6A46007A63A3 /* CacheManager.swift */; };
 		15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F0232A7E73007A63A3 /* CustomNetworkCell.swift */; };
 		15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */; };
+		15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F5232D1016007A63A3 /* AboutViewController.swift */; };
+		15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F6232D1016007A63A3 /* AboutViewController.xib */; };
 		15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403822E043550059FB18 /* TransactionManager+Gas.swift */; };
 		15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */; };
 		15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */; };
@@ -290,6 +292,8 @@
 		15A4F0EE232A6A46007A63A3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		15A4F0F0232A7E73007A63A3 /* CustomNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AliceX/Modules/Setting/network/Cell/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
 		15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AliceX/Modules/Setting/network/Cell/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
+		15A4F0F5232D1016007A63A3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		15A4F0F6232D1016007A63A3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		15AF403822E043550059FB18 /* TransactionManager+Gas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Gas.swift"; sourceTree = "<group>"; };
 		15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinmarketcap.swift; sourceTree = "<group>"; };
 		15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapModel.swift; sourceTree = "<group>"; };
@@ -593,6 +597,7 @@
 		157AA56822CC6CC9008AF3A5 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				15A4F0F4232D0FED007A63A3 /* About */,
 				157A676722CDE0F500DA83AB /* SignYes */,
 				156548EE22CDC30F005C8B2D /* Network */,
 				157AA67B22CCAA33008AF3A5 /* Mnemonics */,
@@ -759,6 +764,15 @@
 				15A4F0EE232A6A46007A63A3 /* CacheManager.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		15A4F0F4232D0FED007A63A3 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				15A4F0F5232D1016007A63A3 /* AboutViewController.swift */,
+				15A4F0F6232D1016007A63A3 /* AboutViewController.xib */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		15AF403C22E05A170059FB18 /* Ethplorer */ = {
@@ -1242,6 +1256,7 @@
 				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
 				15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */,
 				153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */,
+				15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
@@ -1546,6 +1561,7 @@
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
 				15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */,
 				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
+				15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				154E7F322306A9A200D571A8 /* URL.swift in Sources */,
@@ -1701,7 +1717,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1729,7 +1745,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
