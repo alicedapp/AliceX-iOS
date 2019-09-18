@@ -11,29 +11,29 @@ import UIKit
 class BaseAlertView: BaseView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
-    @IBOutlet var comfirmLabel: UILabel!
+    @IBOutlet var confirmLabel: UILabel!
     @IBOutlet var cancelLabel: UILabel!
 
-    var comfirmBlock: VoidBlock!
+    var confirmBlock: VoidBlock!
     var cancelBlock: VoidBlock!
 
     var title: String?
     var content: String?
-    var comfirmText: String?
+    var confirmText: String?
     var cancelText: String?
 
     class func instanceFromNib(title: String = "Alert",
                                content: String,
-                               comfirmText: String = "Comfirm",
+                               confirmText: String = "confirm",
                                cancelText: String = "Cancel",
-                               comfirmBlock: VoidBlock,
+                               confirmBlock: VoidBlock,
                                cancelBlock: VoidBlock) -> BaseAlertView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BaseAlertView
         view.title = title
         view.content = content
-        view.comfirmText = comfirmText
+        view.confirmText = confirmText
         view.cancelText = cancelText
-        view.comfirmBlock = comfirmBlock
+        view.confirmBlock = confirmBlock
         view.cancelBlock = cancelBlock
         view.configure()
         return view
@@ -42,12 +42,12 @@ class BaseAlertView: BaseView {
     override func configure() {
         titleLabel.text = title
         contentLabel.text = content
-        comfirmLabel.text = comfirmText
+        confirmLabel.text = confirmText
         cancelLabel.text = cancelText
     }
 
-    @IBAction func comfirmBtnClicked() {
-        comfirmBlock!!()
+    @IBAction func confirmBtnClicked() {
+        confirmBlock!!()
 //        HUDManager.shared.dismiss()
     }
 

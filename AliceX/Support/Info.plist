@@ -64,7 +64,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Scanning QR codes, Pictures</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Use Face ID to comfirm your identity</string>
+	<string>Use Face ID to confirm your identity</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>For dapps using maps</string>
 	<key>NSLocationAlwaysUsageDescription</key>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,7 +83,7 @@
                                         <constraint firstItem="uJ3-mq-oRY" firstAttribute="centerX" secondItem="L6z-x0-McQ" secondAttribute="centerX" id="n05-da-xUI"/>
                                     </constraints>
                                     <connections>
-                                        <action selector="comfirmBtnClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="J8B-K7-m39"/>
+                                        <action selector="confirmBtnClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="WsX-vt-gbH"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWV-XZ-vxr">
@@ -149,7 +151,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cancelLabel" destination="Scr-y2-njX" id="9C0-GO-LqC"/>
-                <outlet property="comfirmLabel" destination="uJ3-mq-oRY" id="JvZ-jz-CSZ"/>
+                <outlet property="confirmLabel" destination="uJ3-mq-oRY" id="JvZ-jz-CSZ"/>
                 <outlet property="contentLabel" destination="ULt-Uv-EkG" id="Yal-7d-zPy"/>
                 <outlet property="titleLabel" destination="k2G-j4-mod" id="r72-QB-kuL"/>
             </connections>

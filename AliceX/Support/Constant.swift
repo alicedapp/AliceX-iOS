@@ -50,6 +50,8 @@ extension Notification.Name {
 //    static let addCustomRPC = Notification.Name("addCustomRPC")
 //    static let updateCustomRPC = Notification.Name("updateRPC")
     static let customRPCChange = Notification.Name("customRPCChange")
+    static let newPendingTransaction = Notification.Name("newPendingTransaction")
+    static let removePendingTransaction = Notification.Name("removePendingTransaction")
 }
 
 
@@ -57,6 +59,7 @@ class CacheKey {
     static let web3NetStoreKey = "alice.web3.net"
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
 }
+
 
 class Constant {
     

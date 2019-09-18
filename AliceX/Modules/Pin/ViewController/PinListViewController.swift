@@ -9,8 +9,8 @@
 import UIKit
 
 class PinListViewController: BaseViewController {
-    var pinList: [Any]?
-
+    
+    var pinList: Set<PinItem> = PinManager.shared.pinList
     var previousVC: UIViewController?
 
     @IBOutlet var tableView: UITableView!
@@ -53,7 +53,7 @@ class PinListViewController: BaseViewController {
 
 extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 3
+        return pinList.count
     }
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
@@ -65,16 +65,9 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         cell.previousVC = previousVC
         cell.parentVC = self
-        switch indexPath.item {
-        case 0:
-            cell.configure(image: UIImage.imageWithColor(color: UIColor.random), text: "AAAA", isTransaction: false)
-        case 1:
-            cell.configure(image: UIImage.imageWithColor(color: UIColor.random), text: "BBBB", isTransaction: true)
-        case 2:
-            cell.configure(image: UIImage.imageWithColor(color: UIColor.random), text: "CCCC", isTransaction: false)
-        default:
-            cell.configure(image: UIImage.imageWithColor(color: UIColor.random), text: "BBBB", isTransaction: true)
-        }
+        
+        let item = Array(pinList)[indexPath.row]
+        cell.configure(item: item)
         return cell
     }
 

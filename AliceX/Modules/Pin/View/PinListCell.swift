@@ -17,6 +17,8 @@ class PinListCell: UITableViewCell {
     @IBOutlet var progressView: RPCircularProgress!
 
     @IBOutlet var containerView: UIView!
+    
+    var item: PinItem!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,10 +40,22 @@ class PinListCell: UITableViewCell {
         layer.shadowRadius = 5
     }
 
-    func configure(image: UIImage, text: String, isTransaction: Bool) {
-        pinImageView.image = image
-        pinTextLabel.text = text
-        progressView.isHidden = !isTransaction
+    func configure(item: PinItem) {
+        self.item = item
+        switch item {
+        case .transaction(let network, let txHash, let title):
+            pinImageView.image = UIImage.imageWithColor(color: network.color)
+            pinTextLabel.text = title
+            progressView.isHidden = false
+        case .dapplet(let image, let url, let title):
+            pinImageView.image = image
+            pinTextLabel.text = title
+            progressView.isHidden = true
+        case .website(let image, let url, let title):
+            pinImageView.image = image
+            pinTextLabel.text = title
+            progressView.isHidden = true
+        }
     }
 
     @IBAction func enterClick(sender: UIControl) {
@@ -57,7 +71,7 @@ class PinListCell: UITableViewCell {
                                                  height: frame.height)
 
         parentVC?.dismiss(animated: true, completion: {
-            let vc = BrowserWrapperViewController()
+            let vc = BrowserWrapperViewController.make(urlString: self.item.URL!.absoluteString)
             self.previousVC?.navigationController?.pushViewController(vc, animated: true)
         })
     }

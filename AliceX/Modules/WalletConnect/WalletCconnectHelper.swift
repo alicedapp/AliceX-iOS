@@ -53,9 +53,9 @@ class WalletCconnectHelper {
 
             self.showAlert(title: "Login",
                            content: message,
-                           comfirmText: "Approve",
+                           confirmText: "Approve",
                            cancelText: "Reject",
-                           comfirmBlock: {
+                           confirmBlock: {
                                self.interactor?.approveSession(accounts: accounts, chainId: chainId).cauterize()
                                HUDManager.shared.dismiss()
             }) {
@@ -76,9 +76,9 @@ class WalletCconnectHelper {
 
             self?.showAlert(title: "Sign",
                             content: msgText,
-                            comfirmText: "Sign",
+                            confirmText: "Sign",
                             cancelText: "Cancel",
-                            comfirmBlock: {
+                            confirmBlock: {
                                 self?.signEth(id: id, message: params[0])
                             }, cancelBlock: {
                                 _ = self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
@@ -91,9 +91,9 @@ class WalletCconnectHelper {
             let message = String(data: data, encoding: .utf8)
             self?.showAlert(title: "SendTransaction",
                             content: message!,
-                            comfirmText: "Send",
+                            confirmText: "Send",
                             cancelText: "Reject",
-                            comfirmBlock: {
+                            confirmBlock: {
                                 self?.sendEth(id: id, transactionJSON: message?.toJSON() as! [String: Any])
             }) {
                 self?.interactor?.rejectRequest(id: id, message: "I don't have ethers").cauterize()
@@ -104,9 +104,9 @@ class WalletCconnectHelper {
             let message = order.encodedString
             self?.showAlert(title: "BNB Sign",
                             content: message,
-                            comfirmText: "Sign",
+                            confirmText: "Sign",
                             cancelText: "Cancel",
-                            comfirmBlock: {
+                            confirmBlock: {
                                 self?.signBnbOrder(id: id, order: order)
             }) {
                 self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
@@ -125,15 +125,15 @@ class WalletCconnectHelper {
 
     func showAlert(title: String = "Alert",
                    content: String,
-                   comfirmText: String = "Comfirm",
+                   confirmText: String = "confirm",
                    cancelText: String = "Cancel",
-                   comfirmBlock: VoidBlock?,
+                   confirmBlock: VoidBlock?,
                    cancelBlock: VoidBlock?) {
         let view = BaseAlertView.instanceFromNib(title: title,
                                                  content: content,
-                                                 comfirmText: comfirmText,
+                                                 confirmText: confirmText,
                                                  cancelText: cancelText,
-                                                 comfirmBlock: comfirmBlock!,
+                                                 confirmBlock: confirmBlock!,
                                                  cancelBlock: cancelBlock!)
 
         HUDManager.shared.showAlertView(view: view,

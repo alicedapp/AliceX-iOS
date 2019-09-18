@@ -20,6 +20,8 @@
 		152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E422ECB76200A4613A /* LBXScanWrapper.swift */; };
 		152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */; };
 		152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */; };
+		1525E79323311C18009DAB83 /* AmberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525E79223311C18009DAB83 /* AmberData.swift */; };
+		1525E79523313267009DAB83 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1525E79423313267009DAB83 /* Keys.plist */; };
 		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
 		1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1526B62322E89526007663E5 /* HideMaskViewController.xib */; };
 		1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62622E89C6A007663E5 /* HideHelper.swift */; };
@@ -125,6 +127,7 @@
 		15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */; };
 		15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F5232D1016007A63A3 /* AboutViewController.swift */; };
 		15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F6232D1016007A63A3 /* AboutViewController.xib */; };
+		15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F9232E85D2007A63A3 /* Transaction.swift */; };
 		15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403822E043550059FB18 /* TransactionManager+Gas.swift */; };
 		15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */; };
 		15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */; };
@@ -188,6 +191,8 @@
 		152151E422ECB76200A4613A /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeReaderViewController.xib; sourceTree = "<group>"; };
+		1525E79223311C18009DAB83 /* AmberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmberData.swift; sourceTree = "<group>"; };
+		1525E79423313267009DAB83 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
 		1526B62322E89526007663E5 /* HideMaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HideMaskViewController.xib; sourceTree = "<group>"; };
 		1526B62622E89C6A007663E5 /* HideHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideHelper.swift; sourceTree = "<group>"; };
@@ -294,6 +299,7 @@
 		15A4F0F1232A7E73007A63A3 /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AliceX/Modules/Setting/network/Cell/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
 		15A4F0F5232D1016007A63A3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		15A4F0F6232D1016007A63A3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		15A4F0F9232E85D2007A63A3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		15AF403822E043550059FB18 /* TransactionManager+Gas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Gas.swift"; sourceTree = "<group>"; };
 		15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinmarketcap.swift; sourceTree = "<group>"; };
 		15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapModel.swift; sourceTree = "<group>"; };
@@ -393,6 +399,14 @@
 			path = QRcode;
 			sourceTree = "<group>";
 		};
+		1525E79123311BF4009DAB83 /* AmberData */ = {
+			isa = PBXGroup;
+			children = (
+				1525E79223311C18009DAB83 /* AmberData.swift */,
+			);
+			path = AmberData;
+			sourceTree = "<group>";
+		};
 		1526B61F22E894CF007663E5 /* Hide */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +434,7 @@
 				1527873922AE216C00D63C7F /* TransactionManager.swift */,
 				15AF403822E043550059FB18 /* TransactionManager+Gas.swift */,
 				15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */,
+				15A4F0F9232E85D2007A63A3 /* Transaction.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -706,6 +721,7 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1525E79123311BF4009DAB83 /* AmberData */,
 				15477B3B22E15B09008E3230 /* EthGasStation */,
 				15AF403D22E05A3C0059FB18 /* CoinMarketCap */,
 				15AF403C22E05A170059FB18 /* Ethplorer */,
@@ -934,6 +950,7 @@
 			children = (
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
+				1525E79423313267009DAB83 /* Keys.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
 				15A18178232A40EA00DFE686 /* Util.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
@@ -1236,6 +1253,7 @@
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */,
+				1525E79523313267009DAB83 /* Keys.plist in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
@@ -1477,6 +1495,7 @@
 				153B2814231BBA060062B2E8 /* PinListCell.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
+				15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				15A18177232A304F00DFE686 /* WalletManager+CustomRPC.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
@@ -1538,6 +1557,7 @@
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */,
+				1525E79323311C18009DAB83 /* AmberData.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
 				153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */,
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,

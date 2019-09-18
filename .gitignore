@@ -96,3 +96,4 @@ AlphaWalletTests/Snapshots/FailureDiffs
 # Additions
 .idea/
 Podfile.lock
+/AliceX/Support/Keys.plist

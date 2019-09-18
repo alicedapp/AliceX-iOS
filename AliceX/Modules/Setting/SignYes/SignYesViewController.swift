@@ -9,13 +9,13 @@
 import UIKit
 
 class SignYesViewController: BaseViewController {
-    @IBOutlet var comfirmTextField: UITextField!
+    @IBOutlet var confirmTextField: UITextField!
 
-    var comfirmBlock: VoidBlock?
+    var confirmBlock: VoidBlock?
 
-    class func make(comfirm: VoidBlock) -> SignYesViewController {
+    class func make(confirm: VoidBlock) -> SignYesViewController {
         let vc = SignYesViewController()
-        vc.comfirmBlock = comfirm
+        vc.confirmBlock = confirm
         return vc
     }
 
@@ -29,14 +29,14 @@ class SignYesViewController: BaseViewController {
     }
 
     @IBAction func confirmClicked() {
-        var text = comfirmTextField.text?.lowercased()
+        var text = confirmTextField.text?.lowercased()
         text = text?.trimmingCharacters(in: .whitespaces)
 
         if text != "yes" {
             return
         }
 
-        guard let block = comfirmBlock else {
+        guard let block = confirmBlock else {
             return
         }
 

@@ -163,10 +163,10 @@ class RPCCustomViewController: BaseViewController {
     @IBAction func deleteButtonClick() {
 //        title: "Alert",
 //        content: "Are you sure, you want delete this RPC?",
-//        comfirmText: "Comfirm",
+//        confirmText: "confirm",
 //        cancelText: "Cancel"
         let view = BaseAlertView.instanceFromNib(content: "Are you sure, you want delete this RPC?",
-                                                 comfirmBlock: {
+                                                 confirmBlock: {
                                        self.deleteRPC()
         }) {
             HUDManager.shared.dismiss()

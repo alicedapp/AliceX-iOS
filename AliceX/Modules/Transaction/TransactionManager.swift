@@ -10,21 +10,12 @@ import BigInt
 import SPStorkController
 import UIKit
 import web3swift
+import PromiseKit
 
 // TODO: Change all function to Promise
 class TransactionManager {
+    
     static let shared = TransactionManager()
-
-    var socketProvider: WebsocketProvider?
-
-    init() {
-        guard let provider = WebsocketProvider(WalletManager.currentNetwork.rpcURL, delegate: self) else {
-            return
-        }
-        socketProvider = provider
-        socketProvider?.connectSocket()
-//        try! socketProvider?.subscribeOnLogs(addresses: [EthereumAddress(WalletManager.wallet!.address)!], topics: [""])
-    }
 
     // MARK: - Smart Contract Popup
 
@@ -242,9 +233,14 @@ class TransactionManager {
         ) else {
             throw WalletError.contractFailure
         }
-
+        
         do {
             let sendResult = try tx.send()
+            
+            PendingTransactionHelper.shared.add(item: .transaction(network: WalletManager.currentNetwork,
+                                                                   txHash: sendResult.hash,
+                                                                   title: "Pending Transaction"))
+            
             return sendResult.hash
         } catch let error as Web3Error {
             HUDManager.shared.showError(text: error.errorDescription)
@@ -405,36 +401,36 @@ class TransactionManager {
 
     // MARK: - Validator
 
-    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {
-        guard let toAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-
-        guard let address = WalletManager.wallet?.address else {
-            throw WalletError.invalidAddress
-        }
-
-        guard let walletAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-
-        let etherBalance = try TransactionManager.shared.etherBalanceSync()
-        guard let etherBalanceInDouble = Double(etherBalance) else {
-            throw WalletError.conversionFailure
-        }
-
-        guard let amountInDouble = Double(value.readableValue) else {
-            throw WalletError.conversionFailure
-        }
-
-        guard etherBalanceInDouble >= amountInDouble else {
-            throw WalletError.insufficientBalance
-        }
-
-        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
-            throw WalletError.malformedKeystore
-        }
-
-        return true
-    }
+//    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {
+//        guard let toAddress = EthereumAddress(address) else {
+//            throw WalletError.invalidAddress
+//        }
+//
+//        guard let address = WalletManager.wallet?.address else {
+//            throw WalletError.invalidAddress
+//        }
+//
+//        guard let walletAddress = EthereumAddress(address) else {
+//            throw WalletError.invalidAddress
+//        }
+//
+//        let etherBalance = try TransactionManager.shared.etherBalanceSync()
+//        guard let etherBalanceInDouble = Double(etherBalance) else {
+//            throw WalletError.conversionFailure
+//        }
+//
+//        guard let amountInDouble = Double(value.readableValue) else {
+//            throw WalletError.conversionFailure
+//        }
+//
+//        guard etherBalanceInDouble >= amountInDouble else {
+//            throw WalletError.insufficientBalance
+//        }
+//
+//        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+//            throw WalletError.malformedKeystore
+//        }
+//
+//        return true
+//    }
 }

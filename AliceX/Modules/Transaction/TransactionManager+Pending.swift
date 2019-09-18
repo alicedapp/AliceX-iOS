@@ -8,26 +8,97 @@
 
 import Foundation
 import web3swift
+import PromiseKit
 
-private var TransactionWebSocketKey = "TransactionWebSocketKey"
+private var fetchPendingFrequency: TimeInterval = 5.0
 
-extension TransactionManager: Web3SocketDelegate {
-//    var socketProvider: InfuraWebsocketProvider {
-//        get {
-//            let currentNet = Web3Net.currentNetwork.network
-//            let provider = InfuraWebsocketProvider(currentNet, delegate: TransactionManager.shared)!
-//            return (objc_getAssociatedObject(self, &TransactionWebSocketKey) as? InfuraWebsocketProvider) ?? provider
-//        }
-//        set {
-//            objc_setAssociatedObject(self, &TransactionWebSocketKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-//        }
-//    }
-
-    func received(message: Any) {
-        print(message)
+class PendingTransactionHelper {
+    
+    static let shared = PendingTransactionHelper()
+    
+    var pendingTxList: Set<PinItem> = Set<PinItem>()
+    var timer: Timer!
+    
+    func start() {
+        timer = Timer(timeInterval: fetchPendingFrequency, target: self, selector: #selector(fetchStatus), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .default)
+        timer.fire()
     }
-
-    func gotError(error: Error) {
-        print(error.localizedDescription)
+    
+    func stop() {
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
     }
+    
+    @objc func fetchStatus() {
+        print("Fetching pending tx status...")
+        
+        if pendingTxList.count == 0 {
+            stop()
+            return
+        }
+
+        // Support
+        for item in pendingTxList {
+            // TODO:
+            // Replace with restful request
+            let web = try! WalletManager.make(type: item.network)
+            firstly {
+                 web.eth.getTransactionReceiptPromise(item.txHash)
+            }.done { receipt in
+                switch receipt.status {
+                case .ok:
+                    if !self.pendingTxList.contains(item) {
+                        return
+                    }
+                    HUDManager.shared.showSuccess(text: "Transaction Confirmed")
+                    self.remove(item: item)
+                case .failed:
+                    HUDManager.shared.showError(text: "Transaction Failed")
+                    self.remove(item: item)
+                case .notYetProcessed:
+                    break
+                }
+            }
+            
+//            firstly { () -> Promise<TransactionReceipt> in
+//                API(AmberData.getTransactions(hash: item.txHash, network: item.network))
+//            }.done { receipt in
+//                switch receipt.status {
+//                case .ok:
+//                    HUDManager.shared.showSuccess(text: "Transaction Confirmed")
+//                    self.remove(item: item)
+//                case .failed:
+//                    HUDManager.shared.showError(text: "Transaction Failed")
+//                    self.remove(item: item)
+//                case .notYetProcessed:
+//                    break
+//                }
+//            }.catch { error in
+//
+//            }
+        }
+    }
+    
+    func add(item: PinItem) {
+        pendingTxList.insert(item)
+        postNotification(item: item, isNew: true)
+        start()
+    }
+    
+    func remove(item: PinItem) {
+        pendingTxList.remove(item)
+        postNotification(item: item, isNew: false)
+    }
+    
+    func postNotification(item: PinItem, isNew: Bool) {
+        if isNew {
+            NotificationCenter.default.post(name: .newPendingTransaction, object: nil, userInfo: ["item": item])
+        } else {
+            NotificationCenter.default.post(name: .removePendingTransaction, object: nil, userInfo: ["item": item])
+        }
+    }
+    
 }

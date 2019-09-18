@@ -81,13 +81,14 @@ class PriceHelper {
     }
 
     func getTokenInfo(tokenAdress: String) -> Promise<TokenInfo> {
-        return Promise { seal in firstly { () -> Promise<TokenInfo> in
-            API(Ethplorer.getTokenInfo(address: tokenAdress))
-        }.done { model in
-            seal.fulfill(model)
-        }.catch { error in
-            seal.reject(error)
-        }
+        return Promise { seal in
+        firstly { () -> Promise<TokenInfo> in
+                API(Ethplorer.getTokenInfo(address: tokenAdress))
+            }.done { model in
+                seal.fulfill(model)
+            }.catch { error in
+                seal.reject(error)
+            }
         }
     }
 

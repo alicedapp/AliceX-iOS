@@ -107,7 +107,7 @@ class TransferPopUp: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
-    @IBAction func comfirmBtnClicked() {
+    @IBAction func confirmBtnClicked() {
         guard let ethAddress = addressField.text?.ethAddress else {
             errorAlert(text: "Addess invalid")
             return

@@ -11,6 +11,17 @@ import web3swift
 
 extension String {
     
+    func isEthTxHash() -> Bool {
+        if !self.hasPrefix("0x") {
+            return false
+        }
+        
+        if self.count != 66 {
+            return false
+        }
+        return true
+    }
+    
     func isEmptyAfterTrim() -> Bool {
         let string = self.trimmingCharacters(in: .whitespacesAndNewlines)
         return string.count == 0

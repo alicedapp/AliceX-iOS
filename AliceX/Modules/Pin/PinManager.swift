@@ -11,10 +11,9 @@ import Foundation
 class PinManager: NSObject {
     static let shared = PinManager()
 
-    var pinList: Set<PinItem>?
-
+    var pinList: Set<PinItem> = Set<PinItem>()
     let ballSize: CGFloat = 60
-
+    var isShown: Bool = false
     static let ball = FloatBall.instanceFromNib()
 
     override init() {
@@ -26,26 +25,67 @@ class PinManager: NSObject {
         PinManager.ball.delegate = self
 
 //        interactivePopGestureRecognizer.delegate
-        UIApplication.topViewController()?.navigationController?.delegate = self
+//        UIApplication.topViewController()?.navigationController?.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newPendingTx), name: .newPendingTransaction, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePendingTx), name: .removePendingTransaction, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(networkChange), name: .networkChange, object: nil)
+    }
+    
+    @objc func networkChange() {
+        PinManager.ball.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+    }
+    
+    @objc func newPendingTx(noti: Notification) {
+        guard let userInfo = noti.userInfo, let item = userInfo["item"] else {
+            return
+        }
+        
+        pinList.insert(item as! PinItem)
+        PinManager.show()
+    }
+    
+    @objc func removePendingTx(noti: Notification) {
+        guard let userInfo = noti.userInfo, let item = userInfo["item"] else {
+            return
+        }
+        pinList.remove(item as! PinItem)
+        PinManager.hide()
     }
 
     static func show() {
+        
+        if PinManager.shared.isShown {
+            return
+        }
+        
+        if PinManager.shared.pinList.count == 0 {
+            return
+        }
+        
         UIApplication.shared.keyWindow?.addSubview(ball)
-//        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-//
-//        }) { (_) in
-//
-//        }
+        
+        PinManager.ball.transform = CGAffineTransform(translationX: 100, y: 0)
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            PinManager.ball.transform = CGAffineTransform.identity
+        }) { (_) in
+            PinManager.shared.isShown = true
+        }
     }
 
     static func hide() {
-//        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-//            PinManager.ball.transform = CGAffineTransform(scaleX: 80, y: 0)
-//        }) { _ in
-//            PinManager.ball.transform = CGAffineTransform.identity
-//        }
-
-        PinManager.ball.removeFromSuperview()
+        if !PinManager.shared.isShown {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            PinManager.ball.transform = CGAffineTransform(translationX: 100, y: 0)
+        }) { _ in
+            PinManager.ball.transform = CGAffineTransform.identity
+            PinManager.ball.removeFromSuperview()
+            PinManager.shared.isShown = false
+        }
     }
 }
 
@@ -56,6 +96,7 @@ extension PinManager: FloatBallDelegate {
         }
 //        PinManager.hide()
         let listVC = PinListViewController()
+        
         listVC.previousVC = UIApplication.topViewController()
         listVC.modalPresentationStyle = .overCurrentContext
         UIApplication.topViewController()?.present(listVC, animated: false, completion: nil)
