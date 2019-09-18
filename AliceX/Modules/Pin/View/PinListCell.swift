@@ -19,6 +19,8 @@ class PinListCell: UITableViewCell {
     @IBOutlet var containerView: UIView!
     
     var item: PinItem!
+    var index: IndexPath!
+    var vc: UIViewController!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,21 +42,25 @@ class PinListCell: UITableViewCell {
         layer.shadowRadius = 5
     }
 
-    func configure(item: PinItem) {
+    func configure(item: PinItem, index: IndexPath) {
         self.item = item
+        self.index = index
         switch item {
-        case .transaction(let network, let txHash, let title):
+        case .transaction(let network, let txHash, let title, let vc):
             pinImageView.image = UIImage.imageWithColor(color: network.color)
             pinTextLabel.text = title
             progressView.isHidden = false
-        case .dapplet(let image, let url, let title):
+            self.vc = vc
+        case .dapplet(let image, let url, let title, let vc):
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
-        case .website(let image, let url, let title):
+            self.vc = vc
+        case .website(let image, let url, let title, let vc):
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
+            self.vc = vc
         }
     }
 
@@ -65,16 +71,39 @@ class PinListCell: UITableViewCell {
 //        if (frame?.origin.y)! < CGFloat(0) {
 //            frame?.origin.y = -(frame?.origin.y)!
 //        }
+        
+        guard let previousVC = self.parentVC else {
+            return
+        }
+        
+        if (self.previousVC?.navigationController?.viewControllers.contains(vc))! {
+            if let vc = self.parentVC as? PinListViewController {
+                vc.dismissVC()
+            }
+            return
+        }
+        
+        PinManager.shared.currentPin = self.item
+        
         PinTransitionPush.pushCellFrame = CGRect(x: frame.origin.x,
                                                  y: -frame.origin.y,
                                                  width: frame.width,
                                                  height: frame.height)
 
         parentVC?.dismiss(animated: true, completion: {
-            let vc = BrowserWrapperViewController.make(urlString: self.item.URL!.absoluteString)
-            self.previousVC?.navigationController?.pushViewController(vc, animated: true)
+            self.previousVC?.navigationController?.pushViewController(self.vc, animated: true)
         })
     }
 
-    @IBAction func closeButtonClick() {}
+    @IBAction func closeButtonClick() {
+        PinManager.shared.removePinItem(item: self.item)
+        if let vc = self.parentVC as? PinListViewController {
+            vc.pinList = PinManager.shared.pinList
+            vc.tableView.deleteRows(at: [index], with: .automatic)
+            
+            if vc.pinList.count == 0 {
+                vc.dismissVC()
+            }
+        }
+    }
 }

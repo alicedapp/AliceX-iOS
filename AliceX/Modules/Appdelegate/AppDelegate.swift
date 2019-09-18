@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        HKFloatManager.addFloatVcs([NSStringFromClass(BrowserViewController.self),
 //                                    NSStringFromClass(BrowserWrapperViewController.self)])
 
-        PinManager.shared
+        PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
         
         return true
     }

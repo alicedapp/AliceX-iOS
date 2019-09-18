@@ -237,9 +237,12 @@ class TransactionManager {
         do {
             let sendResult = try tx.send()
             
+            // TODO
+            let url = PinItem.txURL(network: WalletManager.currentNetwork, txHash: sendResult.hash).absoluteString
             PendingTransactionHelper.shared.add(item: .transaction(network: WalletManager.currentNetwork,
                                                                    txHash: sendResult.hash,
-                                                                   title: "Pending Transaction"))
+                                                                   title: "Pending Transaction",
+                                                                   viewcontroller: BrowserWrapperViewController.make(urlString:url)))
             
             return sendResult.hash
         } catch let error as Web3Error {

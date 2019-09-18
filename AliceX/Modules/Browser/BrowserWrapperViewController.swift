@@ -52,3 +52,13 @@ class BrowserWrapperViewController: BaseViewController {
         addBrowser()
     }
 }
+
+extension BrowserWrapperViewController: PinDelegate {
+    func pinItem() -> PinItem {
+        
+        return .website(image: vc.hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5")),
+                        url: vc.webview.url!,
+                        title: vc.webview.title ?? vc.webview.url!.absoluteString,
+                        viewcontroller: self)
+    }
+}

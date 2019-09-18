@@ -37,7 +37,7 @@ class PinListViewController: BaseViewController {
         }) { _ in
             self.dismiss(animated: false, completion: nil)
             self.view.alpha = 1
-            PinManager.show()
+//            PinManager.shared.show()
         }
     }
 
@@ -67,7 +67,7 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.parentVC = self
         
         let item = Array(pinList)[indexPath.row]
-        cell.configure(item: item)
+        cell.configure(item: item, index: indexPath)
         return cell
     }
 

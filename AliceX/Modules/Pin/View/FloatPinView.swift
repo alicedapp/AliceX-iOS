@@ -26,8 +26,8 @@ class FloatPinView: UIView {
     
     override init(frame: CGRect) {
         title = "Drag Here To Pin"
-        radius_0 = 18
-        radius_1 = 10
+        radius_0 = 20
+        radius_1 = 12
         kCoef = 0.95
         style = .Default
         highlight = false
@@ -42,8 +42,13 @@ class FloatPinView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        radius_0 = highlight ? 20 : 18
-        radius_1 = highlight ? 12 : 10
+        if style == .Default {
+            title = highlight ? "Release To Pin" : "Drag Here To Pin";
+        } else {
+            title = highlight ? "Release To Unpin" : "Drag Here To Unpin"
+        }
+        radius_0 = highlight ? 22 : 20
+        radius_1 = highlight ? 14 : 12
         kCoef = highlight ? 1 : 0.95
         
         let maskPath = UIBezierPath(arcCenter: CGPoint(x: bounds.width, y: bounds.width),
@@ -66,23 +71,23 @@ class FloatPinView: UIView {
                           NSAttributedString.Key.foregroundColor: UIColor.white,
                           NSAttributedString.Key.paragraphStyle: textStyle]
         
-        title.draw(in: CGRect(x: 0, y: bounds.height, width: bounds.width, height: 20), withAttributes: attributes)
+        title.draw(in: CGRect(x: 0, y: bounds.height*3.0 / 4, width: bounds.width, height: 20), withAttributes: attributes)
         
-        let ring0 = UIBezierPath.init(arcCenter: CGPoint(x: bounds.width, y: bounds.width),
-                                      radius: radius_0, startAngle: 0,
+        let ring0 = UIBezierPath.init(arcCenter: CGPoint(x: bounds.width/2, y: bounds.width/2),
+                                      radius: radius_0,
+                                      startAngle: 0,
                                       endAngle: CGFloat(2*Double.pi),
                                       clockwise: true)
         ring0.lineWidth = 3
         ring0.stroke()
         
-        let ring1 = UIBezierPath.init(arcCenter: CGPoint(x: bounds.width, y: bounds.width),
+        let ring1 = UIBezierPath.init(arcCenter: CGPoint(x: bounds.width/2, y: bounds.width/2),
                                       radius: radius_1, startAngle: 0,
                                       endAngle: CGFloat(2*Double.pi),
                                       clockwise: true)
         ring1.lineWidth = 3
         ring1.stroke()
     }
-    
     
     func setHighlight(highlight: Bool) {
         self.highlight = highlight

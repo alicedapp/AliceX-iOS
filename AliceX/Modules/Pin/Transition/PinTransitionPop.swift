@@ -39,7 +39,7 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
 
         fromVC.view.addSubview(coverView)
 
-        let maskStartBP = UIBezierPath(roundedRect: PinManager.ball.frame, cornerRadius: 30)
+        let maskStartBP = UIBezierPath(roundedRect: PinManager.shared.ball.frame, cornerRadius: 30)
         let maskFinalBP = UIBezierPath(roundedRect: UIScreen.main.bounds, cornerRadius: 30)
 
         let maskLayer = CAShapeLayer()

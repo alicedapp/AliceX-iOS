@@ -26,6 +26,16 @@ class BrowserPanelView: BaseView {
     }
 
     @IBAction func shareButton() {}
+    
+    @IBAction func pinButton() {
+        guard let ref = self.vcRef, let wrapper = ref.wrapper else {
+            return
+        }
+        HUDManager.shared.dismiss()
+        PinManager.shared.addPinItem(item: wrapper.pinItem())
+        PinManager.shared.currentPin = wrapper.pinItem()
+        wrapper.navigationController?.popViewController(animated: true)
+    }
 
     @IBAction func forwardButton() {
         if vcRef!.webview.canGoForward {

@@ -48,7 +48,10 @@
     NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle alloc] init];
     textStyle.alignment = NSTextAlignmentCenter;
 
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName: textStyle};
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14],
+                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSParagraphStyleAttributeName: textStyle};
+    
     [_title drawInRect:CGRectMake(0, self.bounds.size.height * 3 / 4, self.bounds.size.width, 20) withAttributes:attributes];
 
     UIBezierPath *ring0 = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2) radius:_radius_0 startAngle:0 endAngle:2 * M_PI clockwise:YES];

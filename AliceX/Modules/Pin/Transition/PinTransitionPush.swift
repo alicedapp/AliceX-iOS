@@ -60,7 +60,7 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
 
         maskLayer.add(maskLayerAnimation, forKey: "path")
 
-        UIApplication.shared.keyWindow?.bringSubviewToFront(PinManager.ball)
+        UIApplication.shared.keyWindow?.bringSubviewToFront(PinManager.shared.ball)
 
 //        UIView.animate(withDuration: duration) {
 //            self.coverView.alpha = 0

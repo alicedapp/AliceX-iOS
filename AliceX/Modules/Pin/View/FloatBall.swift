@@ -22,6 +22,11 @@ class FloatBall: UIView {
 
     let margin: CGFloat = 10
     weak var delegate: FloatBallDelegate?
+    var showPending: Bool = false {
+        didSet {
+            progressView.isHidden = !showPending
+        }
+    }
 
     class func instanceFromNib() -> FloatBall {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! FloatBall
@@ -44,6 +49,17 @@ class FloatBall: UIView {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 5
+    }
+    
+    func updateIfNeeded() {
+        var shouldShow = false
+        for item in PinManager.shared.pinList {
+            if item.txHash.count > 0 {
+                shouldShow = true
+                break
+            }
+        }
+        showPending = shouldShow
     }
 
     override func layoutSubviews() {
