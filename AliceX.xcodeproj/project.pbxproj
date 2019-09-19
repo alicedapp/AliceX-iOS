@@ -21,7 +21,6 @@
 		152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */; };
 		152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */; };
 		1525E79323311C18009DAB83 /* AmberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525E79223311C18009DAB83 /* AmberData.swift */; };
-		1525E79523313267009DAB83 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1525E79423313267009DAB83 /* Keys.plist */; };
 		1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525E7962331E8ED009DAB83 /* PinManager+Navigation.swift */; };
 		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
 		1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1526B62322E89526007663E5 /* HideMaskViewController.xib */; };
@@ -193,7 +192,6 @@
 		152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeReaderViewController.xib; sourceTree = "<group>"; };
 		1525E79223311C18009DAB83 /* AmberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmberData.swift; sourceTree = "<group>"; };
-		1525E79423313267009DAB83 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1525E7962331E8ED009DAB83 /* PinManager+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PinManager+Navigation.swift"; sourceTree = "<group>"; };
 		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
 		1526B62322E89526007663E5 /* HideMaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HideMaskViewController.xib; sourceTree = "<group>"; };
@@ -953,7 +951,6 @@
 			children = (
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
-				1525E79423313267009DAB83 /* Keys.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
 				15A18178232A40EA00DFE686 /* Util.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
@@ -1256,7 +1253,6 @@
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */,
-				1525E79523313267009DAB83 /* Keys.plist in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
