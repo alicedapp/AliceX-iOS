@@ -9,6 +9,7 @@
 import BigInt
 import Foundation
 import web3swift
+import PromiseKit
 
 @objc(WalletModule)
 class WalletModule: NSObject {
@@ -49,12 +50,14 @@ class WalletModule: NSObject {
 
     @objc func getBalance(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
-            do {
-                let balance = try TransactionManager.shared.etherBalanceSync()
+            firstly{
+                TransactionManager.shared.etherBalance()
+            }.done { (balance) in
                 resolve(balance)
-            } catch {
+            }.catch { (error) in
                 reject("1", error.localizedDescription, nil)
             }
+            
         }
     }
 

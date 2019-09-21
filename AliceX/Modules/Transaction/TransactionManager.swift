@@ -57,13 +57,37 @@ class TransactionManager {
         return balanceInEtherUnitStr
     }
 
-    public func etherBalance(completion: @escaping (String?) -> Void) {
-        DispatchQueue.global().async {
-            let balance = try? self.etherBalanceSync()
-            DispatchQueue.main.async {
-                completion(balance)
+    public func etherBalance() -> Promise<String> {
+        
+        return Promise<String> { seal in
+            guard let address = WalletManager.wallet?.address else {
+                seal.reject(WalletError.accountDoesNotExist)
+                return
+            }
+            guard let ethereumAddress = EthereumAddress(address) else {
+                seal.reject(WalletError.invalidAddress)
+                return
+            }
+            
+            firstly {
+                WalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
+            }.done { (balanceInWeiUnitResult) in
+                guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
+                                                                                   toUnits: .eth,
+                                                                                   decimals: 6, decimalSeparator: ".")
+                    else {
+                        seal.reject(WalletError.conversionFailure)
+                        return
+                }
+                seal.fulfill(balanceInEtherUnitStr)
             }
         }
+//        DispatchQueue.global().async {
+//            let balance = try? self.etherBalanceSync()
+//            DispatchQueue.main.async {
+//                completion(balance)
+//            }
+//        }
     }
 
     // MARK: - Send Transaction

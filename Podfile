@@ -5,8 +5,11 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'AliceX' do
   use_frameworks!
 
-  pod 'web3.swift.pod', '~> 2.2.1'
-#  , git: 'https://github.com/matter-labs/web3swift', branch: 'master'
+#  pod 'web3.swift.pod', '~> 2.2.1'
+
+  # Fix release build problem
+  pod 'Web3swift.pod', git: 'https://github.com/matter-labs/web3swift', branch: 'master'
+  
   pod 'KeychainAccess'
   pod 'SPStorkController'
   pod 'IQKeyboardManagerSwift'

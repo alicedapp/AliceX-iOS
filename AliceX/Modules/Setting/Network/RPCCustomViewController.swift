@@ -47,6 +47,10 @@ class RPCCustomViewController: BaseViewController {
         deleteButton.isHidden = !isUpdate
         updateLabel.text = isUpdate ? "Update" : "Add"
         
+        namefield.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#9D9D9D")])
+        
+        textfield.attributedPlaceholder = NSAttributedString(string: "URL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#9D9D9D")])
+        
         if isUpdate {
             namefield.text = model?.name
             textfield.text = model?.rpcURL

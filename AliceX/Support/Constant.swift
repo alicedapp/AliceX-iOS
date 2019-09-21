@@ -56,7 +56,7 @@ extension Notification.Name {
 
 
 class CacheKey {
-    static let web3NetStoreKey = "alice.web3.net"
+    static let web3NetStoreKey = "alice.web3.net.v1"
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
 }
 
@@ -68,7 +68,6 @@ class Constant {
     
     static let AliceTwitterScheme = URL(string: "twitter://user?screen_name=heyaliceapp")!
     static let AliceTwitter = URL(string: "https://twitter.com/heyaliceapp")!
-    
     
     static var SAFE_TOP: CGFloat {
         if #available(iOS 11, *) {

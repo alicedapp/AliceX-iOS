@@ -238,7 +238,7 @@ extension WalletManager {
     }
 
     class func fetchFromCache() -> web3 {
-
+        UserDefaults.standard.removeObject(forKey: "alice.web3.net")
         // Not find the key in UserDefault use MainNet
         if !WalletManager.isKeyPresentInUserDefaults(key: CacheKey.web3NetStoreKey) {
             let net = Web3NetEnum.main
