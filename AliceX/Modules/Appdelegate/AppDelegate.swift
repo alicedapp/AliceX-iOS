@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             #if DEBUG
                 return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
             #else
-                return CodePush.addFloatVcsbundleURL()
+                return CodePush.bundleURL()
             #endif
         }
 
