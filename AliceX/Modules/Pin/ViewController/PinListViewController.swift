@@ -10,7 +10,13 @@ import UIKit
 
 class PinListViewController: BaseViewController {
     
-    var pinList: Set<PinItem> = PinManager.shared.pinList
+    var pinList: Array<PinItem> = PinManager.shared.pinList {
+        didSet {
+            if pinList.count == 0 {
+                dismissVC()
+            }
+        }
+    }
     var previousVC: UIViewController?
 
     @IBOutlet var tableView: UITableView!
@@ -24,10 +30,15 @@ class PinListViewController: BaseViewController {
         tableView.estimatedRowHeight = 100
         tableView.sizeToFit()
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
         tableHeight?.constant = tableView.contentSize.height
+    }
+    
+    func updateIfNeeded() {
+        pinList = PinManager.shared.pinList
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
     }
 
     @IBAction func dismissVC() {

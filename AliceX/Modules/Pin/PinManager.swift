@@ -10,13 +10,18 @@ import Foundation
 
 class PinManager: NSObject {
     static let shared = PinManager()
+    
+    let maximumPinItem = 5
 
-    var pinList: Set<PinItem> = Set<PinItem>() {
+    var pinList: [PinItem] = Array<PinItem>()
+    {
         didSet {
+            listVC?.updateIfNeeded()
             ball.updateIfNeeded()
             updateIfNeeded()
         }
     }
+
     var floatVCList: Set<String> = Set<String>()
     
     var edgePan: UIScreenEdgePanGestureRecognizer?
@@ -24,11 +29,6 @@ class PinManager: NSObject {
     let ballSize: CGFloat = 60
     var isShown: Bool = false
     var shouldShow: Bool = false
-//    {
-//        didSet {
-//            
-//        }
-//    }
     
     let coef: CGFloat = 1.2
     let floatMargin: CGFloat = 30.0
@@ -37,21 +37,26 @@ class PinManager: NSObject {
     var ball = FloatBall.instanceFromNib()
     var tempFloatVC: UIViewController?
     var floatVC: UIViewController?
+    
+    var listVC: PinListViewController?
+    
     var currentPin: PinItem?
     var link: CADisplayLink?
     
-    lazy var floatArea = { () -> FloatPinView in
-        let view = FloatPinView(frame: CGRect(x: Constant.SCREEN_WIDTH + self.floatMargin,
-                                              y: Constant.SCREEN_HEIGHT + self.floatMargin,
-                                              width: self.floatAreaR, height: self.floatAreaR))
+    var floatArea = { () -> FloatPinView in
+        let view = FloatPinView(frame: CGRect(x: Constant.SCREEN_WIDTH + 30,
+                                              y: Constant.SCREEN_HEIGHT + 30,
+                                              width: Constant.SCREEN_WIDTH * 0.45,
+                                              height: Constant.SCREEN_WIDTH * 0.45))
         view.setStyle(style: .Default)
         return view
     }()
     
-    lazy var cancelFloatArea = { () -> FloatPinView in
+    var cancelFloatArea = { () -> FloatPinView in
         let view = FloatPinView(frame: CGRect(x: Constant.SCREEN_WIDTH,
                                               y: Constant.SCREEN_HEIGHT,
-                                              width: self.floatAreaR, height: self.floatAreaR))
+                                              width: Constant.SCREEN_WIDTH * 0.45,
+                                              height: Constant.SCREEN_WIDTH * 0.45))
         view.setStyle(style: .Cancel)
         return view
     }()
@@ -83,15 +88,16 @@ class PinManager: NSObject {
         guard let userInfo = noti.userInfo, let item = userInfo["item"] else {
             return
         }
-        
-        pinList.insert(item as! PinItem)
+        addPinItem(item: item as! PinItem)
+        listVC?.updateIfNeeded()
     }
     
     @objc func removePendingTx(noti: Notification) {
         guard let userInfo = noti.userInfo, let item = userInfo["item"] else {
             return
         }
-        pinList.remove(item as! PinItem)
+        removePinItem(item: item as! PinItem)
+        listVC?.updateIfNeeded()
     }
 
     func updateIfNeeded() {
@@ -147,11 +153,21 @@ class PinManager: NSObject {
     }
     
     func addPinItem(item: PinItem) {
-        pinList.insert(item)
+        if pinList.count == maximumPinItem {
+            pinList.removeFirst()
+        }
+        
+        if !pinList.contains(item) {
+            pinList.append(item)
+        }
+        
     }
     
     func removePinItem(item: PinItem) {
-        pinList.remove(item)
+        guard let index = pinList.firstIndex(of: item) else {
+            return
+        }
+        pinList.remove(at: index)
     }
 }
 
@@ -161,7 +177,14 @@ extension PinManager: FloatBallDelegate {
             return
         }
         
-        let listVC = PinListViewController()
+        if listVC == nil {
+            listVC = PinListViewController()
+        }
+        
+        guard let listVC = self.listVC else {
+            return
+        }
+        
         listVC.previousVC = UIApplication.topViewController()
         listVC.modalPresentationStyle = .overCurrentContext
         UIApplication.topViewController()?.present(listVC, animated: false, completion: nil)
@@ -169,7 +192,7 @@ extension PinManager: FloatBallDelegate {
 
     func floatBallBeginMove(floatBall _: FloatBall) {
         
-        UIApplication.shared.keyWindow?.insertSubview(cancelFloatArea, at: 1)
+        UIApplication.shared.keyWindow?.addSubview(cancelFloatArea)
         UIView.animate(withDuration: 0.5) {
             self.cancelFloatArea.frame = CGRect(x: Constant.SCREEN_WIDTH - self.floatAreaR,
                                                 y: Constant.SCREEN_HEIGHT - self.floatAreaR,
@@ -180,11 +203,11 @@ extension PinManager: FloatBallDelegate {
         
         if ((pow(floatAreaR - centerBall!.x, 2)) + pow(floatAreaR - centerBall!.y, 2)) <= pow(floatAreaR, 2) {
             if !cancelFloatArea.highlight {
-                cancelFloatArea.setHighlight(highlight: true)
+                cancelFloatArea.highlight = true
             }
         } else {
             if cancelFloatArea.highlight {
-                cancelFloatArea.setHighlight(highlight: false)
+                cancelFloatArea.highlight = false
             }
         }
     }

@@ -755,8 +755,8 @@
 				158B375622AF5C8B005FECAB /* WalletModule.swift */,
 				15F985DA22C3205700942357 /* ContractModule.swift */,
 				156548E622CDB6B4005C8B2D /* NativeVCModule.swift */,
-				158B375822AF5DB3005FECAB /* RNBridge.m */,
 				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
+				158B375822AF5DB3005FECAB /* RNBridge.m */,
 				151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */,
 			);
 			path = ReactNative;

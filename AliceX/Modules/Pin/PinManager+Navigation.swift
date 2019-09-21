@@ -43,18 +43,18 @@ extension PinManager: UIGestureRecognizerDelegate {
             if (touchPoint!.x > 0 && touchPoint!.y > 0) {
                 if (pow(floatAreaR - touchPoint!.x, 2) + pow(floatAreaR - touchPoint!.y, 2)) <= pow(floatAreaR, 2) {
                     shouldShow = true
-                    floatArea.setHighlight(highlight: true)
+                    floatArea.highlight = true
                     
                 } else {
                     if shouldShow {
                         shouldShow = false
-                        floatArea.setHighlight(highlight: false)
+                        floatArea.highlight = false
                     }
                 }
             } else {
                 if shouldShow {
                     shouldShow = false
-                    floatArea.setHighlight(highlight: false)
+                    floatArea.highlight = false
                 }
             }
         case .possible:
@@ -72,7 +72,7 @@ extension PinManager: UIGestureRecognizerDelegate {
                 
                 self.floatVC = self.tempFloatVC
                 if let vc = self.floatVC as? PinDelegate {
-                    self.pinList.insert(vc.pinItem())
+                    self.addPinItem(item: vc.pinItem())
                 }
                 self.show()
             }
@@ -89,7 +89,6 @@ extension PinManager: UINavigationControllerDelegate {
                               to toVC: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
 
-            
             if pinList.count == 0 {
                 return nil
             }

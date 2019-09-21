@@ -74,7 +74,12 @@ enum PinItem {
     }
 }
 
-extension PinItem: Hashable {
+extension PinItem: Hashable, Equatable {
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     var hashValue: Int {
         switch self {
         case .website(_, let url, _, _):

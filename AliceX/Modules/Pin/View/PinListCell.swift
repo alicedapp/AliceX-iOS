@@ -97,12 +97,17 @@ class PinListCell: UITableViewCell {
 
     @IBAction func closeButtonClick() {
         PinManager.shared.removePinItem(item: self.item)
+        
         if let vc = self.parentVC as? PinListViewController {
-            vc.pinList = PinManager.shared.pinList
-            vc.tableView.deleteRows(at: [index], with: .automatic)
             
-            if vc.pinList.count == 0 {
+//            vc.pinList = PinManager.shared.pinList
+//            vc.tableView.deleteRows(at: [index], with: .automatic)
+            
+            vc.updateIfNeeded()
+            
+            if PinManager.shared.pinList.count == 0 {
                 vc.dismissVC()
+                return
             }
         }
     }

@@ -16,7 +16,7 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
     lazy var coverView: UIView = {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.black
-        view.alpha = 0.5
+        view.alpha = 0
         return view
     }()
 
@@ -27,15 +27,17 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let fromVC = transitionContext.viewController(forKey: .from),
-            let toVC = transitionContext.viewController(forKey: .to)
+            let toVC = transitionContext.viewController(forKey: .to),
+            let fromView = transitionContext.view(forKey: .from),
+            let toView = transitionContext.view(forKey: .to)
         else {
             return
         }
         self.transitionContext = transitionContext
 
         let contView = transitionContext.containerView
-        contView.addSubview(toVC.view)
-        contView.addSubview(fromVC.view)
+        contView.addSubview(toView)
+        contView.addSubview(fromView)
 
         fromVC.view.addSubview(coverView)
 
@@ -43,8 +45,8 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
         let maskFinalBP = UIBezierPath(roundedRect: UIScreen.main.bounds, cornerRadius: 30)
 
         let maskLayer = CAShapeLayer()
-        maskLayer.path = maskFinalBP.cgPath
-        fromVC.view.layer.mask = maskLayer
+        maskLayer.path = maskStartBP.cgPath
+        fromView.layer.mask = maskLayer
 
         let maskLayerAnimation = CABasicAnimation(keyPath: "path")
         maskLayerAnimation.fromValue = maskFinalBP.cgPath
@@ -54,11 +56,10 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
         maskLayerAnimation.delegate = self
         maskLayer.add(maskLayerAnimation, forKey: "path")
 
-        UIView.animate(withDuration: duration - 0.01, delay: 0, options: [], animations: {
-            self.coverView.alpha = 0
-        }) { _ in
-            contView.subviews.last?.removeFromSuperview()
+        UIView.animate(withDuration: duration) {
+            self.coverView.alpha = 0.5
         }
+        
     }
 }
 

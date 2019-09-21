@@ -21,8 +21,40 @@ class FloatPinView: UIView {
     var radius_1: CGFloat
     var kCoef: CGFloat
     
-    var highlight: Bool
+    var isImapcted: Bool = false
+    
+    var highlight: Bool {
+        didSet{
+            setNeedsDisplay()
+            if highlight {
+                if !isImapcted {
+                    let impactLight = UIImpactFeedbackGenerator(style: .medium)
+                    impactLight.impactOccurred()
+                    isImapcted = true
+                }
+            } else {
+                isImapcted = false
+            }
+        }
+    }
+    
     var style: FloatPinViewStyle
+//    {
+//        set {
+//            self.style = newValue
+//            switch style {
+//            case .Default:
+//                backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.8)
+//                title = highlight ? "Release To Pin" : "Drag Here To Pin";
+//            case .Cancel:
+//                backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.8)
+//                title = highlight ? "Release To Unpin" : "Drag Here To Unpin"
+//            }
+//        }
+//        get {
+//            return self.style
+//        }
+//    }
     
     override init(frame: CGRect) {
         title = "Drag Here To Pin"
@@ -89,14 +121,14 @@ class FloatPinView: UIView {
         ring1.stroke()
     }
     
-    func setHighlight(highlight: Bool) {
-        self.highlight = highlight
-        setNeedsDisplay()
-        if highlight {
-            let impactLight = UIImpactFeedbackGenerator(style: .medium)
-            impactLight.impactOccurred()
-        }
-    }
+//    func setHighlight(highlight: Bool) {
+//        self.highlight = highlight
+//        setNeedsDisplay()
+//        if highlight {
+//            let impactLight = UIImpactFeedbackGenerator(style: .medium)
+//            impactLight.impactOccurred()
+//        }
+//    }
     
     func setStyle(style: FloatPinViewStyle) {
         self.style = style

@@ -17,7 +17,7 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
     lazy var coverView: UIView = {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.black
-        view.alpha = 0.5
+        view.alpha = 0
         return view
     }()
 
@@ -28,17 +28,20 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let fromVC = transitionContext.viewController(forKey: .from),
-            let toVC = transitionContext.viewController(forKey: .to)
+            let toVC = transitionContext.viewController(forKey: .to),
+            let fromView = transitionContext.view(forKey: .from),
+            let toView = transitionContext.view(forKey: .to),
+            let snapshot = toView.snapshotView(afterScreenUpdates: true)
         else {
             return
         }
         self.transitionContext = transitionContext
-
+        
         let contView = transitionContext.containerView
-        contView.addSubview(fromVC.view)
-        contView.addSubview(toVC.view)
+//        contView.addSubview(fromView)
+        contView.addSubview(toView)
 
-        fromVC.view.addSubview(coverView)
+        fromView.addSubview(coverView)
 
         let maskStartBP = UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!, cornerRadius: 30)
 //            UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!,
@@ -48,8 +51,8 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
         let maskFinalBP = UIBezierPath(roundedRect: UIScreen.main.bounds, cornerRadius: 30)
 
         let maskLayer = CAShapeLayer()
-        maskLayer.path = maskStartBP.cgPath
-        toVC.view.layer.mask = maskLayer
+        maskLayer.path = maskFinalBP.cgPath
+        toView.layer.mask = maskLayer
 
         let maskLayerAnimation = CABasicAnimation(keyPath: "path")
         maskLayerAnimation.fromValue = maskStartBP.cgPath
@@ -62,19 +65,28 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
 
         UIApplication.shared.keyWindow?.bringSubviewToFront(PinManager.shared.ball)
 
-//        UIView.animate(withDuration: duration) {
-//            self.coverView.alpha = 0
-//        }
-
-        UIView.animate(withDuration: duration - 0.01, delay: 0, options: [], animations: {
-            self.coverView.alpha = 0
-        }) { _ in
-            contView.subviews.first?.removeFromSuperview()
+        UIView.animate(withDuration: duration) {
+            self.coverView.alpha = 0.5
         }
+
+//        UIView.animate(withDuration: duration - 0.5, delay: 0, options: [], animations: {
+//            self.coverView.alpha = 0.5
+//        }) { _ in
+//            contView.subviews.first?.removeFromSuperview()
+//        }
     }
 }
 
 extension PinTransitionPush: CAAnimationDelegate {
+    
+    func animationDidStart(_ anim: CAAnimation) {
+//        UIView.animate(withDuration: duration - 0.05, delay: 0, options: [], animations: {
+//            self.coverView.alpha = 0
+//        }) { _ in
+//            self.transitionContext?.containerView.subviews.first?.removeFromSuperview()
+//        }
+    }
+    
     func animationDidStop(_: CAAnimation, finished _: Bool) {
         transitionContext?.completeTransition(true)
         transitionContext?.viewController(forKey: .from)?.view.layer.mask = nil
