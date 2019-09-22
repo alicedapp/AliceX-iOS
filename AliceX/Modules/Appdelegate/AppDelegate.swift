@@ -82,7 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        handleAliceURL(url: url)
-        return true
+        return handleAliceURL(url: url)
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        guard let url = userActivity.webpageURL else {
+            return false
+        }
+        
+        return handleAliceURL(url: url)
+    }
+
 }

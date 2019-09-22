@@ -18,7 +18,7 @@ class HideHelper {
             return
         }
 
-        window = UIWindow(frame: CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: Constant.SCREEN_HEIGHT))
+        window = UIWindow(frame: UIScreen.main.bounds)
         window.windowLevel = UIWindow.Level.statusBar + 1
         let vc = HideMaskViewController()
         window.rootViewController = vc

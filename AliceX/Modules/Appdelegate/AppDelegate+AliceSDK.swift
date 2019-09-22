@@ -10,17 +10,24 @@ import BigInt
 import Foundation
 
 func handleAliceURL(url: URL) -> Bool {
+    
+    guard let scheme = url.scheme,
+        scheme.localizedCaseInsensitiveCompare("alice") == .orderedSame else {
+            return false
+    }
+    
     var dict = [String: String]()
     let components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+    
+    if components.host == "rn" {
+        CallRNModule.deeplinkEvent(url: url.absoluteString)
+        return true
+    }
+    
     if let queryItems = components.queryItems {
         queryItems.map { item in
             dict[item.name] = item.value!
         }
-    }
-
-    guard let _ = dict["toRN"] else {
-        CallRNModule.deeplinkEvent(url: url.absoluteString)
-        return true
     }
 
     guard let method = dict["method"], let callback = dict["callback"] else {
