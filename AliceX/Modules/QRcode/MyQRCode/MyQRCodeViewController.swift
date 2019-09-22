@@ -18,10 +18,12 @@ class MyQRCodeViewController: BaseViewController {
 
         var address = WalletManager.wallet!.address
 
-        let qrcode = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator", codeString: address,
+        let qrcode = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator",
+                                               codeString: address,
                                                size: qrcodeView.bounds.size,
                                                qrColor: UIColor.black,
                                                bkColor: UIColor.white)
+        
         qrcodeView.image = qrcode
 
         let halfLength = address.count / 2

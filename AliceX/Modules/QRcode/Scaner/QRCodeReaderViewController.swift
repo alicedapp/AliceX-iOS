@@ -41,7 +41,8 @@ class QRCodeReaderViewController: LBXScanViewController {
         scanResultDelegate = self
 
         var style = LBXScanViewStyle()
-        style.animationImage = UIImage(named: "qrcode_scan_blue")
+        style.animationImage = UIImage(named: "qrcode_scan_light_white")
+        style.colorAngle = UIColor.lightGray
         scanStyle = style
         setNeedCodeImage(needCodeImg: true)
         scanStyle?.centerUpOffset += 10
