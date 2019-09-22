@@ -24,7 +24,6 @@ class PinListCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        progressView.enableIndeterminate()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,6 +54,7 @@ class PinListCell: UITableViewCell {
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
+            progressView.enableIndeterminate()
             self.vc = vc
         case .website(let image, let url, let title, let vc):
             pinImageView.image = image

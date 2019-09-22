@@ -69,7 +69,14 @@ class WalletCconnectHelper {
 
         interactor.onEthSign = { [weak self] id, params in
 
-            guard let msgText = params[0].hexDecodeUTF8 else {
+            var msgText = ""
+            if let text = params[0].hexDecodeUTF8 {
+                msgText = text
+            } else if let text = params[1].hexDecodeUTF8{
+                msgText = text
+            }
+            
+            if msgText.isEmpty {
                 HUDManager.shared.showError(text: "Message hex can't be decode")
                 return
             }
@@ -79,6 +86,7 @@ class WalletCconnectHelper {
                             confirmText: "Sign",
                             cancelText: "Cancel",
                             confirmBlock: {
+                                HUDManager.shared.dismiss()
                                 self?.signEth(id: id, message: params[0])
                             }, cancelBlock: {
                                 _ = self?.interactor?.rejectRequest(id: id, message: "User reject sign Message").cauterize()
@@ -94,6 +102,7 @@ class WalletCconnectHelper {
                             confirmText: "Send",
                             cancelText: "Reject",
                             confirmBlock: {
+                                HUDManager.shared.dismiss()
                                 self?.sendEth(id: id, transactionJSON: message?.toJSON() as! [String: Any])
             }) {
                 self?.interactor?.rejectRequest(id: id, message: "I don't have ethers").cauterize()
@@ -152,7 +161,6 @@ class WalletCconnectHelper {
     func signEth(id: Int64, message: String) {
         TransactionManager.showSignMessageView(message: message) { signData in
             self.interactor?.approveRequest(id: id, result: signData).cauterize()
-            HUDManager.shared.dismiss()
         }
     }
 
@@ -166,7 +174,6 @@ class WalletCconnectHelper {
                                            data: tx.data,
                                            symbol: "ETH") { signData in
             self.interactor?.approveRequest(id: id, result: signData).cauterize()
-            HUDManager.shared.dismiss()
         }
     }
 
