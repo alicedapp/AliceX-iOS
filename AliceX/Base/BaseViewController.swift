@@ -17,6 +17,7 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        PinManager.bringBallToFront()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

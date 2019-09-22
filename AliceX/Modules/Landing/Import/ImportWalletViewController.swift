@@ -13,11 +13,23 @@ class ImportWalletViewController: BaseViewController {
 
     @IBOutlet var textView: UITextView!
 
+    var placeholderLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
         hideKeyboardWhenTappedAround()
         importBtn.hero.id = "importWallet"
+        
+        textView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Mnemonic"
+        placeholderLabel.font = UIFont.systemFont(ofSize: (textView.font?.pointSize)!, weight: .medium)
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
 
     @IBAction func importButtonClicked() {
@@ -41,5 +53,11 @@ class ImportWalletViewController: BaseViewController {
             HUDManager.shared.showError(text: "Incorrect seed phrase")
             print(error.localizedDescription)
         }
+    }
+}
+
+extension ImportWalletViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
 }

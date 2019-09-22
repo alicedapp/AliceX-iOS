@@ -77,7 +77,7 @@ enum PinItem {
 extension PinItem: Hashable, Equatable {
     
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+        return lhs.vc == rhs.vc
     }
     
     var hashValue: Int {

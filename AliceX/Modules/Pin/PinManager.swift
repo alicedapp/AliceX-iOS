@@ -109,7 +109,6 @@ class PinManager: NSObject {
     }
     
     func show() {
-        
         if PinManager.shared.isShown {
             return
         }
@@ -146,6 +145,10 @@ class PinManager: NSObject {
         }
     }
     
+    static func bringBallToFront() {
+        UIApplication.shared.keyWindow?.bringSubviewToFront(PinManager.shared.ball)
+    }
+    
     static func addFloatVC(list: [String]) {
         for vc in list {
             PinManager.shared.floatVCList.insert(vc)
@@ -168,6 +171,13 @@ class PinManager: NSObject {
             return
         }
         pinList.remove(at: index)
+    }
+    
+    func updatePinItem(item: PinItem) {
+        guard let index = pinList.firstIndex(of: item) else {
+            return
+        }
+        pinList[index] = item
     }
 }
 
@@ -193,6 +203,7 @@ extension PinManager: FloatBallDelegate {
     func floatBallBeginMove(floatBall _: FloatBall) {
         
         UIApplication.shared.keyWindow?.addSubview(cancelFloatArea)
+        UIApplication.shared.keyWindow?.bringSubviewToFront(ball)
         UIView.animate(withDuration: 0.5) {
             self.cancelFloatArea.frame = CGRect(x: Constant.SCREEN_WIDTH - self.floatAreaR,
                                                 y: Constant.SCREEN_HEIGHT - self.floatAreaR,
