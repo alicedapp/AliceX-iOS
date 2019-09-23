@@ -23,10 +23,13 @@ public enum WalletError: Error {
     case netCacheFailure
     case netSwitchFailure
 
+    case unKnown
     case custom(String)
 
     public var code: Int {
         switch self {
+        case .unKnown:
+            return 100
         case .hasAccount:
             return 1701
         case .accountDoesNotExist:
@@ -60,6 +63,8 @@ public enum WalletError: Error {
 
     public var errorDescription: String {
         switch self {
+        case .unKnown:
+            return "Unknown Error"
         case .hasAccount:
             return "Already has a acoount"
         case .accountDoesNotExist:

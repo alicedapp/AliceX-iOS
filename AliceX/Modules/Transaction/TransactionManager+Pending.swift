@@ -20,6 +20,12 @@ class PendingTransactionHelper {
     var timer: Timer!
     
     func start() {
+        
+        if timer != nil {
+           timer.invalidate()
+           timer = nil
+       }
+        
         timer = Timer(timeInterval: fetchPendingFrequency, target: self, selector: #selector(fetchStatus), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: .default)
         timer.fire()

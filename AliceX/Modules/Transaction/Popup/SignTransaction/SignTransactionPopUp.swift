@@ -37,6 +37,8 @@ class SignTransactionPopUp: UIViewController {
     var gasPrice: GasPrice = GasPrice.average
 
     var successBlock: StringBlock?
+    
+    var payView: PayButtonView?
 
     class func make(toAddress: String,
                     amount: BigUInt,
@@ -62,29 +64,11 @@ class SignTransactionPopUp: UIViewController {
         let price = Float(value)! * PriceHelper.shared.exchangeRate
         priceLabel.text = price.currencyString
 
-        payButtonContainer.layer.cornerRadius = 20
-        payButtonContainer.layer.masksToBounds = true
-
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [UIColor(hex: "333333").cgColor, UIColor(hex: "333333").cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.frame = payButton.bounds
-        payButtonContainer.layer.insertSublayer(gradient, at: 0)
-
-        payButton.layer.masksToBounds = false
-        payButton.layer.cornerRadius = 20
-        payButton.layer.shadowColor = UIColor(hex: "2060CB").cgColor
-        payButton.layer.shadowRadius = 10
-        payButton.layer.shadowOffset = CGSize.zero
-        payButton.layer.shadowOpacity = 0.3
-
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
-        longPressGesture.minimumPressDuration = 0
-        payButton.addGestureRecognizer(longPressGesture)
-        progressIndicator.updateProgress(0)
-
+        payView = PayButtonView.instanceFromNib(title: "Hold To Sign")
+        payButton.addSubview(payView!)
+        payView!.fillSuperview()
+        payView?.delegate = self
+        
         gasBtn.isUserInteractionEnabled = false
 
         NotificationCenter.default.addObserver(self,
@@ -128,72 +112,19 @@ class SignTransactionPopUp: UIViewController {
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
         gasPriceLabel.text = gasPrice.toCurrencyFullString(gasLimit: gasLimit!)
     }
+}
 
-    @objc func timeUpdate() {
-        process += 1
-        var precentage = (Double(process) / 100)
 
-        progressIndicator.updateProgress(CGFloat(precentage))
-        if precentage < 1 {
-            return
-        }
-
-        if precentage >= 1 {
-            precentage = 1
-        }
-
-        if toggle == false {
-            #if DEBUG
-                send()
-            #else
-                biometricsVerify()
-            #endif
-
-            toggle = true
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-        }
+extension SignTransactionPopUp: PayButtonDelegate {
+    
+    func verifyAndSend() {
+        #if DEBUG
+            send()
+        #else
+            biometricsVerify()
+        #endif
     }
-
-    @IBAction func payButtonClick() {
-        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
-            self.payButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            self.progressIndicator.updateProgress(0.2, animated: true, initialDelay: 0, duration: 0.1, completion: {
-                self.progressIndicator.updateProgress(0)
-            })
-        }) { _ in
-            UIView.animate(withDuration: 0.1) {
-                self.payButton.transform = CGAffineTransform.identity
-            }
-        }
-    }
-
-    @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        switch gesture.state {
-        case .began:
-            UIView.animate(withDuration: 0.2) {
-                self.payButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }
-
-            timer = Timer(timeInterval: 0.01, target: self, selector: #selector(timeUpdate),
-                          userInfo: nil, repeats: true)
-            RunLoop.current.add(timer!, forMode: .default)
-            timer!.fire()
-
-        case .ended, .cancelled:
-            UIView.animate(withDuration: 0.2) {
-                self.payButton.transform = CGAffineTransform.identity
-            }
-            timer!.invalidate()
-            progressIndicator.updateProgress(0)
-            toggle = false
-            process = 0
-
-        default:
-            break
-        }
-    }
-
+    
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()

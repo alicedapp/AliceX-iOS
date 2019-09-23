@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,8 +12,6 @@
             <connections>
                 <outlet property="messageTextView" destination="wN5-ZL-bQn" id="mrf-Fc-DkN"/>
                 <outlet property="payButton" destination="600-L2-Keh" id="ZBz-jl-t6w"/>
-                <outlet property="payButtonContainer" destination="sZW-QN-SzH" id="dlF-da-dhV"/>
-                <outlet property="progressIndicator" destination="5KS-Y9-BCd" id="twP-H2-HxI"/>
                 <outlet property="view" destination="mEz-XU-DSL" id="sph-86-gR1"/>
             </connections>
         </placeholder>
@@ -32,66 +28,9 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="600-L2-Keh" customClass="UIControl">
                                     <rect key="frame" x="50" y="280" width="314" height="70"/>
-                                    <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZW-QN-SzH">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-id-white" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-cq-yS9">
-                                                    <rect key="frame" x="15" y="12" width="38" height="46"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold To Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ane-UW-mYX">
-                                                    <rect key="frame" x="104.5" y="24" width="105.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KS-Y9-BCd" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
-                                                    <rect key="frame" x="253" y="12" width="46" height="46"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="5KS-Y9-BCd" secondAttribute="height" multiplier="1:1" id="c5z-CU-Trt"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
-                                                            <color key="value" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.19641285210000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="thicknessRatio">
-                                                            <real key="value" value="0.20000000000000001"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.26051744818687439" green="0.26052439212799072" blue="0.26052063703536987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="ane-UW-mYX" firstAttribute="centerY" secondItem="sZW-QN-SzH" secondAttribute="centerY" id="AhQ-C9-AKa"/>
-                                                <constraint firstItem="5KS-Y9-BCd" firstAttribute="top" secondItem="sZW-QN-SzH" secondAttribute="top" constant="12" id="E6H-9R-VuE"/>
-                                                <constraint firstItem="8x2-cq-yS9" firstAttribute="leading" secondItem="sZW-QN-SzH" secondAttribute="leading" constant="15" id="ERm-ob-RzZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="8x2-cq-yS9" secondAttribute="bottom" constant="12" id="T9I-JN-92V"/>
-                                                <constraint firstAttribute="bottom" secondItem="5KS-Y9-BCd" secondAttribute="bottom" constant="12" id="UBQ-NT-23a"/>
-                                                <constraint firstItem="8x2-cq-yS9" firstAttribute="top" secondItem="sZW-QN-SzH" secondAttribute="top" constant="12" id="gfB-3C-QZA"/>
-                                                <constraint firstItem="ane-UW-mYX" firstAttribute="centerX" secondItem="sZW-QN-SzH" secondAttribute="centerX" id="vCP-da-nkO"/>
-                                                <constraint firstAttribute="trailing" secondItem="5KS-Y9-BCd" secondAttribute="trailing" constant="15" id="wFv-26-tLB"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.26051744818687439" green="0.26052439212799072" blue="0.26052063703536987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="sZW-QN-SzH" firstAttribute="leading" secondItem="600-L2-Keh" secondAttribute="leading" id="02A-We-2yr"/>
-                                        <constraint firstAttribute="trailing" secondItem="sZW-QN-SzH" secondAttribute="trailing" id="07x-V4-AVd"/>
                                         <constraint firstAttribute="width" constant="314" id="95k-Kb-nFc"/>
-                                        <constraint firstAttribute="bottom" secondItem="sZW-QN-SzH" secondAttribute="bottom" id="CAs-KM-zLl"/>
-                                        <constraint firstItem="sZW-QN-SzH" firstAttribute="top" secondItem="600-L2-Keh" secondAttribute="top" id="Sie-r1-N2L"/>
                                         <constraint firstAttribute="height" constant="70" id="yXk-om-2qu"/>
                                     </constraints>
                                     <connections>
@@ -214,7 +153,4 @@
             <point key="canvasLocation" x="139" y="120"/>
         </view>
     </objects>
-    <resources>
-        <image name="face-id-white" width="38" height="38"/>
-    </resources>
 </document>

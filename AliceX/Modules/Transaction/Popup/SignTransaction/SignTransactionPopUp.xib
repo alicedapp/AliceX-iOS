@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +16,7 @@
                 <outlet property="gasPriceLabel" destination="IV6-TX-eND" id="Asf-Xd-5Lo"/>
                 <outlet property="gasTimeLabel" destination="Dsy-Ps-JdC" id="zyE-eK-8U2"/>
                 <outlet property="payButton" destination="kWP-zq-0yx" id="QRI-qI-HA9"/>
-                <outlet property="payButtonContainer" destination="QKD-Tc-ZH4" id="6Xe-o4-ZjG"/>
                 <outlet property="priceLabel" destination="F4T-Wr-W6U" id="4nF-ik-rOu"/>
-                <outlet property="progressIndicator" destination="gvd-2K-Kog" id="I1P-YY-PgX"/>
                 <outlet property="view" destination="450-AK-cNv" id="u7r-uI-5mF"/>
             </connections>
         </placeholder>
@@ -37,66 +33,10 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWP-zq-0yx" customClass="UIControl">
                                     <rect key="frame" x="50" y="230" width="314" height="70"/>
-                                    <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKD-Tc-ZH4">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-id-white" translatesAutoresizingMaskIntoConstraints="NO" id="iIZ-3L-7Nj">
-                                                    <rect key="frame" x="15" y="12" width="38" height="46"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold To Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw7-Lh-J1c">
-                                                    <rect key="frame" x="104.5" y="24" width="105.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvd-2K-Kog" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
-                                                    <rect key="frame" x="253" y="12" width="46" height="46"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="gvd-2K-Kog" secondAttribute="height" multiplier="1:1" id="X3J-IE-2sc"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
-                                                            <color key="value" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.19641285210000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="thicknessRatio">
-                                                            <real key="value" value="0.20000000000000001"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="iIZ-3L-7Nj" secondAttribute="bottom" constant="12" id="EKt-2q-ETA"/>
-                                                <constraint firstItem="gvd-2K-Kog" firstAttribute="top" secondItem="QKD-Tc-ZH4" secondAttribute="top" constant="12" id="Uqm-9n-DhU"/>
-                                                <constraint firstItem="iIZ-3L-7Nj" firstAttribute="leading" secondItem="QKD-Tc-ZH4" secondAttribute="leading" constant="15" id="bxx-lu-6if"/>
-                                                <constraint firstItem="Rw7-Lh-J1c" firstAttribute="centerY" secondItem="QKD-Tc-ZH4" secondAttribute="centerY" id="jEX-L7-aeJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="gvd-2K-Kog" secondAttribute="bottom" constant="12" id="mWe-ri-85k"/>
-                                                <constraint firstAttribute="trailing" secondItem="gvd-2K-Kog" secondAttribute="trailing" constant="15" id="nHq-LC-mh2"/>
-                                                <constraint firstItem="iIZ-3L-7Nj" firstAttribute="top" secondItem="QKD-Tc-ZH4" secondAttribute="top" constant="12" id="r3A-Sr-9Wv"/>
-                                                <constraint firstItem="Rw7-Lh-J1c" firstAttribute="centerX" secondItem="QKD-Tc-ZH4" secondAttribute="centerX" id="uk5-yP-rCc"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <real key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="QKD-Tc-ZH4" firstAttribute="top" secondItem="kWP-zq-0yx" secondAttribute="top" id="9WA-Kg-U91"/>
                                         <constraint firstAttribute="width" constant="314" id="QhO-Ln-7kG"/>
                                         <constraint firstAttribute="height" constant="70" id="nil-7m-O8f"/>
-                                        <constraint firstAttribute="trailing" secondItem="QKD-Tc-ZH4" secondAttribute="trailing" id="p82-6J-p1G"/>
-                                        <constraint firstItem="QKD-Tc-ZH4" firstAttribute="leading" secondItem="kWP-zq-0yx" secondAttribute="leading" id="wT1-r5-JIT"/>
-                                        <constraint firstAttribute="bottom" secondItem="QKD-Tc-ZH4" secondAttribute="bottom" id="x0o-ck-bmu"/>
                                     </constraints>
                                     <connections>
                                         <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="ROm-Ig-Tgc"/>
@@ -216,7 +156,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peg-Xy-f1c">
-                                                    <rect key="frame" x="89" y="52.5" width="81" height="14.5"/>
+                                                    <rect key="frame" x="89" y="52.5" width="79" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -347,6 +287,5 @@
     </objects>
     <resources>
         <image name="ethereum-icon" width="40" height="40"/>
-        <image name="face-id-white" width="38" height="38"/>
     </resources>
 </document>

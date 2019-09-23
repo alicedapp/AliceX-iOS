@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,9 +18,7 @@
                 <outlet property="gasTimeLabel" destination="Mdv-xQ-VBN" id="gDF-nK-yNs"/>
                 <outlet property="nameLabel" destination="8As-pW-FQR" id="hGh-Z9-Z7s"/>
                 <outlet property="payButton" destination="hQ6-EX-6R9" id="zWk-Vl-2L0"/>
-                <outlet property="payButtonContainer" destination="MbT-TP-NfY" id="U90-cY-vnI"/>
                 <outlet property="priceLabel" destination="HXw-tP-7dC" id="Nb6-kL-oKF"/>
-                <outlet property="progressIndicator" destination="8og-rS-5ce" id="GB9-9T-2F8"/>
                 <outlet property="symbolLabel" destination="zwL-Jm-uWv" id="LRR-8r-X81"/>
                 <outlet property="tokenImage" destination="Lc0-DS-AHY" id="uGs-Ef-fD0"/>
                 <outlet property="view" destination="GzB-R1-vs2" id="3ln-ud-J9A"/>
@@ -68,69 +64,10 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQ6-EX-6R9" customClass="UIControl">
                                     <rect key="frame" x="50" y="230" width="314" height="70"/>
-                                    <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-TP-NfY">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-id-white" translatesAutoresizingMaskIntoConstraints="NO" id="9YH-YI-ufK">
-                                                    <rect key="frame" x="15" y="15" width="42" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="9YH-YI-ufK" secondAttribute="height" multiplier="19:18" id="KGt-RA-gLz"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold To Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIR-qh-Jph">
-                                                    <rect key="frame" x="101.5" y="24" width="111.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8og-rS-5ce" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
-                                                    <rect key="frame" x="253" y="12" width="46" height="46"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="8og-rS-5ce" secondAttribute="height" multiplier="1:1" id="jjT-sh-jCD"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
-                                                            <color key="value" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.19641285210000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="thicknessRatio">
-                                                            <real key="value" value="0.20000000000000001"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9YH-YI-ufK" firstAttribute="leading" secondItem="MbT-TP-NfY" secondAttribute="leading" constant="15" id="5hv-IH-gCO"/>
-                                                <constraint firstAttribute="bottom" secondItem="9YH-YI-ufK" secondAttribute="bottom" constant="15" id="DkN-kI-DtJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="8og-rS-5ce" secondAttribute="bottom" constant="12" id="JIu-6o-BaW"/>
-                                                <constraint firstItem="8og-rS-5ce" firstAttribute="top" secondItem="MbT-TP-NfY" secondAttribute="top" constant="12" id="f3a-Vv-MEG"/>
-                                                <constraint firstAttribute="trailing" secondItem="8og-rS-5ce" secondAttribute="trailing" constant="15" id="gKN-iY-c3Q"/>
-                                                <constraint firstItem="hIR-qh-Jph" firstAttribute="centerX" secondItem="MbT-TP-NfY" secondAttribute="centerX" id="hdS-Az-aK2"/>
-                                                <constraint firstItem="hIR-qh-Jph" firstAttribute="centerY" secondItem="MbT-TP-NfY" secondAttribute="centerY" id="ldV-5d-SGv"/>
-                                                <constraint firstItem="9YH-YI-ufK" firstAttribute="top" secondItem="MbT-TP-NfY" secondAttribute="top" constant="15" id="mZ5-aF-m4c"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="70" id="Wsh-WJ-89b"/>
                                         <constraint firstAttribute="width" constant="314" id="dPJ-Ox-hSY"/>
-                                        <constraint firstAttribute="bottom" secondItem="MbT-TP-NfY" secondAttribute="bottom" id="ewe-1G-5es"/>
-                                        <constraint firstItem="MbT-TP-NfY" firstAttribute="leading" secondItem="hQ6-EX-6R9" secondAttribute="leading" id="hCL-d0-YQP"/>
-                                        <constraint firstItem="MbT-TP-NfY" firstAttribute="top" secondItem="hQ6-EX-6R9" secondAttribute="top" id="mbF-ij-oB0"/>
-                                        <constraint firstAttribute="trailing" secondItem="MbT-TP-NfY" secondAttribute="trailing" id="wM3-rw-uYn"/>
                                     </constraints>
                                     <connections>
                                         <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="Hxo-iD-4FF"/>
@@ -340,7 +277,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
-    <resources>
-        <image name="face-id-white" width="38" height="38"/>
-    </resources>
 </document>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMe-Ug-6HN" customClass="PayButtonView" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZm-9l-OG7">
+                    <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face-id-white" translatesAutoresizingMaskIntoConstraints="NO" id="UW7-gW-QXB">
+                            <rect key="frame" x="15" y="15" width="42" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="UW7-gW-QXB" secondAttribute="height" multiplier="19:18" id="oot-gb-m43"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold To Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vit-gp-HXH">
+                            <rect key="frame" x="101.5" y="24" width="111.5" height="22"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLF-wl-ezG" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
+                            <rect key="frame" x="253" y="12" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="oLF-wl-ezG" secondAttribute="height" multiplier="1:1" id="2zt-V1-TNx"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
+                                    <color key="value" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.19641285210000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="thicknessRatio">
+                                    <real key="value" value="0.20000000000000001"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="UW7-gW-QXB" secondAttribute="bottom" constant="15" id="Gvb-LH-TIY"/>
+                        <constraint firstAttribute="bottom" secondItem="oLF-wl-ezG" secondAttribute="bottom" constant="12" id="HxA-Pt-9cu"/>
+                        <constraint firstItem="UW7-gW-QXB" firstAttribute="top" secondItem="bZm-9l-OG7" secondAttribute="top" constant="15" id="cy4-j2-ecU"/>
+                        <constraint firstItem="Vit-gp-HXH" firstAttribute="centerY" secondItem="bZm-9l-OG7" secondAttribute="centerY" id="fwg-Bw-lz0"/>
+                        <constraint firstItem="UW7-gW-QXB" firstAttribute="leading" secondItem="bZm-9l-OG7" secondAttribute="leading" constant="15" id="jHP-pM-8Ug"/>
+                        <constraint firstItem="Vit-gp-HXH" firstAttribute="centerX" secondItem="bZm-9l-OG7" secondAttribute="centerX" id="kdJ-Wg-iwN"/>
+                        <constraint firstItem="oLF-wl-ezG" firstAttribute="top" secondItem="bZm-9l-OG7" secondAttribute="top" constant="12" id="vPF-li-tcs"/>
+                        <constraint firstAttribute="trailing" secondItem="oLF-wl-ezG" secondAttribute="trailing" constant="15" id="zs6-UU-9ra"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bZm-9l-OG7" secondAttribute="trailing" id="6g4-fz-DG8"/>
+                <constraint firstItem="bZm-9l-OG7" firstAttribute="top" secondItem="HMe-Ug-6HN" secondAttribute="top" id="B8s-Yx-IvI"/>
+                <constraint firstItem="bZm-9l-OG7" firstAttribute="leading" secondItem="HMe-Ug-6HN" secondAttribute="leading" id="BPV-NU-dAm"/>
+                <constraint firstAttribute="bottom" secondItem="bZm-9l-OG7" secondAttribute="bottom" id="xzd-bf-9mT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="payButtonContainer" destination="bZm-9l-OG7" id="ScA-5A-zh2"/>
+                <outlet property="progressIndicator" destination="oLF-wl-ezG" id="OEa-E7-sNM"/>
+                <outlet property="titleLabel" destination="Vit-gp-HXH" id="Qru-hs-mGj"/>
+            </connections>
+            <point key="canvasLocation" x="618.84057971014499" y="-50.223214285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="face-id-white" width="38" height="38"/>
+    </resources>
+</document>

@@ -108,29 +108,18 @@ class TransactionManager {
         topVC?.presentAsStork(modal, height: height)
     }
 
-//    class  func showPaymentView(transaction: )
 
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
                               password _: String,
-                              gasPrice _: GasPrice = GasPrice.average) throws -> String {
-        do {
-            let result = try TransactionManager.writeSmartContract(contractAddress: address,
-                                                                   functionName: "fallback",
-                                                                   abi: Web3.Utils.coldWalletABI,
-                                                                   parameters: [AnyObject](),
-                                                                   extraData: data,
-                                                                   value: amount)
-            return result
-        } catch let error as WalletError {
-            HUDManager.shared.showError(text: error.errorDescription)
-        } catch let error as Web3Error {
-            HUDManager.shared.showError(text: error.errorDescription)
-        } catch {
-            HUDManager.shared.showError(text: "Send ERC20 Failed")
-        }
-        return "Send ETH Failed"
+                              gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
+        return TransactionManager.writeSmartContract(contractAddress: address,
+                                                     functionName: "fallback",
+                                                     abi: Web3.Utils.coldWalletABI,
+                                                     parameters: [AnyObject](),
+                                                     extraData: data,
+                                                     value: amount)
     }
 
     // MARK: - Payment Popup
@@ -168,31 +157,30 @@ class TransactionManager {
                                amount: BigUInt,
                                data _: Data,
                                password _: String,
-                               gasPrice _: GasPrice = GasPrice.average) throws -> String {
-        guard let toAddress = EthereumAddress(address),
-            let token = EthereumAddress(tokenAddrss) else {
-            throw WalletError.invalidAddress
-        }
+                               gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
+        
+        return Promise<String> { seal in
+            guard let toAddress = EthereumAddress(address),
+                let token = EthereumAddress(tokenAddrss) else {
+                throw WalletError.invalidAddress
+            }
 
-        let parameters = [toAddress, amount] as [AnyObject]
+            let parameters = [toAddress, amount] as [AnyObject]
 
-        do {
-            let result = try TransactionManager.writeSmartContract(contractAddress: token.address,
-                                                                   functionName: "transfer",
-                                                                   abi: Web3.Utils.erc20ABI,
-                                                                   parameters: parameters,
-                                                                   extraData: Data(),
-                                                                   value: amount,
-                                                                   notERC20: false)
-            return result
-        } catch let error as WalletError {
-            HUDManager.shared.showError(text: error.errorDescription)
-        } catch let error as Web3Error {
-            HUDManager.shared.showError(text: error.errorDescription)
-        } catch {
-            HUDManager.shared.showError(text: "Send ERC20 Failed")
+            firstly{
+                TransactionManager.writeSmartContract(contractAddress: token.address,
+                                                      functionName: "transfer",
+                                                      abi: Web3.Utils.erc20ABI,
+                                                      parameters: parameters,
+                                                      extraData: Data(),
+                                                      value: amount,
+                                                      notERC20: false)
+            }.done { hash in
+                seal.fulfill(hash)
+            }.catch { error in
+                seal.reject(error)
+            }
         }
-        return "Send ERC20 Failed"
     }
 
     // MARK: - Call Smart Contract
@@ -204,76 +192,111 @@ class TransactionManager {
                                          extraData: Data,
                                          value: BigUInt,
                                          gasPrice: GasPrice = GasPrice.average,
-                                         notERC20: Bool = true) throws -> String {
-        guard let address = WalletManager.wallet?.address else {
-            throw WalletError.invalidAddress
-        }
+                                         notERC20: Bool = true) -> Promise<String> {
+        
+        return Promise<String> { seal in
+        
+            guard let address = WalletManager.wallet?.address else {
+                seal.reject(WalletError.invalidAddress)
+                return
+            }
 
-        guard let walletAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
+            guard let walletAddress = EthereumAddress(address) else {
+                seal.reject(WalletError.invalidAddress)
+                return
+            }
 
-        guard let contractAddress = EthereumAddress(contractAddress) else {
-            throw WalletError.invalidAddress
-        }
+            guard let contractAddress = EthereumAddress(contractAddress) else {
+                seal.reject(WalletError.invalidAddress)
+                return
+            }
 
-        let etherBalance = try TransactionManager.shared.etherBalanceSync()
-        guard let etherBalanceInDouble = Double(etherBalance) else {
-            throw WalletError.conversionFailure
-        }
+            guard let amountInDouble = Double(value.readableValue) else {
+                seal.reject(WalletError.conversionFailure)
+                return
+            }
 
-        guard let amountInDouble = Double(value.readableValue) else {
-            throw WalletError.conversionFailure
-        }
+            guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
+                seal.reject(WalletError.malformedKeystore)
+                return
+            }
 
-        if notERC20 {
-            guard etherBalanceInDouble >= amountInDouble else {
-                throw WalletError.insufficientBalance
+            guard let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2) else {
+                seal.reject(WalletError.contractFailure)
+                return
+            }
+            
+            let gasPrice = gasPrice.wei
+            var options = TransactionOptions.defaultOptions
+            options.value = notERC20 ? value : nil
+            options.from = walletAddress
+            options.gasPrice = .manual(gasPrice)
+            options.gasLimit = .automatic
+
+            guard let tx = contract.write(
+                functionName,
+                parameters: parameters as [AnyObject],
+                extraData: extraData,
+                transactionOptions: options
+            ) else {
+                seal.reject(WalletError.contractFailure)
+                return
+            }
+            
+            firstly {
+                TransactionManager.shared.checkBalance(amountInDouble: amountInDouble, notERC20: notERC20)
+            }.then { sucess in
+                tx.sendPromise()
+            }.done { result in
+                seal.fulfill(result.hash)
+                let url = PinItem.txURL(network: WalletManager.currentNetwork,
+                                        txHash: result.hash).absoluteString
+                let browser = BrowserWrapperViewController.make(urlString:url)
+                
+                let pinItem = PinItem.transaction(network: WalletManager.currentNetwork,
+                                                  txHash: result.hash,
+                                                  title: "Pending Transaction",
+                                                  viewcontroller: browser)
+                PendingTransactionHelper.shared.add(item: pinItem)
+                
+            }.catch { error in
+                
+                if let error = error as? WalletError {
+                    HUDManager.shared.showError(text: error.errorMessage)
+                } else if let error = error as? Web3Error {
+                    HUDManager.shared.showError(text: error.errorDescription)
+                } else {
+                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
+                }
+                
+                seal.reject(error)
             }
         }
-
-        guard let _ = WalletManager.web3Net.provider.attachedKeystoreManager else {
-            throw WalletError.malformedKeystore
-        }
-
-        let gasPrice = gasPrice.wei
-        guard let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: 2) else {
-            throw WalletError.contractFailure
-        }
-
-        var options = TransactionOptions.defaultOptions
-        options.value = notERC20 ? value : nil
-        options.from = walletAddress
-        options.gasPrice =
-//            .automatic
-            .manual(gasPrice)
-        options.gasLimit = .automatic
-
-        guard let tx = contract.write(
-            functionName,
-            parameters: parameters as [AnyObject],
-            extraData: extraData,
-            transactionOptions: options
-        ) else {
-            throw WalletError.contractFailure
-        }
-        
-        do {
-            let sendResult = try tx.send()
+    }
+    
+    func checkBalance(amountInDouble: Double, notERC20: Bool) -> Promise<Bool> {
+        return Promise { seal in
+            // TODO: Add ERC20 Blanace Check
+            if !notERC20 {
+                seal.fulfill(true)
+            }
             
-            // TODO
-            let url = PinItem.txURL(network: WalletManager.currentNetwork, txHash: sendResult.hash).absoluteString
-            PendingTransactionHelper.shared.add(item: .transaction(network: WalletManager.currentNetwork,
-                                                                   txHash: sendResult.hash,
-                                                                   title: "Pending Transaction",
-                                                                   viewcontroller: BrowserWrapperViewController.make(urlString:url)))
-            
-            return sendResult.hash
-        } catch let error as Web3Error {
-            HUDManager.shared.showError(text: error.errorDescription)
+            firstly{
+                etherBalance()
+            }.done { (etherBalance) in
+                guard let etherBalanceInDouble = Double(etherBalance) else {
+                    seal.reject(WalletError.conversionFailure)
+                    return
+                }
+                if notERC20 {
+                    guard etherBalanceInDouble >= amountInDouble else {
+                        seal.reject(WalletError.insufficientBalance)
+                        return
+                    }
+                }
+                seal.fulfill(true)
+            }
         }
-
-        return "Error"
     }
 
     public class func readSmartContract(contractAddress: String, functionName: String,
@@ -413,7 +436,7 @@ class TransactionManager {
                                   keystore: keystore,
                                   account: walletAddress,
                                   password: Setting.password)
-
+            
 //            print(tx.description)
             if detailObject {
                 return tx.toJsonString()

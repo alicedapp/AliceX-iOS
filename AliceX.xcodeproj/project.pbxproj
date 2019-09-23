@@ -68,6 +68,10 @@
 		15477B4922E1AE18008E3230 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4822E1AE18008E3230 /* API.swift */; };
 		154E7F322306A9A200D571A8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F312306A9A100D571A8 /* URL.swift */; };
 		154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */; };
+		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
+		155FACED233910DE0002B478 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACEB233910DD0002B478 /* TestViewController.xib */; };
+		155FACF2233947EB0002B478 /* PayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACF0233947EB0002B478 /* PayButtonView.swift */; };
+		155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACF1233947EB0002B478 /* PayButtonView.xib */; };
 		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
@@ -239,6 +243,10 @@
 		15477B4822E1AE18008E3230 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		154E7F312306A9A100D571A8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+AliceSDK.swift"; sourceTree = "<group>"; };
+		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		155FACEB233910DD0002B478 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		155FACF0233947EB0002B478 /* PayButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayButtonView.swift; sourceTree = "<group>"; };
+		155FACF1233947EB0002B478 /* PayButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayButtonView.xib; sourceTree = "<group>"; };
 		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -442,6 +450,7 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				155FACEE2339445D0002B478 /* View */,
 				15764E0F22E9E10300784848 /* Transfer */,
 				15F6E1F622E591D50006A24A /* SendToken */,
 				151E345F22D5961B0037157C /* SignTransaction */,
@@ -548,6 +557,32 @@
 				15477B4022E15C16008E3230 /* EthGasStationModel.swift */,
 			);
 			path = EthGasStation;
+			sourceTree = "<group>";
+		};
+		155FACE9233910C50002B478 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				155FACEA233910DD0002B478 /* TestViewController.swift */,
+				155FACEB233910DD0002B478 /* TestViewController.xib */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		155FACEE2339445D0002B478 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				155FACEF233947EB0002B478 /* PayButton */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		155FACEF233947EB0002B478 /* PayButton */ = {
+			isa = PBXGroup;
+			children = (
+				155FACF0233947EB0002B478 /* PayButtonView.swift */,
+				155FACF1233947EB0002B478 /* PayButtonView.xib */,
+			);
+			path = PayButton;
 			sourceTree = "<group>";
 		};
 		156548EE22CDC30F005C8B2D /* Network */ = {
@@ -962,6 +997,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				155FACE9233910C50002B478 /* Test */,
 				15A1817A232A4F9400DFE686 /* Cache */,
 				153B2803231B74940062B2E8 /* Pin */,
 				15CB1F2A22F16C4900E3075C /* WalletConnect */,
@@ -1258,6 +1294,7 @@
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				157AA56C22CC6CE0008AF3A5 /* SettingViewController.xib in Resources */,
+				155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */,
 				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
@@ -1278,6 +1315,7 @@
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
+				155FACED233910DE0002B478 /* TestViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1403,6 +1441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155FACEC233910DE0002B478 /* TestViewController.swift in Sources */,
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
@@ -1413,6 +1452,7 @@
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				15A181672329246100DFE686 /* RPCCustomFooterView.swift in Sources */,
+				155FACF2233947EB0002B478 /* PayButtonView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
 				15477B4722E184AA008E3230 /* BigInt.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
