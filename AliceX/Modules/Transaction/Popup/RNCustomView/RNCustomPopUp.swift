@@ -100,6 +100,7 @@ extension RNCustomPopUp: PayButtonDelegate {
             self.dismiss(animated: true, completion: nil)
         }.catch { (error) in
             self.payView!.failed()
+            HUDManager.shared.showError(error: error)
         }
     }
 }

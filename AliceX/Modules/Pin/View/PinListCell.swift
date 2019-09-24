@@ -49,12 +49,12 @@ class PinListCell: UITableViewCell {
             pinImageView.image = UIImage.imageWithColor(color: network.color)
             pinTextLabel.text = title
             progressView.isHidden = false
+            progressView.enableIndeterminate()
             self.vc = vc
         case .dapplet(let image, let url, let title, let vc):
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
-            progressView.enableIndeterminate()
             self.vc = vc
         case .website(let image, let url, let title, let vc):
             pinImageView.image = image

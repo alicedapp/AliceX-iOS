@@ -43,6 +43,7 @@ extension BigUInt {
     }
 
     var readableValue: String {
-        return Web3Utils.formatToEthereumUnits(self, toUnits: .eth, decimals: 5, decimalSeparator: ".")!
+        let string = Web3Utils.formatToEthereumUnits(self, toUnits: .eth, decimals: 5, decimalSeparator: ".")!
+        return String.removeTrailingZero(string: string)
     }
 }

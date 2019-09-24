@@ -261,13 +261,13 @@ class TransactionManager {
                 
             }.catch { error in
                 
-                if let error = error as? WalletError {
-                    HUDManager.shared.showError(text: error.errorMessage)
-                } else if let error = error as? Web3Error {
-                    HUDManager.shared.showError(text: error.errorDescription)
-                } else {
-                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
-                }
+//                if let error = error as? WalletError {
+//                    HUDManager.shared.showError(text: error.errorMessage)
+//                } else if let error = error as? Web3Error {
+//                    HUDManager.shared.showError(text: error.errorDescription)
+//                } else {
+//                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
+//                }
                 
                 seal.reject(error)
             }

@@ -8,12 +8,23 @@
 
 import QuickLayout
 import SwiftEntryKit
+import web3swift
 
 class HUDManager: NSObject {
     static let shared = HUDManager()
 
     private override init() {}
 
+    func showError(error: Error) {
+        if let error = error as? WalletError {
+            HUDManager.shared.showError(text: error.errorMessage)
+        } else if let error = error as? Web3Error {
+            HUDManager.shared.showError(text: error.errorDescription)
+        } else {
+            HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
+        }
+    }
+    
     func showError(text: String = "Error occur") {
         DispatchQueue.main.async {
             let style = EKProperty.LabelStyle(font: MainFont.light.with(size: 14), color: .white, alignment: .center)

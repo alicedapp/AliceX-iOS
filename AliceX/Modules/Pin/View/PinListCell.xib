@@ -31,10 +31,10 @@
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="thicknessRatio">
-                                        <real key="value" value="0.20000000000000001"/>
+                                        <real key="value" value="0.25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                        <color key="value" red="0.82327299882746119" green="0.82327299882746119" blue="0.82327299882746119" alpha="0.66763864436619713" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="0.66763864436619713" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

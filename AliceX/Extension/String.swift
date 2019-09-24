@@ -154,4 +154,17 @@ extension String {
         }
         return self
     }
+    
+    static func removeTrailingZero(string: String) -> String {
+        
+        if string.count == 1 {
+            return string
+        }
+        
+        if string.last == "0" {
+            let newString = String(string.dropLast())
+            return String.removeTrailingZero(string: newString)
+        }
+        return string
+    }
 }

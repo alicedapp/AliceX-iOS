@@ -10,6 +10,7 @@ import BigInt
 import MarqueeLabel
 import PromiseKit
 import UIKit
+import web3swift
 
 class ContractPopUp: UIViewController {
     @IBOutlet var payButton: UIControl!
@@ -88,14 +89,19 @@ class ContractPopUp: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
-
+        
+        guard let parameters = self.parameters as? [AnyObject] else {
+            HUDManager.shared.showError(text: "Parameter inVaild")
+            return
+        }
+        
         firstly {
             GasPriceHelper.shared.getGasPrice()
         }.then {
             TransactionManager.shared.gasForContractMethod(to: self.contractAddress,
                                                            contractABI: self.abi,
                                                            methodName: self.functionName,
-                                                           methodParams: self.parameters as! [AnyObject],
+                                                           methodParams: parameters,
                                                            amount: self.value,
                                                            data: self.extraData)
         }.done { gasLimit in
@@ -175,6 +181,7 @@ extension ContractPopUp: PayButtonDelegate {
             self.dismiss(animated: true, completion: nil)
         }.catch { (error) in
             self.payView!.failed()
+            HUDManager.shared.showError(error: error)
         }
     }
 }

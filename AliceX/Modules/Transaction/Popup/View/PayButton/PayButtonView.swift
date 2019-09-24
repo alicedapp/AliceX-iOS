@@ -128,12 +128,16 @@ class PayButtonView: UIControl {
         
         UIView.animate(withDuration: 0.3) {
             self.transform = CGAffineTransform.identity
-            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
+//            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
         }
     }
     
     func failed() {
+        UIView.animate(withDuration: 0.3) {
+            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
+        }
         isUserInteractionEnabled = true
+        progressIndicator.enableIndeterminate(false, completion: nil)
         progressIndicator.updateProgress(0)
         toggle = false
         process = 0

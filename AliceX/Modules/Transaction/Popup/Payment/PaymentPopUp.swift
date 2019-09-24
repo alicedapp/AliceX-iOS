@@ -9,6 +9,7 @@
 import BigInt
 import PromiseKit
 import UIKit
+import web3swift
 
 // Can't be BaseVIewController
 class PaymentPopUp: UIViewController {
@@ -111,7 +112,6 @@ class PaymentPopUp: UIViewController {
     }
 }
 
-
 extension PaymentPopUp: PayButtonDelegate {
     
     // MARK: - Verify
@@ -149,6 +149,7 @@ extension PaymentPopUp: PayButtonDelegate {
             self.dismiss(animated: true, completion: nil)
         }.catch { (error) in
             self.payView!.failed()
+            HUDManager.shared.showError(error: error)
         }
     }
 }
