@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252A233A0F46009C9D51 /* WCClientHelper.swift */; };
+		1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252C233A113D009C9D51 /* WCServerHandler.swift */; };
+		15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252F233A2167009C9D51 /* WCConnectPopup.swift */; };
+		15072532233A2172009C9D51 /* WCConnectPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15072531233A2172009C9D51 /* WCConnectPopup.xib */; };
 		151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346022D5967B0037157C /* SignTransactionPopUp.swift */; };
 		151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151E346122D5967B0037157C /* SignTransactionPopUp.xib */; };
 		151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346422D59C9A0037157C /* EthereumTransaction.swift */; };
@@ -149,8 +153,10 @@
 		15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BC4DC022DAF50F00313CA9 /* dapps.json */; };
 		15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC322DAF58100313CA9 /* DAppModel.swift */; };
 		15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC4DC522DAFAE800313CA9 /* UIImage.swift */; };
+		15BE4091233A40080078AF83 /* WCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BE4090233A40080078AF83 /* WCPopUp.swift */; };
+		15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BE4092233A40140078AF83 /* WCPopUp.xib */; };
 		15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA59F22DEF594006BB60D /* Assets.xcassets */; };
-		15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2C22F16E8200E3075C /* WalletCconnectHelper.swift */; };
+		15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
@@ -182,6 +188,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1507252A233A0F46009C9D51 /* WCClientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCClientHelper.swift; sourceTree = "<group>"; };
+		1507252C233A113D009C9D51 /* WCServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCServerHandler.swift; sourceTree = "<group>"; };
+		1507252F233A2167009C9D51 /* WCConnectPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCConnectPopup.swift; sourceTree = "<group>"; };
+		15072531233A2172009C9D51 /* WCConnectPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCConnectPopup.xib; sourceTree = "<group>"; };
 		151E346022D5967B0037157C /* SignTransactionPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTransactionPopUp.swift; sourceTree = "<group>"; };
 		151E346122D5967B0037157C /* SignTransactionPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignTransactionPopUp.xib; sourceTree = "<group>"; };
 		151E346422D59C9A0037157C /* EthereumTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTransaction.swift; sourceTree = "<group>"; };
@@ -327,8 +337,10 @@
 		15BC4DC022DAF50F00313CA9 /* dapps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dapps.json; path = DappList/dapps.json; sourceTree = SOURCE_ROOT; };
 		15BC4DC322DAF58100313CA9 /* DAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppModel.swift; sourceTree = "<group>"; };
 		15BC4DC522DAFAE800313CA9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		15BE4090233A40080078AF83 /* WCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPopUp.swift; sourceTree = "<group>"; };
+		15BE4092233A40140078AF83 /* WCPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPopUp.xib; sourceTree = "<group>"; };
 		15BFA59F22DEF594006BB60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		15CB1F2C22F16E8200E3075C /* WalletCconnectHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCconnectHelper.swift; sourceTree = "<group>"; };
+		15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCServerHelper.swift; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
@@ -375,6 +387,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15072529233A0EB6009C9D51 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1507252E233A2121009C9D51 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				1507252F233A2167009C9D51 /* WCConnectPopup.swift */,
+				15072531233A2172009C9D51 /* WCConnectPopup.xib */,
+				15BE4090233A40080078AF83 /* WCPopUp.swift */,
+				15BE4092233A40140078AF83 /* WCPopUp.xib */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
 		151E345F22D5961B0037157C /* SignTransaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1027,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15072529233A0EB6009C9D51 /* Util */,
 				155FACE9233910C50002B478 /* Test */,
 				15A1817A232A4F9400DFE686 /* Cache */,
 				153B2803231B74940062B2E8 /* Pin */,
@@ -1082,7 +1113,8 @@
 		15CB1F2A22F16C4900E3075C /* WalletConnect */ = {
 			isa = PBXGroup;
 			children = (
-				15CB1F2C22F16E8200E3075C /* WalletCconnectHelper.swift */,
+				15F11C1C233A3DE2000920CC /* Client */,
+				15F11C1B233A3DB5000920CC /* Server */,
 			);
 			path = WalletConnect;
 			sourceTree = "<group>";
@@ -1138,6 +1170,24 @@
 				15E845E222DBA141008F8AD2 /* HKFloatAreaView.h */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15F11C1B233A3DB5000920CC /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				1507252E233A2121009C9D51 /* PopUp */,
+				1507252C233A113D009C9D51 /* WCServerHandler.swift */,
+				15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		15F11C1C233A3DE2000920CC /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				1507252A233A0F46009C9D51 /* WCClientHelper.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		15F6E1F622E591D50006A24A /* SendToken */ = {
@@ -1293,9 +1343,11 @@
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
+				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
 				157AA56C22CC6CE0008AF3A5 /* SettingViewController.xib in Resources */,
 				155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */,
 				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
+				15072532233A2172009C9D51 /* WCConnectPopup.xib in Resources */,
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
@@ -1447,7 +1499,7 @@
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
-				15CB1F2D22F16E8200E3075C /* WalletCconnectHelper.swift in Sources */,
+				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
@@ -1489,6 +1541,7 @@
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
+				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
 				153B2819231CFDBB0062B2E8 /* PinItem.swift in Sources */,
 				15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */,
 				153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */,
@@ -1501,6 +1554,7 @@
 				15E845F022DBA141008F8AD2 /* HKFloatAreaView.m in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
+				1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */,
 				15E845EE22DBA141008F8AD2 /* HKFloatBall.m in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
@@ -1510,6 +1564,7 @@
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
 				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
+				1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */,
 				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
@@ -1522,6 +1577,7 @@
 				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
+				15BE4091233A40080078AF83 /* WCPopUp.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */,
 				1525E79323311C18009DAB83 /* AmberData.swift in Sources */,

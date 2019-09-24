@@ -18,3 +18,13 @@ class Util {
         return false
     }
 }
+
+func onMainThread(_ closure: @escaping () -> Void) {
+    if Thread.isMainThread {
+        closure()
+    } else {
+        DispatchQueue.main.async {
+            closure()
+        }
+    }
+}

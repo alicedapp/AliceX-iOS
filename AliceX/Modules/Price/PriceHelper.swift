@@ -57,25 +57,27 @@ class PriceHelper {
 
     // TODO: MORE THAN SUPPORT ETH
     func getExchangePrice(currency: Currency, callback: VoidBlock) {
-        coinMarketCapAPI.request(.latest(currency: currency)) { result in
-
-            switch result {
-            case let .success(response):
-                let model = response.mapObject(CoinMarketCapModel.self)
-                let quote = model?.data?.first?.quote?.toJSON()
-                let price = quote![currency.rawValue] as! [String: Any]
-                var currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price)
-                currencyModel?.currency = currency
-                self.reponse = currencyModel
-                self.currentCurrency = (currencyModel?.currency)!
-                self.exchangeRate = currencyModel!.price!
-                self.updateDate = currencyModel!.last_updated!
-                guard let block = callback else {
-                    return
+        
+        DispatchQueue.global(qos: .background).async {
+            coinMarketCapAPI.request(.latest(currency: currency)) { result in
+                switch result {
+                case let .success(response):
+                    let model = response.mapObject(CoinMarketCapModel.self)
+                    let quote = model?.data?.first?.quote?.toJSON()
+                    let price = quote![currency.rawValue] as! [String: Any]
+                    var currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price)
+                    currencyModel?.currency = currency
+                    self.reponse = currencyModel
+                    self.currentCurrency = (currencyModel?.currency)!
+                    self.exchangeRate = currencyModel!.price!
+                    self.updateDate = currencyModel!.last_updated!
+                    guard let block = callback else {
+                        return
+                    }
+                    block()
+                case let .failure:
+                    HUDManager.shared.showError(text: "Fetch currency fail")
                 }
-                block()
-            case let .failure:
-                HUDManager.shared.showError(text: "Fetch currency fail")
             }
         }
     }

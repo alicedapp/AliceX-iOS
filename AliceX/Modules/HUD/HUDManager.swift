@@ -26,7 +26,7 @@ class HUDManager: NSObject {
     }
     
     func showError(text: String = "Error occur") {
-        DispatchQueue.main.async {
+        onMainThread {
             let style = EKProperty.LabelStyle(font: MainFont.light.with(size: 14), color: .white, alignment: .center)
             let labelContent = EKProperty.LabelContent(text: text, style: style)
             let imageContent = EKProperty.ImageContent(image: UIImage(named: "cross-white")!)
@@ -45,7 +45,7 @@ class HUDManager: NSObject {
     }
 
     func showSuccess(text: String = "Success") {
-        DispatchQueue.main.async {
+        onMainThread {
             let style = EKProperty.LabelStyle(font: MainFont.light.with(size: 14), color: .white, alignment: .center)
             let labelContent = EKProperty.LabelContent(text: text, style: style)
             let imageContent = EKProperty.ImageContent(image: UIImage(named: "tick-white")!)
@@ -67,18 +67,19 @@ class HUDManager: NSObject {
     func showAlertView(view: UIView, backgroundColor: UIColor = .white,
                        haptic: EKAttributes.NotificationHapticFeedback = .none,
                        type: EKAttributes = .bottomFloat,
-                       widthIsFull: Bool = true) {
-        DispatchQueue.main.async {
+                       widthIsFull: Bool = true,
+                       canDismiss: Bool = true) {
+        onMainThread {
             var attributes: EKAttributes = EKAttributes()
             attributes = type
             attributes.hapticFeedbackType = haptic
             attributes.displayDuration = .infinity
             attributes.screenBackground = .color(color: UIColor(white: 100.0 / 255.0, alpha: 0.3))
             attributes.entryBackground = .color(color: backgroundColor)
-            attributes.screenInteraction = .dismiss
+            attributes.screenInteraction = canDismiss ? .dismiss : .absorbTouches
             attributes.entryInteraction = .forward
             attributes.roundCorners = .top(radius: 20)
-            attributes.scroll = .edgeCrossingDisabled(swipeable: true)
+            attributes.scroll = .edgeCrossingDisabled(swipeable: canDismiss)
             attributes.statusBar = .currentStatusBar
             attributes.entranceAnimation = .init(translate: .init(duration: 0.5, spring: .init(damping: 0.9, initialVelocity: 0)))
             attributes.exitAnimation = .init(translate: .init(duration: 0.3))
@@ -103,7 +104,7 @@ class HUDManager: NSObject {
     }
 
     func showAlertViewController(viewController: UIViewController) {
-        DispatchQueue.main.async {
+        onMainThread  {
             var attributes: EKAttributes = EKAttributes()
             attributes = .bottomFloat
             attributes.displayDuration = .infinity
@@ -126,7 +127,7 @@ class HUDManager: NSObject {
     }
 
     func showAlertVCNoBackground(viewController: UIViewController, type: EKAttributes = .centerFloat) {
-        DispatchQueue.main.async {
+        onMainThread {
             var attributes: EKAttributes = EKAttributes()
             attributes = type
             attributes.displayDuration = .infinity
@@ -152,7 +153,7 @@ class HUDManager: NSObject {
     }
 
     func dismiss() {
-        DispatchQueue.main.async {
+        onMainThread  {
             SwiftEntryKit.dismiss()
         }
     }
