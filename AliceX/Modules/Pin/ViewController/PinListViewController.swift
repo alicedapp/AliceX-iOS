@@ -46,9 +46,10 @@ class PinListViewController: BaseViewController {
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
             self.view.alpha = 0
         }) { _ in
-            self.dismiss(animated: false, completion: nil)
-            self.view.alpha = 1
-//            PinManager.shared.show()
+
+            self.dismiss(animated: false) {
+                self.view.alpha = 1
+            }
         }
     }
 
@@ -60,6 +61,16 @@ class PinListViewController: BaseViewController {
         }) { _ in
         }
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        view.alpha = 1
+//        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+//            self.view.alpha = 0
+//        }) { _ in
+////            self.view.alpha = 1
+//        }
+//    }
 }
 
 extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
