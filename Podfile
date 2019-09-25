@@ -23,6 +23,7 @@ target 'AliceX' do
   pod 'WalletConnectSwift', git: 'https://github.com/alicedapp/WalletConnectSwift', branch: 'master'
 #  pod 'lottie-ios'
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
+  pod 'BonMot'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

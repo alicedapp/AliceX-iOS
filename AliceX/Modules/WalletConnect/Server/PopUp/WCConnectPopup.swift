@@ -36,11 +36,8 @@ class WCConnectPopup: UIView {
     }
     
     func configure(portAImage: URL?, portAName: String, portBImage: URL?, portBName: String) {
-        portA.kf.setImage(with: portAImage,
-                             placeholder: UIImage.imageWithColor(color: UIColor(hex: "F1F5F8")))
-        
-        portB.kf.setImage(with: portBImage,
-                             placeholder: UIImage.imageWithColor(color: UIColor(hex: "F1F5F8")))
+        portA.kf.setImage(with: portAImage, placeholder: Constant.placeholder)
+        portB.kf.setImage(with: portBImage, placeholder: Constant.placeholder)
         
         portALabel.text = portAName
         portBLabel.text = portBName

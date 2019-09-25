@@ -11,10 +11,10 @@ import WalletConnectSwift
 
 class WCHandler: RequestHandler {
     
-    weak var sever: Server!
-
+    weak var server: Server!
+    
     init(server: Server) {
-        self.sever = server
+        self.server = server
     }
 
     func canHandle(request: Request) -> Bool {
@@ -55,28 +55,52 @@ class PersonalSignHandler: WCHandler {
             }
             
             if address.lowercased() != WalletManager.wallet?.address.lowercased() {
-               sever.send(.reject(request))
+               server.send(.reject(request))
                 HUDManager.shared.showError(text: "Address Not Matched")
                return
            }
 
             guard let decodedMessage = messageBytes.hexDecodeUTF8 else {
-                sever.send(.reject(request))
+                server.send(.reject(request))
                 HUDManager.shared.showError(text: "Message decode failed")
                 return
             }
             
             onMainThread {
-                TransactionManager.showSignMessageView(message: messageBytes) { (signed) in
-                    let response = try! Response(url: request.url, value: signed, id: request.id!)
-                    self.sever.send(response)
+                
+                let info = WCServerHelper.shared.dappInfo
+                
+                let name = info?.url.host ?? "Dapp"
+                
+                let view = WCPopUp.make(logo: info?.icons.first,
+                                        name: name,
+                                        title: "Request To Sign Message",
+                                        content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
+                                        comfirmBlock: {
+                                            self.signMessage(request: request, message: messageBytes)
+                }) {
+                    self.server.send(.reject(request))
                 }
+                           
+               HUDManager.shared.showAlertView(view: view,
+                                               backgroundColor: .clear,
+                                               haptic: .none,
+                                               type: .bottomFloat,
+                                               widthIsFull: true,
+                                               canDismiss: false)
             }
             
 //            let signed = try TransactionManager.signMessage(message: Data.fromHex(messageBytes)!)
        } catch {
-           sever.send(.invalid(request))
+           server.send(.invalid(request))
            return
        }
+    }
+    
+    func signMessage(request: Request, message: String) {
+        TransactionManager.showSignMessageView(message: message) { (signed) in
+            let response = try! Response(url: request.url, value: signed, id: request.id!)
+            self.server.send(response)
+        }
     }
 }

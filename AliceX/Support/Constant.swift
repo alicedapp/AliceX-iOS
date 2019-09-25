@@ -63,6 +63,8 @@ class CacheKey {
 
 class Constant {
     
+    static let placeholder =  UIImage.imageWithColor(color: UIColor(hex: "F1F5F8"))
+    
     static let AliceCommunityTelegram = URL(string: "https://t.me/alicecommunity")!
     static let AliceCommunityTelegramScheme = URL(string: "tg://resolve?domain=alicecommunity")!
     

@@ -11,10 +11,15 @@ import Foundation
 import WalletConnectSwift
 import web3swift
 
-class WalletConnectServerHelper {
-    static let shared = WalletConnectServerHelper()
+class WCServerHelper {
+    static let shared = WCServerHelper()
     
     var server: Server!
+    var session: Session?
+    
+    lazy var dappInfo = {
+        return session?.dAppInfo.peerMeta
+    }()
     
 //    var interactor: WCInteractor?
 //    let clientMeta = WCPeerMeta(name: "Alice",
@@ -28,17 +33,29 @@ class WalletConnectServerHelper {
         server.register(handler: PersonalSignHandler(server: server))
     }
     
-    func fromQRCode(scanString: String) {
-        guard let url = WCURL(scanString) else { return }
+    func connect(url: String) {
+        guard let url = WCURL(url) else { return }
         do {
             try self.server.connect(to: url)
         } catch {
             HUDManager.shared.showError(text: "Parse Wallet Connect QRcode failed")
         }
     }
+    
+    func disconnect() {
+        
+        guard let session = self.session else { return }
+        
+        do {
+            try server.disconnect(from: session)
+        } catch {
+            HUDManager.shared.showError(text: "Disconnect Wallect Failed")
+        }
+        
+    }
 }
 
-extension WalletConnectServerHelper: ServerDelegate {
+extension WCServerHelper: ServerDelegate {
     
     func server(_ server: Server, didFailToConnect url: WCURL) {
         HUDManager.shared.showError(text: "Wallect Connect Faild to Connect")
@@ -49,7 +66,7 @@ extension WalletConnectServerHelper: ServerDelegate {
         let aliceLogo = URL(string: "https://static1.squarespace.com/static/5c62768baf4683e94383848a/t/5ceca03be2c4834cdc18a838/1568564936191/?format=1500w")!
         
         let walletMeta = Session.ClientMeta(name: "Alice Wallet",
-                                            description: "Alice Wallet ",
+                                            description: "Alice Wallet Connect",
                                             icons: [aliceLogo],
                                             url: URL(string: "https://www.alicedapp.com")!)
         
@@ -62,11 +79,13 @@ extension WalletConnectServerHelper: ServerDelegate {
         let portAName = session.dAppInfo.peerMeta.name
         let portAImage = session.dAppInfo.peerMeta.icons.first
         
+        self.session = session
+        
         onMainThread {
             let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
-                                portBImage: aliceLogo, portBName: "Alice",
-                                comfirmBlock: {
-                                    completion(walletInfo)
+                                           portBImage: aliceLogo, portBName: "Alice",
+                                           comfirmBlock: {
+                                            completion(walletInfo)
             }) {
                 completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
             }

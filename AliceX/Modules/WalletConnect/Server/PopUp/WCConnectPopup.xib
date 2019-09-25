@@ -70,14 +70,14 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.20695728063583374" blue="0.3165152370929718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="FWw-PH-Efk" firstAttribute="centerY" secondItem="dSD-Qz-Trc" secondAttribute="centerY" id="WNE-fs-17S"/>
                                 <constraint firstItem="FWw-PH-Efk" firstAttribute="centerX" secondItem="dSD-Qz-Trc" secondAttribute="centerX" id="y6T-Wn-mab"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
-                                    <color key="value" red="1" green="0.4939367315120119" blue="0.47721204402512252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="value" red="0.67116099101891791" green="0.67116099101891791" blue="0.67116099101891791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <real key="value" value="27.5"/>
@@ -97,14 +97,14 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.10588235294117647" green="0.5725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.30693522708113868" green="0.55662274256018884" blue="0.94448267487046633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="tfA-Ml-vS6" firstAttribute="centerY" secondItem="Ssf-KM-ZHi" secondAttribute="centerY" id="Jaq-SD-y25"/>
                                 <constraint firstItem="tfA-Ml-vS6" firstAttribute="centerX" secondItem="Ssf-KM-ZHi" secondAttribute="centerX" id="Pos-Dz-nF9"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
-                                    <color key="value" red="0.30980392156862746" green="0.65490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="value" red="0.15774843561111629" green="0.69201149445227783" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <real key="value" value="27.5"/>
