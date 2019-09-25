@@ -157,14 +157,10 @@ extension String {
     
     static func removeTrailingZero(string: String) -> String {
         
-        if string.count == 1 {
+        guard let double = Double(string) else {
             return string
         }
         
-        if string.last == "0" {
-            let newString = String(string.dropLast())
-            return String.removeTrailingZero(string: newString)
-        }
-        return string
+        return double.removeZerosFromEnd()
     }
 }
