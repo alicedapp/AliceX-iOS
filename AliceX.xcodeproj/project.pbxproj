@@ -136,6 +136,8 @@
 		15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F5232D1016007A63A3 /* AboutViewController.swift */; };
 		15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A4F0F6232D1016007A63A3 /* AboutViewController.xib */; };
 		15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4F0F9232E85D2007A63A3 /* Transaction.swift */; };
+		15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7D4FF233B2896001D720F /* SingleButtonAlertView.swift */; };
+		15A7D502233B289F001D720F /* SingleButtonAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A7D501233B289F001D720F /* SingleButtonAlertView.xib */; };
 		15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403822E043550059FB18 /* TransactionManager+Gas.swift */; };
 		15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */; };
 		15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */; };
@@ -318,6 +320,8 @@
 		15A4F0F5232D1016007A63A3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		15A4F0F6232D1016007A63A3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		15A4F0F9232E85D2007A63A3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		15A7D4FF233B2896001D720F /* SingleButtonAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleButtonAlertView.swift; sourceTree = "<group>"; };
+		15A7D501233B289F001D720F /* SingleButtonAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleButtonAlertView.xib; sourceTree = "<group>"; };
 		15AF403822E043550059FB18 /* TransactionManager+Gas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Gas.swift"; sourceTree = "<group>"; };
 		15AF403A22E04DF50059FB18 /* Coinmarketcap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinmarketcap.swift; sourceTree = "<group>"; };
 		15AF403E22E05A5B0059FB18 /* CoinMarketCapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapModel.swift; sourceTree = "<group>"; };
@@ -497,6 +501,8 @@
 			children = (
 				1535C2CB22F1643500C62FDC /* BaseAlertView.xib */,
 				1535C2CC22F1643500C62FDC /* BaseAlertView.swift */,
+				15A7D4FF233B2896001D720F /* SingleButtonAlertView.swift */,
+				15A7D501233B289F001D720F /* SingleButtonAlertView.xib */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -1336,6 +1342,7 @@
 				15A18164232922E400DFE686 /* RPCCustomViewController.xib in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
 				153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */,
+				15A7D502233B289F001D720F /* SingleButtonAlertView.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */,
@@ -1499,6 +1506,7 @@
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
+				15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,

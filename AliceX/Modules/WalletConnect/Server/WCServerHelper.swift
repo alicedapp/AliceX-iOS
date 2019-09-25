@@ -21,16 +21,12 @@ class WCServerHelper {
         return session?.dAppInfo.peerMeta
     }()
     
-//    var interactor: WCInteractor?
-//    let clientMeta = WCPeerMeta(name: "Alice",
-//                                url: "https://github.com/alicedapp/wallet-connect-swift")
-//    var defaultAddress: String = WalletManager.wallet!.address
-//    var defaultChainId: Int = WalletManager.currentNetwork.chainID
-    
     init() {
         server = Server(delegate: self)
         server.register(handler: SignTransactionHandler(server: server))
         server.register(handler: PersonalSignHandler(server: server))
+        server.register(handler: SendTransactionHandler(server: server))
+//        server.register(handler: SignHandler(server: server))
     }
     
     func connect(url: String) {
@@ -58,7 +54,7 @@ class WCServerHelper {
 extension WCServerHelper: ServerDelegate {
     
     func server(_ server: Server, didFailToConnect url: WCURL) {
-        HUDManager.shared.showError(text: "Wallect Connect Faild to Connect")
+        HUDManager.shared.showErrorAlert(text: "Wallect Connect Faild to Connect")
     }
     
     func server(_ server: Server, shouldStart session: Session, completion: @escaping (Session.WalletInfo) -> Void) {
@@ -104,7 +100,7 @@ extension WCServerHelper: ServerDelegate {
     }
     
     func server(_ server: Server, didDisconnect session: Session) {
-        
+        HUDManager.shared.showErrorAlert(text: "Wallect Connect Disconnect", isAlert: true)
     }
     
 }

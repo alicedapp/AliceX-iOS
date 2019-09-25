@@ -15,6 +15,8 @@ class HUDManager: NSObject {
 
     private override init() {}
 
+    // MARK: - Error
+    
     func showError(error: Error) {
         if let error = error as? WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
@@ -22,6 +24,18 @@ class HUDManager: NSObject {
             HUDManager.shared.showError(text: error.errorDescription)
         } else {
             HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
+        }
+    }
+    
+    func showErrorAlert(text: String, isAlert: Bool = false) {
+        onMainThread {
+            let view = SingleButtonAlertView.make(content: text, isAlert: isAlert)
+            self.showAlertView(view: view,
+                               backgroundColor: .clear,
+                               haptic: .none,
+                               type: .centerFloat,
+                               widthIsFull: false,
+                               canDismiss: true)
         }
     }
     
@@ -44,6 +58,8 @@ class HUDManager: NSObject {
         }
     }
 
+    // MARK: - Success
+    
     func showSuccess(text: String = "Success") {
         onMainThread {
             let style = EKProperty.LabelStyle(font: MainFont.light.with(size: 14), color: .white, alignment: .center)
@@ -64,6 +80,8 @@ class HUDManager: NSObject {
         }
     }
 
+    // MARK: - View
+    
     func showAlertView(view: UIView, backgroundColor: UIColor = .white,
                        haptic: EKAttributes.NotificationHapticFeedback = .none,
                        type: EKAttributes = .bottomFloat,
@@ -103,6 +121,8 @@ class HUDManager: NSObject {
         }
     }
 
+    // MARK: - View Controller
+    
     func showAlertViewController(viewController: UIViewController) {
         onMainThread  {
             var attributes: EKAttributes = EKAttributes()
@@ -153,7 +173,7 @@ class HUDManager: NSObject {
     }
 
     func dismiss() {
-        onMainThread  {
+        onMainThread {
             SwiftEntryKit.dismiss()
         }
     }
