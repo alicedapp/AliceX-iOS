@@ -20,6 +20,8 @@ class FloatBall: UIView {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var progressView: RPCircularProgress!
 
+    @IBOutlet var walletConnect: UIImageView!
+    
     let margin: CGFloat = 10
     weak var delegate: FloatBallDelegate?
     var showPending: Bool = false {
@@ -49,17 +51,22 @@ class FloatBall: UIView {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 5
+        
+        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
     }
     
     func updateIfNeeded() {
         var shouldShow = false
+        self.walletConnect.isHidden = true
         for item in PinManager.shared.pinList {
             if item.txHash.count > 0 {
                 shouldShow = true
-                break
+            }
+            if item.isWalletConnect {
+                self.walletConnect.isHidden = false
             }
         }
-        showPending = shouldShow
+        self.showPending = shouldShow
     }
 
     override func layoutSubviews() {

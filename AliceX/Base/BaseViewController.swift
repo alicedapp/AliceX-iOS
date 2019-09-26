@@ -10,8 +10,13 @@ import Hero
 import UIKit
 
 class BaseViewController: UIViewController {
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

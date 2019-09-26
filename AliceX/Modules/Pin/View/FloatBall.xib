@@ -41,14 +41,19 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSG-YC-BlN">
                                 <rect key="frame" x="10" y="10" width="40" height="40"/>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet-connect" translatesAutoresizingMaskIntoConstraints="NO" id="FBX-OH-lQa">
+                                <rect key="frame" x="16" y="21" width="28" height="18"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="FBX-OH-lQa" firstAttribute="centerY" secondItem="uko-bH-75C" secondAttribute="centerY" id="0Pl-AN-MXo"/>
                             <constraint firstAttribute="trailing" secondItem="9W6-Hi-Xgp" secondAttribute="trailing" id="0yb-Mf-MtR"/>
                             <constraint firstAttribute="trailing" secondItem="zSG-YC-BlN" secondAttribute="trailing" constant="10" id="A0Q-Ev-AJi"/>
                             <constraint firstAttribute="bottom" secondItem="9W6-Hi-Xgp" secondAttribute="bottom" id="VWS-S4-P34"/>
                             <constraint firstAttribute="bottom" secondItem="zSG-YC-BlN" secondAttribute="bottom" constant="10" id="ey6-yN-leJ"/>
                             <constraint firstItem="9W6-Hi-Xgp" firstAttribute="leading" secondItem="uko-bH-75C" secondAttribute="leading" id="mkf-7t-4UB"/>
                             <constraint firstItem="zSG-YC-BlN" firstAttribute="top" secondItem="uko-bH-75C" secondAttribute="top" constant="10" id="mqi-XI-D3i"/>
+                            <constraint firstItem="FBX-OH-lQa" firstAttribute="centerX" secondItem="uko-bH-75C" secondAttribute="centerX" id="tGo-fe-Mmg"/>
                             <constraint firstItem="9W6-Hi-Xgp" firstAttribute="top" secondItem="uko-bH-75C" secondAttribute="top" id="wvW-f1-pXt"/>
                             <constraint firstItem="zSG-YC-BlN" firstAttribute="leading" secondItem="uko-bH-75C" secondAttribute="leading" constant="10" id="ybW-eQ-SWG"/>
                         </constraints>
@@ -68,8 +73,12 @@
                 <outlet property="containerView" destination="W1g-eq-wvC" id="KEl-0h-Q81"/>
                 <outlet property="imageView" destination="zSG-YC-BlN" id="X3i-od-fyt"/>
                 <outlet property="progressView" destination="9W6-Hi-Xgp" id="DAP-sl-WX8"/>
+                <outlet property="walletConnect" destination="FBX-OH-lQa" id="HEO-I4-ZJu"/>
             </connections>
             <point key="canvasLocation" x="-192.75362318840581" y="-236.38392857142856"/>
         </view>
     </objects>
+    <resources>
+        <image name="wallet-connect" width="28" height="18"/>
+    </resources>
 </document>

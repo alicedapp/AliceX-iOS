@@ -33,6 +33,10 @@ class MyQRCodeViewController: BaseViewController {
         addressLabel.text = address
     }
 
+    @IBAction func backBtnWithHUDManager() {
+        HUDManager.shared.dismiss()
+    }
+    
     @IBAction func copyBtnClicked() {
         UIPasteboard.general.string = WalletManager.wallet?.address
     }

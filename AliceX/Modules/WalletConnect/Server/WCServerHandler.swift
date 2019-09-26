@@ -46,7 +46,7 @@ class SignTransactionHandler: WCHandler {
     
     override func handle(request: Request) {
         onMainThread {
-            let info = WCServerHelper.shared.dappInfo
+            let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
             let name = info?.url.host ?? "Dapp"
                            
            let view = WCPopUp.make(logo: info?.icons.first,
@@ -113,7 +113,7 @@ class SendTransactionHandler: WCHandler {
     
     override func handle(request: Request) {
         onMainThread {
-            let info = WCServerHelper.shared.dappInfo
+            let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
             let name = info?.url.host ?? "Dapp"
                            
            let view = WCPopUp.make(logo: info?.icons.first,
@@ -204,10 +204,8 @@ class PersonalSignHandler: WCHandler {
             
             onMainThread {
                 
-                let info = WCServerHelper.shared.dappInfo
-                
+                let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
                 let name = info?.url.host ?? "Dapp"
-                
                 let view = WCPopUp.make(logo: info?.icons.first,
                                         name: info?.name ?? "Dapp",
                                         title: "Request To Sign Message",

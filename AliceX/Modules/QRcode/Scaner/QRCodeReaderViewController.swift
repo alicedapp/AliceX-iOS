@@ -63,6 +63,10 @@ class QRCodeReaderViewController: LBXScanViewController {
     @IBAction func albumBtnClicked() {
         openPhotoAlbum()
     }
+    
+    @IBAction func walletConnectBtnClicked() {
+        WCClientHelper.shared.create()
+    }
 
     @IBAction func myqrcodeClicked() {
         let vc = MyQRCodeViewController()

@@ -52,6 +52,12 @@ extension Notification.Name {
     static let customRPCChange = Notification.Name("customRPCChange")
     static let newPendingTransaction = Notification.Name("newPendingTransaction")
     static let removePendingTransaction = Notification.Name("removePendingTransaction")
+    
+    static let wallectConnectServerConnect = Notification.Name("wallectConnectServerConnect")
+    static let wallectConnectServerDisconnect = Notification.Name("wallectConnectServerDisconnect")
+    
+    static let wallectConnectClientConnect = Notification.Name("wallectConnectClientConnect")
+    static let wallectConnectClientDisconnect = Notification.Name("wallectConnectClientDisconnect")
 }
 
 

@@ -42,13 +42,15 @@ class PinListViewController: BaseViewController {
     }
 
     @IBAction func dismissVC() {
-        view.alpha = 1
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.view.alpha = 0
-        }) { _ in
+        onMainThread {
+            self.view.alpha = 1
+            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                self.view.alpha = 0
+            }) { _ in
 
-            self.dismiss(animated: false) {
-                self.view.alpha = 1
+                self.dismiss(animated: false) {
+                    self.view.alpha = 1
+                }
             }
         }
     }

@@ -14,40 +14,55 @@ import web3swift
 class WCServerHelper {
     static let shared = WCServerHelper()
     
-    var server: Server!
+    var server: Server?
     var session: Session?
+    var isConnecting: Bool = false
+    var connectedDate: Date?
     
-    lazy var dappInfo = {
-        return session?.dAppInfo.peerMeta
-    }()
+//    var dappInfo = {
+//        return session?.dAppInfo.peerMeta
+//    }()
+    
+//    typealias dappaInfo = session?.dAppInfo.peerMeta
     
     init() {
-        server = Server(delegate: self)
-        server.register(handler: SignTransactionHandler(server: server))
-        server.register(handler: PersonalSignHandler(server: server))
-        server.register(handler: SendTransactionHandler(server: server))
 //        server.register(handler: SignHandler(server: server))
     }
     
     func connect(url: String) {
+        
+        if isConnecting && session != nil{
+            disconnect()
+        }
+        
+        server = Server(delegate: self)
+        server!.register(handler: SignTransactionHandler(server: server!))
+        server!.register(handler: PersonalSignHandler(server: server!))
+        server!.register(handler: SendTransactionHandler(server: server!))
+        
         guard let url = WCURL(url) else { return }
         do {
-            try self.server.connect(to: url)
+            try self.server!.connect(to: url)
         } catch {
             HUDManager.shared.showError(text: "Parse Wallet Connect QRcode failed")
         }
     }
     
     func disconnect() {
-        
         guard let session = self.session else { return }
         
         do {
-            try server.disconnect(from: session)
+            try server!.disconnect(from: session)
         } catch {
-            HUDManager.shared.showError(text: "Disconnect Wallect Failed")
+            HUDManager.shared.showError(text: "Disconnect Wallet Failed")
         }
-        
+    }
+    
+    func disconnect(url: URL) {
+        guard let session = self.session else { return }
+        if session.url.bridgeURL == url {
+            disconnect()
+        }
     }
 }
 
@@ -61,7 +76,7 @@ extension WCServerHelper: ServerDelegate {
         
         let aliceLogo = URL(string: "https://static1.squarespace.com/static/5c62768baf4683e94383848a/t/5ceca03be2c4834cdc18a838/1568564936191/?format=1500w")!
         
-        let walletMeta = Session.ClientMeta(name: "Alice Wallet",
+        let walletMeta = Session.ClientMeta(name: "Alice",
                                             description: "Alice Wallet Connect",
                                             icons: [aliceLogo],
                                             url: URL(string: "https://www.alicedapp.com")!)
@@ -76,6 +91,7 @@ extension WCServerHelper: ServerDelegate {
         let portAImage = session.dAppInfo.peerMeta.icons.first
         
         self.session = session
+        self.session?.walletInfo = walletInfo
         
         onMainThread {
             let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
@@ -96,11 +112,28 @@ extension WCServerHelper: ServerDelegate {
     }
     
     func server(_ server: Server, didConnect session: Session) {
-        
+        onMainThread {
+            NotificationCenter.default.post(name: .wallectConnectServerConnect, object: nil)
+            let dappInfo = session.dAppInfo.peerMeta
+            let image = dappInfo.icons.first ?? URL(string: "https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/spaces%2F-LJJeCjcLrr53DcT1Ml7%2Favatar.png?generation=1545143197857624&alt=media")!
+            
+            let vc = WCControlPanel()
+            let pinItem = PinItem.walletConnect(image: image, url: session.url.bridgeURL,
+                                                title: "WC: \(dappInfo.url.host!)",viewcontroller: vc)
+            PinManager.shared.addPinItem(item: pinItem)
+            self.isConnecting = true
+            self.connectedDate = Date()
+        }
     }
     
     func server(_ server: Server, didDisconnect session: Session) {
+        let dict = ["url": session.url.bridgeURL]
+        NotificationCenter.default.post(name: .wallectConnectServerDisconnect, object: nil, userInfo: dict)
         HUDManager.shared.showErrorAlert(text: "Wallect Connect Disconnect", isAlert: true)
+        isConnecting = false
+        self.server = nil
+        self.session = nil
+        self.connectedDate = nil
     }
     
 }

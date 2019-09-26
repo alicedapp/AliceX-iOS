@@ -1,0 +1,175 @@
+//
+//  WCControlPanel.swift
+//  AliceX
+//
+//  Created by lmcmz on 26/9/19.
+//  Copyright © 2019 lmcmz. All rights reserved.
+//
+
+import UIKit
+import BonMot
+
+class WCControlPanel: BaseViewController {
+
+    @IBOutlet var serverTime: UILabel!
+    @IBOutlet var serverView: UIImageView!
+    @IBOutlet var serverLabel: UILabel!
+    @IBOutlet var serverDesc: UILabel!
+    @IBOutlet var serverSwitch: UISwitch!
+    var serverTimer: Timer!
+    
+    @IBOutlet var clientTime: UILabel!
+    @IBOutlet var clientView: UIImageView!
+    @IBOutlet var clientLabel: UILabel!
+    @IBOutlet var clientDesc: UILabel!
+    @IBOutlet var clientSwitch: UISwitch!
+    var clientTimer: Timer!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(clientConnect),
+                                               name: .wallectConnectClientConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clientDisconnect),
+                                               name: .wallectConnectClientDisconnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(serverConnect),
+                                               name: .wallectConnectServerConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(serverDisconnect),
+                                               name: .wallectConnectServerDisconnect, object: nil)
+        
+        let blueStyle = StringStyle(
+            .color(AliceColor.blue),
+            .font(UIFont.systemFont(ofSize: 18, weight: .semibold))
+        )
+
+        let fishStyle = StringStyle(
+            .font(UIFont.systemFont(ofSize: 18)),
+            .lineHeightMultiple(1.2),
+            .color(.darkGray),
+            .xmlRules([
+                .style("blue", blueStyle)
+            ])
+        )
+        
+        if let session = WCServerHelper.shared.session {
+            let serverInfo = session.dAppInfo.peerMeta
+            serverView.kf.setImage(with: serverInfo.icons.first, placeholder: Constant.placeholder)
+            serverLabel.text = serverInfo.name
+            serverDesc.text = serverInfo.description
+            serverSwitch.isOn = WCServerHelper.shared.isConnecting
+        }
+        
+        if let date = WCServerHelper.shared.connectedDate {
+            
+            serverTimer = Timer(timeInterval: 1, repeats: true, block: { (_) in
+                let now = Date()
+                let seconds = now.timeIntervalSince(date)
+                let (h, m, s) = self.secondsToHoursMinutesSeconds(seconds: Int(seconds))
+                let content = "<blue>Server</blue> - \(h):\(m):\(s)"
+                let attributedString = content.styled(with: fishStyle)
+                self.serverTime.attributedText = attributedString
+            })
+            
+            RunLoop.main.add(serverTimer, forMode: .common)
+            serverTimer.fire()
+        }
+        
+        guard let walletConnecnt = WCClientHelper.shared.walletConnect,
+            let session = walletConnecnt.session,
+            let clientInfo = session.walletInfo?.peerMeta else {
+            return
+        }
+        
+        if let date = WCClientHelper.shared.connectedDate {
+            
+            clientTimer = Timer(timeInterval: 1, repeats: true, block: { (_) in
+                let now = Date()
+                let seconds = now.timeIntervalSince(date)
+                let (h, m, s) = self.secondsToHoursMinutesSeconds(seconds: Int(seconds))
+                let content = "<blue>Client</blue> - \(h):\(m):\(s)"
+                let attributedString = content.styled(with: fishStyle)
+                self.clientTime.attributedText = attributedString
+            })
+            
+            RunLoop.main.add(clientTimer, forMode: .common)
+            clientTimer.fire()
+        }
+
+        clientView.kf.setImage(with: clientInfo.icons.first, placeholder: Constant.placeholder)
+        clientLabel.text = clientInfo.name
+        clientDesc.text = clientInfo.description ?? "No Description"
+        clientSwitch.isOn = WCClientHelper.shared.walletConnect!.isConnecting
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        if serverTimer != nil {
+            serverTimer.invalidate()
+            serverTimer = nil
+        }
+    }
+    
+    func secondsToHoursMinutesSeconds(seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+//    @IBAction backButtonClick() {
+//        
+//    }
+}
+
+extension WCControlPanel {
+    
+    @objc func serverTimeUpdate() {
+        
+    }
+    
+    @IBAction func serverSwicther(sw: UISwitch) {
+        if !sw.isOn {
+            WCServerHelper.shared.disconnect()
+            return
+        }
+        
+        let vc = QRCodeReaderViewController()
+        if let navi = self.navigationController {
+            navi.pushViewController(vc, animated: true)
+            return
+        }
+        vc.presentAsStork(vc)
+    }
+    
+    @objc func serverConnect() {
+        onMainThread {
+            self.serverSwitch.setOn(true, animated: true)
+        }
+    }
+    
+    @objc func serverDisconnect() {
+        onMainThread {
+            self.serverSwitch.setOn(false, animated: true)
+        }
+    }
+}
+
+
+extension WCControlPanel {
+    
+    @IBAction func clientSwicther(sw: UISwitch) {
+        if !sw.isOn {
+            WCClientHelper.shared.disconnect()
+        } else {
+            WCClientHelper.shared.create()
+        }
+    }
+    
+    @objc func clientConnect() {
+        onMainThread {
+            self.clientSwitch.setOn(true, animated: true)
+        }
+    }
+    
+    @objc func clientDisconnect() {
+        onMainThread {
+            self.clientSwitch.setOn(false, animated: true)
+        }
+    }
+}

@@ -31,12 +31,18 @@ func API<T: HandyJSON, U: TargetType>(_ target: U,
         provider.request(target, completion: { result in
             switch result {
             case let .success(response):
-                do {
-                    let model = try T.deserialize(from: response.mapString())
-                    seal.fulfill(model!)
-                } catch {
-                    seal.reject(MyError.DecodeFailed)
-                }
+//                do {
+                    // TODO: TokenInfo Mapping faild, but not nil
+                    guard let model = response.mapObject(T.self) else {
+                        seal.reject(MyError.DecodeFailed)
+                        return
+                    }
+//                        try T.deserialize(from: response.mapString())
+                    
+                    seal.fulfill(model)
+//                } catch {
+//                    seal.reject(MyError.DecodeFailed)
+//                }
                 
             case let .failure(error):
                 seal.reject(error)

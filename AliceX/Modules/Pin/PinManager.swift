@@ -16,9 +16,11 @@ class PinManager: NSObject {
     var pinList: [PinItem] = Array<PinItem>()
     {
         didSet {
-            listVC?.updateIfNeeded()
-            ball.updateIfNeeded()
-            updateIfNeeded()
+            onMainThread {
+                self.listVC?.updateIfNeeded()
+                self.ball.updateIfNeeded()
+                self.updateIfNeeded()
+            }
         }
     }
 
@@ -78,6 +80,11 @@ class PinManager: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(removePendingTx), name: .removePendingTransaction, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(networkChange), name: .networkChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(walletConnectDisconnect),
+                                               name: .wallectConnectClientDisconnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(walletConnectDisconnect),
+                                               name: .wallectConnectServerDisconnect, object: nil)
     }
     
     @objc func networkChange() {
@@ -171,6 +178,11 @@ class PinManager: NSObject {
             return
         }
         pinList.remove(at: index)
+        
+        if item.isWalletConnect {
+            WCServerHelper.shared.disconnect(url: item.URL!)
+            WCClientHelper.shared.disconnect(url: item.URL!)
+        }
     }
     
     func updatePinItem(item: PinItem) {
@@ -229,6 +241,14 @@ extension PinManager: FloatBallDelegate {
             tempFloatVC = nil
 //            floatVC = nil
             currentPin = nil
+            
+            for item in pinList {
+                if item.isWalletConnect {
+                    WCServerHelper.shared.disconnect(url: item.URL!)
+                    WCClientHelper.shared.disconnect(url: item.URL!)
+                }
+            }
+            
             pinList.removeAll()
 //            ball = nil;
             

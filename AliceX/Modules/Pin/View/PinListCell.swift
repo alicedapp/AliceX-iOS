@@ -61,6 +61,11 @@ class PinListCell: UITableViewCell {
             pinTextLabel.text = title
             progressView.isHidden = true
             self.vc = vc
+        case .walletConnect(let image, let url, let title, let vc):
+            pinImageView.kf.setImage(with: image, placeholder: Constant.placeholder)
+            pinTextLabel.text = title
+            progressView.isHidden = true
+            self.vc = vc
         }
     }
 
@@ -72,11 +77,16 @@ class PinListCell: UITableViewCell {
 //            frame?.origin.y = -(frame?.origin.y)!
 //        }
         
-        guard let previousVC = self.parentVC else {
+        // TODO
+        guard let previousVC = self.previousVC else {
             return
         }
         
-        if (self.previousVC?.navigationController?.viewControllers.contains(vc))! {
+        guard let navi = previousVC.navigationController else {
+            return
+        }
+        
+        if navi.viewControllers.contains(vc) {
             if let vc = self.parentVC as? PinListViewController {
                 vc.dismissVC()
             }
