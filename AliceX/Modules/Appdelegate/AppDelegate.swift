@@ -26,16 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
-        PriceHelper.shared.fetchFromCache()
-//        GasPriceHelper.shared.getGasPrice()
-
-        func sourceURL(bridge _: RCTBridge?) -> URL? {
-            #if DEBUG
-                return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
-            #else
-                return CodePush.bundleURL()
-            #endif
+        onBackgroundThread {
+            PriceHelper.shared.fetchFromCache()
         }
+//        GasPriceHelper.shared.getGasPrice()
 
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
 
@@ -62,6 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
         
         return true
+    }
+    
+    func sourceURL(bridge _: RCTBridge?) -> URL? {
+        #if DEBUG
+            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+        #else
+            return CodePush.bundleURL()
+        #endif
     }
 
     func applicationWillResignActive(_: UIApplication) {

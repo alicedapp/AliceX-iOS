@@ -49,18 +49,18 @@ class WCServerHelper {
     }
     
     func disconnect() {
-        guard let session = self.session else { return }
+        guard let session = self.session, let server = self.server else { return }
         
         do {
-            try server!.disconnect(from: session)
+            try server.disconnect(from: session)
         } catch {
             HUDManager.shared.showError(text: "Disconnect Wallet Failed")
         }
     }
     
-    func disconnect(url: URL) {
+    func disconnect(key: String) {
         guard let session = self.session else { return }
-        if session.url.bridgeURL == url {
+        if session.url.key == key {
             disconnect()
         }
     }
@@ -118,8 +118,8 @@ extension WCServerHelper: ServerDelegate {
             let image = dappInfo.icons.first ?? URL(string: "https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/spaces%2F-LJJeCjcLrr53DcT1Ml7%2Favatar.png?generation=1545143197857624&alt=media")!
             
             let vc = WCControlPanel()
-            let pinItem = PinItem.walletConnect(image: image, url: session.url.bridgeURL,
-                                                title: "WC: \(dappInfo.url.host!)",viewcontroller: vc)
+            let pinItem = PinItem.walletConnect(image: image, id: session.url.key,
+                                                title: "WC: \(dappInfo.url.host!)", viewcontroller: vc)
             PinManager.shared.addPinItem(item: pinItem)
             self.isConnecting = true
             self.connectedDate = Date()
@@ -127,7 +127,7 @@ extension WCServerHelper: ServerDelegate {
     }
     
     func server(_ server: Server, didDisconnect session: Session) {
-        let dict = ["url": session.url.bridgeURL]
+        let dict = ["key": session.url.key]
         NotificationCenter.default.post(name: .wallectConnectServerDisconnect, object: nil, userInfo: dict)
         HUDManager.shared.showErrorAlert(text: "Wallect Connect Disconnect", isAlert: true)
         isConnecting = false

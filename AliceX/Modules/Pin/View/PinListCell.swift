@@ -83,6 +83,11 @@ class PinListCell: UITableViewCell {
         }
         
         guard let navi = previousVC.navigationController else {
+            PinManager.shared.currentPin = self.item
+            
+            parentVC?.dismiss(animated: true, completion: {
+                previousVC.present(self.vc, animated: true, completion: nil)
+            })
             return
         }
         

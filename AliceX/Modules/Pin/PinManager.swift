@@ -180,8 +180,8 @@ class PinManager: NSObject {
         pinList.remove(at: index)
         
         if item.isWalletConnect {
-            WCServerHelper.shared.disconnect(url: item.URL!)
-            WCClientHelper.shared.disconnect(url: item.URL!)
+            WCServerHelper.shared.disconnect(key: item.wcKey)
+            WCClientHelper.shared.disconnect(key: item.wcKey)
         }
     }
     
@@ -242,11 +242,9 @@ extension PinManager: FloatBallDelegate {
 //            floatVC = nil
             currentPin = nil
             
-            for item in pinList {
-                if item.isWalletConnect {
-                    WCServerHelper.shared.disconnect(url: item.URL!)
-                    WCClientHelper.shared.disconnect(url: item.URL!)
-                }
+            for item in pinList where item.isWalletConnect{
+                WCServerHelper.shared.disconnect(key: item.wcKey)
+                WCClientHelper.shared.disconnect(key: item.wcKey)
             }
             
             pinList.removeAll()

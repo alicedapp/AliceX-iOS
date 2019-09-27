@@ -19,6 +19,7 @@ class WCClientHelper {
     var urlString: String!
     var connectedDate: Date?
     
+    var showDisAlert: Bool = true
 //    lazy var clientInfo = {
 //        return walletConnect.session.walletInfo?.peerMeta
 //    }()
@@ -35,6 +36,7 @@ class WCClientHelper {
                 onMainThread {
                     let view = BaseAlertView.instanceFromNib(content: "Do you wanna disconnect current session?",
                                                   confirmBlock: {
+                                                    self.disconnect()
                                                     self.urlString = self.walletConnect?.connect()
                                                     self.showQRCode()
                     }) {
@@ -62,22 +64,24 @@ class WCClientHelper {
     }
     
     func disconnect() {
-        guard let walletConnect = self.walletConnect else {
+        guard let walletConnect = self.walletConnect ,
+            let session = walletConnect.session,
+            let client = walletConnect.client else {
             return
         }
         do {
-            try walletConnect.client.disconnect(from: walletConnect.session)
+            try client.disconnect(from: session)
         } catch {
             // TODO
         }
     }
     
-    func disconnect(url: URL) {
+    func disconnect(key: String) {
         guard let walletConnect = self.walletConnect,
             let session = walletConnect.session else {
                 return
         }
-        if session.url.bridgeURL == url {
+        if session.url.key == key {
             disconnect()
         }
     }
@@ -86,7 +90,7 @@ class WCClientHelper {
 extension WCClientHelper: WCClientDelegate {
     
     func failedToConnect() {
-        HUDManager.shared.showError(text: "Failed to connect to WC")
+        HUDManager.shared.showError(text: "Failed to connect")
     }
     
     func didConnect() {
@@ -99,7 +103,7 @@ extension WCClientHelper: WCClientDelegate {
             
             let vc = WCControlPanel()
             let pinItem = PinItem.walletConnect(image: image,
-                                                url: self.walletConnect!.session.url.bridgeURL,
+                                                id: self.walletConnect!.session.url.key,
                                                 title: "WC: \(String(describing: dappInfo!.url.host!))", viewcontroller: vc)
             PinManager.shared.addPinItem(item: pinItem)
             self.connectedDate = Date()
@@ -107,9 +111,13 @@ extension WCClientHelper: WCClientDelegate {
     }
     
     func didDisconnect() {
-        let dict = ["url": walletConnect?.session.url.bridgeURL]
+        let dict = ["key": walletConnect?.session.url.key]
         NotificationCenter.default.post(name: .wallectConnectClientDisconnect, object: nil, userInfo: dict)
-        HUDManager.shared.showErrorAlert(text: "Wallect Connect Clinet Disconnect", isAlert: true)
+        if showDisAlert {
+            HUDManager.shared.showErrorAlert(text: "Wallect Connect Disconect", isAlert: true)
+        } else {
+            HUDManager.shared.showError(text: "Wallect Connect Disconect")
+        }
         walletConnect = nil
         self.connectedDate = nil
     }

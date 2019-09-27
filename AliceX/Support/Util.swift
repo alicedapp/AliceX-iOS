@@ -28,3 +28,13 @@ func onMainThread(_ closure: @escaping () -> Void) {
         }
     }
 }
+
+func onBackgroundThread(_ closure: @escaping () -> Void) {
+    if !Thread.isMainThread {
+        closure()
+    } else {
+        DispatchQueue.global(qos: .background).async {
+            closure()
+        }
+    }
+}

@@ -16,7 +16,7 @@ enum PinItem {
     case website(image: UIImage, url: URL, title: String, viewcontroller: UIViewController)
     case dapplet(image: UIImage, url: URL, title: String, viewcontroller: UIViewController)
     case transaction(network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
-    case walletConnect(image: URL, url: URL, title: String, viewcontroller: UIViewController)
+    case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
     
     var txHash: String {
         switch self {
@@ -33,6 +33,15 @@ enum PinItem {
             return true
         default:
             return false
+        }
+    }
+    
+    var wcKey: String {
+        switch self {
+        case .walletConnect(_, let key, _, _):
+            return key
+        default:
+            return ""
         }
     }
     
@@ -60,8 +69,8 @@ enum PinItem {
             return url
         case .website(_, let url, _, _):
             return url
-        case .walletConnect(_, let url, _, _):
-            return url
+        case .walletConnect(_, _, _, _):
+            return nil
         }
     }
     
@@ -101,8 +110,8 @@ extension PinItem: Hashable, Equatable {
             return url.absoluteString.hashValue
         case .transaction(_, let txHash, _, _):
             return txHash.hashValue
-        case .walletConnect(_, let url, _, _):
-            return url.absoluteString.hashValue
+        case .walletConnect(_, let id, _, _):
+            return id.hashValue
         }
     }
     
@@ -114,8 +123,8 @@ extension PinItem: Hashable, Equatable {
             hasher.combine(url)
         case .transaction(_, let txHash, _, _):
             hasher.combine(txHash)
-        case .walletConnect(_, let url, _, _):
-            hasher.combine(url)
+        case .walletConnect(_, let id, _, _):
+            hasher.combine(id)
         }
     }
 }
