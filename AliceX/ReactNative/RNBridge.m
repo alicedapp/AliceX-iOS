@@ -109,7 +109,6 @@ RCT_EXTERN_METHOD(getOrientation:(RCTPromiseResolveBlock)resolve
 @interface RCT_EXTERN_MODULE(WallectConnectModule, NSObject)
 
 RCT_EXTERN_METHOD(create)
-RCT_EXTERN_METHOD(send:(NSString *)url
-                  parameters:(NSString *)parameters
+RCT_EXTERN_METHOD(message:(NSString *)message
                   isServer: (BOOL *)isServer)
 @end

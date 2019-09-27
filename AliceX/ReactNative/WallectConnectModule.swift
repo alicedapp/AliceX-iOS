@@ -15,11 +15,11 @@ class WallectConnectModule: NSObject {
         WCClientHelper.shared.create()
     }
     
-    @objc func send(method: String, parameters: String, isServer: Bool) {
+    @objc func send(message: String, isServer: Bool) {
         if isServer {
-            serverSend(method: method, parameters: [parameters])
+            serverSend(method: "alice_socket", parameters: [message])
         } else {
-            clientSend(method: method, parameters: [parameters])
+            clientSend(method: "alice_socket", parameters: [message])
         }
     }
     
