@@ -53,7 +53,6 @@ class WCClientHelper {
         self.walletConnect = WCClient(delegate: self)
         self.urlString = self.walletConnect?.connect()
         self.showQRCode()
-        
     }
     
     func showQRCode() {
@@ -121,5 +120,4 @@ extension WCClientHelper: WCClientDelegate {
         walletConnect = nil
         self.connectedDate = nil
     }
-    
 }

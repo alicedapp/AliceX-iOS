@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
@@ -103,4 +102,14 @@ RCT_EXTERN_METHOD(getOrientation:(RCTPromiseResolveBlock)resolve
 
 @interface RCT_EXTERN_MODULE(CallRNModule, RCTEventEmitter)
 
+@end
+
+# pragma - WalletConnect
+
+@interface RCT_EXTERN_MODULE(WallectConnectModule, NSObject)
+
+RCT_EXTERN_METHOD(create)
+RCT_EXTERN_METHOD(send:(NSString *)url
+                  parameters:(NSString *)parameters
+                  isServer: (BOOL *)isServer)
 @end

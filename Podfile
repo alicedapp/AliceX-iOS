@@ -20,9 +20,7 @@ target 'AliceX' do
   pod 'MarqueeLabel'
   pod 'Hero'
   pod 'Kingfisher'
-#  pod 'WalletConnect', git: 'https://github.com/alicedapp/swift-walletconnect-lib', branch: 'master'
   pod 'WalletConnectSwift', git: 'https://github.com/alicedapp/WalletConnectSwift', branch: 'master'
-#  pod 'lottie-ios'
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
   pod 'BonMot'
 

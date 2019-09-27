@@ -46,6 +46,11 @@
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
 		1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529411B231D82940044C92D /* PinTransitionPop.swift */; };
+		15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E52233E25D0004E9144 /* WC+CustomHandler.swift */; };
+		15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E58233E2887004E9144 /* WC+CustomSender.swift */; };
+		15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E5A233E2D03004E9144 /* WallectConnectModule.swift */; };
+		15300E64233E373F004E9144 /* WCCustomMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E62233E373F004E9144 /* WCCustomMethodVC.swift */; };
+		15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15300E63233E373F004E9144 /* WCCustomMethodVC.xib */; };
 		1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1535C2CB22F1643500C62FDC /* BaseAlertView.xib */; };
 		1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535C2CC22F1643500C62FDC /* BaseAlertView.swift */; };
 		153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A654622C9CE2B0035EB2C /* LandingViewController.swift */; };
@@ -235,6 +240,11 @@
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		1529411B231D82940044C92D /* PinTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTransitionPop.swift; sourceTree = "<group>"; };
+		15300E52233E25D0004E9144 /* WC+CustomHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomHandler.swift"; sourceTree = "<group>"; };
+		15300E58233E2887004E9144 /* WC+CustomSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomSender.swift"; sourceTree = "<group>"; };
+		15300E5A233E2D03004E9144 /* WallectConnectModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallectConnectModule.swift; sourceTree = "<group>"; };
+		15300E62233E373F004E9144 /* WCCustomMethodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCCustomMethodVC.swift; sourceTree = "<group>"; };
+		15300E63233E373F004E9144 /* WCCustomMethodVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCCustomMethodVC.xib; sourceTree = "<group>"; };
 		1535C2CB22F1643500C62FDC /* BaseAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseAlertView.xib; sourceTree = "<group>"; };
 		1535C2CC22F1643500C62FDC /* BaseAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertView.swift; sourceTree = "<group>"; };
 		153A654622C9CE2B0035EB2C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -507,6 +517,16 @@
 			);
 			path = Popup;
 			sourceTree = "<group>";
+		};
+		15300E61233E373F004E9144 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				15300E62233E373F004E9144 /* WCCustomMethodVC.swift */,
+				15300E63233E373F004E9144 /* WCCustomMethodVC.xib */,
+			);
+			name = Custom;
+			path = AliceX/Modules/WalletConnect/Custom;
+			sourceTree = SOURCE_ROOT;
 		};
 		1535C2CA22F1643500C62FDC /* Alert */ = {
 			isa = PBXGroup;
@@ -842,6 +862,7 @@
 				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
 				158B375822AF5DB3005FECAB /* RNBridge.m */,
 				151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */,
+				15300E5A233E2D03004E9144 /* WallectConnectModule.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -1141,6 +1162,7 @@
 		15CB1F2A22F16C4900E3075C /* WalletConnect */ = {
 			isa = PBXGroup;
 			children = (
+				15300E61233E373F004E9144 /* Custom */,
 				15F11C1C233A3DE2000920CC /* Client */,
 				15F11C1B233A3DB5000920CC /* Server */,
 				158FAC2A233CA20600F281B1 /* WCControlPanel.swift */,
@@ -1206,6 +1228,7 @@
 			isa = PBXGroup;
 			children = (
 				1507252E233A2121009C9D51 /* PopUp */,
+				15300E52233E25D0004E9144 /* WC+CustomHandler.swift */,
 				1507252C233A113D009C9D51 /* WCServerHandler.swift */,
 				15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */,
 			);
@@ -1217,6 +1240,7 @@
 			children = (
 				158FAC25233C959E00F281B1 /* QRCode */,
 				1507252A233A0F46009C9D51 /* WCClientHelper.swift */,
+				15300E58233E2887004E9144 /* WC+CustomSender.swift */,
 				158FAC23233C938700F281B1 /* WCClient.swift */,
 			);
 			path = Client;
@@ -1361,6 +1385,7 @@
 				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
+				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
@@ -1551,6 +1576,7 @@
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */,
+				15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */,
 				1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				15A18177232A304F00DFE686 /* WalletManager+CustomRPC.swift in Sources */,
@@ -1564,6 +1590,7 @@
 				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */,
+				15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */,
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */,
@@ -1611,6 +1638,7 @@
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
+				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
 				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
@@ -1650,6 +1678,7 @@
 				154E7F322306A9A200D571A8 /* URL.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,
+				15300E64233E373F004E9144 /* WCCustomMethodVC.swift in Sources */,
 				15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */,
 				15E845E722DBA141008F8AD2 /* HKTransitionPop.m in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,

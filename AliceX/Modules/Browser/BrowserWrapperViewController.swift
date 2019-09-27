@@ -14,6 +14,10 @@ class BrowserWrapperViewController: BaseViewController {
     var urlString: String = "https://www.duckduckgo.com/"
     @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     class func make(urlString: String) -> BrowserWrapperViewController {
         let vc = BrowserWrapperViewController()
         vc.urlString = urlString

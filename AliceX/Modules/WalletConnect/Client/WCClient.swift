@@ -123,5 +123,20 @@ extension WCClient: ClientDelegate {
         delegate.didDisconnect()
         self.isConnecting = false
     }
+    
+    func client(_ client: Client, didReciveAliceSocket request: Request) {
+        guard let walletConnect = WCClientHelper.shared.walletConnect,
+        let client = walletConnect.client else {
+            return
+        }
+//        let wcURL = walletConnect.session.url
+        
+        do {
+            let message = try request.parameter(of: String.self, at: 0)
+            CallRNModule.walletConnectEvent(rawData: message)
+        } catch {
+            HUDManager.shared.showError(text: "Handle message failed")
+        }
 
+    }
 }

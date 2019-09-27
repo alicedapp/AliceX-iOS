@@ -52,9 +52,17 @@ class WCControlPanel: BaseViewController {
       return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-//    @IBAction backButtonClick() {
-//        
-//    }
+    @IBAction func serverCustomClick() {
+        let vc = WCCustomMethodVC()
+        vc.isServer = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func clientCustomClick() {
+        let vc = WCCustomMethodVC()
+        vc.isServer = false
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension WCControlPanel {

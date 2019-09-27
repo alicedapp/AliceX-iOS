@@ -39,6 +39,7 @@ class WCServerHelper {
         server!.register(handler: SignTransactionHandler(server: server!))
         server!.register(handler: PersonalSignHandler(server: server!))
         server!.register(handler: SendTransactionHandler(server: server!))
+        server!.register(handler: WCCustomHandler(server: server!))
         
         guard let url = WCURL(url) else { return }
         do {
@@ -64,6 +65,8 @@ class WCServerHelper {
             disconnect()
         }
     }
+    
+    
 }
 
 extension WCServerHelper: ServerDelegate {
