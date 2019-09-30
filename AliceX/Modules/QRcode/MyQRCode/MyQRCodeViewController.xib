@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyQRCodeViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="V1v-Nd-e6P" id="fgc-aR-Pl7"/>
+                <outlet property="container" destination="9wH-Kr-1EU" id="PxW-of-Bi7"/>
                 <outlet property="qrcodeView" destination="pec-aa-92S" id="0QP-rQ-BZ7"/>
+                <outlet property="shareConver" destination="yfg-SL-6NB" id="5AV-fd-gQi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -163,6 +165,31 @@
                                 <constraint firstAttribute="height" constant="60" id="zeN-bm-hHO"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfg-SL-6NB">
+                            <rect key="frame" x="0.0" y="454" width="374" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nnd-8K-sR6">
+                                    <rect key="frame" x="112" y="15" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="dk9-Qs-ScQ"/>
+                                        <constraint firstAttribute="width" secondItem="nnd-8K-sR6" secondAttribute="height" multiplier="1:1" id="saE-Xe-kkY"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share from Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZP-gR-r8f">
+                                    <rect key="frame" x="154" y="21" width="114" height="18"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="TZP-gR-r8f" firstAttribute="centerY" secondItem="nnd-8K-sR6" secondAttribute="centerY" id="A9e-fC-yWw"/>
+                                <constraint firstItem="nnd-8K-sR6" firstAttribute="centerX" secondItem="yfg-SL-6NB" secondAttribute="centerX" constant="-60" id="hia-dk-Ejo"/>
+                                <constraint firstItem="TZP-gR-r8f" firstAttribute="leading" secondItem="nnd-8K-sR6" secondAttribute="trailing" constant="12" id="hkg-13-ddN"/>
+                                <constraint firstItem="nnd-8K-sR6" firstAttribute="centerY" secondItem="yfg-SL-6NB" secondAttribute="centerY" id="ws8-pY-fh4"/>
+                            </constraints>
+                        </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pec-aa-92S">
                             <rect key="frame" x="35" y="130" width="304" height="304"/>
                             <constraints>
@@ -172,7 +199,9 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="yfg-SL-6NB" firstAttribute="bottom" secondItem="1kw-Lk-ZVj" secondAttribute="bottom" id="4Lo-n9-PD7"/>
                         <constraint firstAttribute="trailing" secondItem="pec-aa-92S" secondAttribute="trailing" constant="35" id="5xQ-EV-ktn"/>
+                        <constraint firstItem="yfg-SL-6NB" firstAttribute="top" secondItem="1kw-Lk-ZVj" secondAttribute="top" id="7Mb-Op-1mZ"/>
                         <constraint firstItem="Nqp-Hs-tyI" firstAttribute="leading" secondItem="9wH-Kr-1EU" secondAttribute="leading" id="EWd-vl-vNF"/>
                         <constraint firstItem="1kw-Lk-ZVj" firstAttribute="leading" secondItem="9wH-Kr-1EU" secondAttribute="leading" id="Gi2-3c-tS3"/>
                         <constraint firstItem="Nqp-Hs-tyI" firstAttribute="top" secondItem="9wH-Kr-1EU" secondAttribute="top" constant="10" id="JRF-o8-X8t"/>
@@ -182,6 +211,8 @@
                         <constraint firstItem="pec-aa-92S" firstAttribute="leading" secondItem="9wH-Kr-1EU" secondAttribute="leading" constant="35" id="V9p-sh-wQ8"/>
                         <constraint firstAttribute="bottom" secondItem="1kw-Lk-ZVj" secondAttribute="bottom" id="VPP-HS-onN"/>
                         <constraint firstAttribute="trailing" secondItem="1kw-Lk-ZVj" secondAttribute="trailing" id="Yj8-iN-oOH"/>
+                        <constraint firstItem="yfg-SL-6NB" firstAttribute="trailing" secondItem="1kw-Lk-ZVj" secondAttribute="trailing" id="jc6-8h-Ew2"/>
+                        <constraint firstItem="yfg-SL-6NB" firstAttribute="leading" secondItem="1kw-Lk-ZVj" secondAttribute="leading" id="tQe-as-UhL"/>
                         <constraint firstItem="1kw-Lk-ZVj" firstAttribute="top" secondItem="pec-aa-92S" secondAttribute="bottom" constant="20" id="wt1-8U-6ZD"/>
                         <constraint firstAttribute="trailing" secondItem="Nqp-Hs-tyI" secondAttribute="trailing" id="xVU-PR-qdI"/>
                         <constraint firstItem="YoA-Ci-KCp" firstAttribute="leading" secondItem="9wH-Kr-1EU" secondAttribute="leading" id="yfi-Mp-vdS"/>
@@ -208,4 +239,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="134.59821428571428"/>
         </view>
     </objects>
+    <resources>
+        <image name="logo" width="60" height="60"/>
+    </resources>
 </document>

@@ -25,7 +25,10 @@ class BrowserPanelView: BaseView {
         UIApplication.shared.open((vcRef?.webview.url)!)
     }
 
-    @IBAction func shareButton() {}
+    @IBAction func shareButton() {
+        HUDManager.shared.dismiss()
+        SwiftHelper.share(text: "", image: nil, urlString: vcRef?.webview.url?.absoluteString)
+    }
     
     @IBAction func pinButton() {
         guard let ref = self.vcRef, let wrapper = ref.wrapper else {

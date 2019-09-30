@@ -48,6 +48,11 @@ extension UIImage {
             return UIGraphicsGetImageFromCurrentImageContext() ?? self
         }
     }
+    
+    func toString() -> String? {
+        let data: Data? = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
 }
 
 

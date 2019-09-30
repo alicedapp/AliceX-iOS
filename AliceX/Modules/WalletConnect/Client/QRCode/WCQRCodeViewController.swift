@@ -11,6 +11,8 @@ import UIKit
 // TODO: Dismiss with swipe
 class WCQRCodeViewController: BaseViewController {
 
+    @IBOutlet var container: UIView!
+    @IBOutlet var shareConver: UIView!
     @IBOutlet var qrcodeView: UIImageView!
     
     var url: String = "https://www.alicedapp.com"
@@ -38,7 +40,11 @@ class WCQRCodeViewController: BaseViewController {
     }
     
     @IBAction func shareButtonClick() {
-        
+        shareConver.isHidden = false
+        let image = container.snapshot()
+        HUDManager.shared.dismiss()
+        SwiftHelper.share(text: "", image: image, urlString: url)
+        shareConver.isHidden = true
     }
 
 }
