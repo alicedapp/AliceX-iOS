@@ -10,7 +10,6 @@ import BigInt
 import Foundation
 
 func handleAliceURL(url: URL) -> Bool {
-    
     guard let scheme = url.scheme,
         scheme.localizedCaseInsensitiveCompare("alice") == .orderedSame else {
             return false
@@ -25,7 +24,7 @@ func handleAliceURL(url: URL) -> Bool {
     }
     
     if let queryItems = components.queryItems {
-        queryItems.map { item in
+        for item in queryItems {
             dict[item.name] = item.value!
         }
     }

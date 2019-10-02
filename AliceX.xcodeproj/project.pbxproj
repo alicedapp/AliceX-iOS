@@ -1071,7 +1071,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				15E3C8FC2344729500DCADBF /* Backup */,
+				15E3C8FC2344729500DCADBF /* Mnemonics */,
 				15E3C8EE23421A5100DCADBF /* Share */,
 				15072529233A0EB6009C9D51 /* Util */,
 				155FACE9233910C50002B478 /* Test */,
@@ -1196,7 +1196,7 @@
 			path = TTGTagCollectionView;
 			sourceTree = "<group>";
 		};
-		15E3C8FC2344729500DCADBF /* Backup */ = {
+		15E3C8FC2344729500DCADBF /* Mnemonics */ = {
 			isa = PBXGroup;
 			children = (
 				15E3C8FD234472B700DCADBF /* BackupViewController.swift */,
@@ -1204,7 +1204,7 @@
 				15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */,
 				15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */,
 			);
-			path = Backup;
+			path = Mnemonics;
 			sourceTree = "<group>";
 		};
 		15F11C1B233A3DB5000920CC /* Server */ = {
