@@ -12,4 +12,7 @@
 #import <React/RCTUtils.h>
 #import <React/RCTConvert.h>
 
+#import "TTGTagCollectionView.h"
+#import "TTGTextTagCollectionView.h"
+
 #endif

@@ -23,6 +23,7 @@ target 'AliceX' do
   pod 'WalletConnectSwift', git: 'https://github.com/alicedapp/WalletConnectSwift', branch: 'master'
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
   pod 'BonMot'
+  pod 'SwiftyUserDefaults', '5.0.0-beta.4'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
@@ -51,3 +52,9 @@ target 'AliceX' do
   
 end
 
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings.delete('CODE_SIGNING_ALLOWED')
+    config.build_settings.delete('CODE_SIGNING_REQUIRED')
+  end
+end

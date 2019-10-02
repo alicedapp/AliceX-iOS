@@ -8,12 +8,14 @@
 
 import PromiseKit
 import UIKit
+import SwiftyUserDefaults
 
 class SettingViewController: BaseViewController {
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
-    
     @IBOutlet var versionLabel: UILabel!
+    
+    @IBOutlet var backupView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class SettingViewController: BaseViewController {
         updateCurrency()
         
         versionLabel.text = "v \(Util.version)(\(Util.build))"
+        backupView.isHidden = Defaults[\.MnemonicsBackup]
     }
 
     @IBAction func replaceClicked() {
@@ -69,7 +72,9 @@ class SettingViewController: BaseViewController {
 
     @IBAction func mnemonicsClicked() {
         #if DEBUG
-            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+//            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+        let vc = MnemonicsViewController()
+        navigationController?.pushViewController(vc, animated: true)
         #else
             biometricsVerify()
         #endif
@@ -79,7 +84,8 @@ class SettingViewController: BaseViewController {
         firstly {
             FaceIDHelper.shared.faceID()
         }.done { _ in
-            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+            let vc = MnemonicsViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 

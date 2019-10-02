@@ -46,6 +46,7 @@
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
 		1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529411B231D82940044C92D /* PinTransitionPop.swift */; };
+		152FAE0B2344BA7200D6305C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152FAE0A2344BA7200D6305C /* UserDefaults.swift */; };
 		15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E52233E25D0004E9144 /* WC+CustomHandler.swift */; };
 		15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E58233E2887004E9144 /* WC+CustomSender.swift */; };
 		15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E5A233E2D03004E9144 /* WallectConnectModule.swift */; };
@@ -177,6 +178,14 @@
 		15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2876322DEC40F00637135 /* BrowserVC+DApps.swift */; };
 		15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2876522DEC58E00637135 /* BroswerVC+WKDelegate.swift */; };
 		15E3C8F023421AD300DCADBF /* SwiftHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C8EF23421AD300DCADBF /* SwiftHelper.swift */; };
+		15E3C8F7234471AE00DCADBF /* TTGTagCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E3C8F2234471AE00DCADBF /* TTGTagCollectionView.h */; };
+		15E3C8F9234471AE00DCADBF /* TTGTextTagCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E3C8F4234471AE00DCADBF /* TTGTextTagCollectionView.h */; };
+		15E3C8FA234471AE00DCADBF /* TTGTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C8F5234471AE00DCADBF /* TTGTagCollectionView.m */; };
+		15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C8F6234471AE00DCADBF /* TTGTextTagCollectionView.m */; };
+		15E3C8FF234472B700DCADBF /* BackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C8FD234472B700DCADBF /* BackupViewController.swift */; };
+		15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3C8FE234472B700DCADBF /* BackupViewController.xib */; };
+		15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */; };
+		15E3C9042344A12A00DCADBF /* MnemonicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */; };
 		15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */; };
 		15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */; };
 		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
@@ -228,6 +237,7 @@
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		1529411B231D82940044C92D /* PinTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTransitionPop.swift; sourceTree = "<group>"; };
+		152FAE0A2344BA7200D6305C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		15300E52233E25D0004E9144 /* WC+CustomHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomHandler.swift"; sourceTree = "<group>"; };
 		15300E58233E2887004E9144 /* WC+CustomSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomSender.swift"; sourceTree = "<group>"; };
 		15300E5A233E2D03004E9144 /* WallectConnectModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallectConnectModule.swift; sourceTree = "<group>"; };
@@ -362,6 +372,14 @@
 		15E2876322DEC40F00637135 /* BrowserVC+DApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserVC+DApps.swift"; sourceTree = "<group>"; };
 		15E2876522DEC58E00637135 /* BroswerVC+WKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BroswerVC+WKDelegate.swift"; sourceTree = "<group>"; };
 		15E3C8EF23421AD300DCADBF /* SwiftHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHelper.swift; sourceTree = "<group>"; };
+		15E3C8F2234471AE00DCADBF /* TTGTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTagCollectionView.h; sourceTree = "<group>"; };
+		15E3C8F4234471AE00DCADBF /* TTGTextTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTextTagCollectionView.h; sourceTree = "<group>"; };
+		15E3C8F5234471AE00DCADBF /* TTGTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTagCollectionView.m; sourceTree = "<group>"; };
+		15E3C8F6234471AE00DCADBF /* TTGTextTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTextTagCollectionView.m; sourceTree = "<group>"; };
+		15E3C8FD234472B700DCADBF /* BackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupViewController.swift; sourceTree = "<group>"; };
+		15E3C8FE234472B700DCADBF /* BackupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackupViewController.xib; sourceTree = "<group>"; };
+		15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicsViewController.swift; sourceTree = "<group>"; };
+		15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsViewController.xib; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendERC20PopUp.swift; sourceTree = "<group>"; };
 		15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendERC20PopUp.xib; sourceTree = "<group>"; };
@@ -1019,6 +1037,7 @@
 		15B86BAF22AA1CE200110C06 /* Libary */ = {
 			isa = PBXGroup;
 			children = (
+				15E3C8F1234471AE00DCADBF /* TTGTagCollectionView */,
 				152151DD22ECB76200A4613A /* SwiftScan */,
 				1527873622AE210200D63C7F /* RPCircularProgress.swift */,
 			);
@@ -1044,6 +1063,7 @@
 				15A18178232A40EA00DFE686 /* Util.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
 				15764E1722E9F99700784848 /* Color.swift */,
+				152FAE0A2344BA7200D6305C /* UserDefaults.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1051,6 +1071,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15E3C8FC2344729500DCADBF /* Backup */,
 				15E3C8EE23421A5100DCADBF /* Share */,
 				15072529233A0EB6009C9D51 /* Util */,
 				155FACE9233910C50002B478 /* Test */,
@@ -1164,6 +1185,28 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
+		15E3C8F1234471AE00DCADBF /* TTGTagCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				15E3C8F2234471AE00DCADBF /* TTGTagCollectionView.h */,
+				15E3C8F4234471AE00DCADBF /* TTGTextTagCollectionView.h */,
+				15E3C8F5234471AE00DCADBF /* TTGTagCollectionView.m */,
+				15E3C8F6234471AE00DCADBF /* TTGTextTagCollectionView.m */,
+			);
+			path = TTGTagCollectionView;
+			sourceTree = "<group>";
+		};
+		15E3C8FC2344729500DCADBF /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				15E3C8FD234472B700DCADBF /* BackupViewController.swift */,
+				15E3C8FE234472B700DCADBF /* BackupViewController.xib */,
+				15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */,
+				15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
 		15F11C1B233A3DB5000920CC /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -1237,6 +1280,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E3C8F7234471AE00DCADBF /* TTGTagCollectionView.h in Headers */,
+				15E3C8F9234471AE00DCADBF /* TTGTextTagCollectionView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,6 +1362,7 @@
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
+				15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
@@ -1325,6 +1371,7 @@
 				153B2817231BBE1F0062B2E8 /* FloatBall.xib in Resources */,
 				15A18164232922E400DFE686 /* RPCCustomViewController.xib in Resources */,
 				157A676B22CDE12E00DA83AB /* SignYesViewController.xib in Resources */,
+				15E3C9042344A12A00DCADBF /* MnemonicsViewController.xib in Resources */,
 				153A737322ECDCF0003371D3 /* MyQRCodeViewController.xib in Resources */,
 				15A7D502233B289F001D720F /* SingleButtonAlertView.xib in Resources */,
 				158FAC29233C95C300F281B1 /* WCQRCodeViewController.xib in Resources */,
@@ -1494,6 +1541,7 @@
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
 				158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */,
 				15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */,
+				15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
@@ -1519,6 +1567,7 @@
 				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
+				15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */,
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
@@ -1552,6 +1601,7 @@
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
 				1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */,
+				15E3C8FA234471AE00DCADBF /* TTGTagCollectionView.m in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
@@ -1611,8 +1661,10 @@
 				15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
+				15E3C8FF234472B700DCADBF /* BackupViewController.swift in Sources */,
 				15BC4DC422DAF58100313CA9 /* DAppModel.swift in Sources */,
 				1587396422BA074E00F36F92 /* Moya+HandyJSON.swift in Sources */,
+				152FAE0B2344BA7200D6305C /* UserDefaults.swift in Sources */,
 				15477B4122E15C16008E3230 /* EthGasStationModel.swift in Sources */,
 				156548F522CDC5BB005C8B2D /* NetworkTableViewCell.swift in Sources */,
 				1587395822B9E16A00F36F92 /* PaymentPopUp.swift in Sources */,

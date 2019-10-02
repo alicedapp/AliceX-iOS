@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="backupView" destination="Ws2-Q7-e7z" id="Yo8-Ql-41u"/>
                 <outlet property="currencyLabel" destination="Z7U-0h-w9g" id="YPg-E5-4gw"/>
                 <outlet property="networkLabel" destination="dzC-sl-izU" id="csg-8Z-ftW"/>
                 <outlet property="versionLabel" destination="OTA-TA-p6o" id="bbQ-IG-qsl"/>
@@ -297,14 +298,39 @@
                                                         <constraint firstAttribute="height" constant="1" id="Ovw-pd-goF"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-Q7-e7z">
+                                                    <rect key="frame" x="306.5" y="15.5" width="70.5" height="29.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH8-or-gFC">
+                                                            <rect key="frame" x="8" y="5" width="54.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.4939367315" blue="0.477212044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29.5" id="1os-PW-STp"/>
+                                                        <constraint firstItem="JH8-or-gFC" firstAttribute="centerY" secondItem="Ws2-Q7-e7z" secondAttribute="centerY" id="AxJ-HP-eBW"/>
+                                                        <constraint firstAttribute="width" constant="70.5" id="VuS-3e-vDy"/>
+                                                        <constraint firstItem="JH8-or-gFC" firstAttribute="centerX" secondItem="Ws2-Q7-e7z" secondAttribute="centerX" id="vBZ-ZC-oB5"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="14.75"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="gw9-ZQ-Pm2" firstAttribute="centerY" secondItem="blo-Zv-Vot" secondAttribute="centerY" id="FCc-jq-Lob"/>
                                                 <constraint firstAttribute="height" constant="60" id="JEm-b0-cO9"/>
+                                                <constraint firstItem="Fpj-K7-lmH" firstAttribute="leading" secondItem="Ws2-Q7-e7z" secondAttribute="trailing" constant="10" id="L0f-aQ-oc4"/>
                                                 <constraint firstItem="beV-TF-16L" firstAttribute="leading" secondItem="blo-Zv-Vot" secondAttribute="leading" id="LYE-h7-wzj"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fpj-K7-lmH" secondAttribute="trailing" constant="15" id="Nwt-9U-tof"/>
                                                 <constraint firstItem="gw9-ZQ-Pm2" firstAttribute="leading" secondItem="beV-TF-16L" secondAttribute="trailing" constant="8" id="PY1-8K-KPP"/>
+                                                <constraint firstItem="Ws2-Q7-e7z" firstAttribute="centerY" secondItem="blo-Zv-Vot" secondAttribute="centerY" id="Vzv-7i-q7B"/>
                                                 <constraint firstItem="Fpj-K7-lmH" firstAttribute="centerY" secondItem="blo-Zv-Vot" secondAttribute="centerY" id="ZtS-0Z-qEM"/>
                                                 <constraint firstAttribute="bottom" secondItem="b9G-6c-q6o" secondAttribute="bottom" id="aSf-6q-VtG"/>
                                                 <constraint firstItem="beV-TF-16L" firstAttribute="top" secondItem="blo-Zv-Vot" secondAttribute="top" id="agr-M5-1VS"/>
