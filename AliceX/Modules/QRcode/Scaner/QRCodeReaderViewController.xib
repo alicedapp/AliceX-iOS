@@ -49,9 +49,6 @@
                                         <constraint firstAttribute="width" constant="60" id="fiF-T6-l5o"/>
                                         <constraint firstItem="l5G-88-sCj" firstAttribute="centerY" secondItem="LkL-ku-RAI" secondAttribute="centerY" id="hdG-RA-jo1"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="DKU-39-bnc"/>
                                     </connections>

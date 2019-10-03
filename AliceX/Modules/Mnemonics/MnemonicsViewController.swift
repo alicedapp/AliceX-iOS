@@ -44,6 +44,9 @@ class MnemonicsViewController: BaseViewController {
     
     @IBAction func showButtonClick() {
         isShown = !isShown
+        let impactLight = UIImpactFeedbackGenerator(style: .light)
+        impactLight.impactOccurred()
+        
         if isShown {
             let configure = collectionView.defaultConfig
             configure?.backgroundColor = AliceColor.dark

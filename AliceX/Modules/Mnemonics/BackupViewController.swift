@@ -109,6 +109,9 @@ class BackupViewController: BaseViewController {
     }
     
     @IBAction func completeButtonClick() {
+        let impactLight = UIImpactFeedbackGenerator(style: .light)
+        impactLight.impactOccurred()
+        
         Defaults[\.MnemonicsBackup] = true
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -117,6 +120,9 @@ class BackupViewController: BaseViewController {
 extension BackupViewController: TTGTextTagCollectionViewDelegate {
     
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        
+        let impactLight = UIImpactFeedbackGenerator(style: .light)
+        impactLight.impactOccurred()
         
         if textTagCollectionView == displayCollection {
             if selected {

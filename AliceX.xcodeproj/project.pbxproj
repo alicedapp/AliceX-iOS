@@ -781,6 +781,13 @@
 			path = DApps;
 			sourceTree = "<group>";
 		};
+		1583589E2345F10A00B2036F /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		1587395422B9E11000F36F92 /* RNCustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,6 +1078,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1583589E2345F10A00B2036F /* Asset */,
 				15E3C8FC2344729500DCADBF /* Mnemonics */,
 				15E3C8EE23421A5100DCADBF /* Share */,
 				15072529233A0EB6009C9D51 /* Util */,
