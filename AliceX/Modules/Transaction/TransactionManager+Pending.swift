@@ -60,10 +60,10 @@ class PendingTransactionHelper {
                         return
                     }
                     HUDManager.shared.showSuccess(text: "Transaction Confirmed")
-                    self.remove(item: item)
+                    self.remove(item: item, isSuccess: true)
                 case .failed:
                     HUDManager.shared.showError(text: "Transaction Failed")
-                    self.remove(item: item)
+                    self.remove(item: item, isSuccess: false)
                 case .notYetProcessed:
                     break
                 }
@@ -90,20 +90,20 @@ class PendingTransactionHelper {
     
     func add(item: PinItem) {
         pendingTxList.insert(item)
-        postNotification(item: item, isNew: true)
+        postNotification(item: item, isNew: true, isSuccess: true)
         start()
     }
     
-    func remove(item: PinItem) {
+    func remove(item: PinItem, isSuccess: Bool) {
         pendingTxList.remove(item)
-        postNotification(item: item, isNew: false)
+        postNotification(item: item, isNew: false, isSuccess: isSuccess)
     }
     
-    func postNotification(item: PinItem, isNew: Bool) {
+    func postNotification(item: PinItem, isNew: Bool, isSuccess: Bool) {
         if isNew {
             NotificationCenter.default.post(name: .newPendingTransaction, object: nil, userInfo: ["item": item])
         } else {
-            NotificationCenter.default.post(name: .removePendingTransaction, object: nil, userInfo: ["item": item])
+            NotificationCenter.default.post(name: .removePendingTransaction, object: nil, userInfo: ["item": item, "isSuccess": isSuccess])
         }
     }
     

@@ -19,7 +19,7 @@ class CallRNModule: RCTEventEmitter {
     static let orientationKey = "orientation"
     static let dappletKey = "dapplets"
     static let deeplinkKey = "deeplink"
-
+    static let pendingTxComplete = "pendingTxComplete"
     static let walletConnectKey = "walletconnect"
     
     // MARK: RCTEventEmitter
@@ -28,6 +28,8 @@ class CallRNModule: RCTEventEmitter {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChange),
                                                name: UIDevice.orientationDidChangeNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pendingTxComplete), name: .removePendingTransaction, object: nil)
     }
 
     override func supportedEvents() -> [String]! {
@@ -112,5 +114,26 @@ class CallRNModule: RCTEventEmitter {
         }
         let dappletInfo: [String: Any] = [walletConnectKey: rawData]
         rnEventEmitter.sendEvent(withName: aliceEvent, body: dappletInfo)
+    }
+    
+    // Pending TX
+    @objc func pendingTxComplete(noti: Notification) {
+        guard let userInfo = noti.userInfo,
+            let item = userInfo["item"],
+            let isSuccess = userInfo["isSuccess"] else {
+            return
+        }
+        
+        guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
+            print("CallRNModule - Failed to bridge")
+            return
+        }
+        
+        let pinItem = item as! PinItem
+        let success = isSuccess as! Bool
+        
+        let body = ["txHash": pinItem.txHash, "isSuccess": success] as [String : Any]
+        let info: [String: Any] = [CallRNModule.pendingTxComplete: body]
+        rnEventEmitter.sendEvent(withName: CallRNModule.aliceEvent, body: info)
     }
 }
