@@ -59,6 +59,11 @@ RCT_EXTERN_METHOD(transfer:(NSString *)to
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(fetchTXStatus:(NSString *)txHash
+                  rpcURL:(NSString *)rpcURL
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 @end
 
 # pragma - Smart Contract

@@ -50,17 +50,16 @@ class PendingTransactionHelper {
         for item in pendingTxList {
             // TODO:
             // Replace with restful request
-            let web = try! WalletManager.make(type: item.network)
+            
             firstly {
-                 web.eth.getTransactionReceiptPromise(item.txHash)
-            }.done { receipt in
+                fetchSingleTX(txHash: item.txHash, rpcURL: item.network.rpcURL.absoluteString)
+            }.done { (receipt) in
                 switch receipt.status {
                 case .ok:
                     if !self.pendingTxList.contains(item) {
                         return
                     }
                     HUDManager.shared.showSuccess(text: "Transaction Confirmed")
-                    self.remove(item: item, isSuccess: true)
                 case .failed:
                     HUDManager.shared.showError(text: "Transaction Failed")
                     self.remove(item: item, isSuccess: false)
@@ -69,23 +68,24 @@ class PendingTransactionHelper {
                 }
             }
             
-//            firstly { () -> Promise<TransactionReceipt> in
-//                API(AmberData.getTransactions(hash: item.txHash, network: item.network))
-//            }.done { receipt in
-//                switch receipt.status {
-//                case .ok:
-//                    HUDManager.shared.showSuccess(text: "Transaction Confirmed")
-//                    self.remove(item: item)
-//                case .failed:
-//                    HUDManager.shared.showError(text: "Transaction Failed")
-//                    self.remove(item: item)
-//                case .notYetProcessed:
-//                    break
-//                }
-//            }.catch { error in
-//
-//            }
         }
+    }
+    
+    func fetchSingleTX(txHash: String, rpcURL: String)
+        -> Promise<TransactionReceipt> {
+            
+            return Promise<TransactionReceipt> { seal in
+                
+                firstly {
+                    WalletManager.make(url: rpcURL)
+                }.then { web3 in
+                    web3.eth.getTransactionReceiptPromise(txHash)
+                }.done { receipt in
+                    seal.fulfill(receipt)
+                }.catch { (error) in
+                    seal.reject(error)
+                }
+            }
     }
     
     func add(item: PinItem) {

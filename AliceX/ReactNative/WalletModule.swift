@@ -177,4 +177,23 @@ class WalletModule: NSObject {
             resolve("Success")
         }
     }
+    
+    @objc func fetchTXStatus(_ txHash: String,
+                             rpcURL: String = WalletManager.currentNetwork.rpcURL.absoluteString,
+                             resolve: @escaping RCTPromiseResolveBlock,
+                             reject: @escaping RCTPromiseRejectBlock) {
+        
+        guard let _ = URL(string: rpcURL) else {
+            return
+        }
+        
+        firstly {
+            PendingTransactionHelper.shared.fetchSingleTX(txHash: txHash, rpcURL: rpcURL)
+        }.done { (receipt) in
+            resolve(receipt)
+        }.catch { (error) in
+            reject("1", error.localizedDescription, nil)
+        }
+        
+    }
 }

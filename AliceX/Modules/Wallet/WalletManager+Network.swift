@@ -10,6 +10,7 @@ import BigInt
 import Foundation
 import HandyJSON
 import web3swift
+import PromiseKit
 
 struct Web3NetModel: HandyJSON, Equatable{
     var name: String!
@@ -216,6 +217,17 @@ extension WalletManager {
         }
 
 //        return Web3.InfuraMainnetWeb3()
+    }
+    
+    class func make(url: String)  -> Promise<web3> {
+        return Promise<web3> { seal in
+            do {
+                let net = try WalletManager.customNet(url: url)
+                seal.fulfill(net)
+            } catch {
+                seal.reject(error)
+            }
+        }
     }
 
     class func customNet(url: String) throws -> web3 {
