@@ -52,7 +52,7 @@ class PendingTransactionHelper {
             // Replace with restful request
             
             firstly {
-                fetchSingleTX(txHash: item.txHash, rpcURL: item.network.rpcURL.absoluteString)
+                fetchSingleTX(txHash: item.txHash, network: item.network)
             }.done { (receipt) in
                 switch receipt.status {
                 case .ok:
@@ -60,6 +60,7 @@ class PendingTransactionHelper {
                         return
                     }
                     HUDManager.shared.showSuccess(text: "Transaction Confirmed")
+                    self.remove(item: item, isSuccess: true)
                 case .failed:
                     HUDManager.shared.showError(text: "Transaction Failed")
                     self.remove(item: item, isSuccess: false)
@@ -79,6 +80,23 @@ class PendingTransactionHelper {
                 firstly {
                     WalletManager.make(url: rpcURL)
                 }.then { web3 in
+                    web3.eth.getTransactionReceiptPromise(txHash)
+                }.done { receipt in
+                    seal.fulfill(receipt)
+                }.catch { (error) in
+                    seal.reject(error)
+                }
+            }
+    }
+    
+    func fetchSingleTX(txHash: String, network: Web3NetEnum)
+        -> Promise<TransactionReceipt> {
+            
+            let web3 = try! WalletManager.make(type: network)
+            
+            return Promise<TransactionReceipt> { seal in
+                
+                firstly {
                     web3.eth.getTransactionReceiptPromise(txHash)
                 }.done { receipt in
                     seal.fulfill(receipt)
