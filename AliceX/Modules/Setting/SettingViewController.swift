@@ -17,6 +17,10 @@ class SettingViewController: BaseViewController {
     
     @IBOutlet var backupView: UIView!
 
+    @IBOutlet var darkLabel: UILabel!
+    @IBOutlet var darkTheme: UIView!
+    @IBOutlet var darkSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateNetwork),
@@ -28,6 +32,14 @@ class SettingViewController: BaseViewController {
         
         versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
+        
+        if #available(iOS 12.0, *) {
+            darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
+            darkTheme.isHidden = false
+            darkLabel.text = traitCollection.userInterfaceStyle == .dark ? "🌝" : "🌚"
+            return
+        }
+        darkTheme.isHidden = true
     }
 
     @IBAction func replaceClicked() {
@@ -95,5 +107,22 @@ class SettingViewController: BaseViewController {
 
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
+    }
+    
+    @IBAction func darkThemeDidChange(switch: UISwitch) {
+        if #available(iOS 13.0, *) {
+            if darkSwitch.isOn {
+                UIView.animate(withDuration: 0.3) {
+                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
+                }
+                
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .light
+                }
+            }
+            
+            darkLabel.text =  darkSwitch.isOn ? "🌝" : "🌚"
+        }
     }
 }

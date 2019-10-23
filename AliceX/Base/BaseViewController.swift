@@ -69,6 +69,8 @@ class BaseViewController: UIViewController {
             
             let userInterfaceStyle = traitCollection.userInterfaceStyle
             themeDidChange(style: userInterfaceStyle)
+            
+            CallRNModule.isDarkMode(style: userInterfaceStyle)
         }
     }
     
