@@ -73,6 +73,20 @@ class MnemonicsViewController: BaseViewController {
         let vc = BackupViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+//        if #available(iOS 12.0, *) {
+//            let userInterfaceStyle = traitCollection.userInterfaceStyle
+//            switch userInterfaceStyle {
+//            case .dark:
+//
+//            default:
+//                <#code#>
+//            }
+//        }
+    }
 }
 
 extension MnemonicsViewController: TTGTextTagCollectionViewDelegate {

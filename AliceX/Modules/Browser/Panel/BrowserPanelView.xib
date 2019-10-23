@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,11 +36,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-mv-epW">
                                                     <rect key="frame" x="15.5" y="68" width="62.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="Jio-fv-BcC" firstAttribute="centerX" secondItem="p5Y-G4-MyW" secondAttribute="centerX" id="C8n-7r-ZKk"/>
                                                 <constraint firstItem="Jio-fv-BcC" firstAttribute="top" secondItem="p5Y-G4-MyW" secondAttribute="top" constant="20" id="OL1-Rm-RqA"/>
@@ -62,11 +61,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fw-Bz-xzw">
                                                     <rect key="frame" x="12.5" y="68" width="69" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="ORJ-AK-U7c" firstAttribute="centerX" secondItem="teN-lc-I1U" secondAttribute="centerX" id="TkZ-jz-OpY"/>
                                                 <constraint firstItem="ORJ-AK-U7c" firstAttribute="top" secondItem="teN-lc-I1U" secondAttribute="top" constant="20" id="Tsv-Zy-MT5"/>
@@ -87,11 +86,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5Y-Ax-pDJ">
                                                     <rect key="frame" x="27.5" y="68" width="39" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="dfy-5s-tnk" firstAttribute="centerX" secondItem="0WH-ha-wEI" secondAttribute="centerX" id="3sT-Aw-Zf5"/>
                                                 <constraint firstItem="N5Y-Ax-pDJ" firstAttribute="top" secondItem="dfy-5s-tnk" secondAttribute="bottom" constant="8" id="EYR-ZP-9lV"/>
@@ -115,11 +114,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0U-EJ-BSQ">
                                                     <rect key="frame" x="18.5" y="68" width="56.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="q0U-EJ-BSQ" firstAttribute="centerX" secondItem="Ye4-xR-i3P" secondAttribute="centerX" id="45t-T0-p0o"/>
                                                 <constraint firstItem="q0U-EJ-BSQ" firstAttribute="top" secondItem="I1z-zW-X5z" secondAttribute="bottom" constant="8" id="NqD-fe-Phz"/>
@@ -148,11 +147,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwY-Ff-jK6">
                                                     <rect key="frame" x="19" y="68" width="55.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="cLU-I3-7dF" firstAttribute="top" secondItem="wvB-oH-cHr" secondAttribute="top" constant="20" id="FWa-Ri-kWP"/>
                                                 <constraint firstItem="TwY-Ff-jK6" firstAttribute="top" secondItem="cLU-I3-7dF" secondAttribute="bottom" constant="8" id="FeL-WF-RVe"/>
@@ -176,11 +175,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dapps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha3-17-pUM">
                                                     <rect key="frame" x="25" y="68" width="44" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="XwJ-q4-XD1" firstAttribute="centerX" secondItem="AOw-2S-t15" secondAttribute="centerX" id="3S0-eJ-Ylj"/>
                                                 <constraint firstItem="XwJ-q4-XD1" firstAttribute="top" secondItem="AOw-2S-t15" secondAttribute="top" constant="20" id="qae-iM-y90"/>
@@ -204,11 +203,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-CY-TGK">
                                                     <rect key="frame" x="27.5" y="68" width="39" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="qFW-AG-QcV" firstAttribute="centerX" secondItem="gOI-U7-m8n" secondAttribute="centerX" id="1dj-SY-Sne"/>
                                                 <constraint firstItem="Gmw-CY-TGK" firstAttribute="top" secondItem="qFW-AG-QcV" secondAttribute="bottom" constant="8" id="D10-ri-Xix"/>
@@ -232,11 +231,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-FK-CU7">
                                                     <rect key="frame" x="36" y="68" width="21.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="zLy-9L-iCJ" firstAttribute="centerX" secondItem="zwJ-25-pMs" secondAttribute="centerX" id="IcE-0D-YcH"/>
                                                 <constraint firstItem="zLy-9L-iCJ" firstAttribute="top" secondItem="zwJ-25-pMs" secondAttribute="top" constant="20" id="PUp-nq-hqd"/>
@@ -250,9 +249,10 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="W76-mn-K4z" secondAttribute="bottom" id="27f-65-WdP"/>
                         <constraint firstItem="W76-mn-K4z" firstAttribute="leading" secondItem="WJi-LI-PX8" secondAttribute="leading" id="5Av-J6-hA3"/>
@@ -287,5 +287,11 @@
         <image name="right-arrow" width="40" height="40"/>
         <image name="safari" width="40" height="40"/>
         <image name="share" width="42" height="42"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

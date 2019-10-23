@@ -23,6 +23,8 @@ class PayButtonView: UIControl {
     var link: CADisplayLink?
     var toggle: Bool = false
     
+    var buttonColor: UIColor = UIColor(hex: "333333")
+    
     var delegate: PayButtonDelegate?
     
     class func instanceFromNib(title: String = "Hold to Send") -> PayButtonView {
@@ -43,6 +45,16 @@ class PayButtonView: UIControl {
         longPressGesture.minimumPressDuration = 0
         addGestureRecognizer(longPressGesture)
         progressIndicator.updateProgress(0)
+        
+        if #available(iOS 12.0, *) {
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            switch userInterfaceStyle {
+            case .dark:
+                buttonColor = UIColor(hex: "C0C0C0")
+            default:
+                buttonColor = UIColor(hex: "333333")
+            }
+        }
     }
 
     func configure(title: String) {
@@ -70,7 +82,7 @@ class PayButtonView: UIControl {
             
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
-                self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
+                self.payButtonContainer.backgroundColor? = self.buttonColor
             }
             link!.invalidate()
             progressIndicator.updateProgress(0)
@@ -94,7 +106,7 @@ class PayButtonView: UIControl {
         }
         
         progressIndicator.updateProgress(CGFloat(precentage))
-        payButtonContainer.backgroundColor? = UIColor.interpolate(between: UIColor(hex: "333333"),
+        payButtonContainer.backgroundColor? = UIColor.interpolate(between: buttonColor,
                                                                   and: WalletManager.currentNetwork.color,
                                                                   percent: CGFloat(precentage))!
         
@@ -134,13 +146,31 @@ class PayButtonView: UIControl {
     
     func failed() {
         UIView.animate(withDuration: 0.3) {
-            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
+            self.payButtonContainer.backgroundColor? = self.buttonColor
         }
         isUserInteractionEnabled = true
         progressIndicator.enableIndeterminate(false, completion: nil)
         progressIndicator.updateProgress(0)
         toggle = false
         process = 0
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+                return
+            }
+            
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            switch userInterfaceStyle {
+            case .dark:
+                buttonColor = UIColor(hex: "C0C0C0")
+            default:
+                buttonColor = UIColor(hex: "333333")
+            }
+        }
     }
     
 }

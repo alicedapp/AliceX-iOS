@@ -40,7 +40,6 @@ class NativeVCModule: NSObject {
             }
             let topVC = UIApplication.topViewController()
             let vc = BrowserWrapperViewController()
-//                BrowserViewController()
             vc.urlString = url
             vc.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
 //            topVC?.present(vc, animated: true, completion: nil)
@@ -67,7 +66,7 @@ class NativeVCModule: NSObject {
                               reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             let result = CallRNModule.getOrientation()
-            resolve(resolve)
+            resolve(result)
         }
     }
 }

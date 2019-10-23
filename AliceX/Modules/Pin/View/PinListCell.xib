@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +23,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76V-iD-B3j" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Alice-White"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="76V-iD-B3j" secondAttribute="height" multiplier="1:1" id="sGi-JU-5Ln"/>
                                 </constraints>
@@ -53,14 +54,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAy-S6-jGU">
                                 <rect key="frame" x="72" y="26.5" width="146" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.59826895085023479" green="0.59826895085023479" blue="0.59826895085023479" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="Alice-DarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-k5-OhX" customClass="UIControl">
                                 <rect key="frame" x="230" y="0.0" width="50" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-light" translatesAutoresizingMaskIntoConstraints="NO" id="10j-dH-89h">
-                                        <rect key="frame" x="16.5" y="26" width="17" height="18"/>
+                                        <rect key="frame" x="8" y="17" width="34" height="36"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +76,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Alice-White"/>
                         <constraints>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="leading" secondItem="mAy-S6-jGU" secondAttribute="trailing" constant="12" id="1fJ-gB-shL"/>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="centerY" secondItem="INq-er-UM3" secondAttribute="centerY" id="7X4-ip-173"/>
@@ -119,5 +120,11 @@
     </objects>
     <resources>
         <image name="close-light" width="17" height="18"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

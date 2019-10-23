@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +26,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Networks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTf-Tx-gVP">
                             <rect key="frame" x="163.5" y="18.5" width="87.5" height="23"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                            <color key="textColor" red="0.33725738529999999" green="0.3372504711" blue="0.33725515010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
@@ -35,10 +36,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="k9J-6H-CGI">
-                                    <rect key="frame" x="24" y="20.5" width="12" height="19"/>
+                                    <rect key="frame" x="18" y="11" width="24" height="38"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="Alice-White"/>
                             <constraints>
                                 <constraint firstItem="k9J-6H-CGI" firstAttribute="centerX" secondItem="iHC-jZ-pi4" secondAttribute="centerX" id="5sL-5X-5vB"/>
                                 <constraint firstItem="k9J-6H-CGI" firstAttribute="centerY" secondItem="iHC-jZ-pi4" secondAttribute="centerY" id="MOD-uS-Ivz"/>
@@ -53,13 +54,13 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iW6-ZX-A6t">
                             <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
-                            <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="Alice-Grey"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="gpp-CY-M9G"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstItem="iHC-jZ-pi4" firstAttribute="top" secondItem="NTL-ck-1Jv" secondAttribute="top" id="1gE-4Y-ftH"/>
                         <constraint firstAttribute="height" constant="60" id="5Mm-zt-QhW"/>
@@ -74,14 +75,14 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-Nh-GKr">
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" name="Alice-LightGrey"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="mgk-pK-U76"/>
                         <outlet property="delegate" destination="-1" id="RRf-w5-Glp"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="Alice-White"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ndI-Nh-GKr" secondAttribute="trailing" id="69V-a9-gsP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NTL-ck-1Jv" secondAttribute="trailing" id="9my-sI-iW3"/>
@@ -97,5 +98,17 @@
     </objects>
     <resources>
         <image name="back-dark" width="12" height="19"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -57,4 +57,22 @@ class BaseViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+                return
+            }
+            
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            themeDidChange(style: userInterfaceStyle)
+        }
+    }
+    
+    @available(iOS 12.0, *)
+    func themeDidChange(style: UIUserInterfaceStyle) {
+    }
 }

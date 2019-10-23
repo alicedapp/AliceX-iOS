@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,13 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohw-8g-ebw" id="n4j-48-7Ky">
-                <rect key="frame" x="0.0" y="0.0" width="334" height="58.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="334" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainNet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-1i-fea">
                         <rect key="frame" x="35" y="19.5" width="64" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-D3-myA">
@@ -32,8 +31,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-eT-mrv">
-                        <rect key="frame" x="20" y="57.5" width="314" height="1"/>
-                        <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="20" y="58" width="314" height="1"/>
+                        <color key="backgroundColor" name="Alice-LightGrey"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="qPk-Hz-uXr"/>
                         </constraints>
@@ -52,7 +51,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zc-3R-UNB" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                        <rect key="frame" x="233" y="0.0" width="50" height="58.5"/>
+                        <rect key="frame" x="233" y="0.0" width="50" height="59"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✏️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht6-rz-qpd">
                                 <rect key="frame" x="13.5" y="19" width="23" height="21"/>
@@ -72,7 +71,7 @@
                         </connections>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" name="Alice-White"/>
                 <constraints>
                     <constraint firstItem="r0P-D3-myA" firstAttribute="centerY" secondItem="n4j-48-7Ky" secondAttribute="centerY" id="Uge-rm-BSM"/>
                     <constraint firstItem="0Zc-3R-UNB" firstAttribute="top" secondItem="n4j-48-7Ky" secondAttribute="top" id="YG9-Sl-gHo"/>
@@ -88,7 +87,7 @@
                     <constraint firstAttribute="bottom" secondItem="NCg-eT-mrv" secondAttribute="bottom" id="xO8-TW-1KQ"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="Alice-White"/>
             <viewLayoutGuide key="safeArea" id="KCh-qY-Hfu"/>
             <connections>
                 <outlet property="colorView" destination="9xd-ZK-1jg" id="fdG-gh-OdM"/>
@@ -98,4 +97,15 @@
             <point key="canvasLocation" x="147.82608695652175" y="121.54017857142857"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

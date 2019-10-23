@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SPStorkController
 
 class CurrencyViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
@@ -23,6 +24,10 @@ class CurrencyViewController: BaseViewController {
         let index = data.firstIndex(of: PriceHelper.shared.currentCurrency)
         let indexPath = IndexPath(row: index!, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        SPStorkController.scrollViewDidScroll(scrollView)
     }
 }
 

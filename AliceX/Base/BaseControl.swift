@@ -12,6 +12,8 @@ class BaseControl: UIControl {
     @IBInspectable var highlightColor: UIColor?
     var normalColor: UIColor?
 
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -33,7 +35,27 @@ class BaseControl: UIControl {
 
     open override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? highlightColor : normalColor
+//            backgroundColor = isHighlighted ? highlightColor : normalColor
+            self.alpha = self.isHighlighted ? 0.6 : 1.0
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+                return
+            }
+            
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            switch userInterfaceStyle {
+            case .dark:
+                highlightColor = UIColor(hex: "434343")
+            default:
+                highlightColor = UIColor(hex: "0xD9D9D9")
+            }
         }
     }
 }

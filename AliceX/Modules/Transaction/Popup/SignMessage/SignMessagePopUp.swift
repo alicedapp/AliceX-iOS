@@ -79,9 +79,11 @@ extension SignMessagePopUp: PayButtonDelegate {
             dismiss(animated: true, completion: nil)
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorMessage)
+            self.payView!.failed()
         } catch {
             print(error)
             HUDManager.shared.showError()
+            self.payView!.failed()
         }
     }
 }

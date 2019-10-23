@@ -8,7 +8,10 @@
 
 import UIKit
 
-class HideMaskViewController: UIViewController {
+class HideMaskViewController: BaseViewController {
+    
+    @IBOutlet var blurMask: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,6 +29,16 @@ class HideMaskViewController: UIViewController {
         view.alpha = 1
         UIView.animate(withDuration: 0.3) {
             self.view.alpha = 0
+        }
+    }
+    
+    @available(iOS 12.0, *)
+    override func themeDidChange(style: UIUserInterfaceStyle) {
+        switch style {
+        case .dark:
+            blurMask.effect = UIBlurEffect(style: .dark)
+        default:
+            blurMask.effect = UIBlurEffect(style: .light)
         }
     }
 }

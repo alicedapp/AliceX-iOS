@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhr-0K-OQD">
                             <rect key="frame" x="169.5" y="18.5" width="75" height="23"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                            <color key="textColor" red="0.33725738529999999" green="0.3372504711" blue="0.33725515010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
@@ -38,10 +39,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
-                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
+                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="Alice-White"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="UoL-fi-0aI"/>
                                 <constraint firstItem="0zR-bt-4UI" firstAttribute="centerX" secondItem="JnJ-FT-awO" secondAttribute="centerX" id="WbM-l1-k04"/>
@@ -56,13 +57,13 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qii-GM-jaZ">
                             <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
-                            <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="Alice-Grey"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="kaC-ub-f33"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstItem="JnJ-FT-awO" firstAttribute="leading" secondItem="yTs-RM-7Vg" secondAttribute="leading" id="4b7-pg-4xo"/>
                         <constraint firstAttribute="bottom" secondItem="JnJ-FT-awO" secondAttribute="bottom" id="C4R-rb-lDx"/>
@@ -106,7 +107,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4l-yw-rKT">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="KvO-ZL-fUP"/>
                                                     </constraints>
@@ -114,14 +115,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAe-2l-8Wm">
                                                     <rect key="frame" x="68" y="20" width="88" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-zW-Sc4">
                                                     <rect key="frame" x="350" y="14.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="h0X-zW-Sc4" firstAttribute="centerY" secondItem="CJk-zM-O6a" secondAttribute="centerY" id="5HD-Fz-7l5"/>
                                                 <constraint firstItem="AAe-2l-8Wm" firstAttribute="leading" secondItem="Ax9-hO-2hW" secondAttribute="trailing" constant="8" id="FSu-bN-GrU"/>
@@ -157,11 +158,11 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="INB-FW-Zcw">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljr-OP-ZLF">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="oYQ-sj-YNj"/>
                                                     </constraints>
@@ -169,17 +170,17 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Switch network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-fe-iPR">
                                                     <rect key="frame" x="68" y="20" width="118" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-sl-izU">
-                                                    <rect key="frame" x="342" y="20.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="330" y="20.5" width="35" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="INB-FW-Zcw" firstAttribute="leading" secondItem="dzC-sl-izU" secondAttribute="trailing" constant="10" id="0a5-2U-cRP"/>
                                                 <constraint firstAttribute="bottom" secondItem="Tt6-5g-rOf" secondAttribute="bottom" id="Fza-eL-1uI"/>
@@ -221,7 +222,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pH-Zf-PKP">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="RD7-Jb-3cD"/>
                                                     </constraints>
@@ -229,20 +230,20 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvC-qB-8kT">
                                                     <rect key="frame" x="68" y="20" width="70.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="C9K-4C-5Zc">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-0h-w9g">
-                                                    <rect key="frame" x="344" y="20.5" width="33" height="19.5"/>
+                                                    <rect key="frame" x="332" y="20.5" width="33" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="sUC-I3-z2a" firstAttribute="top" secondItem="E6V-Dd-bOX" secondAttribute="top" id="06b-pc-j56"/>
                                                 <constraint firstAttribute="bottom" secondItem="1pH-Zf-PKP" secondAttribute="bottom" id="2bY-5A-Ncl"/>
@@ -285,21 +286,21 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My mnemonics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw9-ZQ-Pm2">
                                                     <rect key="frame" x="68" y="20" width="116" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-K7-lmH">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-6c-q6o">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Ovw-pd-goF"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-Q7-e7z">
-                                                    <rect key="frame" x="306.5" y="15.5" width="70.5" height="29.5"/>
+                                                    <rect key="frame" x="294.5" y="15.5" width="70.5" height="29.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH8-or-gFC">
                                                             <rect key="frame" x="8" y="5" width="54.5" height="19.5"/>
@@ -322,7 +323,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="gw9-ZQ-Pm2" firstAttribute="centerY" secondItem="blo-Zv-Vot" secondAttribute="centerY" id="FCc-jq-Lob"/>
                                                 <constraint firstAttribute="height" constant="60" id="JEm-b0-cO9"/>
@@ -363,11 +364,11 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-Ys-IIX">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT8-Ky-dEC">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="xeG-FM-bOE"/>
                                                     </constraints>
@@ -375,11 +376,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replace wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zND-RY-6vv">
                                                     <rect key="frame" x="68" y="20" width="110" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="MT8-Ky-dEC" firstAttribute="leading" secondItem="HbM-4W-MVC" secondAttribute="leading" id="3xs-ro-ooj"/>
                                                 <constraint firstAttribute="height" constant="60" id="Cia-2P-tjO"/>
@@ -419,7 +420,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aI-Nv-UoU">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="XZS-fz-C1G"/>
                                                     </constraints>
@@ -427,11 +428,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean browser cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5D-d1-BEa">
                                                     <rect key="frame" x="68" y="20" width="160.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="i5D-d1-BEa" firstAttribute="leading" secondItem="DNT-qc-h9r" secondAttribute="trailing" constant="8" id="HLB-pj-Kcv"/>
                                                 <constraint firstAttribute="height" constant="60" id="LTa-8d-bTl"/>
@@ -470,21 +471,21 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Connect panel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diR-hZ-sHc">
                                                     <rect key="frame" x="68" y="20" width="163" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="RXy-qG-Kph">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-Ea-vyL">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="MFL-sl-Zbv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="t1K-nJ-wYN" firstAttribute="top" secondItem="vg9-8t-qmW" secondAttribute="top" id="0Js-OH-Axt"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Sp-Ea-vyL" secondAttribute="trailing" id="CTz-m5-LlR"/>
@@ -540,11 +541,11 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-O3-yDQ">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Qc-xL4">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Fo8-Qp-QZp"/>
                                                     </constraints>
@@ -552,11 +553,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="095-fu-biw">
                                                     <rect key="frame" x="68" y="20" width="88" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
                                                 <constraint firstItem="095-fu-biw" firstAttribute="leading" secondItem="F9V-Sc-xNs" secondAttribute="trailing" constant="8" id="15a-aa-tc7"/>
                                                 <constraint firstItem="095-fu-biw" firstAttribute="centerY" secondItem="NK2-Dx-5az" secondAttribute="centerY" id="4bJ-7a-V7Z"/>
@@ -583,7 +584,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="OTA-TA-p6o" secondAttribute="bottom" constant="8" id="4ss-oa-4BG"/>
                                 <constraint firstItem="OTA-TA-p6o" firstAttribute="centerX" secondItem="jqz-ei-679" secondAttribute="centerX" id="9CJ-28-LqM"/>
@@ -594,7 +595,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" name="Alice-LightGrey"/>
                     <constraints>
                         <constraint firstItem="jqz-ei-679" firstAttribute="top" secondItem="ckU-Ov-Q5N" secondAttribute="top" id="AJu-P1-NkB"/>
                         <constraint firstItem="jqz-ei-679" firstAttribute="centerX" secondItem="ckU-Ov-Q5N" secondAttribute="centerX" id="PVH-hc-I9X"/>
@@ -607,7 +608,7 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="uEw-fl-41Q"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="Alice-White"/>
             <constraints>
                 <constraint firstItem="ckU-Ov-Q5N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6y8-Oz-YM3"/>
                 <constraint firstItem="ckU-Ov-Q5N" firstAttribute="top" secondItem="yTs-RM-7Vg" secondAttribute="bottom" id="Ntr-tW-rKP"/>
@@ -626,5 +627,17 @@
     <resources>
         <image name="close-dark" width="17" height="17"/>
         <image name="right-arrow-light-dark" width="12" height="18"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

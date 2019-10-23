@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,11 +23,11 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2G-j4-mod">
                                     <rect key="frame" x="138.5" y="14" width="41" height="22"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
                                 <constraint firstItem="k2G-j4-mod" firstAttribute="centerX" secondItem="wRI-me-lyV" secondAttribute="centerX" id="Ijg-10-yQ5"/>
                                 <constraint firstAttribute="height" constant="50" id="sQk-Vk-yIS"/>
@@ -41,7 +40,7 @@
                                 <constraint firstAttribute="height" constant="60" id="pSz-9b-eR0"/>
                             </constraints>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAa-r0-0cW">
@@ -54,11 +53,11 @@
                                             <rect key="frame" x="54.5" y="20.5" width="50" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Alice-DarkGrey"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Alice-White"/>
                                     <constraints>
                                         <constraint firstItem="Scr-y2-njX" firstAttribute="centerY" secondItem="tOs-KT-aY1" secondAttribute="centerY" id="Iu4-B9-fpB"/>
                                         <constraint firstItem="Scr-y2-njX" firstAttribute="centerX" secondItem="tOs-KT-aY1" secondAttribute="centerX" id="ZOo-9A-3hB"/>
@@ -77,7 +76,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Alice-White"/>
                                     <constraints>
                                         <constraint firstItem="uJ3-mq-oRY" firstAttribute="centerY" secondItem="L6z-x0-McQ" secondAttribute="centerY" id="fUw-tC-tnb"/>
                                         <constraint firstItem="uJ3-mq-oRY" firstAttribute="centerX" secondItem="L6z-x0-McQ" secondAttribute="centerX" id="n05-da-xUI"/>
@@ -88,7 +87,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWV-XZ-vxr">
                                     <rect key="frame" x="159" y="15" width="0.5" height="30"/>
-                                    <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="7mb-Mt-z7C"/>
                                         <constraint firstAttribute="height" constant="30" id="FnR-tx-4HZ"/>
@@ -96,13 +95,13 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sog-EO-e1i">
                                     <rect key="frame" x="0.0" y="0.0" width="318" height="0.5"/>
-                                    <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="a1J-WG-inV"/>
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="Alice-White"/>
                             <constraints>
                                 <constraint firstItem="L6z-x0-McQ" firstAttribute="height" secondItem="tOs-KT-aY1" secondAttribute="height" id="0IH-d4-s4m"/>
                                 <constraint firstItem="tOs-KT-aY1" firstAttribute="width" secondItem="zAa-r0-0cW" secondAttribute="width" multiplier="0.5" id="0np-os-YbR"/>
@@ -121,7 +120,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstItem="ULt-Uv-EkG" firstAttribute="top" secondItem="wRI-me-lyV" secondAttribute="bottom" constant="20" id="1ub-vb-gO3"/>
                         <constraint firstItem="wRI-me-lyV" firstAttribute="leading" secondItem="Cyz-F1-iDU" secondAttribute="leading" id="3Hh-OL-KZK"/>
@@ -158,4 +157,18 @@
             <point key="canvasLocation" x="68.115942028985515" y="320.75892857142856"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,8 +28,8 @@
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eDU-Sy-YW0">
                                     <rect key="frame" x="8" y="8" width="320" height="35"/>
-                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" name="Alice-DarkGrey"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go"/>
                                     <userDefinedRuntimeAttributes>
@@ -36,7 +37,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" red="0.94647900439999999" green="0.96039243750000003" blue="0.97144706970000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="eDU-Sy-YW0" secondAttribute="bottom" constant="0.80000000000000004" id="7ru-j7-Ggz"/>
                                 <constraint firstItem="eDU-Sy-YW0" firstAttribute="leading" secondItem="Q3B-fu-YVo" secondAttribute="leading" constant="8" id="JRG-Qg-vsb"/>
@@ -53,14 +54,14 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfz-C2-Mc6">
                             <rect key="frame" x="354" y="15" width="48" height="30"/>
                             <state key="normal" title="Cancel">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" name="Alice-DarkGrey"/>
                             </state>
                             <connections>
                                 <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="eej-5j-vAn"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="1Vi-O1-UY8"/>
                         <constraint firstAttribute="trailing" secondItem="Q3B-fu-YVo" secondAttribute="trailing" constant="70" id="9ko-Ze-KP0"/>
@@ -75,7 +76,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.94647900439999999" green="0.96039243750000003" blue="0.97144706970000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" name="Alice-LightBackground"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rwE-H4-Pu5" secondAttribute="trailing" id="6O9-rW-j6e"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rwE-H4-Pu5" secondAttribute="bottom" id="dYe-xD-y7F"/>
@@ -85,4 +86,15 @@
             <point key="canvasLocation" x="139" y="123"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

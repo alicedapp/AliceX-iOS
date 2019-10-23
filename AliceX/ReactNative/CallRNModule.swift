@@ -21,6 +21,7 @@ class CallRNModule: RCTEventEmitter {
     static let deeplinkKey = "deeplink"
     static let pendingTxComplete = "pendingTxComplete"
     static let walletConnectKey = "walletconnect"
+    static let isDarkMode = "isDarkMode"
     
     // MARK: RCTEventEmitter
 
@@ -135,5 +136,16 @@ class CallRNModule: RCTEventEmitter {
         let body = ["txHash": pinItem.txHash, "isSuccess": success] as [String : Any]
         let info: [String: Any] = [CallRNModule.pendingTxComplete: body]
         rnEventEmitter.sendEvent(withName: CallRNModule.aliceEvent, body: info)
+    }
+    
+    //MARK: - Theme Mode Change
+    @available(iOS 12.0, *)
+    static func isDarkMode(style: UIUserInterfaceStyle) {
+        guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
+            print("CallRNModule - Failed to bridge")
+            return
+        }
+        let info: [String: Any] = [isDarkMode : style == .dark]
+        rnEventEmitter.sendEvent(withName: aliceEvent, body: info)
     }
 }

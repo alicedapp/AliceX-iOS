@@ -10,6 +10,7 @@ import BigInt
 import PromiseKit
 import UIKit
 import web3swift
+import SPStorkController
 
 // Can't be BaseVIewController
 class PaymentPopUp: UIViewController {
@@ -24,7 +25,6 @@ class PaymentPopUp: UIViewController {
     @IBOutlet var gasTimeLabel: UILabel!
 
     @IBOutlet var gasBtn: UIControl!
-
 
     var toAddress: String?
     var amount: BigUInt!
@@ -49,6 +49,11 @@ class PaymentPopUp: UIViewController {
         vc.data = data
         return vc
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        SPStorkController.updatePresentingController(modal: self)
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

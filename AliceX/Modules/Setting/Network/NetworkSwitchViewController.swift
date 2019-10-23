@@ -8,6 +8,7 @@
 
 import SwiftEntryKit
 import UIKit
+import SPStorkController
 
 class NetworkSwitchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
@@ -37,6 +38,10 @@ class NetworkSwitchViewController: UIViewController {
         let index = data.firstIndex(of: WalletManager.currentNetwork) ?? 0
         let indexPath = IndexPath(row: index, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        SPStorkController.scrollViewDidScroll(scrollView)
     }
 }
 

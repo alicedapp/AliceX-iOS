@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +44,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5G-qA-pfr">
                                     <rect key="frame" x="0.0" y="49.5" width="374" height="0.5"/>
-                                    <color key="backgroundColor" white="0.81774501170000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Alice-Grey"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="suG-yQ-dCM"/>
                                     </constraints>
@@ -65,7 +66,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Grp-uB-wUz" firstAttribute="centerY" secondItem="UHd-Ra-Pqz" secondAttribute="centerY" id="1dn-A9-2W6"/>
                                         <constraint firstAttribute="trailing" secondItem="Grp-uB-wUz" secondAttribute="trailing" id="MRz-Vs-P6v"/>
@@ -76,7 +77,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="UHd-Ra-Pqz" firstAttribute="centerY" secondItem="HeG-fT-y4L" secondAttribute="centerY" id="8cL-Gq-0Mo"/>
                                 <constraint firstAttribute="trailing" secondItem="c5G-qA-pfr" secondAttribute="trailing" id="8k5-AL-TA1"/>
@@ -96,11 +97,11 @@
                                             <rect key="frame" x="65.5" y="20.5" width="56.5" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Alice-DarkGrey"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Alice-White"/>
                                     <constraints>
                                         <constraint firstItem="Th8-E6-HIu" firstAttribute="centerX" secondItem="K7D-We-Q9D" secondAttribute="centerX" id="S50-63-ryE"/>
                                         <constraint firstItem="Th8-E6-HIu" firstAttribute="centerY" secondItem="K7D-We-Q9D" secondAttribute="centerY" id="bkh-GN-oHy"/>
@@ -116,11 +117,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csr-Pp-Tuu">
                                             <rect key="frame" x="72.5" y="20.5" width="42" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Alice-DarkGrey"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Alice-White"/>
                                     <constraints>
                                         <constraint firstItem="csr-Pp-Tuu" firstAttribute="centerY" secondItem="bOm-dF-vlD" secondAttribute="centerY" id="bY7-kt-ZYV"/>
                                         <constraint firstItem="csr-Pp-Tuu" firstAttribute="centerX" secondItem="bOm-dF-vlD" secondAttribute="centerX" id="f7V-dX-QW6"/>
@@ -131,7 +132,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdV-Pw-M1x">
                                     <rect key="frame" x="187" y="15" width="0.5" height="30"/>
-                                    <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="Alice-Grey"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="Fzb-eq-lPw"/>
                                         <constraint firstAttribute="height" constant="30" id="kPD-K5-4EV"/>
@@ -139,7 +140,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADk-EK-snX">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="0.5"/>
-                                    <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="Alice-Grey"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="Cj8-hk-be6"/>
                                     </constraints>
@@ -180,7 +181,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="Alice-White"/>
                             <constraints>
                                 <constraint firstItem="tOb-wz-JY4" firstAttribute="centerY" secondItem="DRa-Cs-8bC" secondAttribute="centerY" id="06X-ey-pto"/>
                                 <constraint firstItem="tOb-wz-JY4" firstAttribute="centerX" secondItem="DRa-Cs-8bC" secondAttribute="centerX" constant="-60" id="gWk-W4-sC7"/>
@@ -189,7 +190,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstItem="vzx-X0-tN8" firstAttribute="leading" secondItem="gmq-Ft-xiO" secondAttribute="leading" constant="35" id="02a-9y-HHf"/>
                         <constraint firstItem="DRa-Cs-8bC" firstAttribute="leading" secondItem="keq-1k-iFf" secondAttribute="leading" id="0jp-PR-Fen"/>
@@ -231,5 +232,14 @@
     <resources>
         <image name="WalletConnect-blue" width="23" height="14"/>
         <image name="logo" width="60" height="60"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
