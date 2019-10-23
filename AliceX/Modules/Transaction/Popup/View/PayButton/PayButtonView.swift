@@ -51,8 +51,10 @@ class PayButtonView: UIControl {
             switch userInterfaceStyle {
             case .dark:
                 buttonColor = UIColor(hex: "C0C0C0")
+                progressIndicator.progressTintColor = .black
             default:
                 buttonColor = UIColor(hex: "333333")
+                progressIndicator.progressTintColor = .white
             }
         }
     }
@@ -167,8 +169,10 @@ class PayButtonView: UIControl {
             switch userInterfaceStyle {
             case .dark:
                 buttonColor = UIColor(hex: "C0C0C0")
+                progressIndicator.progressTintColor = .black
             default:
                 buttonColor = UIColor(hex: "333333")
+                progressIndicator.progressTintColor = .white
             }
         }
     }

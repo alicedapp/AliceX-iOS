@@ -11,7 +11,8 @@ target 'AliceX' do
   pod 'Web3swift.pod', git: 'https://github.com/matter-labs/web3swift', branch: 'master'
   
   pod 'KeychainAccess'
-  pod 'SPStorkController'
+  pod 'SPStorkController', git: 'https://github.com/lmcmz/SPStorkController', branch: 'master'
+  pod 'SPLarkController'
   pod 'IQKeyboardManagerSwift'
 #  pod 'HandyJSON', '~> 5.0.0'
   pod 'HandyJSON', git: 'https://github.com/alibaba/HandyJSON.git' , branch: 'dev_for_swift5.0'

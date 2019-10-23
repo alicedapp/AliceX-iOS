@@ -10,6 +10,8 @@ import UIKit
 
 class PinListViewController: BaseViewController {
     
+    @IBOutlet var blurMask: UIVisualEffectView!
+    
     var pinList: Array<PinItem> = PinManager.shared.pinList {
         didSet {
             if pinList.count == 0 {
@@ -73,6 +75,16 @@ class PinListViewController: BaseViewController {
 ////            self.view.alpha = 1
 //        }
 //    }
+    
+    @available(iOS 12.0, *)
+    override func themeDidChange(style: UIUserInterfaceStyle) {
+        switch style {
+        case .dark:
+            blurMask.effect = UIBlurEffect(style: .dark)
+        default:
+            blurMask.effect = UIBlurEffect(style: .light)
+        }
+    }
 }
 
 extension PinListViewController: UITableViewDelegate, UITableViewDataSource {

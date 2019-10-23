@@ -8,6 +8,7 @@
 
 import Foundation
 import web3swift
+import SPStorkController
 
 class WalletManager {
     static let shared = WalletManager()
@@ -164,6 +165,13 @@ class WalletManager {
             generator.impactOccurred()
 
             CallRNModule.sendNetworkChangedEvent(network: type)
+            
+            UIView.animate(withDuration: 0.3) {
+                UIApplication.shared.keyWindow?.backgroundColor = type.backgroundColor
+                SPStorkTransitioningDelegate.backgroundColor = type.backgroundColor
+                SPStorkTransitioningDelegate.changeBackground()
+            }
+            
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
         } catch {

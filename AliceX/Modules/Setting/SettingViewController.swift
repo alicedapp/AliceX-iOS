@@ -9,11 +9,12 @@
 import PromiseKit
 import UIKit
 import SwiftyUserDefaults
+import SPStorkController
 
 class SettingViewController: BaseViewController {
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
-    @IBOutlet var versionLabel: UILabel!
+//    @IBOutlet var versionLabel: UILabel!
     
     @IBOutlet var backupView: UIView!
 
@@ -30,7 +31,7 @@ class SettingViewController: BaseViewController {
         updateNetwork()
         updateCurrency()
         
-        versionLabel.text = "v \(Util.version)(\(Util.build))"
+//        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
         
         if #available(iOS 12.0, *) {
@@ -111,18 +112,10 @@ class SettingViewController: BaseViewController {
     
     @IBAction func darkThemeDidChange(switch: UISwitch) {
         if #available(iOS 13.0, *) {
-            if darkSwitch.isOn {
-                UIView.animate(withDuration: 0.3) {
-                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
-                }
-                
-            } else {
-                UIView.animate(withDuration: 0.3) {
-                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .light
-                }
-            }
             
+            changeThemeAnimation()
             darkLabel.text =  darkSwitch.isOn ? "🌝" : "🌚"
+            SPStorkTransitioningDelegate.changeBackground()
         }
     }
 }

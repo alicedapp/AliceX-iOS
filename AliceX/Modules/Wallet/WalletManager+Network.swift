@@ -118,6 +118,19 @@ extension Web3NetEnum {
             return UIColor.lightGray
         }
     }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .main:
+            if #available(iOS 12.0, *) {
+                let window = UIApplication.shared.keyWindow
+                return window?.traitCollection.userInterfaceStyle == .dark ? UIColor(hex: "#333333") : .black
+            }
+            return .black
+        default:
+            return self.color
+        }
+    }
 
     var chainID: Int {
         switch self {

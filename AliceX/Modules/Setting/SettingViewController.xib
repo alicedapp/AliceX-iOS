@@ -17,7 +17,6 @@
                 <outlet property="darkSwitch" destination="MJH-ef-ITT" id="zGo-As-J82"/>
                 <outlet property="darkTheme" destination="hA9-Uo-7g0" id="wIL-Qn-b89"/>
                 <outlet property="networkLabel" destination="dzC-sl-izU" id="csg-8Z-ftW"/>
-                <outlet property="versionLabel" destination="OTA-TA-p6o" id="bbQ-IG-qsl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,7 +41,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
-                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
+                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
@@ -83,7 +82,7 @@
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-ei-679" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="780"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Id4-6N-VQ1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
@@ -161,7 +160,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="INB-FW-Zcw">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljr-OP-ZLF">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -177,7 +176,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-sl-izU">
-                                                    <rect key="frame" x="342" y="20.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="330" y="20.5" width="35" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -237,10 +236,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="C9K-4C-5Zc">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-0h-w9g">
-                                                    <rect key="frame" x="344" y="20.5" width="33" height="19.5"/>
+                                                    <rect key="frame" x="332" y="20.5" width="33" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -293,7 +292,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-K7-lmH">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-6c-q6o">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -303,7 +302,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-Q7-e7z">
-                                                    <rect key="frame" x="306.5" y="15.5" width="70.5" height="29.5"/>
+                                                    <rect key="frame" x="294.5" y="15.5" width="70.5" height="29.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH8-or-gFC">
                                                             <rect key="frame" x="8" y="5" width="54.5" height="19.5"/>
@@ -367,7 +366,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-Ys-IIX">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT8-Ky-dEC">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -478,7 +477,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="RXy-qG-Kph">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-Ea-vyL">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -544,7 +543,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-O3-yDQ">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Qc-xL4">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -635,21 +634,13 @@
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v 0.1 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTA-TA-p6o">
-                                    <rect key="frame" x="186" y="752" width="42" height="20"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightGrey"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="OTA-TA-p6o" secondAttribute="bottom" constant="8" id="4ss-oa-4BG"/>
-                                <constraint firstItem="OTA-TA-p6o" firstAttribute="centerX" secondItem="jqz-ei-679" secondAttribute="centerX" id="9CJ-28-LqM"/>
+                                <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" id="Lyb-K6-NxZ"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="leading" secondItem="jqz-ei-679" secondAttribute="leading" id="Uyh-Eb-mKs"/>
                                 <constraint firstAttribute="trailing" secondItem="Id4-6N-VQ1" secondAttribute="trailing" id="iQf-nN-RCm"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="top" secondItem="jqz-ei-679" secondAttribute="top" id="vQh-Bk-IQA"/>
-                                <constraint firstItem="OTA-TA-p6o" firstAttribute="top" secondItem="Id4-6N-VQ1" secondAttribute="bottom" constant="192" id="z5j-8Z-uwh"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -689,7 +680,7 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055A65DCCA9BEF8AC3DDBF16 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */; };
 		1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252A233A0F46009C9D51 /* WCClientHelper.swift */; };
 		1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252C233A113D009C9D51 /* WCServerHandler.swift */; };
 		15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252F233A2167009C9D51 /* WCConnectPopup.swift */; };
@@ -77,6 +78,7 @@
 		15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15477B4322E161A0008E3230 /* GasFeeViewController.xib */; };
 		15477B4722E184AA008E3230 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4622E184AA008E3230 /* BigInt.swift */; };
 		15477B4922E1AE18008E3230 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15477B4822E1AE18008E3230 /* API.swift */; };
+		154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDB7B23604BF5006D76B2 /* SettingViewController+DarkMode.swift */; };
 		154E7F322306A9A200D571A8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F312306A9A100D571A8 /* URL.swift */; };
 		154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */; };
 		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
@@ -192,7 +194,6 @@
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
 		15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985E522C34E1400942357 /* ContractPopUp.swift */; };
-		86231833A1AD60E241D302A5 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B80C6ECB68E17DBE9D289CB /* Pods_AliceX.framework */; };
 		BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6D23027828006BEA0C /* exocet-light.ttf */; };
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
 /* End PBXBuildFile section */
@@ -268,6 +269,7 @@
 		15477B4322E161A0008E3230 /* GasFeeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GasFeeViewController.xib; sourceTree = "<group>"; };
 		15477B4622E184AA008E3230 /* BigInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
 		15477B4822E1AE18008E3230 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		154CDB7B23604BF5006D76B2 /* SettingViewController+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController+DarkMode.swift"; sourceTree = "<group>"; };
 		154E7F312306A9A100D571A8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+AliceSDK.swift"; sourceTree = "<group>"; };
 		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -387,12 +389,12 @@
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
 		15F985E522C34E1400942357 /* ContractPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractPopUp.swift; sourceTree = "<group>"; };
-		7B80C6ECB68E17DBE9D289CB /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9620C0F2DE8C5126650976A6 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
+		573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
+		BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 		BD3A7A6D23027828006BEA0C /* exocet-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-light.ttf"; sourceTree = "<group>"; };
 		BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-heavy.ttf"; sourceTree = "<group>"; };
 		BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_onesignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D29FCB5CC2B3AD044C92AB82 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,7 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86231833A1AD60E241D302A5 /* Pods_AliceX.framework in Frameworks */,
+				055A65DCCA9BEF8AC3DDBF16 /* Pods_AliceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +718,7 @@
 				156548EE22CDC30F005C8B2D /* Network */,
 				157AA67B22CCAA33008AF3A5 /* Mnemonics */,
 				157AA56922CC6CE0008AF3A5 /* SettingViewController.swift */,
+				154CDB7B23604BF5006D76B2 /* SettingViewController+DarkMode.swift */,
 				157AA56A22CC6CE0008AF3A5 /* SettingViewController.xib */,
 			);
 			path = Setting;
@@ -1266,8 +1269,8 @@
 		876CA3F15BC9D26DB41AD374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D29FCB5CC2B3AD044C92AB82 /* Pods-AliceX.debug.xcconfig */,
-				9620C0F2DE8C5126650976A6 /* Pods-AliceX.release.xcconfig */,
+				BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */,
+				A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1276,7 +1279,7 @@
 			isa = PBXGroup;
 			children = (
 				BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */,
-				7B80C6ECB68E17DBE9D289CB /* Pods_AliceX.framework */,
+				573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1300,7 +1303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B86B6722AA044000110C06 /* Build configuration list for PBXNativeTarget "AliceX" */;
 			buildPhases = (
-				3D4FC2DBF53A892AE3F0346A /* [CP] Check Pods Manifest.lock */,
+				3DB0071C2B8655993A638C28 /* [CP] Check Pods Manifest.lock */,
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
@@ -1309,7 +1312,7 @@
 				15B86B5322AA043F00110C06 /* Resources */,
 				152B192C22F407E200EBDA9E /* Swift Format */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
-				7D003329E2D8E3B4F1B82FBC /* [CP] Embed Pods Frameworks */,
+				4A90360DAB66B76DB4E0CE45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1477,7 +1480,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		3D4FC2DBF53A892AE3F0346A /* [CP] Check Pods Manifest.lock */ = {
+		3DB0071C2B8655993A638C28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1499,7 +1502,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D003329E2D8E3B4F1B82FBC /* [CP] Embed Pods Frameworks */ = {
+		4A90360DAB66B76DB4E0CE45 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1603,6 +1606,7 @@
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */,
+				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
@@ -1811,13 +1815,13 @@
 		};
 		15B86B6822AA044000110C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D29FCB5CC2B3AD044C92AB82 /* Pods-AliceX.debug.xcconfig */;
+			baseConfigurationReference = BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1841,13 +1845,13 @@
 		};
 		15B86B6922AA044000110C06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9620C0F2DE8C5126650976A6 /* Pods-AliceX.release.xcconfig */;
+			baseConfigurationReference = A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;

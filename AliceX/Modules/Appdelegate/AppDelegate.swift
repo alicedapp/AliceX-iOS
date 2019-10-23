@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import React
 import UIKit
 import web3swift
+import SPStorkController
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -34,8 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.clear
-
+//        if #available(iOS 12.0, *) {
+//            window?.backgroundColor = window?.traitCollection.userInterfaceStyle == .dark ? .white : .black
+//        } else {
+//            window?.backgroundColor = WalletManager.currentNetwork.color
+//        }
+        
+        window?.backgroundColor = WalletManager.currentNetwork.backgroundColor
+        SPStorkTransitioningDelegate.backgroundColor = WalletManager.currentNetwork.backgroundColor
+        
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
