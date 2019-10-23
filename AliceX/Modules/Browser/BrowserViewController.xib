@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowserViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="backButtonImage" destination="sUd-L8-7ix" id="JMs-4B-PKC"/>
+                <outlet property="navBar" destination="XX8-vd-Tk3" id="Q00-8c-tMo"/>
                 <outlet property="navBarContainer" destination="tdh-xY-wYY" id="rZL-AI-sxT"/>
+                <outlet property="panelImage" destination="n6x-9o-emb" id="Xre-aW-g6B"/>
                 <outlet property="progressView" destination="5Ch-QG-hHG" id="XZI-qn-Ntq"/>
                 <outlet property="refreshImage" destination="bGQ-Q2-lZE" id="Q47-fo-H87"/>
                 <outlet property="titleLabel" destination="P66-p1-FuT" id="yy4-Vj-oPy"/>

@@ -11,10 +11,21 @@ import UIKit
 class BrowserPanelView: BaseView {
     weak var vcRef: BrowserViewController?
 
+    @IBOutlet var networkImage: UIImageView!
+    @IBOutlet var networkLabel: UILabel!
+    
     override class func instanceFromNib() -> BrowserPanelView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BrowserPanelView
         view.configure()
         return view
+    }
+    
+    override func configure() {
+        if WalletManager.currentNetwork != .main {
+            let newImage = networkImage.image?.filled(with: WalletManager.currentNetwork.color)
+            networkImage.image = newImage
+            networkLabel.textColor = WalletManager.currentNetwork.color
+        }
     }
 
     override func layoutSubviews() {
@@ -55,11 +66,11 @@ class BrowserPanelView: BaseView {
     @IBAction func networkButton() {
         HUDManager.shared.dismiss()
 
-        if #available(iOS 13.0, *) {
-            let vc = NetworkSwitchViewController()
-            vcRef!.present(vc, animated: true, completion: nil)
-            return
-        }
+//        if #available(iOS 13.0, *) {
+//            let vc = NetworkSwitchViewController()
+//            vcRef!.present(vc, animated: true, completion: nil)
+//            return
+//        }
 
         let vc = NetworkSwitchViewController()
         let topVC = UIApplication.topViewController()

@@ -275,6 +275,10 @@
                 <constraint firstAttribute="trailing" secondItem="WJi-LI-PX8" secondAttribute="trailing" constant="20" id="fKV-HP-NX7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="networkImage" destination="I1z-zW-X5z" id="ElG-lg-Zb1"/>
+                <outlet property="networkLabel" destination="q0U-EJ-BSQ" id="aC9-db-WXu"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-55.245535714285715"/>
         </view>
     </objects>
