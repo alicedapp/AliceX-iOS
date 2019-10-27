@@ -25,6 +25,9 @@ target 'AliceX' do
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
   pod 'BonMot'
   pod 'SwiftyUserDefaults', '5.0.0-beta.4'
+  pod 'TrustWalletCore'
+  pod 'JXSegmentedView'
+  pod 'VBFPopFlatButton'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

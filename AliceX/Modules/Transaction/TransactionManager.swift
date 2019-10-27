@@ -41,7 +41,7 @@ class TransactionManager {
                                        functionName: functionName, parameters: parameters,
                                        extraData: extraData, value: value,
                                        abi: abi, gasLimit: gasLimit, success: success)
-        let height = 525 - 34 + Constant.SAFE_BTTOM
+        let height = 525 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -114,7 +114,7 @@ class TransactionManager {
                                       data: data,
                                       symbol: symbol,
                                       success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         modal.modalPresentationStyle = .overCurrentContext
         topVC?.presentAsStork(modal, height: height)
     }
@@ -159,7 +159,7 @@ class TransactionManager {
                                         amount: amount,
                                         data: data,
                                         success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -355,7 +355,7 @@ class TransactionManager {
     class func showSignMessageView(message: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignMessagePopUp.make(message: message, success: success)
-        let height = 420 - 34 + Constant.SAFE_BTTOM
+        let height = 420 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -396,7 +396,7 @@ class TransactionManager {
                                               data: data,
                                               detailObject: detailObject,
                                               success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 

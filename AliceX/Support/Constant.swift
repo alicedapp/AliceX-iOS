@@ -84,7 +84,7 @@ class Constant {
         return 0
     }
 
-    static var SAFE_BTTOM: CGFloat {
+    static var SAFE_BOTTOM: CGFloat {
         if #available(iOS 11, *) {
             return UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
@@ -93,6 +93,8 @@ class Constant {
 
     static let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.width
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
+    
+    static let SCREEN_HEIGHT_NO_SAFE: CGFloat = UIScreen.main.bounds.height - SAFE_TOP - SAFE_BOTTOM
 }
 
 extension Constant {

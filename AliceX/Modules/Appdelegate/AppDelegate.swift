@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if WalletManager.hasWallet() {
 //            vc = MnemonicsViewController()
-            vc = RNModule.makeViewController(module: .alice)
+//            vc = RNModule.makeViewController(module: .alice)
+            vc = MainTabViewController()
         } else {
             vc = LandingViewController()
         }
