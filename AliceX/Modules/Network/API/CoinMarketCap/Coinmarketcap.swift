@@ -17,6 +17,7 @@ let coinMarketCapAPI = MoyaProvider<CoinMarketCap>(plugins:
 // Due to Coinmarketcap plan, just support ETH in
 enum CoinMarketCap {
     case latest(currency: Currency)
+    case quote(currency: Currency)
 }
 
 extension CoinMarketCap: TargetType {
@@ -33,6 +34,8 @@ extension CoinMarketCap: TargetType {
         switch self {
         case .latest:
             return "v1/cryptocurrency/listings/latest"
+        case .quote:
+            return "v1/cryptocurrency/quotes/latest"
         }
     }
 
@@ -45,8 +48,15 @@ extension CoinMarketCap: TargetType {
 
     var task: Task {
         switch self {
+            
         case let .latest(currency):
             let dict = ["start": 2, "limit": 1, "convert": currency.rawValue] as [String: Any]
+            return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
+            
+        case let .quote(currency):
+            let array = BlockChain.allCases.compactMap { String($0.coinMaeketCapID) }
+            let ids = array.joined(separator: ",")
+            let dict = ["id": ids, "convert": currency.rawValue] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }

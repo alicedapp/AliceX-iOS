@@ -12,6 +12,7 @@ enum Asset: Int, CaseIterable {
     case balance = 0
     case coinHeader
     case coin
+    case erc20
     case NFTHeader
     case NFT
 }
@@ -24,6 +25,8 @@ extension Asset {
         case .coinHeader:
             return AssetCoinHeaderCell()
         case .coin:
+            return AssetCoinCell()
+        case .erc20:
             return AssetCoinCell()
         case .NFTHeader:
             return AssetNFTHeaderCell()
@@ -40,6 +43,8 @@ extension Asset {
             return AssetCoinHeaderCell.nameOfClass
         case .coin:
             return AssetCoinCell.nameOfClass
+        case .erc20:
+            return AssetCoinCell.nameOfClass
         case .NFTHeader:
             return AssetNFTHeaderCell.nameOfClass
         case .NFT:
@@ -55,11 +60,13 @@ extension Asset {
             return CGSize(width: Constant.SCREEN_WIDTH, height: 65)
         case .coin:
             return CGSize(width: Constant.SCREEN_WIDTH, height: 80)
+        case .erc20:
+            return CGSize(width: Constant.SCREEN_WIDTH, height: 80)
         case .NFTHeader:
             return CGSize(width: Constant.SCREEN_WIDTH, height: 65)
         case .NFT:
             let len = (Constant.SCREEN_WIDTH - 40)/2 - 1
-            return CGSize(width: len, height: len)
+            return CGSize(width: len, height: len+10)
         }
     }
 }

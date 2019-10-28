@@ -58,12 +58,17 @@ extension Notification.Name {
     
     static let wallectConnectClientConnect = Notification.Name("wallectConnectClientConnect")
     static let wallectConnectClientDisconnect = Notification.Name("wallectConnectClientDisconnect")
+    
+    static let priceUpdate = Notification.Name("priceUpdate")
 }
 
 
 class CacheKey {
     static let web3NetStoreKey = "alice.web3.net.v1"
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
+    
+    static let assetNFTKey = "alice.asset.NFT"
+    static let assetERC20Key = "alice.asset.erc20"
 }
 
 

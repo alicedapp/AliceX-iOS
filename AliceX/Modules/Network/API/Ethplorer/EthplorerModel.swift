@@ -54,7 +54,7 @@ struct PriceInfo: HandyJSON {
 
 struct TokenArrayItem: HandyJSON {
     var tokenInfo: TokenInfo!
-    var balance: String!
+    var balance: Double!
     var totalIn: Int!
     var totalOut: Int!
 

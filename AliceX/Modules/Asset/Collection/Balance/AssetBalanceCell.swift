@@ -8,6 +8,8 @@
 
 import UIKit
 import VBFPopFlatButton
+import SPStorkController
+import SPLarkController
 
 class AssetBalanceCell: UICollectionViewCell {
 
@@ -27,12 +29,23 @@ class AssetBalanceCell: UICollectionViewCell {
         super.layoutSubviews()
         hideButton.roundCorners(corners: [.topLeft], radius: 20)
         currencyButton.roundCorners(corners: [.topRight], radius: 20)
-        
         animationButton.currentButtonType = .buttonFastForwardType
-        animationButton.currentButtonStyle = .buttonPlainStyle
+        animationButton.currentButtonStyle = .buttonRoundedStyle
         animationButton.lineThickness = 5
         animationButton.tintColor = UIColor(hex: "ADF157")
         animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
+        animationButton.lineRadius = 10
+    }
+    
+    @IBAction func currencyButtonClick() {
+        let vc = CurrencyViewController()
+        vc.isFromPopup = true
+        let topVC = UIApplication.topViewController()
+        let navi = BaseNavigationController(rootViewController: vc)
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        navi.transitioningDelegate = transitionDelegate
+        navi.modalPresentationStyle = .custom
+        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
 
 }

@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import VBFPopFlatButton
 
 class AssetNFTHeaderCell: UICollectionViewCell {
 
+    var action: VoidBlock!
+    
+    @IBOutlet var animationButton: VBFPopFlatButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        animationButton.currentButtonType = .buttonDownBasicType
+        animationButton.currentButtonStyle = .buttonRoundedStyle
+        animationButton.lineThickness = 5
+        animationButton.tintColor = AliceColor.grey
+//        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
+        animationButton.lineRadius = 10
+    }
+        
+    
+    @IBAction func hidenButtonClick() {
+        action!()
+        
+        if animationButton.currentButtonType == .buttonDownBasicType {
+            animationButton.currentButtonType = .buttonForwardType
+        } else {
+            animationButton.currentButtonType = .buttonDownBasicType
+        }
     }
 
 }

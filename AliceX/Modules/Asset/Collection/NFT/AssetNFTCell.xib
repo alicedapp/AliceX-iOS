@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,32 +17,96 @@
                 <rect key="frame" x="0.0" y="0.0" width="182" height="228"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-vL-iyr">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-Bs-API">
                         <rect key="frame" x="10" y="10" width="162" height="208"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-vL-iyr">
+                                <rect key="frame" x="0.0" y="0.0" width="162" height="178"/>
+                                <color key="backgroundColor" name="Alice-LightGrey"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukb-Q2-e6z">
+                                <rect key="frame" x="48.5" y="178" width="65.5" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WNh-lB-9cK">
+                                        <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                                        <color key="backgroundColor" name="Alice-LightGrey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="IfU-pv-ZjH"/>
+                                            <constraint firstAttribute="width" secondItem="WNh-lB-9cK" secondAttribute="height" multiplier="1:1" id="Vnc-EL-mAQ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-yl-LA0">
+                                        <rect key="frame" x="28" y="7" width="37.5" height="16.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="csf-bN-baB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" name="Alice-DarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DpP-yl-LA0" firstAttribute="leading" secondItem="WNh-lB-9cK" secondAttribute="trailing" constant="8" id="4Vq-rC-TUI"/>
+                                    <constraint firstItem="DpP-yl-LA0" firstAttribute="centerY" secondItem="ukb-Q2-e6z" secondAttribute="centerY" id="C6O-cV-mJ6"/>
+                                    <constraint firstItem="WNh-lB-9cK" firstAttribute="centerY" secondItem="ukb-Q2-e6z" secondAttribute="centerY" id="KZA-lL-lPO"/>
+                                    <constraint firstAttribute="trailing" secondItem="DpP-yl-LA0" secondAttribute="trailing" id="gD9-cn-aYV"/>
+                                    <constraint firstItem="WNh-lB-9cK" firstAttribute="leading" secondItem="ukb-Q2-e6z" secondAttribute="leading" id="jKa-F2-PVc"/>
+                                    <constraint firstAttribute="height" constant="30" id="uK8-tA-fqp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ukb-Q2-e6z" secondAttribute="bottom" id="IKR-F8-Mgm"/>
+                            <constraint firstItem="ngF-vL-iyr" firstAttribute="top" secondItem="SZ1-Bs-API" secondAttribute="top" id="hwN-I4-J2z"/>
+                            <constraint firstAttribute="trailing" secondItem="ngF-vL-iyr" secondAttribute="trailing" id="l3G-nb-smF"/>
+                            <constraint firstItem="ukb-Q2-e6z" firstAttribute="centerX" secondItem="SZ1-Bs-API" secondAttribute="centerX" id="n44-Iz-iTM"/>
+                            <constraint firstAttribute="bottom" secondItem="ngF-vL-iyr" secondAttribute="bottom" constant="30" id="t0a-EA-pFe"/>
+                            <constraint firstItem="ngF-vL-iyr" firstAttribute="leading" secondItem="SZ1-Bs-API" secondAttribute="leading" id="wSu-qs-2Xi"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ngF-vL-iyr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="CFH-Gc-XuN"/>
-                <constraint firstAttribute="bottom" secondItem="ngF-vL-iyr" secondAttribute="bottom" constant="10" id="NJ3-us-zM7"/>
-                <constraint firstAttribute="trailing" secondItem="ngF-vL-iyr" secondAttribute="trailing" constant="10" id="bco-89-fpz"/>
-                <constraint firstItem="ngF-vL-iyr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="vDX-la-U9H"/>
+                <constraint firstItem="SZ1-Bs-API" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="CSh-Vf-5TL"/>
+                <constraint firstAttribute="bottom" secondItem="SZ1-Bs-API" secondAttribute="bottom" constant="10" id="SEp-fJ-ZpD"/>
+                <constraint firstAttribute="trailing" secondItem="SZ1-Bs-API" secondAttribute="trailing" constant="10" id="gna-k5-MwR"/>
+                <constraint firstItem="SZ1-Bs-API" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="shA-Gj-I26"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="182" height="228"/>
+            <connections>
+                <outlet property="NFTImageView" destination="ngF-vL-iyr" id="u16-mU-upl"/>
+                <outlet property="contractImageView" destination="WNh-lB-9cK" id="mSU-bj-hqS"/>
+                <outlet property="contractName" destination="DpP-yl-LA0" id="o9w-4s-XXe"/>
+            </connections>
             <point key="canvasLocation" x="233.33333333333334" y="172.09821428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="logo" width="60" height="60"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Alice-LightBackground">
-            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

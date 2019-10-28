@@ -13,6 +13,7 @@ class CurrencyViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
 
     var data: [Currency] = Currency.allCases
+    var isFromPopup: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,20 @@ class CurrencyViewController: BaseViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
+    }
+    
+    @IBAction func closeButtonClicked() {
+        
+        if !isFromPopup {
+            backButtonClicked()
+            return
+        }
+        
+        guard let navi = self.navigationController else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        navi.dismiss(animated: true, completion: nil)
     }
 }
 

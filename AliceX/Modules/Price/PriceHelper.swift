@@ -15,11 +15,17 @@ private let AliceCurrencyKey = "alice.currency.key"
 class PriceHelper {
     static let shared = PriceHelper()
 
-    var currentCoin: CryptoCoin = .ETH
+    var currentCoin: BlockChain = .Ethereum
     var currentCurrency: Currency = .USD
     var exchangeRate: Float = 0
     var updateDate: Date?
     var reponse: CoinMarketCapCurrencyModel?
+    
+    var chainData: [String: CoinMarketCapDataModel]
+    
+    init() {
+        chainData = [:]
+    }
 
     func changeCurrency(currency: Currency) {
         getExchangePrice(currency: currency) {
@@ -30,6 +36,10 @@ class PriceHelper {
             HUDManager.shared.showSuccess(text: "Switch currency success")
             self.postNotification()
         }
+    }
+    
+    func getPrice(blockChain: BlockChain) {
+        
     }
 
     func storeInUserDefault() {
@@ -49,6 +59,8 @@ class PriceHelper {
             exchangeRate = currencyModel!.price!
             updateDate = currencyModel!.last_updated!
             getExchangePrice(currency: currentCurrency, callback: nil)
+            
+            getBlockchainCoinPrice(currency: currentCurrency, callback: nil)
             return
         }
 
@@ -58,7 +70,7 @@ class PriceHelper {
     // TODO: MORE THAN SUPPORT ETH
     func getExchangePrice(currency: Currency, callback: VoidBlock) {
         
-        DispatchQueue.global(qos: .background).async {
+//        DispatchQueue.global(qos: .background).async {
             coinMarketCapAPI.request(.latest(currency: currency)) { result in
                 switch result {
                 case let .success(response):
@@ -79,7 +91,7 @@ class PriceHelper {
                     HUDManager.shared.showError(text: "Fetch currency fail")
                 }
             }
-        }
+//        }
     }
 
     func getTokenInfo(tokenAdress: String) -> Promise<TokenInfo> {
@@ -97,4 +109,39 @@ class PriceHelper {
     func postNotification() {
         NotificationCenter.default.post(name: .currencyChange, object: nil)
     }
+}
+
+extension PriceHelper {
+    
+    func getBlockchainCoinPrice(currency: Currency, callback: VoidBlock) {
+        coinMarketCapAPI.request(.quote(currency: currency)) { result in
+            switch result {
+            case let .success(response):
+                for chain in BlockChain.allCases {
+                    let id = String(chain.coinMaeketCapID)
+                    if let model = response.mapObject(CoinMarketCapDataModel.self,
+                                                         designatedPath: "data.\(id)") {
+                        self.chainData[id] = model
+                    }
+                }
+                self.postPriceNotification()
+            case let .failure(error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    func getChainData(chain: BlockChain) -> CoinMarketCapDataModel? {
+        let id = String(chain.coinMaeketCapID)
+        if !chainData.keys.contains(id) {
+            return nil
+        }
+        
+        return self.chainData[id]!
+    }
+    
+    func postPriceNotification() {
+        NotificationCenter.default.post(name: .priceUpdate, object: nil)
+    }
+    
 }

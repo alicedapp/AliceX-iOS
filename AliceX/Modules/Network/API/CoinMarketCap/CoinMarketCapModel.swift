@@ -13,6 +13,10 @@ struct CoinMarketCapModel: HandyJSON {
     var data: [CoinMarketCapDataModel]?
 }
 
+//struct CoinMarketCapModelQuote: HandyJSON {
+//    var data: [CoinMarketCapDataModel]?
+//}
+
 struct CoinMarketCapDataModel: HandyJSON {
     var id: Int!
     var name: String!
@@ -28,6 +32,7 @@ struct CoinMarketCapDataModel: HandyJSON {
 }
 
 struct CoinMarketCapQuoteModel: HandyJSON {
+    // TODO More Currency Support
     var USD: CoinMarketCapCurrencyModel?
     var EUR: CoinMarketCapCurrencyModel?
     var CNY: CoinMarketCapCurrencyModel?

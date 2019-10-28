@@ -25,7 +25,6 @@ extension WalletManager {
         }
         WalletManager.customNetworkList[index] = newModel
         
-        
         if WalletManager.currentNetwork.model == oldModel {
             WalletManager.currentNetwork = Web3NetEnum(model: newModel)
         }

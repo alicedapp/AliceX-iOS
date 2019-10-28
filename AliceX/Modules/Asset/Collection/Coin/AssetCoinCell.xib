@@ -18,6 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="349" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-E7-xYs">
+                        <rect key="frame" x="20" y="15" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-qA-c4a">
                         <rect key="frame" x="10" y="5" width="329" height="70"/>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
@@ -33,35 +37,46 @@
                             <constraint firstAttribute="width" secondItem="cb8-w0-lRm" secondAttribute="height" multiplier="1:1" id="BBI-fB-Gsa"/>
                             <constraint firstAttribute="height" constant="50" id="hJw-Si-41m"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
-                        <rect key="frame" x="78" y="18" width="74" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
+                        <rect key="frame" x="80" y="18" width="74" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="afX-eh-s0P"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$178.67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-y6-twQ">
-                        <rect key="frame" x="78" y="42" width="54.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-y6-twQ">
+                        <rect key="frame" x="80" y="42" width="30" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aye-5X-wl3" customClass="VBFPopFlatButton">
-                        <rect key="frame" x="157" y="23.5" width="15" height="10"/>
+                        <rect key="frame" x="159" y="23.5" width="15" height="10"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="Lxx-SR-qxq"/>
                             <constraint firstAttribute="width" secondItem="aye-5X-wl3" secondAttribute="height" multiplier="1.5:1" id="pl7-1g-YYB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.253 ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVV-h6-qhW">
-                        <rect key="frame" x="247.5" y="18" width="81.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVV-h6-qhW">
+                        <rect key="frame" x="329" y="28.5" width="0.0" height="0.0"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="bvc-bO-zD3"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1780.67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yte-V4-hGj">
-                        <rect key="frame" x="266" y="42" width="63" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yte-V4-hGj">
+                        <rect key="frame" x="329" y="51" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
@@ -69,14 +84,18 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="bottom" secondItem="cb8-w0-lRm" secondAttribute="bottom" id="A4n-BA-fQ9"/>
                 <constraint firstItem="T4x-EG-nzG" firstAttribute="top" secondItem="cb8-w0-lRm" secondAttribute="top" constant="3" id="AWM-ec-AyO"/>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="trailing" secondItem="cb8-w0-lRm" secondAttribute="trailing" id="Cxe-KA-J3Y"/>
                 <constraint firstAttribute="trailing" secondItem="YVV-h6-qhW" secondAttribute="trailing" constant="20" id="Eg1-rV-r4J"/>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="top" secondItem="cb8-w0-lRm" secondAttribute="top" id="F4W-4S-oIL"/>
                 <constraint firstItem="Yte-V4-hGj" firstAttribute="centerY" secondItem="cCh-y6-twQ" secondAttribute="centerY" id="FOb-hz-bsW"/>
                 <constraint firstItem="YVV-h6-qhW" firstAttribute="centerY" secondItem="T4x-EG-nzG" secondAttribute="centerY" id="Ih3-H5-DgS"/>
                 <constraint firstAttribute="bottom" secondItem="gS7-qA-c4a" secondAttribute="bottom" constant="5" id="KDF-6N-05C"/>
                 <constraint firstItem="gS7-qA-c4a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="OVy-zH-66U"/>
                 <constraint firstItem="cCh-y6-twQ" firstAttribute="bottom" secondItem="cb8-w0-lRm" secondAttribute="bottom" constant="-5" id="Ybj-fc-Cx8"/>
-                <constraint firstItem="cCh-y6-twQ" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="8" id="aNq-ET-E1B"/>
+                <constraint firstItem="cCh-y6-twQ" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="10" id="aNq-ET-E1B"/>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="leading" id="dst-kA-Pib"/>
                 <constraint firstAttribute="trailing" secondItem="gS7-qA-c4a" secondAttribute="trailing" constant="10" id="ej5-K0-3S1"/>
                 <constraint firstAttribute="trailing" secondItem="Yte-V4-hGj" secondAttribute="trailing" constant="20" id="iME-uh-xHa"/>
                 <constraint firstItem="aye-5X-wl3" firstAttribute="centerY" secondItem="T4x-EG-nzG" secondAttribute="centerY" id="qII-RV-KZI"/>
@@ -84,12 +103,18 @@
                 <constraint firstItem="aye-5X-wl3" firstAttribute="leading" secondItem="T4x-EG-nzG" secondAttribute="trailing" constant="5" id="um1-iR-OY9"/>
                 <constraint firstItem="cb8-w0-lRm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="vPR-ig-CDb"/>
                 <constraint firstItem="cb8-w0-lRm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="yAN-WC-WFr"/>
-                <constraint firstItem="T4x-EG-nzG" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="8" id="zRv-M0-NZz"/>
+                <constraint firstItem="T4x-EG-nzG" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="10" id="zRv-M0-NZz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="215"/>
             <connections>
+                <outlet property="amountLabel" destination="YVV-h6-qhW" id="w9J-hv-ZIw"/>
                 <outlet property="animationButton" destination="aye-5X-wl3" id="gvQ-1t-lc2"/>
+                <outlet property="balanceLabel" destination="Yte-V4-hGj" id="TA4-Qv-Jki"/>
+                <outlet property="coinImageView" destination="cb8-w0-lRm" id="Vdv-Gs-ZnO"/>
+                <outlet property="coinShadow" destination="ebA-E7-xYs" id="fco-ol-LvZ"/>
+                <outlet property="nameLabel" destination="T4x-EG-nzG" id="9qP-cp-cMS"/>
+                <outlet property="priceLabel" destination="cCh-y6-twQ" id="XSA-el-ofP"/>
             </connections>
             <point key="canvasLocation" x="354.34782608695656" y="166.74107142857142"/>
         </collectionViewCell>
@@ -100,10 +125,10 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
-            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

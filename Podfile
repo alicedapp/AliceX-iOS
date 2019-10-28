@@ -26,8 +26,11 @@ target 'AliceX' do
   pod 'BonMot'
   pod 'SwiftyUserDefaults', '5.0.0-beta.4'
   pod 'TrustWalletCore'
+  
   pod 'JXSegmentedView'
   pod 'VBFPopFlatButton'
+  pod "ViewAnimator"
+  pod 'SVGKit'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

@@ -8,7 +8,10 @@
 
 import UIKit
 import SPStorkController
-import SwipeCellKit
+import PromiseKit
+import Haneke
+
+import ViewAnimator
 
 class AssetViewController: BaseViewController {
 
@@ -17,16 +20,52 @@ class AssetViewController: BaseViewController {
     @IBOutlet var navBar: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    var erc20Data: AddressInfo!
+    var NFTData: [OpenSeaModel]!
+    
+    var coinHide: Bool = false
+    var NFTHide: Bool = false
+    
+    let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
+    let coinAnimations = [AnimationType.from(direction: .right, offset: 100.0)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         
         for cell in Asset.allCases {
             collectionView.registerCell(nibName: cell.name)
         }
+        
+        loadFromCache()
+        
+        requestERC20()
+        requestNFT()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(priceUpdate), name: .priceUpdate, object: nil)
+    }
+    
+    func loadFromCache() {
+        Shared.stringCache.fetch(key: CacheKey.assetERC20Key).onSuccess { string in
+            guard let model = AddressInfo.deserialize(from: string) else {
+                return
+            }
+            self.erc20Data = model
+            self.erc20SectionAimation()
+        }
+        
+        Shared.stringCache.fetch(key: CacheKey.assetNFTKey).onSuccess { string in
+            guard let model = OpenSeaReponse.deserialize(from: string) else {
+                return
+            }
+            self.NFTData = model.assets
+            self.NFTSectionAimation()
+        }
+        
     }
 
     @IBAction func settingClick() {
@@ -37,84 +76,48 @@ class AssetViewController: BaseViewController {
         navi.modalPresentationStyle = .custom
         presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
-}
-
-extension AssetViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let section = indexPath.section
-        guard let type = Asset(rawValue: section) else {
-            return CGSize.zero
-        }
-        return type.size
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == Asset.NFT.rawValue {
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        }
-        return UIEdgeInsets.zero
-    }
-}
-
-extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let section = indexPath.section
-        let item = indexPath.item
-
-        switch section {
-        case Asset.balance.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.balance.name, for: indexPath)
-            return cell
-        case Asset.coinHeader.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coinHeader.name, for: indexPath)
-            return cell
-        case Asset.coin.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath)
-            return cell
-        case Asset.NFTHeader.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFTHeader.name, for: indexPath)
-            return cell
-        case Asset.NFT.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFT.name, for: indexPath)
-            return cell
-        default:
-            guard let type = Asset(rawValue: section) else {
-                return UICollectionViewCell()
+    func requestERC20() {
+        firstly { () -> Promise<AddressInfo> in
+            API(Ethplorer.getAddressInfo(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+        }.done { model in
+            var hasNew = true
+            if self.erc20Data != nil {
+                hasNew = model.tokens.count > self.erc20Data.tokens.count
             }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type.name, for: indexPath)
-            return cell
+            self.erc20Data = model
+            Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetERC20Key)
+            if hasNew {
+                self.erc20SectionAimation()
+            } else {
+                self.collectionView.reloadSections(IndexSet(integer: Asset.coin.rawValue))
+            }
+        }.catch { error in
+            print("Fetch ECR20 failed")
         }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Asset.allCases.count
+    func requestNFT() {
+        firstly { () -> Promise<OpenSeaReponse> in
+            API(OpenSea.assets(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+        }.done { model in
+            var hasNew = true
+            if self.erc20Data != nil {
+                hasNew = model.assets!.count > self.NFTData.count
+            }
+            self.NFTData = model.assets
+            Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetNFTKey)
+            if hasNew {
+                self.NFTSectionAimation()
+            } else {
+                self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
+            }
+        }.catch { error in
+            print("Fetch NFT failed")
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case Asset.balance.rawValue:
-            return 1
-        case Asset.coinHeader.rawValue:
-            return 1
-        case Asset.coin.rawValue:
-            return 3
-        case Asset.NFTHeader.rawValue:
-            return 1
-        case Asset.NFT.rawValue:
-            return 10
-        default:
-            return 0
-        }
+    @objc func priceUpdate() {
+        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
     }
 }

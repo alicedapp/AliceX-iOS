@@ -263,7 +263,7 @@ class TransactionManager {
                 seal.fulfill(result.hash)
                 let url = PinItem.txURL(network: WalletManager.currentNetwork,
                                         txHash: result.hash).absoluteString
-                let browser = BrowserWrapperViewController.make(urlString:url)
+                let browser = BrowserWrapperViewController.make(urlString: url)
                 
                 let pinItem = PinItem.transaction(network: WalletManager.currentNetwork,
                                                   txHash: result.hash,

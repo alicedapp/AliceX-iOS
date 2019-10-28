@@ -9,12 +9,6 @@
 import Foundation
 import TrustWalletCore
 
-enum BlockChain: String, CaseIterable {
-    case Ethereum
-    case Bitcoin
-    case Binance
-}
-
 enum Coin {
     case blockchain(BlockChain)
     case ERC20(String)
