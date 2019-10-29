@@ -11,19 +11,17 @@ import TrustWalletCore
 
 class WalletCore {
     static let shared = WalletCore()
-    
+
     var wallet: HDWallet?
-    
+
     class func hasWallet() -> Bool {
         if WalletCore.shared.wallet != nil {
             return true
         }
         return false
     }
-    
+
     func create(mnemonic: String) {
         wallet = HDWallet(mnemonic: mnemonic, passphrase: "")
-        
     }
 }
-

@@ -59,7 +59,6 @@ class PinTransitionPop: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: duration) {
             self.coverView.alpha = 0.5
         }
-        
     }
 }
 

@@ -43,7 +43,7 @@ extension OpenSea: TargetType {
 
     var task: Task {
         switch self {
-        case .assets(let address):
+        case let .assets(address):
             let dict = ["owner": address] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
@@ -53,4 +53,3 @@ extension OpenSea: TargetType {
         return "".data(using: String.Encoding.utf8)!
     }
 }
-

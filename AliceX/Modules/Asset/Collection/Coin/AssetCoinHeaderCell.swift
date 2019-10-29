@@ -6,20 +6,19 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import SPStorkController
+import UIKit
 import VBFPopFlatButton
 
 class AssetCoinHeaderCell: UICollectionViewCell {
-
     var action: VoidBlock!
-    
+
     @IBOutlet var animationButton: VBFPopFlatButton!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         animationButton.currentButtonType = .buttonDownBasicType
         animationButton.currentButtonStyle = .buttonRoundedStyle
         animationButton.lineThickness = 5
@@ -27,7 +26,7 @@ class AssetCoinHeaderCell: UICollectionViewCell {
 //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
-    
+
     @IBAction func addButtonClick() {
         let vc = CoinListViewController()
         vc.isFromPopup = true
@@ -38,15 +37,14 @@ class AssetCoinHeaderCell: UICollectionViewCell {
         navi.modalPresentationStyle = .custom
         topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
-    
+
     @IBAction func hidenButtonClick() {
         action!()
-        
+
         if animationButton.currentButtonType == .buttonDownBasicType {
             animationButton.currentButtonType = .buttonForwardType
         } else {
             animationButton.currentButtonType = .buttonDownBasicType
         }
     }
-
 }

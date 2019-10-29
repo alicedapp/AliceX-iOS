@@ -10,14 +10,13 @@ import UIKit
 import WalletConnectSwift
 
 class WCCustomMethodVC: BaseViewController {
-
     var isServer: Bool = true
     @IBOutlet var textView: UITextView!
     @IBOutlet var methodLabel: UITextField!
     var placeholderLabel: UILabel!
-    
+
     @IBOutlet var responseView: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
@@ -30,25 +29,24 @@ class WCCustomMethodVC: BaseViewController {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
-    
-    @IBAction func send(){
-        
+
+    @IBAction func send() {
         if methodLabel.text!.isEmptyAfterTrim() {
             HUDManager.shared.showError(text: "Method Name can't be empty")
             return
         }
-        
+
         if isServer {
             WCServerHelper.shared.sendCustomRequest(method: methodLabel.text!, message: [textView.text])
             return
         }
-        
+
         WCClientHelper.shared.sendCustomRequest(method: methodLabel.text!,
-                                                message: [textView.text]) { (repsonse) in
-                                                    self.handleReponse(response: repsonse)
+                                                message: [textView.text]) { repsonse in
+            self.handleReponse(response: repsonse)
         }
     }
-    
+
     func handleReponse(response: Response) {
         onMainThread {
             do {
@@ -60,7 +58,6 @@ class WCCustomMethodVC: BaseViewController {
         }
     }
 }
-
 
 extension WCCustomMethodVC: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {

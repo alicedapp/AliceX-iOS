@@ -40,7 +40,7 @@ extension UIApplication {
         }
         return base
     }
-    
+
     public class func topNavigationController() -> UINavigationController? {
         return UIApplication.topViewController()?.navigationController
     }

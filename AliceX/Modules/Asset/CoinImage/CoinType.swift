@@ -17,9 +17,9 @@ enum Coin {
 extension Coin {
     var image: URL {
         switch self {
-        case .blockchain(let chain):
+        case let .blockchain(chain):
             return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/\(chain.rawValue.lowercased())/info/logo.png")!
-        case .ERC20(let tokenAddress):
+        case let .ERC20(tokenAddress):
             return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(tokenAddress.lowercased())/logo.png")!
         }
     }

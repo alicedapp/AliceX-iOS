@@ -25,14 +25,12 @@ extension BlockChain {
             return 1
         }
     }
-    
+
     var data: CoinMarketCapDataModel? {
         return PriceHelper.shared.getChainData(chain: self)
     }
-    
+
 //    var price: Double {
 //        PriceHelper.shared
 //    }
-    
-    
 }

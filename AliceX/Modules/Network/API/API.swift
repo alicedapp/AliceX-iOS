@@ -24,26 +24,26 @@ func API<T: HandyJSON, U: TargetType>(_ target: U,
                                       useCache _: Bool = false) -> Promise<T> {
     return Promise<T> { seal in
         #if DEBUG
-        let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+            let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
         #else
-        let provider = MoyaProvider<U>()
+            let provider = MoyaProvider<U>()
         #endif
         provider.request(target, completion: { result in
             switch result {
             case let .success(response):
 //                do {
-                    // TODO: TokenInfo Mapping faild, but not nil
-                    guard let model = response.mapObject(T.self) else {
-                        seal.reject(MyError.DecodeFailed)
-                        return
-                    }
+                // TODO: TokenInfo Mapping faild, but not nil
+                guard let model = response.mapObject(T.self) else {
+                    seal.reject(MyError.DecodeFailed)
+                    return
+                }
 //                        try T.deserialize(from: response.mapString())
-                    
-                    seal.fulfill(model)
+
+                seal.fulfill(model)
 //                } catch {
 //                    seal.reject(MyError.DecodeFailed)
 //                }
-                
+
             case let .failure(error):
                 seal.reject(error)
             }
@@ -57,9 +57,9 @@ func API<T: Decodable, U: TargetType>(_ target: U,
                                       useCache _: Bool = false) -> Promise<T> {
     return Promise<T> { seal in
         #if DEBUG
-        let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+            let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
         #else
-        let provider = MoyaProvider<U>()
+            let provider = MoyaProvider<U>()
         #endif
         provider.request(target, completion: { result in
             switch result {

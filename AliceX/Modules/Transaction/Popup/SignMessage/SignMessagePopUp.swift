@@ -23,7 +23,7 @@ class SignMessagePopUp: UIViewController {
     var toggle: Bool = false
 
     var successBlock: StringBlock?
-    
+
     var payView: PayButtonView?
 
     class func make(message: String, success: @escaping StringBlock) -> SignMessagePopUp {
@@ -43,7 +43,7 @@ class SignMessagePopUp: UIViewController {
         }
 
         messageTextView.text = msgText
-        
+
         payView = PayButtonView.instanceFromNib(title: "Hold To Sign")
         payButton.addSubview(payView!)
         payView!.fillSuperview()
@@ -51,9 +51,7 @@ class SignMessagePopUp: UIViewController {
     }
 }
 
-
 extension SignMessagePopUp: PayButtonDelegate {
-    
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -61,7 +59,7 @@ extension SignMessagePopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -83,7 +81,7 @@ extension SignMessagePopUp: PayButtonDelegate {
         } catch {
             print(error)
             HUDManager.shared.showError()
-            self.payView!.failed()
+            payView!.failed()
         }
     }
 }

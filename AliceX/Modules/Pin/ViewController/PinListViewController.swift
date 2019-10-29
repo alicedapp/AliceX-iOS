@@ -9,16 +9,16 @@
 import UIKit
 
 class PinListViewController: BaseViewController {
-    
     @IBOutlet var blurMask: UIVisualEffectView!
-    
-    var pinList: Array<PinItem> = PinManager.shared.pinList {
+
+    var pinList: [PinItem] = PinManager.shared.pinList {
         didSet {
             if pinList.count == 0 {
                 dismissVC()
             }
         }
     }
+
     var previousVC: UIViewController?
 
     @IBOutlet var tableView: UITableView!
@@ -32,15 +32,15 @@ class PinListViewController: BaseViewController {
         tableView.estimatedRowHeight = 100
         tableView.sizeToFit()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
         tableHeight?.constant = tableView.contentSize.height
     }
-    
+
     func updateIfNeeded() {
         pinList = PinManager.shared.pinList
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
+        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .automatic)
     }
 
     @IBAction func dismissVC() {
@@ -65,17 +65,17 @@ class PinListViewController: BaseViewController {
         }) { _ in
         }
     }
-    
+
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillAppear(true)
 //        view.alpha = 1
 //        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
 //            self.view.alpha = 0
 //        }) { _ in
-////            self.view.alpha = 1
+    ////            self.view.alpha = 1
 //        }
 //    }
-    
+
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
         switch style {
@@ -101,7 +101,7 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         cell.previousVC = previousVC
         cell.parentVC = self
-        
+
         let item = Array(pinList)[indexPath.row]
         cell.configure(item: item, index: indexPath)
         return cell

@@ -20,7 +20,7 @@ class BrowserViewController: BaseViewController {
     @IBOutlet var backButtonImage: UIImageView!
 
     @IBOutlet var panelImage: UIImageView!
-    
+
     var config: WKWebViewConfiguration!
     var webview: WKWebView!
     var urlString: String = "https://uniswap.exchange"
@@ -76,15 +76,14 @@ class BrowserViewController: BaseViewController {
         webContainer.addSubview(webview)
 
         webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-        
+
         if WalletManager.currentNetwork != .main {
             let newImage = panelImage.image?.filled(with: WalletManager.currentNetwork.color)
             panelImage.image = newImage
-            
+
             navBar.layer.borderColor = WalletManager.currentNetwork.color.cgColor
             navBar.layer.borderWidth = 1
         }
-        
     }
 
     deinit {

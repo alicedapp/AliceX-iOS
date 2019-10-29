@@ -37,7 +37,7 @@ class SignTransactionPopUp: UIViewController {
     var gasPrice: GasPrice = GasPrice.average
 
     var successBlock: StringBlock?
-    
+
     var payView: PayButtonView?
 
     class func make(toAddress: String,
@@ -68,7 +68,7 @@ class SignTransactionPopUp: UIViewController {
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
-        
+
         gasBtn.isUserInteractionEnabled = false
 
         NotificationCenter.default.addObserver(self,
@@ -114,9 +114,7 @@ class SignTransactionPopUp: UIViewController {
     }
 }
 
-
 extension SignTransactionPopUp: PayButtonDelegate {
-    
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -124,7 +122,7 @@ extension SignTransactionPopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -147,7 +145,7 @@ extension SignTransactionPopUp: PayButtonDelegate {
         } catch {
             print(error)
             HUDManager.shared.showError()
-            self.payView!.failed()
+            payView!.failed()
         }
     }
 }

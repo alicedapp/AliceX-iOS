@@ -34,7 +34,7 @@ extension Asset {
             return AssetNFTCell()
         }
     }
-    
+
     var name: String {
         switch self {
         case .balance:
@@ -51,7 +51,7 @@ extension Asset {
             return AssetNFTCell.nameOfClass
         }
     }
-    
+
     var size: CGSize {
         switch self {
         case .balance:
@@ -65,8 +65,8 @@ extension Asset {
         case .NFTHeader:
             return CGSize(width: Constant.SCREEN_WIDTH, height: 65)
         case .NFT:
-            let len = (Constant.SCREEN_WIDTH - 40)/2 - 1
-            return CGSize(width: len, height: len+10)
+            let len = (Constant.SCREEN_WIDTH - 40) / 2 - 1
+            return CGSize(width: len, height: len + 10)
         }
     }
 }

@@ -20,9 +20,9 @@ class PriceHelper {
     var exchangeRate: Float = 0
     var updateDate: Date?
     var reponse: CoinMarketCapCurrencyModel?
-    
+
     var chainData: [String: CoinMarketCapDataModel]
-    
+
     init() {
         chainData = [:]
     }
@@ -37,10 +37,8 @@ class PriceHelper {
             self.postNotification()
         }
     }
-    
-    func getPrice(blockChain: BlockChain) {
-        
-    }
+
+    func getPrice(blockChain _: BlockChain) {}
 
     func storeInUserDefault() {
         UserDefaults.standard.set(reponse?.toJSONString(), forKey: AliceCurrencyKey)
@@ -59,7 +57,7 @@ class PriceHelper {
             exchangeRate = currencyModel!.price!
             updateDate = currencyModel!.last_updated!
             getExchangePrice(currency: currentCurrency, callback: nil)
-            
+
             getBlockchainCoinPrice(currency: currentCurrency, callback: nil)
             return
         }
@@ -69,34 +67,33 @@ class PriceHelper {
 
     // TODO: MORE THAN SUPPORT ETH
     func getExchangePrice(currency: Currency, callback: VoidBlock) {
-        
 //        DispatchQueue.global(qos: .background).async {
-            coinMarketCapAPI.request(.latest(currency: currency)) { result in
-                switch result {
-                case let .success(response):
-                    let model = response.mapObject(CoinMarketCapModel.self)
-                    let quote = model?.data?.first?.quote?.toJSON()
-                    let price = quote![currency.rawValue] as! [String: Any]
-                    var currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price)
-                    currencyModel?.currency = currency
-                    self.reponse = currencyModel
-                    self.currentCurrency = (currencyModel?.currency)!
-                    self.exchangeRate = currencyModel!.price!
-                    self.updateDate = currencyModel!.last_updated!
-                    guard let block = callback else {
-                        return
-                    }
-                    block()
-                case let .failure:
-                    HUDManager.shared.showError(text: "Fetch currency fail")
+        coinMarketCapAPI.request(.latest(currency: currency)) { result in
+            switch result {
+            case let .success(response):
+                let model = response.mapObject(CoinMarketCapModel.self)
+                let quote = model?.data?.first?.quote?.toJSON()
+                let price = quote![currency.rawValue] as! [String: Any]
+                var currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price)
+                currencyModel?.currency = currency
+                self.reponse = currencyModel
+                self.currentCurrency = (currencyModel?.currency)!
+                self.exchangeRate = currencyModel!.price!
+                self.updateDate = currencyModel!.last_updated!
+                guard let block = callback else {
+                    return
                 }
+                block()
+            case let .failure:
+                HUDManager.shared.showError(text: "Fetch currency fail")
             }
+        }
 //        }
     }
 
     func getTokenInfo(tokenAdress: String) -> Promise<TokenInfo> {
         return Promise { seal in
-        firstly { () -> Promise<TokenInfo> in
+            firstly { () -> Promise<TokenInfo> in
                 API(Ethplorer.getTokenInfo(address: tokenAdress))
             }.done { model in
                 seal.fulfill(model)
@@ -112,15 +109,14 @@ class PriceHelper {
 }
 
 extension PriceHelper {
-    
-    func getBlockchainCoinPrice(currency: Currency, callback: VoidBlock) {
+    func getBlockchainCoinPrice(currency: Currency, callback _: VoidBlock) {
         coinMarketCapAPI.request(.quote(currency: currency)) { result in
             switch result {
             case let .success(response):
                 for chain in BlockChain.allCases {
                     let id = String(chain.coinMaeketCapID)
                     if let model = response.mapObject(CoinMarketCapDataModel.self,
-                                                         designatedPath: "data.\(id)") {
+                                                      designatedPath: "data.\(id)") {
                         self.chainData[id] = model
                     }
                 }
@@ -130,18 +126,17 @@ extension PriceHelper {
             }
         }
     }
-    
+
     func getChainData(chain: BlockChain) -> CoinMarketCapDataModel? {
         let id = String(chain.coinMaeketCapID)
         if !chainData.keys.contains(id) {
             return nil
         }
-        
-        return self.chainData[id]!
+
+        return chainData[id]!
     }
-    
+
     func postPriceNotification() {
         NotificationCenter.default.post(name: .priceUpdate, object: nil)
     }
-    
 }

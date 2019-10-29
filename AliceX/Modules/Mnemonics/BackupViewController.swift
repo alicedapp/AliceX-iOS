@@ -6,35 +6,34 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import SwiftyUserDefaults
+import UIKit
 
 class BackupViewController: BaseViewController {
-
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var selectContainer: UIView!
     @IBOutlet var displayContainer: UIView!
-    
+
     @IBOutlet var nextButton: UIControl!
     @IBOutlet var nextLabel: UILabel!
-    
+
     var selectCollection: TTGTextTagCollectionView!
     var displayCollection: TTGTextTagCollectionView!
-    
+
     let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)?.components(separatedBy: .whitespaces)
-    
+
     var shuffled: [String]!
     var isInCorrect: Bool = false {
         didSet {
             errorLabel.isHidden = !isInCorrect
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         shuffled = mnemonic!.shuffled()
-        
+
         selectCollection = TTGTextTagCollectionView()
         selectCollection.delegate = self
         selectCollection.alignment = .fillByExpandingWidthExceptLastLine
@@ -42,7 +41,7 @@ class BackupViewController: BaseViewController {
         selectContainer.addSubview(selectCollection)
         selectCollection.fillSuperview()
         selectCollection.addTags(shuffled)
-        
+
         let configure = selectCollection.defaultConfig
         configure?.backgroundColor = AliceColor.dark
         configure?.textColor = .white
@@ -50,32 +49,32 @@ class BackupViewController: BaseViewController {
         configure?.cornerRadius = 20
         configure?.shadowColor = .clear
         configure?.maxWidth = 100
-        
+
         configure?.selectedTextColor = .clear
         configure?.selectedBorderColor = .clear
         configure?.selectedBackgroundColor = AliceColor.lightGrey
         configure?.selectedCornerRadius = 20
         configure?.shadowColor = .clear
         configure?.textFont = UIFont.systemFont(ofSize: 20, weight: .regular)
-        
+
         displayCollection = TTGTextTagCollectionView()
         displayCollection.delegate = self
         displayContainer.addSubview(displayCollection)
         displayCollection.fillSuperview()
 //        displayCollection.addTags(displayTag)
-        
+
         let displayConfig = displayCollection.defaultConfig
-        
+
         displayConfig?.backgroundColor = AliceColor.dark
         displayConfig?.textColor = .white
         displayConfig?.borderColor = .clear
         displayConfig?.cornerRadius = 20
         displayConfig?.shadowColor = .clear
         displayConfig?.textFont = UIFont.systemFont(ofSize: 20, weight: .regular)
-        
+
         setNextButtonHighlight()
     }
-    
+
     func setNextButtonHighlight() {
         // Mnemonic long == 12
         if displayCollection.allTags().count != 12 || isInCorrect {
@@ -88,17 +87,17 @@ class BackupViewController: BaseViewController {
         nextLabel.textColor = .white
         nextButton.backgroundColor = AliceColor.dark
     }
-    
+
     func checkError() {
         guard let words = displayCollection.allTags() else {
             return
         }
-        
+
         if words.count == 0 {
             isInCorrect = false
             return
         }
-        
+
         for (index, tag) in words.enumerated() {
             if tag != mnemonic![index] {
                 isInCorrect = true
@@ -107,23 +106,21 @@ class BackupViewController: BaseViewController {
         }
         isInCorrect = false
     }
-    
+
     @IBAction func completeButtonClick() {
         let impactLight = UIImpactFeedbackGenerator(style: .light)
         impactLight.impactOccurred()
-        
+
         Defaults[\.MnemonicsBackup] = true
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
 extension BackupViewController: TTGTextTagCollectionViewDelegate {
-    
-    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
-        
+    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig _: TTGTextTagConfig!) {
         let impactLight = UIImpactFeedbackGenerator(style: .light)
         impactLight.impactOccurred()
-        
+
         if textTagCollectionView == displayCollection {
             if selected {
                 displayCollection.removeTag(at: index)
@@ -137,18 +134,17 @@ extension BackupViewController: TTGTextTagCollectionViewDelegate {
                 selectCollection.setTagAt(UInt(findIndex), selected: false)
                 return
             }
-            
+
             return
         }
-        
+
         if !selected {
             selectCollection.setTagAt(index, selected: true)
             return
         }
-        
+
         displayCollection.addTag(tagText)
         setNextButtonHighlight()
         checkError()
     }
-    
 }

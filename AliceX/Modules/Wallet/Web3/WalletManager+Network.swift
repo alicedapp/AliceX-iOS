@@ -9,15 +9,15 @@
 import BigInt
 import Foundation
 import HandyJSON
-import web3swift
 import PromiseKit
+import web3swift
 
-struct Web3NetModel: HandyJSON, Equatable{
+struct Web3NetModel: HandyJSON, Equatable {
     var name: String!
     var chainID: Int!
     var color: String!
     var rpcURL: String!
-    
+
 //    static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
 //        return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL
 //    }
@@ -36,7 +36,7 @@ enum Web3NetEnum: CaseIterable, Equatable {
     case poa
     case xDai
     case custom(Web3NetModel)
-    
+
     init(model: Web3NetModel) {
         switch model {
         case Web3NetEnum.main.model:
@@ -57,22 +57,21 @@ enum Web3NetEnum: CaseIterable, Equatable {
             self = Web3NetEnum.custom(model)
         }
     }
-    
+
     static var allCases: [Web3NetEnum] {
         let defaultList: [Web3NetEnum] = [.main, .ropsten, .kovan, .rinkeby, .goerli, .poa, .xDai]
-        let customList = WalletManager.customNetworkList.map{
+        let customList = WalletManager.customNetworkList.map {
             Web3NetEnum(model: $0)
         }
         return defaultList + customList
     }
-    
+
     static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
         return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL && lhs.name == rhs.name
     }
 }
 
 extension Web3NetEnum {
-    
     var name: String {
         switch self {
         case .main:
@@ -89,13 +88,13 @@ extension Web3NetEnum {
             return "Poa"
         case .xDai:
             return "xDai"
-        case .custom(let model):
+        case let .custom(model):
             return model.name
         default:
             return "Custom"
         }
     }
-    
+
     var color: UIColor {
         switch self {
         case .main:
@@ -112,13 +111,13 @@ extension Web3NetEnum {
             return UIColor(hex: "#F19164")
         case .xDai:
             return UIColor(hex: "#98CEED")
-        case .custom(let model):
+        case let .custom(model):
             return UIColor(hex: model.color)
         default:
             return UIColor.lightGray
         }
     }
-    
+
     var backgroundColor: UIColor {
         switch self {
         case .main:
@@ -142,7 +141,7 @@ extension Web3NetEnum {
         case .xDai: return 100
         case .goerli: return 5
 //        case .custom(let chainID): return chainID
-        case .custom(let model):
+        case let .custom(model):
             return model.chainID
         }
     }
@@ -157,13 +156,13 @@ extension Web3NetEnum {
             case .poa: return "https://core.poa.network"
             case .goerli: return "https://goerli.infura.io/v3/\(Constant.infuraKey)"
             case .xDai: return "https://dai.poa.network"
-            case .custom(let model):
+            case let .custom(model):
                 return model.rpcURL
             }
         }()
         return URL(string: urlString)!
     }
-    
+
     var isUsingInfura: Bool {
         switch self {
         case .main, .ropsten, .kovan, .rinkeby, .goerli:
@@ -172,7 +171,7 @@ extension Web3NetEnum {
             return false
         }
     }
-    
+
     var isCustom: Bool {
         switch self {
         case .main, .ropsten, .kovan, .rinkeby, .goerli, .poa, .xDai:
@@ -198,16 +197,14 @@ extension Web3NetEnum {
         case .goerli: return .Custom(networkID: 5)
         case .poa: return .Custom(networkID: 99)
         case .xDai: return .Custom(networkID: 100)
-        case .custom(let model):
+        case let .custom(model):
             return .Custom(networkID: BigUInt(model.chainID))
 //        case .custom(let chainID): return .Custom(networkID: chainID)
         }
     }
-    
 }
 
 extension WalletManager {
-
     class func make(type: Web3NetEnum, customURL _: String = "https://mainnet.infura.io/v3/") throws -> web3 {
         switch type {
         case .main:
@@ -231,8 +228,8 @@ extension WalletManager {
 
 //        return Web3.InfuraMainnetWeb3()
     }
-    
-    class func make(url: String)  -> Promise<web3> {
+
+    class func make(url: String) -> Promise<web3> {
         return Promise<web3> { seal in
             do {
                 let net = try WalletManager.customNet(url: url)
@@ -277,7 +274,7 @@ extension WalletManager {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return Web3.InfuraMainnetWeb3()
         }
-        
+
         let type = Web3NetEnum(model: model)
 
         do {
@@ -309,7 +306,7 @@ extension WalletManager {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return .main
         }
-        
+
         let type = Web3NetEnum(model: model)
         return type
     }

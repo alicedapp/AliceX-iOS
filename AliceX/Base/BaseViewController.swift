@@ -7,11 +7,10 @@
 //
 
 import Hero
-import UIKit
 import PromiseKit
+import UIKit
 
 class BaseViewController: UIViewController {
-    
 //    override var preferredStatusBarStyle: UIStatusBarStyle {
 //        if #available(iOS 13.0, *) {
 //            return .darkContent
@@ -58,24 +57,22 @@ class BaseViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
+
         if #available(iOS 12.0, *) {
-            
             guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
                 return
             }
-            
+
             let userInterfaceStyle = traitCollection.userInterfaceStyle
             themeDidChange(style: userInterfaceStyle)
-            
+
             CallRNModule.isDarkMode(style: userInterfaceStyle)
         }
     }
-    
+
     @available(iOS 12.0, *)
-    func themeDidChange(style: UIUserInterfaceStyle) {
-    }
+    func themeDidChange(style _: UIUserInterfaceStyle) {}
 }

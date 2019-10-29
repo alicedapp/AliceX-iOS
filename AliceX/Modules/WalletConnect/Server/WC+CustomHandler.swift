@@ -13,7 +13,7 @@ class WCCustomHandler: WCHandler {
     override func canHandle(request: Request) -> Bool {
         return request.method == "alice_socket"
     }
-    
+
     override func handle(request: Request) {
         do {
             let message = try request.parameter(of: String.self, at: 0)
@@ -21,7 +21,7 @@ class WCCustomHandler: WCHandler {
 //                                         value: "Success: \(message)",
 //                id: request.id!)
 //            self.server.send(response)
-            
+
             CallRNModule.walletConnectEvent(rawData: message)
         } catch {
             HUDManager.shared.showError(text: "Handle message failed")
@@ -32,14 +32,13 @@ class WCCustomHandler: WCHandler {
 extension WCServerHelper {
     func sendCustomRequest(method: String = "alice_socket",
                            message: [String]) {
-        
         guard let server = self.server,
             let session = self.session else {
             return
         }
-        
+
         let wcURL = session.url
-        
+
         do {
             let request = try Request(url: wcURL,
                                       method: method,

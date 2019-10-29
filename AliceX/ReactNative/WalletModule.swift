@@ -8,8 +8,8 @@
 
 import BigInt
 import Foundation
-import web3swift
 import PromiseKit
+import web3swift
 
 @objc(WalletModule)
 class WalletModule: NSObject {
@@ -50,14 +50,13 @@ class WalletModule: NSObject {
 
     @objc func getBalance(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
-            firstly{
+            firstly {
                 TransactionManager.shared.etherBalance()
-            }.done { (balance) in
+            }.done { balance in
                 resolve(balance)
-            }.catch { (error) in
+            }.catch { error in
                 reject("1", error.localizedDescription, nil)
             }
-            
         }
     }
 
@@ -177,23 +176,21 @@ class WalletModule: NSObject {
             resolve("Success")
         }
     }
-    
+
     @objc func fetchTXStatus(_ txHash: String,
                              rpcURL: String = WalletManager.currentNetwork.rpcURL.absoluteString,
                              resolve: @escaping RCTPromiseResolveBlock,
                              reject: @escaping RCTPromiseRejectBlock) {
-        
         guard let _ = URL(string: rpcURL) else {
             return
         }
-        
+
         firstly {
             PendingTransactionHelper.shared.fetchSingleTX(txHash: txHash, rpcURL: rpcURL)
-        }.done { (receipt) in
+        }.done { receipt in
             resolve(receipt)
-        }.catch { (error) in
+        }.catch { error in
             reject("1", error.localizedDescription, nil)
         }
-        
     }
 }

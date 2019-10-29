@@ -201,6 +201,8 @@
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
 		15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3D22CA1B96004B45A2 /* RNModule.swift */; };
 		15E1AA93236706FE00F29369 /* Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA92236706FE00F29369 /* Binance.swift */; };
+		15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */; };
+		15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */; };
 		15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2876322DEC40F00637135 /* BrowserVC+DApps.swift */; };
 		15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2876522DEC58E00637135 /* BroswerVC+WKDelegate.swift */; };
 		15E3C8F023421AD300DCADBF /* SwiftHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C8EF23421AD300DCADBF /* SwiftHelper.swift */; };
@@ -423,6 +425,8 @@
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
 		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
 		15E1AA92236706FE00F29369 /* Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance.swift; sourceTree = "<group>"; };
+		15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressQRCodeViewController.swift; sourceTree = "<group>"; };
+		15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRCodeViewController.xib; sourceTree = "<group>"; };
 		15E2876322DEC40F00637135 /* BrowserVC+DApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserVC+DApps.swift"; sourceTree = "<group>"; };
 		15E2876522DEC58E00637135 /* BroswerVC+WKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BroswerVC+WKDelegate.swift"; sourceTree = "<group>"; };
 		15E3C8EF23421AD300DCADBF /* SwiftHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHelper.swift; sourceTree = "<group>"; };
@@ -933,8 +937,6 @@
 		1587395A22B9E5A000F36F92 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				15E1AA91236706EE00F29369 /* JSON-RPC */,
-				1587396822BA0ECF00F36F92 /* WebSocket */,
 				1587396722BA0EB900F36F92 /* API */,
 			);
 			path = Network;
@@ -952,6 +954,7 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				15E1AA9423670D1800F29369 /* Binance */,
 				151250C423661F3B00AD37BB /* OpenSea */,
 				1525E79123311BF4009DAB83 /* AmberData */,
 				15477B3B22E15B09008E3230 /* EthGasStation */,
@@ -961,13 +964,6 @@
 				15477B4822E1AE18008E3230 /* API.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		1587396822BA0ECF00F36F92 /* WebSocket */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		1587396B22BB4A1500F36F92 /* GasFee */ = {
@@ -1241,6 +1237,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15E1AA9523670EE400F29369 /* Account */,
 				1514464A236437DE005E87CE /* MainTab */,
 				1583589E2345F10A00B2036F /* Asset */,
 				15E3C8FC2344729500DCADBF /* Mnemonics */,
@@ -1349,12 +1346,29 @@
 			path = Import;
 			sourceTree = "<group>";
 		};
-		15E1AA91236706EE00F29369 /* JSON-RPC */ = {
+		15E1AA9423670D1800F29369 /* Binance */ = {
 			isa = PBXGroup;
 			children = (
 				15E1AA92236706FE00F29369 /* Binance.swift */,
 			);
-			path = "JSON-RPC";
+			path = Binance;
+			sourceTree = "<group>";
+		};
+		15E1AA9523670EE400F29369 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				15E1AA96236715DB00F29369 /* Address */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		15E1AA96236715DB00F29369 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */,
+				15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */,
+			);
+			path = Address;
 			sourceTree = "<group>";
 		};
 		15E3C8EE23421A5100DCADBF /* Share */ = {
@@ -1561,6 +1575,7 @@
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
+				15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */,
 				15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
 				15BC4DC122DAF50F00313CA9 /* dapps.json in Resources */,
@@ -1631,7 +1646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n#swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    #swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1838,6 +1853,7 @@
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
 				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
+				15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */,
 				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,

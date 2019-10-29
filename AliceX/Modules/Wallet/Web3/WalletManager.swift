@@ -7,14 +7,14 @@
 //
 
 import Foundation
-import web3swift
 import SPStorkController
+import web3swift
 
 class WalletManager {
     static let shared = WalletManager()
     static var wallet: Wallet?
     static var currentNetwork: Web3NetEnum = .main
-    
+
     static var customNetworkList: [Web3NetModel] = []
 
     #if DEBUG
@@ -54,7 +54,7 @@ class WalletManager {
         }
         // Load web3 net from user default
         web3Net = WalletManager.fetchFromCache()
-        
+
         WalletManager.shared.loadRPCFromCache()
 
         WalletManager.shared.keystore = keystore
@@ -165,13 +165,13 @@ class WalletManager {
             generator.impactOccurred()
 
             CallRNModule.sendNetworkChangedEvent(network: type)
-            
+
             UIView.animate(withDuration: 0.3) {
                 UIApplication.shared.keyWindow?.backgroundColor = type.backgroundColor
                 SPStorkTransitioningDelegate.backgroundColor = type.backgroundColor
                 SPStorkTransitioningDelegate.changeBackground()
             }
-            
+
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
         } catch {

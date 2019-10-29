@@ -6,25 +6,24 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import SPLarkController
+import SPStorkController
 import UIKit
 import VBFPopFlatButton
-import SPStorkController
-import SPLarkController
 
 class AssetBalanceCell: UICollectionViewCell {
-
     @IBOutlet var currencyButton: BaseControl!
     @IBOutlet var hideButton: BaseControl!
     @IBOutlet var animationButton: VBFPopFlatButton!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        let type = self.animationButton.currentButtonType == FlatButtonType.buttonRewindType ? FlatButtonType.buttonFastForwardType : FlatButtonType.buttonRewindType
-        self.animationButton.animate(to: type)
+
+        let type = animationButton.currentButtonType == FlatButtonType.buttonRewindType ? FlatButtonType.buttonFastForwardType : FlatButtonType.buttonRewindType
+        animationButton.animate(to: type)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         hideButton.roundCorners(corners: [.topLeft], radius: 20)
@@ -36,7 +35,7 @@ class AssetBalanceCell: UICollectionViewCell {
         animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
-    
+
     @IBAction func currencyButtonClick() {
         let vc = CurrencyViewController()
         vc.isFromPopup = true
@@ -47,5 +46,4 @@ class AssetBalanceCell: UICollectionViewCell {
         navi.modalPresentationStyle = .custom
         topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
-
 }

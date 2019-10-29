@@ -9,24 +9,22 @@
 import UIKit
 
 class CoinListViewController: BaseViewController {
-
     @IBOutlet var tableView: UITableView!
     var isFromPopup: Bool = false
-    
+
     var data: [BlockChain] = BlockChain.allCases
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerCell(nibName: CoinListCell.nameOfClass)
     }
-    
+
     @IBAction func closeButtonClicked() {
-        
         if !isFromPopup {
             backButtonClicked()
             return
         }
-        
+
         guard let navi = self.navigationController else {
             dismiss(animated: true, completion: nil)
             return
@@ -34,7 +32,6 @@ class CoinListViewController: BaseViewController {
         navi.dismiss(animated: true, completion: nil)
     }
 }
-
 
 extension CoinListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {

@@ -10,12 +10,8 @@ import Moya
 
 // Doc Address: https://docs.binance.org/api-reference/dex-api/paths.html
 
-//let BNBAPI = MoyaProvider<BNBAPI>(plugins:
-//    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
-
 enum BNBAPI {
     case account(address: String)
-//    case getAddressInfo(address: String)
 }
 
 extension BNBAPI: TargetType {
@@ -27,16 +23,16 @@ extension BNBAPI: TargetType {
     }
 
     var baseURL: URL {
-        #if DEBUG
-        return URL(string: "https://testnet-dex.binance.org/api/v1/")!
-        #else
+//        #if DEBUG
+//        return URL(string: "https://testnet-dex.binance.org/api/v1/")!
+//        #else
         return URL(string: "https://dex.binance.org/api/v1/")!
-        #endif
+//        #endif
     }
 
     var path: String {
         switch self {
-        case .account(let address):
+        case let .account(address):
             return "account/\(address)"
         }
     }

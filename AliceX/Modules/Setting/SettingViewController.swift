@@ -7,21 +7,21 @@
 //
 
 import PromiseKit
-import UIKit
-import SwiftyUserDefaults
 import SPStorkController
+import SwiftyUserDefaults
+import UIKit
 
 class SettingViewController: BaseViewController {
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
 //    @IBOutlet var versionLabel: UILabel!
-    
+
     @IBOutlet var backupView: UIView!
 
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
     @IBOutlet var darkSwitch: UISwitch!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateNetwork),
@@ -30,10 +30,10 @@ class SettingViewController: BaseViewController {
                                                name: .currencyChange, object: nil)
         updateNetwork()
         updateCurrency()
-        
+
 //        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
-        
+
         if #available(iOS 12.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
@@ -62,12 +62,12 @@ class SettingViewController: BaseViewController {
         let vc = CurrencyViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @IBAction func walletConnectBtnClicked() {
         let vc = WCControlPanel()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @IBAction func aboutBtnClicked() {
         let vc = AboutViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -86,8 +86,8 @@ class SettingViewController: BaseViewController {
     @IBAction func mnemonicsClicked() {
         #if DEBUG
 //            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
-        let vc = MnemonicsViewController()
-        navigationController?.pushViewController(vc, animated: true)
+            let vc = MnemonicsViewController()
+            navigationController?.pushViewController(vc, animated: true)
         #else
             biometricsVerify()
         #endif
@@ -109,13 +109,30 @@ class SettingViewController: BaseViewController {
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
     }
-    
-    @IBAction func darkThemeDidChange(switch: UISwitch) {
+
+    @IBAction func darkThemeDidChange(switch _: UISwitch) {
         if #available(iOS 13.0, *) {
-            
             changeThemeAnimation()
-            darkLabel.text =  darkSwitch.isOn ? "🌝" : "🌚"
+            darkLabel.text = darkSwitch.isOn ? "🌝" : "🌚"
+
             SPStorkTransitioningDelegate.changeBackground()
         }
+    }
+
+    // TODO: Change icon
+    func changeIcon(to iconName: String) {
+        // 1
+        guard UIApplication.shared.supportsAlternateIcons else {
+            return
+        }
+        // 2
+        UIApplication.shared.setAlternateIconName(iconName, completionHandler: { error in
+            // 3
+            if let error = error {
+                print("App icon failed to change due to \(error.localizedDescription)")
+            } else {
+                print("App icon changed successfully")
+            }
+        })
     }
 }

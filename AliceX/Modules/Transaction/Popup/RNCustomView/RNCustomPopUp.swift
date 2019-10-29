@@ -10,7 +10,6 @@ import PromiseKit
 import UIKit
 
 class RNCustomPopUp: UIViewController {
-    
     @IBOutlet var payButton: UIView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
@@ -33,7 +32,7 @@ class RNCustomPopUp: UIViewController {
     let headerHeight: CGFloat = 10 + 60 + 20
 
     var payView: PayButtonView?
-    
+
     class func make(toAddress: String, amount: BigUInt, height: CGFloat, data: Data,
                     successBlock: @escaping StringBlock) -> RNCustomPopUp {
         let vc = RNCustomPopUp()
@@ -53,12 +52,12 @@ class RNCustomPopUp: UIViewController {
 
         addressLabel.text = toAddress
         amountLabel.text = "Amount: " + "\(amount!)"
-        
+
         payView = PayButtonView.instanceFromNib()
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
-        
+
 //        let rnView = RNModule.makeView(module: .embeddedView)
 //        rnView!.frame = RNContainer.bounds
 //        RNContainer.addSubview(rnView!)
@@ -74,7 +73,6 @@ class RNCustomPopUp: UIViewController {
 }
 
 extension RNCustomPopUp: PayButtonDelegate {
-    
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -82,7 +80,7 @@ extension RNCustomPopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -94,11 +92,11 @@ extension RNCustomPopUp: PayButtonDelegate {
     func send() {
         firstly {
             TransactionManager.shared.sendEtherSync(to: toAddress!, amount: amount!, data: data!, password: "")
-        }.done { (hash) in
+        }.done { hash in
             print(hash)
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
-        }.catch { (error) in
+        }.catch { error in
             self.payView!.failed()
             HUDManager.shared.showError(error: error)
         }

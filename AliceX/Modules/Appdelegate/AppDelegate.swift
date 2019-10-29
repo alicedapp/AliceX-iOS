@@ -9,9 +9,9 @@
 import CodePush
 import IQKeyboardManagerSwift
 import React
+import SPStorkController
 import UIKit
 import web3swift
-import SPStorkController
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -40,10 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } else {
 //            window?.backgroundColor = WalletManager.currentNetwork.color
 //        }
-        
+
         window?.backgroundColor = WalletManager.currentNetwork.backgroundColor
         SPStorkTransitioningDelegate.backgroundColor = WalletManager.currentNetwork.backgroundColor
-        
+
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
@@ -60,10 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi = rootVC
 
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
-        
+
         return true
     }
-    
+
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG
             return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
@@ -93,14 +93,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return handleAliceURL(url: url)
     }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
+
+    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let url = userActivity.webpageURL else {
             return false
         }
-        
+
         return handleAliceURL(url: url)
     }
-
 }

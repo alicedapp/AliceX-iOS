@@ -11,7 +11,7 @@ import Foundation
 enum MainTab: Int, CaseIterable {
     case asset
     case mini
-    
+
 //    case transaction
 //    case profile
 

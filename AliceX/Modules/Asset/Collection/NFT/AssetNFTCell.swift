@@ -6,35 +6,33 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
 import SVGKit
+import UIKit
 
 class AssetNFTCell: UICollectionViewCell {
-
     @IBOutlet var contractImageView: UIImageView!
     @IBOutlet var contractName: UILabel!
     @IBOutlet var NFTImageView: UIImageView!
 //    @IBOutlet var NFTSVGView: SVGKFastImageView!
 //    @IBOutlet var backgroundImageView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func configure(model: OpenSeaModel) {
-        
         if let image = model.image_url, let imageURL = URL(string: image) {
             if image.hasSuffix(".svg") {
 //                NFTSVGView.isHidden = false
 //                NFTImageView.isHidden = true
-                
+
 //                let svg = UIView(SVGURL: imageURL, parser: nil) { svgLayer in
 //                    svgLayer.resizeToFit(self.NFTImageView.bounds)
 //                }
 //                NFTSVGView.image = SVGKImage(contentsOf: imageURL)
-                
+
                 NFTImageView.kf.setImage(with: URL(string: model.image_preview_url!)!)
             } else {
 //                NFTSVGView.isHidden = true
@@ -43,15 +41,15 @@ class AssetNFTCell: UICollectionViewCell {
         } else {
             NFTImageView.image = nil
         }
-        
+
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
-        } 
-        
+        }
+
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL)
         }
-        
+
         contractName.text = model.asset_contract.name
     }
 }

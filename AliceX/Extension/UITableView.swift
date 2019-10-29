@@ -9,7 +9,6 @@
 import UIKit
 
 extension UITableView {
-    
     func registerCell(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
         register(nib, forCellReuseIdentifier: nibName)
@@ -32,4 +31,3 @@ extension UICollectionView {
         register(nib, forSupplementaryViewOfKind: nibName, withReuseIdentifier: nibName)
     }
 }
-

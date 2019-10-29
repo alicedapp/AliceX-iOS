@@ -18,9 +18,9 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
-    
+
     func filled(with color: UIColor) -> UIImage {
-        let rect = CGRect(origin: .zero, size: self.size)
+        let rect = CGRect(origin: .zero, size: size)
         guard let mask = self.cgImage else { return self }
 
         if #available(iOS 10.0, *) {
@@ -37,7 +37,7 @@ extension UIImage {
         } else {
             UIGraphicsBeginImageContextWithOptions(rect.size,
                                                    false,
-                                                   self.scale)
+                                                   scale)
             defer { UIGraphicsEndImageContext() }
 
             guard let context = UIGraphicsGetCurrentContext() else { return self }
@@ -48,20 +48,17 @@ extension UIImage {
             return UIGraphicsGetImageFromCurrentImageContext() ?? self
         }
     }
-    
+
     func toString() -> String? {
-        let data: Data? = self.pngData()
+        let data: Data? = pngData()
         return data?.base64EncodedString(options: .endLineWithLineFeed)
     }
 }
 
-
 extension CGContext {
-
     func fill(_ rect: CGRect,
               with mask: CGImage,
               using color: CGColor) {
-
         saveGState()
         defer { restoreGState() }
 

@@ -10,28 +10,27 @@ import Foundation
 import web3swift
 
 extension String {
-    
     func isEthTxHash() -> Bool {
-        if !self.hasPrefix("0x") {
+        if !hasPrefix("0x") {
             return false
         }
-        
-        if self.count != 66 {
+
+        if count != 66 {
             return false
         }
         return true
     }
-    
+
     func isEmptyAfterTrim() -> Bool {
-        let string = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        let string = trimmingCharacters(in: .whitespacesAndNewlines)
         return string.count == 0
     }
-    
+
     func trimed() -> String {
-        let string = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        let string = trimmingCharacters(in: .whitespacesAndNewlines)
         return string
     }
-    
+
     func toJSON() -> Any? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
@@ -154,18 +153,17 @@ extension String {
         }
         return self
     }
-    
+
     static func removeTrailingZero(string: String) -> String {
-        
         guard let double = Double(string) else {
             return string
         }
-        
+
         return double.removeZerosFromEnd()
     }
-    
+
     func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) {
             return UIImage(data: data)
         }
         return nil

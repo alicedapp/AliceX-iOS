@@ -38,7 +38,7 @@ class SendERC20PopUp: UIViewController {
     var successBlock: StringBlock!
 
     var tokenInfo: TokenInfo?
-    
+
     var payView: PayButtonView?
 
     class func make(tokenAdress: String,
@@ -140,11 +140,9 @@ class SendERC20PopUp: UIViewController {
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
         gasPriceLabel.text = gasPrice.toCurrencyFullString(gasLimit: gasLimit!)
     }
-
 }
 
 extension SendERC20PopUp: PayButtonDelegate {
-    
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -152,7 +150,7 @@ extension SendERC20PopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -162,14 +160,13 @@ extension SendERC20PopUp: PayButtonDelegate {
     }
 
     func send() {
-        
         guard let value = Web3Utils.parseToBigUInt(amount.readableValue, units: .eth) else {
             HUDManager.shared.showError(text: "Value is invalid")
             return
         }
-        
-        self.payView!.showLoading()
-        
+
+        payView!.showLoading()
+
         firstly {
             TransactionManager.shared.sendERC20Token(tokenAddrss: tokenAdress,
                                                      to: toAddress,
@@ -177,14 +174,13 @@ extension SendERC20PopUp: PayButtonDelegate {
                                                      data: data,
                                                      password: "",
                                                      gasPrice: gasPrice)
-        }.done { (hash) in
+        }.done { hash in
             print(hash)
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
-        }.catch { (error) in
+        }.catch { error in
             self.payView!.failed()
             HUDManager.shared.showError(error: error)
         }
     }
 }
-

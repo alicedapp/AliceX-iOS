@@ -48,11 +48,10 @@ extension CoinMarketCap: TargetType {
 
     var task: Task {
         switch self {
-            
         case let .latest(currency):
             let dict = ["start": 2, "limit": 1, "convert": currency.rawValue] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
-            
+
         case let .quote(currency):
             let array = BlockChain.allCases.compactMap { String($0.coinMaeketCapID) }
             let ids = array.joined(separator: ",")

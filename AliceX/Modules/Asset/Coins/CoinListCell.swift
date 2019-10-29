@@ -6,18 +6,17 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 import VBFPopFlatButton
-import Kingfisher
 
 class CoinListCell: UITableViewCell {
-
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var addButton: VBFPopFlatButton!
     @IBOutlet var coinShadow: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         addButton.currentButtonStyle = .buttonRoundedStyle
@@ -25,7 +24,7 @@ class CoinListCell: UITableViewCell {
         addButton.tintColor = .white
         addButton.lineRadius = 5
         addButton.lineThickness = 2
-        
+
         let shadowLayer = CAShapeLayer()
         shadowLayer.path = UIBezierPath(roundedRect: coinShadow.bounds, cornerRadius: 25).cgPath
         shadowLayer.fillColor = UIColor.white.cgColor
@@ -41,20 +40,17 @@ class CoinListCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
+
     func configure(chain: BlockChain) {
-        
         nameLabel.text = chain.rawValue
         iconView.kf.setImage(with: Coin.blockchain(chain).image, placeholder: Constant.placeholder)
-        
+
         guard let info = chain.data else {
             return
         }
-
     }
-    
 }

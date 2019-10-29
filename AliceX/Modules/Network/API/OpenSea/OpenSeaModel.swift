@@ -33,11 +33,11 @@ struct OpenSeaModel: HandyJSON {
     var image_original_url: String!
     var animation_url: String!
     var animation_original_url: String!
-    
+
     var name: String!
     var description: String!
     var external_link: String!
-    
+
     var asset_contract: OpenSeaContract!
     var owner: OpenSeaOwner!
 }

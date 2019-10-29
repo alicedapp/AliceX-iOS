@@ -7,14 +7,13 @@
 //
 
 import BigInt
+import PromiseKit
 import SPStorkController
 import UIKit
 import web3swift
-import PromiseKit
 
 // TODO: Change all function to Promise
 class TransactionManager {
-    
     static let shared = TransactionManager()
 
     // MARK: - Smart Contract Popup
@@ -69,7 +68,6 @@ class TransactionManager {
     }
 
     public func etherBalance() -> Promise<String> {
-        
         return Promise<String> { seal in
             guard let address = WalletManager.wallet?.address else {
                 seal.reject(WalletError.accountDoesNotExist)
@@ -79,16 +77,16 @@ class TransactionManager {
                 seal.reject(WalletError.invalidAddress)
                 return
             }
-            
+
             firstly {
                 WalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
-            }.done { (balanceInWeiUnitResult) in
+            }.done { balanceInWeiUnitResult in
                 guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
                                                                                    toUnits: .eth,
                                                                                    decimals: 6, decimalSeparator: ".")
-                    else {
-                        seal.reject(WalletError.conversionFailure)
-                        return
+                else {
+                    seal.reject(WalletError.conversionFailure)
+                    return
                 }
                 seal.fulfill(balanceInEtherUnitStr)
             }
@@ -118,7 +116,6 @@ class TransactionManager {
         modal.modalPresentationStyle = .overCurrentContext
         topVC?.presentAsStork(modal, height: height)
     }
-
 
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
@@ -169,7 +166,6 @@ class TransactionManager {
                                data _: Data,
                                password _: String,
                                gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
-        
         return Promise<String> { seal in
             guard let toAddress = EthereumAddress(address),
                 let token = EthereumAddress(tokenAddrss) else {
@@ -178,7 +174,7 @@ class TransactionManager {
 
             let parameters = [toAddress, amount] as [AnyObject]
 
-            firstly{
+            firstly {
                 TransactionManager.writeSmartContract(contractAddress: token.address,
                                                       functionName: "transfer",
                                                       abi: Web3.Utils.erc20ABI,
@@ -205,9 +201,8 @@ class TransactionManager {
                                          gasPrice: GasPrice = GasPrice.average,
                                          gasLimit: TransactionOptions.GasLimitPolicy = .automatic,
                                          notERC20: Bool = true) -> Promise<String> {
-        
         return Promise<String> { seal in
-        
+
             guard let address = WalletManager.wallet?.address else {
                 seal.reject(WalletError.invalidAddress)
                 return
@@ -237,7 +232,7 @@ class TransactionManager {
                 seal.reject(WalletError.contractFailure)
                 return
             }
-            
+
             let gasPrice = gasPrice.wei
             var options = TransactionOptions.defaultOptions
             options.value = notERC20 ? value : nil
@@ -254,25 +249,25 @@ class TransactionManager {
                 seal.reject(WalletError.contractFailure)
                 return
             }
-            
+
             firstly {
                 TransactionManager.shared.checkBalance(amountInDouble: amountInDouble, notERC20: notERC20)
-            }.then { sucess in
+            }.then { _ in
                 tx.sendPromise()
             }.done { result in
                 seal.fulfill(result.hash)
                 let url = PinItem.txURL(network: WalletManager.currentNetwork,
                                         txHash: result.hash).absoluteString
                 let browser = BrowserWrapperViewController.make(urlString: url)
-                
+
                 let pinItem = PinItem.transaction(network: WalletManager.currentNetwork,
                                                   txHash: result.hash,
                                                   title: "Pending Transaction",
                                                   viewcontroller: browser)
                 PendingTransactionHelper.shared.add(item: pinItem)
-                
+
             }.catch { error in
-                
+
 //                if let error = error as? WalletError {
 //                    HUDManager.shared.showError(text: error.errorMessage)
 //                } else if let error = error as? Web3Error {
@@ -280,22 +275,22 @@ class TransactionManager {
 //                } else {
 //                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
 //                }
-                
+
                 seal.reject(error)
             }
         }
     }
-    
+
     func checkBalance(amountInDouble: Double, notERC20: Bool) -> Promise<Bool> {
         return Promise { seal in
             // TODO: Add ERC20 Blanace Check
             if !notERC20 {
                 seal.fulfill(true)
             }
-            
-            firstly{
+
+            firstly {
                 etherBalance()
-            }.done { (etherBalance) in
+            }.done { etherBalance in
                 guard let etherBalanceInDouble = Double(etherBalance) else {
                     seal.reject(WalletError.conversionFailure)
                     return
@@ -448,7 +443,7 @@ class TransactionManager {
                                   keystore: keystore,
                                   account: walletAddress,
                                   password: Setting.password)
-            
+
 //            print(tx.description)
             if detailObject {
                 return tx.toJsonString()
