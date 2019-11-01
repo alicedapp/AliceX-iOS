@@ -10,8 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTabViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="9Du-rb-98K" id="1CV-DM-IlI"/>
-                <outlet property="scrollView" destination="QTN-8u-2tp" id="5YB-54-jsu"/>
                 <outlet property="view" destination="sD4-Wc-qWU" id="aVO-hW-Abv"/>
             </connections>
         </placeholder>
@@ -19,28 +17,6 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sD4-Wc-qWU">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="QTN-8u-2tp">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Du-rb-98K">
-                            <rect key="frame" x="0.0" y="0.0" width="828" height="896"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="9Du-rb-98K" firstAttribute="width" secondItem="QTN-8u-2tp" secondAttribute="width" multiplier="2" id="68c-zb-qvs"/>
-                        <constraint firstItem="9Du-rb-98K" firstAttribute="top" secondItem="QTN-8u-2tp" secondAttribute="top" id="J8R-UW-v33"/>
-                        <constraint firstAttribute="trailing" secondItem="9Du-rb-98K" secondAttribute="trailing" id="QU3-Zi-5Jr"/>
-                        <constraint firstItem="9Du-rb-98K" firstAttribute="leading" secondItem="QTN-8u-2tp" secondAttribute="leading" id="U6e-UE-pJ2"/>
-                        <constraint firstAttribute="bottom" secondItem="9Du-rb-98K" secondAttribute="bottom" id="kGj-tW-h42"/>
-                        <constraint firstItem="9Du-rb-98K" firstAttribute="centerY" secondItem="QTN-8u-2tp" secondAttribute="centerY" id="mYq-py-gpe"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="zrw-dq-jUF"/>
-                </scrollView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="IsL-iD-Nks"/>
             <point key="canvasLocation" x="-441" y="120"/>

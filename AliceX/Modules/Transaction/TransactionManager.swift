@@ -306,43 +306,52 @@ class TransactionManager {
         }
     }
 
-    public class func readSmartContract(contractAddress: String, functionName: String,
-                                        abi: String, parameters: [Any], value: String = "0.0") throws -> String {
-        guard let address = WalletManager.wallet?.address else {
-            throw WalletError.invalidAddress
+    public class func readSmartContract(contractAddress: String,
+                                        functionName: String,
+                                        abi: String, parameters: [Any],
+                                        value: String = "0.0") -> Promise<[String : Any]> {
+        
+        return Promise<[String : Any]> { seal in
+            
+            guard let address = WalletManager.wallet?.address else {
+                throw WalletError.invalidAddress
+            }
+
+            guard let walletAddress = EthereumAddress(address) else {
+                throw WalletError.invalidAddress
+            }
+
+            guard let contractAddress = EthereumAddress(contractAddress) else {
+                throw WalletError.invalidAddress
+            }
+
+            let abiVersion = 2
+            let extraData: Data = Data()
+            let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
+            let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+
+            var options = TransactionOptions.defaultOptions
+            options.value = value == "0.0" ? nil : amount
+            options.from = walletAddress
+            options.gasPrice = .automatic
+            options.gasLimit = .automatic
+            guard let tx = contract!.read(
+                functionName,
+                parameters: parameters as [AnyObject],
+                extraData: extraData,
+                transactionOptions: options
+                ) else {
+                    throw WalletError.contractFailure
+            }
+
+            firstly{
+                tx.callPromise()
+            }.done { result in
+                seal.fulfill(result)
+            }.catch { error in
+                seal.reject(error)
+            }
         }
-
-        guard let walletAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-
-        guard let contractAddress = EthereumAddress(contractAddress) else {
-            throw WalletError.invalidAddress
-        }
-
-        let abiVersion = 2
-        let extraData: Data = Data()
-        let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
-        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
-
-        var options = TransactionOptions.defaultOptions
-        options.value = amount
-        options.from = walletAddress
-        options.gasPrice = .automatic
-        options.gasLimit = .automatic
-        let tx = contract!.read(
-            functionName,
-            parameters: parameters as [AnyObject],
-            extraData: extraData,
-            transactionOptions: options
-        )
-
-        guard let sendResult = try? tx?.call() else {
-            throw WalletError.networkFailure
-        }
-        print(sendResult.keys)
-
-        return ""
     }
 
     // MARK: - Sign Message

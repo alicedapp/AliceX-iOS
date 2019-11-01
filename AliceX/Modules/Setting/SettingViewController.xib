@@ -41,7 +41,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
-                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
+                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
@@ -160,7 +160,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="INB-FW-Zcw">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljr-OP-ZLF">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -176,7 +176,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-sl-izU">
-                                                    <rect key="frame" x="342" y="20.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="330" y="20.5" width="35" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -236,10 +236,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="C9K-4C-5Zc">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-0h-w9g">
-                                                    <rect key="frame" x="344" y="20.5" width="33" height="19.5"/>
+                                                    <rect key="frame" x="332" y="20.5" width="33" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-K7-lmH">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-6c-q6o">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -302,7 +302,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-Q7-e7z">
-                                                    <rect key="frame" x="306.5" y="15.5" width="70.5" height="29.5"/>
+                                                    <rect key="frame" x="294.5" y="15.5" width="70.5" height="29.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH8-or-gFC">
                                                             <rect key="frame" x="8" y="5" width="54.5" height="19.5"/>
@@ -366,7 +366,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-Ys-IIX">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT8-Ky-dEC">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -477,7 +477,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="RXy-qG-Kph">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-Ea-vyL">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -515,7 +515,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
                                             <constraints>
                                                 <constraint firstItem="kYV-1t-9ae" firstAttribute="centerY" secondItem="nRB-GK-aez" secondAttribute="centerY" id="k52-cc-wxD"/>
                                                 <constraint firstItem="kYV-1t-9ae" firstAttribute="leading" secondItem="nRB-GK-aez" secondAttribute="leading" constant="20" id="pUW-MO-jHJ"/>
@@ -543,7 +543,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-O3-yDQ">
-                                                    <rect key="frame" x="387" y="21" width="12" height="18"/>
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Qc-xL4">
                                                     <rect key="frame" x="0.0" y="59" width="414" height="1"/>
@@ -635,7 +635,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" id="Lyb-K6-NxZ"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="leading" secondItem="jqz-ei-679" secondAttribute="leading" id="Uyh-Eb-mKs"/>
@@ -644,7 +644,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                    <color key="backgroundColor" name="Alice-LightBackground"/>
                     <constraints>
                         <constraint firstItem="jqz-ei-679" firstAttribute="top" secondItem="ckU-Ov-Q5N" secondAttribute="top" id="AJu-P1-NkB"/>
                         <constraint firstItem="jqz-ei-679" firstAttribute="centerX" secondItem="ckU-Ov-Q5N" secondAttribute="centerX" id="PVH-hc-I9X"/>
@@ -682,8 +682,11 @@
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

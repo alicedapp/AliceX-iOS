@@ -63,6 +63,7 @@ class PriceHelper {
         }
 
         getExchangePrice(currency: .USD, callback: nil)
+        getBlockchainCoinPrice(currency: .USD, callback: nil)
     }
 
     // TODO: MORE THAN SUPPORT ETH

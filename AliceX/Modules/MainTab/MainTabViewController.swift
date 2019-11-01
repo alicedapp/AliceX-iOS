@@ -7,45 +7,38 @@
 //
 
 import UIKit
+import Pageboy
 
-class MainTabViewController: BaseViewController {
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var contentView: UIView!
+class MainTabViewController: PageboyViewController {
 
+    @IBOutlet var container: UIView!
+    var tabs = MainTab.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        scrollView.delegate = self
-        scrollView.bounces = false
-        scrollView.contentSize = CGSize(width: Constant.SCREEN_WIDTH * CGFloat(MainTab.allCases.count),
-                                        height: Constant.SCREEN_HEIGHT)
-        contentView.frame = CGRect(x: 0, y: 0,
-                                   width: Constant.SCREEN_WIDTH * CGFloat(MainTab.allCases.count),
-                                   height: Constant.SCREEN_HEIGHT)
-
-        if #available(iOS 11.0, *) {
-            scrollView.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = true
-        }
-
-        for tab in MainTab.allCases {
-            let index = tab.rawValue
-            let vc = tab.vc
-            vc.willMove(toParent: self)
-            vc.view.frame = CGRect(x: Constant.SCREEN_WIDTH * CGFloat(index),
-                                   y: 0,
-                                   width: Constant.SCREEN_WIDTH,
-                                   height: Constant.SCREEN_HEIGHT)
-            contentView.addSubview(vc.view)
-            addChild(vc)
-            vc.didMove(toParent: self)
-        }
+        dataSource = self
+        bounces = false
     }
 }
 
-extension MainTabViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_: UIScrollView) {
-        /// Disbale vertical scroll
+extension MainTabViewController: PageboyViewControllerDataSource {
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return tabs.count
+    }
+
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+        let tab = tabs[index]
+        return tab.vc
+    }
+
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
     }
 }
+
+//extension MainTabViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_: UIScrollView) {
+//    }
+//}

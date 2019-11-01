@@ -27,10 +27,18 @@ target 'AliceX' do
   pod 'SwiftyUserDefaults', '5.0.0-beta.4'
   pod 'TrustWalletCore'
   
-  pod 'JXSegmentedView'
+  
   pod 'VBFPopFlatButton'
   pod "ViewAnimator"
   pod 'SVGKit'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+#  pod 'lottie-ios'
+  pod "ESPullToRefresh"
+  pod 'JXSegmentedView'
+  
+  pod 'Pageboy', '~> 3.5.0'
+  pod 'Tabman', '~> 2.6'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

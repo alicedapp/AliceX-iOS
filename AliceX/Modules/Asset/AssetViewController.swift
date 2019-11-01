@@ -10,7 +10,7 @@ import Haneke
 import PromiseKit
 import SPStorkController
 import UIKit
-
+import ESPullToRefresh
 import ViewAnimator
 
 class AssetViewController: BaseViewController {
@@ -41,11 +41,30 @@ class AssetViewController: BaseViewController {
         }
 
         loadFromCache()
-
-        requestERC20()
-        requestNFT()
+        requestData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(priceUpdate), name: .priceUpdate, object: nil)
+//
+//        collectionView.es.addPullToRefresh {
+//            self.requestData()
+//        }
+        
+        let animator = AssetImgeAnimator.init(frame: CGRect.zero)
+        collectionView.es.addPullToRefresh(animator: animator, handler: {
+            self.requestData()
+        })
+    }
+    
+    func requestData() {
+        firstly {
+            when(fulfilled: requestNFT(), requestERC20())
+        }.done { (_, _) in
+//            self.collectionView.es.stopPullToRefresh()
+        }.ensure {
+            self.collectionView.es.stopPullToRefresh()
+        }.catch { error in
+//            self.collectionView.es.stopPullToRefresh()
+        }
     }
 
     func loadFromCache() {
@@ -74,44 +93,71 @@ class AssetViewController: BaseViewController {
         navi.modalPresentationStyle = .custom
         presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
+    
+    @IBAction func addressButtonClick() {
+        let vc = AddressQRCodeViewController()
+        vc.selectBlockCahin = .Binance
+//        present(vc, animated: true, completion: nil)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+    }
 
-    func requestERC20() {
-        firstly { () -> Promise<AddressInfo> in
-            API(Ethplorer.getAddressInfo(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
-        }.done { model in
-            var hasNew = true
-            if self.erc20Data != nil {
-                hasNew = model.tokens.count > self.erc20Data.tokens.count
+    func requestERC20() -> Promise<Bool> {
+        
+        return Promise<Bool> { seal in
+            firstly { () -> Promise<AddressInfo> in
+                API(Ethplorer.getAddressInfo(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+            }.done { model in
+                
+                if model.error != nil {
+                    throw WalletError.custom("Ethplorer error")
+                }
+                
+                var hasNew = true
+                if self.erc20Data != nil {
+                    hasNew = model.tokens.count > self.erc20Data.tokens.count
+                }
+                self.erc20Data = model
+                Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetERC20Key)
+                if hasNew {
+                    self.erc20SectionAimation()
+                } else {
+                    self.collectionView.reloadSections(IndexSet(integer: Asset.coin.rawValue))
+                }
+                
+                seal.fulfill(true)
+                
+            }.catch { error in
+                print("Fetch ECR20 failed")
+                seal.reject(error)
             }
-            self.erc20Data = model
-            Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetERC20Key)
-            if hasNew {
-                self.erc20SectionAimation()
-            } else {
-                self.collectionView.reloadSections(IndexSet(integer: Asset.coin.rawValue))
-            }
-        }.catch { _ in
-            print("Fetch ECR20 failed")
         }
     }
 
-    func requestNFT() {
-        firstly { () -> Promise<OpenSeaReponse> in
-            API(OpenSea.assets(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
-        }.done { model in
-            var hasNew = true
-            if self.erc20Data != nil {
-                hasNew = model.assets!.count > self.NFTData.count
+    func requestNFT() -> Promise<Bool> {
+        
+        return Promise<Bool> { seal in
+        
+            firstly { () -> Promise<OpenSeaReponse> in
+                API(OpenSea.assets(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+            }.done { model in
+                
+                var hasNew = true
+                if self.NFTData != nil {
+                    hasNew = model.assets!.count > self.NFTData.count
+                }
+                self.NFTData = model.assets
+                Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetNFTKey)
+                if hasNew {
+                    self.NFTSectionAimation()
+                } else {
+                    self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
+                }
+                
+                seal.fulfill(true)
+            }.catch { error in
+                print("Fetch NFT failed")
+                seal.reject(error)
             }
-            self.NFTData = model.assets
-            Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetNFTKey)
-            if hasNew {
-                self.NFTSectionAimation()
-            } else {
-                self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
-            }
-        }.catch { _ in
-            print("Fetch NFT failed")
         }
     }
 

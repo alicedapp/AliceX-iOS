@@ -44,10 +44,14 @@ class AssetNFTCell: UICollectionViewCell {
 
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
+        } else {
+            NFTImageView.backgroundColor = AliceColor.grey
         }
 
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL)
+        } else {
+            contractImageView.image = nil
         }
 
         contractName.text = model.asset_contract.name

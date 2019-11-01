@@ -73,9 +73,23 @@ class AssetCoinCell: UICollectionViewCell {
         guard let info = item.data else {
             return
         }
-
-        priceLabel.text = "$ \(info.quote!.USD!.price!.toString(decimal: 3))"
-        if Double(info.quote!.USD!.percent_change_24h!) > 0.0 {
+        
+        let currency = PriceHelper.shared.currentCurrency
+        guard let quote = info.quote?.toJSON() else {
+                return
+        }
+        
+        if !quote.keys.contains(currency.rawValue) {
+            return
+        }
+        
+        let price = quote[currency.rawValue] as! [String: Any]
+        guard let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price) else {
+            return
+        }
+        
+        priceLabel.text = "\(currency.symbol) \(currencyModel.price!.toString(decimal: 3))"
+        if Double(currencyModel.percent_change_24h!) > 0.0 {
             animationButton.currentButtonType = .buttonUpBasicType
         } else {
             animationButton.currentButtonType = .buttonDownBasicType

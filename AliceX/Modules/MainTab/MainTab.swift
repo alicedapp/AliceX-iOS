@@ -12,14 +12,12 @@ enum MainTab: Int, CaseIterable {
     case asset
     case mini
 
-//    case transaction
-//    case profile
-
     var vc: UIViewController {
         switch self {
         case .mini:
-//            return UIViewController()
             return RNModule.makeViewController(module: .alice)
+//                SettingViewController()
+                
         case .asset:
             return AssetViewController()
 //        case .profile:

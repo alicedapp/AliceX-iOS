@@ -75,7 +75,14 @@ struct AddressInfo: HandyJSON {
     var tokens: [TokenArrayItem]!
     var tokenInfo: TokenInfo?
 
+    var error: ETHExploerError?
+    
     init() {}
+}
+
+struct ETHExploerError: HandyJSON {
+    var message: String!
+    var code: Int!
 }
 
 // MARK: - Tx

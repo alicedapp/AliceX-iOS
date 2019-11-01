@@ -49,7 +49,7 @@ class MyQRCodeViewController: BaseViewController {
         shareConver.isHidden = false
         let image = container.snapshot()
         HUDManager.shared.dismiss()
-        SwiftHelper.share(text: WalletManager.wallet!.address, image: image, urlString: "")
+        ShareHelper.share(text: WalletManager.wallet!.address, image: image, urlString: "")
         shareConver.isHidden = true
     }
 }

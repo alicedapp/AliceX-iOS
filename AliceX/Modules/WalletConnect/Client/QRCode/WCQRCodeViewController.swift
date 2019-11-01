@@ -42,7 +42,7 @@ class WCQRCodeViewController: BaseViewController {
         shareConver.isHidden = false
         let image = container.snapshot()
         HUDManager.shared.dismiss()
-        SwiftHelper.share(text: "", image: image, urlString: url)
+        ShareHelper.share(text: "", image: image, urlString: url)
         shareConver.isHidden = true
     }
 }
