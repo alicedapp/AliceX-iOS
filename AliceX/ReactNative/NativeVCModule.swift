@@ -69,4 +69,19 @@ class NativeVCModule: NSObject {
             resolve(result)
         }
     }
+    
+    @objc func isDarkMode(_ resolve: @escaping RCTPromiseResolveBlock,
+                          reject _: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            if #available(iOS 12.0, *) {
+                if UIApplication.shared.keyWindow!.traitCollection.userInterfaceStyle == .dark {
+                    resolve(true)
+                } else {
+                    resolve(false)
+                }
+            } else {
+                resolve(false)
+            }
+        }
+    }
 }
