@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3i-sf-6fe">
-                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3i-sf-6fe">
+                    <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMS-Zs-j0r">
-                            <rect key="frame" x="169.5" y="18.5" width="75" height="23"/>
+                            <rect key="frame" x="169.5" y="-11.5" width="75" height="23"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                             <color key="textColor" name="Alice-DarkGrey"/>
                             <nil key="highlightedColor"/>
@@ -33,13 +33,13 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-tm-kZT" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="0.0"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="QOF-L6-WQa">
-                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
+                                    <rect key="frame" x="13" y="-17" width="34" height="34"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-White"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
                                 <constraint firstItem="QOF-L6-WQa" firstAttribute="centerY" secondItem="khZ-tm-kZT" secondAttribute="centerY" id="1tU-TZ-OdA"/>
                                 <constraint firstItem="QOF-L6-WQa" firstAttribute="centerX" secondItem="khZ-tm-kZT" secondAttribute="centerX" id="7qc-zT-4IY"/>
@@ -53,16 +53,16 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noN-0d-g99">
-                            <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
+                            <rect key="frame" x="0.0" y="-0.5" width="414" height="0.5"/>
                             <color key="backgroundColor" name="Alice-Grey"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="bCn-Nf-pw5"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-White"/>
+                    <color key="backgroundColor" name="Alice-LightBackground"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="6Q8-HV-Sts"/>
+                        <constraint firstAttribute="height" id="6Q8-HV-Sts"/>
                         <constraint firstItem="khZ-tm-kZT" firstAttribute="top" secondItem="W3i-sf-6fe" secondAttribute="top" id="JiT-B8-HcW"/>
                         <constraint firstItem="CMS-Zs-j0r" firstAttribute="centerX" secondItem="W3i-sf-6fe" secondAttribute="centerX" id="LsK-y9-yof"/>
                         <constraint firstItem="CMS-Zs-j0r" firstAttribute="centerY" secondItem="W3i-sf-6fe" secondAttribute="centerY" id="QEd-bW-cwS"/>
@@ -74,15 +74,15 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RYR-P7-zAb">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" name="Alice-White"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="htF-8z-bYE"/>
                         <outlet property="delegate" destination="-1" id="KuA-zf-XFl"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" name="Alice-White"/>
+            <color key="backgroundColor" name="Alice-LightBackground"/>
             <constraints>
                 <constraint firstItem="W3i-sf-6fe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2qV-ci-MKe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RYR-P7-zAb" secondAttribute="trailing" id="HMS-Ui-Snu"/>
@@ -103,6 +103,9 @@
         </namedColor>
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

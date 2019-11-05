@@ -19,6 +19,7 @@ class AssetViewController: BaseViewController {
     @IBOutlet var navBar: UIView!
     @IBOutlet var collectionView: UICollectionView!
 
+    var watchChains: [BlockChain] = []
     var erc20Data: AddressInfo!
     var NFTData: [OpenSeaModel]!
 
@@ -30,7 +31,7 @@ class AssetViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
@@ -53,6 +54,8 @@ class AssetViewController: BaseViewController {
         collectionView.es.addPullToRefresh(animator: animator, handler: {
             self.requestData()
         })
+        
+        watchChains = WatchingCoinHelper.shared.blockchainList()
     }
     
     func requestData() {
@@ -60,6 +63,9 @@ class AssetViewController: BaseViewController {
             when(fulfilled: requestNFT(), requestERC20())
         }.done { (_, _) in
 //            self.collectionView.es.stopPullToRefresh()
+//            self.collectionView.editing
+            self.watchChains = WatchingCoinHelper.shared.blockchainList()
+            self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
         }.ensure {
             self.collectionView.es.stopPullToRefresh()
         }.catch { error in
@@ -121,10 +127,20 @@ class AssetViewController: BaseViewController {
                 if hasNew {
                     self.erc20SectionAimation()
                 } else {
-                    self.collectionView.reloadSections(IndexSet(integer: Asset.coin.rawValue))
+                    self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
                 }
                 
                 seal.fulfill(true)
+                
+//                if WatchingCoinHelper.shared.isEmpty {
+                    model.tokens.forEach { item in
+                        let token = ERC20(item: item)
+                        let coin = Coin.ERC20(token: token)
+                        WatchingCoinHelper.shared.add(coin: coin)
+                    }
+//                } else {
+//                    //TODO
+//                }
                 
             }.catch { error in
                 print("Fetch ECR20 failed")

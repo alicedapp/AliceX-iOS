@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,10 +18,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-E7-xYs">
-                        <rect key="frame" x="20" y="15" width="50" height="50"/>
+                        <rect key="frame" x="20.5" y="15.5" width="49" height="49"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ebA-E7-xYs" secondAttribute="height" multiplier="1:1" id="XFP-ji-p68"/>
+                            <constraint firstAttribute="height" constant="49" id="bRN-XJ-MDl"/>
+                        </constraints>
                     </view>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-qA-c4a">
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-qA-c4a">
                         <rect key="frame" x="10" y="5" width="329" height="70"/>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
                         <userDefinedRuntimeAttributes>
@@ -43,7 +46,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
                         <rect key="frame" x="80" y="18" width="74" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="afX-eh-s0P"/>
@@ -66,7 +69,7 @@
                             <constraint firstAttribute="width" secondItem="aye-5X-wl3" secondAttribute="height" multiplier="1.5:1" id="pl7-1g-YYB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVV-h6-qhW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVV-h6-qhW">
                         <rect key="frame" x="329" y="28.5" width="0.0" height="0.0"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="bvc-bO-zD3"/>
@@ -84,20 +87,18 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ebA-E7-xYs" firstAttribute="bottom" secondItem="cb8-w0-lRm" secondAttribute="bottom" id="A4n-BA-fQ9"/>
                 <constraint firstItem="T4x-EG-nzG" firstAttribute="top" secondItem="cb8-w0-lRm" secondAttribute="top" constant="3" id="AWM-ec-AyO"/>
-                <constraint firstItem="ebA-E7-xYs" firstAttribute="trailing" secondItem="cb8-w0-lRm" secondAttribute="trailing" id="Cxe-KA-J3Y"/>
                 <constraint firstAttribute="trailing" secondItem="YVV-h6-qhW" secondAttribute="trailing" constant="20" id="Eg1-rV-r4J"/>
-                <constraint firstItem="ebA-E7-xYs" firstAttribute="top" secondItem="cb8-w0-lRm" secondAttribute="top" id="F4W-4S-oIL"/>
                 <constraint firstItem="Yte-V4-hGj" firstAttribute="centerY" secondItem="cCh-y6-twQ" secondAttribute="centerY" id="FOb-hz-bsW"/>
                 <constraint firstItem="YVV-h6-qhW" firstAttribute="centerY" secondItem="T4x-EG-nzG" secondAttribute="centerY" id="Ih3-H5-DgS"/>
                 <constraint firstAttribute="bottom" secondItem="gS7-qA-c4a" secondAttribute="bottom" constant="5" id="KDF-6N-05C"/>
                 <constraint firstItem="gS7-qA-c4a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="OVy-zH-66U"/>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="centerY" secondItem="cb8-w0-lRm" secondAttribute="centerY" id="UZF-ul-r0D"/>
                 <constraint firstItem="cCh-y6-twQ" firstAttribute="bottom" secondItem="cb8-w0-lRm" secondAttribute="bottom" constant="-5" id="Ybj-fc-Cx8"/>
                 <constraint firstItem="cCh-y6-twQ" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="10" id="aNq-ET-E1B"/>
-                <constraint firstItem="ebA-E7-xYs" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="leading" id="dst-kA-Pib"/>
                 <constraint firstAttribute="trailing" secondItem="gS7-qA-c4a" secondAttribute="trailing" constant="10" id="ej5-K0-3S1"/>
                 <constraint firstAttribute="trailing" secondItem="Yte-V4-hGj" secondAttribute="trailing" constant="20" id="iME-uh-xHa"/>
+                <constraint firstItem="ebA-E7-xYs" firstAttribute="centerX" secondItem="cb8-w0-lRm" secondAttribute="centerX" id="m6g-Gc-zwg"/>
                 <constraint firstItem="aye-5X-wl3" firstAttribute="centerY" secondItem="T4x-EG-nzG" secondAttribute="centerY" id="qII-RV-KZI"/>
                 <constraint firstItem="gS7-qA-c4a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="u8n-ZH-qft"/>
                 <constraint firstItem="aye-5X-wl3" firstAttribute="leading" secondItem="T4x-EG-nzG" secondAttribute="trailing" constant="5" id="um1-iR-OY9"/>
@@ -105,11 +106,11 @@
                 <constraint firstItem="cb8-w0-lRm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="yAN-WC-WFr"/>
                 <constraint firstItem="T4x-EG-nzG" firstAttribute="leading" secondItem="cb8-w0-lRm" secondAttribute="trailing" constant="10" id="zRv-M0-NZz"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="215"/>
             <connections>
                 <outlet property="amountLabel" destination="YVV-h6-qhW" id="w9J-hv-ZIw"/>
                 <outlet property="animationButton" destination="aye-5X-wl3" id="gvQ-1t-lc2"/>
+                <outlet property="background" destination="gS7-qA-c4a" id="Mcd-hh-7Rm"/>
                 <outlet property="balanceLabel" destination="Yte-V4-hGj" id="TA4-Qv-Jki"/>
                 <outlet property="coinImageView" destination="cb8-w0-lRm" id="Vdv-Gs-ZnO"/>
                 <outlet property="coinShadow" destination="ebA-E7-xYs" id="fco-ol-LvZ"/>

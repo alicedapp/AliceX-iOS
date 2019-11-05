@@ -24,7 +24,7 @@ class BaseAlertView: BaseView {
 
     class func instanceFromNib(title: String = "Alert",
                                content: String,
-                               confirmText: String = "confirm",
+                               confirmText: String = "Confirm",
                                cancelText: String = "Cancel",
                                confirmBlock: VoidBlock,
                                cancelBlock: VoidBlock) -> BaseAlertView {
@@ -47,16 +47,26 @@ class BaseAlertView: BaseView {
     }
 
     @IBAction func confirmBtnClicked() {
-        confirmBlock!!()
+//        if let block = confirmBlock!() {
+//            block!()
+//        }
+        if confirmBlock != nil {
+            confirmBlock!()
+        }
+        
 //        HUDManager.shared.dismiss()
     }
 
     @IBAction func cancelBtnClicked() {
+        
         guard let block = cancelBlock else {
             HUDManager.shared.dismiss()
             return
         }
-        cancelBlock!!()
+        
+        if block != nil  {
+            block!()
+        }
         HUDManager.shared.dismiss()
     }
 }

@@ -14,6 +14,8 @@ enum BlockChain: String, CaseIterable {
     case Bitcoin
     case Binance
     case Cosmos
+    
+//    case unknow
 }
 
 extension BlockChain {
@@ -35,7 +37,7 @@ extension BlockChain {
     }
     
     var image: String {
-        return Coin.blockchain(self).image.absoluteString
+        return Coin.coin(chain: self).image.absoluteString
     }
 
 //    var price: Double {
@@ -52,6 +54,41 @@ extension BlockChain {
             return .bitcoin
         case .Cosmos:
             return .cosmos
+        }
+    }
+    
+    var sybmol: String {
+        switch self {
+        case .Ethereum:
+            return "ETH"
+        case .Binance:
+            return "BNB"
+        case .Bitcoin:
+            return "BTC"
+        case .Cosmos:
+            return "ATOM"
+        }
+    }
+    
+    var amberDataID: String {
+        switch self {
+        case .Ethereum:
+            return "1c9c969065fcd1cf"
+        case .Bitcoin:
+            return "408fa195a34b533de9ad9889f076045e"
+        default:
+            return "1c9c969065fcd1cf"
+        }
+    }
+    
+    var decimal: Int {
+        switch self {
+        case .Bitcoin, .Binance:
+            return 8
+        case .Ethereum:
+            return 18
+        case .Cosmos:
+            return 9
         }
     }
 }

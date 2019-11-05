@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-let OpenSeaAPI = MoyaProvider<CoinMarketCap>(plugins:
+let OpenSeaAPI = MoyaProvider<OpenSea>(plugins:
     [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
 // Due to Coinmarketcap plan, just support ETH in

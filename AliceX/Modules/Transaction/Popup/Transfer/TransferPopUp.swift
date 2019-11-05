@@ -16,6 +16,8 @@ class TransferPopUp: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var symbolLabel: UILabel!
+    @IBOutlet var symbolImageView: UIImageView!
 
     @IBOutlet var containView: UIView!
     @IBOutlet var bgView: UIView!
@@ -23,10 +25,13 @@ class TransferPopUp: UIViewController {
     var address: String?
     var value: BigUInt!
 
-    class func make(address: String?, value: BigUInt! = BigUInt(0)) -> TransferPopUp {
+    var coin: Coin!
+    
+    class func make(address: String?, value: BigUInt! = BigUInt(0), coin: Coin = .coin(chain: .Ethereum)) -> TransferPopUp {
         let vc = TransferPopUp()
         vc.value = value
         vc.address = address
+        vc.coin = coin
         return vc
     }
 
@@ -34,6 +39,10 @@ class TransferPopUp: UIViewController {
         super.viewDidLoad()
         addressField.text = address
         valueField.text = value.readableValue
+        
+//        symbolLabel.text = coin.
+        symbolImageView.kf.setImage(with: coin.image)
+        
         valueFieldDidChange(valueField)
     }
 

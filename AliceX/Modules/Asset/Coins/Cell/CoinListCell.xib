@@ -49,7 +49,7 @@
                                 <color key="textColor" name="Alice-Grey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-Ox-xc5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-Ox-xc5" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                                 <rect key="frame" x="262" y="22.5" width="35" height="35"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VV6-NI-hB6" customClass="VBFPopFlatButton">
@@ -59,9 +59,12 @@
                                             <constraint firstAttribute="height" constant="20" id="67L-yA-Zzn"/>
                                             <constraint firstAttribute="width" secondItem="VV6-NI-hB6" secondAttribute="height" multiplier="1:1" id="lzX-XA-KmG"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="addButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GB3-3y-SYI"/>
+                                        </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="Alice-Grey"/>
+                                <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="VV6-NI-hB6" firstAttribute="centerX" secondItem="kNi-Ox-xc5" secondAttribute="centerX" id="AOB-VS-JW7"/>
                                     <constraint firstAttribute="width" secondItem="kNi-Ox-xc5" secondAttribute="height" multiplier="1:1" id="KC3-xB-4h3"/>
@@ -73,6 +76,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="A8I-aL-ZU5"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
@@ -108,6 +114,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addBackground" destination="kNi-Ox-xc5" id="8Ee-gn-jdw"/>
                 <outlet property="addButton" destination="VV6-NI-hB6" id="9N2-9F-uFM"/>
                 <outlet property="coinShadow" destination="KDL-wo-I54" id="OSU-dA-af1"/>
                 <outlet property="iconView" destination="EBl-yw-GJU" id="ZCp-Gv-QFl"/>

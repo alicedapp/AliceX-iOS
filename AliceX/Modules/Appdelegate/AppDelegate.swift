@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         WalletManager.loadFromCache()
         onBackgroundThread {
+            WatchingCoinHelper.shared.loadFromCache()
             PriceHelper.shared.fetchFromCache()
         }
 //        GasPriceHelper.shared.getGasPrice()

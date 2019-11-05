@@ -55,7 +55,13 @@ class SettingViewController: BaseViewController {
     }
 
     @IBAction func cacheButtonClicked() {
-        BrowserViewController.cleanCache()
+        let view = BaseAlertView.instanceFromNib(content: "Clean browser cache ?",
+                                      confirmBlock: {
+                                        BrowserViewController.cleanCache()
+        }, cancelBlock: nil)
+        
+        HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
+                                        type: .centerFloat, widthIsFull: false, canDismiss: true)
     }
 
     @IBAction func currencyBtnClicked() {

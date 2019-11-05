@@ -11,19 +11,23 @@ import UIKit
 import VBFPopFlatButton
 
 class CoinListCell: UITableViewCell {
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var addButton: VBFPopFlatButton!
+    @IBOutlet var addBackground: BaseControl!
     @IBOutlet var coinShadow: UIView!
 
+    var coin: Coin!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addButton.currentButtonStyle = .buttonRoundedStyle
         addButton.currentButtonType = .buttonAddType
         addButton.tintColor = .white
         addButton.lineRadius = 5
-        addButton.lineThickness = 2
+        addButton.lineThickness = 3
 
         let shadowLayer = CAShapeLayer()
         shadowLayer.path = UIBezierPath(roundedRect: coinShadow.bounds, cornerRadius: 25).cgPath
@@ -44,13 +48,33 @@ class CoinListCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-
-    func configure(chain: BlockChain) {
-        nameLabel.text = chain.rawValue
-        iconView.kf.setImage(with: Coin.blockchain(chain).image, placeholder: Constant.placeholder)
-
-        guard let info = chain.data else {
-            return
+    
+    @IBAction func addButtonClick() {
+        let isAdd = addButton.currentButtonType == .buttonAddType
+        addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
+//        addButton.tintColor = isAdd ? AliceColor.red : .white
+        UIView.animate(withDuration: 0.3) {
+            self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
         }
+        
+        if isAdd {
+            WatchingCoinHelper.shared.add(coin: coin)
+        } else {
+            WatchingCoinHelper.shared.remove(coin: coin)
+        }
+    }
+    
+    func configure(coin: Coin) {
+        self.coin = coin
+//        if {
+//        }
+        
+        let isAdd =  WatchingCoinHelper.shared.list.contains(coin)
+        addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
+        self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
+        
+        nameLabel.text = coin.name
+        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
+        subTitleLabel.text = coin.symbol
     }
 }

@@ -118,8 +118,3 @@ enum Currency: String, CaseIterable, HandyJSONEnum {
         }
     }
 }
-
-enum CryptoCoin {
-    case ETH
-    case BTC
-}

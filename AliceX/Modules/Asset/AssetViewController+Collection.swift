@@ -53,17 +53,8 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case Asset.coin.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
 
-            var chain = BlockChain.Ethereum
-            switch item {
-            case 1:
-                chain = .Bitcoin
-            case 2:
-                chain = .Binance
-            default:
-                chain = .Ethereum
-            }
-
-            cell.configure(item: chain)
+            var coin = watchChains[indexPath.item]
+            cell.configure(item: coin)
             return cell
         case Asset.erc20.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
@@ -108,7 +99,7 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case Asset.coin.rawValue:
-            return coinHide ? 0 : 3
+            return coinHide ? 0 : watchChains.count
         case Asset.erc20.rawValue:
             if let erc20 = erc20Data {
                 return coinHide ? 0 : erc20.tokens.count

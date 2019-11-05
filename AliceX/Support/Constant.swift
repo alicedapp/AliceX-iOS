@@ -60,6 +60,7 @@ extension Notification.Name {
     static let wallectConnectClientDisconnect = Notification.Name("wallectConnectClientDisconnect")
 
     static let priceUpdate = Notification.Name("priceUpdate")
+    static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
 }
 
 class CacheKey {
@@ -68,6 +69,11 @@ class CacheKey {
 
     static let assetNFTKey = "alice.asset.NFT"
     static let assetERC20Key = "alice.asset.erc20"
+    
+    static let watchingList = "alice.asset.watchingList"
+    static let unWatchingList = "alice.asset.un.watchingList"
+    
+    static let blockchainKey = "alice.asset.watchingList"
 }
 
 class Constant {

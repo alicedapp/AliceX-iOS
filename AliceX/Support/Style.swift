@@ -28,4 +28,5 @@ class AliceColor {
 
     static let red = UIColor(hex: "FF6565", alpha: 1)
     static let blue = UIColor(hex: "1B92FF", alpha: 1)
+    static let green = UIColor(hex: "ADF157", alpha: 1)
 }

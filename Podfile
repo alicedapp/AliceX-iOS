@@ -35,7 +35,7 @@ target 'AliceX' do
   pod 'RxCocoa', '~> 5'
 #  pod 'lottie-ios'
   pod "ESPullToRefresh"
-  pod 'JXSegmentedView'
+  pod 'JXSegmentedView', '~> 1.0.2'
   
   pod 'Pageboy', '~> 3.5.0'
   pod 'Tabman', '~> 2.6'

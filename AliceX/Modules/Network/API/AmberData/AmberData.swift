@@ -12,10 +12,13 @@ import Moya
 // Doc Address: https://docs.amberdata.io/reference#get-transaction
 
 enum AmberData {
-    case getTransactions(hash: String, network: Web3NetEnum)
+    case getTransactions(hash: String, blokchain: BlockChain)
+    case tokenPrice(address: String, currency: Currency)
+    case accountBalance(address: String, blockchain: BlockChain)
 }
 
 extension AmberData: TargetType {
+    
     var headers: [String: String]? {
         var keys: NSDictionary?
         guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist") else {
@@ -27,22 +30,29 @@ extension AmberData: TargetType {
         var dict = ["x-api-key": keys!["AmberDataAPIKey"] as! String]
 
         switch self {
-        case let .getTransactions(_, network):
-            dict["x-amberdata-blockchain-id"] = String(network.chainID)
+        case let .getTransactions(_, chain):
+            dict["x-amberdata-blockchain-id"] = chain.amberDataID
+            return dict
+        case let .accountBalance(_, chain):
+            dict["x-amberdata-blockchain-id"] = chain.amberDataID
+            return dict
+        default:
             return dict
         }
     }
 
     var baseURL: URL {
-        return URL(string: "https://web3api.io/api/v1/")!
+        return URL(string: "https://web3api.io/api/v2/")!
     }
 
     var path: String {
         switch self {
-        case .getTransactions(let hash, _):
+        case .getTransactions(let hash):
             return "transactions/\(hash)"
-        default:
-            return ""
+        case let .tokenPrice(address, _):
+            return "market/tokens/prices/\(address)/latest"
+        case let .accountBalance(address, _):
+            return "addresses/\(address)/account-balances/latest"
         }
     }
 

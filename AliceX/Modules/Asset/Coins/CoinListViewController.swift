@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import SPStorkController
 
 class CoinListViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
     var isFromPopup: Bool = false
 
-    var data: [BlockChain] = BlockChain.allCases
+    var data: [Coin] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerCell(nibName: CoinListCell.nameOfClass)
+        tableView.delegate = self
     }
 
     @IBAction func closeButtonClicked() {
@@ -30,6 +32,10 @@ class CoinListViewController: BaseViewController {
             return
         }
         navi.dismiss(animated: true, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        SPStorkController.scrollViewDidScroll(scrollView)
     }
 }
 
@@ -45,8 +51,8 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoinListCell.nameOfClass)
             as! CoinListCell
-        let chain = data[indexPath.row]
-        cell.configure(chain: chain)
+        let coin = data[indexPath.row]
+        cell.configure(coin: coin)
         return cell
     }
 }

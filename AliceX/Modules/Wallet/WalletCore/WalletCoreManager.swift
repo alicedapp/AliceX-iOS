@@ -10,6 +10,7 @@ import Foundation
 import TrustWalletCore
 
 class WalletCore {
+    
     static let shared = WalletCore()
 
     var wallet: HDWallet!
@@ -22,6 +23,8 @@ class WalletCore {
     }
     
     init() {
+//        let keystore = try! KeyStore(keyDirectory: URL(string: "")!)
+//        keystore.createWallet(name: <#T##String#>, password: <#T##String#>, coins: <#T##[CoinType]#>)
         let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
         wallet = HDWallet(mnemonic: mnemonic!, passphrase: "")
     }
