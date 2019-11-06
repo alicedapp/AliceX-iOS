@@ -19,8 +19,10 @@ class AssetViewController: BaseViewController {
     @IBOutlet var navBar: UIView!
     @IBOutlet var collectionView: UICollectionView!
 
-    var watchChains: [BlockChain] = []
-    var erc20Data: AddressInfo!
+//    var watchChains: [BlockChain] = []
+    var coins: [Coin]!
+//    var coins: [Coin]!
+    
     var NFTData: [OpenSeaModel]!
 
     var coinHide: Bool = false
@@ -45,6 +47,9 @@ class AssetViewController: BaseViewController {
         requestData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(priceUpdate), name: .priceUpdate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .currencyChange, object: nil)
 //
 //        collectionView.es.addPullToRefresh {
 //            self.requestData()
@@ -55,32 +60,48 @@ class AssetViewController: BaseViewController {
             self.requestData()
         })
         
-        watchChains = WatchingCoinHelper.shared.blockchainList()
+        coins = WatchingCoinHelper.shared.list
     }
     
+//    deinit {
+//        super.dein
+//    }
+    
     func requestData() {
-        firstly {
-            when(fulfilled: requestNFT(), requestERC20())
+        
+        firstly{
+            when(fulfilled: requestCoins(), requestNFT())
         }.done { (_, _) in
-//            self.collectionView.es.stopPullToRefresh()
-//            self.collectionView.editing
-            self.watchChains = WatchingCoinHelper.shared.blockchainList()
-            self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
+//            self.coins = coinList
+            self.collectionView.es.stopPullToRefresh()
         }.ensure {
             self.collectionView.es.stopPullToRefresh()
         }.catch { error in
 //            self.collectionView.es.stopPullToRefresh()
         }
+        
+//        firstly {
+//            when(fulfilled: requestNFT(), requestERC20())
+//        }.done { (_, _) in
+////            self.collectionView.es.stopPullToRefresh()
+////            self.collectionView.editing
+//            self.watchChains = WatchingCoinHelper.shared.blockchainList()
+//            self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
+//        }.ensure {
+//            self.collectionView.es.stopPullToRefresh()
+//        }.catch { error in
+////            self.collectionView.es.stopPullToRefresh()
+//        }
     }
 
     func loadFromCache() {
-        Shared.stringCache.fetch(key: CacheKey.assetERC20Key).onSuccess { string in
-            guard let model = AddressInfo.deserialize(from: string) else {
-                return
-            }
-            self.erc20Data = model
-            self.erc20SectionAimation()
-        }
+//        Shared.stringCache.fetch(key: CacheKey.assetERC20Key).onSuccess { string in
+//            guard let model = AddressInfo.deserialize(from: string) else {
+//                return
+//            }
+//            self.erc20Data = model
+//            self.erc20SectionAimation()
+//        }
 
         Shared.stringCache.fetch(key: CacheKey.assetNFTKey).onSuccess { string in
             guard let model = OpenSeaReponse.deserialize(from: string) else {
@@ -107,45 +128,57 @@ class AssetViewController: BaseViewController {
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
 
-    func requestERC20() -> Promise<Bool> {
+    func requestCoins() -> Promise<Void> {
         
-        return Promise<Bool> { seal in
-            firstly { () -> Promise<AddressInfo> in
-                API(Ethplorer.getAddressInfo(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
-            }.done { model in
+        return Promise<Void> { seal in
+            
+            firstly {
+                WatchingCoinHelper.shared.update()
+            }.done { _ in
+                self.coins = WatchingCoinHelper.shared.list
+                self.collectionView.reloadData()
                 
-                if model.error != nil {
-                    throw WalletError.custom("Ethplorer error")
-                }
-                
-                var hasNew = true
-                if self.erc20Data != nil {
-                    hasNew = model.tokens.count > self.erc20Data.tokens.count
-                }
-                self.erc20Data = model
-                Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetERC20Key)
-                if hasNew {
-                    self.erc20SectionAimation()
-                } else {
-                    self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
-                }
-                
-                seal.fulfill(true)
-                
-//                if WatchingCoinHelper.shared.isEmpty {
-                    model.tokens.forEach { item in
-                        let token = ERC20(item: item)
-                        let coin = Coin.ERC20(token: token)
-                        WatchingCoinHelper.shared.add(coin: coin)
-                    }
-//                } else {
-//                    //TODO
-//                }
-                
+                seal.fulfill(())
             }.catch { error in
-                print("Fetch ECR20 failed")
                 seal.reject(error)
             }
+            
+//            firstly { () -> Promise<AddressInfo> in
+//                API(Ethplorer.getAddressInfo(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+//            }.done { model in
+//
+//                if model.error != nil {
+//                    throw WalletError.custom("Ethplorer error")
+//                }
+//
+//                var hasNew = true
+//                if self.erc20Data != nil {
+//                    hasNew = model.tokens.count > self.erc20Data.tokens.count
+//                }
+//                self.erc20Data = model
+//                Shared.stringCache.set(value: model.toJSONString()!, key: CacheKey.assetERC20Key)
+//                if hasNew {
+//                    self.erc20SectionAimation()
+//                } else {
+//                    self.collectionView.reloadSections(IndexSet(integer: Asset.erc20.rawValue))
+//                }
+//
+//                seal.fulfill(true)
+//
+////                if WatchingCoinHelper.shared.isEmpty {
+////                    model.tokens.forEach { item in
+////                        let token = CoinInfo(id: item.)
+////                        let coin = Coin.ERC20(token: item.address)
+////                        WatchingCoinHelper.shared.add(coin: coin)
+////                    }
+////                } else {
+////                    //TODO
+////                }
+//
+//            }.catch { error in
+//                print("Fetch ECR20 failed")
+//                seal.reject(error)
+//            }
         }
     }
 
@@ -179,5 +212,10 @@ class AssetViewController: BaseViewController {
 
     @objc func priceUpdate() {
         collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
+    }
+    
+    @objc func listChange() {
+//        watchChains = WatchingCoinHelper.shared.blockchainList()
+//        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue, Asset.erc20.rawValue))
     }
 }

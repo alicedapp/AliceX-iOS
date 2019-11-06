@@ -57,7 +57,7 @@ extension BlockChain {
         }
     }
     
-    var sybmol: String {
+    var symbol: String {
         switch self {
         case .Ethereum:
             return "ETH"

@@ -15,30 +15,38 @@ enum AmberData {
     case getTransactions(hash: String, blokchain: BlockChain)
     case tokenPrice(address: String, currency: Currency)
     case accountBalance(address: String, blockchain: BlockChain)
+    case tokens(address: String)
 }
 
 extension AmberData: TargetType {
     
     var headers: [String: String]? {
-        var keys: NSDictionary?
-        guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist") else {
+        guard let path = Bundle.main.path(forResource: "env", ofType: "json") else {
             return nil
         }
-        keys = NSDictionary(contentsOfFile: path)
-
-//        "Content-Type": "application/json",
-        var dict = ["x-api-key": keys!["AmberDataAPIKey"] as! String]
-
-        switch self {
-        case let .getTransactions(_, chain):
-            dict["x-amberdata-blockchain-id"] = chain.amberDataID
-            return dict
-        case let .accountBalance(_, chain):
-            dict["x-amberdata-blockchain-id"] = chain.amberDataID
-            return dict
-        default:
-            return dict
+    
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            if let jsonResult = jsonResult as? Dictionary<String, Any>,
+                let apiKey = jsonResult["amberdata"] as? String {
+                var dict = ["x-api-key": apiKey]
+                switch self {
+                case let .getTransactions(_, chain):
+                    dict["x-amberdata-blockchain-id"] = chain.amberDataID
+                    return dict
+                case let .accountBalance(_, chain):
+                    dict["x-amberdata-blockchain-id"] = chain.amberDataID
+                    return dict
+                default:
+                    return dict
+                }
+             }
+        } catch {
+            return nil
         }
+        
+        return nil
     }
 
     var baseURL: URL {
@@ -53,6 +61,8 @@ extension AmberData: TargetType {
             return "market/tokens/prices/\(address)/latest"
         case let .accountBalance(address, _):
             return "addresses/\(address)/account-balances/latest"
+        case let .tokens(address):
+            return "addresses/\(address)/tokens"
         }
     }
 

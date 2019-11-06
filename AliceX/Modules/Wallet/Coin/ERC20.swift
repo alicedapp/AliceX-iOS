@@ -29,20 +29,20 @@ struct ERC20: HandyJSON {
         self.address = address
     }
     
-    init(item: TokenArrayItem) {
-        guard let info = item.tokenInfo else {
-            return
-        }
-        self.balance = item.balance
-        self.address = info.address
-        self.name = info.name
-        self.symbol = info.symbol
-        self.decimals = info.decimals
-        self.lastUpdated = info.lastUpdated
-        self.website = info.website
-        self.price = info.price
-        self.description = info.description
-    }
+//    init(item: TokenArrayItem) {
+//        guard let info = item.tokenInfo else {
+//            return
+//        }
+//        self.balance = item.balance
+//        self.address = info.address
+//        self.name = info.name
+//        self.symbol = info.symbol
+//        self.decimals = info.decimals
+//        self.lastUpdated = info.lastUpdated
+//        self.website = info.website
+//        self.price = info.price
+//        self.description = info.description
+//    }
 }
 
 extension ERC20: Hashable, Equatable {

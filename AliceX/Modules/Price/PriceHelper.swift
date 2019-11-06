@@ -30,7 +30,7 @@ class PriceHelper {
     func changeCurrency(currency: Currency) {
         getExchangePrice(currency: currency) {
             self.currentCurrency = currency
-            self.exchangeRate = self.reponse!.price!
+            self.exchangeRate = Float(self.reponse!.price!)
             self.updateDate = self.reponse!.last_updated!
             self.storeInUserDefault()
             HUDManager.shared.showSuccess(text: "Switch currency success")
@@ -54,7 +54,7 @@ class PriceHelper {
             let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: typeString)
             reponse = currencyModel
             currentCurrency = (currencyModel?.currency)!
-            exchangeRate = currencyModel!.price!
+            exchangeRate = Float(currencyModel!.price!)
             updateDate = currencyModel!.last_updated!
             getExchangePrice(currency: currentCurrency, callback: nil)
 
@@ -79,7 +79,7 @@ class PriceHelper {
                 currencyModel?.currency = currency
                 self.reponse = currencyModel
                 self.currentCurrency = (currencyModel?.currency)!
-                self.exchangeRate = currencyModel!.price!
+                self.exchangeRate = Float(currencyModel!.price!)
                 self.updateDate = currencyModel!.last_updated!
                 guard let block = callback else {
                     return

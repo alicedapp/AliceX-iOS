@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         WalletManager.loadFromCache()
         onBackgroundThread {
-            WatchingCoinHelper.shared.loadFromCache()
             PriceHelper.shared.fetchFromCache()
         }
 //        GasPriceHelper.shared.getGasPrice()
@@ -51,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            vc = MnemonicsViewController()
 //            vc = RNModule.makeViewController(module: .alice)
             vc = MainTabViewController()
+            WatchingCoinHelper.shared.loadFromCache()
         } else {
             vc = LandingViewController()
         }

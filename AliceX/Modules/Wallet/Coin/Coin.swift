@@ -8,32 +8,18 @@
 
 import Foundation
 import TrustWalletCore
-import HandyJSON
-
-struct CoinStruct: HandyJSON {
-    
-    var name: String!
-    var symbol: String!
-    var decimals: Int!
-    var lastUpdated: Int!
-    
-    var address: String?
-    var description: String?
-    var website: String?
-    var price: PriceInfo?
-    var balance: Double!
-}
+import PromiseKit
 
 enum Coin {
     case coin(chain: BlockChain)
-    case ERC20(token: ERC20)
+    case ERC20(address: String)
     
     var id: String {
         switch self {
         case .coin(let chain):
             return chain.rawValue
         case .ERC20(let token):
-            return token.address
+            return token
         }
     }
     
@@ -60,27 +46,61 @@ enum Coin {
         case let .coin(chain):
             return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/\(chain.rawValue.lowercased())/info/logo.png")!
         case let .ERC20(token):
-            return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(token.address.lowercased())/logo.png")!
+            return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(token.lowercased())/logo.png")!
         }
     }
     
-    var name: String {
+    var type: String {
         switch self {
-        case .coin(let chain):
-            return chain.rawValue.firstUppercased
-        case .ERC20(let token):
-            return token.name
+        case .coin:
+            return "Coin"
+        case .ERC20:
+            return "ERC20"
         }
     }
     
-    var symbol: String {
-        switch self {
-        case .coin(let chain):
-            return chain.sybmol
-        case .ERC20(let token):
-            return token.symbol
+//    var name: String {
+//        switch self {
+//        case .coin(let chain):
+//            return chain.rawValue.firstUppercased
+//        case .ERC20(let token):
+//            return token.name
+//        }
+//    }
+//
+//    var symbol: String {
+//        switch self {
+//        case .coin(let chain):
+//            return chain.symbol
+//        case .ERC20(let token):
+//            return CoinInfoHelper.shared.
+//        }
+//    }
+    
+    var info: CoinInfo? {
+//        return Promise<CoinInfo> { seal in
+//            CoinInfoHelper.shared.fetchingCoin(coin: self).done { coinInfo in
+//                seal.fulfill(coinInfo)
+//            }
+//        }
+        
+        if CoinInfoHelper.shared.pool.keys.contains(id)  {
+            return CoinInfoHelper.shared.pool[id]!
         }
+        
+        return nil
     }
+    
+//    func info() -> CoinInfo {
+//        firstly {
+//
+//        }.done { info in
+////            self.info = info
+//            return info
+//        }
+//
+//    }
+    
 }
 
 extension Coin: Hashable, Equatable {

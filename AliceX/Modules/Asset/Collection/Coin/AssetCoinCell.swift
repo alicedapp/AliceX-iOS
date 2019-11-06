@@ -9,12 +9,17 @@
 import Kingfisher
 import UIKit
 import VBFPopFlatButton
+import PromiseKit
+import web3swift
+import BigInt
 
 class AssetCoinCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
+    
+    @IBOutlet var typeLabel: UILabel!
 
     @IBOutlet var background: UIView!
     @IBOutlet var coinShadow: UIView!
@@ -72,68 +77,139 @@ class AssetCoinCell: UICollectionViewCell {
         super.layoutSubviews()
     }
     
-    func configure(item: TokenArrayItem) {
-        guard let info = item.tokenInfo else {
-            return
-        }
-        
-        coin = Coin.ERC20(token: ERC20(item: item))
-        
-        animationButton.currentButtonType = .buttonUpBasicType
-        animationButton.tintColor = AliceColor.green
-        
-        nameLabel.text = info.name
-        let num = pow(Double(10.0), Double(info.decimals))
-        let amount = Double(item.balance / num)
-        amountLabel.text = "\(amount.toString(decimal: 3)) \(info.symbol!)"
-
-        if let price = info.price {
-            priceLabel.text = "$ \(Double(price.rate).toString(decimal: 3))"
-            balanceLabel.text = "$ \((amount * Double(price.rate)).toString(decimal: 3))"
-        } else {
-            priceLabel.text = "Coin"
-            balanceLabel.text = ""
-        }
-
-//        let address = info.address
-        coinImageView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
-    }
-
-    func configure(item: BlockChain) {
-        
-        coin = Coin.coin(chain: item)
-        
-        nameLabel.text = item.rawValue
-        coinImageView.kf.setImage(with: Coin.coin(chain: item).image, placeholder: Constant.placeholder)
+    func configure(coin: Coin) {
+        nameLabel.text = ""
+        coinImageView.image = nil
         amountLabel.text = ""
         priceLabel.text = ""
         balanceLabel.text = ""
-
-        guard let info = item.data else {
+        animationButton.isHidden = true
+        typeLabel.text = coin.type
+        
+        guard let info = coin.info else {
             return
         }
         
-        let currency = PriceHelper.shared.currentCurrency
-        guard let quote = info.quote?.toJSON() else {
-                return
+        nameLabel.text = info.name
+        coinImageView.kf.setImage(with: coin.image) { result in
+            switch result {
+            case .success(_):
+                self.typeLabel.isHidden = true
+            case .failure(_):
+                self.typeLabel.isHidden = false
+            }
+        }
+        priceLabel.text = info.price?.toString(decimal: 3)
+        
+        let currencySymbol = PriceHelper.shared.currentCurrency.symbol
+        
+        if let price = info.price {
+            priceLabel.text = "\(currencySymbol) \(price.toString(decimal: 3))"
         }
         
-        if !quote.keys.contains(currency.rawValue) {
-            return
-        }
-        
-        let price = quote[currency.rawValue] as! [String: Any]
-        guard let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price) else {
-            return
-        }
-        
-        priceLabel.text = "\(currency.symbol) \(currencyModel.price!.toString(decimal: 3))"
-        if Double(currencyModel.percent_change_24h!) > 0.0 {
-            animationButton.currentButtonType = .buttonUpBasicType
-            animationButton.tintColor = AliceColor.green
+        if let balance = info.amount, let balanceInt = BigUInt(balance),
+            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
+            amountLabel.text = "\(amount) \(info.symbol!)"
+            
+            if let price = info.price, let doubleAmount = Double(amount) {
+                balanceLabel.text = "\(currencySymbol) \(( doubleAmount * price).toString(decimal: 3))"
+            }
         } else {
-            animationButton.currentButtonType = .buttonDownBasicType
-            animationButton.tintColor = AliceColor.red
+            amountLabel.text = "0 \(info.symbol!)"
+            balanceLabel.text = "\(currencySymbol) 0"
         }
+        
+        if let change = info.changeIn24H {
+            animationButton.isHidden = false
+            if change > 0.0 {
+                animationButton.currentButtonType = .buttonUpBasicType
+                animationButton.tintColor = AliceColor.green
+            } else {
+                animationButton.currentButtonType = .buttonDownBasicType
+                animationButton.tintColor = AliceColor.red
+            }
+        }
+        
     }
+    
+//    func configure(item: TokenArrayItem) {
+//        guard let info = item.tokenInfo else {
+//            return
+//        }
+//
+//        coin = Coin.ERC20(token: CoinInfo(id: info.address))
+//
+//        animationButton.currentButtonType = .buttonUpBasicType
+//        animationButton.tintColor = AliceColor.green
+//
+//        nameLabel.text = info.name
+//        let num = pow(Double(10.0), Double(info.decimals))
+//        let amount = Double(item.balance / num)
+//        amountLabel.text = "\(amount.toString(decimal: 3)) \(info.symbol!)"
+//
+//        let currencySymbol = PriceHelper.shared.currentCurrency.symbol
+//
+//        if let price = info.price {
+//            priceLabel.text = "\(currencySymbol) \(Double(price.rate).toString(decimal: 3))"
+//            balanceLabel.text = "\(currencySymbol) \((amount * Double(price.rate)).toString(decimal: 3))"
+//        } else {
+//            priceLabel.text = "Coin"
+//            balanceLabel.text = ""
+//        }
+//
+////        let address = info.address
+//        coinImageView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
+//    }
+    
+//    func configure(item: BlockChain) {
+//
+//        coin = Coin.coin(chain: item)
+//
+//        nameLabel.text = item.rawValue
+//        coinImageView.kf.setImage(with: Coin.coin(chain: item).image, placeholder: Constant.placeholder)
+//        amountLabel.text = ""
+//        priceLabel.text = ""
+//        balanceLabel.text = ""
+//
+//        let currencySymbol = PriceHelper.shared.currentCurrency.symbol
+//
+//        guard let info = item.data else {
+//            return
+//        }
+//
+//        let currency = PriceHelper.shared.currentCurrency
+//        guard let quote = info.quote?.toJSON() else {
+//                return
+//        }
+//
+//        if !quote.keys.contains(currency.rawValue) {
+//            return
+//        }
+//
+//        let price = quote[currency.rawValue] as! [String: Any]
+//        guard let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price) else {
+//            return
+//        }
+//
+//        priceLabel.text = "\(currency.symbol) \(currencyModel.price!.toString(decimal: 3))"
+//        if Double(currencyModel.percent_change_24h!) > 0.0 {
+//            animationButton.currentButtonType = .buttonUpBasicType
+//            animationButton.tintColor = AliceColor.green
+//        } else {
+//            animationButton.currentButtonType = .buttonDownBasicType
+//            animationButton.tintColor = AliceColor.red
+//        }
+//
+//        // TODO
+//        firstly {
+//            item.getBalance()
+//        }.done { balance in
+//            let num = pow(Double(10.0), Double(item.decimal))
+//            guard let amount = Web3.Utils.formatToPrecision(balance, numberDecimals: item.decimal, formattingDecimals: 6, decimalSeparator: ".", fallbackToScientific: false) else {
+//                return
+//            }
+//            self.amountLabel.text = "\(amount) \(item.symbol)"
+//            self.balanceLabel.text = "\(currencySymbol) \((Double(amount)! * currencyModel.price!).toString(decimal: 3))"
+//        }
+//    }
 }

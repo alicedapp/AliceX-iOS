@@ -8,6 +8,7 @@
 
 import Foundation
 import Haneke
+import PromiseKit
 
 class UnWatchingCoinHelper {
     static let shared = UnWatchingCoinHelper()
@@ -26,7 +27,6 @@ class UnWatchingCoinHelper {
             return
         }
         list.append(coin)
-        storeInCache()
     }
     
     // TODO
@@ -61,27 +61,30 @@ class UnWatchingCoinHelper {
 // MARK: - Cache
 extension UnWatchingCoinHelper {
     
-    func loadFromCache() {
-        Shared.stringCache.fetch(key: CacheKey.unWatchingList).onSuccess { result in
-            var watchingList: [Coin] = []
-            let idList = result.split(separator: ",")
-            for id in idList {
-                if id.count == 42 && id.hasPrefix("0x") { // ERC20
-                    let token = ERC20(address: String(id))
-                    let coin = Coin.ERC20(token: token)
-                    watchingList.append(coin)
-                } else {
-                    guard let chain = BlockChain(rawValue: String(id)) else{
-                        continue
+    func loadFromCache() -> Promise<Void>  {
+        
+        return Promise<Void> { seal in
+            let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.wallet!.address)"
+            Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
+                var watchingList: [Coin] = []
+                let idList = result.split(separator: ",")
+                for id in idList {
+                    if id.count == 42 && id.hasPrefix("0x") { // ERC20
+                        let coin = Coin.ERC20(address: String(id))
+                        watchingList.append(coin)
+                    } else {
+                        guard let chain = BlockChain(rawValue: String(id)) else{
+                            continue
+                        }
+                        let coin = Coin.coin(chain: chain)
+                        watchingList.append(coin)
                     }
-                    let coin = Coin.coin(chain: chain)
-                    watchingList.append(coin)
                 }
+                self.list = watchingList
+                self.isEmpty = false
+            }.onFailure { (error) in
+                self.isEmpty = true
             }
-            self.list = watchingList
-            self.isEmpty = false
-        }.onFailure { (error) in
-            self.isEmpty = true
         }
     }
     

@@ -14,7 +14,7 @@ class PriceManager {
     static let shared = PriceManager()
     var currentCurrency: Currency = .USD
     
-    var price: [String: CryptocompareModel]!
+    var price: [String: CryptocompareModel]! = [:]
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateWatchingList), name: .currencyChange, object: nil)
@@ -25,30 +25,83 @@ class PriceManager {
     }
     
     @objc func updateWatchingList() {
-        getCoinsPrice(coins: WatchingCoinHelper.shared.list)
+//        getCoinsPrice(coins: WatchingCoinHelper.shared.list)
     }
     
-    func getCoinsPrice(coins: [Coin], currency: Currency = PriceManager.shared.currentCurrency) {
+    func getCoinsPrice(coins: [Coin], currency: Currency = PriceHelper.shared.currentCurrency) -> Promise<Void> {
     
-        let symbols = coins.compactMap { $0.symbol }
-        CryptocompareAPI.request(.fullPrice(symbol: symbols, currency: currency)) { result in
-            switch result {
-            case .success(let reponse):
-                
-                guard let dataString = String(data: reponse.data, encoding: .utf8) else {
-                    return
+        return Promise<Void> { seal in
+            
+            var symbols: [String] = []
+            var pickedCoin: [Coin] = []
+            for coin in coins {
+                if let info = coin.info {
+                    symbols.append(info.symbol)
+                    pickedCoin.append(coin)
                 }
-                
-                for symbol in symbols {
-                    if let model = CryptocompareModel.deserialize(from: dataString, designatedPath: "Raw.\(symbol).\(currency.rawValue)") {
-                        self.price[symbol] = model
-                    }
-                }
-                
-            case .failure(let error):
-                print(error)
             }
+            
+            CryptocompareAPI.request(.fullPrice(symbol: symbols, currency: currency)) { result in
+                switch result {
+                case .success(let reponse):
+                    
+                    guard let dataString = String(data: reponse.data, encoding: .utf8) else {
+                        return
+                    }
+                    
+                    for coin in pickedCoin {
+                        if let model = CryptocompareModel.deserialize(from: dataString, designatedPath: "RAW.\(coin.info!.symbol!).\(currency.rawValue)") {
+                            self.price[coin.id] = model
+                            
+                            if let info = CoinInfoHelper.shared.pool[coin.id] {
+                                CoinInfoHelper.shared.pool[coin.id]?.price = model.PRICE
+                                CoinInfoHelper.shared.pool[coin.id]?.changeIn24H = model.CHANGE24HOUR
+                            }
+                        }
+                    }
+                    seal.fulfill(())
+                case .failure(let error):
+                    print(error)
+                    seal.reject(error)
+                }
+            }
+            
         }
     }
+    
+    func getCoinsPriceWithPromise(coins: [CoinInfo], currency: Currency = PriceManager.shared.currentCurrency) -> Promise<[CryptocompareModel]> {
+        
+        return Promise<[CryptocompareModel]> { seal in
+            
+//            let priceList = []
+            let symbols = coins.compactMap { $0.symbol }
+            CryptocompareAPI.request(.fullPrice(symbol: symbols, currency: currency)) { result in
+                switch result {
+                case .success(let reponse):
+                    
+                    guard let dataString = String(data: reponse.data, encoding: .utf8) else {
+                        seal.reject(MyError.DecodeFailed)
+                        return
+                    }
+                    
+                    var priceList: [CryptocompareModel] = []
+                    for coin in coins {
+                        if let model = CryptocompareModel.deserialize(from: dataString, designatedPath: "RAW.\(coin.symbol).\(currency.rawValue)") {
+                            self.price[coin.id] = model
+                            priceList.append(model)
+                        }
+                    }
+                    seal.fulfill(priceList)
+                    
+                case .failure(let error):
+                    print(error)
+                    seal.reject(error)
+                }
+            }
+
+        }
+        
+    }
+    
     
 }

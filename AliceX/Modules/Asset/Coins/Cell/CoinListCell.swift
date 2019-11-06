@@ -69,12 +69,16 @@ class CoinListCell: UITableViewCell {
 //        if {
 //        }
         
+        guard let info = coin.info else {
+            return
+        }
+        
         let isAdd =  WatchingCoinHelper.shared.list.contains(coin)
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
         self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
         
-        nameLabel.text = coin.name
+        nameLabel.text = info.name
         iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
-        subTitleLabel.text = coin.symbol
+        subTitleLabel.text = info.symbol
     }
 }

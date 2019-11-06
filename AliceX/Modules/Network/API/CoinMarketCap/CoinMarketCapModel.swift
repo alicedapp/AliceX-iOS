@@ -49,7 +49,7 @@ struct CoinMarketCapQuoteModel: HandyJSON {
 }
 
 struct CoinMarketCapCurrencyModel: HandyJSON {
-    var price: Float?
+    var price: Double?
     var volume_24h: Float?
     var percent_change_1h: Float?
     var percent_change_24h: Float?

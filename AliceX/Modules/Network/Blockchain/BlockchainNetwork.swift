@@ -8,11 +8,13 @@
 
 import Foundation
 import PromiseKit
+import BigInt
 
 struct BalanceInfo {
     var balance: Double
 }
 
 protocol NetworkLayer {
-    func getBalance() -> Promise<Double>
+//    func getBalance() -> Promise<Double>
+    func getBalance() -> Promise<BigUInt>
 }

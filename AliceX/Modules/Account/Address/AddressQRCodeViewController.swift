@@ -38,14 +38,16 @@ class AddressQRCodeViewController: UIViewController {
     var segmentedView = JXSegmentedView()
     var listContainerView: JXSegmentedListContainerView!
     
-    let chains = BlockChain.allCases
+    var chains = WatchingCoinHelper.shared.blockchainList()
     
     var listVCArray: [BlockChainQRCodeView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let index = BlockChain.allCases.firstIndex(of: selectBlockCahin)!
+        if chains.count == 0 {
+            chains.append(.Ethereum)
+        }
         
         segmentedView.delegate = self
         segmentedContainer.addSubview(segmentedView)
@@ -79,7 +81,10 @@ class AddressQRCodeViewController: UIViewController {
         segmentedView.fillSuperview()
         listContainerView.fillSuperview()
         
-        segmentedView.defaultSelectedIndex = index
+        if let index = chains.firstIndex(of: selectBlockCahin) {
+            segmentedView.defaultSelectedIndex = index
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

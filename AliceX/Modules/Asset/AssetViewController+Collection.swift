@@ -52,17 +52,17 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case Asset.coin.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
-
-            var coin = watchChains[indexPath.item]
-            cell.configure(item: coin)
+            
+            var coin = coins[indexPath.item]
+            cell.configure(coin: coin)
             return cell
-        case Asset.erc20.rawValue:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
-            if let erc20 = erc20Data {
-                let tokenInfo = erc20.tokens[item]
-                cell.configure(item: tokenInfo)
-            }
-            return cell
+//        case Asset.erc20.rawValue:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
+//            if let erc20 = erc20Data {
+//                let tokenInfo = erc20.tokens[item]
+//                cell.configure(item: tokenInfo)
+//            }
+//            return cell
 
         case Asset.NFTHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFTHeader.name, for: indexPath) as! AssetNFTHeaderCell
@@ -99,11 +99,11 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case Asset.coin.rawValue:
-            return coinHide ? 0 : watchChains.count
-        case Asset.erc20.rawValue:
-            if let erc20 = erc20Data {
-                return coinHide ? 0 : erc20.tokens.count
-            }
+            return coinHide ? 0 : coins.count
+//        case Asset.erc20.rawValue:
+//            if let erc20 = erc20Data {
+//                return coinHide ? 0 : erc20.tokens.count
+//            }
             return 0
         case Asset.NFT.rawValue:
             if let NFT = NFTData {
@@ -126,11 +126,11 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func coinSectionAimation() {
-        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.erc20.rawValue, Asset.coin.rawValue))
+        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
 
         let coinCell = self.collectionView!.visibleCells(in: Asset.coin.rawValue)
-        let erc20Cell = self.collectionView!.visibleCells(in: Asset.erc20.rawValue)
-        let animateCell = coinCell + erc20Cell
+//        let erc20Cell = self.collectionView!.visibleCells(in: Asset.erc20.rawValue)
+        let animateCell = coinCell 
 
 //        self.collectionView.performBatchUpdates({
 //            if !coinHide {
@@ -151,9 +151,9 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func erc20SectionAimation() {
-        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.erc20.rawValue))
-        let animateCell = self.collectionView!.visibleCells(in: Asset.erc20.rawValue)
-        cellAnimation(cells: animateCell, animator: coinAnimations)
+//        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.erc20.rawValue))
+//        let animateCell = self.collectionView!.visibleCells(in: Asset.erc20.rawValue)
+//        cellAnimation(cells: animateCell, animator: coinAnimations)
     }
 
     func NFTSectionAimation() {
