@@ -36,6 +36,35 @@ class ContractModule: NSObject {
             }
         }
     }
+    
+    @objc func writeWithGasLimit(_ contractAddress: String,
+                                 abi: String,
+                                 functionName: String,
+                                 parameters: [Any],
+                                 value: String,
+                                 data: String,
+                                 gasLimit: String,
+                                 resolve: @escaping RCTPromiseResolveBlock,
+                                 reject _: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            guard let gasLimit = BigUInt(gasLimit),
+                let value = BigUInt(value.stripHexPrefix(), radix: 16),
+                let data = Data.fromHex(data) else {
+                HUDManager.shared.showError(text: "Parameters is invaild")
+                return
+            }
+
+            TransactionManager.showContractWriteView(contractAddress: contractAddress,
+                                                     functionName: functionName,
+                                                     abi: abi,
+                                                     parameters: parameters,
+                                                     value: value,
+                                                     gasLimit: gasLimit,
+                                                     extraData: data) { txHash in
+                resolve(txHash)
+            }
+        }
+    }
 
     @objc func read(_ contractAddress: String, abi: String,
                     functionName: String, parameters: [Any],

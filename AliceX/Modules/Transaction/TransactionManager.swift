@@ -19,17 +19,28 @@ class TransactionManager {
 
     // MARK: - Smart Contract Popup
 
+//    class func showContractWriteView(contractAddress: String,
+//                                     functionName: String,
+//                                     abi: String,
+//                                     parameters: [Any],
+//                                     value: BigUInt,
+//                                     extraData: Data,
+//                                     success: @escaping StringBlock) {
+//    }
+    
     class func showContractWriteView(contractAddress: String,
                                      functionName: String,
                                      abi: String,
                                      parameters: [Any],
                                      value: BigUInt,
+                                     gasLimit: BigUInt = BigUInt(0),
                                      extraData: Data,
                                      success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = ContractPopUp.make(contractAddress: contractAddress,
                                        functionName: functionName, parameters: parameters,
-                                       extraData: extraData, value: value, abi: abi, success: success)
+                                       extraData: extraData, value: value,
+                                       abi: abi, gasLimit: gasLimit, success: success)
         let height = 525 - 34 + Constant.SAFE_BTTOM
         topVC?.presentAsStork(modal, height: height)
     }
@@ -192,6 +203,7 @@ class TransactionManager {
                                          extraData: Data,
                                          value: BigUInt,
                                          gasPrice: GasPrice = GasPrice.average,
+                                         gasLimit: TransactionOptions.GasLimitPolicy = .automatic,
                                          notERC20: Bool = true) -> Promise<String> {
         
         return Promise<String> { seal in
@@ -231,7 +243,7 @@ class TransactionManager {
             options.value = notERC20 ? value : nil
             options.from = walletAddress
             options.gasPrice = .manual(gasPrice)
-            options.gasLimit = .automatic
+            options.gasLimit = gasLimit
 
             guard let tx = contract.write(
                 functionName,

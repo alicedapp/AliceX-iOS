@@ -79,6 +79,16 @@ RCT_EXTERN_METHOD(write:(NSString *)contractAddress
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(writeWithGasLimit:(NSString *)contractAddress
+                  abi:(NSString *)abi
+                  functionName:(NSString *)functionName
+                  parameters:(NSArray *)parameters
+                  value:(NSString *)value
+                  data:(NSString *)data
+                  gasLimit:(NSString *)gasLimit
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 
 RCT_EXTERN_METHOD(read:(NSString *)contractAddress
                   abi:(NSString *)abi

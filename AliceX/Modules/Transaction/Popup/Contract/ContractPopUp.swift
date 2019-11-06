@@ -26,9 +26,11 @@ class ContractPopUp: UIViewController {
     @IBOutlet var gasTimeLabel: UILabel!
     @IBOutlet var gasBtn: UIControl!
 
-    var gasLimit: BigUInt?
+    var gasLimit: BigUInt!
     var gasPrice: GasPrice = GasPrice.average
 
+    var isCustomGasLimit: Bool = false
+    
     var contractAddress: String!
     var functionName: String!
     var abi: String!
@@ -45,6 +47,7 @@ class ContractPopUp: UIViewController {
                     extraData: Data,
                     value: BigUInt,
                     abi: String,
+                    gasLimit: BigUInt = BigUInt(0),
                     success: @escaping StringBlock) -> ContractPopUp {
         let vc = ContractPopUp()
         vc.contractAddress = contractAddress
@@ -54,12 +57,15 @@ class ContractPopUp: UIViewController {
         vc.extraData = extraData
         vc.value = value
         vc.abi = abi
+        vc.gasLimit = gasLimit
         return vc
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        isCustomGasLimit = gasLimit != BigUInt(0)
+        
         addressLabel.text = contractAddress
         valueLabel.text = value.readableValue
         functionLabel.text = functionName
@@ -105,7 +111,10 @@ class ContractPopUp: UIViewController {
                                                            amount: self.value,
                                                            data: self.extraData)
         }.done { gasLimit in
-            self.gasLimit = gasLimit
+            if !self.isCustomGasLimit { // NO Custom Gas Limit
+                self.gasLimit = gasLimit
+            }
+            
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
@@ -168,6 +177,11 @@ extension ContractPopUp: PayButtonDelegate {
     func send() {
         self.payView!.showLoading()
         
+        var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
+        if isCustomGasLimit {
+            gasLimitOption = TransactionOptions.GasLimitPolicy.manual(gasLimit)
+        }
+        
         firstly {
             TransactionManager.writeSmartContract(contractAddress: contractAddress!,
                                                   functionName: functionName!,
@@ -175,7 +189,8 @@ extension ContractPopUp: PayButtonDelegate {
                                                     parameters: parameters!,
                                                     extraData: extraData,
                                                     value: value!,
-                                                    gasPrice: gasPrice)
+                                                    gasPrice: gasPrice,
+                                                    gasLimit: gasLimitOption)
         }.done { (hash) in
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
