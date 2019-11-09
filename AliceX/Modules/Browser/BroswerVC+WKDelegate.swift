@@ -18,7 +18,7 @@ extension BrowserViewController: WKNavigationDelegate {
         guard let hostURL = webView.url?.host else {
             return
         }
-
+        // TODO: USE API to fetch favicon
         let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
         let downloader = ImageDownloader.default
         downloader.downloadImage(with: favIcon) { result in

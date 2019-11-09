@@ -10,8 +10,8 @@ import Foundation
 import Haneke
 import PromiseKit
 
-class UnWatchingCoinHelper {
-    static let shared = UnWatchingCoinHelper()
+class IgnoreCoinHelper {
+    static let shared = IgnoreCoinHelper()
     
     var list: [Coin] = []
     var isEmpty: Bool = true
@@ -27,6 +27,7 @@ class UnWatchingCoinHelper {
             return
         }
         list.append(coin)
+        storeInCache()
     }
     
     // TODO
@@ -49,6 +50,17 @@ class UnWatchingCoinHelper {
         storeInCache()
     }
     
+    func updateList(newList: [Coin]) {
+//        for coin in newList {
+//            if
+//        }
+        
+        list = newList
+        storeInCache()
+//        postNotification()
+    }
+        
+    
     func blockchainList() -> [Coin] {
         return list.filter { !$0.isERC20 }
     }
@@ -59,7 +71,7 @@ class UnWatchingCoinHelper {
 }
 
 // MARK: - Cache
-extension UnWatchingCoinHelper {
+extension IgnoreCoinHelper {
     
     func loadFromCache() -> Promise<Void>  {
         
@@ -89,7 +101,8 @@ extension UnWatchingCoinHelper {
     }
     
     func storeInCache() {
+        let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.wallet!.address)"
         let idList = list.compactMap { $0.id }.joined(separator: ",")
-        Shared.stringCache.set(value: idList, key: CacheKey.unWatchingList)
+        Shared.stringCache.set(value: idList, key: cacheKey)
     }
 }

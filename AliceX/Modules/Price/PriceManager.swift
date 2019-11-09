@@ -59,6 +59,7 @@ class PriceManager {
                             }
                         }
                     }
+                    CoinInfoHelper.shared.storeInCache()
                     seal.fulfill(())
                 case .failure(let error):
                     print(error)
@@ -91,8 +92,8 @@ class PriceManager {
                             priceList.append(model)
                         }
                     }
+                    CoinInfoHelper.shared.storeInCache()
                     seal.fulfill(priceList)
-                    
                 case .failure(let error):
                     print(error)
                     seal.reject(error)

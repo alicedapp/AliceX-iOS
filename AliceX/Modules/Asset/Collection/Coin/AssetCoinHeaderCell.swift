@@ -12,7 +12,8 @@ import VBFPopFlatButton
 
 class AssetCoinHeaderCell: UICollectionViewCell {
     var action: VoidBlock!
-
+    @IBOutlet var title: UILabel!
+    
     @IBOutlet var animationButton: VBFPopFlatButton!
 
     override func awakeFromNib() {
@@ -26,6 +27,14 @@ class AssetCoinHeaderCell: UICollectionViewCell {
 //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
+    
+    func configure(count: Int) {
+        if count <= 0 {
+            return
+        }
+        
+        title.text = "\(count) Coins"
+    }
 
     @IBAction func addButtonClick() {
         let vc = CoinViewController()
@@ -38,6 +47,13 @@ class AssetCoinHeaderCell: UICollectionViewCell {
 //        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
         
         topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
+    }
+    
+    @IBAction func reorderButtonClick() {
+        let vc = CoinReOrderViewController()
+        let topVC = UIApplication.topViewController()
+        let navi = BaseNavigationController(rootViewController: vc)
+        topVC?.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
 
     @IBAction func hidenButtonClick() {

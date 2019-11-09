@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="424" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collectibles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3L-eh-dZP">
-                                <rect key="frame" x="20" y="22.5" width="151.5" height="32.5"/>
+                                <rect key="frame" x="20" y="22.5" width="334" height="32.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" name="Alice-DarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -41,6 +41,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8no-EX-g9b" secondAttribute="trailing" constant="20" id="HYr-yS-cfI"/>
+                            <constraint firstItem="8no-EX-g9b" firstAttribute="leading" secondItem="s3L-eh-dZP" secondAttribute="trailing" constant="20" id="JnU-c8-SYu"/>
                             <constraint firstAttribute="bottom" secondItem="s3L-eh-dZP" secondAttribute="bottom" constant="15" id="YDg-e9-Vw5"/>
                             <constraint firstAttribute="bottom" secondItem="8no-EX-g9b" secondAttribute="bottom" constant="15" id="apS-oV-Sg8"/>
                             <constraint firstItem="s3L-eh-dZP" firstAttribute="leading" secondItem="rqv-w6-4kK" secondAttribute="leading" constant="20" id="hOZ-FT-eAU"/>
@@ -60,6 +61,7 @@
             <size key="customSize" width="424" height="71"/>
             <connections>
                 <outlet property="animationButton" destination="8no-EX-g9b" id="eMa-WF-nvH"/>
+                <outlet property="title" destination="s3L-eh-dZP" id="mOJ-8W-Bld"/>
             </connections>
             <point key="canvasLocation" x="459" y="27"/>
         </collectionViewCell>

@@ -10,11 +10,11 @@ import Foundation
 
 extension Date {
     
-    func getTimeComponentString(olderDate older: Date,newerDate newer: Date) -> (String?)  {
+    static func getTimeComponentString(olderDate older: Date,newerDate newer: Date) -> String?  {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
 
-        let componentsLeftTime = Calendar.current.dateComponents([.minute , .hour , .day,.month, .weekOfMonth,.year], from: older, to: newer)
+        let componentsLeftTime = Calendar.current.dateComponents([ .second, .minute, .hour, .day, .month, .weekOfMonth, .year], from: older, to: newer)
 
         let year = componentsLeftTime.year ?? 0
         if  year > 0 {
@@ -49,10 +49,18 @@ extension Date {
         let minute = componentsLeftTime.minute ?? 0
         if  minute > 0 {
             formatter.allowedUnits = [.minute]
-            return formatter.string(from: older, to: newer) ?? ""
+            return formatter.string(from: older, to: newer)
+        }
+        
+        let second = componentsLeftTime.second ?? 0
+        if  second > 0 {
+        //            formatter.allowedUnits = [.minute]
+        //                formatter.string(from: older, to: newer) ?? ""
+            return "Just now"
+
         }
 
-        return nil
+        return "Just now"
     }
     
 }

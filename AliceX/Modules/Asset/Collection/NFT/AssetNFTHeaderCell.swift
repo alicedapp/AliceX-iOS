@@ -11,6 +11,8 @@ import VBFPopFlatButton
 
 class AssetNFTHeaderCell: UICollectionViewCell {
     var action: VoidBlock!
+    
+    @IBOutlet var title: UILabel!
 
     @IBOutlet var animationButton: VBFPopFlatButton!
 
@@ -23,6 +25,14 @@ class AssetNFTHeaderCell: UICollectionViewCell {
         animationButton.tintColor = AliceColor.grey
 //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
+    }
+    
+    func configure(count: Int) {
+        if count <= 0 {
+            return
+        }
+        
+        title.text = "\(count) Collectibles"
     }
 
     @IBAction func hidenButtonClick() {

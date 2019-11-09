@@ -16,8 +16,8 @@ class WatchingCoinHelper {
     static let shared = WatchingCoinHelper()
     
     var list: [Coin] = []
-    var balance: [String: Double] = [:]
-//    var walletAddress:String = WalletManager.wallet!.address
+//    var balance: [String: Double] = [:]
+    var noCache: Bool = false
     
     init() {
     }
@@ -29,7 +29,7 @@ class WatchingCoinHelper {
             return
         }
         
-        if checkIgnore && UnWatchingCoinHelper.shared.list.contains(coin) {
+        if checkIgnore && IgnoreCoinHelper.shared.list.contains(coin) {
             return
         }
         
@@ -50,7 +50,7 @@ class WatchingCoinHelper {
 //        storeInCache()
 //    }
     
-    func remove(coin: Coin) {
+    func remove(coin: Coin, updateCache: Bool = false) {
         if !list.contains(coin) {
             return
         }
@@ -58,8 +58,21 @@ class WatchingCoinHelper {
             return
         }
         list.remove(at: index)
+        
+        if updateCache {
+            storeInCache()
+            postNotification()
+        }
+    }
+    
+    func updateList(newList: [Coin]) {
+//        for coin in newList {
+//            if
+//        }
+        
+        list = newList
         storeInCache()
-        self.postNotification()
+        postNotification()
     }
     
     func blockchainList() -> [BlockChain] {
@@ -97,6 +110,10 @@ extension WatchingCoinHelper {
     
     func loadFromCache() -> Promise<[Coin]> {
         
+        if !WalletManager.hasWallet() {
+            return Promise<[Coin]> { seal in seal.reject(MyError.FoundNil("No wallet")) }
+        }
+        
         return Promise<[Coin]> { seal in
             let cacheKey = "\(CacheKey.watchingList).\(WalletManager.wallet!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
@@ -120,6 +137,7 @@ extension WatchingCoinHelper {
                 seal.fulfill(watchingList)
             }.onFailure { error in
                 seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
+                self.noCache = true
             }
         }
     }

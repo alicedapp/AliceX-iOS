@@ -109,6 +109,7 @@ class AssetImgeAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol  {
             imageView.animationImages = images
             imageView.image = UIImage.init(named: "Money_Face_16")
             imageView.startAnimating()
+            
         default:
             break
         }

@@ -44,7 +44,8 @@ extension OpenSea: TargetType {
     var task: Task {
         switch self {
         case let .assets(address):
-            let dict = ["owner": address] as [String: Any]
+            //TODO
+            let dict = ["owner": address, "limit": 200, "offset": 0] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }

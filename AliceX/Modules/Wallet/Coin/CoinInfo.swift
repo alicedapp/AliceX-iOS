@@ -23,6 +23,8 @@ struct CoinInfo: HandyJSON {
     var changeIn24H: Double?
     
     var amount: String?
+    
+    var isPined: Bool?
  
     init() {
     }

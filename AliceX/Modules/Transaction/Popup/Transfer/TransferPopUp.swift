@@ -25,7 +25,7 @@ class TransferPopUp: UIViewController {
     var address: String?
     var value: BigUInt!
 
-    var coin: Coin!
+    var coin: Coin = Coin.coin(chain: .Ethereum)
     
     class func make(address: String?, value: BigUInt! = BigUInt(0), coin: Coin = .coin(chain: .Ethereum)) -> TransferPopUp {
         let vc = TransferPopUp()
@@ -41,6 +41,7 @@ class TransferPopUp: UIViewController {
         valueField.text = value.readableValue
         
 //        symbolLabel.text = coin.
+        symbolLabel.text = coin.info!.symbol
         symbolImageView.kf.setImage(with: coin.image)
         
         valueFieldDidChange(valueField)

@@ -58,9 +58,9 @@ class CoinListCell: UITableViewCell {
         }
         
         if isAdd {
-            WatchingCoinHelper.shared.add(coin: coin)
+            WatchingCoinHelper.shared.add(coin: coin, updateCache: true)
         } else {
-            WatchingCoinHelper.shared.remove(coin: coin)
+            WatchingCoinHelper.shared.remove(coin: coin, updateCache: true)
         }
     }
     

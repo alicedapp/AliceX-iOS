@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZn-yg-cDo">
-                                <rect key="frame" x="131" y="100" width="110.5" height="30"/>
+                                <rect key="frame" x="176" y="100" width="20" height="10"/>
                                 <color key="backgroundColor" name="Alice-Grey"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="height" constant="40" id="uCc-ff-kEi"/>
                                     <constraint firstAttribute="width" secondItem="XwX-Se-syC" secondAttribute="height" multiplier="2:1" id="xST-Cb-dh7"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="hidenButtonClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="4zC-ul-tKb"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7J-NE-uzI" customClass="VBFPopFlatButton">
                                 <rect key="frame" x="274" y="50.5" width="31" height="31"/>
@@ -85,8 +88,8 @@
                                 <color key="textColor" name="Alice-DarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-31-x3I">
-                                <rect key="frame" x="141" y="105" width="90.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-31-x3I">
+                                <rect key="frame" x="186" y="105" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" name="Alice-Grey"/>
                                 <nil key="highlightedColor"/>
@@ -132,8 +135,12 @@
             <size key="customSize" width="412" height="222"/>
             <connections>
                 <outlet property="animationButton" destination="d7J-NE-uzI" id="Gl3-uh-EqN"/>
+                <outlet property="balanceLabel" destination="NlV-en-tSJ" id="tQf-p3-usX"/>
                 <outlet property="currencyButton" destination="WLX-JO-U06" id="6zp-lQ-n0m"/>
+                <outlet property="currencyLabel" destination="fz7-uB-o1f" id="xPR-Qx-HMl"/>
                 <outlet property="hideButton" destination="XwX-Se-syC" id="8K0-l1-LKo"/>
+                <outlet property="hideLabel" destination="5ba-2u-BbD" id="NQR-8g-Nhn"/>
+                <outlet property="timeLabel" destination="S7T-31-x3I" id="hs0-nQ-zei"/>
             </connections>
             <point key="canvasLocation" x="400.00000000000006" y="169.41964285714286"/>
         </collectionViewCell>

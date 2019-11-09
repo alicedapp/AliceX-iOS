@@ -16,6 +16,8 @@ import BigInt
 class AssetCoinCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var precentageLabel: UILabel!
+    
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
     
@@ -49,7 +51,7 @@ class AssetCoinCell: UICollectionViewCell {
         animationButton.tintColor = UIColor(hex: "9A9A9A", alpha: 0.5)
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
-//        longPress.minimumPressDuration = 0.2
+        longPress.minimumPressDuration = 0.2
         self.addGestureRecognizer(longPress)
     }
     
@@ -63,6 +65,7 @@ class AssetCoinCell: UICollectionViewCell {
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
@@ -77,12 +80,16 @@ class AssetCoinCell: UICollectionViewCell {
         super.layoutSubviews()
     }
     
-    func configure(coin: Coin) {
+    func configure(coin: Coin, isHidden: Bool) {
+        
+        self.coin = coin
+        
         nameLabel.text = ""
         coinImageView.image = nil
         amountLabel.text = ""
-        priceLabel.text = ""
+        priceLabel.text = coin.type
         balanceLabel.text = ""
+        precentageLabel.text = ""
         animationButton.isHidden = true
         typeLabel.text = coin.type
         
@@ -99,7 +106,6 @@ class AssetCoinCell: UICollectionViewCell {
                 self.typeLabel.isHidden = false
             }
         }
-        priceLabel.text = info.price?.toString(decimal: 3)
         
         let currencySymbol = PriceHelper.shared.currentCurrency.symbol
         
@@ -124,10 +130,19 @@ class AssetCoinCell: UICollectionViewCell {
             if change > 0.0 {
                 animationButton.currentButtonType = .buttonUpBasicType
                 animationButton.tintColor = AliceColor.green
+//                precentageLabel.textColor = AliceColor.green
+//                precentageLabel.text = "\(change.toString(decimal: 3))%"
             } else {
                 animationButton.currentButtonType = .buttonDownBasicType
                 animationButton.tintColor = AliceColor.red
+//                precentageLabel.textColor = AliceColor.red
+//                precentageLabel.text = "\(change.toString(decimal: 3))%"
             }
+        }
+        
+        if isHidden {
+            balanceLabel.text = "**"
+            amountLabel.text = "** \(info.symbol!)"
         }
         
     }

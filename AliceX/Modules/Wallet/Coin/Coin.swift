@@ -78,11 +78,6 @@ enum Coin {
 //    }
     
     var info: CoinInfo? {
-//        return Promise<CoinInfo> { seal in
-//            CoinInfoHelper.shared.fetchingCoin(coin: self).done { coinInfo in
-//                seal.fulfill(coinInfo)
-//            }
-//        }
         
         if CoinInfoHelper.shared.pool.keys.contains(id)  {
             return CoinInfoHelper.shared.pool[id]!

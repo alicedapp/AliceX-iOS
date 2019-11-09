@@ -49,11 +49,18 @@ class AssetNFTCell: UICollectionViewCell {
         }
 
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
-            contractImageView.kf.setImage(with: imageURL)
+            contractImageView.kf.setImage(with: imageURL) { result in
+                switch result {
+                case .success(_):
+                    self.contractImageView.backgroundColor = .clear
+                default:
+                    break
+                }
+            }
         } else {
             contractImageView.image = nil
         }
 
-        contractName.text = model.asset_contract.name
+        contractName.text = model.name
     }
 }

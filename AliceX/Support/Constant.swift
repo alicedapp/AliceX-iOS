@@ -68,12 +68,14 @@ class CacheKey {
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
 
     static let assetNFTKey = "alice.asset.NFT"
-    static let assetERC20Key = "alice.asset.erc20"
+//    static let assetERC20Key = "alice.asset.erc20"
     
     static let watchingList = "alice.asset.watchingList"
     static let unWatchingList = "alice.asset.un.watchingList"
     
     static let blockchainKey = "alice.asset.watchingList"
+    
+    static let coinInfoList = "alice.asset.coinInfoList"
 }
 
 class Constant {

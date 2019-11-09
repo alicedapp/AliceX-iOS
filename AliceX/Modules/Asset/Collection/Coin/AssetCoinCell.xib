@@ -40,6 +40,12 @@
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nI6-bu-dVJ">
+                        <rect key="frame" x="118" y="51" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" name="Alice-Grey"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cb8-w0-lRm">
                         <rect key="frame" x="20" y="15" width="50" height="50"/>
                         <constraints>
@@ -52,7 +58,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-EG-nzG">
                         <rect key="frame" x="80" y="18" width="74" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="afX-eh-s0P"/>
@@ -93,10 +99,12 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="nI6-bu-dVJ" firstAttribute="centerY" secondItem="cCh-y6-twQ" secondAttribute="centerY" id="69d-7U-Cmb"/>
                 <constraint firstItem="bsC-ot-DxO" firstAttribute="centerY" secondItem="cb8-w0-lRm" secondAttribute="centerY" id="6FF-vd-euw"/>
                 <constraint firstItem="T4x-EG-nzG" firstAttribute="top" secondItem="cb8-w0-lRm" secondAttribute="top" constant="3" id="AWM-ec-AyO"/>
                 <constraint firstAttribute="trailing" secondItem="YVV-h6-qhW" secondAttribute="trailing" constant="20" id="Eg1-rV-r4J"/>
                 <constraint firstItem="Yte-V4-hGj" firstAttribute="centerY" secondItem="cCh-y6-twQ" secondAttribute="centerY" id="FOb-hz-bsW"/>
+                <constraint firstItem="nI6-bu-dVJ" firstAttribute="leading" secondItem="cCh-y6-twQ" secondAttribute="trailing" constant="8" id="HHO-F4-P24"/>
                 <constraint firstItem="YVV-h6-qhW" firstAttribute="centerY" secondItem="T4x-EG-nzG" secondAttribute="centerY" id="Ih3-H5-DgS"/>
                 <constraint firstAttribute="bottom" secondItem="gS7-qA-c4a" secondAttribute="bottom" constant="5" id="KDF-6N-05C"/>
                 <constraint firstItem="gS7-qA-c4a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="OVy-zH-66U"/>
@@ -123,6 +131,7 @@
                 <outlet property="coinImageView" destination="cb8-w0-lRm" id="Vdv-Gs-ZnO"/>
                 <outlet property="coinShadow" destination="ebA-E7-xYs" id="fco-ol-LvZ"/>
                 <outlet property="nameLabel" destination="T4x-EG-nzG" id="9qP-cp-cMS"/>
+                <outlet property="precentageLabel" destination="nI6-bu-dVJ" id="FqW-UQ-UO9"/>
                 <outlet property="priceLabel" destination="cCh-y6-twQ" id="XSA-el-ofP"/>
                 <outlet property="typeLabel" destination="bsC-ot-DxO" id="EZb-hD-yef"/>
             </connections>

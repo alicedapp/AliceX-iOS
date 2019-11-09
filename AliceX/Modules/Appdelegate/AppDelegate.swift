@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GasPriceHelper.shared.getGasPrice()
 
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
-
         window = UIWindow(frame: UIScreen.main.bounds)
 //        if #available(iOS 12.0, *) {
 //            window?.backgroundColor = window?.traitCollection.userInterfaceStyle == .dark ? .white : .black
@@ -47,10 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
+            
 //            vc = MnemonicsViewController()
 //            vc = RNModule.makeViewController(module: .alice)
             vc = MainTabViewController()
-            WatchingCoinHelper.shared.loadFromCache()
         } else {
             vc = LandingViewController()
         }
