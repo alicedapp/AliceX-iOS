@@ -21,9 +21,9 @@ extension BrowserViewController: WKScriptMessageHandler {
 
         switch message.name {
         case Method.signPersonalMessage.rawValue:
-            guard var body = message.body as? [String: AnyObject] else { return }
-            var object = body["object"] as? [String: AnyObject]
-            var dataString = object!["data"] as! String
+            guard let body = message.body as? [String: AnyObject] else { return }
+            let object = body["object"] as? [String: AnyObject]
+            let dataString = object!["data"] as! String
             TransactionManager.showSignMessageView(message: dataString) { signData in
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
@@ -31,7 +31,7 @@ extension BrowserViewController: WKScriptMessageHandler {
             print("signMessage")
         case Method.signTransaction.rawValue,
              Method.sendTransaction.rawValue:
-            guard var body = message.body as? [String: AnyObject] else { return }
+            guard let body = message.body as? [String: AnyObject] else { return }
             var transactionJSON = body["object"] as! [String: Any]
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))

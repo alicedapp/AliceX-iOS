@@ -10,30 +10,29 @@ import Foundation
 
 extension SettingViewController: CAAnimationDelegate {
     func changeThemeAnimation() {
-        
         guard let frame = darkSwitch?.superview!.convert(darkSwitch.frame, from: UIApplication.topViewController()?.view) else {
             return
         }
-        
+
         darkSwitch.isUserInteractionEnabled = false
-        
+
         let snapshot = view.snapshot()
         let snapshotView = UIImageView(frame: view.bounds)
         snapshotView.image = snapshot
         snapshotView.tag = 10
         view.addSubview(snapshotView)
-        
+
         view.bringSubviewToFront(darkSwitch)
-        
+
         let switchFrame = CGRect(x: frame.origin.x, y: -frame.origin.y + 30,
                                  width: frame.width,
                                  height: frame.height)
-        
+
         let maskStartBP = UIBezierPath(roundedRect: switchFrame, cornerRadius: 10)
         let maskFinalBP = UIBezierPath(roundedRect: UIScreen.main.bounds, cornerRadius: 1)
 
         let maskLayer = CAShapeLayer()
-        
+
 //        let path = CGMutablePath()
 //        path.addPath(maskFinalBP.cgPath)
 //        path.addPath(maskStartBP.cgPath)
@@ -50,7 +49,7 @@ extension SettingViewController: CAAnimationDelegate {
         maskLayerAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         maskLayerAnimation.delegate = self
         maskLayer.add(maskLayerAnimation, forKey: "path")
-        
+
 //        UIView.animate(withDuration: 0.79999, delay: 0.7998, options: [], animations: {
 //            snapshotView.alpha = 0
 //        }) { (_) in
@@ -58,8 +57,8 @@ extension SettingViewController: CAAnimationDelegate {
 //            snapshotView.removeFromSuperview()
 //        }
     }
-    
-    func animationDidStart(_ anim: CAAnimation) {
+
+    func animationDidStart(_: CAAnimation) {
         if #available(iOS 13.0, *) {
             if darkSwitch.isOn {
                 UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
@@ -68,7 +67,7 @@ extension SettingViewController: CAAnimationDelegate {
             }
         }
     }
-    
+
     func animationDidStop(_: CAAnimation, finished _: Bool) {
         darkSwitch.isUserInteractionEnabled = true
         if let snapshot = view.viewWithTag(10) {

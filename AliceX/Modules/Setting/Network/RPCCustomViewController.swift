@@ -10,17 +10,16 @@ import UIKit
 import web3swift
 
 class RPCCustomViewController: BaseViewController {
-    
     @IBOutlet var deleteButton: UIControl!
     @IBOutlet var namefield: UITextField!
     @IBOutlet var textfield: UITextField!
     @IBOutlet var testLabel: UILabel!
-    
+
     @IBOutlet var updateLabel: UILabel!
-    
+
     var passed: Bool = false
     var testWeb3: web3!
-    
+
     var model: Web3NetModel?
     var isUpdate: Bool = false
 
@@ -33,7 +32,7 @@ class RPCCustomViewController: BaseViewController {
         super.viewWillAppear(animated)
         view.endEditing(true)
     }
-    
+
     class func make(model: Web3NetModel) -> RPCCustomViewController {
         let vc = RPCCustomViewController()
         vc.isUpdate = true
@@ -43,25 +42,25 @@ class RPCCustomViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         deleteButton.isHidden = !isUpdate
         updateLabel.text = isUpdate ? "Update" : "Add"
-        
+
         namefield.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#9D9D9D")])
-        
+
         textfield.attributedPlaceholder = NSAttributedString(string: "URL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#9D9D9D")])
-        
+
         if isUpdate {
             namefield.text = model?.name
             textfield.text = model?.rpcURL
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(addRPCSuccess), name: .customRPCChange, object: nil)
-        
+
 //        NotificationCenter.default.addObserver(self, selector: #selector(addRPCSuccess), name: .updateCustomRPC, object: nil)
         // Do any additional setup after loading the view.
     }
-    
+
     func testFailed() {
         animation()
         testLabel.text = "❌ Failed"
@@ -72,7 +71,7 @@ class RPCCustomViewController: BaseViewController {
             self.testLabel.textColor = UIColor.lightGray
         }
     }
-    
+
     func testSuccess() {
         animation()
         testLabel.text = "✅ Pass"
@@ -93,20 +92,20 @@ class RPCCustomViewController: BaseViewController {
         //        transition.subtype = CATransitionSubtype.fromTop
         //        country2.layer.add(transition, forKey: "country2_animation")
     }
-    
+
     @IBAction func testClicked() {
         guard let string = textfield.text else {
             testFailed()
             passed = false
             return
         }
-        
+
         if string.isEmptyAfterTrim() {
             testFailed()
             passed = false
             return
         }
-        
+
         do {
             guard let url = URL(string: string) else {
                 testFailed()
@@ -121,49 +120,49 @@ class RPCCustomViewController: BaseViewController {
             passed = false
         }
     }
-    
+
     @IBAction func pasteClicked() {
         guard let string = UIPasteboard.general.string else {
             return
         }
         textfield.text = string
     }
-    
+
     @IBAction func addClicked() {
         testClicked()
         if !passed {
             testFailed()
             return
         }
-        
+
         guard let net = testWeb3!.provider.network else {
             testFailed()
             return
         }
-        
+
         let name = namefield.text!.isEmptyAfterTrim() ? "Custom" : namefield.text?.trimed()
         let model = Web3NetModel(name: name,
                                  chainID: Int(net.chainID),
                                  color: UIColor.lightGray.toHexString(),
                                  rpcURL: textfield.text?.trimed())
-        
+
         if isUpdate {
             WalletManager.shared.updateRPC(oldModel: self.model!, newModel: model)
             return
         }
-        
+
         WalletManager.shared.addRPC(model: model)
     }
-    
+
     @objc func addRPCSuccess() {
         HUDManager.shared.showSuccess(text: "Custom RPC Updated")
         backButtonClicked()
     }
-    
+
     func deleteRPC() {
         WalletManager.shared.deleteRPC(model: model!)
     }
-    
+
     @IBAction func deleteButtonClick() {
 //        title: "Alert",
 //        content: "Are you sure, you want delete this RPC?",
@@ -171,11 +170,11 @@ class RPCCustomViewController: BaseViewController {
 //        cancelText: "Cancel"
         let view = BaseAlertView.instanceFromNib(content: "Are you sure, you want delete this RPC?",
                                                  confirmBlock: {
-                                       self.deleteRPC()
+                                                     self.deleteRPC()
         }) {
             HUDManager.shared.dismiss()
         }
-        
+
         HUDManager.shared.showAlertView(view: view,
                                         backgroundColor: .clear,
                                         haptic: .none,

@@ -12,17 +12,17 @@ import Foundation
 func handleAliceURL(url: URL) -> Bool {
     guard let scheme = url.scheme,
         scheme.localizedCaseInsensitiveCompare("alice") == .orderedSame else {
-            return false
+        return false
     }
-    
+
     var dict = [String: String]()
     let components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-    
+
     if components.host == "rn" {
         CallRNModule.deeplinkEvent(url: url.absoluteString)
         return true
     }
-    
+
     if let queryItems = components.queryItems {
         for item in queryItems {
             dict[item.name] = item.value!

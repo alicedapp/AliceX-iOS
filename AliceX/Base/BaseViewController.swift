@@ -7,17 +7,17 @@
 //
 
 import Hero
+import PromiseKit
 import UIKit
 
 class BaseViewController: UIViewController {
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .default
-        }
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if #available(iOS 13.0, *) {
+//            return .darkContent
+//        } else {
+//            return .default
+//        }
+//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,12 +36,12 @@ class BaseViewController: UIViewController {
     }
 
     @IBAction func backButtonClicked() {
-        guard navigationController != nil else {
-            dismiss(animated: true, completion: nil)
+        if let navi = navigationController {
+            navi.popViewController(animated: true)
             return
         }
 
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 
     deinit {
@@ -57,24 +57,22 @@ class BaseViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
+
         if #available(iOS 12.0, *) {
-            
             guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
                 return
             }
-            
+
             let userInterfaceStyle = traitCollection.userInterfaceStyle
             themeDidChange(style: userInterfaceStyle)
-            
+
             CallRNModule.isDarkMode(style: userInterfaceStyle)
         }
     }
-    
+
     @available(iOS 12.0, *)
-    func themeDidChange(style: UIUserInterfaceStyle) {
-    }
+    func themeDidChange(style _: UIUserInterfaceStyle) {}
 }

@@ -14,13 +14,13 @@ class ImportWalletViewController: BaseViewController {
     @IBOutlet var textView: UITextView!
 
     var placeholderLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
         hideKeyboardWhenTappedAround()
         importBtn.hero.id = "importWallet"
-        
+
         textView.delegate = self
         placeholderLabel = UILabel()
         placeholderLabel.text = "Mnemonic"

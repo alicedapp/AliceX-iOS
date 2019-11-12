@@ -7,14 +7,13 @@
 //
 
 import BigInt
+import PromiseKit
 import SPStorkController
 import UIKit
 import web3swift
-import PromiseKit
 
 // TODO: Change all function to Promise
 class TransactionManager {
-    
     static let shared = TransactionManager()
 
     // MARK: - Smart Contract Popup
@@ -41,7 +40,7 @@ class TransactionManager {
                                        functionName: functionName, parameters: parameters,
                                        extraData: extraData, value: value,
                                        abi: abi, gasLimit: gasLimit, success: success)
-        let height = 525 - 34 + Constant.SAFE_BTTOM
+        let height = 525 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -69,7 +68,6 @@ class TransactionManager {
     }
 
     public func etherBalance() -> Promise<String> {
-        
         return Promise<String> { seal in
             guard let address = WalletManager.wallet?.address else {
                 seal.reject(WalletError.accountDoesNotExist)
@@ -79,16 +77,16 @@ class TransactionManager {
                 seal.reject(WalletError.invalidAddress)
                 return
             }
-            
+
             firstly {
                 WalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
-            }.done { (balanceInWeiUnitResult) in
+            }.done { balanceInWeiUnitResult in
                 guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
                                                                                    toUnits: .eth,
                                                                                    decimals: 6, decimalSeparator: ".")
-                    else {
-                        seal.reject(WalletError.conversionFailure)
-                        return
+                else {
+                    seal.reject(WalletError.conversionFailure)
+                    return
                 }
                 seal.fulfill(balanceInEtherUnitStr)
             }
@@ -114,11 +112,10 @@ class TransactionManager {
                                       data: data,
                                       symbol: symbol,
                                       success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         modal.modalPresentationStyle = .overCurrentContext
         topVC?.presentAsStork(modal, height: height)
     }
-
 
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
@@ -148,18 +145,18 @@ class TransactionManager {
 
     // MARK: - Send ERC20
 
-    class func showTokenView(tokenAdress: String,
+    class func showTokenView(token: Coin,
                              toAddress: String,
                              amount: BigUInt,
                              data: Data,
                              success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
-        let modal = SendERC20PopUp.make(tokenAdress: tokenAdress,
+        let modal = SendERC20PopUp.make(token: token,
                                         toAddress: toAddress,
                                         amount: amount,
                                         data: data,
                                         success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -169,7 +166,6 @@ class TransactionManager {
                                data _: Data,
                                password _: String,
                                gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
-        
         return Promise<String> { seal in
             guard let toAddress = EthereumAddress(address),
                 let token = EthereumAddress(tokenAddrss) else {
@@ -178,7 +174,7 @@ class TransactionManager {
 
             let parameters = [toAddress, amount] as [AnyObject]
 
-            firstly{
+            firstly {
                 TransactionManager.writeSmartContract(contractAddress: token.address,
                                                       functionName: "transfer",
                                                       abi: Web3.Utils.erc20ABI,
@@ -205,9 +201,8 @@ class TransactionManager {
                                          gasPrice: GasPrice = GasPrice.average,
                                          gasLimit: TransactionOptions.GasLimitPolicy = .automatic,
                                          notERC20: Bool = true) -> Promise<String> {
-        
         return Promise<String> { seal in
-        
+
             guard let address = WalletManager.wallet?.address else {
                 seal.reject(WalletError.invalidAddress)
                 return
@@ -237,7 +232,7 @@ class TransactionManager {
                 seal.reject(WalletError.contractFailure)
                 return
             }
-            
+
             let gasPrice = gasPrice.wei
             var options = TransactionOptions.defaultOptions
             options.value = notERC20 ? value : nil
@@ -254,25 +249,25 @@ class TransactionManager {
                 seal.reject(WalletError.contractFailure)
                 return
             }
-            
+
             firstly {
                 TransactionManager.shared.checkBalance(amountInDouble: amountInDouble, notERC20: notERC20)
-            }.then { sucess in
+            }.then { _ in
                 tx.sendPromise()
             }.done { result in
                 seal.fulfill(result.hash)
                 let url = PinItem.txURL(network: WalletManager.currentNetwork,
                                         txHash: result.hash).absoluteString
-                let browser = BrowserWrapperViewController.make(urlString:url)
-                
+                let browser = BrowserWrapperViewController.make(urlString: url)
+
                 let pinItem = PinItem.transaction(network: WalletManager.currentNetwork,
                                                   txHash: result.hash,
                                                   title: "Pending Transaction",
                                                   viewcontroller: browser)
                 PendingTransactionHelper.shared.add(item: pinItem)
-                
+
             }.catch { error in
-                
+
 //                if let error = error as? WalletError {
 //                    HUDManager.shared.showError(text: error.errorMessage)
 //                } else if let error = error as? Web3Error {
@@ -280,22 +275,22 @@ class TransactionManager {
 //                } else {
 //                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
 //                }
-                
+
                 seal.reject(error)
             }
         }
     }
-    
+
     func checkBalance(amountInDouble: Double, notERC20: Bool) -> Promise<Bool> {
         return Promise { seal in
             // TODO: Add ERC20 Blanace Check
             if !notERC20 {
                 seal.fulfill(true)
             }
-            
-            firstly{
+
+            firstly {
                 etherBalance()
-            }.done { (etherBalance) in
+            }.done { etherBalance in
                 guard let etherBalanceInDouble = Double(etherBalance) else {
                     seal.reject(WalletError.conversionFailure)
                     return
@@ -311,43 +306,52 @@ class TransactionManager {
         }
     }
 
-    public class func readSmartContract(contractAddress: String, functionName: String,
-                                        abi: String, parameters: [Any], value: String = "0.0") throws -> String {
-        guard let address = WalletManager.wallet?.address else {
-            throw WalletError.invalidAddress
+    public class func readSmartContract(contractAddress: String,
+                                        functionName: String,
+                                        abi: String, parameters: [Any],
+                                        value: String = "0.0") -> Promise<[String : Any]> {
+        
+        return Promise<[String : Any]> { seal in
+            
+            guard let address = WalletManager.wallet?.address else {
+                throw WalletError.invalidAddress
+            }
+
+            guard let walletAddress = EthereumAddress(address) else {
+                throw WalletError.invalidAddress
+            }
+
+            guard let contractAddress = EthereumAddress(contractAddress) else {
+                throw WalletError.invalidAddress
+            }
+
+            let abiVersion = 2
+            let extraData: Data = Data()
+            let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
+            let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
+
+            var options = TransactionOptions.defaultOptions
+            options.value = value == "0.0" ? nil : amount
+            options.from = walletAddress
+            options.gasPrice = .automatic
+            options.gasLimit = .automatic
+            guard let tx = contract!.read(
+                functionName,
+                parameters: parameters as [AnyObject],
+                extraData: extraData,
+                transactionOptions: options
+                ) else {
+                    throw WalletError.contractFailure
+            }
+
+            firstly{
+                tx.callPromise()
+            }.done { result in
+                seal.fulfill(result)
+            }.catch { error in
+                seal.reject(error)
+            }
         }
-
-        guard let walletAddress = EthereumAddress(address) else {
-            throw WalletError.invalidAddress
-        }
-
-        guard let contractAddress = EthereumAddress(contractAddress) else {
-            throw WalletError.invalidAddress
-        }
-
-        let abiVersion = 2
-        let extraData: Data = Data()
-        let contract = WalletManager.web3Net.contract(abi, at: contractAddress, abiVersion: abiVersion)
-        let amount = Web3.Utils.parseToBigUInt(value, units: .eth)
-
-        var options = TransactionOptions.defaultOptions
-        options.value = amount
-        options.from = walletAddress
-        options.gasPrice = .automatic
-        options.gasLimit = .automatic
-        let tx = contract!.read(
-            functionName,
-            parameters: parameters as [AnyObject],
-            extraData: extraData,
-            transactionOptions: options
-        )
-
-        guard let sendResult = try? tx?.call() else {
-            throw WalletError.networkFailure
-        }
-        print(sendResult.keys)
-
-        return ""
     }
 
     // MARK: - Sign Message
@@ -355,7 +359,7 @@ class TransactionManager {
     class func showSignMessageView(message: String, success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SignMessagePopUp.make(message: message, success: success)
-        let height = 420 - 34 + Constant.SAFE_BTTOM
+        let height = 420 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -396,7 +400,7 @@ class TransactionManager {
                                               data: data,
                                               detailObject: detailObject,
                                               success: success)
-        let height = 430 - 34 + Constant.SAFE_BTTOM
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)
     }
 
@@ -448,7 +452,7 @@ class TransactionManager {
                                   keystore: keystore,
                                   account: walletAddress,
                                   password: Setting.password)
-            
+
 //            print(tx.description)
             if detailObject {
                 return tx.toJsonString()

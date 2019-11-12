@@ -1,0 +1,91 @@
+//
+//  CoinListViewController.swift
+//  AliceX
+//
+//  Created by lmcmz on 28/10/19.
+//  Copyright © 2019 lmcmz. All rights reserved.
+//
+
+import UIKit
+import SPStorkController
+
+class CoinListViewController: BaseViewController {
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    
+    var isFromPopup: Bool = false
+
+    var data: [Coin] = []
+    var filteredData: [Coin] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.registerCell(nibName: CoinListCell.nameOfClass)
+        tableView.delegate = self
+        searchBar.delegate = self
+        
+//        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
+//        searchBarBackground?.removeFromSuperview()
+//        searchBar.backgroundColor = .clear
+        searchBar.backgroundImage = UIImage()
+        loadData()
+    }
+    
+    func loadData() {
+        let bundlePath = Bundle.main.path(forResource: "erc20", ofType: "json")
+        let jsonString = try! String(contentsOfFile: bundlePath!)
+        let coinInfoList = [CoinInfo].deserialize(from: jsonString) as! [CoinInfo]
+        let coinList = coinInfoList.compactMap{ $0.coin }
+        let chainList = BlockChain.allCases.compactMap{ Coin.coin(chain: $0) }
+        data = chainList + coinList
+        filteredData = data
+        tableView.reloadData()
+    }
+
+    @IBAction func closeButtonClicked() {
+        if !isFromPopup {
+            backButtonClicked()
+            return
+        }
+
+        guard let navi = self.navigationController else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        navi.dismiss(animated: true, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        SPStorkController.scrollViewDidScroll(scrollView)
+    }
+}
+
+extension CoinListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return filteredData.count
+    }
+
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CoinListCell.nameOfClass)
+            as! CoinListCell
+        let coin = filteredData[indexPath.row]
+        cell.configure(coin: coin)
+        return cell
+    }
+}
+
+extension CoinListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? data : data.filter({(coin: Coin) -> Bool in
+            return coin.info!.name.range(of: searchText, options: .caseInsensitive) != nil ||
+            coin.info!.symbol.range(of: searchText, options: .caseInsensitive) != nil
+        })
+
+        tableView.reloadData()
+    }
+}

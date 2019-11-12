@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoinReOrderViewController" customModule="AliceX" customModuleProvider="target">
+            <connections>
+                <outlet property="ignoreCollectionView" destination="xvX-jd-gII" id="xYl-oi-rsg"/>
+                <outlet property="pinCollectionView" destination="IHA-Vf-V53" id="IxS-jb-dVF"/>
+                <outlet property="view" destination="oZy-Jd-Utd" id="cg1-KF-0nM"/>
+                <outlet property="watchCollectionView" destination="mNw-ZC-geo" id="B1M-AS-bFE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="oZy-Jd-Utd">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTk-T9-dG2">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reorder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7N-Nc-Dwl">
+                            <rect key="frame" x="170.5" y="18.5" width="73.5" height="23"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNn-1p-a9j" customClass="UIControl">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="Fc6-Lo-tRs">
+                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-White"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="6Zz-WQ-nJD"/>
+                                <constraint firstItem="Fc6-Lo-tRs" firstAttribute="centerX" secondItem="rNn-1p-a9j" secondAttribute="centerX" id="Yb0-kL-Ier"/>
+                                <constraint firstItem="Fc6-Lo-tRs" firstAttribute="centerY" secondItem="rNn-1p-a9j" secondAttribute="centerY" id="iLV-qP-oET"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeButtonClick" destination="-1" eventType="touchUpInside" id="NSg-6K-fc9"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeJ-de-ong">
+                            <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="uRi-Wf-bp0"/>
+                            </constraints>
+                        </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-8c-a6e">
+                            <rect key="frame" x="361" y="13.5" width="33" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Sort"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="Alice-White"/>
+                    <constraints>
+                        <constraint firstItem="CeJ-de-ong" firstAttribute="leading" secondItem="RTk-T9-dG2" secondAttribute="leading" id="83D-xi-sgx"/>
+                        <constraint firstAttribute="height" constant="60" id="AEJ-9t-nnB"/>
+                        <constraint firstItem="rNn-1p-a9j" firstAttribute="leading" secondItem="RTk-T9-dG2" secondAttribute="leading" id="AsN-cM-Sd6"/>
+                        <constraint firstAttribute="bottom" secondItem="rNn-1p-a9j" secondAttribute="bottom" id="HEU-sK-TVH"/>
+                        <constraint firstAttribute="trailing" secondItem="jCc-8c-a6e" secondAttribute="trailing" constant="20" id="Msz-ur-Y8I"/>
+                        <constraint firstItem="x7N-Nc-Dwl" firstAttribute="centerX" secondItem="RTk-T9-dG2" secondAttribute="centerX" id="OIf-Zh-V3Y"/>
+                        <constraint firstAttribute="bottom" secondItem="CeJ-de-ong" secondAttribute="bottom" id="RvR-f7-abv"/>
+                        <constraint firstItem="x7N-Nc-Dwl" firstAttribute="centerY" secondItem="RTk-T9-dG2" secondAttribute="centerY" id="ZPE-je-oxv"/>
+                        <constraint firstItem="jCc-8c-a6e" firstAttribute="centerY" secondItem="x7N-Nc-Dwl" secondAttribute="centerY" id="mw0-Ku-dlh"/>
+                        <constraint firstItem="rNn-1p-a9j" firstAttribute="top" secondItem="RTk-T9-dG2" secondAttribute="top" id="nk0-b2-Zgw"/>
+                        <constraint firstAttribute="trailing" secondItem="CeJ-de-ong" secondAttribute="trailing" id="wm8-a9-ppw"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GSc-Ol-hTQ">
+                    <rect key="frame" x="10" y="114" width="394" height="748"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VZ2-Eg-Ol1">
+                            <rect key="frame" x="0.0" y="0.0" width="256" height="748"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuK-eB-TlJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="256" height="184.5"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IHA-Vf-V53" customClass="KDDragAndDropCollectionView" customModule="AliceX" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="35" width="256" height="149.5"/>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="93U-O6-egW">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="woL-Vk-cZ1"/>
+                                                <outlet property="delegate" destination="-1" id="A1B-1L-2Uf"/>
+                                            </connections>
+                                        </collectionView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin coin list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWK-FJ-mFq">
+                                            <rect key="frame" x="84.5" y="8" width="87" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Alice-DarkGrey"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <constraints>
+                                        <constraint firstItem="IHA-Vf-V53" firstAttribute="leading" secondItem="ZuK-eB-TlJ" secondAttribute="leading" id="9iJ-Xn-OAm"/>
+                                        <constraint firstItem="IHA-Vf-V53" firstAttribute="top" secondItem="ZuK-eB-TlJ" secondAttribute="top" constant="35" id="Plp-1i-1qP"/>
+                                        <constraint firstItem="OWK-FJ-mFq" firstAttribute="top" secondItem="ZuK-eB-TlJ" secondAttribute="top" constant="8" id="Roy-yX-Bq0"/>
+                                        <constraint firstAttribute="trailing" secondItem="IHA-Vf-V53" secondAttribute="trailing" id="cH7-bU-z8I"/>
+                                        <constraint firstItem="OWK-FJ-mFq" firstAttribute="centerX" secondItem="ZuK-eB-TlJ" secondAttribute="centerX" id="dfb-QG-oF9"/>
+                                        <constraint firstAttribute="bottom" secondItem="IHA-Vf-V53" secondAttribute="bottom" id="qu5-tf-uki"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ps0-8S-MJc">
+                                    <rect key="frame" x="0.0" y="194.5" width="256" height="553.5"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mNw-ZC-geo" customClass="KDDragAndDropCollectionView" customModule="AliceX" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="35" width="256" height="518.5"/>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YUn-Uv-IJL">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="GwK-UH-nCe"/>
+                                                <outlet property="delegate" destination="-1" id="i2R-QR-Vup"/>
+                                            </connections>
+                                        </collectionView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watching coin list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEF-81-VLb">
+                                            <rect key="frame" x="60.5" y="8" width="135" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Alice-DarkGrey"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <constraints>
+                                        <constraint firstItem="mNw-ZC-geo" firstAttribute="top" secondItem="ps0-8S-MJc" secondAttribute="top" constant="35" id="5C4-tv-tsq"/>
+                                        <constraint firstItem="VEF-81-VLb" firstAttribute="centerX" secondItem="ps0-8S-MJc" secondAttribute="centerX" id="XGd-Tp-3NF"/>
+                                        <constraint firstItem="mNw-ZC-geo" firstAttribute="leading" secondItem="ps0-8S-MJc" secondAttribute="leading" id="amW-h7-3AP"/>
+                                        <constraint firstItem="VEF-81-VLb" firstAttribute="top" secondItem="ps0-8S-MJc" secondAttribute="top" constant="8" id="b63-YU-8ku"/>
+                                        <constraint firstAttribute="bottom" secondItem="mNw-ZC-geo" secondAttribute="bottom" id="j1l-u2-AGE"/>
+                                        <constraint firstAttribute="trailing" secondItem="mNw-ZC-geo" secondAttribute="trailing" id="zar-vi-LJW"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ps0-8S-MJc" firstAttribute="height" secondItem="ZuK-eB-TlJ" secondAttribute="height" multiplier="3" id="0hU-mZ-NNH"/>
+                            </constraints>
+                        </stackView>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Coq-Su-5kL">
+                            <rect key="frame" x="266" y="0.0" width="128" height="748"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-jd-gII" customClass="KDDragAndDropCollectionView" customModule="AliceX" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="35" width="128" height="713"/>
+                                    <color key="backgroundColor" name="Alice-LightBackground"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f49-p2-gkI">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="CAY-D1-oJB"/>
+                                        <outlet property="delegate" destination="-1" id="q5G-dE-hXV"/>
+                                    </connections>
+                                </collectionView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ignore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFO-0A-k7U">
+                                    <rect key="frame" x="40" y="8" width="48.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="xvX-jd-gII" firstAttribute="top" secondItem="Coq-Su-5kL" secondAttribute="top" constant="35" id="0iC-9J-ZFv"/>
+                                <constraint firstItem="wFO-0A-k7U" firstAttribute="centerX" secondItem="Coq-Su-5kL" secondAttribute="centerX" id="6ro-hH-pgz"/>
+                                <constraint firstItem="xvX-jd-gII" firstAttribute="leading" secondItem="Coq-Su-5kL" secondAttribute="leading" id="WCd-yu-5R8"/>
+                                <constraint firstItem="wFO-0A-k7U" firstAttribute="top" secondItem="Coq-Su-5kL" secondAttribute="top" constant="8" id="aNk-OM-RUM"/>
+                                <constraint firstAttribute="trailing" secondItem="xvX-jd-gII" secondAttribute="trailing" id="ngF-S8-U1P"/>
+                                <constraint firstAttribute="bottom" secondItem="xvX-jd-gII" secondAttribute="bottom" id="uQj-S0-qFj"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Coq-Su-5kL" firstAttribute="width" secondItem="VZ2-Eg-Ol1" secondAttribute="width" multiplier="0.5" id="Z9Q-vY-dBz"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="Alice-White"/>
+            <constraints>
+                <constraint firstItem="BJO-ey-44B" firstAttribute="trailing" secondItem="GSc-Ol-hTQ" secondAttribute="trailing" constant="10" id="1As-iU-tTZ"/>
+                <constraint firstItem="RTk-T9-dG2" firstAttribute="leading" secondItem="BJO-ey-44B" secondAttribute="leading" id="2nV-Xq-dHv"/>
+                <constraint firstItem="BJO-ey-44B" firstAttribute="bottom" secondItem="GSc-Ol-hTQ" secondAttribute="bottom" id="3By-jn-4jH"/>
+                <constraint firstItem="RTk-T9-dG2" firstAttribute="top" secondItem="BJO-ey-44B" secondAttribute="top" id="Pup-gM-G1S"/>
+                <constraint firstItem="GSc-Ol-hTQ" firstAttribute="top" secondItem="RTk-T9-dG2" secondAttribute="bottom" constant="10" id="iEe-bs-nkn"/>
+                <constraint firstItem="GSc-Ol-hTQ" firstAttribute="leading" secondItem="BJO-ey-44B" secondAttribute="leading" constant="10" id="tKT-XD-LuP"/>
+                <constraint firstAttribute="trailing" secondItem="RTk-T9-dG2" secondAttribute="trailing" id="uMf-1g-gFT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="BJO-ey-44B"/>
+            <point key="canvasLocation" x="817" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close-dark" width="17" height="17"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

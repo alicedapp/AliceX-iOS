@@ -9,9 +9,9 @@
 import CodePush
 import IQKeyboardManagerSwift
 import React
+import SPStorkController
 import UIKit
 import web3swift
-import SPStorkController
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -31,24 +31,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             PriceHelper.shared.fetchFromCache()
         }
 //        GasPriceHelper.shared.getGasPrice()
-
+        
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
-
+        #if RCT_DEV
+        bridge?.moduleClasses = RCTDevLoadingView.self
+        #endif
+        
         window = UIWindow(frame: UIScreen.main.bounds)
+        
 //        if #available(iOS 12.0, *) {
 //            window?.backgroundColor = window?.traitCollection.userInterfaceStyle == .dark ? .white : .black
 //        } else {
 //            window?.backgroundColor = WalletManager.currentNetwork.color
 //        }
-        
+
         window?.backgroundColor = WalletManager.currentNetwork.backgroundColor
         SPStorkTransitioningDelegate.backgroundColor = WalletManager.currentNetwork.backgroundColor
-        
+
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
+            
 //            vc = MnemonicsViewController()
-            vc = RNModule.makeViewController(module: .alice)
+//            vc = RNModule.makeViewController(module: .alice)
+            vc = MainTabViewController()
         } else {
             vc = LandingViewController()
         }
@@ -59,10 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi = rootVC
 
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
-        
+
         return true
     }
-    
+
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG
             return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
@@ -92,14 +98,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return handleAliceURL(url: url)
     }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
+
+    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let url = userActivity.webpageURL else {
             return false
         }
-        
+
         return handleAliceURL(url: url)
     }
-
 }

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AssetBalanceCell" id="gTV-IL-0wX" customClass="AssetBalanceCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="412" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-AG-hy2">
+                        <rect key="frame" x="20" y="20" width="372" height="180"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345.78" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlV-en-tSJ">
+                                <rect key="frame" x="106.5" y="35" width="159.5" height="62"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="52"/>
+                                <color key="textColor" name="Alice-DarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZn-yg-cDo">
+                                <rect key="frame" x="176" y="100" width="20" height="10"/>
+                                <color key="backgroundColor" name="Alice-Grey"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwX-Se-syC" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                                <rect key="frame" x="292" y="140" width="80" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-2u-BbD">
+                                        <rect key="frame" x="28.5" y="10.5" width="23" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="Alice-White"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5ba-2u-BbD" firstAttribute="centerY" secondItem="XwX-Se-syC" secondAttribute="centerY" id="VdB-Vm-56a"/>
+                                    <constraint firstItem="5ba-2u-BbD" firstAttribute="centerX" secondItem="XwX-Se-syC" secondAttribute="centerX" id="WMZ-ZJ-3vz"/>
+                                    <constraint firstAttribute="height" constant="40" id="uCc-ff-kEi"/>
+                                    <constraint firstAttribute="width" secondItem="XwX-Se-syC" secondAttribute="height" multiplier="2:1" id="xST-Cb-dh7"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="hidenButtonClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="4zC-ul-tKb"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7J-NE-uzI" customClass="VBFPopFlatButton">
+                                <rect key="frame" x="274" y="50.5" width="31" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLX-JO-U06" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="140" width="80" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇺🇸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz7-uB-o1f">
+                                        <rect key="frame" x="28.5" y="10.5" width="23" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="Alice-White"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fz7-uB-o1f" firstAttribute="centerY" secondItem="WLX-JO-U06" secondAttribute="centerY" id="9mX-DY-uMr"/>
+                                    <constraint firstItem="fz7-uB-o1f" firstAttribute="centerX" secondItem="WLX-JO-U06" secondAttribute="centerX" id="QEl-Nx-TPH"/>
+                                    <constraint firstAttribute="height" constant="40" id="ovu-Ry-nzS"/>
+                                    <constraint firstAttribute="width" secondItem="WLX-JO-U06" secondAttribute="height" multiplier="2:1" id="qqs-P2-dz4"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="currencyButtonClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="hCF-BF-D0f"/>
+                                </connections>
+                            </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-7A-RII">
+                                <rect key="frame" x="86.5" y="61" width="12" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" name="Alice-DarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-31-x3I">
+                                <rect key="frame" x="186" y="105" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" name="Alice-Grey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XwX-Se-syC" secondAttribute="bottom" id="6qm-E2-yIK"/>
+                            <constraint firstItem="S7T-31-x3I" firstAttribute="centerX" secondItem="WOu-AG-hy2" secondAttribute="centerX" id="77Y-bG-g2L"/>
+                            <constraint firstItem="VZn-yg-cDo" firstAttribute="leading" secondItem="S7T-31-x3I" secondAttribute="leading" constant="-10" id="8X1-nD-dwB"/>
+                            <constraint firstItem="VZn-yg-cDo" firstAttribute="trailing" secondItem="S7T-31-x3I" secondAttribute="trailing" constant="10" id="BzA-4E-1Kn"/>
+                            <constraint firstItem="WLX-JO-U06" firstAttribute="leading" secondItem="WOu-AG-hy2" secondAttribute="leading" id="Epj-CI-RFE"/>
+                            <constraint firstItem="d7J-NE-uzI" firstAttribute="width" secondItem="NlV-en-tSJ" secondAttribute="height" multiplier="1:2" id="FFo-kY-f4o"/>
+                            <constraint firstItem="S7T-31-x3I" firstAttribute="top" secondItem="NlV-en-tSJ" secondAttribute="bottom" constant="8" id="J3V-yi-JOs"/>
+                            <constraint firstItem="VZn-yg-cDo" firstAttribute="bottom" secondItem="S7T-31-x3I" secondAttribute="bottom" constant="5" id="JiW-qJ-u9O"/>
+                            <constraint firstItem="NlV-en-tSJ" firstAttribute="centerX" secondItem="WOu-AG-hy2" secondAttribute="centerX" id="N5a-mG-0Sk"/>
+                            <constraint firstItem="d7J-NE-uzI" firstAttribute="leading" secondItem="NlV-en-tSJ" secondAttribute="trailing" constant="8" id="T5C-FI-UIQ"/>
+                            <constraint firstItem="NlV-en-tSJ" firstAttribute="top" secondItem="WOu-AG-hy2" secondAttribute="top" constant="35" id="chL-yv-nwN"/>
+                            <constraint firstItem="WLX-JO-U06" firstAttribute="width" secondItem="WLX-JO-U06" secondAttribute="height" multiplier="2:1" id="gTf-CY-JtL"/>
+                            <constraint firstItem="VZn-yg-cDo" firstAttribute="top" secondItem="S7T-31-x3I" secondAttribute="top" constant="-5" id="k8p-5z-Giq"/>
+                            <constraint firstItem="d7J-NE-uzI" firstAttribute="centerY" secondItem="NlV-en-tSJ" secondAttribute="centerY" id="kE5-YW-UVO"/>
+                            <constraint firstItem="d7J-NE-uzI" firstAttribute="height" secondItem="NlV-en-tSJ" secondAttribute="height" multiplier="0.5" id="oLq-jK-wI7"/>
+                            <constraint firstItem="6y0-7A-RII" firstAttribute="bottom" secondItem="NlV-en-tSJ" secondAttribute="bottom" constant="-10" id="oNF-tt-e7s"/>
+                            <constraint firstAttribute="bottom" secondItem="WLX-JO-U06" secondAttribute="bottom" id="p2E-AY-oeH"/>
+                            <constraint firstItem="NlV-en-tSJ" firstAttribute="leading" secondItem="6y0-7A-RII" secondAttribute="trailing" constant="8" id="qh8-c2-com"/>
+                            <constraint firstAttribute="trailing" secondItem="XwX-Se-syC" secondAttribute="trailing" id="zJG-PF-Quh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="WOu-AG-hy2" secondAttribute="bottom" constant="20" id="Bbz-5T-C6d"/>
+                <constraint firstItem="WOu-AG-hy2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="bPH-ba-sle"/>
+                <constraint firstItem="WOu-AG-hy2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="g7w-oc-KZh"/>
+                <constraint firstAttribute="trailing" secondItem="WOu-AG-hy2" secondAttribute="trailing" constant="20" id="hI2-x1-ztk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="412" height="222"/>
+            <connections>
+                <outlet property="animationButton" destination="d7J-NE-uzI" id="Gl3-uh-EqN"/>
+                <outlet property="balanceLabel" destination="NlV-en-tSJ" id="tQf-p3-usX"/>
+                <outlet property="currencyButton" destination="WLX-JO-U06" id="6zp-lQ-n0m"/>
+                <outlet property="currencyLabel" destination="fz7-uB-o1f" id="xPR-Qx-HMl"/>
+                <outlet property="hideButton" destination="XwX-Se-syC" id="8K0-l1-LKo"/>
+                <outlet property="hideLabel" destination="5ba-2u-BbD" id="NQR-8g-Nhn"/>
+                <outlet property="timeLabel" destination="S7T-31-x3I" id="hs0-nQ-zei"/>
+            </connections>
+            <point key="canvasLocation" x="400.00000000000006" y="169.41964285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

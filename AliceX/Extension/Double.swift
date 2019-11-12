@@ -25,13 +25,18 @@ extension Double {
         }
         return string
     }
-    
+
     func removeZerosFromEnd() -> String {
         let formatter = NumberFormatter()
         let number = NSNumber(value: self)
         formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
+        formatter.maximumFractionDigits = 16 // maximum digits in Double after dot (maximum precision)
         return String(formatter.string(from: number) ?? "")
+    }
+    
+    var currencyString: String {
+        let currency = PriceHelper.shared.currentCurrency
+        return "\(currency.rawValue) \(currency.symbol) \(rounded(toPlaces: 3))"
     }
 }
 

@@ -17,7 +17,7 @@ enum PinItem {
     case dapplet(image: UIImage, url: URL, title: String, viewcontroller: UIViewController)
     case transaction(network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
     case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
-    
+
     var txHash: String {
         switch self {
         case .transaction(_, let txHash, _, _):
@@ -26,16 +26,16 @@ enum PinItem {
             return ""
         }
     }
-    
+
     var isWalletConnect: Bool {
         switch self {
-        case .walletConnect(_, _, _, _):
+        case .walletConnect:
             return true
         default:
             return false
         }
     }
-    
+
     var wcKey: String {
         switch self {
         case .walletConnect(_, let key, _, _):
@@ -44,7 +44,7 @@ enum PinItem {
             return ""
         }
     }
-    
+
     var network: Web3NetEnum {
         switch self {
         case .transaction(let network, _, _, _):
@@ -53,7 +53,7 @@ enum PinItem {
             return .main
         }
     }
-    
+
     var URL: URL? {
         switch self {
         case .transaction(let network, let txHash, _, _):
@@ -69,21 +69,21 @@ enum PinItem {
             return url
         case .website(_, let url, _, _):
             return url
-        case .walletConnect(_, _, _, _):
+        case .walletConnect:
             return nil
         }
     }
-    
+
     var vc: UIViewController {
         switch self {
-        case .dapplet(_, _, _, let vc),
-             .transaction(_, _, _, let vc),
-             .website(_, _, _, let vc),
-             .walletConnect(_, _, _, let vc):
+        case let .dapplet(_, _, _, vc),
+             let .transaction(_, _, _, vc),
+             let .website(_, _, _, vc),
+             let .walletConnect(_, _, _, vc):
             return vc
         }
     }
-    
+
     static func txURL(network: Web3NetEnum, txHash: String) -> URL {
         if !network.isUsingInfura {
             return network.rpcURL
@@ -97,11 +97,10 @@ enum PinItem {
 }
 
 extension PinItem: Hashable, Equatable {
-    
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.vc == rhs.vc
     }
-    
+
     var hashValue: Int {
         switch self {
         case .website(_, let url, _, _):
@@ -114,7 +113,7 @@ extension PinItem: Hashable, Equatable {
             return id.hashValue
         }
     }
-    
+
     func hash(into hasher: inout Hasher) {
         switch self {
         case .website(_, let url, _, _):

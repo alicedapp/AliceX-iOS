@@ -17,7 +17,7 @@ class BrowserWrapperViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
     class func make(urlString: String) -> BrowserWrapperViewController {
         let vc = BrowserWrapperViewController()
         vc.urlString = urlString
@@ -59,7 +59,6 @@ class BrowserWrapperViewController: BaseViewController {
 
 extension BrowserWrapperViewController: PinDelegate {
     func pinItem() -> PinItem {
-        
         return .website(image: vc.hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5")),
                         url: vc.webview.url!,
                         title: vc.webview.title ?? vc.webview.url!.absoluteString,

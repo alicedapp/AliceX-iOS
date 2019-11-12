@@ -40,13 +40,13 @@ extension Ethplorer: TargetType {
 
     var path: String {
         switch self {
-        case .getAddressInfo(let address):
+        case let .getAddressInfo(address):
             return "getAddressInfo/\(address)"
-        case .getTokenInfo(let address):
+        case let .getTokenInfo(address):
             return "getTokenInfo/\(address)"
-        case .getTxInfo(let hash):
+        case let .getTxInfo(hash):
             return "getTxInfo/\(hash)"
-        case .getAddressHistory(let address):
+        case let .getAddressHistory(address):
             return "/getAddressTransactions/\(address)"
         case .getTop:
             return "/getTop"

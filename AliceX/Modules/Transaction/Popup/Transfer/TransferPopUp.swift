@@ -14,19 +14,30 @@ class TransferPopUp: UIViewController {
     @IBOutlet var addressField: UITextField!
     @IBOutlet var valueField: UITextField!
 
+    @IBOutlet var balanceTextLabel: UILabel!
+    @IBOutlet var balanceLabel: UILabel!
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var priceTextLabel: UILabel!
+    
+    @IBOutlet var symbolLabel: UILabel!
+    @IBOutlet var symbolImageView: UIImageView!
 
     @IBOutlet var containView: UIView!
     @IBOutlet var bgView: UIView!
 
     var address: String?
     var value: BigUInt!
-
-    class func make(address: String?, value: BigUInt! = BigUInt(0)) -> TransferPopUp {
+    var coin: Coin = Coin.coin(chain: .Ethereum)
+    
+    var amount: BigUInt! = BigUInt(0)
+    
+    class func make(address: String?, value: BigUInt! = BigUInt(0), coin: Coin = .coin(chain: .Ethereum)) -> TransferPopUp {
         let vc = TransferPopUp()
         vc.value = value
         vc.address = address
+        vc.coin = coin
         return vc
     }
 
@@ -34,7 +45,20 @@ class TransferPopUp: UIViewController {
         super.viewDidLoad()
         addressField.text = address
         valueField.text = value.readableValue
+        
+//        symbolLabel.text = coin.
+        symbolLabel.text = coin.info!.symbol
+        symbolImageView.kf.setImage(with: coin.image)
+        
         valueFieldDidChange(valueField)
+        
+        if let info = coin.info, let amountStr = info.amount,
+            let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
+            balanceLabel.text = amount
+        } else {
+            balanceLabel.text = "0.0"
+        }
+        
     }
 
     override func viewWillAppear(_: Bool) {
@@ -88,6 +112,17 @@ class TransferPopUp: UIViewController {
         })
     }
 
+    @IBAction func maxBtnClicked() {
+        if let info = coin.info, let amountStr = info.amount,
+            let bigAmount = BigUInt(amountStr),
+            let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
+            valueField.text = amount
+            self.amount = bigAmount
+        } else {
+            balanceLabel.text = "0.0"
+        }
+    }
+    
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
         guard let ethAddress = address?.ethAddress else {
@@ -112,31 +147,58 @@ class TransferPopUp: UIViewController {
             errorAlert(text: "Addess invalid")
             return
         }
+        
+        // TODO
+//        guard let amount = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
+//            errorAlert(text: "Value invalid")
+//            return
+//        }
 
-        guard let amount = Web3Utils.parseToBigUInt(valueField.text!, units: .eth) else {
-            errorAlert(text: "Value invalid")
-            return
-        }
-
-        if amount <= 0 {
+        if self.amount <= 0 {
             errorAlert(text: "Can't be zero")
             return
         }
 
-        TransactionManager.showPaymentView(toAddress: ethAddress.address,
-                                           amount: amount,
-                                           data: Data(),
-                                           symbol: "ETH") { _ in
-            self.cancelBtnClicked()
+        if coin.type == "ERC20" {
+            TransactionManager.showTokenView(token: coin,
+                                             toAddress: ethAddress.address,
+                                             amount: amount, data: Data()) { _ in
+                                                self.cancelBtnClicked()
+            }
+        } else {
+            TransactionManager.showPaymentView(toAddress: ethAddress.address,
+                                               amount: self.amount,
+                                               data: Data(),
+                                               symbol: "ETH") { _ in
+                self.cancelBtnClicked()
+            }
         }
     }
 
     @IBAction func valueFieldDidChange(_ textField: UITextField) {
-        guard let text = textField.text, let amount = Float(text) else {
+        guard let text = textField.text, let amount = Double(text) else {
             return
         }
-        let price = amount * PriceHelper.shared.exchangeRate
-        priceLabel.text = price.currencyString
+        
+        guard let info = coin.info, let price = info.price else {
+            priceLabel.text = "price"
+            return
+        }
+        
+        let finalPrice = amount * price
+        priceLabel.text = finalPrice.currencyString
+        
+        guard let decimals = info.decimals else {
+            errorAlert(text: "Decimals invalid")
+            return
+        }
+        
+        guard let amountBigInt = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
+            errorAlert(text: "Value invalid")
+            return
+        }
+        
+        self.amount = amountBigInt
     }
 
     // MARK: Error

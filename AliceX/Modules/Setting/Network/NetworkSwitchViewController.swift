@@ -6,9 +6,9 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import SPStorkController
 import SwiftEntryKit
 import UIKit
-import SPStorkController
 
 class NetworkSwitchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
@@ -22,16 +22,16 @@ class NetworkSwitchViewController: UIViewController {
         tableView.dataSource = self
         tableView.registerCell(nibName: NetworkTableViewCell.nameOfClass)
         tableView.registerCell(nibName: CustomNetworkCell.nameOfClass)
-        
+
         tableView.registerHeaderFooter(nibName: RPCCustomFooterView.nameOfClass)
 
         let index = data.firstIndex(of: WalletManager.currentNetwork) ?? 0
         let indexPath = IndexPath(row: index, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(addRPC), name: .customRPCChange, object: nil)
     }
-    
+
     @objc func addRPC() {
         data = Web3NetEnum.allCases
         tableView.reloadData()
@@ -39,7 +39,7 @@ class NetworkSwitchViewController: UIViewController {
         let indexPath = IndexPath(row: index, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
     }
@@ -55,16 +55,15 @@ extension NetworkSwitchViewController: UITableViewDataSource, UITableViewDelegat
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let net = data[indexPath.row]
-        
+
         if net.isCustom {
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomNetworkCell.nameOfClass) as! CustomNetworkCell
             let netName = data[indexPath.row]
             cell.configure(network: netName)
             return cell
         }
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: NetworkTableViewCell.nameOfClass)
             as! NetworkTableViewCell
         let netName = data[indexPath.row]
@@ -76,11 +75,11 @@ extension NetworkSwitchViewController: UITableViewDataSource, UITableViewDelegat
         let network = data[indexPath.row]
         WalletManager.updateNetworkSelection(type: network)
     }
-    
+
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
         return 100
     }
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection _: Int) -> UIView? {
         var footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RPCCustomFooterView.nameOfClass)
         if footerView == nil {

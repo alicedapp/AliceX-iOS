@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import WalletConnectSwift
 import PromiseKit
+import WalletConnectSwift
 
 protocol WCClientDelegate {
     func failedToConnect()
@@ -16,9 +16,7 @@ protocol WCClientDelegate {
     func didDisconnect()
 }
 
-
 class WCClient {
-
     var isConnecting: Bool = false
     var client: Client!
     var session: Session!
@@ -32,10 +30,10 @@ class WCClient {
     func connect() -> Promise<String> {
         return Promise<String> { seal in
             let aliceLogo = URL(string: "https://static1.squarespace.com/static/5c62768baf4683e94383848a/t/5ceca03be2c4834cdc18a838/1568564936191/?format=1500w")!
-            
-            let wcUrl =  WCURL(topic: UUID().uuidString,
-                               bridgeURL: URL(string: "https://bridge.walletconnect.org")!,
-                               key: try! randomKey())
+
+            let wcUrl = WCURL(topic: UUID().uuidString,
+                              bridgeURL: URL(string: "https://bridge.walletconnect.org")!,
+                              key: try! randomKey())
             let clientMeta = Session.ClientMeta(name: "Alice",
                                                 description: "Alice Crypto Wallet Wallet Connect Service",
                                                 icons: [aliceLogo],
@@ -43,7 +41,7 @@ class WCClient {
             let dAppInfo = Session.DAppInfo(peerId: UUID().uuidString, peerMeta: clientMeta)
             client = Client(delegate: self, dAppInfo: dAppInfo)
             print("WalletConnect URL: \(wcUrl.absoluteString)")
-            
+
             do {
                 try client.connect(to: wcUrl)
                 seal.fulfill(wcUrl.absoluteString)
@@ -52,16 +50,16 @@ class WCClient {
             }
         }
     }
-    
+
     func connect() -> String {
         // gnosis wc bridge: https://safe-walletconnect.gnosis.io
         // test bridge with latest protocol version: https://bridge.walletconnect.org
-        
+
         let aliceLogo = URL(string: "https://static1.squarespace.com/static/5c62768baf4683e94383848a/t/5ceca03be2c4834cdc18a838/1568564936191/?format=1500w")!
-        
-        let wcUrl =  WCURL(topic: UUID().uuidString,
-                           bridgeURL: URL(string: "https://bridge.walletconnect.org")!,
-                           key: try! randomKey())
+
+        let wcUrl = WCURL(topic: UUID().uuidString,
+                          bridgeURL: URL(string: "https://bridge.walletconnect.org")!,
+                          key: try! randomKey())
         let clientMeta = Session.ClientMeta(name: "Alice",
                                             description: "Alice Wallet Connect ",
                                             icons: [aliceLogo],
@@ -69,7 +67,7 @@ class WCClient {
         let dAppInfo = Session.DAppInfo(peerId: UUID().uuidString, peerMeta: clientMeta)
         client = Client(delegate: self, dAppInfo: dAppInfo)
         print("WalletConnect URL: \(wcUrl.absoluteString)")
-        
+
         do {
             try client.connect(to: wcUrl)
         } catch {
@@ -100,43 +98,40 @@ class WCClient {
             throw TestError.unknown
         }
     }
-
 }
 
 extension WCClient: ClientDelegate {
-
-    func client(_ client: Client, didFailToConnect url: WCURL) {
+    func client(_: Client, didFailToConnect _: WCURL) {
         delegate.failedToConnect()
-        self.isConnecting = false
+        isConnecting = false
     }
 
-    func client(_ client: Client, didConnect session: Session) {
+    func client(_: Client, didConnect session: Session) {
         self.session = session
         let sessionData = try! JSONEncoder().encode(session)
         UserDefaults.standard.set(sessionData, forKey: sessionKey)
         delegate.didConnect()
-        self.isConnecting = true
+        isConnecting = true
     }
 
-    func client(_ client: Client, didDisconnect session: Session) {
+    func client(_: Client, didDisconnect _: Session) {
         UserDefaults.standard.removeObject(forKey: sessionKey)
         delegate.didDisconnect()
-        self.isConnecting = false
+        isConnecting = false
     }
-    
+
     func client(_ client: Client, didReciveAliceSocket request: Request) {
         guard let walletConnect = WCClientHelper.shared.walletConnect,
-        let client = walletConnect.client else {
+            let client = walletConnect.client else {
             return
         }
 //        let wcURL = walletConnect.session.url
-        
+
         do {
             let message = try request.parameter(of: String.self, at: 0)
             CallRNModule.walletConnectEvent(rawData: message)
         } catch {
             HUDManager.shared.showError(text: "Handle message failed")
         }
-
     }
 }

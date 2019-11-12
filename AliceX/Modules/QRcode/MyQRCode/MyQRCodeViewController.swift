@@ -9,15 +9,14 @@
 import UIKit
 
 class MyQRCodeViewController: BaseViewController {
-    
     @IBOutlet var container: UIView!
     @IBOutlet var shareConver: UIView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var qrcodeView: UIImageView!
 //    @IBOutlet weak var lightButton: UIImageView!
-    
+
 //    var address: String!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +27,7 @@ class MyQRCodeViewController: BaseViewController {
                                                size: qrcodeView.bounds.size,
                                                qrColor: UIColor.black,
                                                bkColor: UIColor.white)
-        
+
         qrcodeView.image = qrcode
 
         let halfLength = address.count / 2
@@ -41,7 +40,7 @@ class MyQRCodeViewController: BaseViewController {
     @IBAction func backBtnWithHUDManager() {
         HUDManager.shared.dismiss()
     }
-    
+
     @IBAction func copyBtnClicked() {
         UIPasteboard.general.string = WalletManager.wallet?.address
     }
@@ -50,7 +49,7 @@ class MyQRCodeViewController: BaseViewController {
         shareConver.isHidden = false
         let image = container.snapshot()
         HUDManager.shared.dismiss()
-        SwiftHelper.share(text: WalletManager.wallet!.address, image: image, urlString: "")
+        ShareHelper.share(text: WalletManager.wallet!.address, image: image, urlString: "")
         shareConver.isHidden = true
     }
 }

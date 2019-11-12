@@ -9,11 +9,10 @@
 import Foundation
 
 class SingleButtonAlertView: UIView {
-    
     @IBOutlet var titleView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
-    
+
     class func make(content: String, isAlert: Bool = false) -> SingleButtonAlertView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! SingleButtonAlertView
         view.titleLabel.text = isAlert ? "Alert" : "Error"
@@ -21,7 +20,7 @@ class SingleButtonAlertView: UIView {
         view.titleView.backgroundColor = isAlert ? AliceColor.dark : AliceColor.red
         return view
     }
-    
+
     @IBAction func click() {
         HUDManager.shared.dismiss()
     }

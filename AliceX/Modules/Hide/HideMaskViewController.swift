@@ -9,9 +9,8 @@
 import UIKit
 
 class HideMaskViewController: BaseViewController {
-    
     @IBOutlet var blurMask: UIVisualEffectView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,7 +30,7 @@ class HideMaskViewController: BaseViewController {
             self.view.alpha = 0
         }
     }
-    
+
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
         switch style {

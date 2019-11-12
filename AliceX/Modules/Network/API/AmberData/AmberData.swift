@@ -12,55 +12,74 @@ import Moya
 // Doc Address: https://docs.amberdata.io/reference#get-transaction
 
 enum AmberData {
-    case getTransactions(hash: String, network:Web3NetEnum)
+    case getTransactions(hash: String, blokchain: BlockChain)
+    case tokenPrice(address: String, currency: Currency)
+    case accountBalance(address: String, blockchain: BlockChain)
+    case tokens(address: String)
 }
 
 extension AmberData: TargetType {
+    
     var headers: [String: String]? {
-        
-        var keys: NSDictionary?
-        guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist") else {
+        guard let path = Bundle.main.path(forResource: "env", ofType: "json") else {
             return nil
         }
-        keys = NSDictionary(contentsOfFile: path)
-        
-//        "Content-Type": "application/json",
-        var dict = ["x-api-key": keys!["AmberDataAPIKey"] as! String]
-        
-        switch self {
-        case .getTransactions(_, let network):
-            dict["x-amberdata-blockchain-id"] = String(network.chainID)
-            return dict
+    
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            if let jsonResult = jsonResult as? Dictionary<String, Any>,
+                let apiKey = jsonResult["amberdata"] as? String {
+                var dict = ["x-api-key": apiKey]
+                switch self {
+                case let .getTransactions(_, chain):
+                    dict["x-amberdata-blockchain-id"] = chain.amberDataID
+                    return dict
+                case let .accountBalance(_, chain):
+                    dict["x-amberdata-blockchain-id"] = chain.amberDataID
+                    return dict
+                default:
+                    return dict
+                }
+             }
+        } catch {
+            return nil
         }
+        
+        return nil
     }
-    
+
     var baseURL: URL {
-        return URL(string: "https://web3api.io/api/v1/")!
+        return URL(string: "https://web3api.io/api/v2/")!
     }
-    
+
     var path: String {
         switch self {
-        case .getTransactions(let hash, _):
+        case .getTransactions(let hash):
             return "transactions/\(hash)"
-        default:
-            return ""
+        case let .tokenPrice(address, _):
+            return "market/tokens/prices/\(address)/latest"
+        case let .accountBalance(address, _):
+            return "addresses/\(address)/account-balances/latest"
+        case let .tokens(address):
+            return "addresses/\(address)/tokens"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         default:
             return .get
         }
     }
-    
+
     var task: Task {
         switch self {
         default:
             return .requestPlain
         }
     }
-    
+
     var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!
     }

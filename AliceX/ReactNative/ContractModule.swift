@@ -25,6 +25,11 @@ class ContractModule: NSObject {
                 HUDManager.shared.showError(text: "Parameters is invaild")
                 return
             }
+            
+            let tx = try! TransactionManager.readSmartContract(contractAddress: contractAddress,
+                                                              functionName: "getOrder",
+                                                              abi: abi,
+                                                              parameters: [])
 
             TransactionManager.showContractWriteView(contractAddress: contractAddress,
                                                      functionName: functionName,

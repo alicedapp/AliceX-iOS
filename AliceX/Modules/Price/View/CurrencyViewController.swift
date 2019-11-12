@@ -6,13 +6,14 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import SPStorkController
+import UIKit
 
 class CurrencyViewController: BaseViewController {
     @IBOutlet var tableView: UITableView!
 
     var data: [Currency] = Currency.allCases
+    var isFromPopup: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,22 @@ class CurrencyViewController: BaseViewController {
         let indexPath = IndexPath(row: index!, section: 0)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
+    }
+
+    @IBAction func closeButtonClicked() {
+        if !isFromPopup {
+            backButtonClicked()
+            return
+        }
+
+        guard let navi = self.navigationController else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        navi.dismiss(animated: true, completion: nil)
     }
 }
 

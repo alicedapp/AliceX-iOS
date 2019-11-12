@@ -13,13 +13,13 @@ class BrowserPanelView: BaseView {
 
     @IBOutlet var networkImage: UIImageView!
     @IBOutlet var networkLabel: UILabel!
-    
+
     override class func instanceFromNib() -> BrowserPanelView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BrowserPanelView
         view.configure()
         return view
     }
-    
+
     override func configure() {
         if WalletManager.currentNetwork != .main {
             let newImage = networkImage.image?.filled(with: WalletManager.currentNetwork.color)
@@ -38,9 +38,9 @@ class BrowserPanelView: BaseView {
 
     @IBAction func shareButton() {
         HUDManager.shared.dismiss()
-        SwiftHelper.share(text: "", image: nil, urlString: vcRef?.webview.url?.absoluteString)
+        ShareHelper.share(text: "", image: nil, urlString: vcRef?.webview.url?.absoluteString)
     }
-    
+
     @IBAction func pinButton() {
         guard let ref = self.vcRef, let wrapper = ref.wrapper else {
             return

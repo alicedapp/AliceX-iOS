@@ -22,14 +22,14 @@ class CallRNModule: RCTEventEmitter {
     static let pendingTxComplete = "pendingTxComplete"
     static let walletConnectKey = "walletconnect"
     static let isDarkMode = "isDarkMode"
-    
+
     // MARK: RCTEventEmitter
 
     override init() {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChange),
                                                name: UIDevice.orientationDidChangeNotification, object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(pendingTxComplete), name: .removePendingTransaction, object: nil)
     }
 
@@ -106,7 +106,7 @@ class CallRNModule: RCTEventEmitter {
         let dappletInfo: [String: Any] = [dappletKey: message]
         rnEventEmitter.sendEvent(withName: aliceEvent, body: dappletInfo)
     }
-    
+
     // WalletConnect
     static func walletConnectEvent(rawData: String) {
         guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
@@ -116,7 +116,7 @@ class CallRNModule: RCTEventEmitter {
         let dappletInfo: [String: Any] = [walletConnectKey: rawData]
         rnEventEmitter.sendEvent(withName: aliceEvent, body: dappletInfo)
     }
-    
+
     // Pending TX
     @objc func pendingTxComplete(noti: Notification) {
         guard let userInfo = noti.userInfo,
@@ -124,28 +124,29 @@ class CallRNModule: RCTEventEmitter {
             let isSuccess = userInfo["isSuccess"] else {
             return
         }
-        
+
         guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
             print("CallRNModule - Failed to bridge")
             return
         }
-        
+
         let pinItem = item as! PinItem
         let success = isSuccess as! Bool
-        
-        let body = ["txHash": pinItem.txHash, "isSuccess": success] as [String : Any]
+
+        let body = ["txHash": pinItem.txHash, "isSuccess": success] as [String: Any]
         let info: [String: Any] = [CallRNModule.pendingTxComplete: body]
         rnEventEmitter.sendEvent(withName: CallRNModule.aliceEvent, body: info)
     }
-    
-    //MARK: - Theme Mode Change
+
+    // MARK: - Theme Mode Change
+
     @available(iOS 12.0, *)
     static func isDarkMode(style: UIUserInterfaceStyle) {
         guard let rnEventEmitter = AppDelegate.rnBridge().module(forName: "CallRNModule") as? CallRNModule else {
             print("CallRNModule - Failed to bridge")
             return
         }
-        let info: [String: Any] = [isDarkMode : style == .dark]
+        let info: [String: Any] = [isDarkMode: style == .dark]
         rnEventEmitter.sendEvent(withName: aliceEvent, body: info)
     }
 }

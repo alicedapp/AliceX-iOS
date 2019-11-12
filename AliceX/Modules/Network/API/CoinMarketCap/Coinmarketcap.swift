@@ -11,12 +11,13 @@ import Moya
 
 typealias SuccessCallback = ((Response) -> Void)
 
-let coinMarketCapAPI = MoyaProvider<CoinMarketCap>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let coinMarketCapAPI = MoyaProvider<CoinMarketCap>()
+//NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
 
 // Due to Coinmarketcap plan, just support ETH in
 enum CoinMarketCap {
     case latest(currency: Currency)
+    case quote(currency: Currency)
 }
 
 extension CoinMarketCap: TargetType {
@@ -33,6 +34,8 @@ extension CoinMarketCap: TargetType {
         switch self {
         case .latest:
             return "v1/cryptocurrency/listings/latest"
+        case .quote:
+            return "v1/cryptocurrency/quotes/latest"
         }
     }
 
@@ -47,6 +50,12 @@ extension CoinMarketCap: TargetType {
         switch self {
         case let .latest(currency):
             let dict = ["start": 2, "limit": 1, "convert": currency.rawValue] as [String: Any]
+            return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
+
+        case let .quote(currency):
+            let array = BlockChain.allCases.compactMap { String($0.coinMaeketCapID) }
+            let ids = array.joined(separator: ",")
+            let dict = ["id": ids, "convert": currency.rawValue] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }

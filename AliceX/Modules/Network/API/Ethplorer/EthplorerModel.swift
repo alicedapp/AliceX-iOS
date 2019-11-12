@@ -54,7 +54,7 @@ struct PriceInfo: HandyJSON {
 
 struct TokenArrayItem: HandyJSON {
     var tokenInfo: TokenInfo!
-    var balance: String!
+    var balance: Double!
     var totalIn: Int!
     var totalOut: Int!
 
@@ -75,7 +75,14 @@ struct AddressInfo: HandyJSON {
     var tokens: [TokenArrayItem]!
     var tokenInfo: TokenInfo?
 
+    var error: ETHExploerError?
+    
     init() {}
+}
+
+struct ETHExploerError: HandyJSON {
+    var message: String!
+    var code: Int!
 }
 
 // MARK: - Tx

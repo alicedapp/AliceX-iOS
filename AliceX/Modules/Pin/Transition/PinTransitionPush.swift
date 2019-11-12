@@ -36,7 +36,7 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
             return
         }
         self.transitionContext = transitionContext
-        
+
         let contView = transitionContext.containerView
 //        contView.addSubview(fromView)
         contView.addSubview(toView)
@@ -78,15 +78,14 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 extension PinTransitionPush: CAAnimationDelegate {
-    
-    func animationDidStart(_ anim: CAAnimation) {
+    func animationDidStart(_: CAAnimation) {
 //        UIView.animate(withDuration: duration - 0.05, delay: 0, options: [], animations: {
 //            self.coverView.alpha = 0
 //        }) { _ in
 //            self.transitionContext?.containerView.subviews.first?.removeFromSuperview()
 //        }
     }
-    
+
     func animationDidStop(_: CAAnimation, finished _: Bool) {
         transitionContext?.completeTransition(true)
         transitionContext?.viewController(forKey: .from)?.view.layer.mask = nil

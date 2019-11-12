@@ -10,18 +10,16 @@ import Foundation
 import WalletConnectSwift
 
 extension WCClientHelper {
-    
     func sendCustomRequest(method: String = "alice_socket",
                            message: [String],
-                           responseBlock:@escaping Client.RequestResponse) {
-        
+                           responseBlock: @escaping Client.RequestResponse) {
         guard let walletConnect = WCClientHelper.shared.walletConnect,
-        let client = walletConnect.client else {
+            let client = walletConnect.client else {
             return
         }
-        
+
         let wcURL = walletConnect.session.url
-        
+
         do {
             let request = try Request(url: wcURL,
                                       method: method,
@@ -31,12 +29,8 @@ extension WCClientHelper {
             HUDManager.shared.showError(text: "Send Custom Func failed")
         }
     }
-    
-    func handler(response: Response) {
-        
-    }
-    
-    func reciveCustomRequest(request: Request) {
-        
-    }
+
+    func handler(response _: Response) {}
+
+    func reciveCustomRequest(request _: Request) {}
 }

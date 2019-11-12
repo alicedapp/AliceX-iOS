@@ -52,31 +52,41 @@ extension Notification.Name {
     static let customRPCChange = Notification.Name("customRPCChange")
     static let newPendingTransaction = Notification.Name("newPendingTransaction")
     static let removePendingTransaction = Notification.Name("removePendingTransaction")
-    
+
     static let wallectConnectServerConnect = Notification.Name("wallectConnectServerConnect")
     static let wallectConnectServerDisconnect = Notification.Name("wallectConnectServerDisconnect")
-    
+
     static let wallectConnectClientConnect = Notification.Name("wallectConnectClientConnect")
     static let wallectConnectClientDisconnect = Notification.Name("wallectConnectClientDisconnect")
-}
 
+    static let priceUpdate = Notification.Name("priceUpdate")
+    static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
+}
 
 class CacheKey {
     static let web3NetStoreKey = "alice.web3.net.v1"
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
+
+    static let assetNFTKey = "alice.asset.NFT"
+//    static let assetERC20Key = "alice.asset.erc20"
+    
+    static let watchingList = "alice.asset.watchingList"
+    static let unWatchingList = "alice.asset.un.watchingList"
+    
+    static let blockchainKey = "alice.asset.watchingList"
+    
+    static let coinInfoList = "alice.asset.coinInfoList"
 }
 
-
 class Constant {
-    
-    static let placeholder =  UIImage.imageWithColor(color: UIColor(hex: "F1F5F8"))
-    
+    static let placeholder = UIImage.imageWithColor(color: UIColor(hex: "F1F5F8"))
+
     static let AliceCommunityTelegram = URL(string: "https://t.me/alicecommunity")!
     static let AliceCommunityTelegramScheme = URL(string: "tg://resolve?domain=alicecommunity")!
-    
+
     static let AliceTwitterScheme = URL(string: "twitter://user?screen_name=heyaliceapp")!
     static let AliceTwitter = URL(string: "https://twitter.com/heyaliceapp")!
-    
+
     static var SAFE_TOP: CGFloat {
         if #available(iOS 11, *) {
             return UIApplication.shared.keyWindow!.safeAreaInsets.top
@@ -84,7 +94,7 @@ class Constant {
         return 0
     }
 
-    static var SAFE_BTTOM: CGFloat {
+    static var SAFE_BOTTOM: CGFloat {
         if #available(iOS 11, *) {
             return UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
@@ -93,6 +103,8 @@ class Constant {
 
     static let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.width
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
+
+    static let SCREEN_HEIGHT_NO_SAFE: CGFloat = UIScreen.main.bounds.height - SAFE_TOP - SAFE_BOTTOM
 }
 
 extension Constant {

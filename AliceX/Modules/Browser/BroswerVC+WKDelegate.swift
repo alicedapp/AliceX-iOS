@@ -18,7 +18,7 @@ extension BrowserViewController: WKNavigationDelegate {
         guard let hostURL = webView.url?.host else {
             return
         }
-
+        // TODO: USE API to fetch favicon
         let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
         let downloader = ImageDownloader.default
         downloader.downloadImage(with: favIcon) { result in
@@ -45,7 +45,7 @@ extension BrowserViewController: WKNavigationDelegate {
         backButtonImage.isHighlighted = webview.canGoBack
 
         PinManager.shared.updatePinItem(item: (wrapper?.pinItem())!)
-        
+
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity
             self.progressView.alpha = 0

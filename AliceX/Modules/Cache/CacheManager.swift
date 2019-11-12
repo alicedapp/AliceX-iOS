@@ -8,19 +8,19 @@
 
 import Foundation
 import HandyJSON
-//import Haneke
+// import Haneke
 
 //typealias CacheManger.storage = CacheManger.shared.storage
 
 class CacheManager {
-    
     static let shared = CacheManager()
-    
+
 //    var storage: Storage<Codable>?
-//    
+//
     init() {
 //        Shared.dataCache
     }
+
 //
 //    func removeAllCache(completion: @escaping (_ isSuccess: Bool)->()) {
 //        storage?.async.removeAll(completion: { result in
@@ -32,7 +32,7 @@ class CacheManager {
 //            }
 //        })
 //    }
-//    
+//
 //    func removeObjectCache(_ cacheKey: String, completion: @escaping (_ isSuccess: Bool)->()) {
 //        storage?.async.removeObject(forKey: cacheKey, completion: { result in
 //            DispatchQueue.main.async {
@@ -43,7 +43,7 @@ class CacheManager {
 //            }
 //        })
 //    }
-//    
+//
 //    func objectSync(forKey key: String) -> CacheModel? {
 //        do {
 //            ///过期清除缓存
@@ -57,7 +57,7 @@ class CacheManager {
 //            return nil
 //        }
 //    }
-//    
+//
 //    func setObject(_ object: CacheModel, forKey key: String) {
 //        storage?.async.setObject(object, forKey: key, expiry: nil, completion: { (result) in
 //            switch result {

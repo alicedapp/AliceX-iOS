@@ -15,20 +15,19 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
-    
+
     func snapshot() -> UIImage {
         // Begin context
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
 
         // Draw view in that context
-        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
 
         // And finally, get image
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        if (image != nil)
-        {
+        if image != nil {
             return image!
         }
         return UIImage()

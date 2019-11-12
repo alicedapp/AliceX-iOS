@@ -17,7 +17,7 @@ class PinListCell: UITableViewCell {
     @IBOutlet var progressView: RPCircularProgress!
 
     @IBOutlet var containerView: UIView!
-    
+
     var item: PinItem!
     var index: IndexPath!
     var vc: UIViewController!
@@ -45,23 +45,23 @@ class PinListCell: UITableViewCell {
         self.item = item
         self.index = index
         switch item {
-        case .transaction(let network, let txHash, let title, let vc):
+        case let .transaction(network, txHash, title, vc):
             pinImageView.image = UIImage.imageWithColor(color: network.color)
             pinTextLabel.text = title
             progressView.isHidden = false
             progressView.enableIndeterminate()
             self.vc = vc
-        case .dapplet(let image, let url, let title, let vc):
+        case let .dapplet(image, url, title, vc):
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
             self.vc = vc
-        case .website(let image, let url, let title, let vc):
+        case let .website(image, url, title, vc):
             pinImageView.image = image
             pinTextLabel.text = title
             progressView.isHidden = true
             self.vc = vc
-        case .walletConnect(let image, let url, let title, let vc):
+        case let .walletConnect(image, url, title, vc):
             pinImageView.kf.setImage(with: image, placeholder: Constant.placeholder)
             pinTextLabel.text = title
             progressView.isHidden = true
@@ -76,30 +76,30 @@ class PinListCell: UITableViewCell {
 //        if (frame?.origin.y)! < CGFloat(0) {
 //            frame?.origin.y = -(frame?.origin.y)!
 //        }
-        
-        // TODO
+
+        // TODO:
         guard let previousVC = self.previousVC else {
             return
         }
-        
+
         guard let navi = previousVC.navigationController else {
-            PinManager.shared.currentPin = self.item
-            
+            PinManager.shared.currentPin = item
+
             parentVC?.dismiss(animated: true, completion: {
                 previousVC.present(self.vc, animated: true, completion: nil)
             })
             return
         }
-        
+
         if navi.viewControllers.contains(vc) {
             if let vc = self.parentVC as? PinListViewController {
                 vc.dismissVC()
             }
             return
         }
-        
-        PinManager.shared.currentPin = self.item
-        
+
+        PinManager.shared.currentPin = item
+
         PinTransitionPush.pushCellFrame = CGRect(x: frame.origin.x,
                                                  y: -frame.origin.y,
                                                  width: frame.width,
@@ -111,15 +111,14 @@ class PinListCell: UITableViewCell {
     }
 
     @IBAction func closeButtonClick() {
-        PinManager.shared.removePinItem(item: self.item)
-        
+        PinManager.shared.removePinItem(item: item)
+
         if let vc = self.parentVC as? PinListViewController {
-            
 //            vc.pinList = PinManager.shared.pinList
 //            vc.tableView.deleteRows(at: [index], with: .automatic)
-            
+
             vc.updateIfNeeded()
-            
+
             if PinManager.shared.pinList.count == 0 {
                 vc.dismissVC()
                 return

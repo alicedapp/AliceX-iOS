@@ -38,7 +38,7 @@ class ContractPopUp: UIViewController {
     var value: BigUInt!
     var extraData: Data!
     var successBlock: StringBlock?
-    
+
     var payView: PayButtonView?
 
     class func make(contractAddress: String,
@@ -77,7 +77,7 @@ class ContractPopUp: UIViewController {
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
-        
+
         paramterLabel.type = .continuous
         paramterLabel.speed = .duration(10)
         paramterLabel.fadeLength = 10.0
@@ -95,12 +95,12 @@ class ContractPopUp: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
-        
+
         guard let parameters = self.parameters as? [AnyObject] else {
             HUDManager.shared.showError(text: "Parameter inVaild")
             return
         }
-        
+
         firstly {
             GasPriceHelper.shared.getGasPrice()
         }.then {
@@ -157,7 +157,6 @@ class ContractPopUp: UIViewController {
 }
 
 extension ContractPopUp: PayButtonDelegate {
-    
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -165,7 +164,7 @@ extension ContractPopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -194,7 +193,7 @@ extension ContractPopUp: PayButtonDelegate {
         }.done { (hash) in
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
-        }.catch { (error) in
+        }.catch { error in
             self.payView!.failed()
             HUDManager.shared.showError(error: error)
         }

@@ -8,9 +8,9 @@
 
 import BigInt
 import PromiseKit
+import SPStorkController
 import UIKit
 import web3swift
-import SPStorkController
 
 // Can't be BaseVIewController
 class PaymentPopUp: UIViewController {
@@ -34,7 +34,7 @@ class PaymentPopUp: UIViewController {
     var gasLimit: BigUInt?
 
     var gasPrice: GasPrice = GasPrice.average
-    
+
     var payView: PayButtonView?
 
     class func make(toAddress: String,
@@ -49,7 +49,7 @@ class PaymentPopUp: UIViewController {
         vc.data = data
         return vc
     }
-    
+
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //        SPStorkController.updatePresentingController(modal: self)
@@ -69,7 +69,7 @@ class PaymentPopUp: UIViewController {
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
-        
+
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
 
         gasBtn.isUserInteractionEnabled = false
@@ -118,9 +118,8 @@ class PaymentPopUp: UIViewController {
 }
 
 extension PaymentPopUp: PayButtonDelegate {
-    
     // MARK: - Verify
-    
+
     func verifyAndSend() {
         #if DEBUG
             send()
@@ -128,7 +127,7 @@ extension PaymentPopUp: PayButtonDelegate {
             biometricsVerify()
         #endif
     }
-    
+
     func biometricsVerify() {
         firstly {
             FaceIDHelper.shared.faceID()
@@ -138,8 +137,8 @@ extension PaymentPopUp: PayButtonDelegate {
     }
 
     func send() {
-        self.payView!.showLoading()
-        
+        payView!.showLoading()
+
         firstly {
             TransactionManager.shared.sendEtherSync(
                 to: toAddress!,
@@ -148,11 +147,11 @@ extension PaymentPopUp: PayButtonDelegate {
                 password: "",
                 gasPrice: gasPrice
             )
-        }.done { (hash) in
+        }.done { hash in
             print(hash)
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
-        }.catch { (error) in
+        }.catch { error in
             self.payView!.failed()
             HUDManager.shared.showError(error: error)
         }
