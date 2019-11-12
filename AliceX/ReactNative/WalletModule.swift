@@ -148,7 +148,7 @@ class WalletModule: NSObject {
                 return
             }
 
-            TransactionManager.showTokenView(tokenAdress: tokenAddress,
+            TransactionManager.showTokenView(token: Coin.ERC20(address: token.address),
                                              toAddress: to,
                                              amount: value,
                                              data: data,

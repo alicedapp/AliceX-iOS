@@ -18,6 +18,8 @@ class CoinListCell: UITableViewCell {
     @IBOutlet var addButton: VBFPopFlatButton!
     @IBOutlet var addBackground: BaseControl!
     @IBOutlet var coinShadow: UIView!
+    
+    @IBOutlet var typeLabel: UILabel!
 
     var coin: Coin!
     
@@ -76,7 +78,16 @@ class CoinListCell: UITableViewCell {
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
         addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
         
-        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
+        typeLabel.text = coin.type
+        
+        iconView.kf.setImage(with: coin.image) { result in
+            switch result {
+            case .success(_):
+                self.typeLabel.isHidden = true
+            case .failure(_):
+                self.typeLabel.isHidden = false
+            }
+        }
         
         guard let info = coin.info else {
             return

@@ -53,7 +53,7 @@
                                 <action selector="closeButtonClicked" destination="-1" eventType="touchUpInside" id="0eO-to-CbQ"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noN-0d-g99">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noN-0d-g99">
                             <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                             <color key="backgroundColor" name="Alice-Grey"/>
                             <constraints>
@@ -75,15 +75,15 @@
                     </constraints>
                 </view>
                 <searchBar contentMode="redraw" placeholder="Search Coin" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-HW-ZA2">
-                    <rect key="frame" x="0.0" y="104" width="414" height="44"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Bye-VU-QV6"/>
+                        <constraint firstAttribute="height" constant="55" id="Bye-VU-QV6"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RYR-P7-zAb">
-                    <rect key="frame" x="0.0" y="148" width="414" height="714"/>
+                    <rect key="frame" x="0.0" y="159" width="414" height="703"/>
                     <color key="backgroundColor" name="Alice-White"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="htF-8z-bYE"/>
@@ -100,7 +100,7 @@
                 <constraint firstItem="W3i-sf-6fe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="NAo-zX-0SD"/>
                 <constraint firstItem="RYR-P7-zAb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NnV-cC-YRa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GKD-HW-ZA2" secondAttribute="trailing" id="Pcg-ea-hHh"/>
-                <constraint firstItem="RYR-P7-zAb" firstAttribute="top" secondItem="W3i-sf-6fe" secondAttribute="bottom" constant="44" id="SqI-n8-ANj"/>
+                <constraint firstItem="RYR-P7-zAb" firstAttribute="top" secondItem="W3i-sf-6fe" secondAttribute="bottom" constant="55" id="SqI-n8-ANj"/>
                 <constraint firstAttribute="trailing" secondItem="W3i-sf-6fe" secondAttribute="trailing" id="U5L-Bk-rXk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RYR-P7-zAb" secondAttribute="bottom" id="j3O-PQ-UtZ"/>
             </constraints>

@@ -36,18 +36,18 @@ class SendERC20PopUp: UIViewController {
     var gasLimit: BigUInt?
     var gasPrice: GasPrice = GasPrice.average
     var successBlock: StringBlock!
-
     var tokenInfo: TokenInfo?
-
     var payView: PayButtonView?
+    
+    var token: Coin?
 
-    class func make(tokenAdress: String,
+    class func make(token: Coin,
                     toAddress: String,
                     amount: BigUInt,
                     data: Data,
                     success: @escaping StringBlock) -> SendERC20PopUp {
         let vc = SendERC20PopUp()
-        vc.tokenAdress = tokenAdress
+        vc.token = token
         vc.toAddress = toAddress
         vc.amount = amount
         vc.data = data
@@ -76,15 +76,32 @@ class SendERC20PopUp: UIViewController {
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
 
-        firstly {
-            PriceHelper.shared.getTokenInfo(tokenAdress: self.tokenAdress)
-        }.done { model in
-            self.tokenInfo = model
-            self.updateToken()
-        }.catch { error in
-            print(error.localizedDescription)
-            self.priceLabel.text = "Failed to get price"
-            self.priceLabel.textColor = UIColor(hex: "FF7E79")
+        if let info = token?.info {
+            nameLabel.text = info.name
+            symbolLabel.text = info.symbol
+            descLabel.text = info.symbol
+            tokenImage.kf.setImage(with: info.coin.image)
+            
+            if let price = info.price {
+                let rate = price * Double(amount.readableValue)!
+                priceLabel.text  = rate.currencyString
+            } else {
+                priceLabel.text = ""
+            }
+            
+        } else {
+            
+            firstly {
+                PriceHelper.shared.getTokenInfo(tokenAdress: self.tokenAdress)
+            }.done { model in
+                self.tokenInfo = model
+                self.updateToken()
+            }.catch { error in
+                print(error.localizedDescription)
+                self.priceLabel.text = "Failed to get price"
+                self.priceLabel.textColor = UIColor(hex: "FF7E79")
+            }
+            
         }
 
         firstly {

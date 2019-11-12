@@ -101,7 +101,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-LightBackground"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="wN5-ZL-bQn" secondAttribute="trailing" constant="8" id="86z-Q0-V51"/>
                                         <constraint firstAttribute="bottom" secondItem="wN5-ZL-bQn" secondAttribute="bottom" constant="8" id="8jb-TK-1Pf"/>
@@ -161,11 +161,11 @@
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-LightBackground">
-            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-WhiteGrey">
-            <color red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

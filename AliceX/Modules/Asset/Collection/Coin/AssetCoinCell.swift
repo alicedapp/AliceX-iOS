@@ -50,9 +50,10 @@ class AssetCoinCell: UICollectionViewCell {
         animationButton.lineRadius = 5
         animationButton.tintColor = UIColor(hex: "9A9A9A", alpha: 0.5)
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
-        longPress.minimumPressDuration = 0.2
-        self.addGestureRecognizer(longPress)
+        //TODO
+//        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
+//        longPress.minimumPressDuration = 0.2
+//        self.addGestureRecognizer(longPress)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         self.addGestureRecognizer(tap)

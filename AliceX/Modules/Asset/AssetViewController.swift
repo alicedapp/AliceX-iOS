@@ -117,7 +117,7 @@ class AssetViewController: BaseViewController {
     
     @IBAction func addressButtonClick() {
         let vc = AddressQRCodeViewController()
-        vc.selectBlockCahin = .Binance
+        vc.selectBlockCahin = .Ethereum
 //        present(vc, animated: true, completion: nil)
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }

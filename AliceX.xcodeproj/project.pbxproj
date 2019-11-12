@@ -69,6 +69,8 @@
 		1533C9942379B0330052010A /* erc20.json in Resources */ = {isa = PBXBuildFile; fileRef = 1533C9932379B0320052010A /* erc20.json */; };
 		1533C997237AA6A40052010A /* AddCoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533C995237AA6A40052010A /* AddCoinCell.swift */; };
 		1533C998237AA6A40052010A /* AddCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1533C996237AA6A40052010A /* AddCoinCell.xib */; };
+		1533C99C237ABB140052010A /* MiniAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533C99A237ABB140052010A /* MiniAppViewController.swift */; };
+		1533C99D237ABB140052010A /* MiniAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1533C99B237ABB140052010A /* MiniAppViewController.xib */; };
 		15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15358821236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift */; };
 		1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1535C2CB22F1643500C62FDC /* BaseAlertView.xib */; };
 		1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535C2CC22F1643500C62FDC /* BaseAlertView.swift */; };
@@ -327,6 +329,8 @@
 		1533C9932379B0320052010A /* erc20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = erc20.json; sourceTree = "<group>"; };
 		1533C995237AA6A40052010A /* AddCoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinCell.swift; sourceTree = "<group>"; };
 		1533C996237AA6A40052010A /* AddCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCoinCell.xib; sourceTree = "<group>"; };
+		1533C99A237ABB140052010A /* MiniAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppViewController.swift; sourceTree = "<group>"; };
+		1533C99B237ABB140052010A /* MiniAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniAppViewController.xib; sourceTree = "<group>"; };
 		15358821236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetLoadingAnimator.swift; sourceTree = "<group>"; };
 		1535C2CB22F1643500C62FDC /* BaseAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseAlertView.xib; sourceTree = "<group>"; };
 		1535C2CC22F1643500C62FDC /* BaseAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertView.swift; sourceTree = "<group>"; };
@@ -718,6 +722,15 @@
 			name = Custom;
 			path = AliceX/Modules/WalletConnect/Custom;
 			sourceTree = SOURCE_ROOT;
+		};
+		1533C999237ABAFB0052010A /* MiniApp */ = {
+			isa = PBXGroup;
+			children = (
+				1533C99A237ABB140052010A /* MiniAppViewController.swift */,
+				1533C99B237ABB140052010A /* MiniAppViewController.xib */,
+			);
+			path = MiniApp;
+			sourceTree = "<group>";
 		};
 		15358820236A0D4700BB4ED2 /* Refresh */ = {
 			isa = PBXGroup;
@@ -1373,6 +1386,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1533C999237ABAFB0052010A /* MiniApp */,
 				15E1AA9523670EE400F29369 /* Account */,
 				1514464A236437DE005E87CE /* MainTab */,
 				1583589E2345F10A00B2036F /* Asset */,
@@ -1780,6 +1794,7 @@
 				15072532233A2172009C9D51 /* WCConnectPopup.xib in Resources */,
 				158FAC2D233CA20600F281B1 /* WCControlPanel.xib in Resources */,
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
+				1533C99D237ABB140052010A /* MiniAppViewController.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
@@ -1955,6 +1970,7 @@
 				155FACF2233947EB0002B478 /* PayButtonView.swift in Sources */,
 				1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */,
 				15477B4722E184AA008E3230 /* BigInt.swift in Sources */,
+				1533C99C237ABB140052010A /* MiniAppViewController.swift in Sources */,
 				15B86BAD22AA1C9000110C06 /* WalletManager.swift in Sources */,
 				156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */,
 				1527872122ADEE0900D63C7F /* UIColor.swift in Sources */,

@@ -23,6 +23,11 @@ class CoinListViewController: BaseViewController {
         tableView.registerCell(nibName: CoinListCell.nameOfClass)
         tableView.delegate = self
         searchBar.delegate = self
+        
+//        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
+//        searchBarBackground?.removeFromSuperview()
+//        searchBar.backgroundColor = .clear
+        searchBar.backgroundImage = UIImage()
         loadData()
     }
     

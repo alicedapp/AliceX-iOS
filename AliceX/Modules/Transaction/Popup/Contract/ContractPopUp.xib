@@ -50,7 +50,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-White"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="lvc-EI-ldt" firstAttribute="centerY" secondItem="FDA-s3-FVl" secondAttribute="centerY" id="4Ow-m7-qCe"/>
                                         <constraint firstItem="lvc-EI-ldt" firstAttribute="centerX" secondItem="FDA-s3-FVl" secondAttribute="centerX" id="dTp-CZ-PJF"/>
@@ -76,7 +76,7 @@
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUR-5P-1vo" customClass="UIControl">
                                             <rect key="frame" x="-8" y="3.5" width="92.5" height="23"/>
-                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <color key="backgroundColor" name="Alice-LightGrey"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="5"/>
@@ -143,7 +143,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-White"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="E7g-yW-Rbi" secondAttribute="bottom" id="6un-vt-8Yc"/>
                                         <constraint firstItem="E7g-yW-Rbi" firstAttribute="leading" secondItem="XwZ-2z-Kn4" secondAttribute="leading" id="JLg-0c-b3Z"/>
@@ -277,7 +277,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-LightBackground"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
                                     <constraints>
                                         <constraint firstItem="wf3-JK-EST" firstAttribute="top" secondItem="fGA-4p-PaM" secondAttribute="top" id="8tq-kd-OZb"/>
                                         <constraint firstItem="wf3-JK-EST" firstAttribute="leading" secondItem="fGA-4p-PaM" secondAttribute="leading" id="AWH-Jr-pFB"/>
@@ -296,7 +296,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-White"/>
+                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="yvE-gt-6jM" secondAttribute="bottom" constant="80" id="0uE-aU-wXQ"/>
                                 <constraint firstItem="FDA-s3-FVl" firstAttribute="leading" secondItem="DQ6-1Z-h4O" secondAttribute="leading" id="4rL-8e-Sev"/>
@@ -319,7 +319,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-White"/>
+                    <color key="backgroundColor" name="Alice-WhiteGrey"/>
                     <constraints>
                         <constraint firstItem="DQ6-1Z-h4O" firstAttribute="top" secondItem="2Sd-FG-tg6" secondAttribute="top" constant="23" id="5Ln-7O-4CQ"/>
                         <constraint firstAttribute="trailing" secondItem="DQ6-1Z-h4O" secondAttribute="trailing" id="Po4-QU-iuN"/>
@@ -343,13 +343,13 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-LightBackground">
-            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

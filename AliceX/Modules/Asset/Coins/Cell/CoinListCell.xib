@@ -25,6 +25,12 @@
                                 <rect key="frame" x="16" y="16" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyA-Wb-cUS">
+                                <rect key="frame" x="22.5" y="31.5" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="Alice-DarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-icon" translatesAutoresizingMaskIntoConstraints="NO" id="EBl-yw-GJU">
                                 <rect key="frame" x="15" y="15" width="50" height="50"/>
                                 <constraints>
@@ -83,6 +89,7 @@
                         </subviews>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
                         <constraints>
+                            <constraint firstItem="FyA-Wb-cUS" firstAttribute="centerY" secondItem="EBl-yw-GJU" secondAttribute="centerY" id="5uJ-zV-rf7"/>
                             <constraint firstItem="KDL-wo-I54" firstAttribute="bottom" secondItem="EBl-yw-GJU" secondAttribute="bottom" constant="-1" id="6VU-ZW-1By"/>
                             <constraint firstItem="RMS-UO-qzT" firstAttribute="bottom" secondItem="EBl-yw-GJU" secondAttribute="bottom" constant="-5" id="8yF-mM-TJW"/>
                             <constraint firstItem="kNi-Ox-xc5" firstAttribute="leading" secondItem="uPc-DX-xJu" secondAttribute="trailing" constant="15" id="Cvr-v3-QrR"/>
@@ -96,6 +103,7 @@
                             <constraint firstItem="KDL-wo-I54" firstAttribute="leading" secondItem="EBl-yw-GJU" secondAttribute="leading" constant="1" id="oh0-rp-Uy0"/>
                             <constraint firstAttribute="trailing" secondItem="kNi-Ox-xc5" secondAttribute="trailing" constant="15" id="pK0-ii-M7E"/>
                             <constraint firstItem="KDL-wo-I54" firstAttribute="trailing" secondItem="EBl-yw-GJU" secondAttribute="trailing" constant="-1" id="yCX-hL-HDv"/>
+                            <constraint firstItem="FyA-Wb-cUS" firstAttribute="centerX" secondItem="EBl-yw-GJU" secondAttribute="centerX" id="zle-Fa-GSW"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -121,6 +129,7 @@
                 <outlet property="iconView" destination="EBl-yw-GJU" id="ZCp-Gv-QFl"/>
                 <outlet property="nameLabel" destination="uPc-DX-xJu" id="QWW-Sn-GaX"/>
                 <outlet property="subTitleLabel" destination="RMS-UO-qzT" id="2ys-Pj-Giu"/>
+                <outlet property="typeLabel" destination="FyA-Wb-cUS" id="k68-cV-hoc"/>
             </connections>
             <point key="canvasLocation" x="146.37681159420291" y="176.78571428571428"/>
         </tableViewCell>
