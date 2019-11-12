@@ -31,9 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             PriceHelper.shared.fetchFromCache()
         }
 //        GasPriceHelper.shared.getGasPrice()
-
+        
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
+        #if RCT_DEV
+        bridge?.moduleClasses = RCTDevLoadingView.self
+        #endif
+        
         window = UIWindow(frame: UIScreen.main.bounds)
+        
 //        if #available(iOS 12.0, *) {
 //            window?.backgroundColor = window?.traitCollection.userInterfaceStyle == .dark ? .white : .black
 //        } else {

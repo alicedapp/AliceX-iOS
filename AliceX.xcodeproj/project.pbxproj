@@ -66,6 +66,9 @@
 		15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E5A233E2D03004E9144 /* WallectConnectModule.swift */; };
 		15300E64233E373F004E9144 /* WCCustomMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E62233E373F004E9144 /* WCCustomMethodVC.swift */; };
 		15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15300E63233E373F004E9144 /* WCCustomMethodVC.xib */; };
+		1533C9942379B0330052010A /* erc20.json in Resources */ = {isa = PBXBuildFile; fileRef = 1533C9932379B0320052010A /* erc20.json */; };
+		1533C997237AA6A40052010A /* AddCoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533C995237AA6A40052010A /* AddCoinCell.swift */; };
+		1533C998237AA6A40052010A /* AddCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1533C996237AA6A40052010A /* AddCoinCell.xib */; };
 		15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15358821236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift */; };
 		1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1535C2CB22F1643500C62FDC /* BaseAlertView.xib */; };
 		1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535C2CC22F1643500C62FDC /* BaseAlertView.swift */; };
@@ -321,6 +324,9 @@
 		15300E5A233E2D03004E9144 /* WallectConnectModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallectConnectModule.swift; sourceTree = "<group>"; };
 		15300E62233E373F004E9144 /* WCCustomMethodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCCustomMethodVC.swift; sourceTree = "<group>"; };
 		15300E63233E373F004E9144 /* WCCustomMethodVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCCustomMethodVC.xib; sourceTree = "<group>"; };
+		1533C9932379B0320052010A /* erc20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = erc20.json; sourceTree = "<group>"; };
+		1533C995237AA6A40052010A /* AddCoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinCell.swift; sourceTree = "<group>"; };
+		1533C996237AA6A40052010A /* AddCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCoinCell.xib; sourceTree = "<group>"; };
 		15358821236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetLoadingAnimator.swift; sourceTree = "<group>"; };
 		1535C2CB22F1643500C62FDC /* BaseAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseAlertView.xib; sourceTree = "<group>"; };
 		1535C2CC22F1643500C62FDC /* BaseAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertView.swift; sourceTree = "<group>"; };
@@ -1139,6 +1145,8 @@
 				158E1CFF236554520081C1AA /* AssetCoinCell.xib */,
 				15015DA62365AD27008DDD80 /* AssetCoinHeaderCell.swift */,
 				15015DA72365AD27008DDD80 /* AssetCoinHeaderCell.xib */,
+				1533C995237AA6A40052010A /* AddCoinCell.swift */,
+				1533C996237AA6A40052010A /* AddCoinCell.xib */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -1440,6 +1448,7 @@
 		15BC4DBF22DAF4EC00313CA9 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				1533C9932379B0320052010A /* erc20.json */,
 				15BC4DC022DAF50F00313CA9 /* dapps.json */,
 			);
 			path = json;
@@ -1756,6 +1765,7 @@
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */,
+				1533C9942379B0330052010A /* erc20.json in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
@@ -1792,6 +1802,7 @@
 				158E1D01236554520081C1AA /* AssetCoinCell.xib in Resources */,
 				15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
+				1533C998237AA6A40052010A /* AddCoinCell.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
@@ -2087,6 +2098,7 @@
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				1573B52F2375A7C300257A1A /* KDDragAndDropManager.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
+				1533C997237AA6A40052010A /* AddCoinCell.swift in Sources */,
 				154E7F322306A9A200D571A8 /* URL.swift in Sources */,
 				1527872722ADF5EA00D63C7F /* WalletStruct.swift in Sources */,
 				1587395E22B9EAB300F36F92 /* EthplorerModel.swift in Sources */,

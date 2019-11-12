@@ -15,7 +15,7 @@ extension WatchingCoinHelper {
         return Promise<Void> { seal in
             firstly{
                 when(fulfilled: updateTokens(), updateCoins())
-            }.then { _ in
+            }.then { bool in
                 PriceManager.shared.getCoinsPrice(coins: self.list)
             }.done { () in
                 if self.noCache { // Sort by price frist time
@@ -32,17 +32,12 @@ extension WatchingCoinHelper {
         return Promise<Void> { seal in
             
             blockchainList().forEach { chain in
-    //            let coin = Coin.coin(chain: chain)
-                var info = CoinInfo()
-                info.id = chain.rawValue
-                info.name = chain.rawValue
-                info.decimals = chain.decimal
-                info.symbol = chain.symbol
-                CoinInfoHelper.shared.add(info: info)
-
                 chain.getBalance().done { balance in
-                    info.amount = String(balance)
-                    CoinInfoHelper.shared.pool[info.id] = info
+//                    info.amount = String(balance)
+                    guard let coin = CoinInfoHelper.shared.pool[chain.rawValue] else {
+                        return
+                    }
+                     CoinInfoHelper.shared.pool[chain.rawValue]!.amount = String(balance)
                 }
             }
             
@@ -52,14 +47,15 @@ extension WatchingCoinHelper {
         }
     }
     
-    func updateTokens() -> Promise<[CoinInfo]> {
-        return Promise<[CoinInfo]> { seal in
+    func updateTokens() -> Promise<Bool> {
+        return Promise<Bool> { seal in
             firstly{ () -> Promise<AmberdataTokenList> in
                 // TODO
-                API(AmberData.tokens(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"), path: "payload")
+                API(AmberData.tokens(address: WalletManager.wallet!.address), path: "payload")
             }.done { model in
                 
                 guard let records = model.records, records.count > 0 else {
+                    seal.fulfill(true)
                     return
                 }
                 
@@ -72,22 +68,24 @@ extension WatchingCoinHelper {
                     info.id = record.address
                     info.amount = record.amount
                     
-                    CoinInfoHelper.shared.update(newInfo: info)
-                    
-                    let coin = Coin.ERC20(address: record.address)
-                    
-                    if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
-                        IgnoreCoinHelper.shared.add(coin: coin)
-                    } else {
-                        self.add(coin: coin)
+                    if !IgnoreCoinHelper.shared.list.contains(info.coin) {
+                        CoinInfoHelper.shared.update(newInfo: info)
+                        
+                        let coin = Coin.ERC20(address: record.address)
+                        if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
+                            IgnoreCoinHelper.shared.add(coin: coin)
+                        } else {
+                            self.add(coin: coin, updateCache: true)
+
+                        }
+                        return info
                     }
-                    
-                    return info
+                    return nil
                 }
                 
                 CoinInfoHelper.shared.storeInCache()
                 
-                seal.fulfill(infoList)
+                seal.fulfill(true)
             }.catch { error in
                 seal.reject(error)
             }

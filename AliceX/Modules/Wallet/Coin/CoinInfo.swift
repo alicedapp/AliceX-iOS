@@ -24,7 +24,7 @@ struct CoinInfo: HandyJSON {
     
     var amount: String?
     
-    var isPined: Bool?
+    var isPined: Bool = false
  
     init() {
     }

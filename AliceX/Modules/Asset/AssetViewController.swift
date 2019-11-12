@@ -39,7 +39,8 @@ class AssetViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-
+        collectionView.alwaysBounceVertical = true
+        
         for cell in Asset.allCases {
             collectionView.registerCell(nibName: cell.name)
         }
@@ -49,7 +50,7 @@ class AssetViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .currencyChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
         
         let animator = AssetImgeAnimator.init(frame: CGRect.zero)
         collectionView.es.addPullToRefresh(animator: animator, handler: {
@@ -63,10 +64,10 @@ class AssetViewController: BaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func requestData() {
+    @objc func requestData() {
         
         firstly{
-            when(fulfilled: requestCoins(), requestNFT())
+            when(fulfilled: WatchingCoinHelper.shared.update(), requestNFT())
         }.done { (_, _) in
             self.coins = WatchingCoinHelper.shared.list
             self.collectionView.reloadData()
@@ -83,14 +84,15 @@ class AssetViewController: BaseViewController {
     func loadFromCache() {
         
         firstly {
-            CoinInfoHelper.shared.loadFromCache()
-        }.then {
-            WatchingCoinHelper.shared.loadFromCache()
+            when(fulfilled: CoinInfoHelper.shared.loadFromCache(), WatchingCoinHelper.shared.loadFromCache())
         }.done { _ in
             IgnoreCoinHelper.shared.loadFromCache()
             self.coins = WatchingCoinHelper.shared.list
             self.collectionView.reloadData()
         }.catch { error in
+            IgnoreCoinHelper.shared.loadFromCache()
+            self.coins = WatchingCoinHelper.shared.list
+            self.collectionView.reloadData()
             print(error)
         }
         
@@ -127,11 +129,12 @@ class AssetViewController: BaseViewController {
             firstly {
                 WatchingCoinHelper.shared.update()
             }.done { _ in
-                self.coins = WatchingCoinHelper.shared.list
-                self.collectionView.reloadData()
-                
+//                self.coins = WatchingCoinHelper.shared.list
+//                self.collectionView.reloadData()
                 seal.fulfill(())
             }.catch { error in
+//                self.coins = WatchingCoinHelper.shared.list
+//                self.collectionView.reloadData()
                 seal.reject(error)
             }
         }
@@ -144,7 +147,7 @@ class AssetViewController: BaseViewController {
         return Promise<Bool> { seal in
         
             firstly { () -> Promise<OpenSeaReponse> in
-                API(OpenSea.assets(address: "0xa1b02d8c67b0fdcf4e379855868deb470e169cfb"))
+                API(OpenSea.assets(address: WalletManager.wallet!.address))
             }.done { model in
                 
                 var hasNew = true

@@ -32,8 +32,9 @@ class LandingViewController: BaseViewController {
     }
 
     func popUp() {
-        let vc = RNModule.makeViewController(module: .alice)
+        let vc = MainTabViewController()
         navigationController?.pushViewController(vc, animated: true)
+        navigationController?.viewControllers = [vc]
     }
 
 //    override func viewDidAppear(_ animated: Bool) {

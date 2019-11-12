@@ -9,6 +9,7 @@
 import Foundation
 import TrustWalletCore
 import PromiseKit
+import web3swift
 
 enum Coin {
     case coin(chain: BlockChain)
@@ -46,7 +47,7 @@ enum Coin {
         case let .coin(chain):
             return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/\(chain.rawValue.lowercased())/info/logo.png")!
         case let .ERC20(token):
-            return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(token.lowercased())/logo.png")!
+            return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(EthereumAddress.toChecksumAddress(token)!)/logo.png")!
         }
     }
     

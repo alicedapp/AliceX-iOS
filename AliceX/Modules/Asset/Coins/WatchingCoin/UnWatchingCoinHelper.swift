@@ -51,12 +51,9 @@ class IgnoreCoinHelper {
     }
     
     func updateList(newList: [Coin]) {
-//        for coin in newList {
-//            if
-//        }
-        
         list = newList
         storeInCache()
+
 //        postNotification()
     }
         

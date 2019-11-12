@@ -23,11 +23,11 @@ func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil,
                                       showErrorHUD _: Bool = false,
                                       useCache _: Bool = false) -> Promise<T> {
     return Promise<T> { seal in
-        #if DEBUG
-            let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
-        #else
+//        #if DEBUG
+//            let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+//        #else
             let provider = MoyaProvider<U>()
-        #endif
+//        #endif
         provider.request(target, completion: { result in
             switch result {
             case let .success(response):

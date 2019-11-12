@@ -30,12 +30,12 @@ class CoinReOrderViewController: BaseViewController {
 //        }
 //        let unPinedList = watchList.filter { !($0.info!.isPined ?? false) }
         
-        var pinList:[Coin] = []
-        var unPinedList:[Coin] = []
+        var pinList: [Coin] = []
+        var unPinedList: [Coin] = []
         
         for coin in watchList {
             
-            if let info = coin.info, let bool = info.isPined, bool == true {
+            if let info = coin.info, info.isPined == true {
                 pinList.append(coin)
             } else {
                 unPinedList.append(coin)
@@ -51,8 +51,12 @@ class CoinReOrderViewController: BaseViewController {
     }
     
     @IBAction func closeButtonClick() {
-        updateList()
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateList()
     }
     
     // TODO: Replace stupid CoinInfo
@@ -71,7 +75,7 @@ class CoinReOrderViewController: BaseViewController {
         
         IgnoreCoinHelper.shared.updateList(newList: ignoreList)
         
-        let newCoinList =  pinList + data[1]
+        let newCoinList =  pinList + watchingList
         WatchingCoinHelper.shared.updateList(newList: newCoinList)
         CoinInfoHelper.shared.storeInCache()
     }

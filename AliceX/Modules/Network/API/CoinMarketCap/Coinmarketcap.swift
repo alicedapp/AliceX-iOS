@@ -11,8 +11,8 @@ import Moya
 
 typealias SuccessCallback = ((Response) -> Void)
 
-let coinMarketCapAPI = MoyaProvider<CoinMarketCap>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let coinMarketCapAPI = MoyaProvider<CoinMarketCap>()
+//NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
 
 // Due to Coinmarketcap plan, just support ETH in
 enum CoinMarketCap {

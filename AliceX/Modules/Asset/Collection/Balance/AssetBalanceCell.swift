@@ -88,6 +88,7 @@ class AssetBalanceCell: UICollectionViewCell {
             balance += info.balance
         }
         balanceLabel.text = balance.toString(decimal: 2)
+        
     }
     
 }

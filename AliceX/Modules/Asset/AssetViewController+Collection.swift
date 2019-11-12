@@ -63,14 +63,9 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let coin = coins[indexPath.item]
             cell.configure(coin: coin, isHidden: assetHide)
             return cell
-//        case Asset.erc20.rawValue:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coin.name, for: indexPath) as! AssetCoinCell
-//            if let erc20 = erc20Data {
-//                let tokenInfo = erc20.tokens[item]
-//                cell.configure(item: tokenInfo)
-//            }
-//            return cell
-
+        case Asset.emptyCoin.rawValue:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.emptyCoin.name, for: indexPath) as! AddCoinCell
+            return cell
         case Asset.NFTHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFTHeader.name, for: indexPath) as! AssetNFTHeaderCell
             
@@ -109,7 +104,8 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch section {
         case Asset.coin.rawValue:
             return coinHide ? 0 : coins.count
-            
+        case Asset.emptyCoin.rawValue:
+            return coins.count <= 2 ? 1 : 0
         case Asset.NFTHeader.rawValue:
             if let NFT = NFTData {
                 return NFT.count > 0 ? 1 : 0

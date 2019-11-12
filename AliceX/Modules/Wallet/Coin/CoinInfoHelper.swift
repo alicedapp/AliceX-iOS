@@ -16,23 +16,6 @@ class CoinInfoHelper {
     
     init() {
         // TODO
-        BlockChain.allCases.forEach { chain in
-//            let coin = Coin.coin(chain: chain)
-            var info = CoinInfo()
-            info.id = chain.rawValue
-            info.name = chain.rawValue
-            info.decimals = chain.decimal
-            info.symbol = chain.symbol
-            pool[info.id] = info
-
-            chain.getBalance().done { balance in
-                info.amount = String(balance)
-                if let price = self.pool[info.id]?.price {
-                    info.price = price
-                }
-                self.pool[info.id] = info
-            }
-        }
     }
     
     func add(info: CoinInfo) {
@@ -43,6 +26,7 @@ class CoinInfoHelper {
     
     func update(newInfo: CoinInfo) {
         if !pool.keys.contains(newInfo.id) {
+            pool[newInfo.id] = newInfo
             return
         }
         var info = pool[newInfo.id]!
@@ -72,19 +56,19 @@ class CoinInfoHelper {
 //        storeInCache()
     }
     
-    func fetchingCoin(coin: Coin) -> Promise<CoinInfo> {
-        
-        return Promise<CoinInfo> { seal in
-            
-            if pool.keys.contains(coin.id) {
-                seal.fulfill(pool[coin.id]!)
-                return
-            }
-            
-            // TODO
-            
-        }
-    }
+//    func fetchingCoin(coin: Coin) -> Promise<CoinInfo> {
+//
+//        return Promise<CoinInfo> { seal in
+//
+//            if pool.keys.contains(coin.id) {
+//                seal.fulfill(pool[coin.id]!)
+//                return
+//            }
+//
+//            // TODO
+//
+//        }
+//    }
     
     func requestToken(address: String) -> Promise<CoinInfo> {
         
@@ -129,6 +113,36 @@ extension CoinInfoHelper {
             }.onFailure { error in
                 seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
                 Shared.stringCache.remove(key: cacheKey)
+                
+                BlockChain.allCases.forEach { chain in
+        //            let coin = Coin.coin(chain: chain)
+                    var info = CoinInfo()
+                    info.id = chain.rawValue
+                    info.name = chain.rawValue
+                    info.decimals = chain.decimal
+                    info.symbol = chain.symbol
+                    self.pool[info.id] = info
+                    
+                    if WatchingCoinHelper.shared.noCache && chain == .Ethereum {
+                        info.isPined = true
+                    }
+
+                    chain.getBalance().done { balance in
+                        info.amount = String(balance)
+                        if let price = self.pool[info.id]?.price {
+                            info.price = price
+                        }
+                        self.pool[info.id] = info
+                    }
+                }
+                
+                let bundlePath = Bundle.main.path(forResource: "erc20", ofType: "json")
+                let jsonString = try! String(contentsOfFile: bundlePath!)
+                let coinInfoList = [CoinInfo].deserialize(from: jsonString) as! [CoinInfo]
+                coinInfoList.forEach { info in
+                    self.pool[info.id] = info
+                }
+                
             }
             
         }

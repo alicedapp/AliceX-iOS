@@ -30,10 +30,22 @@ class WatchingCoinHelper {
         }
         
         if checkIgnore && IgnoreCoinHelper.shared.list.contains(coin) {
+            IgnoreCoinHelper.shared.remove(coin: coin)
+            let pinList = list.filter { $0.info!.isPined }
+            let index = pinList.count
+            list.insert(coin, at: index)
+            storeInCache()
+            self.postNotification()
             return
         }
         
-        list.insert(coin, at: 0)
+        if let info = coin.info, info.isPined {
+            list.insert(coin, at: 0)
+        } else {
+            let pinList = list.filter { $0.info!.isPined }
+            let index = pinList.count
+            list.insert(coin, at: index)
+        }
         
         if updateCache {
             storeInCache()
@@ -94,13 +106,26 @@ class WatchingCoinHelper {
     }
     
     func sortByPrice() {
-        let sorted = list.sorted { (coin1, coin2) -> Bool in
+        
+        let pinList = list.filter { $0.info!.isPined }
+        let unPinList = list.filter { !$0.info!.isPined }
+        
+        let sortedPin = pinList.sorted { (coin1, coin2) -> Bool in
             guard let info1 = coin1.info, let info2 = coin2.info else {
                 return false
             }
             return info1.balance > info2.balance
         }
-        list = sorted
+        
+        let sortedUnPin = unPinList.sorted { (coin1, coin2) -> Bool in
+            guard let info1 = coin1.info, let info2 = coin2.info else {
+                return false
+            }
+            return info1.balance > info2.balance
+        }
+        
+        list = sortedPin + sortedUnPin
+        storeInCache()
     }
     
 }
@@ -125,7 +150,7 @@ extension WatchingCoinHelper {
 //                        self.add(coin: coin)
                         watchingList.append(coin)
                     } else {
-                        guard let chain = BlockChain(rawValue: String(id)) else{
+                        guard let chain = BlockChain(rawValue: String(id)) else {
                             continue
                         }
                         let coin = Coin.coin(chain: chain)
@@ -136,13 +161,18 @@ extension WatchingCoinHelper {
                 self.list = watchingList
                 seal.fulfill(watchingList)
             }.onFailure { error in
-                seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
-                self.noCache = true
+                if let err = error, err._code == -100 {
+                    self.noCache = true
+                    self.list = [Coin.coin(chain: .Ethereum)]
+                    seal.fulfill(self.list)
+                } else {
+                    seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
+                }
             }
         }
     }
     
-    func postNotification()  {
+    func postNotification() {
         NotificationCenter.default.post(name: .watchingCoinListChange, object: nil)
     }
     

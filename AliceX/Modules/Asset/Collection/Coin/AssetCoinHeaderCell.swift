@@ -30,6 +30,7 @@ class AssetCoinHeaderCell: UICollectionViewCell {
     
     func configure(count: Int) {
         if count <= 0 {
+            title.text = "Coins"
             return
         }
         
@@ -37,7 +38,7 @@ class AssetCoinHeaderCell: UICollectionViewCell {
     }
 
     @IBAction func addButtonClick() {
-        let vc = CoinViewController()
+        let vc = CoinListViewController()
 //        vc.isFromPopup = true
         let topVC = UIApplication.topViewController()
 //        let navi = BaseNavigationController(rootViewController: vc)

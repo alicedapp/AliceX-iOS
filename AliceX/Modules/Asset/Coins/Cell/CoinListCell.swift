@@ -69,16 +69,21 @@ class CoinListCell: UITableViewCell {
 //        if {
 //        }
         
+        let isAdd = WatchingCoinHelper.shared.list.contains(coin)
+        iconView.image = nil
+        nameLabel.text = ""
+        subTitleLabel.text = ""
+        addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
+        addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
+        
+        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
+        
         guard let info = coin.info else {
             return
         }
         
-        let isAdd =  WatchingCoinHelper.shared.list.contains(coin)
-        addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
-        self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
-        
         nameLabel.text = info.name
-        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
+//        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
         subTitleLabel.text = info.symbol
     }
 }

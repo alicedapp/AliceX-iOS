@@ -53,6 +53,16 @@ class AssetCoinCell: UICollectionViewCell {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
         longPress.minimumPressDuration = 0.2
         self.addGestureRecognizer(longPress)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapAction() {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        let vc = TransferPopUp.make(address: "", coin: coin)
+        vc.modalPresentationStyle = .overCurrentContext
+        UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
     }
     
     @objc func longPress(gesture: UILongPressGestureRecognizer){
@@ -65,7 +75,7 @@ class AssetCoinCell: UICollectionViewCell {
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
@@ -93,11 +103,6 @@ class AssetCoinCell: UICollectionViewCell {
         animationButton.isHidden = true
         typeLabel.text = coin.type
         
-        guard let info = coin.info else {
-            return
-        }
-        
-        nameLabel.text = info.name
         coinImageView.kf.setImage(with: coin.image) { result in
             switch result {
             case .success(_):
@@ -106,6 +111,12 @@ class AssetCoinCell: UICollectionViewCell {
                 self.typeLabel.isHidden = false
             }
         }
+        
+        guard let info = coin.info else {
+            return
+        }
+            
+        nameLabel.text = info.name
         
         let currencySymbol = PriceHelper.shared.currentCurrency.symbol
         

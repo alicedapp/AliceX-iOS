@@ -9,10 +9,10 @@
 import Foundation
 import Moya
 
-let CryptocompareAPI = MoyaProvider<Cryptocompare>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let CryptocompareAPI = MoyaProvider<Cryptocompare>()
+//(plugins:[NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-// Due to Coinmarketcap plan, just support ETH in
+
 enum Cryptocompare {
     case price(symbol: [String], currency: Currency)
     case fullPrice(symbol: [String], currency: Currency)
