@@ -50,6 +50,7 @@ target 'AliceX' do
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
+  pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
   
 end
 
