@@ -30,8 +30,9 @@ class AddressQRCodeViewController: UIViewController {
     @IBOutlet var segmentedContainer: UIView!
     @IBOutlet var container: UIView!
     @IBOutlet var shareConver: UIView!
-    
     @IBOutlet var addrssContainer: UIView!
+    
+    @IBOutlet var shareContainer: UIView!
     
     var selectBlockCahin: BlockChain = .Ethereum
     var dataSource: JXSegmentedTitleImageDataSource!
@@ -103,7 +104,7 @@ class AddressQRCodeViewController: UIViewController {
 
     @IBAction func shareBtnClicked() {
         shareConver.isHidden = false
-        let image = addrssContainer.snapshot()
+        let image = shareContainer.snapshot()
         HUDManager.shared.dismiss()
         
         let index = segmentedView.selectedIndex
@@ -127,6 +128,7 @@ extension AddressQRCodeViewController: JXSegmentedListContainerViewDataSource, J
         let view = BlockChainQRCodeView.instanceFromNib()
         view.chain = chain
         view.configure()
+//        view.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH - 20, height: 440)
         vc.view.addSubview(view)
         view.fillSuperview()
         view.layoutIfNeeded()

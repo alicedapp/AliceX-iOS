@@ -67,18 +67,22 @@ class AssetViewController: BaseViewController {
     @objc func requestData() {
         
         firstly{
-            when(fulfilled: WatchingCoinHelper.shared.update(), requestNFT())
-        }.done { (_, _) in
-            self.coins = WatchingCoinHelper.shared.list
-            self.collectionView.reloadData()
+            WatchingCoinHelper.shared.update()
+        }.done { _ in
+//            self.coins = WatchingCoinHelper.shared.list
+//            self.collectionView.reloadData()
 //            self.lastUpdateDate = Date()
             Defaults[\.lastTimeUpdateAsset] = Date()
         }.ensure {
+            self.coins = WatchingCoinHelper.shared.list
+            self.collectionView.reloadData()
             self.collectionView.es.stopPullToRefresh()
-        }.catch { _ in
-            self.collectionView.es.stopPullToRefresh()
+        }.catch { error in
+            print("AAA: - \(error.localizedDescription)")
+//            self.collectionView.es.stopPullToRefresh()
         }
         
+        requestNFT()
     }
 
     func loadFromCache() {
@@ -118,6 +122,7 @@ class AssetViewController: BaseViewController {
     @IBAction func addressButtonClick() {
         let vc = AddressQRCodeViewController()
         vc.selectBlockCahin = .Ethereum
+//        vc.modalPresentationStyle = .overCurrentContext
 //        present(vc, animated: true, completion: nil)
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }

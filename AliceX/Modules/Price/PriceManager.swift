@@ -8,7 +8,7 @@
 
 import Foundation
 import PromiseKit
-import RxSwift
+//import RxSwift
 
 class PriceManager {
     static let shared = PriceManager()

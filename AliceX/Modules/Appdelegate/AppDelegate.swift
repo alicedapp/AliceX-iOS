@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
 
+//        WalletManager.shared.test()
+        
         return true
     }
 

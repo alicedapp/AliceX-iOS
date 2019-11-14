@@ -107,7 +107,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-White"/>
+                    <color key="backgroundColor" name="Alice-WhiteGrey"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="aDf-dZ-exU" secondAttribute="trailing" constant="20" id="8Ey-FD-OEy"/>
                         <constraint firstItem="aDf-dZ-exU" firstAttribute="leading" secondItem="CGU-NF-xjC" secondAttribute="leading" constant="20" id="A7O-tf-2e8"/>
@@ -125,7 +125,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="Alice-White"/>
+            <color key="backgroundColor" name="Alice-WhiteGrey"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="CGU-NF-xjC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CZh-BW-XFC"/>
@@ -141,8 +141,8 @@
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

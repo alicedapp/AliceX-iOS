@@ -35,7 +35,8 @@ extension WatchingCoinHelper {
                 chain.getBalance().done { balance in
 //                    info.amount = String(balance)
                     guard let coin = CoinInfoHelper.shared.pool[chain.rawValue] else {
-                        return
+//                        seal.reject()
+                        throw MyError.FoundNil("chain not found")
                     }
                      CoinInfoHelper.shared.pool[chain.rawValue]!.amount = String(balance)
                 }
@@ -55,8 +56,8 @@ extension WatchingCoinHelper {
             }.done { model in
                 
                 guard let records = model.records, records.count > 0 else {
-                    seal.fulfill(true)
-                    return
+//                    seal.fulfill(true)
+                    throw MyError.FoundNil("ERC20 is empty")
                 }
                 
                 let infoList = records.filter{ $0.isERC20 == true }.flatMap { record -> CoinInfo? in

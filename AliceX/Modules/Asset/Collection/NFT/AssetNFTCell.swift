@@ -7,7 +7,7 @@
 //
 
 import Kingfisher
-import SVGKit
+//import SVGKit
 import UIKit
 
 class AssetNFTCell: UICollectionViewCell {

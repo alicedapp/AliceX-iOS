@@ -26,13 +26,12 @@ target 'AliceX' do
   pod 'BonMot'
   pod 'SwiftyUserDefaults', '5.0.0-beta.4'
   pod 'TrustWalletCore'
-  
-  
+   
   pod 'VBFPopFlatButton'
   pod "ViewAnimator"
-  pod 'SVGKit'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+#  pod 'SVGKit'
+#  pod 'RxSwift', '~> 5'
+#  pod 'RxCocoa', '~> 5'
 #  pod 'lottie-ios'
   pod "ESPullToRefresh"
   pod 'JXSegmentedView', '~> 1.0.2'

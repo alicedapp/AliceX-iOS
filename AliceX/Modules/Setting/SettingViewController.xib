@@ -82,7 +82,7 @@
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-ei-679" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Id4-6N-VQ1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
@@ -637,7 +637,7 @@
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" id="Lyb-K6-NxZ"/>
+                                <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" constant="60" id="Lyb-K6-NxZ"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="leading" secondItem="jqz-ei-679" secondAttribute="leading" id="Uyh-Eb-mKs"/>
                                 <constraint firstAttribute="trailing" secondItem="Id4-6N-VQ1" secondAttribute="trailing" id="iQf-nN-RCm"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="top" secondItem="jqz-ei-679" secondAttribute="top" id="vQh-Bk-IQA"/>

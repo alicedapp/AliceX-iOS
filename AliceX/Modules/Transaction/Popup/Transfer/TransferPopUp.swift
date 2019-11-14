@@ -84,32 +84,34 @@ class TransferPopUp: UIViewController {
         })
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        UIView.animate(withDuration: 0.3,
-//                       delay: 0,
-//                       usingSpringWithDamping: 0.9,
-//                       initialSpringVelocity: 0,
-//                       options: [],
-//                       animations: {
-//            self.bgView.alpha = 0
-//            self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
-//        }, completion: nil)
-//    }
-
-    @IBAction func cancelBtnClicked() {
-        view.endEditing(true)
-        UIView.animate(withDuration: 0.5,
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UIView.animate(withDuration: 0.3,
                        delay: 0,
                        usingSpringWithDamping: 0.9,
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                           self.bgView.alpha = 0
-                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
-                       }, completion: { _ in
-                           self.dismiss(animated: false, completion: nil)
-        })
+            self.bgView.alpha = 0
+            self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+        }, completion: nil)
+    }
+
+    @IBAction func cancelBtnClicked() {
+        view.endEditing(true)
+//        UIView.animate(withDuration: 0.5,
+//                       delay: 0,
+//                       usingSpringWithDamping: 0.9,
+//                       initialSpringVelocity: 0,
+//                       options: [],
+//                       animations: {
+//                           self.bgView.alpha = 0
+//                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+//                       }, completion: { _ in
+//                           self.dismiss(animated: false, completion: nil)
+//        })
+        
+        self.dismiss(animated: false, completion: nil)
     }
 
     @IBAction func maxBtnClicked() {

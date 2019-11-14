@@ -8,7 +8,7 @@
 
 import Foundation
 import Haneke
-import RxSwift
+//import RxSwift
 import PromiseKit
 
 class WatchingCoinHelper {

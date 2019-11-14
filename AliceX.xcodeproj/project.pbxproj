@@ -217,6 +217,7 @@
 		15BE4091233A40080078AF83 /* WCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BE4090233A40080078AF83 /* WCPopUp.swift */; };
 		15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BE4092233A40140078AF83 /* WCPopUp.xib */; };
 		15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA59F22DEF594006BB60D /* Assets.xcassets */; };
+		15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */; };
 		15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */; };
 		15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */; };
 		15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301E2365E15A00A5BD1A /* Blockchain.swift */; };
@@ -480,6 +481,7 @@
 		15BE4090233A40080078AF83 /* WCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPopUp.swift; sourceTree = "<group>"; };
 		15BE4092233A40140078AF83 /* WCPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPopUp.xib; sourceTree = "<group>"; };
 		15BFA59F22DEF594006BB60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+ENS.swift"; sourceTree = "<group>"; };
 		15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCServerHelper.swift; sourceTree = "<group>"; };
 		15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+Collection.swift"; sourceTree = "<group>"; };
 		15CE301E2365E15A00A5BD1A /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			children = (
 				15B86BAC22AA1C9000110C06 /* WalletManager.swift */,
 				157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */,
+				15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */,
 				15A18176232A304F00DFE686 /* WalletManager+CustomRPC.swift */,
 				1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */,
 				1527872622ADF5EA00D63C7F /* WalletStruct.swift */,
@@ -2034,6 +2037,7 @@
 				15E1AA93236706FE00F29369 /* Binance.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */,
+				15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */,
 				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
@@ -2273,7 +2277,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2286,7 +2290,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
 				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2303,7 +2307,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
@@ -2317,7 +2321,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
 				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";

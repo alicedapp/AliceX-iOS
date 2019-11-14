@@ -34,7 +34,7 @@ class SettingViewController: BaseViewController {
 //        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
 
-        if #available(iOS 12.0, *) {
+        if #available(iOS 13.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
             darkLabel.text = traitCollection.userInterfaceStyle == .dark ? "🌝" : "🌚"
