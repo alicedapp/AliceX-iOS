@@ -55,38 +55,40 @@ extension WatchingCoinHelper {
                 API(AmberData.tokens(address: WalletManager.wallet!.address), path: "payload")
             }.done { model in
                 
-                guard let records = model.records, records.count > 0 else {
-//                    seal.fulfill(true)
-                    throw MyError.FoundNil("ERC20 is empty")
-                }
-                
-                let infoList = records.filter{ $0.isERC20 == true }.flatMap { record -> CoinInfo? in
+                if let records = model.records, records.count > 0 {
                     
-                    var info = CoinInfo()
-                    info.symbol = record.symbol
-                    info.decimals = record.decimals
-                    info.name = record.name
-                    info.id = record.address
-                    info.amount = record.amount
-                    
-                    if !IgnoreCoinHelper.shared.list.contains(info.coin) {
-                        CoinInfoHelper.shared.update(newInfo: info)
+                    let infoList = records.filter{ $0.isERC20 == true }.flatMap { record -> CoinInfo? in
                         
-                        let coin = Coin.ERC20(address: record.address)
-                        if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
-                            IgnoreCoinHelper.shared.add(coin: coin)
-                        } else {
-                            self.add(coin: coin, updateCache: true)
+                        var info = CoinInfo()
+                        info.symbol = record.symbol
+                        info.decimals = record.decimals
+                        info.name = record.name
+                        info.id = record.address
+                        info.amount = record.amount
+                        
+                        if !IgnoreCoinHelper.shared.list.contains(info.coin) {
+                            CoinInfoHelper.shared.update(newInfo: info)
+                            
+                            let coin = Coin.ERC20(address: record.address)
+                            if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
+                                IgnoreCoinHelper.shared.add(coin: coin)
+                            } else {
+                                self.add(coin: coin, updateCache: true)
 
+                            }
+                            return info
                         }
-                        return info
+                        return nil
                     }
-                    return nil
+                    
+                    CoinInfoHelper.shared.storeInCache()
+                    
+                    seal.fulfill(true)
+                } else {
+                    seal.fulfill(true)
+                    //                    throw MyError.FoundNil("ERC20 is empty")
                 }
                 
-                CoinInfoHelper.shared.storeInCache()
-                
-                seal.fulfill(true)
             }.catch { error in
                 seal.reject(error)
             }
