@@ -27,7 +27,10 @@ class AssetNFTHeaderCell: UICollectionViewCell {
         animationButton.lineRadius = 10
     }
     
-    func configure(count: Int) {
+    func configure(count: Int, isClose: Bool) {
+        
+        animationButton.currentButtonType = isClose ? .buttonForwardType : .buttonDownBasicType
+        
         if count <= 0 {
             return
         }

@@ -44,6 +44,8 @@ enum Font {
 }
 
 extension Notification.Name {
+    
+    static let walletChange = Notification.Name("walletChange")
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")

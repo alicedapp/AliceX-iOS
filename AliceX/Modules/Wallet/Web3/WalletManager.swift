@@ -131,22 +131,25 @@ class WalletManager {
             HUDManager.shared.showError(text: WalletError.malformedKeystore.errorDescription)
             return
         }
+        
+        do {
+            KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+            let name = Setting.WalletName
+            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
 
-        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
-
-        let name = Setting.WalletName
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-
-        WalletManager.wallet = wallet
-        WalletManager.shared.keystore = keystore
-        try! WalletManager.shared.saveKeystore(keystore)
-
-//        guard let completion = completion else { return }
-
-        HUDManager.shared.showSuccess(text: "Replace wallet success")
-        CallRNModule.sendWalletChangedEvent(address: address)
+            WalletManager.wallet = wallet
+            WalletManager.shared.keystore = keystore
+            try WalletManager.shared.saveKeystore(keystore)
+            
+            HUDManager.shared.showSuccess(text: "Replace wallet success")
+            CallRNModule.sendWalletChangedEvent(address: address)
+            NotificationCenter.default.post(name: .walletChange, object: nil)
+        } catch {
+            HUDManager.shared.showError(text: "Replace Wallet Failed")
+        }
+        
     }
 
     // MARK: - Notification

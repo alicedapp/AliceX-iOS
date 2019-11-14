@@ -28,13 +28,17 @@ class AssetCoinHeaderCell: UICollectionViewCell {
         animationButton.lineRadius = 10
     }
     
-    func configure(count: Int) {
+    func configure(count: Int, isClose: Bool) {
+        
+        animationButton.currentButtonType = isClose ? .buttonForwardType : .buttonDownBasicType
+        
         if count <= 0 {
             title.text = "Coins"
             return
         }
         
         title.text = "\(count) Coins"
+        
     }
 
     @IBAction func addButtonClick() {

@@ -32,27 +32,27 @@
                     </connections>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD0-kk-fil">
-                    <rect key="frame" x="30" y="97.5" width="315" height="472.5"/>
+                    <rect key="frame" x="20" y="82.5" width="335" height="502.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clO-82-pcM">
-                            <rect key="frame" x="0.0" y="0.0" width="315" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="JsA-CQ-Dss"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7z-SV-T1k">
-                            <rect key="frame" x="0.0" y="80" width="315" height="332.5"/>
+                            <rect key="frame" x="0.0" y="80" width="335" height="362.5"/>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gcx-MH-uVJ">
-                            <rect key="frame" x="0.0" y="412.5" width="315" height="60"/>
+                            <rect key="frame" x="0.0" y="442.5" width="335" height="60"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxx-Lp-M2z" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.5" width="157.5" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.5" width="167.5" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-9T-cbL">
-                                            <rect key="frame" x="59.5" y="20.5" width="39" height="19"/>
+                                            <rect key="frame" x="64.5" y="20.5" width="39" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" name="Alice-DarkGrey"/>
@@ -69,10 +69,10 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WE2-1x-98H" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                    <rect key="frame" x="157.5" y="0.5" width="157.5" height="60"/>
+                                    <rect key="frame" x="167.5" y="0.5" width="167.5" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1on-rL-bij">
-                                            <rect key="frame" x="58" y="20.5" width="42" height="19"/>
+                                            <rect key="frame" x="63" y="20.5" width="42" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" name="Alice-DarkGrey"/>
                                             <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORm-TC-fTi">
-                                    <rect key="frame" x="157.5" y="15" width="0.5" height="30"/>
+                                    <rect key="frame" x="167.5" y="15" width="0.5" height="30"/>
                                     <color key="backgroundColor" name="Alice-Grey"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="0.5" id="2Xd-5J-Cwm"/>
@@ -96,7 +96,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gE6-hz-qyn">
-                                    <rect key="frame" x="0.0" y="0.0" width="315" height="0.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="0.5"/>
                                     <color key="backgroundColor" name="Alice-Grey"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="uKP-fU-GRo"/>
@@ -122,17 +122,17 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU0-FM-dBU">
-                            <rect key="frame" x="0.0" y="412.5" width="315" height="60"/>
+                            <rect key="frame" x="0.0" y="442.5" width="335" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-rp-gq5">
-                                    <rect key="frame" x="82.5" y="15" width="30" height="30"/>
+                                    <rect key="frame" x="92.5" y="15" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="7Ub-NE-L7P"/>
                                         <constraint firstAttribute="width" secondItem="6tJ-rp-gq5" secondAttribute="height" multiplier="1:1" id="y0k-CN-d6H"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share from Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koM-gI-U4e">
-                                    <rect key="frame" x="124.5" y="21" width="114" height="18"/>
+                                    <rect key="frame" x="134.5" y="21" width="114" height="18"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                     <color key="textColor" name="Alice-DarkGrey"/>
                                     <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="a2g-di-JE7" secondAttribute="trailing" id="fYa-cX-Lac"/>
                 <constraint firstItem="aD0-kk-fil" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gje-Hf-ker"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a2g-di-JE7" secondAttribute="bottom" id="iCb-LP-kj4"/>
-                <constraint firstAttribute="trailing" secondItem="aD0-kk-fil" secondAttribute="trailing" constant="30" id="jdV-E5-CMv"/>
+                <constraint firstAttribute="trailing" secondItem="aD0-kk-fil" secondAttribute="trailing" constant="20" id="jdV-E5-CMv"/>
                 <constraint firstItem="a2g-di-JE7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rnw-nA-Vza"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

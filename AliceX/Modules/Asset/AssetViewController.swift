@@ -51,6 +51,7 @@ class AssetViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .walletChange, object: nil)
         
         let animator = AssetImgeAnimator.init(frame: CGRect.zero)
         collectionView.es.addPullToRefresh(animator: animator, handler: {
@@ -92,11 +93,17 @@ class AssetViewController: BaseViewController {
         }.done { _ in
             IgnoreCoinHelper.shared.loadFromCache()
             self.coins = WatchingCoinHelper.shared.list
-            self.collectionView.reloadData()
+//            self.collectionView.reloadData()
+//            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
+            self.coinSectionShowAnimation()
+            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
         }.catch { error in
             IgnoreCoinHelper.shared.loadFromCache()
             self.coins = WatchingCoinHelper.shared.list
-            self.collectionView.reloadData()
+//            self.collectionView.reloadData()
+//            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+            self.coinSectionShowAnimation()
+            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
             print(error)
         }
         
@@ -106,7 +113,7 @@ class AssetViewController: BaseViewController {
                 return
             }
             self.NFTData = model.assets
-            self.NFTSectionAimation()
+            self.NFTSectionShowAimation()
         }
     }
 
@@ -147,12 +154,14 @@ class AssetViewController: BaseViewController {
 
     func requestNFT() -> Promise<Bool> {
         
-        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.wallet!.address)"
+        let currentAddress = WalletManager.wallet!.address
+        
+        let cacheKey = "\(CacheKey.assetNFTKey).\(currentAddress)"
         
         return Promise<Bool> { seal in
         
             firstly { () -> Promise<OpenSeaReponse> in
-                API(OpenSea.assets(address: WalletManager.wallet!.address))
+                API(OpenSea.assets(address: currentAddress))
             }.done { model in
                 
                 var hasNew = true
@@ -163,11 +172,13 @@ class AssetViewController: BaseViewController {
                     return asset.image_preview_url != nil
                 })
                 Shared.stringCache.set(value: model.toJSONString()!, key: cacheKey)
-                if hasNew {
-                    self.NFTSectionAimation()
-                } else {
-                    self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
-                }
+//                if hasNew {
+//                    self.NFTSectionAimation()
+//                } else {
+//                    self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
+//                }
+                
+                self.collectionView.reloadData()
                 
                 seal.fulfill(true)
             }.catch { error in

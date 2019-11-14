@@ -218,6 +218,7 @@
 		15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BE4092233A40140078AF83 /* WCPopUp.xib */; };
 		15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BFA59F22DEF594006BB60D /* Assets.xcassets */; };
 		15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */; };
+		15C7D0FE237D10760037E418 /* BinanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7D0FD237D10760037E418 /* BinanceModel.swift */; };
 		15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */; };
 		15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */; };
 		15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301E2365E15A00A5BD1A /* Blockchain.swift */; };
@@ -482,6 +483,7 @@
 		15BE4092233A40140078AF83 /* WCPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPopUp.xib; sourceTree = "<group>"; };
 		15BFA59F22DEF594006BB60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+ENS.swift"; sourceTree = "<group>"; };
+		15C7D0FD237D10760037E418 /* BinanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceModel.swift; sourceTree = "<group>"; };
 		15CB1F2C22F16E8200E3075C /* WCServerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCServerHelper.swift; sourceTree = "<group>"; };
 		15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+Collection.swift"; sourceTree = "<group>"; };
 		15CE301E2365E15A00A5BD1A /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
@@ -1515,6 +1517,7 @@
 			isa = PBXGroup;
 			children = (
 				15E1AA92236706FE00F29369 /* Binance.swift */,
+				15C7D0FD237D10760037E418 /* BinanceModel.swift */,
 			);
 			path = Binance;
 			sourceTree = "<group>";
@@ -2040,6 +2043,7 @@
 				15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */,
 				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
+				15C7D0FE237D10760037E418 /* BinanceModel.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */,
 				158A90972371388D002F9F18 /* Blockchain+NetworkLayer.swift in Sources */,

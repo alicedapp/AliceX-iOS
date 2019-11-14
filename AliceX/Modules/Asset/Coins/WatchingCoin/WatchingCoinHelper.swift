@@ -20,6 +20,12 @@ class WatchingCoinHelper {
     var noCache: Bool = false
     
     init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
+    }
+    
+    @objc func walletChange() {
+        list.removeAll()
+        loadFromCache()
     }
     
     func add(coin: Coin, updateCache: Bool = false, checkIgnore: Bool = true) {

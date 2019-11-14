@@ -88,13 +88,13 @@ class CoinInfoHelper {
 
 extension CoinInfoHelper {
     
-    func loadFromCache() -> Promise<Void> {
+    func loadFromCache() -> Promise<Bool> {
         
 //        if !WalletManager.hasWallet() {
 //            return Promise<Void> { seal in seal.reject(MyError.FoundNil("No wallet")) }
 //        }
         
-        return Promise<Void> { seal in
+        return Promise<Bool> { seal in
             
             let cacheKey = CacheKey.coinInfoList
 //            "\(CacheKey.coinInfoList).\(WalletManager.wallet!.address)"
@@ -108,7 +108,7 @@ extension CoinInfoHelper {
                     self.pool[info!.id] = info
                 }
                 
-                seal.fulfill(())
+                seal.fulfill(true)
                 
             }.onFailure { error in
                 seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))

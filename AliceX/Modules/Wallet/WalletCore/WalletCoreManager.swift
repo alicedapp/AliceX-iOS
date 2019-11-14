@@ -25,6 +25,9 @@ class WalletCore {
     init() {
 //        let keystore = try! KeyStore(keyDirectory: URL(string: "")!)
 //        keystore.createWallet(name: <#T##String#>, password: <#T##String#>, coins: <#T##[CoinType]#>)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateWallet), name: .walletChange, object: nil)
+        
         let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
         wallet = HDWallet(mnemonic: mnemonic!, passphrase: "")
     }
@@ -40,5 +43,15 @@ class WalletCore {
             let address = coinType.deriveAddress(privateKey: key)
             return address
         }
+    }
+    
+    // MARK: - Notification
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func updateWallet() {
+        let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey)
+        wallet = HDWallet(mnemonic: mnemonic!, passphrase: "")
     }
 }

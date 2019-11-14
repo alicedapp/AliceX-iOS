@@ -66,6 +66,24 @@ extension BlockChain: NetworkLayer {
 //                    seal.reject(error)
                     seal.fulfill(BigUInt(0))
                 }
+            case .Binance:
+                firstly { () -> Promise<BinanceAccount> in
+                    API(BNBAPI.account(address: WalletCore.shared.address(blockchain: self)))
+                }.done { model in
+                    
+                    let balances = model.balances.filter { $0.symbol == "BNB" }
+                    guard let balance = balances.first else {
+                        throw MyError.FoundNil("Can't find BNB in API")
+                    }
+                    
+                    let balanceDouble = Double(balance.free)! * pow(Double(10), Double(self.decimal))
+
+                    seal.fulfill(BigUInt(balanceDouble) as! BigUInt)
+                    
+                }.catch { (error) in
+//                    seal.reject(error)
+                    seal.fulfill(BigUInt(0))
+                }
             default:
                 seal.fulfill(0)
             }
