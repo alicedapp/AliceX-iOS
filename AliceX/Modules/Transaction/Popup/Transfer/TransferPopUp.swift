@@ -52,7 +52,7 @@ class TransferPopUp: UIViewController {
         valueFieldDidChange(valueField)
         
         if let info = coin.info, let amountStr = info.amount,
-            let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
+            let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 5, decimalSeparator: ".", fallbackToScientific: false) {
             balanceLabel.text = amount
         } else {
             balanceLabel.text = "0.0"
@@ -89,41 +89,44 @@ class TransferPopUp: UIViewController {
         })
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(true)
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        UIView.animate(withDuration: 0.3,
+//                       delay: 0,
+//                       usingSpringWithDamping: 0.9,
+//                       initialSpringVelocity: 0,
+//                       options: [],
+//                       animations: {
+//            self.bgView.alpha = 0
+//            self.containView.transform = CGAffineTransform(translationX: 0, y: 400)
+//        }, completion: nil)
+//    }
+
+    @IBAction func cancelBtnClicked() {
+        view.endEditing(true)
         UIView.animate(withDuration: 0.3,
                        delay: 0,
                        usingSpringWithDamping: 0.9,
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-            self.bgView.alpha = 0
-            self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
-        }, completion: nil)
-    }
-
-    @IBAction func cancelBtnClicked() {
-        view.endEditing(true)
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0,
-//                       usingSpringWithDamping: 0.9,
-//                       initialSpringVelocity: 0,
-//                       options: [],
-//                       animations: {
-//                           self.bgView.alpha = 0
-//                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
-//                       }, completion: { _ in
-//                           self.dismiss(animated: false, completion: nil)
-//        })
+                           self.bgView.alpha = 0
+                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+                       }, completion: { _ in
+                           self.dismiss(animated: false, completion: nil)
+        })
         
-        self.dismiss(animated: false, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func maxBtnClicked() {
         if let info = coin.info, let amountStr = info.amount,
             let bigAmount = BigUInt(amountStr),
-            let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
-            valueField.text = amount
+            let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: info.decimals, decimalSeparator: ".", fallbackToScientific: false),
+            let amountInDouble = Double(amount) {
+            
+            let removeZero = String(format: "%g", amountInDouble)
+            valueField.text = removeZero
             self.amount = bigAmount
         } else {
             balanceLabel.text = "0.0"

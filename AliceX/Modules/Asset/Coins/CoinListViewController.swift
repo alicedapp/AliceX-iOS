@@ -56,6 +56,7 @@ class CoinListViewController: BaseViewController {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
         SPStorkController.scrollViewDidScroll(scrollView)
     }
 }
@@ -87,5 +88,9 @@ extension CoinListViewController: UISearchBarDelegate {
         })
 
         tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }

@@ -67,7 +67,12 @@ class ContractPopUp: UIViewController {
         isCustomGasLimit = gasLimit != BigUInt(0)
         
         addressLabel.text = contractAddress
-        valueLabel.text = value.readableValue
+        
+        let amountStr = Web3.Utils.formatToEthereumUnits(value, toUnits: .eth, decimals: 18, decimalSeparator: ".", fallbackToScientific: false)!
+        let amountInDouble = Double(amountStr)!
+        let removeZero = String(format: "%g", amountInDouble)
+        valueLabel.text = removeZero
+        
         functionLabel.text = functionName
 
 //        let price = Float(value!)! * PriceHelper.shared.exchangeRate
@@ -82,7 +87,12 @@ class ContractPopUp: UIViewController {
         paramterLabel.speed = .duration(10)
         paramterLabel.fadeLength = 10.0
         paramterLabel.trailingBuffer = 30.0
-        paramterLabel.text = parameters!.compactMap { "\($0)" }.joined(separator: ", ")
+        if let para = parameters, para.count > 0 {
+            paramterLabel.text = parameters!.compactMap { "\($0)" }.joined(separator: ", ")
+        } else {
+            paramterLabel.text = "nil"
+        }
+        
 
         paramterLabel.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pauseTap))

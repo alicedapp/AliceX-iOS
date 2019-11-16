@@ -74,6 +74,11 @@
                         <constraint firstAttribute="bottom" secondItem="khZ-tm-kZT" secondAttribute="bottom" id="dyt-18-81S"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhU-tT-qkE">
+                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <searchBar contentMode="redraw" placeholder="Search Coin" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-HW-ZA2">
                     <rect key="frame" x="0.0" y="104" width="414" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
