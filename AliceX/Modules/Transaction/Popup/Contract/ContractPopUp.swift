@@ -75,8 +75,8 @@ class ContractPopUp: UIViewController {
 
         functionLabel.text = functionName
 
-//        let price = Float(value!)! * PriceHelper.shared.exchangeRate
-//        priceLabel.text = "\(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
+        let price = amountInDouble * Double(PriceHelper.shared.exchangeRate)
+        priceLabel.text = price.currencyString
 
         payView = PayButtonView.instanceFromNib()
         payButton.addSubview(payView!)
