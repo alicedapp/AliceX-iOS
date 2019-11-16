@@ -25,7 +25,7 @@ class CoinReOrderViewController: BaseViewController {
         ignoreCollectionView.registerCell(nibName: CoinReOrderCell.nameOfClass)
         
         let watchList = WatchingCoinHelper.shared.list
-//        let pinedList = Array(CoinInfoHelper.shared.pool.values).filter {($0.isPined ?? false)}.map { info -> Coin in
+//        let pinedList = Array(CoinInfoCenter.shared.pool.values).filter {($0.isPined ?? false)}.map { info -> Coin in
 //            return info.coin
 //        }
 //        let unPinedList = watchList.filter { !($0.info!.isPined ?? false) }
@@ -66,18 +66,18 @@ class CoinReOrderViewController: BaseViewController {
         let ignoreList = data[2]
         
         pinList.forEach { coin in
-            CoinInfoHelper.shared.pin(coin: coin)
+            CoinInfoCenter.shared.pin(coin: coin)
         }
         
         watchingList.forEach { coin in
-            CoinInfoHelper.shared.unpin(coin: coin)
+            CoinInfoCenter.shared.unpin(coin: coin)
         }
         
         IgnoreCoinHelper.shared.updateList(newList: ignoreList)
         
         let newCoinList =  pinList + watchingList
         WatchingCoinHelper.shared.updateList(newList: newCoinList)
-        CoinInfoHelper.shared.storeInCache()
+        CoinInfoCenter.shared.storeInCache()
     }
 }
 
@@ -128,7 +128,7 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 //            let tag = collectionView.tag
 //            switch tag {
 //            case 0:
-//                CoinInfoHelper.shared.pin(coin: coin)
+//                CoinInfoCenter.shared.pin(coin: coin)
 //            case 1:
 //                WatchingCoinHelper.shared.add(coin: coin, updateCache: true)
 //            case 2:
@@ -148,7 +148,7 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 //
 //        switch tag {
 //        case 0:
-//            CoinInfoHelper.shared.unpin(coin: coin)
+//            CoinInfoCenter.shared.unpin(coin: coin)
 //        case 1:
 //
 //            if coin.info!.isPined {

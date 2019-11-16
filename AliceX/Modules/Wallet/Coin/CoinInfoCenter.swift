@@ -1,5 +1,5 @@
 //
-//  CoinInfoHelper.swift
+//  CoinInfoCenter.swift
 //  AliceX
 //
 //  Created by lmcmz on 6/11/19.
@@ -10,8 +10,8 @@ import Foundation
 import Haneke
 import PromiseKit
 
-class CoinInfoHelper {
-    static let shared = CoinInfoHelper()
+class CoinInfoCenter {
+    static let shared = CoinInfoCenter()
     var pool: [String: CoinInfo] = [:]
     
     init() {
@@ -86,7 +86,7 @@ class CoinInfoHelper {
     
 }
 
-extension CoinInfoHelper {
+extension CoinInfoCenter {
     
     func loadFromCache() -> Promise<Bool> {
         

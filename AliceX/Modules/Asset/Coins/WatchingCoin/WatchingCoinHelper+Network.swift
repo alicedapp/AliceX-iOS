@@ -34,15 +34,15 @@ extension WatchingCoinHelper {
             blockchainList().forEach { chain in
                 chain.getBalance().done { balance in
 //                    info.amount = String(balance)
-                    guard let coin = CoinInfoHelper.shared.pool[chain.rawValue] else {
+                    guard let coin = CoinInfoCenter.shared.pool[chain.rawValue] else {
 //                        seal.reject()
                         throw MyError.FoundNil("chain not found")
                     }
-                     CoinInfoHelper.shared.pool[chain.rawValue]!.amount = String(balance)
+                     CoinInfoCenter.shared.pool[chain.rawValue]!.amount = String(balance)
                 }
             }
             
-//            CoinInfoHelper.shared.storeInCache()
+//            CoinInfoCenter.shared.storeInCache()
             seal.fulfill(())
             
         }
@@ -67,7 +67,7 @@ extension WatchingCoinHelper {
                         info.amount = record.amount
                         
                         if !IgnoreCoinHelper.shared.list.contains(info.coin) {
-                            CoinInfoHelper.shared.update(newInfo: info)
+                            CoinInfoCenter.shared.update(newInfo: info)
                             
                             let coin = Coin.ERC20(address: record.address)
                             if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
@@ -81,7 +81,7 @@ extension WatchingCoinHelper {
                         return nil
                     }
                     
-                    CoinInfoHelper.shared.storeInCache()
+                    CoinInfoCenter.shared.storeInCache()
                     
                     seal.fulfill(true)
                 } else {

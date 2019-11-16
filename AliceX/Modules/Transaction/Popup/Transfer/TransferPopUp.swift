@@ -30,7 +30,6 @@ class TransferPopUp: UIViewController {
     var address: String?
     var value: BigUInt!
     var coin: Coin = Coin.coin(chain: .Ethereum)
-    
     var amount: BigUInt! = BigUInt(0)
     
     class func make(address: String?, value: BigUInt! = BigUInt(0), coin: Coin = .coin(chain: .Ethereum)) -> TransferPopUp {
@@ -59,6 +58,11 @@ class TransferPopUp: UIViewController {
             balanceLabel.text = "0.0"
         }
         
+        if coin.isERC20 || coin == Coin.coin(chain: .Ethereum) {
+            addressField.placeholder = "ETH Addres or ENS"
+        } else {
+            addressField.placeholder = "\(coin.blockchain!.rawValue) Address"
+        }
     }
 
     override func viewWillAppear(_: Bool) {
@@ -76,11 +80,12 @@ class TransferPopUp: UIViewController {
                            self.bgView.alpha = 1
                            self.containView.transform = CGAffineTransform.identity
                        }, completion: { _ in
-                           if self.address != nil {
-                               self.valueField.becomeFirstResponder()
+                        if self.address!.isEmptyAfterTrim() {
+                            self.addressField.becomeFirstResponder()
                                return
                            }
-                           self.addressField.becomeFirstResponder()
+                        self.valueField.becomeFirstResponder()
+                           
         })
     }
 
@@ -127,25 +132,29 @@ class TransferPopUp: UIViewController {
     
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
-        guard let ethAddress = address?.ethAddress else {
+        guard let addr = address,
+            coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
+            self.errorAlert(text: "Addess invalid")
+                addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
             return
         }
-        addressField.text = ethAddress.address
+        addressField.text = addr.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     @IBAction func cameraBtnClicked() {
-        let vc = QRCodeReaderViewController.make { hash in
-            guard let address = EthereumAddress(hash) else {
+        let vc = QRCodeReaderViewController.make { result in
+            if !self.coin.verify(address: result.trimmingCharacters(in: .whitespacesAndNewlines)) {
                 self.errorAlert(text: "Addess invalid")
+                self.addressField.text = result.trimmingCharacters(in: .whitespacesAndNewlines)
                 return
             }
-            self.addressField.text? = hash
+            self.addressField.text? = result.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         present(vc, animated: true, completion: nil)
     }
 
     @IBAction func confirmBtnClicked() {
-        guard let ethAddress = addressField.text?.ethAddress else {
+        guard let addr = self.addressField.text?.trimmingCharacters(in: .whitespacesAndNewlines), coin.verify(address: addr) else {
             errorAlert(text: "Addess invalid")
             return
         }
@@ -163,15 +172,16 @@ class TransferPopUp: UIViewController {
 
         if coin.type == "ERC20" {
             TransactionManager.showTokenView(token: coin,
-                                             toAddress: ethAddress.address,
-                                             amount: amount, data: Data()) { _ in
+                                             toAddress: addr,
+                                             amount: amount,
+                                             data: Data()) { _ in
                                                 self.cancelBtnClicked()
             }
         } else {
-            TransactionManager.showPaymentView(toAddress: ethAddress.address,
+            TransactionManager.showPaymentView(toAddress: addr,
                                                amount: self.amount,
                                                data: Data(),
-                                               symbol: "ETH") { _ in
+                                               coin: coin) { _ in
                 self.cancelBtnClicked()
             }
         }

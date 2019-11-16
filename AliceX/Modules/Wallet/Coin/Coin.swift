@@ -74,14 +74,14 @@ enum Coin {
 //        case .coin(let chain):
 //            return chain.symbol
 //        case .ERC20(let token):
-//            return CoinInfoHelper.shared.
+//            return CoinInfoCenter.shared.
 //        }
 //    }
     
     var info: CoinInfo? {
         
-        if CoinInfoHelper.shared.pool.keys.contains(id)  {
-            return CoinInfoHelper.shared.pool[id]!
+        if CoinInfoCenter.shared.pool.keys.contains(id)  {
+            return CoinInfoCenter.shared.pool[id]!
         }
         
         return nil
@@ -96,6 +96,15 @@ enum Coin {
 //        }
 //
 //    }
+    
+    func verify(address: String) -> Bool {
+        switch self {
+        case .coin(let chain):
+            return chain.verify(address: address)
+        case .ERC20:
+            return BlockChain.Ethereum.verify(address: address)
+        }
+    }
     
 }
 

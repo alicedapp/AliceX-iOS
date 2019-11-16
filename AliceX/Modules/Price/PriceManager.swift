@@ -53,13 +53,13 @@ class PriceManager {
                         if let model = CryptocompareModel.deserialize(from: dataString, designatedPath: "RAW.\(coin.info!.symbol!).\(currency.rawValue)") {
                             self.price[coin.id] = model
                             
-                            if let info = CoinInfoHelper.shared.pool[coin.id] {
-                                CoinInfoHelper.shared.pool[coin.id]?.price = model.PRICE
-                                CoinInfoHelper.shared.pool[coin.id]?.changeIn24H = model.CHANGE24HOUR
+                            if let info = CoinInfoCenter.shared.pool[coin.id] {
+                                CoinInfoCenter.shared.pool[coin.id]?.price = model.PRICE
+                                CoinInfoCenter.shared.pool[coin.id]?.changeIn24H = model.CHANGE24HOUR
                             }
                         }
                     }
-                    CoinInfoHelper.shared.storeInCache()
+                    CoinInfoCenter.shared.storeInCache()
                     seal.fulfill(())
                 case .failure(let error):
                     print(error)
@@ -92,7 +92,7 @@ class PriceManager {
                             priceList.append(model)
                         }
                     }
-                    CoinInfoHelper.shared.storeInCache()
+                    CoinInfoCenter.shared.storeInCache()
                     seal.fulfill(priceList)
                 case .failure(let error):
                     print(error)

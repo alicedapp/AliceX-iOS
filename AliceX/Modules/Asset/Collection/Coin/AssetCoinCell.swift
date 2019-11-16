@@ -52,18 +52,53 @@ class AssetCoinCell: UICollectionViewCell {
         
         //TODO
 //        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
-//        longPress.minimumPressDuration = 0.2
+//        longPress.minimumPressDuration = 0
 //        self.addGestureRecognizer(longPress)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         self.addGestureRecognizer(tap)
     }
     
-    @objc func tapAction() {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        let vc = TransferPopUp.make(address: "", coin: coin)
-        vc.modalPresentationStyle = .overCurrentContext
-        UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+    @IBAction func transferClick() {
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+            self.background.alpha = 1
+            
+        }) { _ in
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            let vc = TransferPopUp.make(address: "", coin: self.coin)
+           vc.modalPresentationStyle = .overCurrentContext
+           UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+           UIView.animate(withDuration: 0.3) {
+               self.transform = CGAffineTransform.identity
+               self.background.alpha = 0
+           }
+        }
+    }
+    
+    @objc func tapAction(gesture: UITapGestureRecognizer) {
+        
+        switch gesture.state {
+        case .began:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+                self.background.alpha = 1
+            }
+            
+        case .ended:
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            let vc = TransferPopUp.make(address: "", coin: coin)
+            vc.modalPresentationStyle = .overCurrentContext
+            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity
+                self.background.alpha = 0
+            }
+            
+        default:
+            break;
+        }
     }
     
     @objc func longPress(gesture: UILongPressGestureRecognizer){
@@ -73,11 +108,12 @@ class AssetCoinCell: UICollectionViewCell {
                 self.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
                 self.background.alpha = 1
             }
+        case .ended:
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-        case .ended:
+            
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
                 self.background.alpha = 0
@@ -126,8 +162,10 @@ class AssetCoinCell: UICollectionViewCell {
         }
         
         if let balance = info.amount, let balanceInt = BigUInt(balance),
-            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: true) {
-            amountLabel.text = "\(amount) \(info.symbol!)"
+            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 4, decimalSeparator: ".", fallbackToScientific: false), let amountInDouble = Double(amount) {
+            
+            let removeZero = String(format: "%g", amountInDouble)
+            amountLabel.text = "\(removeZero) \(info.symbol!)"
             
             if let price = info.price, let doubleAmount = Double(amount) {
                 balanceLabel.text = "\(currencySymbol) \(( doubleAmount * price).toString(decimal: 3))"

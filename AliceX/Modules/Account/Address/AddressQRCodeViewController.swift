@@ -42,8 +42,6 @@ class AddressQRCodeViewController: UIViewController {
     var chains = BlockChain.allCases
 //        WatchingCoinHelper.shared.blockchainList()
     
-    var listVCArray: [BlockChainQRCodeView] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +74,7 @@ class AddressQRCodeViewController: UIViewController {
         indicator.indicatorColor = AliceColor.dark
         segmentedView.indicators = [indicator]
         
-        listContainerView = JXSegmentedListContainerView(dataSource: self, type: .scrollView)
+        listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)
         segmentedView.listContainer = listContainerView
         
         container.addSubview(listContainerView)
@@ -99,7 +97,10 @@ class AddressQRCodeViewController: UIViewController {
     @IBAction func copyBtnClicked() {
         let index = segmentedView.selectedIndex
         let chain = chains[index]
-        UIPasteboard.general.string = WalletCore.shared.address(blockchain: chain)
+        let address = WalletCore.address(blockchain: chain)
+        
+        UIPasteboard.general.string = address
+        HUDManager.shared.showSuccess(text: "Copied")
     }
 
     @IBAction func shareBtnClicked() {
@@ -109,7 +110,7 @@ class AddressQRCodeViewController: UIViewController {
         
         let index = segmentedView.selectedIndex
         let chain = chains[index]
-        let address = WalletCore.shared.address(blockchain: chain)
+        let address = WalletCore.address(blockchain: chain)
         ShareHelper.share(text: address, image: image, urlString: "")
         shareConver.isHidden = true
     }

@@ -16,9 +16,12 @@ import web3swift
 class PaymentPopUp: UIViewController {
     @IBOutlet var payButton: UIControl!
 
+    @IBOutlet var symbolLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var coinImageView: UIImageView!
+    
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
-
     @IBOutlet var priceLabel: UILabel!
 
     @IBOutlet var gasPriceLabel: UILabel!
@@ -32,21 +35,22 @@ class PaymentPopUp: UIViewController {
     var successBlock: StringBlock?
 
     var gasLimit: BigUInt?
-
     var gasPrice: GasPrice = GasPrice.average
 
+    var coin: Coin!
     var payView: PayButtonView?
 
     class func make(toAddress: String,
                     amount: BigUInt,
                     data: Data,
-                    symbol _: String,
+                    coin: Coin,
                     success: @escaping StringBlock) -> PaymentPopUp {
         let vc = PaymentPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = success
         vc.data = data
+        vc.coin = coin
         return vc
     }
 
@@ -57,9 +61,19 @@ class PaymentPopUp: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let chain = coin.blockchain else {
+            HUDManager.shared.showError(text: "Wrong coin type")
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
 
+        coinImageView.kf.setImage(with: coin.image)
+        
+        symbolLabel.text = coin.info!.symbol
+        nameLabel.text = coin.info!.name
+        
         addressLabel.text = toAddress
-
         let value = amount.readableValue
         amountLabel.text = value.round(decimal: 4)
         let price = Float(value)! * PriceHelper.shared.exchangeRate
@@ -70,10 +84,17 @@ class PaymentPopUp: UIViewController {
         payView!.fillSuperview()
         payView?.delegate = self
 
+        
+        if chain != .Ethereum {
+            gasBtn.isHidden = true
+            return
+        }
+        
+        /// If not Ethereum, not support change gas price
+        
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
 
         gasBtn.isUserInteractionEnabled = false
-
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
@@ -138,22 +159,31 @@ extension PaymentPopUp: PayButtonDelegate {
 
     func send() {
         payView!.showLoading()
-
-        firstly {
-            TransactionManager.shared.sendEtherSync(
-                to: toAddress!,
-                amount: amount!,
-                data: data!,
-                password: "",
-                gasPrice: gasPrice
-            )
-        }.done { hash in
-            print(hash)
-            self.successBlock!(hash)
-            self.dismiss(animated: true, completion: nil)
-        }.catch { error in
-            self.payView!.failed()
-            HUDManager.shared.showError(error: error)
+        
+        guard let chain = coin.blockchain else {
+            return
         }
+        
+        firstly {
+            chain.transfer(toAddress: toAddress!, value: amount!, gasPrice: gasPrice)
+        }
+        
+        
+//        firstly {
+//            TransactionManager.shared.sendEtherSync(
+//                to: toAddress!,
+//                amount: amount!,
+//                data: data!,
+//                password: "",
+//                gasPrice: gasPrice
+//            )
+//        }.done { hash in
+//            print(hash)
+//            self.successBlock!(hash)
+//            self.dismiss(animated: true, completion: nil)
+//        }.catch { error in
+//            self.payView!.failed()
+//            HUDManager.shared.showError(error: error)
+//        }
     }
 }

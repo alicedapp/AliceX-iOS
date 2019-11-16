@@ -104,13 +104,13 @@ class TransactionManager {
     class func showPaymentView(toAddress: String,
                                amount: BigUInt,
                                data: Data,
-                               symbol: String,
+                               coin: Coin,
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress,
                                       amount: amount,
                                       data: data,
-                                      symbol: symbol,
+                                      coin: coin,
                                       success: success)
         let height = 430 - 34 + Constant.SAFE_BOTTOM
         modal.modalPresentationStyle = .overCurrentContext
@@ -120,7 +120,7 @@ class TransactionManager {
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
-                              password _: String,
+                              password _: String = "web3swift",
                               gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
         return TransactionManager.writeSmartContract(contractAddress: address,
                                                      functionName: "fallback",

@@ -8,13 +8,13 @@
 
 import Foundation
 import TrustWalletCore
+import web3swift
 
 enum BlockChain: String, CaseIterable {
     case Ethereum
     case Bitcoin
     case Binance
     case Cosmos
-    
 //    case unknow
 }
 
@@ -89,6 +89,41 @@ extension BlockChain {
             return 18
         case .Cosmos:
             return 9
+        }
+    }
+    
+    var explorer: URL {
+        switch self {
+        case .Ethereum:
+            return URL(string: "https://etherscan.io")!
+        case .Binance:
+            return URL(string: "https://explorer.binance.org")!
+        case .Cosmos:
+            return URL(string: "https://www.mintscan.io")!
+        case .Bitcoin:
+            return URL(string: "https://btc.com")!
+        }
+    }
+    
+    func verify(address: String) -> Bool {
+        switch self {
+        case .Ethereum:
+            guard let addr = web3swift.EthereumAddress(address), addr.isValid else{
+                return false
+            }
+            return true
+        case .Binance:
+            guard let addr = CosmosAddress(string: address), addr.hrp == .binance, !addr.description.isEmptyAfterTrim() else {
+                return false
+            }
+            return true
+        case .Bitcoin:
+            return BitcoinAddress.isValidString(string: address)
+        case .Cosmos:
+            guard let addr = CosmosAddress(string: address), addr.hrp == .cosmos, !addr.description.isEmptyAfterTrim() else {
+                return false
+            }
+            return true
         }
     }
 }

@@ -45,7 +45,7 @@ class AssetNFTCell: UICollectionViewCell {
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
         } else {
-            NFTImageView.backgroundColor = AliceColor.grey
+            NFTImageView.backgroundColor = UIColor(hex: "D5D5D5", alpha: 0.15)
         }
 
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {

@@ -43,7 +43,6 @@ enum GasPrice: String, CaseIterable {
     }
 
     var wei: BigUInt {
-        // TODO: Not sure
         // GWei to wei 9
         let wei = self.price * pow(10, 9)
         return BigUInt(wei)

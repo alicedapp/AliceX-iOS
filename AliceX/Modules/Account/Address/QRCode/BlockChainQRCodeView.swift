@@ -37,7 +37,7 @@ class BlockChainQRCodeView: BaseView {
     }
     
     override func configure() {
-        var address = WalletCore.shared.address(blockchain: chain)
+        var address = WalletCore.address(blockchain: chain)
 
         let qrcode = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator",
                                                codeString: address,

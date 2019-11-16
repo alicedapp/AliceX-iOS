@@ -9,12 +9,24 @@
 import Foundation
 import HandyJSON
 
+struct BinanceNodeInfo: HandyJSON {
+    var id: String!
+    var network: String!
+}
+
+struct BinanceResult: HandyJSON {
+    var hash: String!
+    var code: Int!
+    var log: String!
+    var ok: Bool!
+}
+
 struct BinanceAccount: HandyJSON {
     
     var address: String!
-    var sequence: Int!
+    var sequence: Int64!
     var flag: Int!
-    var account_number: Int!
+    var account_number: Int64!
     var public_key: [Int]!
     var balances: [BinanceBalance]!
     

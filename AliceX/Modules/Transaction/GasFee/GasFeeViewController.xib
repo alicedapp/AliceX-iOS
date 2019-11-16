@@ -67,7 +67,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                             <constraints>
                                                 <constraint firstItem="Elc-16-89u" firstAttribute="leading" secondItem="8AU-Ia-Qvn" secondAttribute="leading" id="IA0-Tn-o4R"/>
                                                 <constraint firstItem="2so-x2-IpX" firstAttribute="centerY" secondItem="8AU-Ia-Qvn" secondAttribute="centerY" id="KMK-V5-EZu"/>
@@ -118,7 +118,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="YjC-NI-ypi" secondAttribute="trailing" constant="40" id="5vh-yD-8lm"/>
                                                 <constraint firstItem="YjC-NI-ypi" firstAttribute="centerY" secondItem="KJ8-7F-E5S" secondAttribute="centerY" id="77x-6w-HbA"/>
@@ -193,7 +193,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hSm-Og-LeW" secondAttribute="trailing" constant="40" id="9zf-mA-NhA"/>
                                                 <constraint firstItem="joc-Vl-RBD" firstAttribute="centerY" secondItem="JZ8-pb-6ve" secondAttribute="centerY" id="EAB-g6-bNf"/>
@@ -257,7 +257,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                             <constraints>
                                                 <constraint firstItem="dTq-j3-DV6" firstAttribute="centerY" secondItem="8Ra-rR-x4y" secondAttribute="centerY" id="6iN-Nn-wQg"/>
                                                 <constraint firstAttribute="trailing" secondItem="dTq-j3-DV6" secondAttribute="trailing" constant="40" id="7Kw-a2-wp2"/>
@@ -288,7 +288,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                             <constraints>
                                                 <constraint firstItem="7le-jn-mFj" firstAttribute="top" secondItem="fJ1-AJ-dFg" secondAttribute="top" constant="25" id="YVI-P1-Vw3"/>
                                                 <constraint firstItem="7le-jn-mFj" firstAttribute="centerX" secondItem="fJ1-AJ-dFg" secondAttribute="centerX" id="m7c-xg-iOC"/>
@@ -300,7 +300,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-White"/>
+                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                             <constraints>
                                 <constraint firstItem="qqD-fk-pKA" firstAttribute="leading" secondItem="wD0-ue-et2" secondAttribute="leading" id="0ve-53-7zp"/>
                                 <constraint firstAttribute="height" constant="430" id="1ZG-zG-Fvv"/>
@@ -338,10 +338,13 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

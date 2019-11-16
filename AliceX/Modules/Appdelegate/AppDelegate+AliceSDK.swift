@@ -83,7 +83,7 @@ func handleAliceURL(url: URL) -> Bool {
         TransactionManager.showPaymentView(toAddress: to,
                                            amount: value,
                                            data: Data(),
-                                           symbol: "ETH") { txHash in
+                                           coin: Coin.coin(chain: .Ethereum)) { txHash in
             let url = URL(string: "\(callback)://")!
                 .appending("method", value: method)
                 .appending("txHash", value: txHash)

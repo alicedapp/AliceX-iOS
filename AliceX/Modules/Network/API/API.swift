@@ -61,6 +61,49 @@ func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil,
     }
 }
 
+func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil,
+                                      showLoading _: Bool = false,
+                                      showErrorHUD _: Bool = false,
+                                      useCache _: Bool = false) -> Promise<[T?]> {
+    return Promise<[T?]> { seal in
+//        #if DEBUG
+//            let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+//        #else
+            let provider = MoyaProvider<U>()
+//        #endif
+        provider.request(target, completion: { result in
+            switch result {
+            case let .success(response):
+//                do {
+                // TODO: TokenInfo Mapping faild, but not nil
+                
+                if let designPath = path, !designPath.isEmptyAfterTrim() {
+                    guard let model = response.mapArray(T.self, designatedPath: designPath) else {
+                        seal.reject(MyError.DecodeFailed)
+                        return
+                    }
+                    seal.fulfill(model)
+                    
+                } else {
+                    guard let model = response.mapArray(T.self) else {
+                        seal.reject(MyError.DecodeFailed)
+                        return
+                    }
+                    seal.fulfill(model)
+                }
+                
+
+//                } catch {
+//                    seal.reject(MyError.DecodeFailed)
+//                }
+
+            case let .failure(error):
+                seal.reject(error)
+            }
+        })
+    }
+}
+
 //func API<T: Decodable, U: TargetType>(_ target: U,
 //                                      showLoading _: Bool = false,
 //                                      showErrorHUD _: Bool = false,

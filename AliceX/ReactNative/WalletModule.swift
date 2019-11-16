@@ -73,7 +73,7 @@ class WalletModule: NSObject {
             TransactionManager.showPaymentView(toAddress: to,
                                                amount: value,
                                                data: data,
-                                               symbol: "ETH",
+                                               coin: Coin.coin(chain: .Ethereum),
                                                success: { (tx) -> Void in
                                                    resolve(tx)
             })

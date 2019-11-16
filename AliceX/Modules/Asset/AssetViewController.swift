@@ -89,7 +89,7 @@ class AssetViewController: BaseViewController {
     func loadFromCache() {
         
         firstly {
-            when(fulfilled: CoinInfoHelper.shared.loadFromCache(), WatchingCoinHelper.shared.loadFromCache())
+            when(fulfilled: CoinInfoCenter.shared.loadFromCache(), WatchingCoinHelper.shared.loadFromCache())
         }.done { _ in
             IgnoreCoinHelper.shared.loadFromCache()
             self.coins = WatchingCoinHelper.shared.list
