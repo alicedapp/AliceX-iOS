@@ -6,14 +6,11 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import BigInt
 import CodePush
 import IQKeyboardManagerSwift
 import React
 import SPStorkController
-import TrustWalletCore
-import UIKit
-import web3swift
+import Firebase
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -26,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()

@@ -126,20 +126,22 @@ extension BlockChain {
             }
             return true
         case .Binance:
-            guard let addr = CosmosAddress(string: address), addr.hrp == .binance, !addr.description.isEmptyAfterTrim() else {
-                return false
-            }
-            return true
+//            guard let addr = CosmosAddress(string: address), addr.hrp == .binance, !addr.description.isEmptyAfterTrim() else {
+//                return false
+//            }
+//            return true
+            return self.coinType.validate(address: address)
         case .Bitcoin:
-            guard let addr = CosmosAddress(string: address), addr.hrp == .bitcoin, !addr.description.isEmptyAfterTrim() else {
-                return false
-            }
-            return true
+//            guard let addr = , !addr.description.isEmptyAfterTrim() else {
+//                return false
+//            }
+            return self.coinType.validate(address: address)
         case .Cosmos:
-            guard let addr = CosmosAddress(string: address), addr.hrp == .cosmos, !addr.description.isEmptyAfterTrim() else {
-                return false
-            }
-            return true
+//            guard let addr = CosmosAddress(string: address), addr.hrp == .cosmos, !addr.description.isEmptyAfterTrim() else {
+//                return false
+//            }
+//            return true
+            return self.coinType.validate(address: address)
         }
     }
 }

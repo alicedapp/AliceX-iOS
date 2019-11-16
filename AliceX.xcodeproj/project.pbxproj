@@ -135,6 +135,7 @@
 		1577DDD0237E684300225DE6 /* Cosmos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDCF237E684300225DE6 /* Cosmos.swift */; };
 		1577DDD2237E68D300225DE6 /* CosmosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDD1237E68D300225DE6 /* CosmosModel.swift */; };
 		1577DDD4237EC10700225DE6 /* WalletCoreManager+Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDD3237EC10700225DE6 /* WalletCoreManager+Binance.swift */; };
+		1577DDD72380952B00225DE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1577DDD62380952B00225DE6 /* GoogleService-Info.plist */; };
 		157A2EFA23657916006EC0EA /* AssetBalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A2EF823657916006EC0EA /* AssetBalanceCell.swift */; };
 		157A2EFB23657916006EC0EA /* AssetBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157A2EF923657916006EC0EA /* AssetBalanceCell.xib */; };
 		157A2EFD23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A2EFC23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift */; };
@@ -400,6 +401,7 @@
 		1577DDCF237E684300225DE6 /* Cosmos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmos.swift; sourceTree = "<group>"; };
 		1577DDD1237E68D300225DE6 /* CosmosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosmosModel.swift; sourceTree = "<group>"; };
 		1577DDD3237EC10700225DE6 /* WalletCoreManager+Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletCoreManager+Binance.swift"; sourceTree = "<group>"; };
+		1577DDD62380952B00225DE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		157A2EF823657916006EC0EA /* AssetBalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBalanceCell.swift; sourceTree = "<group>"; };
 		157A2EF923657916006EC0EA /* AssetBalanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetBalanceCell.xib; sourceTree = "<group>"; };
 		157A2EFC23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+ScrollViewDelegate.swift"; sourceTree = "<group>"; };
@@ -1396,6 +1398,7 @@
 				15E71E04237161E00069BFD2 /* env.json */,
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
+				1577DDD62380952B00225DE6 /* GoogleService-Info.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
 				15A18178232A40EA00DFE686 /* Util.swift */,
 				1527871E22ADEDAB00D63C7F /* Style.swift */,
@@ -1719,6 +1722,7 @@
 				152B192C22F407E200EBDA9E /* Swift Format */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 				4A90360DAB66B76DB4E0CE45 /* [CP] Embed Pods Frameworks */,
+				1577DDD5238093FD00225DE6 /* Fabric - Firebase */,
 			);
 			buildRules = (
 			);
@@ -1823,6 +1827,7 @@
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
+				1577DDD72380952B00225DE6 /* GoogleService-Info.plist in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				153B044C236D7C83008A2139 /* CoinViewController.xib in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
@@ -1869,6 +1874,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    #swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		1577DDD5238093FD00225DE6 /* Fabric - Firebase */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric - Firebase";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2302,6 +2325,7 @@
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2314,7 +2338,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
 				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2332,6 +2356,7 @@
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
@@ -2345,7 +2370,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
 				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
