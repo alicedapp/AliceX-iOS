@@ -36,16 +36,15 @@ extension PriceHelper {
 
         return chainData[id]!
     }
-    
+
 //    func getChainPric
 
     func postPriceNotification() {
         NotificationCenter.default.post(name: .priceUpdate, object: nil)
     }
-    
+
     func loadBlockchainCache() {
-        Shared.stringCache.fetch(key: CacheKey.blockchainKey).onSuccess { result in
-            
+        Shared.stringCache.fetch(key: CacheKey.blockchainKey).onSuccess { _ in
         }
     }
 }

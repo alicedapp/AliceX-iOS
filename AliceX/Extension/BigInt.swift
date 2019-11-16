@@ -46,4 +46,17 @@ extension BigUInt {
         let string = Web3Utils.formatToEthereumUnits(self, toUnits: .eth, decimals: 5, decimalSeparator: ".")!
         return String.removeTrailingZero(string: string)
     }
+
+    func formatToPrecision(decimals: Int, removeZero: Bool = true, scientific: Bool = false) -> String? {
+        guard let string = Web3.Utils.formatToPrecision(self, numberDecimals: decimals, formattingDecimals: decimals, decimalSeparator: ".", fallbackToScientific: scientific),
+            let amountInDouble = Double(string) else {
+            return nil
+        }
+
+        if removeZero {
+            return String(format: "%g", amountInDouble)
+        }
+
+        return String(amountInDouble)
+    }
 }

@@ -6,9 +6,9 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import Foundation
 import PromiseKit
-import BigInt
 
 struct BalanceInfo {
     var balance: Double

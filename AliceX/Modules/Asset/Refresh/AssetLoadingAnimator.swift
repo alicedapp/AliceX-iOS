@@ -6,11 +6,11 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-//import Foundation
-//import ESPullToRefresh
-//import Lottie
+// import Foundation
+// import ESPullToRefresh
+// import Lottie
 //
-//public class AssetLoadingAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol {
+// public class AssetLoadingAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol {
 //
 //    public var insets: UIEdgeInsets = UIEdgeInsets.zero
 //    public var view: UIView { return self }
@@ -72,4 +72,4 @@
 //        }
 //    }
 //
-//}
+// }

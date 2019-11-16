@@ -85,9 +85,9 @@ extension Data {
         }
         return nil
     }
-    
+
     var hexdata: Data {
-        return Data(self.hexlify.utf8)
+        return Data(hexlify.utf8)
     }
 
     var hexlify: String {

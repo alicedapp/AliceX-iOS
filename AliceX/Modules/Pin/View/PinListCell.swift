@@ -24,6 +24,9 @@ class PinListCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        containerView.bounds.size = CGSize(width: Constant.SCREEN_WIDTH * 0.8, height: 70)
+        containerView.roundCorners(corners: [.bottomLeft, .topLeft], radius: containerView.frame.height / 2)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +37,7 @@ class PinListCell: UITableViewCell {
 
     override func layoutSubviews() {
         pinImageView.layer.cornerRadius = pinImageView.frame.height / 2
-        containerView.roundCorners(corners: [.bottomLeft, .topLeft], radius: containerView.frame.height / 2)
+
         layer.shadowColor = UIColor(hex: "#000000", alpha: 0.2).cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -45,19 +48,24 @@ class PinListCell: UITableViewCell {
         self.item = item
         self.index = index
         switch item {
-        case let .transaction(network, txHash, title, vc):
-            pinImageView.image = UIImage.imageWithColor(color: network.color)
+        case let .transaction(coin, network, txHash, title, vc):
+            if let info = coin.info {
+                pinImageView.kf.setImage(with: coin.image)
+            } else {
+                pinImageView.image = nil
+            }
+
             pinTextLabel.text = title
             progressView.isHidden = false
             progressView.enableIndeterminate()
             self.vc = vc
         case let .dapplet(image, url, title, vc):
-            pinImageView.image = image
+            pinImageView.kf.setImage(with: image)
             pinTextLabel.text = title
             progressView.isHidden = true
             self.vc = vc
         case let .website(image, url, title, vc):
-            pinImageView.image = image
+            pinImageView.kf.setImage(with: image)
             pinTextLabel.text = title
             progressView.isHidden = true
             self.vc = vc

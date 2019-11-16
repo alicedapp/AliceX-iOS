@@ -38,7 +38,7 @@ class SendERC20PopUp: UIViewController {
     var successBlock: StringBlock!
     var tokenInfo: TokenInfo?
     var payView: PayButtonView?
-    
+
     var token: Coin?
 
     class func make(token: Coin,
@@ -81,16 +81,15 @@ class SendERC20PopUp: UIViewController {
             symbolLabel.text = info.symbol
             descLabel.text = info.symbol
             tokenImage.kf.setImage(with: info.coin.image)
-            
+
             if let price = info.price {
                 let rate = price * Double(amount.readableValue)!
-                priceLabel.text  = rate.currencyString
+                priceLabel.text = rate.currencyString
             } else {
                 priceLabel.text = ""
             }
-            
+
         } else {
-            
             firstly {
                 PriceHelper.shared.getTokenInfo(tokenAdress: self.tokenAdress)
             }.done { model in
@@ -101,7 +100,6 @@ class SendERC20PopUp: UIViewController {
                 self.priceLabel.text = "Failed to get price"
                 self.priceLabel.textColor = UIColor(hex: "FF7E79")
             }
-            
         }
 
         firstly {

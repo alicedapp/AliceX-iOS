@@ -69,7 +69,7 @@ class NativeVCModule: NSObject {
             resolve(result)
         }
     }
-    
+
     @objc func isDarkMode(_ resolve: @escaping RCTPromiseResolveBlock,
                           reject _: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {

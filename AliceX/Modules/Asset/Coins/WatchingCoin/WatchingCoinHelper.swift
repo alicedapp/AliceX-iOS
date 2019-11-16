@@ -8,43 +8,42 @@
 
 import Foundation
 import Haneke
-//import RxSwift
+// import RxSwift
 import PromiseKit
 
 class WatchingCoinHelper {
-    
     static let shared = WatchingCoinHelper()
-    
+
     var list: [Coin] = []
 //    var balance: [String: Double] = [:]
     var noCache: Bool = false
-    
+
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
     }
-    
+
     @objc func walletChange() {
         list.removeAll()
         loadFromCache()
     }
-    
+
     func add(coin: Coin, updateCache: Bool = false, checkIgnore: Bool = true) {
         if list.contains(coin) {
             let index = list.firstIndex(of: coin)
             list[index!] = coin
             return
         }
-        
-        if checkIgnore && IgnoreCoinHelper.shared.list.contains(coin) {
+
+        if checkIgnore, IgnoreCoinHelper.shared.list.contains(coin) {
             IgnoreCoinHelper.shared.remove(coin: coin)
             let pinList = list.filter { $0.info!.isPined }
             let index = pinList.count
             list.insert(coin, at: index)
             storeInCache()
-            self.postNotification()
+            postNotification()
             return
         }
-        
+
         if let info = coin.info, info.isPined {
             list.insert(coin, at: 0)
         } else {
@@ -52,14 +51,14 @@ class WatchingCoinHelper {
             let index = pinList.count
             list.insert(coin, at: index)
         }
-        
+
         if updateCache {
             storeInCache()
-            self.postNotification()
+            postNotification()
         }
     }
-    
-    // TODO
+
+    // TODO:
 //    func add(list: [Coin]) {
 //        if list.contains(coin) {
 //            return
@@ -67,7 +66,7 @@ class WatchingCoinHelper {
 //        list.append(lis)
 //        storeInCache()
 //    }
-    
+
     func remove(coin: Coin, updateCache: Bool = false) {
         if !list.contains(coin) {
             return
@@ -76,23 +75,23 @@ class WatchingCoinHelper {
             return
         }
         list.remove(at: index)
-        
+
         if updateCache {
             storeInCache()
             postNotification()
         }
     }
-    
+
     func updateList(newList: [Coin]) {
 //        for coin in newList {
 //            if
 //        }
-        
+
         list = newList
         storeInCache()
         postNotification()
     }
-    
+
     func blockchainList() -> [BlockChain] {
         let chains = list.filter { !$0.isERC20 }
         let result = chains.compactMap { coin in
@@ -100,58 +99,54 @@ class WatchingCoinHelper {
         }
         return result
     }
-    
+
     func fetchList() -> Promise<[Coin]> {
-        return Promise<[Coin]> { seal in
-            
+        return Promise<[Coin]> { _ in
         }
     }
-    
+
     func erc20List() -> [Coin] {
         return list.filter { $0.isERC20 }
     }
-    
+
     func sortByPrice() {
-        
         let pinList = list.filter { $0.info!.isPined }
         let unPinList = list.filter { !$0.info!.isPined }
-        
+
         let sortedPin = pinList.sorted { (coin1, coin2) -> Bool in
             guard let info1 = coin1.info, let info2 = coin2.info else {
                 return false
             }
             return info1.balance > info2.balance
         }
-        
+
         let sortedUnPin = unPinList.sorted { (coin1, coin2) -> Bool in
             guard let info1 = coin1.info, let info2 = coin2.info else {
                 return false
             }
             return info1.balance > info2.balance
         }
-        
+
         list = sortedPin + sortedUnPin
         storeInCache()
     }
-    
 }
 
 // MARK: - Cache
+
 extension WatchingCoinHelper {
-    
     func loadFromCache() -> Promise<[Coin]> {
-        
         if !WalletManager.hasWallet() {
             return Promise<[Coin]> { seal in seal.reject(MyError.FoundNil("No wallet")) }
         }
-        
+
         return Promise<[Coin]> { seal in
             let cacheKey = "\(CacheKey.watchingList).\(WalletManager.wallet!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 var watchingList: [Coin] = []
                 let idList = result.split(separator: ",")
                 for id in idList {
-                    if id.count == 42 && id.hasPrefix("0x") { // ERC20
+                    if id.count == 42, id.hasPrefix("0x") { // ERC20
                         let coin = Coin.ERC20(address: String(id))
 //                        self.add(coin: coin)
                         watchingList.append(coin)
@@ -177,11 +172,11 @@ extension WatchingCoinHelper {
             }
         }
     }
-    
+
     func postNotification() {
         NotificationCenter.default.post(name: .watchingCoinListChange, object: nil)
     }
-    
+
     func storeInCache() {
         let cacheKey = "\(CacheKey.watchingList).\(WalletManager.wallet!.address)"
         let idList = list.compactMap { $0.id }.joined(separator: ",")

@@ -13,4 +13,5 @@ extension DefaultsKeys {
     var MnemonicsBackup: DefaultsKey<Bool> { return .init("MnemonicsBackup", defaultValue: false) }
     var isHideAsset: DefaultsKey<Bool> { return .init("isHideAsset", defaultValue: false) }
     var lastTimeUpdateAsset: DefaultsKey<Date?> { return .init("lastTimeUpdateAsset") }
+    var lastAssetBalance: DefaultsKey<Double> { return .init("lastAssetBalance", defaultValue: 0.0) }
 }

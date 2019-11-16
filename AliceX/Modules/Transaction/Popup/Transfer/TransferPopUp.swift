@@ -16,11 +16,11 @@ class TransferPopUp: UIViewController {
 
     @IBOutlet var balanceTextLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
-    
+
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var priceTextLabel: UILabel!
-    
+
     @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var symbolImageView: UIImageView!
 
@@ -31,7 +31,7 @@ class TransferPopUp: UIViewController {
     var value: BigUInt!
     var coin: Coin = Coin.coin(chain: .Ethereum)
     var amount: BigUInt! = BigUInt(0)
-    
+
     class func make(address: String?, value: BigUInt! = BigUInt(0), coin: Coin = .coin(chain: .Ethereum)) -> TransferPopUp {
         let vc = TransferPopUp()
         vc.value = value
@@ -44,20 +44,20 @@ class TransferPopUp: UIViewController {
         super.viewDidLoad()
         addressField.text = address
         valueField.text = value.readableValue
-        
+
 //        symbolLabel.text = coin.
         symbolLabel.text = coin.info!.symbol
         symbolImageView.kf.setImage(with: coin.image)
-        
+
         valueFieldDidChange(valueField)
-        
+
         if let info = coin.info, let amountStr = info.amount,
             let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 5, decimalSeparator: ".", fallbackToScientific: false) {
             balanceLabel.text = amount
         } else {
             balanceLabel.text = "0.0"
         }
-        
+
         if coin.isERC20 || coin == Coin.coin(chain: .Ethereum) {
             addressField.placeholder = "ETH Addres or ENS"
         } else {
@@ -80,12 +80,12 @@ class TransferPopUp: UIViewController {
                            self.bgView.alpha = 1
                            self.containView.transform = CGAffineTransform.identity
                        }, completion: { _ in
-                        if self.address!.isEmptyAfterTrim() {
-                            self.addressField.becomeFirstResponder()
+                           if self.address!.isEmptyAfterTrim() {
+                               self.addressField.becomeFirstResponder()
                                return
                            }
-                        self.valueField.becomeFirstResponder()
-                           
+                           self.valueField.becomeFirstResponder()
+
         })
     }
 
@@ -115,30 +115,28 @@ class TransferPopUp: UIViewController {
                        }, completion: { _ in
                            self.dismiss(animated: false, completion: nil)
         })
-        
+
 //        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func maxBtnClicked() {
         if let info = coin.info, let amountStr = info.amount,
             let bigAmount = BigUInt(amountStr),
-            let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: info.decimals, decimalSeparator: ".", fallbackToScientific: false),
-            let amountInDouble = Double(amount) {
-            
-            let removeZero = String(format: "%g", amountInDouble)
-            valueField.text = removeZero
+            let amount = bigAmount.formatToPrecision(decimals: info.decimals) {
+            valueField.text = amount
             self.amount = bigAmount
+            valueFieldDidChange(valueField)
         } else {
             balanceLabel.text = "0.0"
         }
     }
-    
+
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
         guard let addr = address,
             coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
-            self.errorAlert(text: "Addess invalid")
-                addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+            errorAlert(text: "Addess invalid")
+            addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
             return
         }
         addressField.text = addr.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -161,14 +159,14 @@ class TransferPopUp: UIViewController {
             errorAlert(text: "Addess invalid")
             return
         }
-        
-        // TODO
+
+        // TODO:
 //        guard let amount = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
 //            errorAlert(text: "Value invalid")
 //            return
 //        }
 
-        if self.amount <= 0 {
+        if amount <= 0 {
             errorAlert(text: "Can't be zero")
             return
         }
@@ -178,11 +176,11 @@ class TransferPopUp: UIViewController {
                                              toAddress: addr,
                                              amount: amount,
                                              data: Data()) { _ in
-                                                self.cancelBtnClicked()
+                self.cancelBtnClicked()
             }
         } else {
             TransactionManager.showPaymentView(toAddress: addr,
-                                               amount: self.amount,
+                                               amount: amount,
                                                data: Data(),
                                                coin: coin) { _ in
                 self.cancelBtnClicked()
@@ -194,25 +192,25 @@ class TransferPopUp: UIViewController {
         guard let text = textField.text, let amount = Double(text) else {
             return
         }
-        
+
         guard let info = coin.info, let price = info.price else {
             priceLabel.text = "price"
             return
         }
-        
+
         let finalPrice = amount * price
         priceLabel.text = finalPrice.currencyString
-        
+
         guard let decimals = info.decimals else {
             errorAlert(text: "Decimals invalid")
             return
         }
-        
+
         guard let amountBigInt = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
             errorAlert(text: "Value invalid")
             return
         }
-        
+
         self.amount = amountBigInt
     }
 

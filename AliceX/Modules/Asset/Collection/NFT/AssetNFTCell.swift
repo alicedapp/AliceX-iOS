@@ -7,7 +7,7 @@
 //
 
 import Kingfisher
-//import SVGKit
+// import SVGKit
 import UIKit
 
 class AssetNFTCell: UICollectionViewCell {
@@ -51,7 +51,7 @@ class AssetNFTCell: UICollectionViewCell {
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
                 switch result {
-                case .success(_):
+                case .success:
                     self.contractImageView.backgroundColor = .clear
                 default:
                     break

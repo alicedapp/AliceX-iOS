@@ -35,7 +35,7 @@ extension BlockChain {
     var data: CoinMarketCapDataModel? {
         return PriceHelper.shared.getChainData(chain: self)
     }
-    
+
     var image: String {
         return Coin.coin(chain: self).image.absoluteString
     }
@@ -43,7 +43,7 @@ extension BlockChain {
 //    var price: Double {
 //        PriceHelper.shared
 //    }
-    
+
     var coinType: CoinType {
         switch self {
         case .Ethereum:
@@ -56,7 +56,7 @@ extension BlockChain {
             return .cosmos
         }
     }
-    
+
     var symbol: String {
         switch self {
         case .Ethereum:
@@ -69,7 +69,7 @@ extension BlockChain {
             return "ATOM"
         }
     }
-    
+
     var amberDataID: String {
         switch self {
         case .Ethereum:
@@ -80,7 +80,7 @@ extension BlockChain {
             return "1c9c969065fcd1cf"
         }
     }
-    
+
     var decimal: Int {
         switch self {
         case .Bitcoin, .Binance:
@@ -91,7 +91,7 @@ extension BlockChain {
             return 9
         }
     }
-    
+
     var explorer: URL {
         switch self {
         case .Ethereum:
@@ -104,11 +104,24 @@ extension BlockChain {
             return URL(string: "https://btc.com")!
         }
     }
-    
+
+    func txURL(txHash: String, network: Web3NetEnum? = WalletManager.currentNetwork) -> URL {
+        switch self {
+        case .Ethereum:
+            return PinItem.txURL(network: network ?? WalletManager.currentNetwork, txHash: txHash)
+        case .Binance:
+            return URL(string: "https://explorer.binance.org/tx/\(txHash)")!
+        case .Cosmos:
+            return URL(string: "https://www.mintscan.io/txs/\(txHash)")!
+        case .Bitcoin:
+            return URL(string: "https://btc.com/\(txHash)")!
+        }
+    }
+
     func verify(address: String) -> Bool {
         switch self {
         case .Ethereum:
-            guard let addr = web3swift.EthereumAddress(address), addr.isValid else{
+            guard let addr = web3swift.EthereumAddress(address), addr.isValid else {
                 return false
             }
             return true
@@ -118,7 +131,10 @@ extension BlockChain {
             }
             return true
         case .Bitcoin:
-            return BitcoinAddress.isValidString(string: address)
+            guard let addr = CosmosAddress(string: address), addr.hrp == .bitcoin, !addr.description.isEmptyAfterTrim() else {
+                return false
+            }
+            return true
         case .Cosmos:
             guard let addr = CosmosAddress(string: address), addr.hrp == .cosmos, !addr.description.isEmptyAfterTrim() else {
                 return false

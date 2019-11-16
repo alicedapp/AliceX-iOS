@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import ViewAnimator
 import SwiftyUserDefaults
+import ViewAnimator
 
 extension AssetViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -43,7 +43,7 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch section {
         case Asset.balance.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.balance.name, for: indexPath) as! AssetBalanceCell
-            cell.configure(isHidden: assetHide)
+            cell.configure(isHidden: assetHide, newBalance: balance ?? Defaults[\.lastAssetBalance])
             cell.action = {
                 self.assetHide = !self.assetHide
                 Defaults[\.isHideAsset] = self.assetHide
@@ -52,15 +52,14 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case Asset.coinHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coinHeader.name, for: indexPath) as! AssetCoinHeaderCell
-            cell.configure(count: coins.count, isClose: self.coinHide)
+            cell.configure(count: coins.count, isClose: coinHide)
             cell.action = {
                 self.coinHide = !self.coinHide
 //                if self.coinHide {
 //                    self.coinSectionCloseAnimation()
 //                } else {
-                    self.coinSectionShowAnimation()
+                self.coinSectionShowAnimation()
 //                }
-                
             }
             return cell
         case Asset.coin.rawValue:
@@ -73,13 +72,13 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case Asset.NFTHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFTHeader.name, for: indexPath) as! AssetNFTHeaderCell
-            cell.configure(count: NFTData.count, isClose: self.NFTHide)
+            cell.configure(count: NFTData.count, isClose: NFTHide)
             cell.action = {
                 self.NFTHide = !self.NFTHide
 //                if self.NFTHide {
 //                    self.NFTSectionCloseAimation()
 //                } else {
-                    self.NFTSectionShowAimation()
+                self.NFTSectionShowAimation()
 //                }
             }
             return cell
@@ -129,9 +128,9 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func cellAnimation(cells: [UICollectionViewCell], animator: [AnimationType]) {
         self.collectionView.performBatchUpdates({
-                UIView.animate(views: cells,
-                               animations: animator,
-                               completion: nil)
+            UIView.animate(views: cells,
+                           animations: animator,
+                           completion: nil)
         }, completion: nil)
     }
 
@@ -140,7 +139,7 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
                                                     Asset.coin.rawValue,
                                                     Asset.emptyCoin.rawValue))
         let coinCell = self.collectionView!.visibleCells(in: Asset.coin.rawValue)
-        
+
         let orderCell = coinCell.sorted { (cell1, cell2) -> Bool in
             let index1 = self.collectionView.indexPath(for: cell1)!
             let index2 = self.collectionView.indexPath(for: cell2)!
@@ -148,25 +147,24 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         cellAnimation(cells: orderCell, animator: coinAnimations)
     }
-    
+
     func coinSectionCloseAnimation() {
-        
         let coinCell = self.collectionView!.visibleCells(in: Asset.coin.rawValue)
-        
+
         let orderCell = coinCell.sorted { (cell1, cell2) -> Bool in
             let index1 = self.collectionView.indexPath(for: cell1)!
             let index2 = self.collectionView.indexPath(for: cell2)!
             return index1.item < index2.item
         }
-        
+
         UIView.animate(views: orderCell,
                        animations: coinAnimations,
                        reversed: true,
                        initialAlpha: 1.0,
                        finalAlpha: 0.0,
                        completion: {
-                        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue, Asset.coin.rawValue,
-                                                                    Asset.emptyCoin.rawValue))
+                           self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue, Asset.coin.rawValue,
+                                                                       Asset.emptyCoin.rawValue))
         })
     }
 
@@ -186,24 +184,23 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         cellAnimation(cells: orderCell, animator: animations)
     }
-    
+
     func NFTSectionCloseAimation() {
-        
         let animateCell = self.collectionView!.visibleCells(in: Asset.NFT.rawValue)
-        
+
         let orderCell = animateCell.sorted { (cell1, cell2) -> Bool in
             let index1 = self.collectionView.indexPath(for: cell1)!
             let index2 = self.collectionView.indexPath(for: cell2)!
             return index1.item < index2.item
         }
-        
+
         UIView.animate(views: orderCell,
                        animations: animations,
                        reversed: true,
                        initialAlpha: 1.0,
                        finalAlpha: 0.0,
                        completion: {
-                        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFTHeader.rawValue, Asset.NFT.rawValue))
+                           self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFTHeader.rawValue, Asset.NFT.rawValue))
         })
     }
 }

@@ -9,21 +9,17 @@
 import UIKit
 
 class MiniAppViewController: BaseViewController {
-
     @IBOutlet var rnContainer: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let rnView = RCTRootView(bridge: AppDelegate.rnBridge(),
                                        moduleName: AliceRN.alice.rawValue,
                                        initialProperties: nil) else {
-                                        return
+            return
         }
         rnContainer.addSubview(rnView)
         rnView.fillSuperview()
     }
-    
-    
-
 }

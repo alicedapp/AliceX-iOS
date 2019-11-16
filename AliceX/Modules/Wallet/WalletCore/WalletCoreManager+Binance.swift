@@ -6,13 +6,12 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import Foundation
-import TrustWalletCore
 import BigInt
+import Foundation
 import PromiseKit
+import TrustWalletCore
 
 extension WalletCore {
-    
     func binanceAccountInfo(address: String) -> Promise<BinanceAccount> {
         return Promise<BinanceAccount> { seal in
             firstly { () -> Promise<BinanceAccount> in
@@ -24,7 +23,7 @@ extension WalletCore {
             }
         }
     }
-    
+
     func binanceNodeInfo() -> Promise<BinanceNodeInfo> {
         return Promise<BinanceNodeInfo> { seal in
             firstly { () -> Promise<BinanceNodeInfo> in
@@ -36,14 +35,14 @@ extension WalletCore {
             }
         }
     }
-    
+
     func binanceTransaction(node: BinanceNodeInfo, account: BinanceAccount, toAddress: String, amount: BigUInt) -> Promise<BinanceResult> {
         return Promise<BinanceResult> { seal in
-            
+
             guard let toAddress = CosmosAddress(string: toAddress) else {
                 throw WalletError.invalidAddress
             }
-            
+
             let key = WalletCore.wallet.getKeyForCoin(coin: .binance)
             let publicKey = key.getPublicKeySecp256k1(compressed: true)
             var signingInput = TW_Binance_Proto_SigningInput()
@@ -70,47 +69,59 @@ extension WalletCore {
 
             signingInput.sendOrder = sendOrder
             let data = BinanceSigner.sign(input: signingInput)
-            
+
             BNBProvider.request(.broadcast(data: data.encoded.hexdata)) { result in
                 switch result {
-                case .success(let response):
+                case let .success(response):
+
+                    if let errorModel = response.mapObject(BinanceErrorResult.self) {
+                        seal.reject(WalletError.custom(errorModel.message))
+                        return
+                    }
+
                     guard let modelArray = response.mapArray(BinanceResult.self) else {
                         seal.reject(MyError.DecodeFailed)
                         return
                     }
-                    
+
                     guard let txResult = modelArray.first, let finalResult = txResult else {
                         seal.reject(MyError.FoundNil("Nil result"))
                         return
                     }
-                    
+
                     seal.fulfill(finalResult)
-                    
-                case .failure(let error):
+
+                case let .failure(error):
                     seal.reject(error)
                 }
             }
-            
         }
     }
-    
+
     func binanceSend(toAddress: String, value: BigUInt) -> Promise<String> {
-        
         return Promise<String> { seal in
-            
+
             let address = WalletCore.address(blockchain: .Binance)
-            
+
             firstly {
                 when(fulfilled: binanceNodeInfo(), binanceAccountInfo(address: address))
             }.then { (node, account) -> Promise<BinanceResult> in
                 self.binanceTransaction(node: node, account: account, toAddress: toAddress, amount: value)
             }.done { result in
                 seal.fulfill(result.hash)
+
+                let url = BlockChain.Binance.txURL(txHash: result.hash)
+                let browser = BrowserWrapperViewController.make(urlString: url.absoluteString)
+
+                let pinItem = PinItem.transaction(coin: Coin.coin(chain: .Binance),
+                                                  network: WalletManager.currentNetwork,
+                                                  txHash: result.hash,
+                                                  title: "Pending BNB",
+                                                  viewcontroller: browser)
+                PendingTransactionHelper.shared.add(item: pinItem)
             }.catch { error in
                 seal.reject(error)
             }
-            
         }
     }
-    
 }

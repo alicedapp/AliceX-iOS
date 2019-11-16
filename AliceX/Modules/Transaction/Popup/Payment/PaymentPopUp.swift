@@ -19,7 +19,7 @@ class PaymentPopUp: UIViewController {
     @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var coinImageView: UIImageView!
-    
+
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
@@ -54,44 +54,42 @@ class PaymentPopUp: UIViewController {
         return vc
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        SPStorkController.updatePresentingController(modal: self)
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let chain = coin.blockchain else {
+
+        guard let chain = coin.blockchain, let info = coin.info else {
             HUDManager.shared.showError(text: "Wrong coin type")
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             return
         }
 
         coinImageView.kf.setImage(with: coin.image)
-        
-        symbolLabel.text = coin.info!.symbol
-        nameLabel.text = coin.info!.name
-        
-        addressLabel.text = toAddress
-        let value = amount.readableValue
-        amountLabel.text = value.round(decimal: 4)
-        let price = Float(value)! * PriceHelper.shared.exchangeRate
-        priceLabel.text = price.currencyString
 
-        payView = PayButtonView.instanceFromNib()
+        symbolLabel.text = info.symbol
+        nameLabel.text = "\(info.name!) Coin"
+
+        addressLabel.text = toAddress
+
+        let amountStr = amount.formatToPrecision(decimals: info.decimals)!
+        amountLabel.text = amountStr
+
+        if let price = info.price {
+            let finalPrice = price * Double(amountStr)!
+            priceLabel.text = finalPrice.currencyString
+        }
+
+        payView = PayButtonView.instanceFromNib(colorChange: coin == Coin.coin(chain: .Ethereum))
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
 
-        
         if chain != .Ethereum {
             gasBtn.isHidden = true
             return
         }
-        
+
         /// If not Ethereum, not support change gas price
-        
+
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
 
         gasBtn.isUserInteractionEnabled = false
@@ -159,16 +157,22 @@ extension PaymentPopUp: PayButtonDelegate {
 
     func send() {
         payView!.showLoading()
-        
+
         guard let chain = coin.blockchain else {
             return
         }
-        
+
         firstly {
             chain.transfer(toAddress: toAddress!, value: amount!, gasPrice: gasPrice)
+        }.done { hash in
+            print(hash)
+            self.successBlock!(hash)
+            self.dismiss(animated: true, completion: nil)
+        }.catch { error in
+            self.payView!.failed()
+            HUDManager.shared.showError(error: error)
         }
-        
-        
+
 //        firstly {
 //            TransactionManager.shared.sendEtherSync(
 //                to: toAddress!,

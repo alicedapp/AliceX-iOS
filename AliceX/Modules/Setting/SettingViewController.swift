@@ -56,10 +56,10 @@ class SettingViewController: BaseViewController {
 
     @IBAction func cacheButtonClicked() {
         let view = BaseAlertView.instanceFromNib(content: "Clean browser cache ?",
-                                      confirmBlock: {
-                                        BrowserViewController.cleanCache()
+                                                 confirmBlock: {
+                                                     BrowserViewController.cleanCache()
         }, cancelBlock: nil)
-        
+
         HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
                                         type: .centerFloat, widthIsFull: false, canDismiss: true)
     }

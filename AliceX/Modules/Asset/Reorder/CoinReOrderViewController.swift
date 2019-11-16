@@ -9,122 +9,112 @@
 import UIKit
 
 class CoinReOrderViewController: BaseViewController {
-
     @IBOutlet var pinCollectionView: KDDragAndDropCollectionView!
     @IBOutlet var watchCollectionView: KDDragAndDropCollectionView!
     @IBOutlet var ignoreCollectionView: KDDragAndDropCollectionView!
-    
+
     var data: [[Coin]] = [[Coin]]()
     var dragAndDropManager: KDDragAndDropManager?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         pinCollectionView.registerCell(nibName: CoinReOrderCell.nameOfClass)
         watchCollectionView.registerCell(nibName: CoinReOrderCell.nameOfClass)
         ignoreCollectionView.registerCell(nibName: CoinReOrderCell.nameOfClass)
-        
+
         let watchList = WatchingCoinHelper.shared.list
 //        let pinedList = Array(CoinInfoCenter.shared.pool.values).filter {($0.isPined ?? false)}.map { info -> Coin in
 //            return info.coin
 //        }
 //        let unPinedList = watchList.filter { !($0.info!.isPined ?? false) }
-        
+
         var pinList: [Coin] = []
         var unPinedList: [Coin] = []
-        
+
         for coin in watchList {
-            
             if let info = coin.info, info.isPined == true {
                 pinList.append(coin)
             } else {
                 unPinedList.append(coin)
             }
         }
-        
-        self.data = [pinList, unPinedList, IgnoreCoinHelper.shared.list]
-        
-        self.dragAndDropManager = KDDragAndDropManager(
-            canvas: self.view,
+
+        data = [pinList, unPinedList, IgnoreCoinHelper.shared.list]
+
+        dragAndDropManager = KDDragAndDropManager(
+            canvas: view,
             collectionViews: [pinCollectionView, watchCollectionView, ignoreCollectionView]
         )
     }
-    
+
     @IBAction func closeButtonClick() {
         dismiss(animated: true, completion: nil)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         updateList()
     }
-    
+
     // TODO: Replace stupid CoinInfo
     func updateList() {
         let pinList = data[0]
         let watchingList = data[1]
         let ignoreList = data[2]
-        
+
         pinList.forEach { coin in
             CoinInfoCenter.shared.pin(coin: coin)
         }
-        
+
         watchingList.forEach { coin in
             CoinInfoCenter.shared.unpin(coin: coin)
         }
-        
+
         IgnoreCoinHelper.shared.updateList(newList: ignoreList)
-        
-        let newCoinList =  pinList + watchingList
+
+        let newCoinList = pinList + watchingList
         WatchingCoinHelper.shared.updateList(newList: newCoinList)
         CoinInfoCenter.shared.storeInCache()
     }
 }
 
 extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
-    
-    //MARK: UICollectionViewDataSource
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    // MARK: UICollectionViewDataSource
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return data[collectionView.tag].count
     }
-    
+
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinReOrderCell.nameOfClass,
                                                       for: indexPath) as! CoinReOrderCell
-        
+
         let dataItem = data[collectionView.tag][indexPath.item]
-        
+
         cell.configure(coin: dataItem)
         cell.isHidden = false
-        
+
         if let kdCollectionView = collectionView as? KDDragAndDropCollectionView {
-            
             if let draggingPathOfCellBeingDragged = kdCollectionView.draggingPathOfCellBeingDragged {
-                
                 if draggingPathOfCellBeingDragged.item == indexPath.item {
-                    
                     cell.isHidden = true
-                    
                 }
             }
         }
-        
+
         return cell
     }
 
     // MARK: KDDragAndDropCollectionViewDataSource
-    
+
     func collectionView(_ collectionView: UICollectionView, dataItemForIndexPath indexPath: IndexPath) -> AnyObject {
         return data[collectionView.tag][indexPath.item] as! AnyObject
     }
-    
-    func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem : AnyObject, atIndexPath indexPath: IndexPath) -> Void {
-        
+
+    func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem: AnyObject, atIndexPath indexPath: IndexPath) {
         if let coin = dataItem as? Coin {
-            
 //            let tag = collectionView.tag
 //            switch tag {
 //            case 0:
@@ -136,13 +126,12 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 //            default:
 //                break
 //            }
-            
+
             data[collectionView.tag].insert(coin, at: indexPath.item)
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath : IndexPath) -> Void {
-        
+
+    func collectionView(_ collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath: IndexPath) {
 //        let tag = collectionView.tag
 //        let coin = data[collectionView.tag][indexPath.item]
 //
@@ -162,21 +151,20 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 //        default:
 //            break
 //        }
-        
+
         data[collectionView.tag].remove(at: indexPath.item)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, moveDataItemFromIndexPath from: IndexPath, toIndexPath to : IndexPath) -> Void {
+
+    func collectionView(_ collectionView: UICollectionView, moveDataItemFromIndexPath from: IndexPath, toIndexPath to: IndexPath) {
         let fromDataItem: Coin = data[collectionView.tag][from.item]
         data[collectionView.tag].remove(at: from.item)
         data[collectionView.tag].insert(fromDataItem, at: to.item)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, indexPathForDataItem dataItem: AnyObject) -> IndexPath? {
-        
         guard let candidate = dataItem as? Coin else { return nil }
-        
-        for (i,item) in data[collectionView.tag].enumerated() {
+
+        for (i, item) in data[collectionView.tag].enumerated() {
             if candidate != item { continue }
             return IndexPath(item: i, section: 0)
         }
@@ -185,19 +173,16 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 }
 
 extension CoinReOrderViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let len = ((Constant.SCREEN_WIDTH - 3*10) / 3) - 5
+        let len = ((Constant.SCREEN_WIDTH - 3 * 10) / 3) - 5
         return CGSize(width: len, height: 50)
     }
-    
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
-           return 1
-       }
 
-       func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
-           return 1
-       }
-    
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
+        return 1
+    }
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
+        return 1
+    }
 }

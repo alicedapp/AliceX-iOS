@@ -10,13 +10,12 @@ import Foundation
 import JXSegmentedView
 //
 extension UIViewController: JXSegmentedListContainerViewListDelegate {
-    
     public func listView() -> UIView {
         return view
     }
-    
+
     func addChildVCToView(childController: UIViewController, onView: UIView?) {
-        var holderView = self.view
+        var holderView = view
         if let onView = onView {
             holderView = onView
         }
@@ -46,5 +45,4 @@ extension UIViewController: JXSegmentedListContainerViewListDelegate {
         removeFromParent()
         view.removeFromSuperview()
     }
-    
 }

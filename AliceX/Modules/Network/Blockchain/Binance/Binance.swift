@@ -10,7 +10,7 @@ import Moya
 
 // Doc Address: https://docs.binance.org/api-reference/dex-api/paths.html
 
- let BNBProvider = MoyaProvider<BNBAPI>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let BNBProvider = MoyaProvider<BNBAPI>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
 enum BNBAPI {
     case nodeInfo
@@ -61,7 +61,7 @@ extension BNBAPI: TargetType {
 
     var task: Task {
         switch self {
-        case .broadcast(let data):
+        case let .broadcast(data):
             return .requestCompositeData(bodyData: data, urlParameters: ["sync": true])
         default:
             return .requestPlain

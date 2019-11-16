@@ -14,6 +14,12 @@ struct BinanceNodeInfo: HandyJSON {
     var network: String!
 }
 
+struct BinanceErrorResult: HandyJSON {
+    var code: Int!
+    var message: String!
+    var failed_tx_index: Int!
+}
+
 struct BinanceResult: HandyJSON {
     var hash: String!
     var code: Int!
@@ -22,16 +28,14 @@ struct BinanceResult: HandyJSON {
 }
 
 struct BinanceAccount: HandyJSON {
-    
     var address: String!
     var sequence: Int64!
     var flag: Int!
     var account_number: Int64!
     var public_key: [Int]!
     var balances: [BinanceBalance]!
-    
-    init() {
-    }
+
+    init() {}
 }
 
 struct BinanceBalance: HandyJSON {
@@ -39,7 +43,6 @@ struct BinanceBalance: HandyJSON {
     var frozen: String!
     var locked: String!
     var symbol: String!
-    
-    init() {
-    }
+
+    init() {}
 }

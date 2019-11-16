@@ -6,14 +6,14 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import CodePush
 import IQKeyboardManagerSwift
 import React
 import SPStorkController
+import TrustWalletCore
 import UIKit
 import web3swift
-import BigInt
-import TrustWalletCore
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -29,18 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
-        WalletCore.loadFromCache()
-        
         onBackgroundThread {
             PriceHelper.shared.fetchFromCache()
         }
 //        GasPriceHelper.shared.getGasPrice()
-        
+
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
         #if RCT_DEV
-        bridge?.moduleClasses = RCTDevLoadingView.self
+            bridge?.moduleClasses = RCTDevLoadingView.self
         #endif
-        
+
         window = UIWindow(frame: UIScreen.main.bounds)
 
         window?.backgroundColor = WalletManager.currentNetwork.backgroundColor
@@ -49,9 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
-            
-//            vc = MnemonicsViewController()
-//            vc = RNModule.makeViewController(module: .alice)
+            WalletCore.loadFromCache()
             vc = MainTabViewController()
         } else {
             vc = LandingViewController()
@@ -65,14 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
 
         #if DEBUG
-        test()
+            test()
         #endif
-        
+
         return true
     }
-    
+
     func test() {
-        
 //        WalletCore.shared.testBNB()
 //        WalletManager.shared.test()
 //        WalletCore.shared.binanceSend(toAddress: "bnb1k2emmlq5v5yz4nyzhfcjtdgkveeghrq53ragzp", value: BigUInt(1)).done { txHash in
@@ -80,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }.catch { error in
 //            print(error.localizedDescription)
 //        }
-        
     }
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {

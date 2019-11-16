@@ -23,6 +23,7 @@ class LandingViewController: BaseViewController {
     @IBAction func createButtonClicked() {
         WalletManager.createAccount { () -> Void in
             self.popUp()
+            WalletCore.loadFromCache()
         }
     }
 

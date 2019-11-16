@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class PinListViewController: BaseViewController {
     @IBOutlet var blurMask: UIVisualEffectView!
+
+    let cellAnimations = [AnimationType.from(direction: .right, offset: 100.0)]
 
     var pinList: [PinItem] = PinManager.shared.pinList {
         didSet {
@@ -28,23 +31,39 @@ class PinListViewController: BaseViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.registerCell(nibName: PinListCell.nameOfClass)
-        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
-        tableView.estimatedRowHeight = 100
-        tableView.sizeToFit()
-    }
+//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+//        tableView.estimatedRowHeight = 100
 
-    override func viewWillLayoutSubviews() {
-        super.updateViewConstraints()
-        tableHeight?.constant = tableView.contentSize.height
+        cellAnimate()
     }
 
     func updateIfNeeded() {
         pinList = PinManager.shared.pinList
-        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .automatic)
+        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .none)
+    }
+
+    func cellAnimate() {
+        tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .none)
+        let cells = tableView.visibleCells
+        tableView.performBatchUpdates({
+            UIView.animate(views: cells,
+                           animations: cellAnimations,
+                           completion: nil)
+        }, completion: nil)
     }
 
     @IBAction func dismissVC() {
         onMainThread {
+            let cells = self.tableView.visibleCells
+            UIView.animate(views: cells,
+                           animations: self.cellAnimations,
+                           reversed: true,
+                           initialAlpha: 1.0,
+                           finalAlpha: 0.0,
+                           completion: {
+                               self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .none)
+            })
+
             self.view.alpha = 1
             UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
                 self.view.alpha = 0
@@ -64,6 +83,7 @@ class PinListViewController: BaseViewController {
             self.view.alpha = 1
         }) { _ in
         }
+        cellAnimate()
     }
 
 //    override func viewWillDisappear(_ animated: Bool) {
@@ -98,7 +118,7 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PinListCell.nameOfClass, for: indexPath) as! PinListCell
-        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+//        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         cell.previousVC = previousVC
         cell.parentVC = self
 
@@ -106,34 +126,4 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(item: item, index: indexPath)
         return cell
     }
-
-    func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt _: IndexPath) {
-        viewWillLayoutSubviews()
-
-//        cell.transform = CGAffineTransform(translationX: 0, y: 30)
-//        cell.alpha = 0
-//        UIView.animate(withDuration: 0.3) {
-//            cell.alpha = 1
-        ////            cell.transform = CGAffineTransform.identity
-//            cell.transform = CGAffineTransform(translationX: 0, y: -30)
-//        }
-    }
-
-    func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt _: IndexPath) {}
 }
-
-// extension PinListViewController: UINavigationControllerDelegate {
-//    func navigationController(_: UINavigationController,
-//                              animationControllerFor operation: UINavigationController.Operation,
-//                              from _: UIViewController,
-//                              to _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .push:
-//            return PinTransitionPush()
-////        case .pop:
-////            return FadePopAnimator()
-//        default:
-//            return nil
-//        }
-//    }
-// }

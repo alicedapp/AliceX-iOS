@@ -44,8 +44,10 @@ class ImportWalletViewController: BaseViewController {
 
         do {
             try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in
-                let vc = RNModule.makeViewController(module: .alice)
+                let vc = MainTabViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.viewControllers = [vc]
+                WalletCore.loadFromCache()
             })
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)

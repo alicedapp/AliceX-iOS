@@ -101,10 +101,12 @@ class PendingTransactionHelper {
         }
     }
 
-    func add(item: PinItem) {
+    func add(item: PinItem, track: Bool = false) {
         pendingTxList.insert(item)
         postNotification(item: item, isNew: true, isSuccess: true)
-        start()
+        if track {
+            start()
+        }
     }
 
     func remove(item: PinItem, isSuccess: Bool) {

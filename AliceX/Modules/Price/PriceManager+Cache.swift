@@ -10,12 +10,7 @@ import Foundation
 import Haneke
 
 extension PriceManager {
-    
-    func loadFromCache() {
-        
-    }
-    
-    func storeInCache() {
-        
-    }
+    func loadFromCache() {}
+
+    func storeInCache() {}
 }

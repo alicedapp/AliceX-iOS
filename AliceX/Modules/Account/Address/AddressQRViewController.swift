@@ -10,7 +10,7 @@ import Foundation
 import Pageboy
 import Tabman
 
-//class AddressQRViewController: TabmanViewController {
+// class AddressQRViewController: TabmanViewController {
 //
 //    @IBOutlet var segmentedContainer: UIView!
 //
@@ -35,9 +35,9 @@ import Tabman
 //        bar.tintColor = AliceColor.grey
 //        addBar(bar, dataSource: self, at: .custom(view: segmentedContainer, layout: nil))
 //    }
-//}
+// }
 //
-//extension AddressQRViewController : PageboyViewControllerDataSource, TMBarDataSource {
+// extension AddressQRViewController : PageboyViewControllerDataSource, TMBarDataSource {
 //
 //    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
 //        return chains.count
@@ -60,4 +60,4 @@ import Tabman
 ////        TMBarItem(title: <#T##String#>, image: <#T##UIImage#>)
 //        return TMBarItem(title: title)
 //    }
-//}
+// }

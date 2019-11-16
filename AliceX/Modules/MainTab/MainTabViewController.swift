@@ -6,14 +6,13 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import Pageboy
+import UIKit
 
 class MainTabViewController: PageboyViewController {
-
     @IBOutlet var container: UIView!
     var tabs = MainTab.allCases
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
@@ -22,23 +21,22 @@ class MainTabViewController: PageboyViewController {
 }
 
 extension MainTabViewController: PageboyViewControllerDataSource {
-    
-    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+    func numberOfViewControllers(in _: PageboyViewController) -> Int {
         return tabs.count
     }
 
-    func viewController(for pageboyViewController: PageboyViewController,
+    func viewController(for _: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
         let tab = tabs[index]
         return tab.vc
     }
 
-    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    func defaultPage(for _: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
 }
 
-//extension MainTabViewController: UIScrollViewDelegate {
+// extension MainTabViewController: UIScrollViewDelegate {
 //    func scrollViewDidScroll(_: UIScrollView) {
 //    }
-//}
+// }

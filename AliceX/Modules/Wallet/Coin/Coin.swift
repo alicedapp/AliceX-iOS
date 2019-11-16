@@ -7,32 +7,32 @@
 //
 
 import Foundation
-import TrustWalletCore
 import PromiseKit
+import TrustWalletCore
 import web3swift
 
 enum Coin {
     case coin(chain: BlockChain)
     case ERC20(address: String)
-    
+
     var id: String {
         switch self {
-        case .coin(let chain):
+        case let .coin(chain):
             return chain.rawValue
-        case .ERC20(let token):
+        case let .ERC20(token):
             return token
         }
     }
-    
+
     var blockchain: BlockChain? {
         switch self {
-        case .coin(let chain):
+        case let .coin(chain):
             return chain
         default:
             return nil
         }
     }
-    
+
     var isERC20: Bool {
         switch self {
         case .coin:
@@ -41,7 +41,7 @@ enum Coin {
             return true
         }
     }
-    
+
     var image: URL {
         switch self {
         case let .coin(chain):
@@ -50,7 +50,7 @@ enum Coin {
             return URL(string: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/\(EthereumAddress.toChecksumAddress(token)!)/logo.png")!
         }
     }
-    
+
     var type: String {
         switch self {
         case .coin:
@@ -59,7 +59,7 @@ enum Coin {
             return "ERC20"
         }
     }
-    
+
 //    var name: String {
 //        switch self {
 //        case .coin(let chain):
@@ -77,35 +77,33 @@ enum Coin {
 //            return CoinInfoCenter.shared.
 //        }
 //    }
-    
+
     var info: CoinInfo? {
-        
-        if CoinInfoCenter.shared.pool.keys.contains(id)  {
+        if CoinInfoCenter.shared.pool.keys.contains(id) {
             return CoinInfoCenter.shared.pool[id]!
         }
-        
+
         return nil
     }
-    
+
 //    func info() -> CoinInfo {
 //        firstly {
 //
 //        }.done { info in
-////            self.info = info
+    ////            self.info = info
 //            return info
 //        }
 //
 //    }
-    
+
     func verify(address: String) -> Bool {
         switch self {
-        case .coin(let chain):
+        case let .coin(chain):
             return chain.verify(address: address)
         case .ERC20:
             return BlockChain.Ethereum.verify(address: address)
         }
     }
-    
 }
 
 extension Coin: Hashable, Equatable {
@@ -114,10 +112,10 @@ extension Coin: Hashable, Equatable {
     }
 
     var hashValue: Int {
-        return self.id.hashValue
+        return id.hashValue
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(self.id)
+        hasher.combine(id)
     }
 }

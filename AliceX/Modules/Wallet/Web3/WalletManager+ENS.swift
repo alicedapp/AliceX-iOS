@@ -10,7 +10,6 @@ import Foundation
 import web3swift
 
 extension WalletManager {
-    
     func test() {
 //        let web = web3(provider: InfuraProvider(Networks.Mainnet)!)
 //        let ens = ENS(web3: web)!

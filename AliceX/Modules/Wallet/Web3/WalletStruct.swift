@@ -20,9 +20,9 @@ struct HDKey {
     let address: String
 }
 
-//struct ERC20Token {
+// struct ERC20Token {
 //    var name: String
 //    var address: String
 //    var decimals: String
 //    var symbol: String
-//}
+// }

@@ -11,18 +11,17 @@ import UIKit
 import VBFPopFlatButton
 
 class CoinListCell: UITableViewCell {
-    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var addButton: VBFPopFlatButton!
     @IBOutlet var addBackground: BaseControl!
     @IBOutlet var coinShadow: UIView!
-    
+
     @IBOutlet var typeLabel: UILabel!
 
     var coin: Coin!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         addButton.currentButtonStyle = .buttonRoundedStyle
@@ -50,7 +49,7 @@ class CoinListCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
+
     @IBAction func addButtonClick() {
         let isAdd = addButton.currentButtonType == .buttonAddType
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
@@ -58,41 +57,41 @@ class CoinListCell: UITableViewCell {
         UIView.animate(withDuration: 0.3) {
             self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
         }
-        
+
         if isAdd {
             WatchingCoinHelper.shared.add(coin: coin, updateCache: true)
         } else {
             WatchingCoinHelper.shared.remove(coin: coin, updateCache: true)
         }
     }
-    
+
     func configure(coin: Coin) {
         self.coin = coin
 //        if {
 //        }
-        
+
         let isAdd = WatchingCoinHelper.shared.list.contains(coin)
         iconView.image = nil
         nameLabel.text = ""
         subTitleLabel.text = ""
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
         addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
-        
+
         typeLabel.text = coin.type
-        
+
         iconView.kf.setImage(with: coin.image) { result in
             switch result {
-            case .success(_):
+            case .success:
                 self.typeLabel.isHidden = true
-            case .failure(_):
+            case .failure:
                 self.typeLabel.isHidden = false
             }
         }
-        
+
         guard let info = coin.info else {
             return
         }
-        
+
         nameLabel.text = info.name
 //        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
         subTitleLabel.text = info.symbol

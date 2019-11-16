@@ -7,23 +7,37 @@
 //
 
 import Foundation
+import Kingfisher
 
 protocol PinDelegate {
     func pinItem() -> PinItem
 }
 
 enum PinItem {
-    case website(image: UIImage, url: URL, title: String, viewcontroller: UIViewController)
-    case dapplet(image: UIImage, url: URL, title: String, viewcontroller: UIViewController)
-    case transaction(network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
+    case website(image: URL, url: URL, title: String, viewcontroller: UIViewController)
+    case dapplet(image: URL, url: URL, title: String, viewcontroller: UIViewController)
+    case transaction(coin: Coin, network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
     case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
 
     var txHash: String {
         switch self {
-        case .transaction(_, let txHash, _, _):
+        case .transaction(_, _, let txHash, _, _):
             return txHash
         default:
             return ""
+        }
+    }
+
+    var image: URL {
+        switch self {
+        case let .dapplet(image, _, _, _):
+            return image
+        case let .transaction(coin, _, _, _, _):
+            return coin.image
+        case let .website(image, _, _, _):
+            return image
+        case let .walletConnect(image, _, _, _):
+            return image
         }
     }
 
@@ -47,7 +61,7 @@ enum PinItem {
 
     var network: Web3NetEnum {
         switch self {
-        case .transaction(let network, _, _, _):
+        case .transaction(_, let network, _, _, _):
             return network
         default:
             return .main
@@ -56,7 +70,7 @@ enum PinItem {
 
     var URL: URL? {
         switch self {
-        case .transaction(let network, let txHash, _, _):
+        case .transaction(_, let network, let txHash, _, _):
             if !network.isUsingInfura {
                 return network.rpcURL
             }
@@ -77,7 +91,7 @@ enum PinItem {
     var vc: UIViewController {
         switch self {
         case let .dapplet(_, _, _, vc),
-             let .transaction(_, _, _, vc),
+             let .transaction(_, _, _, _, vc),
              let .website(_, _, _, vc),
              let .walletConnect(_, _, _, vc):
             return vc
@@ -107,7 +121,7 @@ extension PinItem: Hashable, Equatable {
             return url.absoluteString.hashValue
         case .dapplet(_, let url, _, _):
             return url.absoluteString.hashValue
-        case .transaction(_, let txHash, _, _):
+        case .transaction(_, _, let txHash, _, _):
             return txHash.hashValue
         case .walletConnect(_, let id, _, _):
             return id.hashValue
@@ -120,7 +134,7 @@ extension PinItem: Hashable, Equatable {
             hasher.combine(url)
         case .dapplet(_, let url, _, _):
             hasher.combine(url)
-        case .transaction(_, let txHash, _, _):
+        case .transaction(_, _, let txHash, _, _):
             hasher.combine(txHash)
         case .walletConnect(_, let id, _, _):
             hasher.combine(id)

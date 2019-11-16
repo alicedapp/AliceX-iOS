@@ -6,22 +6,21 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 class BlockChainQRCodeViewController: BaseViewController {
-
     @IBOutlet var qrcodeView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var container: UIView!
     @IBOutlet var logoContainer: UIView!
     @IBOutlet var logoImageView: UIImageView!
-    
+
     var chain: BlockChain = .Ethereum
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var address = WalletCore.address(blockchain: chain)
 
         let qrcode = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator",

@@ -10,8 +10,7 @@ import Foundation
 import Moya
 
 let CryptocompareAPI = MoyaProvider<Cryptocompare>()
-//(plugins:[NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
-
+// (plugins:[NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
 enum Cryptocompare {
     case price(symbol: [String], currency: Currency)

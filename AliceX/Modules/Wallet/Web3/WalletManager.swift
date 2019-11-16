@@ -17,11 +17,11 @@ class WalletManager {
 
     static var customNetworkList: [Web3NetModel] = []
 
-    #if DEBUG
-        static var web3Net = Web3.InfuraRinkebyWeb3()
-    #else
-        static var web3Net = Web3.InfuraMainnetWeb3()
-    #endif
+//    #if DEBUG
+//        static var web3Net = Web3.InfuraRinkebyWeb3()
+//    #else
+    static var web3Net = Web3.InfuraMainnetWeb3()
+//    #endif
 
     var keystore: BIP32Keystore?
 
@@ -131,7 +131,7 @@ class WalletManager {
             HUDManager.shared.showError(text: WalletError.malformedKeystore.errorDescription)
             return
         }
-        
+
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
             let name = Setting.WalletName
@@ -142,14 +142,13 @@ class WalletManager {
             WalletManager.wallet = wallet
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
-            
+
             HUDManager.shared.showSuccess(text: "Replace wallet success")
             CallRNModule.sendWalletChangedEvent(address: address)
             NotificationCenter.default.post(name: .walletChange, object: nil)
         } catch {
             HUDManager.shared.showError(text: "Replace Wallet Failed")
         }
-        
     }
 
     // MARK: - Notification

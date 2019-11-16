@@ -19,7 +19,7 @@ enum MainTab: Int, CaseIterable {
 //                MiniAppViewController()
                 RNModule.makeViewController(module: .alice)
 //                SettingViewController()
-                
+
         case .asset:
             return AssetViewController()
 //        case .profile:
