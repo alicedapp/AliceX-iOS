@@ -33,13 +33,22 @@ class PinListViewController: BaseViewController {
         tableView.registerCell(nibName: PinListCell.nameOfClass)
 //        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
 //        tableView.estimatedRowHeight = 100
-
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
+        self.tableView.backgroundView = UIView()
+        self.tableView.backgroundView?.addGestureRecognizer(tap)
+        
         cellAnimate()
     }
+    
+    @objc func tableTapped() {
+        dismissVC()
+    }
 
+    
     func updateIfNeeded() {
         pinList = PinManager.shared.pinList
-        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .none)
+        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .fade)
     }
 
     func cellAnimate() {

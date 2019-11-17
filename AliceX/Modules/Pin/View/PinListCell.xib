@@ -22,7 +22,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76V-iD-B3j" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                <color key="backgroundColor" name="Alice-White"/>
+                                <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="76V-iD-B3j" secondAttribute="height" multiplier="1:1" id="sGi-JU-5Ln"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                         <rect key="frame" x="8" y="18" width="34" height="34"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="Alice-White"/>
+                                <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="VNj-DT-CJ1"/>
                                     <constraint firstItem="10j-dH-89h" firstAttribute="centerX" secondItem="fpY-k5-OhX" secondAttribute="centerX" id="cg1-9u-dGG"/>
@@ -75,7 +75,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Alice-White"/>
+                        <color key="backgroundColor" name="Alice-WhiteGrey"/>
                         <constraints>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="leading" secondItem="mAy-S6-jGU" secondAttribute="trailing" constant="12" id="1fJ-gB-shL"/>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="centerY" secondItem="INq-er-UM3" secondAttribute="centerY" id="7X4-ip-173"/>
@@ -120,8 +120,8 @@
         <namedColor name="Alice-DarkGrey">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
