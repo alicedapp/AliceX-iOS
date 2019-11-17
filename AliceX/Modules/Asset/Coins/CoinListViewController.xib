@@ -37,7 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="QOF-L6-WQa">
-                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
+                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>

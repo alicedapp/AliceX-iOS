@@ -47,7 +47,7 @@ class PinListViewController: BaseViewController {
 
     func updateIfNeeded() {
         pinList = PinManager.shared.pinList
-        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .fade)
+        tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .automatic)
     }
 
     func cellAnimate() {
@@ -62,6 +62,7 @@ class PinListViewController: BaseViewController {
 
     @IBAction func dismissVC() {
         onMainThread {
+            PinManager.shared.ball.isHidden = false
             let cells = self.tableView.visibleCells
             UIView.animate(views: cells,
                            animations: self.cellAnimations,
@@ -86,6 +87,9 @@ class PinListViewController: BaseViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        
+        PinManager.shared.ball.isHidden = true
+        
         view.alpha = 0
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
             self.view.alpha = 1

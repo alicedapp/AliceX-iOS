@@ -56,7 +56,7 @@
                                 <color key="textColor" name="Alice-DarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-k5-OhX" customClass="UIControl">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-k5-OhX" customClass="UIControl">
                                 <rect key="frame" x="211" y="0.0" width="50" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="10j-dH-89h">
