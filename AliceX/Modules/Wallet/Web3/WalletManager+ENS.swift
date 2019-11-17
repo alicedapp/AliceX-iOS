@@ -8,16 +8,26 @@
 
 import Foundation
 import web3swift
+import PromiseKit
 
 extension WalletManager {
-    func test() {
-//        let web = web3(provider: InfuraProvider(Networks.Mainnet)!)
-//        let ens = ENS(web3: web)!
-//        do {
-//            let address = try ens.getAddress(forNode: "markpereira.eth")
-//            print("AAAA \(address.address)")
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-    }
+    
+    func getENSAddressWithPromise(node: String) -> Promise<EthereumAddress> {
+          return Promise<EthereumAddress> { seal in
+              guard let ens = ENS(web3: WalletManager.web3Net) else {
+                  throw WalletError.custom("Init ENS Failed")
+              }
+              
+              let trimStr = node.trimmingCharacters(in: .whitespacesAndNewlines)
+              do {
+                  try ens.getAddressWithPromise(forNode: trimStr).done { addr in
+                  seal.fulfill(addr)
+                  }.catch { error in
+                      seal.reject(error)
+                  }
+              } catch let error {
+                  seal.reject(error)
+              }
+          }
+      }
 }

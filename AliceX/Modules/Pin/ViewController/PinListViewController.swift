@@ -45,7 +45,6 @@ class PinListViewController: BaseViewController {
         dismissVC()
     }
 
-    
     func updateIfNeeded() {
         pinList = PinManager.shared.pinList
         tableView.reloadSections(IndexSet(integersIn: 0 ... 0), with: .fade)

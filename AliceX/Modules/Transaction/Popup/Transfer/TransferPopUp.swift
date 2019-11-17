@@ -17,6 +17,9 @@ class TransferPopUp: UIViewController {
     @IBOutlet var balanceTextLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
 
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var ensAddressLabel: UILabel!
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var priceTextLabel: UILabel!
@@ -135,27 +138,38 @@ class TransferPopUp: UIViewController {
         let address = UIPasteboard.general.string
         guard let addr = address,
             coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
-            errorAlert(text: "Addess invalid")
-            addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !coin.isERC20 && coin != Coin.coin(chain: .Ethereum) {
+                    errorAlert(text: "Addess invalid")
+                }
+                addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+                addressFieldDidChange(self.addressField)
             return
         }
         addressField.text = addr.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+        addressFieldDidChange(self.addressField)
     }
 
     @IBAction func cameraBtnClicked() {
         let vc = QRCodeReaderViewController.make { result in
-            if !self.coin.verify(address: result.trimmingCharacters(in: .whitespacesAndNewlines)) {
+            let trimStr = result.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !self.coin.verify(address: trimStr) {
                 self.errorAlert(text: "Addess invalid")
-                self.addressField.text = result.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.addressField.text = trimStr
+                self.address = trimStr
+                self.addressFieldDidChange(self.addressField)
                 return
             }
-            self.addressField.text? = result.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.addressField.text? = trimStr
+            self.address = trimStr
+            self.addressFieldDidChange(self.addressField)
         }
         present(vc, animated: true, completion: nil)
     }
 
     @IBAction func confirmBtnClicked() {
-        guard let addr = self.addressField.text?.trimmingCharacters(in: .whitespacesAndNewlines), coin.verify(address: addr) else {
+        guard let addr = self.address, coin.verify(address: addr) else {
             errorAlert(text: "Addess invalid")
             return
         }
@@ -184,6 +198,43 @@ class TransferPopUp: UIViewController {
                                                data: Data(),
                                                coin: coin) { _ in
                 self.cancelBtnClicked()
+            }
+        }
+    }
+    
+    @IBAction func addressFieldDidChange(_ textField: UITextField) {
+        
+        self.addressLabel.text = "Address"
+        self.ensAddressLabel.text = ""
+        
+        if !coin.isERC20 && coin != Coin.coin(chain: .Ethereum) {
+            return
+        }
+        
+        guard let text = textField.text else {
+            return
+        }
+        
+        if !text.contains(".") {
+            return
+        }
+        
+        self.addressLabel.text = "Fetching ENS ..."
+        
+        onBackgroundThread {
+            
+            WalletManager.shared.getENSAddressWithPromise(node: text).done { EthAddress in
+                onMainThread {
+                    self.addressLabel.text = "Address ✅"
+                    self.ensAddressLabel.text = EthAddress.address
+                    self.address = EthAddress.address
+                }
+                
+            }.catch { error in
+                onMainThread {
+//                    self.errorAlert(text: error.localizedDescription)
+                    self.addressLabel.text = "Address ❌"
+                }
             }
         }
     }
