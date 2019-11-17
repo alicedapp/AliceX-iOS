@@ -115,6 +115,7 @@ class PinListCell: UITableViewCell {
 
         parentVC?.dismiss(animated: true, completion: {
             self.previousVC?.navigationController?.pushViewController(self.vc, animated: true)
+            PinManager.shared.ball.isHidden = false
         })
     }
 
