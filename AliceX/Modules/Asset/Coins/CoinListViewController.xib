@@ -37,7 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="QOF-L6-WQa">
-                                    <rect key="frame" x="13" y="13" width="34" height="34"/>
+                                    <rect key="frame" x="21.5" y="21.5" width="17" height="17"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
@@ -60,10 +60,33 @@
                                 <constraint firstAttribute="height" constant="0.5" id="bCn-Nf-pw5"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-hD-2Nq" customClass="UIControl">
+                            <rect key="frame" x="354" y="0.0" width="60" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-button" translatesAutoresizingMaskIntoConstraints="NO" id="PzB-hB-jTY">
+                                    <rect key="frame" x="17.5" y="17.5" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="PzB-hB-jTY" secondAttribute="height" multiplier="1:1" id="9En-mw-aXj"/>
+                                        <constraint firstAttribute="height" constant="25" id="mlz-pK-aEW"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstItem="PzB-hB-jTY" firstAttribute="centerY" secondItem="dyM-hD-2Nq" secondAttribute="centerY" id="JUq-ll-Xcg"/>
+                                <constraint firstItem="PzB-hB-jTY" firstAttribute="centerX" secondItem="dyM-hD-2Nq" secondAttribute="centerX" id="fhg-b6-5m1"/>
+                                <constraint firstAttribute="width" constant="60" id="mDo-bi-mew"/>
+                            </constraints>
+                            <connections>
+                                <action selector="addButtonClicked" destination="-1" eventType="touchUpInside" id="NFW-q4-KO7"/>
+                            </connections>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="Alice-LightBackground"/>
                     <constraints>
+                        <constraint firstItem="dyM-hD-2Nq" firstAttribute="top" secondItem="W3i-sf-6fe" secondAttribute="top" id="2Le-4T-pU2"/>
                         <constraint firstAttribute="height" constant="60" id="6Q8-HV-Sts"/>
+                        <constraint firstAttribute="bottom" secondItem="dyM-hD-2Nq" secondAttribute="bottom" id="Eox-8f-UW8"/>
                         <constraint firstItem="khZ-tm-kZT" firstAttribute="top" secondItem="W3i-sf-6fe" secondAttribute="top" id="JiT-B8-HcW"/>
                         <constraint firstItem="CMS-Zs-j0r" firstAttribute="centerX" secondItem="W3i-sf-6fe" secondAttribute="centerX" id="LsK-y9-yof"/>
                         <constraint firstItem="CMS-Zs-j0r" firstAttribute="centerY" secondItem="W3i-sf-6fe" secondAttribute="centerY" id="QEd-bW-cwS"/>
@@ -71,13 +94,9 @@
                         <constraint firstAttribute="trailing" secondItem="noN-0d-g99" secondAttribute="trailing" id="a6v-0S-Pau"/>
                         <constraint firstAttribute="bottom" secondItem="noN-0d-g99" secondAttribute="bottom" id="bAF-jq-qSc"/>
                         <constraint firstItem="noN-0d-g99" firstAttribute="leading" secondItem="W3i-sf-6fe" secondAttribute="leading" id="dQn-zv-ZLW"/>
+                        <constraint firstAttribute="trailing" secondItem="dyM-hD-2Nq" secondAttribute="trailing" id="dSg-Ly-e1H"/>
                         <constraint firstAttribute="bottom" secondItem="khZ-tm-kZT" secondAttribute="bottom" id="dyt-18-81S"/>
                     </constraints>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhU-tT-qkE">
-                    <rect key="frame" x="87" y="384" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>
                 <searchBar contentMode="redraw" placeholder="Search Coin" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-HW-ZA2">
                     <rect key="frame" x="0.0" y="104" width="414" height="55"/>
@@ -114,6 +133,7 @@
         </view>
     </objects>
     <resources>
+        <image name="add-button" width="30" height="30"/>
         <image name="close-dark" width="17" height="17"/>
         <namedColor name="Alice-DarkGrey">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -41,15 +41,15 @@ class AssetCoinHeaderCell: UICollectionViewCell {
 
     @IBAction func addButtonClick() {
         let vc = CoinListViewController()
-//        vc.isFromPopup = true
+        vc.isFromPopup = true
         let topVC = UIApplication.topViewController()
-//        let navi = BaseNavigationController(rootViewController: vc)
+        let navi = BaseNavigationController(rootViewController: vc)
 //        let transitionDelegate = SPStorkTransitioningDelegate()
 //        navi.transitioningDelegate = transitionDelegate
 //        navi.modalPresentationStyle = .custom
 //        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
 
-        topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
+        topVC?.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }
 
     @IBAction func reorderButtonClick() {

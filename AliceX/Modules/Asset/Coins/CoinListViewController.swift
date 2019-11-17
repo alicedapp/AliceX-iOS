@@ -54,6 +54,12 @@ class CoinListViewController: BaseViewController {
         }
         navi.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func addButtonClicked() {
+        let vc = CustomTokenViewController()
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
