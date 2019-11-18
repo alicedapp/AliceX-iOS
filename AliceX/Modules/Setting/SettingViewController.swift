@@ -44,7 +44,7 @@ class SettingViewController: BaseViewController {
     }
 
     @IBAction func replaceClicked() {
-        let vc = ImportWalletViewController()
+        let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
         navigationController?.pushViewController(vc, animated: true)
     }
 

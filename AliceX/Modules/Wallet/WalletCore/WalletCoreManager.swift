@@ -26,7 +26,6 @@ class WalletCore {
 
     class func loadFromCache() {
         guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
-            HUDManager.shared.showErrorAlert(text: "Mnemonic can't be found in your Keychain, Please import Mnemonic again ", isAlert: true)
             return
         }
         WalletCore.wallet = HDWallet(mnemonic: mnemonic, passphrase: "")

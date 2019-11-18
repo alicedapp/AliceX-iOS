@@ -8,6 +8,7 @@
 
 import Pageboy
 import UIKit
+import SwiftyUserDefaults
 
 class MainTabViewController: PageboyViewController {
     @IBOutlet var container: UIView!
@@ -17,6 +18,8 @@ class MainTabViewController: PageboyViewController {
         super.viewDidLoad()
         dataSource = self
         bounces = false
+        
+        Defaults[\.isFirstTimeOpen] = false
     }
 }
 

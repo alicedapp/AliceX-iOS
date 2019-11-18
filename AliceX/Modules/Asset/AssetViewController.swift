@@ -54,6 +54,8 @@ class AssetViewController: BaseViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .walletChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .networkChange, object: nil)
 
         let animator = AssetImgeAnimator(frame: CGRect.zero)
         collectionView.es.addPullToRefresh(animator: animator, handler: {

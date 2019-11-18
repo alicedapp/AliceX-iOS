@@ -58,10 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
 
+        WalletManager.shared.checkMnemonic()
+        
         #if DEBUG
             test()
         #endif
-
+        
         return true
     }
 

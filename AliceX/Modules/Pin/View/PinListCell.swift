@@ -107,7 +107,6 @@ class PinListCell: UITableViewCell {
         }
 
         PinManager.shared.currentPin = item
-
         PinTransitionPush.pushCellFrame = CGRect(x: frame.origin.x,
                                                  y: -frame.origin.y,
                                                  width: frame.width,

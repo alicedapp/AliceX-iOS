@@ -10,6 +10,7 @@ import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
+    var isFirstTimeOpen: DefaultsKey<Bool> { return .init("isFirstTimeOpen", defaultValue: true) }
     var MnemonicsBackup: DefaultsKey<Bool> { return .init("MnemonicsBackup", defaultValue: false) }
     var isHideAsset: DefaultsKey<Bool> { return .init("isHideAsset", defaultValue: false) }
     var lastTimeUpdateAsset: DefaultsKey<Date?> { return .init("lastTimeUpdateAsset") }

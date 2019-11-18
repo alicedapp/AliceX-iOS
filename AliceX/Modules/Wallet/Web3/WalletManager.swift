@@ -9,6 +9,7 @@
 import Foundation
 import SPStorkController
 import web3swift
+import SwiftyUserDefaults
 
 class WalletManager {
     static let shared = WalletManager()
@@ -179,5 +180,44 @@ class WalletManager {
         } catch {
             HUDManager.shared.showError()
         }
+    }
+    
+    // MARK: - Check Mnemonic
+    
+    func checkMnemonic() {
+        
+        /// Fist time open app
+        if Defaults[\.isFirstTimeOpen] {
+            guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
+                return
+            }
+            /// Have Mnemonics in Keychain, alter to recover it
+            
+            let view = BaseAlertView.instanceFromNib(title: "Meet You Again",
+                                                     content: "We found your Mnemonic, Do you want to recover your wallet?",
+                                          confirmText: "Recover",
+                                          cancelText: "Cancel", confirmBlock: {
+                                            HUDManager.shared.dismiss()
+                                            let vc = ImportWalletViewController.make(buttonText: "Recover Wallet", mnemonic: mnemonic)
+                                            let topVC = UIApplication.topViewController()!
+                                            topVC.navigationController?.pushViewController(vc, animated: true)
+            }) {
+            }
+            
+            HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none, type: .centerFloat, widthIsFull: false, canDismiss: true)
+            
+            return
+        }
+        
+        /// Not Fist time open app
+        guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
+            
+            /// Mnemonics LOST !!!
+            
+            HUDManager.shared.showErrorAlert(text: "Mnemonic can't be found in your Keychain, Please import Mnemonic again ", isAlert: true)
+            
+            return
+        }
+        
     }
 }

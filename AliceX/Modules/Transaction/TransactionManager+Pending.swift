@@ -65,6 +65,9 @@ class PendingTransactionHelper {
                 case .notYetProcessed:
                     break
                 }
+            }.catch { error in
+                self.stop()
+                print(error.localizedDescription)
             }
         }
     }
