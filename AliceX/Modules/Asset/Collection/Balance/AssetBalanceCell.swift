@@ -36,6 +36,7 @@ class AssetBalanceCell: UICollectionViewCell {
 
         let balance = Defaults[\.lastAssetBalance].toString(decimal: 2)
         balanceLabel.text = balance
+        currencyLabel.text = PriceHelper.shared.currentCurrency.flag
     }
 
     @IBAction func hidenButtonClick() {

@@ -60,23 +60,6 @@ class AssetCoinCell: UICollectionViewCell {
         addGestureRecognizer(tap)
     }
 
-    @IBAction func transferClick() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            self.background.alpha = 1
-
-        }) { _ in
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            let vc = TransferPopUp.make(address: "", coin: self.coin)
-            vc.modalPresentationStyle = .overCurrentContext
-            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
-            UIView.animate(withDuration: 0.3) {
-                self.transform = CGAffineTransform.identity
-                self.background.alpha = 0
-            }
-        }
-    }
-
     @objc func tapAction(gesture: UITapGestureRecognizer) {
         switch gesture.state {
         case .began:
@@ -215,85 +198,4 @@ class AssetCoinCell: UICollectionViewCell {
             amountLabel.text = "** \(info.symbol!)"
         }
     }
-
-//    func configure(item: TokenArrayItem) {
-//        guard let info = item.tokenInfo else {
-//            return
-//        }
-//
-//        coin = Coin.ERC20(token: CoinInfo(id: info.address))
-//
-//        animationButton.currentButtonType = .buttonUpBasicType
-//        animationButton.tintColor = AliceColor.green
-//
-//        nameLabel.text = info.name
-//        let num = pow(Double(10.0), Double(info.decimals))
-//        let amount = Double(item.balance / num)
-//        amountLabel.text = "\(amount.toString(decimal: 3)) \(info.symbol!)"
-//
-//        let currencySymbol = PriceHelper.shared.currentCurrency.symbol
-//
-//        if let price = info.price {
-//            priceLabel.text = "\(currencySymbol) \(Double(price.rate).toString(decimal: 3))"
-//            balanceLabel.text = "\(currencySymbol) \((amount * Double(price.rate)).toString(decimal: 3))"
-//        } else {
-//            priceLabel.text = "Coin"
-//            balanceLabel.text = ""
-//        }
-//
-    ////        let address = info.address
-//        coinImageView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
-//    }
-
-//    func configure(item: BlockChain) {
-//
-//        coin = Coin.coin(chain: item)
-//
-//        nameLabel.text = item.rawValue
-//        coinImageView.kf.setImage(with: Coin.coin(chain: item).image, placeholder: Constant.placeholder)
-//        amountLabel.text = ""
-//        priceLabel.text = ""
-//        balanceLabel.text = ""
-//
-//        let currencySymbol = PriceHelper.shared.currentCurrency.symbol
-//
-//        guard let info = item.data else {
-//            return
-//        }
-//
-//        let currency = PriceHelper.shared.currentCurrency
-//        guard let quote = info.quote?.toJSON() else {
-//                return
-//        }
-//
-//        if !quote.keys.contains(currency.rawValue) {
-//            return
-//        }
-//
-//        let price = quote[currency.rawValue] as! [String: Any]
-//        guard let currencyModel = CoinMarketCapCurrencyModel.deserialize(from: price) else {
-//            return
-//        }
-//
-//        priceLabel.text = "\(currency.symbol) \(currencyModel.price!.toString(decimal: 3))"
-//        if Double(currencyModel.percent_change_24h!) > 0.0 {
-//            animationButton.currentButtonType = .buttonUpBasicType
-//            animationButton.tintColor = AliceColor.green
-//        } else {
-//            animationButton.currentButtonType = .buttonDownBasicType
-//            animationButton.tintColor = AliceColor.red
-//        }
-//
-//        // TODO
-//        firstly {
-//            item.getBalance()
-//        }.done { balance in
-//            let num = pow(Double(10.0), Double(item.decimal))
-//            guard let amount = Web3.Utils.formatToPrecision(balance, numberDecimals: item.decimal, formattingDecimals: 6, decimalSeparator: ".", fallbackToScientific: false) else {
-//                return
-//            }
-//            self.amountLabel.text = "\(amount) \(item.symbol)"
-//            self.balanceLabel.text = "\(currencySymbol) \((Double(amount)! * currencyModel.price!).toString(decimal: 3))"
-//        }
-//    }
 }
