@@ -153,7 +153,7 @@ class SendTransactionHandler: WCHandler {
             TransactionManager.showPaymentView(toAddress: tx.to.address,
                                                amount: value,
                                                data: tx.data,
-                                               symbol: "ETH") { signData in
+                                               coin: Coin.coin(chain: .Ethereum)) { signData in
                 let response = try! Response(url: request.url, value: signData, id: request.id!)
                 self.server.send(response)
 //                HUDManager.shared.dismiss()

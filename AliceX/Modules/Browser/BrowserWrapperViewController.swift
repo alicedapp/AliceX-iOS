@@ -59,7 +59,12 @@ class BrowserWrapperViewController: BaseViewController {
 
 extension BrowserWrapperViewController: PinDelegate {
     func pinItem() -> PinItem {
-        return .website(image: vc.hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5")),
+        var url = URL(string: "https://cdn4.iconfinder.com/data/icons/hosting-and-server/500/Hosting-30-512.png")!
+
+        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
+            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+        }
+        return .website(image: url,
                         url: vc.webview.url!,
                         title: vc.webview.title ?? vc.webview.url!.absoluteString,
                         viewcontroller: self)

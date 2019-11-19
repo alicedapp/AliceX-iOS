@@ -39,8 +39,6 @@ class FloatBall: UIView {
     func configure() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
         addGestureRecognizer(tap)
-        imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
-
         progressView.enableIndeterminate()
 
         containerView.layer.cornerRadius = frame.height / 2
@@ -53,6 +51,17 @@ class FloatBall: UIView {
         layer.shadowRadius = 5
 
         walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
+
+//        updateImage()
+    }
+
+    func updateImage() {
+        if let pinItem = PinManager.shared.pinList.last {
+            let image = pinItem.image
+            imageView.kf.setImage(with: image)
+        } else {
+            imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+        }
     }
 
     func updateIfNeeded() {
@@ -67,6 +76,7 @@ class FloatBall: UIView {
             }
         }
         showPending = shouldShow
+        updateImage()
     }
 
     override func layoutSubviews() {

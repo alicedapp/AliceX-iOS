@@ -11,7 +11,7 @@ import VBFPopFlatButton
 
 class AssetNFTHeaderCell: UICollectionViewCell {
     var action: VoidBlock!
-    
+
     @IBOutlet var title: UILabel!
 
     @IBOutlet var animationButton: VBFPopFlatButton!
@@ -26,12 +26,14 @@ class AssetNFTHeaderCell: UICollectionViewCell {
 //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
-    
-    func configure(count: Int) {
+
+    func configure(count: Int, isClose: Bool) {
+        animationButton.currentButtonType = isClose ? .buttonForwardType : .buttonDownBasicType
+
         if count <= 0 {
             return
         }
-        
+
         title.text = "\(count) Collectibles"
     }
 

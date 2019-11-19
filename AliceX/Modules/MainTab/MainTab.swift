@@ -9,17 +9,18 @@
 import Foundation
 
 enum MainTab: Int, CaseIterable {
-    case asset
     case mini
+    case asset
+    
 
     var vc: UIViewController {
         switch self {
         case .mini:
             return
-//                MiniAppViewController()
-                RNModule.makeViewController(module: .alice)
+                MiniAppViewController()
+//                RNModule.makeViewController(module: .alice)
 //                SettingViewController()
-                
+
         case .asset:
             return AssetViewController()
 //        case .profile:

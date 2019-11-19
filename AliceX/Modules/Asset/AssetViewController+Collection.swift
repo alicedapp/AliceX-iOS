@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import ViewAnimator
 import SwiftyUserDefaults
+import ViewAnimator
 
 extension AssetViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -43,7 +43,7 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch section {
         case Asset.balance.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.balance.name, for: indexPath) as! AssetBalanceCell
-            cell.configure(isHidden: assetHide)
+            cell.configure(isHidden: assetHide, newBalance: balance ?? Defaults[\.lastAssetBalance])
             cell.action = {
                 self.assetHide = !self.assetHide
                 Defaults[\.isHideAsset] = self.assetHide
@@ -52,10 +52,14 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case Asset.coinHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.coinHeader.name, for: indexPath) as! AssetCoinHeaderCell
-            cell.configure(count: coins.count)
+            cell.configure(count: coins.count, isClose: coinHide)
             cell.action = {
                 self.coinHide = !self.coinHide
-                self.coinSectionAimation()
+//                if self.coinHide {
+//                    self.coinSectionCloseAnimation()
+//                } else {
+                self.coinSectionShowAnimation()
+//                }
             }
             return cell
         case Asset.coin.rawValue:
@@ -68,16 +72,14 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case Asset.NFTHeader.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Asset.NFTHeader.name, for: indexPath) as! AssetNFTHeaderCell
-            
-            cell.configure(count: NFTData.count)
+            cell.configure(count: NFTData.count, isClose: NFTHide)
             cell.action = {
                 self.NFTHide = !self.NFTHide
-                self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFT.rawValue))
-                self.collectionView.performBatchUpdates({
-                    UIView.animate(views: self.collectionView!.visibleCells(in: Asset.NFT.rawValue),
-                                   animations: self.animations,
-                                   completion: nil)
-                }, completion: nil)
+//                if self.NFTHide {
+//                    self.NFTSectionCloseAimation()
+//                } else {
+                self.NFTSectionShowAimation()
+//                }
             }
             return cell
         case Asset.NFT.rawValue:
@@ -107,10 +109,11 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case Asset.emptyCoin.rawValue:
             return coins.count <= 2 ? 1 : 0
         case Asset.NFTHeader.rawValue:
-            if let NFT = NFTData {
-                return NFT.count > 0 ? 1 : 0
-            }
-            return 1
+//            if let NFT = NFTData {
+//                return NFT.count > 0 ? 1 : 0
+//            }
+            return NFTData.count > 0 ? 1 : 0
+//            return 1
         case Asset.NFT.rawValue:
             if let NFT = NFTData {
                 return NFTHide ? 0 : NFT.count
@@ -131,27 +134,38 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }, completion: nil)
     }
 
-    func coinSectionAimation() {
-        
-        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
+    func coinSectionShowAnimation() {
+        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue,
+                                                    Asset.coin.rawValue,
+                                                    Asset.emptyCoin.rawValue))
         let coinCell = self.collectionView!.visibleCells(in: Asset.coin.rawValue)
 
-//        self.collectionView.performBatchUpdates({
-//            if !coinHide {
-//                UIView.animate(views: animateCell,
-//                               animations: self.coinAnimations,
-//                               completion: nil)
-//            } else {
-//                UIView.animate(views: animateCell,
-//                               animations: self.coinAnimations,
-//                               reversed: true,
-//                               initialAlpha: 1.0,
-//                               finalAlpha: 0.0,
-//                               completion: nil)
-//            }
-//        }, completion: nil)
+        let orderCell = coinCell.sorted { (cell1, cell2) -> Bool in
+            let index1 = self.collectionView.indexPath(for: cell1)!
+            let index2 = self.collectionView.indexPath(for: cell2)!
+            return index1.item < index2.item
+        }
+        cellAnimation(cells: orderCell, animator: coinAnimations)
+    }
 
-        cellAnimation(cells: coinCell, animator: coinAnimations)
+    func coinSectionCloseAnimation() {
+        let coinCell = self.collectionView!.visibleCells(in: Asset.coin.rawValue)
+
+        let orderCell = coinCell.sorted { (cell1, cell2) -> Bool in
+            let index1 = self.collectionView.indexPath(for: cell1)!
+            let index2 = self.collectionView.indexPath(for: cell2)!
+            return index1.item < index2.item
+        }
+
+        UIView.animate(views: orderCell,
+                       animations: coinAnimations,
+                       reversed: true,
+                       initialAlpha: 1.0,
+                       finalAlpha: 0.0,
+                       completion: {
+                           self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue, Asset.coin.rawValue,
+                                                                       Asset.emptyCoin.rawValue))
+        })
     }
 
     func erc20SectionAimation() {
@@ -160,10 +174,33 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
 //        cellAnimation(cells: animateCell, animator: coinAnimations)
     }
 
-    func NFTSectionAimation() {
-        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFT.rawValue))
+    func NFTSectionShowAimation() {
+        self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFTHeader.rawValue, Asset.NFT.rawValue))
+        let animateCell = self.collectionView!.visibleCells(in: Asset.NFT.rawValue)
+        let orderCell = animateCell.sorted { (cell1, cell2) -> Bool in
+            let index1 = self.collectionView.indexPath(for: cell1)!
+            let index2 = self.collectionView.indexPath(for: cell2)!
+            return index1.item < index2.item
+        }
+        cellAnimation(cells: orderCell, animator: animations)
+    }
+
+    func NFTSectionCloseAimation() {
         let animateCell = self.collectionView!.visibleCells(in: Asset.NFT.rawValue)
 
-        cellAnimation(cells: animateCell, animator: animations)
+        let orderCell = animateCell.sorted { (cell1, cell2) -> Bool in
+            let index1 = self.collectionView.indexPath(for: cell1)!
+            let index2 = self.collectionView.indexPath(for: cell2)!
+            return index1.item < index2.item
+        }
+
+        UIView.animate(views: orderCell,
+                       animations: animations,
+                       reversed: true,
+                       initialAlpha: 1.0,
+                       finalAlpha: 0.0,
+                       completion: {
+                           self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.NFTHeader.rawValue, Asset.NFT.rawValue))
+        })
     }
 }

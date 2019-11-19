@@ -38,7 +38,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnJ-FT-awO" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="59.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-bt-4UI">
                                     <rect key="frame" x="13" y="13" width="34" height="34"/>
@@ -59,16 +59,19 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qii-GM-jaZ">
                             <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
-                            <color key="backgroundColor" name="Alice-Grey"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="kaC-ub-f33"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
                         <constraint firstItem="JnJ-FT-awO" firstAttribute="leading" secondItem="yTs-RM-7Vg" secondAttribute="leading" id="4b7-pg-4xo"/>
-                        <constraint firstAttribute="bottom" secondItem="JnJ-FT-awO" secondAttribute="bottom" id="C4R-rb-lDx"/>
+                        <constraint firstAttribute="bottom" secondItem="JnJ-FT-awO" secondAttribute="bottom" constant="0.5" id="C4R-rb-lDx"/>
                         <constraint firstAttribute="height" constant="60" id="Ge1-Fe-NWy"/>
                         <constraint firstAttribute="trailing" secondItem="Qii-GM-jaZ" secondAttribute="trailing" id="S2n-Zz-voN"/>
                         <constraint firstItem="Uhr-0K-OQD" firstAttribute="centerX" secondItem="yTs-RM-7Vg" secondAttribute="centerX" id="WlA-Zu-XXF"/>
@@ -82,7 +85,7 @@
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-ei-679" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Id4-6N-VQ1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
@@ -108,10 +111,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4l-yw-rKT">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="KvO-ZL-fUP"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="KvO-ZL-fUP"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAe-2l-8Wm">
@@ -163,10 +166,10 @@
                                                     <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljr-OP-ZLF">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="oYQ-sj-YNj"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="oYQ-sj-YNj"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Switch network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-fe-iPR">
@@ -223,10 +226,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pH-Zf-PKP">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="RD7-Jb-3cD"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="RD7-Jb-3cD"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvC-qB-8kT">
@@ -295,10 +298,10 @@
                                                     <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-6c-q6o">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="Ovw-pd-goF"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="Ovw-pd-goF"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-Q7-e7z">
@@ -369,10 +372,10 @@
                                                     <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT8-Ky-dEC">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="xeG-FM-bOE"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="xeG-FM-bOE"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replace wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zND-RY-6vv">
@@ -421,10 +424,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aI-Nv-UoU">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="XZS-fz-C1G"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="XZS-fz-C1G"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean browser cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5D-d1-BEa">
@@ -480,10 +483,10 @@
                                                     <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-Ea-vyL">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="MFL-sl-Zbv"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="MFL-sl-Zbv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -546,10 +549,10 @@
                                                     <rect key="frame" x="375" y="12" width="24" height="36"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Qc-xL4">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="Fo8-Qp-QZp"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="Fo8-Qp-QZp"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="095-fu-biw">
@@ -598,10 +601,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8Q-E3-iR1">
-                                                    <rect key="frame" x="0.0" y="59" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
                                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="Kfg-9l-fYn"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="Kfg-9l-fYn"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdU-Z3-bFG">
@@ -637,7 +640,7 @@
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" id="Lyb-K6-NxZ"/>
+                                <constraint firstAttribute="bottom" secondItem="Id4-6N-VQ1" secondAttribute="bottom" constant="60" id="Lyb-K6-NxZ"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="leading" secondItem="jqz-ei-679" secondAttribute="leading" id="Uyh-Eb-mKs"/>
                                 <constraint firstAttribute="trailing" secondItem="Id4-6N-VQ1" secondAttribute="trailing" id="iQf-nN-RCm"/>
                                 <constraint firstItem="Id4-6N-VQ1" firstAttribute="top" secondItem="jqz-ei-679" secondAttribute="top" id="vQh-Bk-IQA"/>
@@ -679,14 +682,11 @@
         <namedColor name="Alice-DarkGrey">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-Grey">
-            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Alice-LightBackground">
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

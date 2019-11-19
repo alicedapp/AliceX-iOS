@@ -44,6 +44,7 @@ enum Font {
 }
 
 extension Notification.Name {
+    static let walletChange = Notification.Name("walletChange")
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
@@ -69,12 +70,12 @@ class CacheKey {
 
     static let assetNFTKey = "alice.asset.NFT"
 //    static let assetERC20Key = "alice.asset.erc20"
-    
+
     static let watchingList = "alice.asset.watchingList"
     static let unWatchingList = "alice.asset.un.watchingList"
-    
+
     static let blockchainKey = "alice.asset.watchingList"
-    
+
     static let coinInfoList = "alice.asset.coinInfoList"
 }
 

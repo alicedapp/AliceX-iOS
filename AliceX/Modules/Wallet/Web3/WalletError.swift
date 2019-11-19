@@ -91,6 +91,8 @@ public enum WalletError: Error {
             return "Web3Net cache failure"
         case .netSwitchFailure:
             return "Switch network failure"
+        case let .custom(msg):
+            return msg
         default:
             return "Wallet Unknow Error"
         }

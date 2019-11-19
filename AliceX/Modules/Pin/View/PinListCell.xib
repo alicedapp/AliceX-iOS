@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,11 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INq-er-UM3" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                        <rect key="frame" x="46" y="16" width="280" height="70"/>
+                        <rect key="frame" x="65" y="16" width="261" height="70"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76V-iD-B3j" customClass="RPCircularProgress" customModule="AliceX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                <color key="backgroundColor" name="Alice-White"/>
+                                <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="76V-iD-B3j" secondAttribute="height" multiplier="1:1" id="sGi-JU-5Ln"/>
                                 </constraints>
@@ -52,19 +51,19 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAy-S6-jGU">
-                                <rect key="frame" x="72" y="26.5" width="146" height="17.5"/>
+                                <rect key="frame" x="72" y="26.5" width="127" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" name="Alice-DarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-k5-OhX" customClass="UIControl">
-                                <rect key="frame" x="230" y="0.0" width="50" height="70"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-k5-OhX" customClass="UIControl">
+                                <rect key="frame" x="211" y="0.0" width="50" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-light" translatesAutoresizingMaskIntoConstraints="NO" id="10j-dH-89h">
-                                        <rect key="frame" x="8" y="17" width="34" height="36"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close-dark" translatesAutoresizingMaskIntoConstraints="NO" id="10j-dH-89h">
+                                        <rect key="frame" x="8" y="18" width="34" height="34"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Alice-WhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="VNj-DT-CJ1"/>
                                     <constraint firstItem="10j-dH-89h" firstAttribute="centerX" secondItem="fpY-k5-OhX" secondAttribute="centerX" id="cg1-9u-dGG"/>
@@ -76,12 +75,11 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Alice-White"/>
+                        <color key="backgroundColor" name="Alice-WhiteGrey"/>
                         <constraints>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="leading" secondItem="mAy-S6-jGU" secondAttribute="trailing" constant="12" id="1fJ-gB-shL"/>
                             <constraint firstItem="fpY-k5-OhX" firstAttribute="centerY" secondItem="INq-er-UM3" secondAttribute="centerY" id="7X4-ip-173"/>
                             <constraint firstAttribute="bottom" secondItem="76V-iD-B3j" secondAttribute="bottom" id="86a-si-zeb"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="EdD-7I-aRK"/>
                             <constraint firstAttribute="trailing" secondItem="fpY-k5-OhX" secondAttribute="trailing" id="GNH-mf-8O0"/>
                             <constraint firstItem="mAy-S6-jGU" firstAttribute="centerY" secondItem="INq-er-UM3" secondAttribute="centerY" id="PJq-DZ-uSX"/>
                             <constraint firstItem="76V-iD-B3j" firstAttribute="leading" secondItem="INq-er-UM3" secondAttribute="leading" id="Qu5-Pz-Sf6"/>
@@ -102,13 +100,12 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="INq-er-UM3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" priority="999" id="AeA-e7-aT8"/>
+                    <constraint firstItem="INq-er-UM3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" id="AeA-e7-aT8"/>
                     <constraint firstItem="INq-er-UM3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SDq-L0-fCN"/>
                     <constraint firstAttribute="trailing" secondItem="INq-er-UM3" secondAttribute="trailing" id="he8-gv-14t"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="containerView" destination="INq-er-UM3" id="MUU-vK-4Xe"/>
                 <outlet property="pinImageView" destination="eKR-2h-Cjb" id="kOX-s0-Ked"/>
@@ -119,12 +116,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="close-light" width="17" height="18"/>
+        <image name="close-dark" width="17" height="17"/>
         <namedColor name="Alice-DarkGrey">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

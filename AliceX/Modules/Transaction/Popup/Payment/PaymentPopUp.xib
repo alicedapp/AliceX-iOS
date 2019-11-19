@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -13,11 +13,14 @@
             <connections>
                 <outlet property="addressLabel" destination="nYK-jF-v0a" id="ahy-SH-9bc"/>
                 <outlet property="amountLabel" destination="coj-L2-rKM" id="C43-Tg-CrO"/>
+                <outlet property="coinImageView" destination="lkP-5p-1n8" id="0le-GM-OwQ"/>
                 <outlet property="gasBtn" destination="1JM-64-fZg" id="9aL-db-pwt"/>
                 <outlet property="gasPriceLabel" destination="qba-uy-mmv" id="Gx1-D4-yIC"/>
                 <outlet property="gasTimeLabel" destination="h7s-Qp-vYP" id="NXz-2o-KaB"/>
+                <outlet property="nameLabel" destination="hwy-jO-SC3" id="pTe-4B-9Xu"/>
                 <outlet property="payButton" destination="9a4-Pv-3Rp" id="73W-tq-tOZ"/>
                 <outlet property="priceLabel" destination="52x-DJ-sfe" id="lB9-Fp-MtI"/>
+                <outlet property="symbolLabel" destination="Ek7-YU-HbT" id="CC1-r4-DEo"/>
                 <outlet property="view" destination="KWb-z1-eo5" id="afu-Ho-Wx2"/>
             </connections>
         </placeholder>
@@ -66,16 +69,13 @@
                                         <constraint firstAttribute="height" constant="70" id="BcA-Oz-DaU"/>
                                         <constraint firstAttribute="width" constant="314" id="jdr-te-8v7"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="YDA-74-dB2"/>
-                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-64-fZg" customClass="UIControl">
                                     <rect key="frame" x="65" y="315" width="284" height="30"/>
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaM-NA-xWN" customClass="UIControl">
                                             <rect key="frame" x="-8" y="3.5" width="75.5" height="23"/>
-                                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                                            <color key="backgroundColor" red="0.51489637310000003" green="0.51489637310000003" blue="0.51489637310000003" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="5"/>
@@ -208,7 +208,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="52x-DJ-sfe" firstAttribute="trailing" secondItem="coj-L2-rKM" secondAttribute="trailing" constant="-2" id="3s9-pM-mSR"/>
                                         <constraint firstItem="hwy-jO-SC3" firstAttribute="leading" secondItem="lkP-5p-1n8" secondAttribute="trailing" constant="24" id="46W-BH-rpI"/>
@@ -281,9 +281,6 @@
         </namedColor>
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-WhiteGrey">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

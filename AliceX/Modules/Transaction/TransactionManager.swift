@@ -26,7 +26,7 @@ class TransactionManager {
 //                                     extraData: Data,
 //                                     success: @escaping StringBlock) {
 //    }
-    
+
     class func showContractWriteView(contractAddress: String,
                                      functionName: String,
                                      abi: String,
@@ -104,13 +104,13 @@ class TransactionManager {
     class func showPaymentView(toAddress: String,
                                amount: BigUInt,
                                data: Data,
-                               symbol: String,
+                               coin: Coin,
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress,
                                       amount: amount,
                                       data: data,
-                                      symbol: symbol,
+                                      coin: coin,
                                       success: success)
         let height = 430 - 34 + Constant.SAFE_BOTTOM
         modal.modalPresentationStyle = .overCurrentContext
@@ -120,7 +120,7 @@ class TransactionManager {
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
-                              password _: String,
+                              password _: String = "web3swift",
                               gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
         return TransactionManager.writeSmartContract(contractAddress: address,
                                                      functionName: "fallback",
@@ -260,11 +260,12 @@ class TransactionManager {
                                         txHash: result.hash).absoluteString
                 let browser = BrowserWrapperViewController.make(urlString: url)
 
-                let pinItem = PinItem.transaction(network: WalletManager.currentNetwork,
+                let pinItem = PinItem.transaction(coin: Coin.coin(chain: .Ethereum),
+                                                  network: WalletManager.currentNetwork,
                                                   txHash: result.hash,
                                                   title: "Pending Transaction",
                                                   viewcontroller: browser)
-                PendingTransactionHelper.shared.add(item: pinItem)
+                PendingTransactionHelper.shared.add(item: pinItem, track: true)
 
             }.catch { error in
 
@@ -309,10 +310,9 @@ class TransactionManager {
     public class func readSmartContract(contractAddress: String,
                                         functionName: String,
                                         abi: String, parameters: [Any],
-                                        value: String = "0.0") -> Promise<[String : Any]> {
-        
-        return Promise<[String : Any]> { seal in
-            
+                                        value: String = "0.0") -> Promise<[String: Any]> {
+        return Promise<[String: Any]> { seal in
+
             guard let address = WalletManager.wallet?.address else {
                 throw WalletError.invalidAddress
             }
@@ -340,11 +340,11 @@ class TransactionManager {
                 parameters: parameters as [AnyObject],
                 extraData: extraData,
                 transactionOptions: options
-                ) else {
-                    throw WalletError.contractFailure
+            ) else {
+                throw WalletError.contractFailure
             }
 
-            firstly{
+            firstly {
                 tx.callPromise()
             }.done { result in
                 seal.fulfill(result)

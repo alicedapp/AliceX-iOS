@@ -159,6 +159,7 @@ class BrowserViewController: BaseViewController {
         vc.hero.modalAnimationType = .fade
         vc.browerRef = self
 //        titleLabel.isHidden = true
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
 }

@@ -18,6 +18,7 @@
                 <outlet property="gasTimeLabel" destination="kzs-3t-SFQ" id="mWa-Y6-kCr"/>
                 <outlet property="paramterLabel" destination="gat-1b-DCr" id="9VT-2L-EXS"/>
                 <outlet property="payButton" destination="yvE-gt-6jM" id="ENa-yg-YTd"/>
+                <outlet property="priceLabel" destination="c4o-aE-mrb" id="EAN-KK-xYw"/>
                 <outlet property="valueLabel" destination="SQn-q2-tQa" id="AUz-Nk-lT8"/>
                 <outlet property="view" destination="guu-fJ-3Xr" id="ejO-zh-Avz"/>
             </connections>
@@ -67,24 +68,21 @@
                                         <constraint firstAttribute="height" constant="70" id="qWJ-l0-cMn"/>
                                         <constraint firstAttribute="width" constant="314" id="qs7-lt-mrz"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="payButtonClick" destination="-1" eventType="touchUpInside" id="KF5-sU-Ej3"/>
-                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-a0-aHd" customClass="UIControl">
                                     <rect key="frame" x="65" y="415" width="284" height="30"/>
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUR-5P-1vo" customClass="UIControl">
-                                            <rect key="frame" x="-8" y="3.5" width="92.5" height="23"/>
-                                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                                            <rect key="frame" x="-8" y="3.5" width="103" height="23"/>
+                                            <color key="backgroundColor" red="0.51489637310000003" green="0.51489637310000003" blue="0.51489637310000003" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-c6-g7H">
-                                            <rect key="frame" x="0.0" y="7.5" width="76.5" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-c6-g7H">
+                                            <rect key="frame" x="0.0" y="7.5" width="87" height="15"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" name="Alice-DarkGrey"/>
                                             <nil key="highlightedColor"/>
@@ -211,10 +209,16 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-q2-tQa">
-                                                    <rect key="frame" x="150" y="30" width="222" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQn-q2-tQa">
+                                                    <rect key="frame" x="150" y="22" width="222" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" name="Alice-DarkGrey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-aE-mrb">
+                                                    <rect key="frame" x="150" y="27" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="Alice-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -222,12 +226,14 @@
                                             <constraints>
                                                 <constraint firstItem="Ddo-gS-L8N" firstAttribute="centerY" secondItem="etR-fZ-OKS" secondAttribute="centerY" id="1Xb-h8-t3w"/>
                                                 <constraint firstItem="SQn-q2-tQa" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="150" id="41B-JJ-c0d"/>
+                                                <constraint firstItem="c4o-aE-mrb" firstAttribute="leading" secondItem="SQn-q2-tQa" secondAttribute="leading" id="4dY-Xq-K3l"/>
                                                 <constraint firstItem="0hy-g7-T1K" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="12" id="Air-OR-aOb"/>
-                                                <constraint firstItem="SQn-q2-tQa" firstAttribute="centerY" secondItem="etR-fZ-OKS" secondAttribute="centerY" id="Ifb-up-hAP"/>
+                                                <constraint firstItem="SQn-q2-tQa" firstAttribute="centerY" secondItem="etR-fZ-OKS" secondAttribute="centerY" constant="-8" id="Ifb-up-hAP"/>
                                                 <constraint firstAttribute="trailing" secondItem="SQn-q2-tQa" secondAttribute="trailing" constant="12" id="QPv-CY-3zN"/>
                                                 <constraint firstAttribute="bottom" secondItem="0hy-g7-T1K" secondAttribute="bottom" id="eee-uj-R2d"/>
                                                 <constraint firstAttribute="trailing" secondItem="0hy-g7-T1K" secondAttribute="trailing" constant="12" id="fq6-An-7A4"/>
                                                 <constraint firstItem="Ddo-gS-L8N" firstAttribute="leading" secondItem="etR-fZ-OKS" secondAttribute="leading" constant="12" id="jBT-4m-rlP"/>
+                                                <constraint firstItem="c4o-aE-mrb" firstAttribute="top" secondItem="SQn-q2-tQa" secondAttribute="bottom" constant="5" id="kQ4-Y0-ysZ"/>
                                                 <constraint firstAttribute="height" constant="60" id="qd1-TN-ebv"/>
                                             </constraints>
                                         </view>
@@ -277,7 +283,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <color key="backgroundColor" red="0.51489637310000003" green="0.51489637310000003" blue="0.51489637310000003" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="wf3-JK-EST" firstAttribute="top" secondItem="fGA-4p-PaM" secondAttribute="top" id="8tq-kd-OZb"/>
                                         <constraint firstItem="wf3-JK-EST" firstAttribute="leading" secondItem="fGA-4p-PaM" secondAttribute="leading" id="AWH-Jr-pFB"/>
@@ -344,9 +350,6 @@
         </namedColor>
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-WhiteGrey">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -48,7 +48,7 @@ extension BrowserViewController: WKScriptMessageHandler {
             TransactionManager.showPaymentView(toAddress: tx.to.address,
                                                amount: value,
                                                data: tx.data,
-                                               symbol: "ETH") { signData in
+                                               coin: Coin.coin(chain: .Ethereum)) { signData in
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
 

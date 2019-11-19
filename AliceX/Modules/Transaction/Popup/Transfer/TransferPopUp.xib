@@ -12,10 +12,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransferPopUp" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="addressField" destination="Ane-n7-5TR" id="Qki-nS-QZP"/>
+                <outlet property="addressLabel" destination="o1M-P6-bYD" id="f7F-pr-6kZ"/>
                 <outlet property="balanceLabel" destination="ynI-RD-CVe" id="zqo-ke-OTE"/>
                 <outlet property="balanceTextLabel" destination="PCg-Dy-g4A" id="FbH-7X-TS9"/>
                 <outlet property="bgView" destination="lY9-5e-2Ph" id="U3t-2f-lQr"/>
                 <outlet property="containView" destination="pAp-vm-Fy7" id="cK9-UQ-LRT"/>
+                <outlet property="ensAddressLabel" destination="DpP-Jr-iOp" id="Xq3-EU-KxM"/>
                 <outlet property="priceLabel" destination="pHb-wi-Nih" id="dId-eU-bJg"/>
                 <outlet property="priceTextLabel" destination="pHb-wi-Nih" id="EVu-3o-Yjt"/>
                 <outlet property="symbolImageView" destination="bxR-PD-Wbf" id="Wxy-n6-ro5"/>
@@ -196,12 +198,15 @@
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Send To Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="13" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-n7-5TR">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Send To Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-n7-5TR">
                                     <rect key="frame" x="15" y="23" width="283" height="41.5"/>
-                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" name="Alice-DarkGrey"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                    <connections>
+                                        <action selector="addressFieldDidChange:" destination="-1" eventType="editingChanged" id="CZZ-dw-S6f"/>
+                                    </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-rn-tOW">
                                     <rect key="frame" x="0.0" y="69.5" width="358" height="0.5"/>
@@ -218,10 +223,17 @@
                                         <action selector="pasteBtnClicked" destination="-1" eventType="touchUpInside" id="gnf-Re-Ah7"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-Jr-iOp">
+                                    <rect key="frame" x="66" y="11.5" width="272" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="o1M-P6-bYD" firstAttribute="leading" secondItem="Phl-8n-n9w" secondAttribute="leading" constant="20" id="1xa-Wv-fiM"/>
+                                <constraint firstAttribute="trailing" secondItem="DpP-Jr-iOp" secondAttribute="trailing" constant="20" id="5fa-qo-1HY"/>
                                 <constraint firstItem="o1M-P6-bYD" firstAttribute="top" secondItem="Phl-8n-n9w" secondAttribute="top" constant="5" id="6Cf-6U-mcT"/>
                                 <constraint firstItem="DoJ-rn-tOW" firstAttribute="top" secondItem="Ane-n7-5TR" secondAttribute="bottom" constant="5" id="DWV-1v-huT"/>
                                 <constraint firstAttribute="trailing" secondItem="b54-bv-5EC" secondAttribute="trailing" constant="8" id="GWi-ni-583"/>
@@ -231,7 +243,9 @@
                                 <constraint firstAttribute="trailing" secondItem="DoJ-rn-tOW" secondAttribute="trailing" id="R5k-7K-nEL"/>
                                 <constraint firstItem="b54-bv-5EC" firstAttribute="centerY" secondItem="Ane-n7-5TR" secondAttribute="centerY" id="YyU-3m-mVS"/>
                                 <constraint firstItem="Ane-n7-5TR" firstAttribute="top" secondItem="o1M-P6-bYD" secondAttribute="bottom" constant="5" id="a0I-wC-7tk"/>
+                                <constraint firstItem="DpP-Jr-iOp" firstAttribute="centerY" secondItem="o1M-P6-bYD" secondAttribute="centerY" id="auW-90-q0O"/>
                                 <constraint firstAttribute="bottom" secondItem="DoJ-rn-tOW" secondAttribute="bottom" id="lPE-qP-054"/>
+                                <constraint firstItem="DpP-Jr-iOp" firstAttribute="leading" secondItem="o1M-P6-bYD" secondAttribute="trailing" constant="5" id="oKP-yu-VIW"/>
                                 <constraint firstAttribute="height" constant="70" id="oX7-dn-Te5"/>
                             </constraints>
                         </view>
@@ -246,7 +260,8 @@
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount To Send" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yj4-qQ-NG6">
                                     <rect key="frame" x="15" y="23" width="216" height="41.5"/>
-                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" name="Alice-DarkGrey"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
@@ -260,8 +275,11 @@
                                         <constraint firstAttribute="height" constant="0.5" id="AmM-g7-gcJ"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-lO-mm6">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-lO-mm6">
                                     <rect key="frame" x="284" y="31.5" width="41" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="41" id="C02-pq-ZDG"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                     <nil key="highlightedColor"/>
                                 </label>

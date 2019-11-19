@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '11.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -17,28 +17,31 @@ target 'AliceX' do
 #  pod 'HandyJSON', '~> 5.0.0'
   pod 'HandyJSON', git: 'https://github.com/alibaba/HandyJSON.git' , branch: 'dev_for_swift5.0'
   pod 'Moya', '~> 13.0'
-  pod 'SwiftEntryKit', '1.0.2'
+  pod 'SwiftEntryKit', '1.2.3'
   pod 'MarqueeLabel'
   pod 'Hero'
   pod 'Kingfisher'
-  pod 'WalletConnectSwift', git: 'https://github.com/alicedapp/WalletConnectSwift', branch: 'master'
+  pod 'WalletConnectSwift', git: 'https://github.com/WalletConnect/WalletConnectSwift', branch: 'master'
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
   pod 'BonMot'
   pod 'SwiftyUserDefaults', '5.0.0-beta.4'
   pod 'TrustWalletCore'
-  
-  
+   
   pod 'VBFPopFlatButton'
   pod "ViewAnimator"
-  pod 'SVGKit'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+#  pod 'SVGKit'
+#  pod 'RxSwift', '~> 5'
+#  pod 'RxCocoa', '~> 5'
 #  pod 'lottie-ios'
   pod "ESPullToRefresh"
   pod 'JXSegmentedView', '~> 1.0.2'
   
   pod 'Pageboy', '~> 3.5.0'
   pod 'Tabman', '~> 2.6'
+  
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.14.0'
+  pod 'Firebase/Analytics'
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

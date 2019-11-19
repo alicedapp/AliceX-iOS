@@ -10,12 +10,11 @@ import Foundation
 import PromiseKit
 
 extension WatchingCoinHelper {
-    
     func update() -> Promise<Void> {
         return Promise<Void> { seal in
-            firstly{
+            firstly {
                 when(fulfilled: updateTokens(), updateCoins())
-            }.then { bool in
+            }.then { _ in
                 PriceManager.shared.getCoinsPrice(coins: self.list)
             }.done { () in
                 if self.noCache { // Sort by price frist time
@@ -27,69 +26,68 @@ extension WatchingCoinHelper {
             }
         }
     }
-    
+
     func updateCoins() -> Promise<Void> {
         return Promise<Void> { seal in
-            
+
             blockchainList().forEach { chain in
                 chain.getBalance().done { balance in
 //                    info.amount = String(balance)
-                    guard let coin = CoinInfoHelper.shared.pool[chain.rawValue] else {
-                        return
+                    guard let coin = CoinInfoCenter.shared.pool[chain.rawValue] else {
+//                        seal.reject()
+                        throw MyError.FoundNil("chain not found")
                     }
-                     CoinInfoHelper.shared.pool[chain.rawValue]!.amount = String(balance)
+                    CoinInfoCenter.shared.pool[chain.rawValue]!.amount = String(balance)
                 }
             }
-            
-//            CoinInfoHelper.shared.storeInCache()
+
+//            CoinInfoCenter.shared.storeInCache()
             seal.fulfill(())
-            
         }
     }
-    
+
     func updateTokens() -> Promise<Bool> {
         return Promise<Bool> { seal in
-            firstly{ () -> Promise<AmberdataTokenList> in
-                // TODO
+            firstly { () -> Promise<AmberdataTokenList> in
+                // TODO:
                 API(AmberData.tokens(address: WalletManager.wallet!.address), path: "payload")
             }.done { model in
-                
-                guard let records = model.records, records.count > 0 else {
-                    seal.fulfill(true)
-                    return
-                }
-                
-                let infoList = records.filter{ $0.isERC20 == true }.flatMap { record -> CoinInfo? in
-                    
-                    var info = CoinInfo()
-                    info.symbol = record.symbol
-                    info.decimals = record.decimals
-                    info.name = record.name
-                    info.id = record.address
-                    info.amount = record.amount
-                    
-                    if !IgnoreCoinHelper.shared.list.contains(info.coin) {
-                        CoinInfoHelper.shared.update(newInfo: info)
-                        
-                        let coin = Coin.ERC20(address: record.address)
-                        if record.name.isEmptyAfterTrim() && record.symbol.isEmptyAfterTrim() {
-                            IgnoreCoinHelper.shared.add(coin: coin)
-                        } else {
-                            self.add(coin: coin, updateCache: true)
 
+                if let records = model.records, records.count > 0 {
+                    let infoList = records.filter { $0.isERC20 == true }.flatMap { record -> CoinInfo? in
+
+                        var info = CoinInfo()
+                        info.symbol = record.symbol
+                        info.decimals = record.decimals
+                        info.name = record.name
+                        info.id = record.address
+                        info.amount = record.amount
+
+                        if !IgnoreCoinHelper.shared.list.contains(info.coin) {
+                            CoinInfoCenter.shared.update(newInfo: info)
+
+                            let coin = Coin.ERC20(address: record.address)
+                            if record.name.isEmptyAfterTrim(), record.symbol.isEmptyAfterTrim() {
+                                IgnoreCoinHelper.shared.add(coin: coin)
+                            } else {
+                                self.add(coin: coin, updateCache: true)
+                            }
+                            return info
                         }
-                        return info
+                        return nil
                     }
-                    return nil
+
+                    CoinInfoCenter.shared.storeInCache()
+
+                    seal.fulfill(true)
+                } else {
+                    seal.fulfill(true)
+                    //                    throw MyError.FoundNil("ERC20 is empty")
                 }
-                
-                CoinInfoHelper.shared.storeInCache()
-                
-                seal.fulfill(true)
+
             }.catch { error in
                 seal.reject(error)
             }
         }
     }
-    
 }

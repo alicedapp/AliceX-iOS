@@ -9,12 +9,11 @@
 import UIKit
 
 class AddCoinCell: UICollectionViewCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     @IBAction func addButtonClick() {
         let vc = CoinListViewController()
 //        vc.isFromPopup = true
@@ -24,7 +23,7 @@ class AddCoinCell: UICollectionViewCell {
 //        navi.transitioningDelegate = transitionDelegate
 //        navi.modalPresentationStyle = .custom
 //        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
-        
+
         topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Kingfisher
-import SVGKit
+// import SVGKit
 import UIKit
 
 class AssetNFTCell: UICollectionViewCell {
@@ -45,13 +45,13 @@ class AssetNFTCell: UICollectionViewCell {
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
         } else {
-            NFTImageView.backgroundColor = AliceColor.grey
+            NFTImageView.backgroundColor = UIColor(hex: "D5D5D5", alpha: 0.15)
         }
 
         if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
                 switch result {
-                case .success(_):
+                case .success:
                     self.contractImageView.backgroundColor = .clear
                 default:
                     break

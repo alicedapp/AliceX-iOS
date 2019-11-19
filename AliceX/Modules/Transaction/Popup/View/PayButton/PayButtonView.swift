@@ -26,9 +26,12 @@ class PayButtonView: UIControl {
 
     var delegate: PayButtonDelegate?
 
-    class func instanceFromNib(title: String = "Hold to Send") -> PayButtonView {
+    var colorChange: Bool = true
+
+    class func instanceFromNib(title: String = "Hold to Send", colorChange: Bool = true) -> PayButtonView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PayButtonView
         view.configure(title: title)
+        view.colorChange = colorChange
         return view
     }
 
@@ -106,9 +109,12 @@ class PayButtonView: UIControl {
         }
 
         progressIndicator.updateProgress(CGFloat(precentage))
-        payButtonContainer.backgroundColor? = UIColor.interpolate(between: buttonColor,
-                                                                  and: WalletManager.currentNetwork.color,
-                                                                  percent: CGFloat(precentage))!
+
+        if colorChange {
+            payButtonContainer.backgroundColor? = UIColor.interpolate(between: buttonColor,
+                                                                      and: WalletManager.currentNetwork.color,
+                                                                      percent: CGFloat(precentage))!
+        }
 
         if precentage < 1 {
             return

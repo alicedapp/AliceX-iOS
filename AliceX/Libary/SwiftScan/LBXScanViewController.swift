@@ -121,6 +121,9 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
      处理扫码结果，如果是继承本控制器的，可以重写该方法,作出相应地处理，或者设置delegate作出相应处理
      */
     open func handleCodeResult(arrayResult: [LBXScanResult]) {
+        
+        UIImpactFeedbackGenerator.init(style: .medium).impactOccurred()
+        
         if let delegate = scanResultDelegate {
             navigationController?.popViewController(animated: true)
             let result: LBXScanResult = arrayResult[0]
@@ -189,7 +192,7 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
 
 //                if let strongSelf = self
 //                {
-//                    strongSelf.startScan()
+                    self.startScan()
 //                }
         }
 

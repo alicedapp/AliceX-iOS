@@ -161,7 +161,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rQA-TO-7d8" secondAttribute="trailing" id="aRL-ye-8Lg"/>
                 <constraint firstItem="V9Y-JO-zEZ" firstAttribute="centerY" secondItem="YaR-kn-qX5" secondAttribute="centerY" id="fuk-KU-NLX"/>
                 <constraint firstItem="0Mu-zj-pfZ" firstAttribute="centerY" secondItem="YaR-kn-qX5" secondAttribute="centerY" id="jQv-JE-yaM"/>
-                <constraint firstItem="oqW-E0-QqP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lJY-i7-0Ui"/>
+                <constraint firstItem="oqW-E0-QqP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-44" id="lJY-i7-0Ui"/>
                 <constraint firstItem="rQA-TO-7d8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tMb-BK-Mx3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -178,7 +178,7 @@
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

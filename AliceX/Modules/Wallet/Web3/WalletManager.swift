@@ -9,6 +9,7 @@
 import Foundation
 import SPStorkController
 import web3swift
+import SwiftyUserDefaults
 
 class WalletManager {
     static let shared = WalletManager()
@@ -17,11 +18,11 @@ class WalletManager {
 
     static var customNetworkList: [Web3NetModel] = []
 
-    #if DEBUG
-        static var web3Net = Web3.InfuraRinkebyWeb3()
-    #else
-        static var web3Net = Web3.InfuraMainnetWeb3()
-    #endif
+//    #if DEBUG
+//        static var web3Net = Web3.InfuraRinkebyWeb3()
+//    #else
+    static var web3Net = Web3.InfuraMainnetWeb3()
+//    #endif
 
     var keystore: BIP32Keystore?
 
@@ -132,21 +133,23 @@ class WalletManager {
             return
         }
 
-        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+        do {
+            KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+            let name = Setting.WalletName
+            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
 
-        let name = Setting.WalletName
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            WalletManager.wallet = wallet
+            WalletManager.shared.keystore = keystore
+            try WalletManager.shared.saveKeystore(keystore)
 
-        WalletManager.wallet = wallet
-        WalletManager.shared.keystore = keystore
-        try! WalletManager.shared.saveKeystore(keystore)
-
-//        guard let completion = completion else { return }
-
-        HUDManager.shared.showSuccess(text: "Replace wallet success")
-        CallRNModule.sendWalletChangedEvent(address: address)
+            HUDManager.shared.showSuccess(text: "Replace wallet success")
+            CallRNModule.sendWalletChangedEvent(address: address)
+            NotificationCenter.default.post(name: .walletChange, object: nil)
+        } catch {
+            HUDManager.shared.showError(text: "Replace Wallet Failed")
+        }
     }
 
     // MARK: - Notification
@@ -177,5 +180,44 @@ class WalletManager {
         } catch {
             HUDManager.shared.showError()
         }
+    }
+    
+    // MARK: - Check Mnemonic
+    
+    func checkMnemonic() {
+        
+        /// Fist time open app
+        if Defaults[\.isFirstTimeOpen] {
+            guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
+                return
+            }
+            /// Have Mnemonics in Keychain, alter to recover it
+            
+            let view = BaseAlertView.instanceFromNib(title: "Meet You Again",
+                                                     content: "We found your Mnemonic, Do you want to recover your wallet?",
+                                          confirmText: "Recover",
+                                          cancelText: "Cancel", confirmBlock: {
+                                            HUDManager.shared.dismiss()
+                                            let vc = ImportWalletViewController.make(buttonText: "Recover Wallet", mnemonic: mnemonic)
+                                            let topVC = UIApplication.topViewController()!
+                                            topVC.navigationController?.pushViewController(vc, animated: true)
+            }) {
+            }
+            
+            HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none, type: .centerFloat, widthIsFull: false, canDismiss: true)
+            
+            return
+        }
+        
+        /// Not Fist time open app
+        guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
+            
+            /// Mnemonics LOST !!!
+            
+            HUDManager.shared.showErrorAlert(text: "Mnemonic can't be found in your Keychain, Please import Mnemonic again ", isAlert: true)
+            
+            return
+        }
+        
     }
 }

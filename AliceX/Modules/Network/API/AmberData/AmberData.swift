@@ -16,19 +16,19 @@ enum AmberData {
     case tokenPrice(address: String, currency: Currency)
     case accountBalance(address: String, blockchain: BlockChain)
     case tokens(address: String)
+    case assetPriceHistorical(symbol: String)
 }
 
 extension AmberData: TargetType {
-    
     var headers: [String: String]? {
         guard let path = Bundle.main.path(forResource: "env", ofType: "json") else {
             return nil
         }
-    
+
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-            if let jsonResult = jsonResult as? Dictionary<String, Any>,
+            if let jsonResult = jsonResult as? [String: Any],
                 let apiKey = jsonResult["amberdata"] as? String {
                 var dict = ["x-api-key": apiKey]
                 switch self {
@@ -41,11 +41,11 @@ extension AmberData: TargetType {
                 default:
                     return dict
                 }
-             }
+            }
         } catch {
             return nil
         }
-        
+
         return nil
     }
 
@@ -55,7 +55,7 @@ extension AmberData: TargetType {
 
     var path: String {
         switch self {
-        case .getTransactions(let hash):
+        case let .getTransactions(hash):
             return "transactions/\(hash)"
         case let .tokenPrice(address, _):
             return "market/tokens/prices/\(address)/latest"
@@ -63,6 +63,8 @@ extension AmberData: TargetType {
             return "addresses/\(address)/account-balances/latest"
         case let .tokens(address):
             return "addresses/\(address)/tokens"
+        case let .assetPriceHistorical(symbol):
+            return "/market/prices/\(symbol)/historical"
         }
     }
 

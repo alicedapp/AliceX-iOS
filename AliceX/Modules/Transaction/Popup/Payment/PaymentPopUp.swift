@@ -16,9 +16,12 @@ import web3swift
 class PaymentPopUp: UIViewController {
     @IBOutlet var payButton: UIControl!
 
+    @IBOutlet var symbolLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var coinImageView: UIImageView!
+
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
-
     @IBOutlet var priceLabel: UILabel!
 
     @IBOutlet var gasPriceLabel: UILabel!
@@ -32,48 +35,64 @@ class PaymentPopUp: UIViewController {
     var successBlock: StringBlock?
 
     var gasLimit: BigUInt?
-
     var gasPrice: GasPrice = GasPrice.average
 
+    var coin: Coin!
     var payView: PayButtonView?
 
     class func make(toAddress: String,
                     amount: BigUInt,
                     data: Data,
-                    symbol _: String,
+                    coin: Coin,
                     success: @escaping StringBlock) -> PaymentPopUp {
         let vc = PaymentPopUp()
         vc.toAddress = toAddress
         vc.amount = amount
         vc.successBlock = success
         vc.data = data
+        vc.coin = coin
         return vc
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        SPStorkController.updatePresentingController(modal: self)
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let chain = coin.blockchain, let info = coin.info else {
+            HUDManager.shared.showError(text: "Wrong coin type")
+            dismiss(animated: true, completion: nil)
+            return
+        }
+
+        coinImageView.kf.setImage(with: coin.image)
+
+        symbolLabel.text = info.symbol
+        nameLabel.text = "\(info.name!) Coin"
+
         addressLabel.text = toAddress
 
-        let value = amount.readableValue
-        amountLabel.text = value.round(decimal: 4)
-        let price = Float(value)! * PriceHelper.shared.exchangeRate
-        priceLabel.text = price.currencyString
+        let amountStr = amount.formatToPrecision(decimals: info.decimals)!
+        amountLabel.text = amountStr
 
-        payView = PayButtonView.instanceFromNib()
+        if let price = info.price {
+            let finalPrice = price * Double(amountStr)!
+            priceLabel.text = finalPrice.currencyString
+        }
+
+        payView = PayButtonView.instanceFromNib(colorChange: coin == Coin.coin(chain: .Ethereum))
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
 
+        if chain != .Ethereum {
+            gasBtn.isHidden = true
+            return
+        }
+
+        /// If not Ethereum, not support change gas price
+
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
 
         gasBtn.isUserInteractionEnabled = false
-
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
@@ -139,14 +158,12 @@ extension PaymentPopUp: PayButtonDelegate {
     func send() {
         payView!.showLoading()
 
+        guard let chain = coin.blockchain else {
+            return
+        }
+
         firstly {
-            TransactionManager.shared.sendEtherSync(
-                to: toAddress!,
-                amount: amount!,
-                data: data!,
-                password: "",
-                gasPrice: gasPrice
-            )
+            chain.transfer(toAddress: toAddress!, value: amount!, gasPrice: gasPrice)
         }.done { hash in
             print(hash)
             self.successBlock!(hash)
@@ -155,5 +172,22 @@ extension PaymentPopUp: PayButtonDelegate {
             self.payView!.failed()
             HUDManager.shared.showError(error: error)
         }
+
+//        firstly {
+//            TransactionManager.shared.sendEtherSync(
+//                to: toAddress!,
+//                amount: amount!,
+//                data: data!,
+//                password: "",
+//                gasPrice: gasPrice
+//            )
+//        }.done { hash in
+//            print(hash)
+//            self.successBlock!(hash)
+//            self.dismiss(animated: true, completion: nil)
+//        }.catch { error in
+//            self.payView!.failed()
+//            HUDManager.shared.showError(error: error)
+//        }
     }
 }

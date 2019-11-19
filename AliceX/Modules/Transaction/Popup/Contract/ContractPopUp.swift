@@ -30,7 +30,7 @@ class ContractPopUp: UIViewController {
     var gasPrice: GasPrice = GasPrice.average
 
     var isCustomGasLimit: Bool = false
-    
+
     var contractAddress: String!
     var functionName: String!
     var abi: String!
@@ -63,15 +63,20 @@ class ContractPopUp: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         isCustomGasLimit = gasLimit != BigUInt(0)
-        
+
         addressLabel.text = contractAddress
-        valueLabel.text = value.readableValue
+
+        let amountStr = Web3.Utils.formatToEthereumUnits(value, toUnits: .eth, decimals: 18, decimalSeparator: ".", fallbackToScientific: false)!
+        let amountInDouble = Double(amountStr)!
+        let removeZero = String(format: "%g", amountInDouble)
+        valueLabel.text = removeZero
+
         functionLabel.text = functionName
 
-//        let price = Float(value!)! * PriceHelper.shared.exchangeRate
-//        priceLabel.text = "\(PriceHelper.shared.currentCurrency.symbol) \(price.rounded(toPlaces: 3))"
+        let price = amountInDouble * Double(PriceHelper.shared.exchangeRate)
+        priceLabel.text = price.currencyString
 
         payView = PayButtonView.instanceFromNib()
         payButton.addSubview(payView!)
@@ -82,7 +87,11 @@ class ContractPopUp: UIViewController {
         paramterLabel.speed = .duration(10)
         paramterLabel.fadeLength = 10.0
         paramterLabel.trailingBuffer = 30.0
-        paramterLabel.text = parameters!.compactMap { "\($0)" }.joined(separator: ", ")
+        if let para = parameters, para.count > 0 {
+            paramterLabel.text = parameters!.compactMap { "\($0)" }.joined(separator: ", ")
+        } else {
+            paramterLabel.text = "nil"
+        }
 
         paramterLabel.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pauseTap))
@@ -114,7 +123,7 @@ class ContractPopUp: UIViewController {
             if !self.isCustomGasLimit { // NO Custom Gas Limit
                 self.gasLimit = gasLimit
             }
-            
+
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
@@ -174,23 +183,23 @@ extension ContractPopUp: PayButtonDelegate {
     }
 
     func send() {
-        self.payView!.showLoading()
-        
+        payView!.showLoading()
+
         var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
         if isCustomGasLimit {
             gasLimitOption = TransactionOptions.GasLimitPolicy.manual(gasLimit)
         }
-        
+
         firstly {
             TransactionManager.writeSmartContract(contractAddress: contractAddress!,
                                                   functionName: functionName!,
-                                                    abi: abi!,
-                                                    parameters: parameters!,
-                                                    extraData: extraData,
-                                                    value: value!,
-                                                    gasPrice: gasPrice,
-                                                    gasLimit: gasLimitOption)
-        }.done { (hash) in
+                                                  abi: abi!,
+                                                  parameters: parameters!,
+                                                  extraData: extraData,
+                                                  value: value!,
+                                                  gasPrice: gasPrice,
+                                                  gasLimit: gasLimitOption)
+        }.done { hash in
             self.successBlock!(hash)
             self.dismiss(animated: true, completion: nil)
         }.catch { error in

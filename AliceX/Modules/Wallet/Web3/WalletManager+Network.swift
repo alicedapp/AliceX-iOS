@@ -123,7 +123,7 @@ extension Web3NetEnum {
         case .main:
             if #available(iOS 12.0, *) {
                 let window = UIApplication.shared.keyWindow
-                return window?.traitCollection.userInterfaceStyle == .dark ? UIColor(hex: "#333333") : .black
+                return window?.traitCollection.userInterfaceStyle == .dark ? UIColor(hex: "434343") : UIColor(hex: "434343")
             }
             return .black
         default:

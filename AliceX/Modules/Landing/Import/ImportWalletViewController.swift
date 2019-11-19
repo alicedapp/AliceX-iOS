@@ -11,9 +11,19 @@ import UIKit
 class ImportWalletViewController: BaseViewController {
     @IBOutlet var importBtn: BaseControl!
 
+    @IBOutlet var buttonLabel: UILabel!
     @IBOutlet var textView: UITextView!
 
     var placeholderLabel: UILabel!
+    var mnemonic: String = ""
+    var buttonText: String = "Import Wallet"
+    
+    class func make(buttonText: String, mnemonic: String) -> ImportWalletViewController {
+        let vc = ImportWalletViewController()
+        vc.buttonText = buttonText
+        vc.mnemonic = mnemonic
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +40,14 @@ class ImportWalletViewController: BaseViewController {
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
+        
+        buttonLabel.text = buttonText
+        
+        if !mnemonic.isEmptyAfterTrim() {
+            textView.text = mnemonic
+            placeholderLabel.isHidden = true
+            
+        }
     }
 
     @IBAction func importButtonClicked() {
@@ -44,8 +62,10 @@ class ImportWalletViewController: BaseViewController {
 
         do {
             try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in
-                let vc = RNModule.makeViewController(module: .alice)
+                let vc = MainTabViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.viewControllers = [vc]
+                WalletCore.loadFromCache()
             })
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)

@@ -23,13 +23,18 @@ class HUDManager: NSObject {
         } else if let error = error as? Web3Error {
             HUDManager.shared.showError(text: error.errorDescription)
         } else {
-            HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
+            HUDManager.shared.showError(text: error.localizedDescription)
         }
     }
 
     func showErrorAlert(text: String, isAlert: Bool = false) {
         onMainThread {
             let view = SingleButtonAlertView.make(content: text, isAlert: isAlert)
+            
+            if #available(iOS 13.0, *) {
+                view.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
+            }
+            
             self.showAlertView(view: view,
                                backgroundColor: .clear,
                                haptic: .none,
@@ -51,8 +56,9 @@ class HUDManager: NSObject {
             attributes.name = "Top Note"
             attributes.hapticFeedbackType = .error
             attributes.popBehavior = .animated(animation: .translation)
-            attributes.entryBackground = .color(color: UIColor(hex: "FF6565"))
-            attributes.shadow = .active(with: .init(color: UIColor(hex: "000000", alpha: 0.3), opacity: 0.5, radius: 2))
+            attributes.entryBackground = .color(color: EKColor(UIColor(hex: "FF6565")))
+            attributes.shadow = .active(with: .init(color: EKColor(UIColor(hex: "000000", alpha: 0.3)),
+                                                    opacity: 0.5, radius: 2))
             attributes.statusBar = .light
             SwiftEntryKit.display(entry: contentView, using: attributes)
         }
@@ -72,8 +78,9 @@ class HUDManager: NSObject {
             attributes.name = "Top Note"
             attributes.hapticFeedbackType = .success
             attributes.popBehavior = .animated(animation: .translation)
-            attributes.entryBackground = .color(color: UIColor(hex: "7BCB26"))
-            attributes.shadow = .active(with: .init(color: UIColor(hex: "000000", alpha: 0.3), opacity: 0.5, radius: 2))
+            attributes.entryBackground = .color(color: EKColor(UIColor(hex: "7BCB26")))
+            attributes.shadow = .active(with: .init(color: EKColor(UIColor(hex: "000000", alpha: 0.3)),
+                                                    opacity: 0.5, radius: 2))
             attributes.statusBar = .light
 
             SwiftEntryKit.display(entry: contentView, using: attributes)
@@ -92,8 +99,8 @@ class HUDManager: NSObject {
             attributes = type
             attributes.hapticFeedbackType = haptic
             attributes.displayDuration = .infinity
-            attributes.screenBackground = .color(color: UIColor(white: 100.0 / 255.0, alpha: 0.3))
-            attributes.entryBackground = .color(color: backgroundColor)
+            attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
+            attributes.entryBackground = .color(color: EKColor(backgroundColor))
             attributes.screenInteraction = canDismiss ? .dismiss : .absorbTouches
             attributes.entryInteraction = .forward
             attributes.roundCorners = .top(radius: 20)
@@ -116,6 +123,10 @@ class HUDManager: NSObject {
             attributes.positionConstraints.maxSize = .init(width: widthIsFull ?
                 .constant(value: UIScreen.main.bounds.minEdge) : .ratio(value: 0.8),
                                                            height: .intrinsic)
+            
+            if #available(iOS 13.0, *) {
+                view.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
+            }
 
             SwiftEntryKit.display(entry: view, using: attributes)
         }
@@ -128,7 +139,7 @@ class HUDManager: NSObject {
             var attributes: EKAttributes = EKAttributes()
             attributes = .bottomFloat
             attributes.displayDuration = .infinity
-            attributes.screenBackground = .color(color: UIColor(white: 50.0 / 255.0, alpha: 0.3))
+            attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
             attributes.entryBackground = .color(color: .white)
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .absorbTouches
@@ -141,6 +152,11 @@ class HUDManager: NSObject {
             attributes.positionConstraints.size = .init(width: .fill, height: .ratio(value: 0.6))
             attributes.positionConstraints.verticalOffset = 0
             attributes.positionConstraints.safeArea = .overridden
+            attributes.displayMode = .inferred
+            
+            if #available(iOS 13.0, *) {
+                viewController.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
+            }
 
             SwiftEntryKit.display(entry: viewController, using: attributes)
         }
@@ -151,7 +167,7 @@ class HUDManager: NSObject {
             var attributes: EKAttributes = EKAttributes()
             attributes = type
             attributes.displayDuration = .infinity
-            attributes.screenBackground = .color(color: UIColor(white: 50.0 / 255.0, alpha: 0.3))
+//            attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
             attributes.entryBackground = .color(color: .clear)
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .absorbTouches
@@ -167,6 +183,11 @@ class HUDManager: NSObject {
             attributes.positionConstraints.safeArea = .empty(fillSafeArea: false)
 
             attributes.positionConstraints.keyboardRelation = .bind(offset: .init(bottom: 10, screenEdgeResistance: 5))
+            attributes.displayMode = .inferred
+            
+            if #available(iOS 13.0, *) {
+                viewController.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
+            } 
 
             SwiftEntryKit.display(entry: viewController, using: attributes)
         }

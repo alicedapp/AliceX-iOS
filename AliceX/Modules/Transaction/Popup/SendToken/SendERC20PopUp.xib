@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -79,7 +79,7 @@
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTo-6X-ols" customClass="UIControl">
                                             <rect key="frame" x="-8" y="3.5" width="75.5" height="23"/>
-                                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                                            <color key="backgroundColor" red="0.51489637310000003" green="0.51489637310000003" blue="0.51489637310000003" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="5"/>
@@ -218,7 +218,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <color key="backgroundColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="0.1598536532" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="KOL-JG-yHu" firstAttribute="top" secondItem="Lc0-DS-AHY" secondAttribute="top" id="5UY-Dn-ORD"/>
                                         <constraint firstItem="HXw-tP-7dC" firstAttribute="centerY" secondItem="wjM-wT-AUY" secondAttribute="centerY" id="B0t-cC-C3J"/>
@@ -291,9 +291,6 @@
         </namedColor>
         <namedColor name="Alice-Grey">
             <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-WhiteGrey">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

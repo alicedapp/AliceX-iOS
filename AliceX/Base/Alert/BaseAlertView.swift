@@ -53,18 +53,17 @@ class BaseAlertView: BaseView {
         if confirmBlock != nil {
             confirmBlock!()
         }
-        
+
 //        HUDManager.shared.dismiss()
     }
 
     @IBAction func cancelBtnClicked() {
-        
         guard let block = cancelBlock else {
             HUDManager.shared.dismiss()
             return
         }
-        
-        if block != nil  {
+
+        if block != nil {
             block!()
         }
         HUDManager.shared.dismiss()
