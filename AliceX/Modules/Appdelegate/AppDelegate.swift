@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()

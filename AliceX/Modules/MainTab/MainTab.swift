@@ -17,8 +17,8 @@ enum MainTab: Int, CaseIterable {
         switch self {
         case .mini:
             return
-                MiniAppViewController()
-//                RNModule.makeViewController(module: .alice)
+//                MiniAppViewController()
+                RNModule.makeViewController(module: .alice)
 //                SettingViewController()
 
         case .asset:
