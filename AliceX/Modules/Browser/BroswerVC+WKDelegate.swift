@@ -59,7 +59,7 @@ extension BrowserViewController: WKNavigationDelegate {
 extension BrowserViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-        if translation.y > 0 {
+        if translation.y >= 0 {
             UIView.animate(withDuration: 0.3) {
                 self.navBarContainer.transform = CGAffineTransform.identity
             }

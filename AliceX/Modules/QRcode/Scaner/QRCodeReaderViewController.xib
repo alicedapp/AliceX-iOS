@@ -194,10 +194,19 @@
                         <constraint firstItem="49R-sU-wu0" firstAttribute="top" secondItem="EV1-5F-32o" secondAttribute="top" id="oWX-LY-mM7"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-nr-6jX">
+                    <rect key="frame" x="0.0" y="104" width="375" height="594"/>
+                    <color key="backgroundColor" white="1" alpha="0.070284991197183094" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="testQR"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="EV1-5F-32o" secondAttribute="bottom" id="275-9f-yqS"/>
+                <constraint firstItem="EV1-5F-32o" firstAttribute="top" secondItem="sMS-nr-6jX" secondAttribute="bottom" id="6iO-Bj-aQC"/>
+                <constraint firstItem="sMS-nr-6jX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EPT-Tp-xN4"/>
                 <constraint firstItem="Xi2-IJ-kfd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F9S-75-Gf1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Xi2-IJ-kfd" secondAttribute="bottom" constant="-60" id="IJL-1r-ahu"/>
                 <constraint firstItem="EV1-5F-32o" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-80" id="M16-y7-bDh"/>
@@ -205,6 +214,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EV1-5F-32o" secondAttribute="trailing" id="UG6-OT-S4j"/>
                 <constraint firstItem="Xi2-IJ-kfd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nM2-Jq-o5b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xi2-IJ-kfd" secondAttribute="trailing" id="o1O-Eh-6si"/>
+                <constraint firstItem="sMS-nr-6jX" firstAttribute="top" secondItem="Xi2-IJ-kfd" secondAttribute="bottom" id="tzq-lS-x0G"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sMS-nr-6jX" secondAttribute="trailing" id="u7f-p1-DgI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="147"/>

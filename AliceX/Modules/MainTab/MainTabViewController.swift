@@ -18,7 +18,7 @@ class MainTabViewController: PageboyViewController {
         super.viewDidLoad()
         dataSource = self
         bounces = false
-        
+        view.backgroundColor = .clear
         Defaults[\.isFirstTimeOpen] = false
     }
 }
