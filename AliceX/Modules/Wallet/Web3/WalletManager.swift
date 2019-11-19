@@ -188,10 +188,15 @@ class WalletManager {
         
         /// Fist time open app
         if Defaults[\.isFirstTimeOpen] {
+            
             guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
                 return
             }
             /// Have Mnemonics in Keychain, alter to recover it
+            
+            if WalletManager.hasWallet() {
+                return
+            }
             
             let view = BaseAlertView.instanceFromNib(title: "Meet You Again",
                                                      content: "We found your Mnemonic, Do you want to recover your wallet?",
