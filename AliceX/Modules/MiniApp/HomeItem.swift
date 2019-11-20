@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 enum HomeItem {
     case web(url: URL)
@@ -41,7 +42,7 @@ enum HomeItem {
         case let .web(url):
             return BrowserWrapperViewController.make(urlString: url.absoluteString)
         case let .app(name):
-            return RNModule.makeViewController(module: .app(name: name))
+            return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
         }
     }
     
@@ -51,6 +52,16 @@ enum HomeItem {
             return nil
         case .web(let url):
             return url
+        }
+    }
+    
+    var appImage: URL? {
+        switch self {
+        case .app(let name):
+            return URL(string: "https://github.com/alicedapp/AliceX/blob/master/src/Apps/\(name)/Assets/logo.png?raw=true")!
+        case .web(let url):
+            // fetch from FaviconHelper
+            return nil
         }
     }
 }

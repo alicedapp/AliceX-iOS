@@ -25,7 +25,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiE-iF-JKC">
                                         <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🐇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQe-r4-R15">
                                         <rect key="frame" x="38" y="36.5" width="45" height="48"/>
@@ -40,7 +40,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="Alice-White"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="iQe-r4-R15" firstAttribute="centerX" secondItem="bqX-83-Hey" secondAttribute="centerX" id="3n2-rm-f8p"/>
                                     <constraint firstItem="9vP-dn-Glo" firstAttribute="centerY" secondItem="bqX-83-Hey" secondAttribute="centerY" id="6Cq-p5-Omd"/>
@@ -93,9 +93,6 @@
     <resources>
         <namedColor name="Alice-DarkGrey">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

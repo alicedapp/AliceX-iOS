@@ -28,6 +28,12 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            self.shadowView.alpha = isHighlighted ? 0.5 : 1.0
+        }
+    }
+    
     @objc func imageCached(noti: Notification) {
         
         guard let info = noti.userInfo, let domain = info["domain"] as? String else {

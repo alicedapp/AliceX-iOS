@@ -111,6 +111,8 @@
 		154F60A323846D040011200F /* FaviconGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A223846D040011200F /* FaviconGrabber.swift */; };
 		154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A423846D1E0011200F /* FaviconGrabberModel.swift */; };
 		154F60A723846E910011200F /* FaviconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A623846E910011200F /* FaviconHelper.swift */; };
+		154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A8238592A50011200F /* BaseRNAppViewController.swift */; };
+		154F60AB238596090011200F /* MiniAppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60AA238596090011200F /* MiniAppTab.swift */; };
 		1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1559C5FA236974EC008ADCB1 /* UIViewController.swift */; };
 		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
 		155FACED233910DE0002B478 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACEB233910DD0002B478 /* TestViewController.xib */; };
@@ -392,6 +394,8 @@
 		154F60A223846D040011200F /* FaviconGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconGrabber.swift; sourceTree = "<group>"; };
 		154F60A423846D1E0011200F /* FaviconGrabberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconGrabberModel.swift; sourceTree = "<group>"; };
 		154F60A623846E910011200F /* FaviconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconHelper.swift; sourceTree = "<group>"; };
+		154F60A8238592A50011200F /* BaseRNAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNAppViewController.swift; sourceTree = "<group>"; };
+		154F60AA238596090011200F /* MiniAppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppTab.swift; sourceTree = "<group>"; };
 		1559C5FA236974EC008ADCB1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		155FACEB233910DD0002B478 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -774,6 +778,7 @@
 				154F6096238442AB0011200F /* Cell */,
 				15F197C123830CE700960DE1 /* CameraContainer */,
 				1533C99A237ABB140052010A /* MiniAppViewController.swift */,
+				154F60AA238596090011200F /* MiniAppTab.swift */,
 				154F609D238444A00011200F /* MiniAppViewController+CollectionView.swift */,
 				154F609B2384444B0011200F /* MiniAppViewController+Camera.swift */,
 				1533C99B237ABB140052010A /* MiniAppViewController.xib */,
@@ -1363,6 +1368,7 @@
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
 				1587396922BB48FC00F36F92 /* BaseControl.swift */,
 				153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */,
+				154F60A8238592A50011200F /* BaseRNAppViewController.swift */,
 				156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */,
 				15BC4DB322DA495000313CA9 /* BaseView.swift */,
 			);
@@ -2093,6 +2099,7 @@
 				158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */,
 				15F67C0D236A90D800E00CDE /* AppDelegate.swift in Sources */,
 				15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */,
+				154F60AB238596090011200F /* MiniAppTab.swift in Sources */,
 				151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */,
 				15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
@@ -2235,6 +2242,7 @@
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
 				15E3C8F023421AD300DCADBF /* ShareHelper.swift in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
+				154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */,
 				158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */,
 				15015DAC2365B253008DDD80 /* AssetNFTHeaderCell.swift in Sources */,
 				158A909323704ABF002F9F18 /* CryptocompareModel.swift in Sources */,

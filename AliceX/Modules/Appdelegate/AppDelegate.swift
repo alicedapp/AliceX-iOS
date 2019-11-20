@@ -56,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         navi = rootVC
 
-        PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass, BaseRNViewController.nameOfClass])
+        PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass,
+                                     BaseRNAppViewController.nameOfClass])
 
         WalletManager.shared.checkMnemonic()
 

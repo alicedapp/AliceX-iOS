@@ -34,8 +34,17 @@ enum AliceRN {
 }
 
 class RNModule {
+    
     class func makeViewController(module: AliceRN) -> UIViewController {
         let vc = BaseRNViewController()
+        let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.moduleName, initialProperties: module.props)
+        vc.view = rnView
+        return vc
+    }
+    
+    class func makeVCwithApp(item: HomeItem) -> UIViewController {
+        let vc = BaseRNAppViewController.make(item: item)
+        let module = AliceRN.app(name: item.name)
         let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: module.moduleName, initialProperties: module.props)
         vc.view = rnView
         return vc

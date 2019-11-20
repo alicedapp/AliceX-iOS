@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraContainerViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="blurView" destination="npR-52-Mst" id="dBa-hU-J5L"/>
+                <outlet property="coverView" destination="w0f-Gi-lcX" id="Kqe-bb-dM1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -118,19 +120,32 @@
                     </view>
                     <blurEffect style="dark"/>
                 </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-Gi-lcX">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" name="Alice-White"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="w0f-Gi-lcX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0rW-Gl-t4Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="npR-52-Mst" secondAttribute="trailing" id="6zv-7L-LU3"/>
                 <constraint firstAttribute="trailing" secondItem="CUA-gt-iLG" secondAttribute="trailing" id="8w3-Wk-Nd7"/>
+                <constraint firstAttribute="bottom" secondItem="w0f-Gi-lcX" secondAttribute="bottom" id="972-iC-0AZ"/>
                 <constraint firstAttribute="bottom" secondItem="npR-52-Mst" secondAttribute="bottom" id="9DU-09-lTg"/>
                 <constraint firstItem="npR-52-Mst" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ELE-Kn-o7B"/>
                 <constraint firstItem="CUA-gt-iLG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-44" id="Kew-mb-vJD"/>
                 <constraint firstItem="CUA-gt-iLG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ljx-ed-Gox"/>
                 <constraint firstItem="npR-52-Mst" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jVh-1H-11r"/>
+                <constraint firstItem="w0f-Gi-lcX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uT2-yt-u6Z"/>
+                <constraint firstItem="w0f-Gi-lcX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xZ1-Lh-BJP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Alice-White">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

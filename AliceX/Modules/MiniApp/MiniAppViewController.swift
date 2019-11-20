@@ -10,10 +10,8 @@ import Hero
 import UIKit
 
 class MiniAppViewController: BaseViewController {
-    @IBOutlet var container: UIView!
+
     @IBOutlet var naviContainer: UIView!
-    @IBOutlet var rnContainer: UIView!
-//    @IBOutlet var scrollView: UIScrollView!
 
     @IBOutlet var scrollViewCover: UIView!
     @IBOutlet var backIndicator: UIImageView!
@@ -52,18 +50,24 @@ class MiniAppViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
 
-//        addChild(cameraVC)
-//        view.insertSubview(cameraVC.view, belowSubview: naviContainer)
-//        cameraVC.view.fillSuperview()
-//        cameraVC.didMove(toParent: self)
-//        cameraVC.willMove(toParent: self)
-//        cameraVC.view.fillSuperview()
+        addChild(cameraVC)
+        view.insertSubview(cameraVC.view, belowSubview: naviContainer)
+        cameraVC.view.fillSuperview()
+        cameraVC.didMove(toParent: self)
+        cameraVC.willMove(toParent: self)
+        cameraVC.view.fillSuperview()
 
+        cameraVC.block = { result in
+            self.coverClick()
+            if result.isValidURL {
+                let vc = BrowserWrapperViewController.make(urlString: result)
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
+            }
+        }
         // cameraVC.view.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
         naviColor = naviContainer.backgroundColor!
-
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(coverClick))
-//        scrollViewCover.addGestureRecognizer(tap)
 
 //        backButton.transform = CGAffineTransform.init(translationX: 0, y: 30)
 //        backIndicator.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi / 2))
@@ -71,12 +75,23 @@ class MiniAppViewController: BaseViewController {
         
         let urls = data.filter { !$0.isApp }.compactMap { $0.url }
         FaviconHelper.prefetchFavicon(urls: urls)
+        
+        scrollViewCover = UIView()
+        scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        scrollViewCover.alpha = 0
+        collectionView.addSubview(scrollViewCover)
+        scrollViewCover.fillSuperview()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(coverClick))
+        scrollViewCover.addGestureRecognizer(tap)
+        scrollViewCover.isUserInteractionEnabled = false
+//        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
+//        scrollViewCover.addGestureRecognizer(pan)
     }
     
     override func viewDidLayoutSubviews() {
         
-        collectionView.roundCorners(corners: [.topLeft, .topRight], radius: 40)
-        
+//        collectionView.layer.cornerRadius = 40
+        collectionView.roundCorners(corners: .allCorners, radius: 40)
     }
     
 
@@ -86,7 +101,14 @@ class MiniAppViewController: BaseViewController {
     }
 
     @IBAction func cameraButtonClick() {
-        let vc = QRCodeReaderViewController()
+        let vc = QRCodeReaderViewController.make { result in
+            if result.isValidURL {
+                let vc = BrowserWrapperViewController.make(urlString: result)
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
+            }
+        }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
 //        navigationController?.pushViewController(vc, animated: true)
