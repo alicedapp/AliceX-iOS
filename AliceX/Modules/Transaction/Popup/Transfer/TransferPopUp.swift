@@ -19,7 +19,7 @@ class TransferPopUp: UIViewController {
 
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var ensAddressLabel: UILabel!
-    
+
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var priceTextLabel: UILabel!
@@ -138,17 +138,17 @@ class TransferPopUp: UIViewController {
         let address = UIPasteboard.general.string
         guard let addr = address,
             coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
-                if !coin.isERC20 && coin != Coin.coin(chain: .Ethereum) {
-                    errorAlert(text: "Addess invalid")
-                }
-                addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
-                self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
-                addressFieldDidChange(self.addressField)
+            if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
+                errorAlert(text: "Addess invalid")
+            }
+            addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
+            addressFieldDidChange(addressField)
             return
         }
         addressField.text = addr.trimmingCharacters(in: .whitespacesAndNewlines)
         self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
-        addressFieldDidChange(self.addressField)
+        addressFieldDidChange(addressField)
     }
 
     @IBAction func cameraBtnClicked() {
@@ -201,36 +201,34 @@ class TransferPopUp: UIViewController {
             }
         }
     }
-    
+
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
-        
-        self.addressLabel.text = "Address"
-        self.ensAddressLabel.text = ""
-        
-        if !coin.isERC20 && coin != Coin.coin(chain: .Ethereum) {
+        addressLabel.text = "Address"
+        ensAddressLabel.text = ""
+
+        if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
             return
         }
-        
+
         guard let text = textField.text else {
             return
         }
-        
+
         if !text.contains(".") {
             return
         }
-        
-        self.addressLabel.text = "Fetching ENS ..."
-        
+
+        addressLabel.text = "Fetching ENS ..."
+
         onBackgroundThread {
-            
             WalletManager.shared.getENSAddressWithPromise(node: text).done { EthAddress in
                 onMainThread {
                     self.addressLabel.text = "Address ✅"
                     self.ensAddressLabel.text = EthAddress.address
                     self.address = EthAddress.address
                 }
-                
-            }.catch { error in
+
+            }.catch { _ in
                 onMainThread {
 //                    self.errorAlert(text: error.localizedDescription)
                     self.addressLabel.text = "Address ❌"

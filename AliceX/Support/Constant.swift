@@ -62,6 +62,8 @@ extension Notification.Name {
 
     static let priceUpdate = Notification.Name("priceUpdate")
     static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
+    
+    static let faviconDownload = Notification.Name("faviconDownload")
 }
 
 class CacheKey {
@@ -106,6 +108,13 @@ class Constant {
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
 
     static let SCREEN_HEIGHT_NO_SAFE: CGFloat = UIScreen.main.bounds.height - SAFE_TOP - SAFE_BOTTOM
+    
+    
+    class func randomEmoji() -> String {
+        let emoji = ["🐶","🐱","🐭","🐹","🐰","🦊","🦝","🐻","🐼","🦘","🦡","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦢","🦅","🦉","🦚","🦜","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🦗","🕷","🕸","🦂","🦟","🦠","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🐘","🦏","🦛","🐪","🐫","🦙","🦒","🐃","🐂","🐄","🐎","🐖","🐏","🐑","🐐","🦌","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🦔","🐾","🐉","🐲"]
+        
+        return emoji.randomElement()!
+    }
 }
 
 extension Constant {

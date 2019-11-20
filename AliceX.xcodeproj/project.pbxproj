@@ -103,6 +103,16 @@
 		154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDB7B23604BF5006D76B2 /* SettingViewController+DarkMode.swift */; };
 		154E7F322306A9A200D571A8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F312306A9A100D571A8 /* URL.swift */; };
 		154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */; };
+		154F6099238442C60011200F /* MiniAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F6097238442C60011200F /* MiniAppCollectionViewCell.swift */; };
+		154F609A238442C60011200F /* MiniAppCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154F6098238442C60011200F /* MiniAppCollectionViewCell.xib */; };
+		154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F609B2384444B0011200F /* MiniAppViewController+Camera.swift */; };
+		154F609E238444A00011200F /* MiniAppViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F609D238444A00011200F /* MiniAppViewController+CollectionView.swift */; };
+		154F60A023844A540011200F /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F609F23844A540011200F /* HomeItem.swift */; };
+		154F60A323846D040011200F /* FaviconGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A223846D040011200F /* FaviconGrabber.swift */; };
+		154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A423846D1E0011200F /* FaviconGrabberModel.swift */; };
+		154F60A723846E910011200F /* FaviconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A623846E910011200F /* FaviconHelper.swift */; };
+		154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A8238592A50011200F /* BaseRNAppViewController.swift */; };
+		154F60AB238596090011200F /* MiniAppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60AA238596090011200F /* MiniAppTab.swift */; };
 		1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1559C5FA236974EC008ADCB1 /* UIViewController.swift */; };
 		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
 		155FACED233910DE0002B478 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACEB233910DD0002B478 /* TestViewController.xib */; };
@@ -376,6 +386,16 @@
 		154CDB7B23604BF5006D76B2 /* SettingViewController+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController+DarkMode.swift"; sourceTree = "<group>"; };
 		154E7F312306A9A100D571A8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+AliceSDK.swift"; sourceTree = "<group>"; };
+		154F6097238442C60011200F /* MiniAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppCollectionViewCell.swift; sourceTree = "<group>"; };
+		154F6098238442C60011200F /* MiniAppCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniAppCollectionViewCell.xib; sourceTree = "<group>"; };
+		154F609B2384444B0011200F /* MiniAppViewController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniAppViewController+Camera.swift"; sourceTree = "<group>"; };
+		154F609D238444A00011200F /* MiniAppViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniAppViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		154F609F23844A540011200F /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		154F60A223846D040011200F /* FaviconGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconGrabber.swift; sourceTree = "<group>"; };
+		154F60A423846D1E0011200F /* FaviconGrabberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconGrabberModel.swift; sourceTree = "<group>"; };
+		154F60A623846E910011200F /* FaviconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconHelper.swift; sourceTree = "<group>"; };
+		154F60A8238592A50011200F /* BaseRNAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNAppViewController.swift; sourceTree = "<group>"; };
+		154F60AA238596090011200F /* MiniAppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppTab.swift; sourceTree = "<group>"; };
 		1559C5FA236974EC008ADCB1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		155FACEB233910DD0002B478 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -594,6 +614,7 @@
 		15072529233A0EB6009C9D51 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				154F60A623846E910011200F /* FaviconHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -754,9 +775,14 @@
 		1533C999237ABAFB0052010A /* MiniApp */ = {
 			isa = PBXGroup;
 			children = (
+				154F6096238442AB0011200F /* Cell */,
 				15F197C123830CE700960DE1 /* CameraContainer */,
 				1533C99A237ABB140052010A /* MiniAppViewController.swift */,
+				154F60AA238596090011200F /* MiniAppTab.swift */,
+				154F609D238444A00011200F /* MiniAppViewController+CollectionView.swift */,
+				154F609B2384444B0011200F /* MiniAppViewController+Camera.swift */,
 				1533C99B237ABB140052010A /* MiniAppViewController.xib */,
+				154F609F23844A540011200F /* HomeItem.swift */,
 			);
 			path = MiniApp;
 			sourceTree = "<group>";
@@ -877,6 +903,24 @@
 				15477B4022E15C16008E3230 /* EthGasStationModel.swift */,
 			);
 			path = EthGasStation;
+			sourceTree = "<group>";
+		};
+		154F6096238442AB0011200F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				154F6097238442C60011200F /* MiniAppCollectionViewCell.swift */,
+				154F6098238442C60011200F /* MiniAppCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		154F60A123846CE90011200F /* FaviconGrabber */ = {
+			isa = PBXGroup;
+			children = (
+				154F60A223846D040011200F /* FaviconGrabber.swift */,
+				154F60A423846D1E0011200F /* FaviconGrabberModel.swift */,
+			);
+			path = FaviconGrabber;
 			sourceTree = "<group>";
 		};
 		155FACE9233910C50002B478 /* Test */ = {
@@ -1127,6 +1171,7 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				154F60A123846CE90011200F /* FaviconGrabber */,
 				158A905A2370259D002F9F18 /* Cryptocompare */,
 				151250C423661F3B00AD37BB /* OpenSea */,
 				1525E79123311BF4009DAB83 /* AmberData */,
@@ -1323,6 +1368,7 @@
 				15B86BB122AA1D2900110C06 /* BaseViewController.swift */,
 				1587396922BB48FC00F36F92 /* BaseControl.swift */,
 				153A654A22C9D1A30035EB2C /* BaseRNViewController.swift */,
+				154F60A8238592A50011200F /* BaseRNAppViewController.swift */,
 				156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */,
 				15BC4DB322DA495000313CA9 /* BaseView.swift */,
 			);
@@ -1869,6 +1915,7 @@
 				158FAC2D233CA20600F281B1 /* WCControlPanel.xib in Resources */,
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1533C99D237ABB140052010A /* MiniAppViewController.xib in Resources */,
+				154F609A238442C60011200F /* MiniAppCollectionViewCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
@@ -1921,7 +1968,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    #swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n#    swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		1577DDD5238093FD00225DE6 /* Fabric - Firebase */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2052,6 +2099,7 @@
 				158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */,
 				15F67C0D236A90D800E00CDE /* AppDelegate.swift in Sources */,
 				15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */,
+				154F60AB238596090011200F /* MiniAppTab.swift in Sources */,
 				151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */,
 				15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
@@ -2095,6 +2143,7 @@
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				158E1D04236554AC0081C1AA /* AssetNFTCell.swift in Sources */,
 				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
+				154F60A723846E910011200F /* FaviconHelper.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */,
 				153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */,
@@ -2108,17 +2157,20 @@
 				15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */,
 				1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
+				154F60A023844A540011200F /* HomeItem.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
 				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
 				153A737222ECDCF0003371D3 /* MyQRCodeViewController.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
+				154F609E238444A00011200F /* MiniAppViewController+CollectionView.swift in Sources */,
 				15FFCF872366073000E0BB80 /* CoinListViewController.swift in Sources */,
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				158E1CF8236553240081C1AA /* Asset.swift in Sources */,
 				15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */,
 				1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
+				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
 				15E1AA9E23688AEF00F29369 /* BlockChainQRCodeViewController.swift in Sources */,
@@ -2173,6 +2225,7 @@
 				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
 				15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */,
+				154F60A323846D040011200F /* FaviconGrabber.swift in Sources */,
 				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
 				158A909523713756002F9F18 /* BlockchainNetwork.swift in Sources */,
@@ -2189,6 +2242,7 @@
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
 				15E3C8F023421AD300DCADBF /* ShareHelper.swift in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
+				154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */,
 				158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */,
 				15015DAC2365B253008DDD80 /* AssetNFTHeaderCell.swift in Sources */,
 				158A909323704ABF002F9F18 /* CryptocompareModel.swift in Sources */,
@@ -2200,6 +2254,7 @@
 				1572598522E0A114004D0CC4 /* PriceHelper.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
 				1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */,
+				154F6099238442C60011200F /* MiniAppCollectionViewCell.swift in Sources */,
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,
 				15764E1522E9F93A00784848 /* GCD.swift in Sources */,
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
@@ -2212,6 +2267,7 @@
 				15F67C33236B2B5D00E00CDE /* AssetImgeAnimator.swift in Sources */,
 				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
 				15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */,
+				154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */,
 				15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				15F197B623816B6F00960DE1 /* ENS.swift in Sources */,

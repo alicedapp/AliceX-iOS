@@ -90,16 +90,22 @@ class QRCodeReaderViewController: LBXScanViewController {
 extension QRCodeReaderViewController: LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         if error != nil {
+            block("No result detected")
             scanObj?.start()
             return
         }
-
-        if (scanResult.strScanned?.hasPrefix("wc:"))! {
-            WCServerHelper.shared.connect(url: scanResult.strScanned!)
+        
+        guard let strScanned = scanResult.strScanned  else {
+            block("No result detected")
             return
         }
 
-        block(scanResult.strScanned!.dropEthPrefix())
+        if strScanned.hasPrefix("wc:") {
+            WCServerHelper.shared.connect(url: strScanned)
+            return
+        }
+
+        block(strScanned.dropEthPrefix())
         backButtonClicked()
     }
 }

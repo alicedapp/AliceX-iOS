@@ -9,15 +9,19 @@
 import UIKit
 
 class CameraContainerViewController: LBXScanViewController {
-
     @IBOutlet var blurView: UIVisualEffectView!
+    
+    @IBOutlet var coverView: UIView!
+
+    var block: StringBlock!
+    var noFirst: Bool = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
 //    override func viewWillAppear(_ animated: Bool) {
-        
+
 //        if qRScanView == nil {
 //            return
 //        }
@@ -25,11 +29,14 @@ class CameraContainerViewController: LBXScanViewController {
 //        qRScanView?.startScanAnimation()
 //        scanObj?.start()
 //    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scanResultDelegate = self
+        
         var style = LBXScanViewStyle()
-        style.animationImage = UIImage(named: "qrcode_scan_light_white")
+//        style.animationImage = UIImage(named: "qrcode_scan_light_white")
         style.colorAngle = UIColor.lightGray
         scanStyle = style
         setNeedCodeImage(needCodeImg: false)
@@ -37,24 +44,51 @@ class CameraContainerViewController: LBXScanViewController {
         isOpenInterestRect = true
     }
     
+    override func viewDidLayoutSubviews() {
+        view.bringSubviewToFront(coverView)
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        view.layoutIfNeeded()
+        drawScanView()
+        
+        if noFirst {
+            scanObj?.start()
+        }
+    }
+
     func activeCamera() {
-        
-        if qRScanView == nil {
-            qRScanView = LBXScanView(frame: view.frame, vstyle: scanStyle!)
-            view.addSubview(qRScanView!)
-            delegate?.drawwed()
-            qRScanView?.deviceStartReadying(readyStr: readyString)
-        } 
-        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
         }
+        noFirst = true
     }
-    
+
     func disableCamera() {
 //        qRScanView?.removeFromSuperview()
         qRScanView?.stopScanAnimation()
         scanObj?.stop()
     }
-    
+}
+
+
+extension CameraContainerViewController: LBXScanViewControllerDelegate {
+    func scanFinished(scanResult: LBXScanResult, error: String?) {
+        if error != nil {
+            scanObj?.start()
+            return
+        }
+        
+        guard let strScanned = scanResult.strScanned else {
+            scanObj?.start()
+            return
+        }
+
+        if strScanned.hasPrefix("wc:") {
+            WCServerHelper.shared.connect(url: scanResult.strScanned!)
+            return
+        }
+        
+        block(strScanned.dropEthPrefix())
+    }
 }

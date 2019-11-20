@@ -58,7 +58,15 @@ class FloatBall: UIView {
     func updateImage() {
         if let pinItem = PinManager.shared.pinList.last {
             let image = pinItem.image
-            imageView.kf.setImage(with: image)
+            imageView.kf.setImage(with: image) { result in
+                switch result {
+                case let .failure(error):
+                    //TODO
+                    break
+                case .success:
+                    break
+                }
+            }
         } else {
             imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
         }

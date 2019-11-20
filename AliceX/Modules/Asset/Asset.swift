@@ -55,7 +55,7 @@ extension Asset {
     var size: CGSize {
         switch self {
         case .balance:
-            return CGSize(width: Constant.SCREEN_WIDTH, height: 210)
+            return CGSize(width: Constant.SCREEN_WIDTH, height: 200)
         case .coinHeader:
             return CGSize(width: Constant.SCREEN_WIDTH, height: 65)
         case .coin:

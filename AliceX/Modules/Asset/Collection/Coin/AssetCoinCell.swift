@@ -7,12 +7,12 @@
 //
 
 import BigInt
+import BonMot
 import Kingfisher
 import PromiseKit
 import UIKit
 import VBFPopFlatButton
 import web3swift
-import BonMot
 
 class AssetCoinCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
@@ -61,12 +61,11 @@ class AssetCoinCell: UICollectionViewCell {
     }
 
     @objc func tapAction(gesture: UITapGestureRecognizer) {
-        
         if coin == Coin.coin(chain: .Bitcoin) || coin == Coin.coin(chain: .Cosmos) {
             HUDManager.shared.showError(text: "Not available now")
             return
         }
-        
+
         switch gesture.state {
         case .began:
             UIView.animate(withDuration: 0.3) {
@@ -141,11 +140,10 @@ class AssetCoinCell: UICollectionViewCell {
         }
 
         nameLabel.text = info.name
-        
-        if coin == Coin.coin(chain: .Ethereum) && WalletManager.currentNetwork != .main {
-            
+
+        if coin == Coin.coin(chain: .Ethereum), WalletManager.currentNetwork != .main {
             let network = WalletManager.currentNetwork
-            
+
             let nameStyle = StringStyle(
                 .font(UIFont.systemFont(ofSize: 17, weight: .regular))
             )
@@ -158,7 +156,7 @@ class AssetCoinCell: UICollectionViewCell {
                 .font(UIFont.systemFont(ofSize: 17)),
                 .xmlRules([
                     .style("name", nameStyle),
-                    .style("network", networkStyle)
+                    .style("network", networkStyle),
                 ])
             )
             let text = "<name>Ethereum</name> <network>\(network.name)</network>".styled(with: finalStyle)

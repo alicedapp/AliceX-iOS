@@ -7,10 +7,10 @@
 //
 
 import CodePush
+import Firebase
 import IQKeyboardManagerSwift
 import React
 import SPStorkController
-import Firebase
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        //FirebaseApp.configure()
+        // FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
@@ -56,14 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         navi = rootVC
 
-        PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass])
+        PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass,
+                                     BaseRNAppViewController.nameOfClass])
 
         WalletManager.shared.checkMnemonic()
-        
+
         #if DEBUG
             test()
         #endif
-        
+
         return true
     }
 

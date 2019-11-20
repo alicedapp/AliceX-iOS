@@ -110,6 +110,7 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
 
     open func drawScanView() {
         if qRScanView == nil {
+            
             qRScanView = LBXScanView(frame: view.frame, vstyle: scanStyle!)
             view.addSubview(qRScanView!)
             delegate?.drawwed()

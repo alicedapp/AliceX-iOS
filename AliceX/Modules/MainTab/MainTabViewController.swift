@@ -7,8 +7,8 @@
 //
 
 import Pageboy
-import UIKit
 import SwiftyUserDefaults
+import UIKit
 
 class MainTabViewController: PageboyViewController {
     @IBOutlet var container: UIView!

@@ -30,11 +30,11 @@ class HUDManager: NSObject {
     func showErrorAlert(text: String, isAlert: Bool = false) {
         onMainThread {
             let view = SingleButtonAlertView.make(content: text, isAlert: isAlert)
-            
+
             if #available(iOS 13.0, *) {
                 view.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
             }
-            
+
             self.showAlertView(view: view,
                                backgroundColor: .clear,
                                haptic: .none,
@@ -123,7 +123,7 @@ class HUDManager: NSObject {
             attributes.positionConstraints.maxSize = .init(width: widthIsFull ?
                 .constant(value: UIScreen.main.bounds.minEdge) : .ratio(value: 0.8),
                                                            height: .intrinsic)
-            
+
             if #available(iOS 13.0, *) {
                 view.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
             }
@@ -153,7 +153,7 @@ class HUDManager: NSObject {
             attributes.positionConstraints.verticalOffset = 0
             attributes.positionConstraints.safeArea = .overridden
             attributes.displayMode = .inferred
-            
+
             if #available(iOS 13.0, *) {
                 viewController.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
             }
@@ -184,10 +184,10 @@ class HUDManager: NSObject {
 
             attributes.positionConstraints.keyboardRelation = .bind(offset: .init(bottom: 10, screenEdgeResistance: 5))
             attributes.displayMode = .inferred
-            
+
             if #available(iOS 13.0, *) {
                 viewController.overrideUserInterfaceStyle = (UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle)!
-            } 
+            }
 
             SwiftEntryKit.display(entry: viewController, using: attributes)
         }
