@@ -9,15 +9,14 @@
 import UIKit
 
 class CameraContainerViewController: LBXScanViewController {
-
     @IBOutlet var blurView: UIVisualEffectView!
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
 //    override func viewWillAppear(_ animated: Bool) {
-        
+
 //        if qRScanView == nil {
 //            return
 //        }
@@ -25,7 +24,7 @@ class CameraContainerViewController: LBXScanViewController {
 //        qRScanView?.startScanAnimation()
 //        scanObj?.start()
 //    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         var style = LBXScanViewStyle()
@@ -36,25 +35,23 @@ class CameraContainerViewController: LBXScanViewController {
         scanStyle?.centerUpOffset += 10
         isOpenInterestRect = true
     }
-    
+
     func activeCamera() {
-        
         if qRScanView == nil {
             qRScanView = LBXScanView(frame: view.frame, vstyle: scanStyle!)
             view.addSubview(qRScanView!)
             delegate?.drawwed()
             qRScanView?.deviceStartReadying(readyStr: readyString)
-        } 
-        
+        }
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
         }
     }
-    
+
     func disableCamera() {
 //        qRScanView?.removeFromSuperview()
         qRScanView?.stopScanAnimation()
         scanObj?.stop()
     }
-    
 }

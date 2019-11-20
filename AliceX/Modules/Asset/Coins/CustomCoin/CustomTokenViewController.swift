@@ -6,25 +6,24 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 import web3swift
-import Kingfisher
 
 class CustomTokenViewController: BaseViewController {
-
     @IBOutlet var textfield: UITextField!
     @IBOutlet var testLabel: UILabel!
-    
+
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var decimalsLabel: UILabel!
-    
+
     @IBOutlet var coinImage: UIImageView!
-    
+
     var passed: Bool = false
 //    var info: TokenInfo?
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textfield.becomeFirstResponder()
@@ -84,7 +83,7 @@ class CustomTokenViewController: BaseViewController {
             passed = false
             return
         }
-        
+
         let string = textStr.trimed()
 
         if string.isEmptyAfterTrim() {
@@ -92,14 +91,14 @@ class CustomTokenViewController: BaseViewController {
             passed = false
             return
         }
-        
+
         let coin = Coin.coin(chain: .Ethereum)
         if !coin.verify(address: string) {
             testFailed()
             passed = false
             return
         }
-        
+
         PriceHelper.shared.getTokenInfo(tokenAdress: string).done { info in
             self.updateToken(info: info)
         }.catch { _ in
@@ -107,33 +106,32 @@ class CustomTokenViewController: BaseViewController {
             self.passed = false
         }
     }
-    
+
     func updateToken(info: TokenInfo) {
-        
         guard let decimals = info.decimals, let address = info.address else {
-            self.testFailed()
-            self.passed = false
+            testFailed()
+            passed = false
             return
         }
-        
-        self.nameLabel.text = info.name
-        self.symbolLabel.text = info.symbol
-        
-        self.decimalsLabel.text = String(decimals)
+
+        nameLabel.text = info.name
+        symbolLabel.text = info.symbol
+
+        decimalsLabel.text = String(decimals)
         if let price = info.price {
-            self.priceLabel.text = "\(price.currency!) \(price.rate!)"
+            priceLabel.text = "\(price.currency!) \(price.rate!)"
         } else {
-            self.priceLabel.text = "Price"
+            priceLabel.text = "Price"
         }
-        
+
         let coin = Coin.ERC20(address: address)
-        
+
         coinImage.kf.setImage(with: coin.image)
-        
+
         CoinInfoCenter.shared.pool.keys.contains(address)
-        
-        self.testSuccess()
-        self.passed = true
+
+        testSuccess()
+        passed = true
     }
 
     @IBAction func pasteClicked() {
@@ -154,7 +152,6 @@ class CustomTokenViewController: BaseViewController {
 //            testFailed()
 //            return
 //        }
-        
     }
 
     @objc func addRPCSuccess() {

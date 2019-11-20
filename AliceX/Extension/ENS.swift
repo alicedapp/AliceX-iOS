@@ -10,9 +10,7 @@ import PromiseKit
 import web3swift
 
 extension ENS {
-    
     func getAddressWithPromise(forNode node: String) throws -> Promise<EthereumAddress> {
-    
         return Promise<EthereumAddress> { seal in
             guard let resolver = try? self.registry.getResolver(forDomain: node) else {
                 throw Web3Error.processingError(desc: "Failed to get resolver for domain")
@@ -33,27 +31,26 @@ extension ENS {
 }
 
 extension ENS.Resolver {
-    
     func getAddressWithPromise(forNode node: String) -> Promise<EthereumAddress> {
-        
         return Promise<EthereumAddress> { seal in
-            
+
             let defaultOptions = TransactionOptions.defaultOptions
             guard let contract = self.web3.contract(Web3.Utils.resolverABI,
                                                     at: self.resolverContractAddress, abiVersion: 2) else {
                 throw Web3Error.processingError(desc: "Contact fetch failed")
             }
-            
-            guard let nameHash = NameHash.nameHash(node) else {throw Web3Error.processingError(desc: "Failed to get name hash")}
-            guard let transaction = contract.read("addr", parameters: [nameHash as AnyObject], extraData: Data(), transactionOptions: defaultOptions) else {throw Web3Error.transactionSerializationError}
-            
+
+            guard let nameHash = NameHash.nameHash(node) else { throw Web3Error.processingError(desc: "Failed to get name hash") }
+            guard let transaction = contract.read("addr", parameters: [nameHash as AnyObject], extraData: Data(), transactionOptions: defaultOptions) else { throw Web3Error.transactionSerializationError }
+
             transaction.callPromise(transactionOptions: defaultOptions).done { result in
-                guard let address = result["0"] as? EthereumAddress else {throw Web3Error.processingError(desc: "Can't get address")}
+                guard let address = result["0"] as? EthereumAddress else { throw Web3Error.processingError(desc: "Can't get address") }
                 seal.fulfill(address)
             }.catch { _ in
                 seal.reject(Web3Error.processingError(desc: "Can't call transaction"))
             }
         }
     }
+
 //    public func getAddress(forNode node: String) throws -> EthereumAddress {
 }

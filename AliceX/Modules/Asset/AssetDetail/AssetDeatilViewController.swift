@@ -9,7 +9,6 @@
 import UIKit
 
 class AssetDeatilViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

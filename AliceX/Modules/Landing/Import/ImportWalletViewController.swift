@@ -17,7 +17,7 @@ class ImportWalletViewController: BaseViewController {
     var placeholderLabel: UILabel!
     var mnemonic: String = ""
     var buttonText: String = "Import Wallet"
-    
+
     class func make(buttonText: String, mnemonic: String) -> ImportWalletViewController {
         let vc = ImportWalletViewController()
         vc.buttonText = buttonText
@@ -40,13 +40,12 @@ class ImportWalletViewController: BaseViewController {
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
-        
+
         buttonLabel.text = buttonText
-        
+
         if !mnemonic.isEmptyAfterTrim() {
             textView.text = mnemonic
             placeholderLabel.isHidden = true
-            
         }
     }
 

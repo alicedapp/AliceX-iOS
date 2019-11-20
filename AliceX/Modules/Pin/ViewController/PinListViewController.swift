@@ -33,14 +33,14 @@ class PinListViewController: BaseViewController {
         tableView.registerCell(nibName: PinListCell.nameOfClass)
 //        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
 //        tableView.estimatedRowHeight = 100
-        
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
-        self.tableView.backgroundView = UIView()
-        self.tableView.backgroundView?.addGestureRecognizer(tap)
-        
+        tableView.backgroundView = UIView()
+        tableView.backgroundView?.addGestureRecognizer(tap)
+
         cellAnimate()
     }
-    
+
     @objc func tableTapped() {
         dismissVC()
     }
@@ -87,9 +87,9 @@ class PinListViewController: BaseViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        
+
         PinManager.shared.ball.isHidden = true
-        
+
         view.alpha = 0
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
             self.view.alpha = 1
