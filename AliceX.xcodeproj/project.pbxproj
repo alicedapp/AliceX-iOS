@@ -39,6 +39,7 @@
 		152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E422ECB76200A4613A /* LBXScanWrapper.swift */; };
 		152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */; };
 		152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */; };
+		152541F62386BC11005CC83E /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152541F52386BC11005CC83E /* Github.swift */; };
 		1525E79323311C18009DAB83 /* AmberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525E79223311C18009DAB83 /* AmberData.swift */; };
 		1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525E7962331E8ED009DAB83 /* PinManager+Navigation.swift */; };
 		1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526B62222E89526007663E5 /* HideMaskViewController.swift */; };
@@ -322,6 +323,7 @@
 		152151E422ECB76200A4613A /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		152151ED22ECB7CC00A4613A /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		152151EE22ECB7CC00A4613A /* QRCodeReaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeReaderViewController.xib; sourceTree = "<group>"; };
+		152541F52386BC11005CC83E /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		1525E79223311C18009DAB83 /* AmberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmberData.swift; sourceTree = "<group>"; };
 		1525E7962331E8ED009DAB83 /* PinManager+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PinManager+Navigation.swift"; sourceTree = "<group>"; };
 		1526B62222E89526007663E5 /* HideMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideMaskViewController.swift; sourceTree = "<group>"; };
@@ -704,6 +706,14 @@
 				153A736E22ECDCC6003371D3 /* Scaner */,
 			);
 			path = QRcode;
+			sourceTree = "<group>";
+		};
+		152541F42386BC01005CC83E /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				152541F52386BC11005CC83E /* Github.swift */,
+			);
+			path = Github;
 			sourceTree = "<group>";
 		};
 		1525E79123311BF4009DAB83 /* AmberData */ = {
@@ -1171,6 +1181,7 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				152541F42386BC01005CC83E /* Github */,
 				154F60A123846CE90011200F /* FaviconGrabber */,
 				158A905A2370259D002F9F18 /* Cryptocompare */,
 				151250C423661F3B00AD37BB /* OpenSea */,
@@ -2202,6 +2213,7 @@
 				1514464923617ACB005E87CE /* WalletCoreManager.swift in Sources */,
 				15E3C8FA234471AE00DCADBF /* TTGTagCollectionView.m in Sources */,
 				156F07E9236B3E6D00602A01 /* AddressQRViewController.swift in Sources */,
+				152541F62386BC11005CC83E /* Github.swift in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				1573B52E2375A7C300257A1A /* KDDragAndDropCollectionView.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,

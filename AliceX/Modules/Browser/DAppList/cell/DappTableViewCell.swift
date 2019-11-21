@@ -8,17 +8,23 @@
 
 import Kingfisher
 import UIKit
+import VBFPopFlatButton
 
 class DappTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descLabel: UILabel!
     @IBOutlet var logoView: UIImageView!
 
+    @IBOutlet var addButton: VBFPopFlatButton!
+    @IBOutlet var addBackground: VBFPopFlatButton!
+    
     @IBOutlet var tagName: UILabel!
     @IBOutlet var tagView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        addButton.currentButtonType = .buttonAddType
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

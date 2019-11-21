@@ -38,35 +38,35 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvw-0A-O2a">
-                        <rect key="frame" x="84.5" y="15" width="174.5" height="20"/>
+                        <rect key="frame" x="84.5" y="15" width="189.5" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktf-Ml-jsy">
-                        <rect key="frame" x="84.5" y="45" width="174.5" height="15.5"/>
+                        <rect key="frame" x="84.5" y="45" width="189.5" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdQ-gy-S0l">
-                        <rect key="frame" x="267" y="29.5" width="60" height="30"/>
+                        <rect key="frame" x="282" y="22" width="45" height="45"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLp-rx-Vxo">
-                                <rect key="frame" x="8" y="7.5" width="44" height="15.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-ox-VpG" customClass="VBFPopFlatButton">
+                                <rect key="frame" x="7" y="7" width="31.5" height="31.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Td8-ox-VpG" secondAttribute="height" multiplier="1:1" id="EaR-TO-Gv9"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29475844963840514" green="0.6411028586881562" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="FLp-rx-Vxo" firstAttribute="centerY" secondItem="kdQ-gy-S0l" secondAttribute="centerY" id="5XN-zG-6Lk"/>
-                            <constraint firstItem="FLp-rx-Vxo" firstAttribute="leading" secondItem="kdQ-gy-S0l" secondAttribute="leading" constant="8" id="6DD-LN-tFF"/>
-                            <constraint firstAttribute="trailing" secondItem="FLp-rx-Vxo" secondAttribute="trailing" constant="8" id="7Oa-gL-lG6"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="60" id="HxN-EX-iAt"/>
-                            <constraint firstAttribute="height" constant="30" id="OeK-6c-cr4"/>
+                            <constraint firstItem="Td8-ox-VpG" firstAttribute="centerX" secondItem="kdQ-gy-S0l" secondAttribute="centerX" id="2eR-zK-JCT"/>
+                            <constraint firstItem="Td8-ox-VpG" firstAttribute="width" secondItem="kdQ-gy-S0l" secondAttribute="width" multiplier="0.7" id="326-UZ-Cu3"/>
+                            <constraint firstItem="Td8-ox-VpG" firstAttribute="centerY" secondItem="kdQ-gy-S0l" secondAttribute="centerY" id="4Ii-br-PV2"/>
+                            <constraint firstAttribute="width" constant="45" id="HxN-EX-iAt"/>
+                            <constraint firstAttribute="height" constant="45" id="OeK-6c-cr4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -96,9 +96,9 @@
             <color key="backgroundColor" name="Alice-White"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addButton" destination="Td8-ox-VpG" id="ju2-Rg-TXk"/>
                 <outlet property="descLabel" destination="ktf-Ml-jsy" id="2DV-Yg-Les"/>
                 <outlet property="logoView" destination="olx-DR-c9K" id="qRQ-l8-CXX"/>
-                <outlet property="tagName" destination="FLp-rx-Vxo" id="UEQ-Fr-Pqo"/>
                 <outlet property="tagView" destination="kdQ-gy-S0l" id="93B-SV-Ssw"/>
                 <outlet property="titleLabel" destination="zvw-0A-O2a" id="5E9-qk-WHH"/>
             </connections>
@@ -110,7 +110,7 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

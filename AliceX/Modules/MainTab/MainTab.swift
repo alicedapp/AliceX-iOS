@@ -11,6 +11,7 @@ import Foundation
 enum MainTab: Int, CaseIterable {
     case mini
     case asset
+    case setting
 
     var vc: UIViewController {
         switch self {
@@ -25,6 +26,8 @@ enum MainTab: Int, CaseIterable {
 //        case .profile:
 //            return UIViewController()
 //            return ProfileViewController()
+        case .setting:
+            return SettingViewController()
         }
     }
 
@@ -33,6 +36,8 @@ enum MainTab: Int, CaseIterable {
         case .mini:
             return UIImage(named: "back")!
         case .asset:
+            return UIImage(named: "back")!
+        case .setting:
             return UIImage(named: "back")!
 //        case .transaction:
 //            return UIImage(named: "back")!
