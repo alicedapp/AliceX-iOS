@@ -49,18 +49,27 @@ extension MiniAppViewController {
         case .ended:
             
             if isZoneHighlight {
+                
                 guard let indexPath = self.selectIndexPath else {
+                    collectionView.endInteractiveMovement()
                     break
                 }
+                
+                if let cell = collectionView.cellForItem(at: indexPath) {
+                    cell.isHidden = true
+                }
+                
+                collectionView.endInteractiveMovement()
                 data.remove(at: indexPath.item)
                 collectionView.deleteItems(at: [indexPath])
+                
+            } else {
+                collectionView.endInteractiveMovement()
             }
             
-            collectionView.endInteractiveMovement()
             UIView.animate(withDuration: 0.3) {
                 self.deleteZone.transform = CGAffineTransform.identity
             }
-            
             HomeItemHelper.shared.updatList(list: data)
             
         default:

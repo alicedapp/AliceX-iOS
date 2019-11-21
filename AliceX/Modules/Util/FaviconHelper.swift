@@ -42,7 +42,7 @@ class FaviconHelper {
                         seal.fulfill(imageURL)
                     } else {
                         guard let firstModel = modelArray.first else {
-                            seal.reject(MyError.FoundNil("Not favicon found"))
+                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
                             return
                         }
 

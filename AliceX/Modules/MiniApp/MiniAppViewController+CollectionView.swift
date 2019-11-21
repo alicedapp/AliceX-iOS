@@ -92,6 +92,11 @@ extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataS
         print(sourceIndex, destIndex)
         
         let item = data[sourceIndex]
+        
+//        if item == nil {
+//            return
+//        }
+        
         data.remove(at: sourceIndex)
         data.insert(item, at: destIndex)
     }
