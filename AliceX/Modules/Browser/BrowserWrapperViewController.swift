@@ -12,7 +12,7 @@ import Foundation
 class BrowserWrapperViewController: BaseViewController {
     var vc: BrowserViewController!
     var urlString: String = "https://www.duckduckgo.com/"
-    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+//    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -59,11 +59,14 @@ class BrowserWrapperViewController: BaseViewController {
 
 extension BrowserWrapperViewController: PinDelegate {
     func pinItem() -> PinItem {
+        
         var url = URL(string: "https://cdn4.iconfinder.com/data/icons/hosting-and-server/500/Hosting-30-512.png")!
 
-        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
-            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-        }
+//        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
+//            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+//        }
+        
+        FaviconHelper.prefetchFavicon(urls: [vc.webview.url!])
         return .website(image: url,
                         url: vc.webview.url!,
                         title: vc.webview.title ?? vc.webview.url!.absoluteString,

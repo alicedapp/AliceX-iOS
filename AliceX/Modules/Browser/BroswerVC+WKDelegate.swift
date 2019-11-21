@@ -10,6 +10,7 @@ import Foundation
 import Kingfisher
 
 extension BrowserViewController: WKNavigationDelegate {
+    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity
@@ -18,17 +19,17 @@ extension BrowserViewController: WKNavigationDelegate {
         guard let hostURL = webView.url?.host else {
             return
         }
-        // TODO: USE API to fetch favicon
-        let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-        let downloader = ImageDownloader.default
-        downloader.downloadImage(with: favIcon) { result in
-            switch result {
-            case let .success(value):
-                self.hk_iconImage = value.image
-            case .failure:
-                self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
-            }
-        }
+//        // TODO: USE API to fetch favicon
+//        let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+//        let downloader = ImageDownloader.default
+//        downloader.downloadImage(with: favIcon) { result in
+//            switch result {
+//            case let .success(value):
+//                self.hk_iconImage = value.image
+//            case .failure:
+//                self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+//            }
+//        }
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

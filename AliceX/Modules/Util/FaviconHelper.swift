@@ -24,6 +24,11 @@ class FaviconHelper {
                         seal.reject(MyError.DecodeFailed)
                         return
                     }
+                    
+                    if modelArray.count == 0 {
+                        seal.fulfill(URL(string: "http://\(domain)/favicon.ico")!)
+                        return
+                    }
 
                     let hasSize = modelArray.filter { $0!.sizes != nil && $0!.sizes != "any"}
 
@@ -40,18 +45,34 @@ class FaviconHelper {
                         }
 
                         seal.fulfill(imageURL)
+                        
                     } else {
-                        guard let firstModel = modelArray.first else {
-                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
-                            return
-                        }
+                        
+                        for model in modelArray {
+                            
+                            if model!.src.hasSuffix(".svg") {
+                                continue
+                            }
+                            
+                            guard let firstURL = model, let imageURL = URL(string: firstURL.src) else {
+                                seal.reject(MyError.FoundNil("Image URL convert failed"))
+                                return
+                            }
 
-                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
-                            seal.reject(MyError.FoundNil("Image URL convert failed"))
-                            return
+                            seal.fulfill(imageURL)
                         }
-
-                        seal.fulfill(imageURL)
+                        
+//                        guard let firstModel = modelArray.first else {
+//                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
+//                            return
+//                        }
+//
+//                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
+//                            seal.reject(MyError.FoundNil("Image URL convert failed"))
+//                            return
+//                        }
+//
+//                        seal.fulfill(imageURL)
                     }
 
                 case let .failure(error):
