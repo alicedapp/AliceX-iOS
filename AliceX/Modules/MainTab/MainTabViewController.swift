@@ -35,6 +35,7 @@ extension MainTabViewController: PageboyViewControllerDataSource {
     }
 
     func defaultPage(for _: PageboyViewController) -> PageboyViewController.Page? {
+//        return .at(index: 1)
         return nil
     }
 }

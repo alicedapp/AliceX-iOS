@@ -8,7 +8,7 @@
 
 import Moya
 
-//let FaviconGrabberAPI = MoyaProvider<FaviconGrabber>()
+let GithubAPI = MoyaProvider<Github>()
 
 enum Github {
     case dappList
@@ -22,7 +22,7 @@ extension Github: TargetType {
     var baseURL: URL {
         return URL(string: "https://raw.githubusercontent.com/alicedapp/")!
     }
-
+    
     var path: String {
         switch self {
         case .dappList:

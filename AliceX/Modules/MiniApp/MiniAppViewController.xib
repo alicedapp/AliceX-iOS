@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniAppViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="kch-Nj-QKf" id="K8Y-nz-CQF"/>
+                <outlet property="deleteLabel" destination="ea7-Kt-dTP" id="Aay-DC-2Re"/>
+                <outlet property="deleteZone" destination="x9c-zn-UaA" id="iBh-9M-xuA"/>
                 <outlet property="naviContainer" destination="eIN-tl-cla" id="KZr-7i-AV4"/>
                 <outlet property="titleLabel" destination="4gg-Kj-xHI" id="SNv-kW-0q6"/>
                 <outlet property="view" destination="YSE-Bu-0Ir" id="khx-vx-kcR"/>
@@ -193,6 +195,32 @@
                         <outlet property="delegate" destination="-1" id="s0W-8p-LTs"/>
                     </connections>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-zn-UaA">
+                    <rect key="frame" x="0.0" y="812" width="375" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8z-Gk-kJT">
+                            <rect key="frame" x="176" y="38.666666666666629" width="23" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Zone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-Kt-dTP">
+                            <rect key="frame" x="141" y="64.666666666666629" width="93.333333333333314" height="21"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="ea7-Kt-dTP" firstAttribute="centerY" secondItem="x9c-zn-UaA" secondAttribute="centerY" constant="15" id="1k0-Xe-UUP"/>
+                        <constraint firstItem="ea7-Kt-dTP" firstAttribute="centerX" secondItem="x9c-zn-UaA" secondAttribute="centerX" id="HKb-yF-m2W"/>
+                        <constraint firstItem="ea7-Kt-dTP" firstAttribute="top" secondItem="A8z-Gk-kJT" secondAttribute="bottom" constant="5" id="wyM-Bn-ngN"/>
+                        <constraint firstItem="A8z-Gk-kJT" firstAttribute="centerX" secondItem="x9c-zn-UaA" secondAttribute="centerX" id="xpS-43-3Ua"/>
+                        <constraint firstAttribute="height" constant="120" id="zz0-0Q-8qT"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
             <constraints>
@@ -200,8 +228,11 @@
                 <constraint firstItem="kch-Nj-QKf" firstAttribute="leading" secondItem="UlA-2h-0kT" secondAttribute="leading" id="6qU-S6-oRD"/>
                 <constraint firstItem="eIN-tl-cla" firstAttribute="top" secondItem="UlA-2h-0kT" secondAttribute="top" constant="-44" id="AGd-zM-AOZ"/>
                 <constraint firstItem="kch-Nj-QKf" firstAttribute="top" secondItem="eIN-tl-cla" secondAttribute="bottom" constant="10" id="ENr-jV-PaR"/>
+                <constraint firstItem="x9c-zn-UaA" firstAttribute="trailing" secondItem="UlA-2h-0kT" secondAttribute="trailing" id="HLB-mo-Fhy"/>
                 <constraint firstAttribute="bottom" secondItem="kch-Nj-QKf" secondAttribute="bottom" id="YSZ-hV-G3q"/>
+                <constraint firstItem="x9c-zn-UaA" firstAttribute="leading" secondItem="UlA-2h-0kT" secondAttribute="leading" id="d3B-kj-eiK"/>
                 <constraint firstItem="eIN-tl-cla" firstAttribute="leading" secondItem="UlA-2h-0kT" secondAttribute="leading" id="fck-Tq-cf2"/>
+                <constraint firstItem="x9c-zn-UaA" firstAttribute="bottom" secondItem="UlA-2h-0kT" secondAttribute="bottom" constant="154" id="mNy-4t-vsI"/>
                 <constraint firstItem="UlA-2h-0kT" firstAttribute="trailing" secondItem="eIN-tl-cla" secondAttribute="trailing" id="v79-Eh-vIM"/>
                 <constraint firstItem="kch-Nj-QKf" firstAttribute="trailing" secondItem="UlA-2h-0kT" secondAttribute="trailing" id="xa2-7W-lTK"/>
                 <constraint firstItem="kch-Nj-QKf" firstAttribute="leading" secondItem="UlA-2h-0kT" secondAttribute="leading" id="xbz-4h-5SR"/>

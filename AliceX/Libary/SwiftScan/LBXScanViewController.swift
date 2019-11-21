@@ -123,7 +123,7 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
      */
     open func handleCodeResult(arrayResult: [LBXScanResult]) {
         
-        UIImpactFeedbackGenerator.init(style: .medium).impactOccurred()
+        UIImpactFeedbackGenerator.init(style: .heavy).impactOccurred()
         
         if let delegate = scanResultDelegate {
             navigationController?.popViewController(animated: true)

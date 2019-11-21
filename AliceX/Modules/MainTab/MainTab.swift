@@ -27,7 +27,8 @@ enum MainTab: Int, CaseIterable {
 //            return UIViewController()
 //            return ProfileViewController()
         case .setting:
-            return SettingViewController()
+            let vc = SettingViewController.make(hideBackButton: true)
+            return vc
         }
     }
 

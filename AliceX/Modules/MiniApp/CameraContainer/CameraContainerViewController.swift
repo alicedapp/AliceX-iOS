@@ -16,6 +16,8 @@ class CameraContainerViewController: LBXScanViewController {
     var block: StringBlock!
     var noFirst: Bool = false
     
+    var isActive: Bool = false
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -52,25 +54,27 @@ class CameraContainerViewController: LBXScanViewController {
         view.layoutIfNeeded()
         drawScanView()
         
-        if noFirst {
+        if noFirst && isActive {
             startScan()
         }
     }
 
     func activeCamera() {
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
         }
         noFirst = true
+        isActive = true
     }
 
     func disableCamera() {
 //        qRScanView?.removeFromSuperview()
         qRScanView?.stopScanAnimation()
         scanObj?.stop()
+        isActive = false
     }
 }
-
 
 extension CameraContainerViewController: LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {

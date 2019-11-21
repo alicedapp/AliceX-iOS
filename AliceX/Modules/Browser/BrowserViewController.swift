@@ -31,7 +31,10 @@ class BrowserViewController: BaseViewController {
 
     @objc var hk_iconImage: UIImage? {
         didSet {
-            self.wrapper!.hk_iconImage = hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+            guard let wrapper = self.wrapper else {
+             return
+            }
+            wrapper.hk_iconImage = hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
         }
     }
 

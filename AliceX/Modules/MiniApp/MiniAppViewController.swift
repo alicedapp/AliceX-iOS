@@ -12,7 +12,9 @@ import UIKit
 class MiniAppViewController: BaseViewController {
 
     @IBOutlet var naviContainer: UIView!
-
+    @IBOutlet var deleteZone: UIView!
+    @IBOutlet var deleteLabel: UILabel!
+    
     @IBOutlet var scrollViewCover: UIView!
     @IBOutlet var backIndicator: UIImageView!
     @IBOutlet var backButton: UIView!
@@ -25,6 +27,21 @@ class MiniAppViewController: BaseViewController {
     var percentage: CGFloat = 0.0
 
     var isTriggle: Bool = false
+    
+    var isImpacted: Bool = false
+    var isZoneHighlight: Bool = false {
+        didSet {
+            if isZoneHighlight {
+                if !isImpacted {
+                    let impactLight = UIImpactFeedbackGenerator(style: .medium)
+                    impactLight.impactOccurred()
+                    isImpacted = true
+                }
+            } else {
+                isImpacted = false
+            }
+        }
+    }
 
     lazy var cameraVC: CameraContainerViewController = { () -> CameraContainerViewController in
         let vc = CameraContainerViewController()
@@ -33,15 +50,9 @@ class MiniAppViewController: BaseViewController {
     }()
 
     var naviColor: UIColor = .white
-    var data: [HomeItem] = [.app(name: "Example"),
-                            .app(name: "DAOstack"),
-                            .app(name: "Foam"),
-                            .app(name: "CheezeWizards"),
-                            .web(url: URL(string: "https://twitter.com")!),
-                            .web(url: URL(string: "https://mycryptoheroes.net")!),
-                            .web(url: URL(string: "https://uniswap.exchange")!),
-                            .web(url: URL(string: "https://unipig.exchange")!),
-                            .web(url: URL(string: "https://alicedapp.com")!)]
+    var data: [HomeItem] = []
+    
+    var selectIndexPath: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +60,8 @@ class MiniAppViewController: BaseViewController {
         view.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
+//        collectionView.dragDelegate = self
+//        collectionView.dropDelegate = self
 
         addChild(cameraVC)
         view.insertSubview(cameraVC.view, belowSubview: naviContainer)
@@ -71,10 +84,9 @@ class MiniAppViewController: BaseViewController {
 
 //        backButton.transform = CGAffineTransform.init(translationX: 0, y: 30)
 //        backIndicator.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi / 2))
-        collectionView.registerCell(nibName: MiniAppCollectionViewCell.nameOfClass)
-        
-        let urls = data.filter { !$0.isApp }.compactMap { $0.url }
-        FaviconHelper.prefetchFavicon(urls: urls)
+        for cell in MiniAppTab.allCases {
+            collectionView.registerCell(nibName: cell.name)
+        }
         
         scrollViewCover = UIView()
         scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
@@ -86,15 +98,33 @@ class MiniAppViewController: BaseViewController {
         scrollViewCover.isUserInteractionEnabled = false
 //        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
 //        scrollViewCover.addGestureRecognizer(pan)
+        
+        HomeItemHelper.shared.loadFromCache().done { item in
+            self.data = item
+            self.homeItemAimation()
+            
+            let urls = self.data.filter { !$0.isApp }.compactMap { $0.url }
+            FaviconHelper.prefetchFavicon(urls: urls)
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .homeItemListChange, object: nil)
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
+        collectionView.addGestureRecognizer(longPress)
+    }
+    
+    @objc func listChange() {
+        data = HomeItemHelper.shared.list
+        collectionView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
         
 //        collectionView.layer.cornerRadius = 40
         collectionView.roundCorners(corners: .allCorners, radius: 40)
+//        view.bringSubviewToFront(deleteZone)
     }
     
-
     @IBAction func browserButtonClick() {
         let vc = BrowserWrapperViewController()
         navigationController?.pushViewController(vc, animated: true)

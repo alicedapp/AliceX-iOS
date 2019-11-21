@@ -13,6 +13,15 @@ enum HomeItem {
     case web(url: URL)
     case app(name: String)
 
+    var id: String {
+        switch self {
+        case .app(let name):
+            return name
+        case .web(let url):
+            return url.absoluteString
+        }
+    }
+    
     var name: String {
         switch self {
         case let .app(name):
@@ -21,10 +30,16 @@ enum HomeItem {
             guard let domain = url.host else {
                 return url.absoluteString
             }
-            guard let fisrt = domain.split(separator: ".").first else {
-                return url.absoluteString
+//            guard let first = domain.split(separator: ".").first else {
+//                return url.absoluteString
+//            }
+            
+            var urls = domain.split(separator: ".").dropLast(1)
+            
+            if urls.count == 2 {
+               urls = urls.dropFirst()
             }
-            return String(fisrt).firstCapitalized
+            return urls.joined().firstCapitalized
         }
     }
 
@@ -59,9 +74,26 @@ enum HomeItem {
         switch self {
         case .app(let name):
             return URL(string: "https://github.com/alicedapp/AliceX/blob/master/src/Apps/\(name)/Assets/logo.png?raw=true")!
-        case .web(let url):
+        case .web:
             // fetch from FaviconHelper
             return nil
         }
     }
 }
+
+
+extension HomeItem: Hashable, Equatable {
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    var hashValue: Int {
+        return id.hashValue
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+

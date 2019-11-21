@@ -11,12 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="JnJ-FT-awO" id="qvX-Ek-KYa"/>
                 <outlet property="backupView" destination="Ws2-Q7-e7z" id="Yo8-Ql-41u"/>
                 <outlet property="currencyLabel" destination="Z7U-0h-w9g" id="YPg-E5-4gw"/>
                 <outlet property="darkLabel" destination="VPn-pK-k4B" id="tPS-q2-F9K"/>
                 <outlet property="darkSwitch" destination="MJH-ef-ITT" id="zGo-As-J82"/>
                 <outlet property="darkTheme" destination="hA9-Uo-7g0" id="wIL-Qn-b89"/>
                 <outlet property="networkLabel" destination="dzC-sl-izU" id="csg-8Z-ftW"/>
+                <outlet property="scrollView" destination="ckU-Ov-Q5N" id="LXJ-8X-S60"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
