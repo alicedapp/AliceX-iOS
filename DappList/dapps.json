@@ -1,12 +1,5 @@
 [
     {
-        "link": "http://www.cryptokitties.co",
-        "img": "https://cdn.stateofthedapps.com/dapps/cryptokitties/icon_small_cryptokitties_f10091871f0167a36c0b4fc6ed225a9fdbd48cb54d1b12d94f61803ce1e2e56a_opti.png",
-        "name": "CryptoKitties",
-        "description": "Collect and breed digital cats",
-        "category": "Marketplaces"
-    },
-    {
         "link": "https://uniswap.exchange/",
         "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
         "name": "Uniswap",
@@ -14,11 +7,25 @@
         "category": "Exchanges"
     },
     {
+        "link": "http://www.cryptokitties.co",
+        "img": "https://cdn.stateofthedapps.com/dapps/cryptokitties/icon_small_cryptokitties_f10091871f0167a36c0b4fc6ed225a9fdbd48cb54d1b12d94f61803ce1e2e56a_opti.png",
+        "name": "CryptoKitties",
+        "description": "Collect and breed digital cats",
+        "category": "Marketplaces"
+    },
+    {
         "link": "https://map.foam.space/",
         "img": "https://cdn.stateofthedapps.com/dapps/foam/icon_small_foam_3e0582514d5557dd9c5edf0b66734fba7581a83aeb16b790126a3e3ec32b23c6_opti.png",
         "name": "FOAM",
         "description": "The consensus-driven map of the world",
         "category": "Property"
+    },
+    {
+        "link": "https://www.mycryptoheroes.net/",
+        "img": "https://cdn.stateofthedapps.com/dapps/my-crypto-heroes/icon_small_my-crypto-heroes_688aeecec4ac630cac6ea634e40002bdea7c4e186d04b5403fa447c09e5a8842_opti.png",
+        "name": "My Crypto Heroes",
+        "description": "Hero worker-placement RPG.",
+        "category": "Games"
     },
     {
         "link": "https://www.airswap.io/trade",
@@ -40,13 +47,6 @@
         "name": "Chainlink",
         "description": "Your smart contracts connected to real world data, events and payments.",
         "category": "Security"
-    },
-    {
-        "link": "https://www.mycryptoheroes.net/",
-        "img": "https://cdn.stateofthedapps.com/dapps/my-crypto-heroes/icon_small_my-crypto-heroes_688aeecec4ac630cac6ea634e40002bdea7c4e186d04b5403fa447c09e5a8842_opti.png",
-        "name": "My Crypto Heroes",
-        "description": "Hero worker-placement RPG.",
-        "category": "Games"
     },
     {
         "link": "https://basicattentiontoken.org/",
@@ -328,7 +328,6 @@
         "description": "Privacy protocol layer",
         "category": "Development"
     },
-
     {
         "link": "https://www.paxos.com/standard/",
         "img": "https://cdn.stateofthedapps.com/dapps/paxos-standard/icon_small_paxos-standard_e4bcbfcadeb836a35f1351f3242afe1217104276a2d5dc4fd396294acfb2de26_opti.png",
