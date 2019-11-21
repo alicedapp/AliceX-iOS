@@ -53,7 +53,7 @@ class CameraContainerViewController: LBXScanViewController {
         drawScanView()
         
         if noFirst {
-            scanObj?.start()
+            startScan()
         }
     }
 
