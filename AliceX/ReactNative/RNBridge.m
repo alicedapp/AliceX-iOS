@@ -112,6 +112,9 @@ RCT_EXTERN_METHOD(getOrientation:(RCTPromiseResolveBlock)resolve
 RCT_EXTERN_METHOD(isDarkMode:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(popToRootVC)
+RCT_EXTERN_METHOD(popBack)
+
 @end
 
 
