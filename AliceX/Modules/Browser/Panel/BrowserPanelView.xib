@@ -23,33 +23,8 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ava-iy-fli">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5Y-G4-MyW" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="93.5" height="100"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite" translatesAutoresizingMaskIntoConstraints="NO" id="Jio-fv-BcC">
-                                                    <rect key="frame" x="27" y="20" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="1x8-Z1-ehM"/>
-                                                        <constraint firstAttribute="width" secondItem="Jio-fv-BcC" secondAttribute="height" multiplier="1:1" id="RMi-yz-4dK"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-mv-epW">
-                                                    <rect key="frame" x="15.5" y="68" width="62.5" height="17.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" name="Alice-DarkGrey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" name="Alice-White"/>
-                                            <constraints>
-                                                <constraint firstItem="Jio-fv-BcC" firstAttribute="centerX" secondItem="p5Y-G4-MyW" secondAttribute="centerX" id="C8n-7r-ZKk"/>
-                                                <constraint firstItem="Jio-fv-BcC" firstAttribute="top" secondItem="p5Y-G4-MyW" secondAttribute="top" constant="20" id="OL1-Rm-RqA"/>
-                                                <constraint firstItem="hmv-mv-epW" firstAttribute="top" secondItem="Jio-fv-BcC" secondAttribute="bottom" constant="8" id="R71-Fw-RcY"/>
-                                                <constraint firstItem="hmv-mv-epW" firstAttribute="centerX" secondItem="p5Y-G4-MyW" secondAttribute="centerX" id="ge1-Js-opb"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="teN-lc-I1U" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="93.5" y="0.0" width="93.5" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="93.5" height="100"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="ORJ-AK-U7c">
                                                     <rect key="frame" x="29" y="20" width="36" height="40"/>
@@ -74,7 +49,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WH-ha-wEI" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="187" y="0.0" width="93.5" height="100"/>
+                                            <rect key="frame" x="93.5" y="0.0" width="93.5" height="100"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="safari" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-5s-tnk">
                                                     <rect key="frame" x="27" y="20" width="40" height="40"/>
@@ -99,6 +74,34 @@
                                             </constraints>
                                             <connections>
                                                 <action selector="safariButton" destination="iN0-l3-epB" eventType="touchUpInside" id="eHa-Gb-hBN"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOI-U7-m8n" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                                            <rect key="frame" x="187" y="0.0" width="93.5" height="100"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="qFW-AG-QcV">
+                                                    <rect key="frame" x="27" y="20" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="qFW-AG-QcV" secondAttribute="height" multiplier="1:1" id="Pjy-8a-vBU"/>
+                                                        <constraint firstAttribute="height" constant="40" id="ySC-Ip-Q7r"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-CY-TGK">
+                                                    <rect key="frame" x="27.5" y="68" width="39" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <constraints>
+                                                <constraint firstItem="qFW-AG-QcV" firstAttribute="centerX" secondItem="gOI-U7-m8n" secondAttribute="centerX" id="1dj-SY-Sne"/>
+                                                <constraint firstItem="Gmw-CY-TGK" firstAttribute="top" secondItem="qFW-AG-QcV" secondAttribute="bottom" constant="8" id="D10-ri-Xix"/>
+                                                <constraint firstItem="Gmw-CY-TGK" firstAttribute="centerX" secondItem="gOI-U7-m8n" secondAttribute="centerX" id="Y1P-Wm-Pzk"/>
+                                                <constraint firstItem="qFW-AG-QcV" firstAttribute="top" secondItem="gOI-U7-m8n" secondAttribute="top" constant="20" id="qAF-QU-5Td"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="shareButton" destination="iN0-l3-epB" eventType="touchUpInside" id="QO3-KY-hjZ"/>
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-xR-i3P" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
@@ -190,18 +193,18 @@
                                                 <action selector="dappButton" destination="iN0-l3-epB" eventType="touchUpInside" id="hsd-qO-gte"/>
                                             </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOI-U7-m8n" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5Y-G4-MyW" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                                             <rect key="frame" x="187" y="0.0" width="93.5" height="100"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="qFW-AG-QcV">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite" translatesAutoresizingMaskIntoConstraints="NO" id="Jio-fv-BcC">
                                                     <rect key="frame" x="27" y="20" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="qFW-AG-QcV" secondAttribute="height" multiplier="1:1" id="Pjy-8a-vBU"/>
-                                                        <constraint firstAttribute="height" constant="40" id="ySC-Ip-Q7r"/>
+                                                        <constraint firstAttribute="height" constant="40" id="1x8-Z1-ehM"/>
+                                                        <constraint firstAttribute="width" secondItem="Jio-fv-BcC" secondAttribute="height" multiplier="1:1" id="RMi-yz-4dK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-CY-TGK">
-                                                    <rect key="frame" x="27.5" y="68" width="39" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Home" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-mv-epW">
+                                                    <rect key="frame" x="2" y="68" width="89.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
@@ -209,13 +212,13 @@
                                             </subviews>
                                             <color key="backgroundColor" name="Alice-White"/>
                                             <constraints>
-                                                <constraint firstItem="qFW-AG-QcV" firstAttribute="centerX" secondItem="gOI-U7-m8n" secondAttribute="centerX" id="1dj-SY-Sne"/>
-                                                <constraint firstItem="Gmw-CY-TGK" firstAttribute="top" secondItem="qFW-AG-QcV" secondAttribute="bottom" constant="8" id="D10-ri-Xix"/>
-                                                <constraint firstItem="Gmw-CY-TGK" firstAttribute="centerX" secondItem="gOI-U7-m8n" secondAttribute="centerX" id="Y1P-Wm-Pzk"/>
-                                                <constraint firstItem="qFW-AG-QcV" firstAttribute="top" secondItem="gOI-U7-m8n" secondAttribute="top" constant="20" id="qAF-QU-5Td"/>
+                                                <constraint firstItem="Jio-fv-BcC" firstAttribute="centerX" secondItem="p5Y-G4-MyW" secondAttribute="centerX" id="C8n-7r-ZKk"/>
+                                                <constraint firstItem="Jio-fv-BcC" firstAttribute="top" secondItem="p5Y-G4-MyW" secondAttribute="top" constant="20" id="OL1-Rm-RqA"/>
+                                                <constraint firstItem="hmv-mv-epW" firstAttribute="top" secondItem="Jio-fv-BcC" secondAttribute="bottom" constant="8" id="R71-Fw-RcY"/>
+                                                <constraint firstItem="hmv-mv-epW" firstAttribute="centerX" secondItem="p5Y-G4-MyW" secondAttribute="centerX" id="ge1-Js-opb"/>
                                             </constraints>
                                             <connections>
-                                                <action selector="shareButton" destination="iN0-l3-epB" eventType="touchUpInside" id="QO3-KY-hjZ"/>
+                                                <action selector="favoriteButton" destination="iN0-l3-epB" eventType="touchUpInside" id="pLV-41-V1W"/>
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwJ-25-pMs" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">

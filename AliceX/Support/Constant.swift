@@ -63,6 +63,8 @@ extension Notification.Name {
     static let priceUpdate = Notification.Name("priceUpdate")
     static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
     
+    static let homeItemListChange = Notification.Name("homeItemListChange")
+    
     static let faviconDownload = Notification.Name("faviconDownload")
 }
 
@@ -73,6 +75,9 @@ class CacheKey {
     static let assetNFTKey = "alice.asset.NFT"
 //    static let assetERC20Key = "alice.asset.erc20"
 
+    static let homeItemList = "alice.miniApp.list"
+    static let browserDappList = "alice.browser.dapp.list"
+    
     static let watchingList = "alice.asset.watchingList"
     static let unWatchingList = "alice.asset.un.watchingList"
 

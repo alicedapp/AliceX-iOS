@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MiniAppAddCell" id="qfm-5g-vKD" customClass="MiniAppAddCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="503" height="365"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="503" height="365"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmt-yv-9Qd">
+                        <rect key="frame" x="0.0" y="0.0" width="503" height="365"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kv9-2B-tIs">
+                                <rect key="frame" x="0.0" y="0.0" width="503" height="365"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can add your favorite website or our app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uC-n1-Gud">
+                                        <rect key="frame" x="81" y="172" width="341" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Alice-LightGrey"/>
+                                <constraints>
+                                    <constraint firstItem="2uC-n1-Gud" firstAttribute="centerX" secondItem="kv9-2B-tIs" secondAttribute="centerX" id="pq7-H5-gMc"/>
+                                    <constraint firstItem="2uC-n1-Gud" firstAttribute="centerY" secondItem="kv9-2B-tIs" secondAttribute="centerY" id="tq0-BC-kys"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kv9-2B-tIs" secondAttribute="bottom" id="KNQ-bA-zDp"/>
+                            <constraint firstItem="kv9-2B-tIs" firstAttribute="leading" secondItem="mmt-yv-9Qd" secondAttribute="leading" id="dSU-fs-0Ju"/>
+                            <constraint firstAttribute="trailing" secondItem="kv9-2B-tIs" secondAttribute="trailing" id="fdw-Ky-6wd"/>
+                            <constraint firstItem="kv9-2B-tIs" firstAttribute="top" secondItem="mmt-yv-9Qd" secondAttribute="top" id="o5J-3W-yVj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="mmt-yv-9Qd" firstAttribute="leading" secondItem="qfm-5g-vKD" secondAttribute="leading" id="2Lc-LV-lfc"/>
+                <constraint firstAttribute="trailing" secondItem="mmt-yv-9Qd" secondAttribute="trailing" id="7fG-eR-hDA"/>
+                <constraint firstItem="mmt-yv-9Qd" firstAttribute="top" secondItem="qfm-5g-vKD" secondAttribute="top" id="CtP-Vk-dZ1"/>
+                <constraint firstAttribute="bottom" secondItem="mmt-yv-9Qd" secondAttribute="bottom" id="tMR-qy-nMA"/>
+            </constraints>
+            <size key="customSize" width="553" height="439"/>
+            <connections>
+                <outlet property="shadowView" destination="kv9-2B-tIs" id="KqF-vP-Cde"/>
+            </connections>
+            <point key="canvasLocation" x="502.17391304347831" y="234.70982142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

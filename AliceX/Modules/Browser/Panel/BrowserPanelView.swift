@@ -35,6 +35,16 @@ class BrowserPanelView: BaseView {
     @IBAction func safariButton() {
         UIApplication.shared.open((vcRef?.webview.url)!)
     }
+    
+    @IBAction func favoriteButton() {
+        guard let url = vcRef?.webview.url else {
+            return
+        }
+        
+        let item = HomeItem.web(url: url)
+        HomeItemHelper.shared.add(item: item)
+        HUDManager.shared.showSuccess(text: "Added to screen")
+    }
 
     @IBAction func shareButton() {
         HUDManager.shared.dismiss()

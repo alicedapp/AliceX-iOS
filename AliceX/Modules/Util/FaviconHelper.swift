@@ -12,7 +12,6 @@ import PromiseKit
 
 class FaviconHelper {
     
-    
     class func getBestFavicon(domain: String) -> Promise<URL> {
         return Promise<URL> { seal in
 //           guard let domain = url.host else {

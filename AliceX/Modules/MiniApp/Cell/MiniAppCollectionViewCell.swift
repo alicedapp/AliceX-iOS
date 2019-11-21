@@ -105,6 +105,8 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
             }
         } else {
             
+            colorView.backgroundColor = .clear
+            
             guard let url = item.url, let domain = url.host else {
                 self.emojiLabel.isHidden = false
                 self.emojiLabel.text = Constant.randomEmoji()

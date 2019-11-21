@@ -38,41 +38,56 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvw-0A-O2a">
-                        <rect key="frame" x="84.5" y="15" width="189.5" height="20"/>
+                        <rect key="frame" x="84.5" y="15" width="144.5" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktf-Ml-jsy">
-                        <rect key="frame" x="84.5" y="45" width="189.5" height="15.5"/>
+                        <rect key="frame" x="84.5" y="45" width="144.5" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdQ-gy-S0l">
-                        <rect key="frame" x="282" y="22" width="45" height="45"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdQ-gy-S0l" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                        <rect key="frame" x="237" y="22" width="90" height="45"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ca-yt-Ehz">
+                                <rect key="frame" x="33" y="13" width="52" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-ox-VpG" customClass="VBFPopFlatButton">
-                                <rect key="frame" x="7" y="7" width="31.5" height="31.5"/>
+                                <rect key="frame" x="8" y="12.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="B9B-m4-zOv"/>
                                     <constraint firstAttribute="width" secondItem="Td8-ox-VpG" secondAttribute="height" multiplier="1:1" id="EaR-TO-Gv9"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rKx-BS-4in"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Td8-ox-VpG" firstAttribute="centerX" secondItem="kdQ-gy-S0l" secondAttribute="centerX" id="2eR-zK-JCT"/>
-                            <constraint firstItem="Td8-ox-VpG" firstAttribute="width" secondItem="kdQ-gy-S0l" secondAttribute="width" multiplier="0.7" id="326-UZ-Cu3"/>
                             <constraint firstItem="Td8-ox-VpG" firstAttribute="centerY" secondItem="kdQ-gy-S0l" secondAttribute="centerY" id="4Ii-br-PV2"/>
-                            <constraint firstAttribute="width" constant="45" id="HxN-EX-iAt"/>
+                            <constraint firstAttribute="width" constant="90" id="HxN-EX-iAt"/>
                             <constraint firstAttribute="height" constant="45" id="OeK-6c-cr4"/>
+                            <constraint firstAttribute="trailing" secondItem="2Ca-yt-Ehz" secondAttribute="trailing" constant="5" id="nnb-xw-yue"/>
+                            <constraint firstItem="2Ca-yt-Ehz" firstAttribute="leading" secondItem="Td8-ox-VpG" secondAttribute="trailing" constant="5" id="oKr-Sg-uXM"/>
+                            <constraint firstItem="Td8-ox-VpG" firstAttribute="leading" secondItem="kdQ-gy-S0l" secondAttribute="leading" constant="8" id="q5f-m9-KA5"/>
+                            <constraint firstItem="2Ca-yt-Ehz" firstAttribute="centerY" secondItem="kdQ-gy-S0l" secondAttribute="centerY" id="vLv-KF-QQq"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="15"/>
+                                <integer key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="addButtonClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2Kp-nP-lP7"/>
+                        </connections>
                     </view>
                 </subviews>
                 <color key="backgroundColor" name="Alice-White"/>
@@ -96,10 +111,11 @@
             <color key="backgroundColor" name="Alice-White"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addBackground" destination="kdQ-gy-S0l" id="IYC-k7-Dad"/>
                 <outlet property="addButton" destination="Td8-ox-VpG" id="ju2-Rg-TXk"/>
+                <outlet property="addLabel" destination="2Ca-yt-Ehz" id="jc4-44-EGv"/>
                 <outlet property="descLabel" destination="ktf-Ml-jsy" id="2DV-Yg-Les"/>
                 <outlet property="logoView" destination="olx-DR-c9K" id="qRQ-l8-CXX"/>
-                <outlet property="tagView" destination="kdQ-gy-S0l" id="93B-SV-Ssw"/>
                 <outlet property="titleLabel" destination="zvw-0A-O2a" id="5E9-qk-WHH"/>
             </connections>
             <point key="canvasLocation" x="151.44927536231884" y="131.58482142857142"/>

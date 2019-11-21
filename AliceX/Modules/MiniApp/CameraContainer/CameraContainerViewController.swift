@@ -76,7 +76,6 @@ class CameraContainerViewController: LBXScanViewController {
     }
 }
 
-
 extension CameraContainerViewController: LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         if error != nil {

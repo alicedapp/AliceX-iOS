@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PromiseKit
+import Haneke
 
 class DAppListViewController: BaseViewController {
     weak var vcRef: BrowserViewController?
@@ -19,11 +21,31 @@ class DAppListViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCell(nibName: "DappTableViewCell")
-        loadData()
+        loadFromCache()
+        requestData()
     }
 
     @IBAction func dismissView() {
         HUDManager.shared.dismiss()
+    }
+    
+    func requestData() {
+        
+        GithubAPI.request(.dappList) { result in
+            switch result {
+            case .success(let response):
+                guard let modelArray = response.mapArray(DAppModel.self) else {
+                    return
+                }
+                self.dappList = modelArray as! [DAppModel]
+                self.tableView.reloadData()
+                self.storeInCache()
+            case .failure(let error):
+                self.loadData()
+                print(error.errorDescription)
+            }
+        }
+        
     }
 
     func loadData() {
@@ -54,5 +76,27 @@ extension DAppListViewController: UITableViewDelegate, UITableViewDataSource {
         let model = dappList![indexPath.row]
         vcRef?.goTo(url: URL(string: model.link)!)
         HUDManager.shared.dismiss()
+    }
+}
+
+
+extension DAppListViewController {
+    func loadFromCache() {
+        let cacheKey = CacheKey.browserDappList
+        Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
+            guard let modelArray = [DAppModel].deserialize(from: result) else {
+                return
+            }
+            self.dappList = modelArray as! [DAppModel]
+            self.tableView.reloadData()
+        }.onFailure { error in
+            self.loadData()
+        }
+        
+    }
+    
+    func storeInCache() {
+        let cacheKey = CacheKey.browserDappList
+        Shared.stringCache.set(value: (dappList?.toJSONString())!, key: cacheKey)
     }
 }

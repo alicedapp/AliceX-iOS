@@ -14,13 +14,22 @@ import UIKit
 class SettingViewController: BaseViewController {
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
-//    @IBOutlet var versionLabel: UILabel!
+    @IBOutlet var scrollView: UIScrollView!
 
+    var hideBackButton: Bool = false
+    @IBOutlet var backButton: UIView!
+    
     @IBOutlet var backupView: UIView!
 
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
     @IBOutlet var darkSwitch: UISwitch!
+    
+    class func make(hideBackButton: Bool) -> SettingViewController {
+        let vc = SettingViewController()
+        vc.hideBackButton = hideBackButton
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +42,12 @@ class SettingViewController: BaseViewController {
 
 //        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
-
+        backButton.isHidden = hideBackButton
+        
+        if hideBackButton {
+            scrollView.alwaysBounceVertical = true
+        }
+        
         if #available(iOS 13.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
