@@ -32,6 +32,5 @@ extension EditAddressViewController: UITableViewDelegate, UITableViewDataSource 
         let url = URL(string: urlString)
         browerRef!.goTo(url: url!)
         backButtonClicked()
-        
     }
 }

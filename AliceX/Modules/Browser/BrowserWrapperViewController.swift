@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 // Wrapper Broswer For Switch Network
 class BrowserWrapperViewController: BaseViewController {
     var vc: BrowserViewController!
-    var urlString: String = "https://www.duckduckgo.com/"
+    var urlString: String = ""
 //    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -29,6 +30,9 @@ class BrowserWrapperViewController: BaseViewController {
     }
 
     override func viewDidLoad() {
+        if urlString.isEmptyAfterTrim() {
+            urlString = Defaults[\.homepage].absoluteString
+        }
         addBrowser()
         NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork), name: .networkChange, object: nil)
     }

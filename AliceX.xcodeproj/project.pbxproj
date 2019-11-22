@@ -257,6 +257,9 @@
 		15DF2A0A2387C3B00013664E /* QuerySuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A082387C3B00013664E /* QuerySuggestCell.swift */; };
 		15DF2A0B2387C3B00013664E /* QuerySuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF2A092387C3B00013664E /* QuerySuggestCell.xib */; };
 		15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A0D2387C3FE0013664E /* EditAddressViewController+TableVIew.swift */; };
+		15DF2A112387CB7F0013664E /* BrowserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A102387CB7F0013664E /* BrowserSetting.swift */; };
+		15DF2A142387CBA60013664E /* BrowserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A122387CBA60013664E /* BrowserSettingViewController.swift */; };
+		15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF2A132387CBA60013664E /* BrowserSettingViewController.xib */; };
 		15E1AA93236706FE00F29369 /* Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA92236706FE00F29369 /* Binance.swift */; };
 		15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */; };
 		15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */; };
@@ -559,6 +562,9 @@
 		15DF2A082387C3B00013664E /* QuerySuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggestCell.swift; sourceTree = "<group>"; };
 		15DF2A092387C3B00013664E /* QuerySuggestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuerySuggestCell.xib; sourceTree = "<group>"; };
 		15DF2A0D2387C3FE0013664E /* EditAddressViewController+TableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditAddressViewController+TableVIew.swift"; sourceTree = "<group>"; };
+		15DF2A102387CB7F0013664E /* BrowserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSetting.swift; sourceTree = "<group>"; };
+		15DF2A122387CBA60013664E /* BrowserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSettingViewController.swift; sourceTree = "<group>"; };
+		15DF2A132387CBA60013664E /* BrowserSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserSettingViewController.xib; sourceTree = "<group>"; };
 		15E1AA92236706FE00F29369 /* Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance.swift; sourceTree = "<group>"; };
 		15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressQRCodeViewController.swift; sourceTree = "<group>"; };
 		15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRCodeViewController.xib; sourceTree = "<group>"; };
@@ -1120,6 +1126,7 @@
 		1581EC0E22D837FE00B74F30 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				15DF2A0F2387CB6B0013664E /* Setting */,
 				15DF29FB2387ACB00013664E /* HomeWebBrowserVC */,
 				15BC4DB522DAD00500313CA9 /* DAppList */,
 				15BC4DAE22DA461700313CA9 /* Panel */,
@@ -1692,6 +1699,16 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		15DF2A0F2387CB6B0013664E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				15DF2A102387CB7F0013664E /* BrowserSetting.swift */,
+				15DF2A122387CBA60013664E /* BrowserSettingViewController.swift */,
+				15DF2A132387CBA60013664E /* BrowserSettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		15E1AA9423670D1800F29369 /* Binance */ = {
 			isa = PBXGroup;
 			children = (
@@ -2019,6 +2036,7 @@
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
+				15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */,
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
 				1577DDD72380952B00225DE6 /* GoogleService-Info.plist in Resources */,
@@ -2205,6 +2223,7 @@
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				158A909123704A0E002F9F18 /* PriceManager+Cache.swift in Sources */,
+				15DF2A112387CB7F0013664E /* BrowserSetting.swift in Sources */,
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1577DDD4237EC10700225DE6 /* WalletCoreManager+Binance.swift in Sources */,
@@ -2308,6 +2327,7 @@
 				156F07E9236B3E6D00602A01 /* AddressQRViewController.swift in Sources */,
 				152541F62386BC11005CC83E /* Github.swift in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
+				15DF2A142387CBA60013664E /* BrowserSettingViewController.swift in Sources */,
 				1573B52E2375A7C300257A1A /* KDDragAndDropCollectionView.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,

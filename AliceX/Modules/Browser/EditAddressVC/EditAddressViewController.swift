@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class EditAddressViewController: BaseViewController {
     @IBOutlet var addressField: UITextField!
@@ -85,8 +86,11 @@ class EditAddressViewController: BaseViewController {
             urlString = String(urlString.dropFirst(8))
         }
 
+        let defaultEngine = Defaults[\.searchEngine]
+        let engine = SearchEngine(rawValue: defaultEngine)!
+        
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        urlString = "https://www.google.com/search?q=\(urlString)"
+        urlString = "\(engine.queryString)\(urlString)"
 
         return urlString
     }

@@ -115,7 +115,7 @@ class FaviconHelper {
         }
     }
     
-    class func bestIcon(domain:String, size: Int = 120) -> URL {
+    class func bestIcon(domain: String, size: Int = 120) -> URL {
         return URL(string: "https://besticon-demo.herokuapp.com/icon?url=\(domain)&size=\(size)")!
     }
     

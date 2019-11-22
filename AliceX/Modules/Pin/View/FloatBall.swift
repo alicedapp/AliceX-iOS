@@ -51,7 +51,7 @@ class FloatBall: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 5
 
-        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
+//        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
 //        updateImage()
     }
     
@@ -98,14 +98,14 @@ class FloatBall: UIView {
 
     func updateIfNeeded() {
         var shouldShow = false
-        walletConnect.isHidden = true
+//        walletConnect.isHidden = true
         for item in PinManager.shared.pinList {
             if item.txHash.count > 0 {
                 shouldShow = true
             }
-            if item.isWalletConnect {
-                walletConnect.isHidden = false
-            }
+//            if item.isWalletConnect {
+//                walletConnect.isHidden = false
+//            }
         }
         showPending = shouldShow
         updateImage()

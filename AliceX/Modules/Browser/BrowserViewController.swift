@@ -59,10 +59,6 @@ class BrowserViewController: BaseViewController {
         webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
                                height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
 
-//        let url = URL(string: "https://web3app-cbrbkckrtz.now.sh")
-//        let url = URL(string: "https://www.cryptokitties.co/")
-//        let url = URL(string: "https://uniswap.exchange/swap")
-
         urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
