@@ -60,14 +60,16 @@ class BrowserWrapperViewController: BaseViewController {
 extension BrowserWrapperViewController: PinDelegate {
     func pinItem() -> PinItem {
         
-        var url = URL(string: "https://cdn4.iconfinder.com/data/icons/hosting-and-server/500/Hosting-30-512.png")!
+        let url = vc.webview.url!
+        
+        let imageURL = FaviconHelper.bestIcon(url: url)
 
 //        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
 //            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
 //        }
         
-        FaviconHelper.prefetchFavicon(urls: [vc.webview.url!])
-        return .website(image: url,
+        FaviconHelper.prefetchFavicon(urls: [url])
+        return .website(image: imageURL,
                         url: vc.webview.url!,
                         title: vc.webview.title ?? vc.webview.url!.absoluteString,
                         viewcontroller: self)

@@ -70,11 +70,11 @@ class EditAddressViewController: BaseViewController {
         }
 
         if urlString.hasPrefix("http://") {
-            urlString = String(urlString.dropLast(7))
+            urlString = String(urlString.dropFirst(7))
         }
 
         if urlString.hasPrefix("https://") {
-            urlString = String(urlString.dropLast(8))
+            urlString = String(urlString.dropFirst(8))
         }
 
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!

@@ -29,15 +29,6 @@ class BrowserViewController: BaseViewController {
 
     weak var wrapper: BrowserWrapperViewController?
 
-//    @objc var hk_iconImage: UIImage? {
-//        didSet {
-//            guard let wrapper = self.wrapper else {
-//             return
-//            }
-//            wrapper.hk_iconImage = hk_iconImage ?? UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
-//        }
-//    }
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

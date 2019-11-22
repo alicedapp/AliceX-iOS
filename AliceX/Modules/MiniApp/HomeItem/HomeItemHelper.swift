@@ -74,7 +74,8 @@ extension HomeItemHelper {
                 if let err = error, err._code == -100 { // No Key
                     self.list = [.app(name: "DAOstack"),
                                  .app(name: "CheezeWizards"),
-                                 .web(url: URL(string: "https://uniswap.exchange")!)]
+                                 .web(url: URL(string: "https://uniswap.exchange")!),
+                                 .web(url: URL(string: "https://app.compound.finance/")!)]
                     self.storeInCache()
                     seal.fulfill(self.list)
                     return

@@ -91,7 +91,8 @@ class FloatBall: UIView {
             }
             
         } else {
-            imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+            imageView.image = nil
+//                UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
         }
     }
 
