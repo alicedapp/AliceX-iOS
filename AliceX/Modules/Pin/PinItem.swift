@@ -49,6 +49,17 @@ enum PinItem {
             return false
         }
     }
+    
+    
+    var isWebSite: Bool {
+        switch self {
+        case .website:
+            return true
+        default:
+            return false
+        }
+    }
+
 
     var wcKey: String {
         switch self {

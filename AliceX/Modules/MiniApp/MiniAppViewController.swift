@@ -107,11 +107,17 @@ class MiniAppViewController: BaseViewController {
             FaviconHelper.prefetchFavicon(urls: urls)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .homeItemListChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(listChange),
+                                               name: .homeItemListChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(coverClick),
+                                               name: .wallectConnectClientConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(coverClick),
+                                               name: .wallectConnectServerConnect, object: nil)
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
         collectionView.addGestureRecognizer(longPress)
     }
+
     
     @objc func listChange() {
         data = HomeItemHelper.shared.list

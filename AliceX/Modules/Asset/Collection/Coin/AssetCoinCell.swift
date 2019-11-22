@@ -61,7 +61,8 @@ class AssetCoinCell: UICollectionViewCell {
     }
 
     @objc func tapAction(gesture: UITapGestureRecognizer) {
-        if coin == Coin.coin(chain: .Bitcoin) || coin == Coin.coin(chain: .Cosmos) {
+//        || coin == Coin.coin(chain: .Cosmos)
+        if coin == Coin.coin(chain: .Bitcoin) {
             HUDManager.shared.showError(text: "Not available now")
             return
         }

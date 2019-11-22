@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditAddressViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
                 <outlet property="addressField" destination="eDU-Sy-YW0" id="1Mi-1M-24H"/>
+                <outlet property="tableView" destination="1Mq-bA-t7V" id="Sl3-j4-4HI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,6 +36,9 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navAddressLabel"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="textFieldChange" destination="-1" eventType="editingChanged" id="sWk-zu-v7d"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
@@ -75,12 +79,20 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navBarContainer"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-bA-t7V">
+                    <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" name="Alice-LightBackground"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rwE-H4-Pu5" secondAttribute="trailing" id="6O9-rW-j6e"/>
+                <constraint firstItem="1Mq-bA-t7V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Do7-Vo-7HU"/>
+                <constraint firstItem="1Mq-bA-t7V" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Itp-pY-uPU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rwE-H4-Pu5" secondAttribute="bottom" id="dYe-xD-y7F"/>
+                <constraint firstItem="rwE-H4-Pu5" firstAttribute="top" secondItem="1Mq-bA-t7V" secondAttribute="bottom" id="l8P-6c-Il7"/>
                 <constraint firstItem="rwE-H4-Pu5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ojX-Jg-uGV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Mq-bA-t7V" secondAttribute="trailing" id="sHF-FE-HuZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="123"/>

@@ -70,7 +70,18 @@ class BrowserPanelView: BaseView {
     @IBAction func dappButton() {
         let vc = DAppListViewController()
         vc.vcRef = vcRef
-        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+    }
+    
+    @IBAction func configureButton() {
+//        HUDManager.shared.dismiss()
+        let vc = BrowserSettingViewController()
+        vc.vcRef = vcRef
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+        
+//        vc.modalPresentationStyle = .overCurrentContext
+//        vcRef?.present(vc, animated: true, completion: nil)
+//        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
 
     @IBAction func networkButton() {

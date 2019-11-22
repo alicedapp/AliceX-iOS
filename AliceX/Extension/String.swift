@@ -56,18 +56,25 @@ extension String {
         }
     }
 
-//    func validateUrl () -> Bool {
-//        let urlRegEx = "^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$"
+    func validateUrl () -> Bool {
+        guard !contains("..") else { return false }
+
+        let head     = "((http|https)://)?([(w|W)]{3}+\\.)?"
+        let tail     = "\\.+[A-Za-z]{1,10}+(\\.)?+(/(.)*)?"
+        let urlRegEx = head+"+(.)+"+tail
+
+        let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegEx)
+        return urlTest.evaluate(with: trimmingCharacters(in: .whitespaces))
 //        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: self)
-//    }
-
-    func validateUrl() -> Bool {
-        guard let url = URL(string: self) else {
-            return false
-        }
-
-        return UIApplication.shared.canOpenURL(url)
     }
+
+//    func validateUrl() -> Bool {
+//        guard let url = URL(string: self) else {
+//            return false
+//        }
+//
+//        return UIApplication.shared.canOpenURL(url)
+//    }
 
     var drop0x: String {
         if count > 2, substring(with: 0 ..< 2) == "0x" {
