@@ -28,6 +28,7 @@ extension MiniAppViewController {
             self.naviContainer.transform = CGAffineTransform.identity
             self.collectionView.transform = CGAffineTransform.identity
             self.naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 0)
+//            self.collectionView.roundCorners(corners: [.topRight, .topRight], radius: 0)
             self.cameraVC.blurView.alpha = 1.0
         }) { _ in
             self.scrollViewCover.isUserInteractionEnabled = false
@@ -46,8 +47,14 @@ extension MiniAppViewController: UIScrollViewDelegate {
         if y > 0 {
             let percentage = min(max(y / 104, 0), 1.0)
             titleLabel.alpha = percentage
+            
+            collectionView.backgroundColor = collectionColor
+//            scrollViewBG.isHidden = true
             return
         }
+        
+        collectionView.backgroundColor = .clear
+//        scrollViewBG.isHidden = false
 
         if isTriggle {
             return
@@ -71,13 +78,14 @@ extension MiniAppViewController: UIScrollViewDelegate {
 
         self.percentage = percentage
 
-        print(percentage)
+//        print(percentage)
 
         updateCameraVC(slowPercentage: slowPercentage)
         updateStyle(slowPercentage: slowPercentage)
     }
 
     func updateStyle(slowPercentage _: CGFloat) {
+//        collectionView.roundCorners(corners: [.topRight, .topRight], radius: 40)
         naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 40 * percentage)
         naviContainer.transform = CGAffineTransform(translationX: 0, y: -120 * percentage)
         scrollViewCover.alpha = percentage

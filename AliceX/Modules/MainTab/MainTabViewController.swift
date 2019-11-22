@@ -14,6 +14,10 @@ class MainTabViewController: PageboyViewController {
     @IBOutlet var container: UIView!
     var tabs = MainTab.allCases
 
+    let vcs = [ MiniAppViewController(),
+                AssetViewController(),
+                SettingViewController.make(hideBackButton: true)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
@@ -30,8 +34,8 @@ extension MainTabViewController: PageboyViewControllerDataSource {
 
     func viewController(for _: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
-        let tab = tabs[index]
-        return tab.vc
+//        let tab = tabs[index]
+        return vcs[index]
     }
 
     func defaultPage(for _: PageboyViewController) -> PageboyViewController.Page? {

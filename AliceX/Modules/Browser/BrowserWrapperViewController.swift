@@ -62,9 +62,11 @@ class BrowserWrapperViewController: BaseViewController {
 }
 
 extension BrowserWrapperViewController: PinDelegate {
-    func pinItem() -> PinItem {
+    func pinItem() -> PinItem? {
         
-        let url = vc.webview.url!
+        guard let url = vc.webview.url else {            
+            return nil
+        }
         
         let imageURL = FaviconHelper.bestIcon(url: url)
 

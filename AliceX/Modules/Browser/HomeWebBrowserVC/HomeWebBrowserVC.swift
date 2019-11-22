@@ -63,10 +63,10 @@ class HomeWebBrowserVC: BrowserViewController {
     }
     
     @IBAction func logoClicked() {
-        guard let wrapper = self.wrapper else {
+        guard let wrapper = self.wrapper, let item = wrapper.pinItem() else {
             return
         }
-        PinManager.shared.addPinItem(item: wrapper.pinItem())
+        PinManager.shared.addPinItem(item: item)
         PinManager.shared.currentPin = wrapper.pinItem()
         wrapper.navigationController?.popViewController(animated: true)
     }

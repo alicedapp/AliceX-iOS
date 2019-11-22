@@ -52,11 +52,11 @@ class BrowserPanelView: BaseView {
     }
 
     @IBAction func pinButton() {
-        guard let ref = self.vcRef, let wrapper = ref.wrapper else {
+        guard let ref = self.vcRef, let wrapper = ref.wrapper, let item = wrapper.pinItem() else {
             return
         }
         HUDManager.shared.dismiss()
-        PinManager.shared.addPinItem(item: wrapper.pinItem())
+        PinManager.shared.addPinItem(item: item)
         PinManager.shared.currentPin = wrapper.pinItem()
         wrapper.navigationController?.popViewController(animated: true)
     }

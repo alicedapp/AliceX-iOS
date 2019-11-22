@@ -10,7 +10,7 @@ import Foundation
 import Kingfisher
 
 protocol PinDelegate {
-    func pinItem() -> PinItem
+    func pinItem() -> PinItem?
 }
 
 enum PinItem {

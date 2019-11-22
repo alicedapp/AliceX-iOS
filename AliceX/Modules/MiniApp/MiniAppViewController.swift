@@ -15,7 +15,10 @@ class MiniAppViewController: BaseViewController {
     @IBOutlet var deleteZone: UIView!
     @IBOutlet var deleteLabel: UILabel!
     
-    @IBOutlet var scrollViewCover: UIView!
+    var scrollViewCover: UIView!
+    var scrollViewBG: UIView!
+    var collectionColor: UIColor!
+    
     @IBOutlet var backIndicator: UIImageView!
     @IBOutlet var backButton: UIView!
 
@@ -88,16 +91,35 @@ class MiniAppViewController: BaseViewController {
             collectionView.registerCell(nibName: cell.name)
         }
         
+        collectionColor = collectionView.backgroundColor
+        
+        scrollViewBG = UIView()
+        scrollViewBG.isUserInteractionEnabled = false
+        scrollViewBG.backgroundColor = collectionView.backgroundColor
+        scrollViewBG.layer.cornerRadius = 40
+        scrollViewBG.layer.zPosition = -1
+        collectionView.insertSubview(scrollViewBG, belowSubview: collectionView)
+        scrollViewBG.fillSuperview()
+//        collectionView.backgroundView = scrollViewBG
+        
         scrollViewCover = UIView()
         scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
         scrollViewCover.alpha = 0
+        scrollViewCover.layer.cornerRadius = 40
         collectionView.addSubview(scrollViewCover)
+        collectionView.bringSubviewToFront(scrollViewCover)
         scrollViewCover.fillSuperview()
+        
+//        scrollViewBG.isHidden = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(coverClick))
         scrollViewCover.addGestureRecognizer(tap)
         scrollViewCover.isUserInteractionEnabled = false
+        
 //        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
 //        scrollViewCover.addGestureRecognizer(pan)
+        
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         
         HomeItemHelper.shared.loadFromCache().done { item in
             self.data = item
@@ -118,7 +140,6 @@ class MiniAppViewController: BaseViewController {
         collectionView.addGestureRecognizer(longPress)
     }
 
-    
     @objc func listChange() {
         data = HomeItemHelper.shared.list
         collectionView.reloadData()
@@ -126,8 +147,8 @@ class MiniAppViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         
-//        collectionView.layer.cornerRadius = 40
-        collectionView.roundCorners(corners: .allCorners, radius: 40)
+        collectionView.layer.cornerRadius = 40
+//        collectionView.roundCorners(corners: .allCorners, radius: 40)
 //        view.bringSubviewToFront(deleteZone)
     }
     

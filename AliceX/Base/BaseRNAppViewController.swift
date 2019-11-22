@@ -33,7 +33,7 @@ class BaseRNAppViewController: BaseViewController {
 }
 
 extension BaseRNAppViewController: PinDelegate {
-    func pinItem() -> PinItem {
+    func pinItem() -> PinItem? {
 
         guard let item = self.item, item.isApp else {
 //            let url =
