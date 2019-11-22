@@ -121,7 +121,7 @@ class MiniAppViewController: BaseViewController {
 //        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
 //        scrollViewCover.addGestureRecognizer(pan)
         
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         
         HomeItemHelper.shared.loadFromCache().done { item in
             self.data = item

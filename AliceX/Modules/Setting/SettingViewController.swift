@@ -46,6 +46,7 @@ class SettingViewController: BaseViewController {
         
         if hideBackButton {
             scrollView.alwaysBounceVertical = true
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         }
         
         if #available(iOS 13.0, *) {
