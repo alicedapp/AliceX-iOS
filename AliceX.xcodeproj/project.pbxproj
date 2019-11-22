@@ -253,6 +253,10 @@
 		15DF29FF2387ACCE0013664E /* HomeWebBrowserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF29FD2387ACCE0013664E /* HomeWebBrowserVC.xib */; };
 		15DF2A012387AE920013664E /* HomeWebPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A002387AE920013664E /* HomeWebPanelView.swift */; };
 		15DF2A042387AEA60013664E /* HomeWebPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF2A032387AEA60013664E /* HomeWebPanelView.xib */; };
+		15DF2A072387C2C80013664E /* QuerySuggest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A062387C2C80013664E /* QuerySuggest.swift */; };
+		15DF2A0A2387C3B00013664E /* QuerySuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A082387C3B00013664E /* QuerySuggestCell.swift */; };
+		15DF2A0B2387C3B00013664E /* QuerySuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF2A092387C3B00013664E /* QuerySuggestCell.xib */; };
+		15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A0D2387C3FE0013664E /* EditAddressViewController+TableVIew.swift */; };
 		15E1AA93236706FE00F29369 /* Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA92236706FE00F29369 /* Binance.swift */; };
 		15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */; };
 		15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */; };
@@ -551,6 +555,10 @@
 		15DF29FD2387ACCE0013664E /* HomeWebBrowserVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeWebBrowserVC.xib; sourceTree = "<group>"; };
 		15DF2A002387AE920013664E /* HomeWebPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWebPanelView.swift; sourceTree = "<group>"; };
 		15DF2A032387AEA60013664E /* HomeWebPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeWebPanelView.xib; sourceTree = "<group>"; };
+		15DF2A062387C2C80013664E /* QuerySuggest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggest.swift; sourceTree = "<group>"; };
+		15DF2A082387C3B00013664E /* QuerySuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggestCell.swift; sourceTree = "<group>"; };
+		15DF2A092387C3B00013664E /* QuerySuggestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuerySuggestCell.xib; sourceTree = "<group>"; };
+		15DF2A0D2387C3FE0013664E /* EditAddressViewController+TableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditAddressViewController+TableVIew.swift"; sourceTree = "<group>"; };
 		15E1AA92236706FE00F29369 /* Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance.swift; sourceTree = "<group>"; };
 		15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressQRCodeViewController.swift; sourceTree = "<group>"; };
 		15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRCodeViewController.xib; sourceTree = "<group>"; };
@@ -1139,7 +1147,9 @@
 		1581EC1422D8564E00B74F30 /* EditAddressVC */ = {
 			isa = PBXGroup;
 			children = (
+				15DF2A0C2387C3B50013664E /* cell */,
 				1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */,
+				15DF2A0D2387C3FE0013664E /* EditAddressViewController+TableVIew.swift */,
 				1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */,
 			);
 			path = EditAddressVC;
@@ -1209,6 +1219,8 @@
 		1587396222BA073800F36F92 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				15DF2A052387C2B10013664E /* AutoComplete */,
+				154F60A123846CE90011200F /* FaviconGrabber */,
 				1587396322BA074E00F36F92 /* Moya+HandyJSON.swift */,
 				15477B3C22E15B4C008E3230 /* Moya+Util.swift */,
 			);
@@ -1219,7 +1231,6 @@
 			isa = PBXGroup;
 			children = (
 				152541F42386BC01005CC83E /* Github */,
-				154F60A123846CE90011200F /* FaviconGrabber */,
 				158A905A2370259D002F9F18 /* Cryptocompare */,
 				151250C423661F3B00AD37BB /* OpenSea */,
 				1525E79123311BF4009DAB83 /* AmberData */,
@@ -1664,6 +1675,23 @@
 			path = Panel;
 			sourceTree = "<group>";
 		};
+		15DF2A052387C2B10013664E /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				15DF2A062387C2C80013664E /* QuerySuggest.swift */,
+			);
+			path = AutoComplete;
+			sourceTree = "<group>";
+		};
+		15DF2A0C2387C3B50013664E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				15DF2A082387C3B00013664E /* QuerySuggestCell.swift */,
+				15DF2A092387C3B00013664E /* QuerySuggestCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		15E1AA9423670D1800F29369 /* Binance */ = {
 			isa = PBXGroup;
 			children = (
@@ -1944,6 +1972,7 @@
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
 				1514465523644698005E87CE /* AssetViewController.xib in Resources */,
+				15DF2A0B2387C3B00013664E /* QuerySuggestCell.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */,
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
@@ -2228,6 +2257,7 @@
 				15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */,
 				1535C2CE22F1643500C62FDC /* BaseAlertView.swift in Sources */,
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
+				15DF2A0A2387C3B00013664E /* QuerySuggestCell.swift in Sources */,
 				154F60A023844A540011200F /* HomeItem.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
@@ -2292,9 +2322,11 @@
 				157A2EFD23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift in Sources */,
 				153B044E236D9701008A2139 /* ERC20.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
+				15DF2A072387C2C80013664E /* QuerySuggest.swift in Sources */,
 				152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
+				15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
 				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,

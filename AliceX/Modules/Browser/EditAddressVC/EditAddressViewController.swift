@@ -10,7 +10,10 @@ import UIKit
 
 class EditAddressViewController: BaseViewController {
     @IBOutlet var addressField: UITextField!
+    @IBOutlet var tableView: UITableView!
 
+    var data: [String] = []
+    
     weak var browerRef: BrowserViewController?
     var address: String?
 
@@ -18,6 +21,11 @@ class EditAddressViewController: BaseViewController {
         super.viewDidLoad()
         addressField.text = address
         addressField.delegate = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+        tableView.registerCell(nibName: QuerySuggestCell.nameOfClass)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +93,35 @@ class EditAddressViewController: BaseViewController {
 }
 
 extension EditAddressViewController: UITextFieldDelegate {
+    
+    @IBAction func textFieldChange() {
+        
+        guard let text = addressField.text else {
+            return
+        }
+        
+        if text.hasPrefix("http://") || text.hasPrefix("https://") {
+            return
+        }
+        
+        /// TODO
+        /// Cancel the previous one
+        QuerySuggestAPI.request(.query(text: text)) { result in
+            switch result {
+            case .success(let response):
+                guard let modelArray = response.mapArray(QuerySuggestModel.self) else {
+                    return
+                }
+                let suggests = modelArray.compactMap{ $0?.phrase}
+                self.data = suggests
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
     func textFieldShouldReturn(_: UITextField) -> Bool {
         var urlString = addressField.text!
         urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)

@@ -15,21 +15,6 @@ extension BrowserViewController: WKNavigationDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity
         })
-
-        guard let hostURL = webView.url?.host else {
-            return
-        }
-//        // TODO: USE API to fetch favicon
-//        let favIcon = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-//        let downloader = ImageDownloader.default
-//        downloader.downloadImage(with: favIcon) { result in
-//            switch result {
-//            case let .success(value):
-//                self.hk_iconImage = value.image
-//            case .failure:
-//                self.hk_iconImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
-//            }
-//        }
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
