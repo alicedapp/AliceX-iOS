@@ -11,7 +11,8 @@ import SwiftyUserDefaults
 import UIKit
 
 class MainTabViewController: PageboyViewController {
-    @IBOutlet var container: UIView!
+    
+    @IBOutlet var tabcontainer: UIStackView!
     @IBOutlet var tab1Conatiner: UIView!
     @IBOutlet var tab2Conatiner: UIView!
     @IBOutlet var tab3Conatiner: UIView!
@@ -23,13 +24,17 @@ class MainTabViewController: PageboyViewController {
     var tabs = MainTab.allCases
     
     var defaultPage: MainTab = MainTab.asset
-
-    let vcs = [ MiniAppViewController(),
-                AssetViewController(),
-                SettingViewController.make(hideBackButton: true)]
+    
+    var vcs: [UIViewController] = []
+    let minVC = MiniAppViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        minVC.tabRef = tabcontainer
+        vcs = [minVC, AssetViewController(), SettingViewController.make(hideBackButton: true)]
+        
         dataSource = self
         delegate = self
         bounces = false
@@ -96,6 +101,11 @@ extension MainTabViewController: PageboyViewControllerDelegate {
                 let alpha = x
                 tab1Icon.alpha = alpha
                 tab2Icon.alpha = 1 - alpha
+                
+                if minVC.isTriggle {
+                    tabcontainer.alpha = x
+                    return
+                }
             }
             
             if x >= 1 && x <= 2.0 {
@@ -110,6 +120,14 @@ extension MainTabViewController: PageboyViewControllerDelegate {
                                    direction: PageboyViewController.NavigationDirection,
                                    animated: Bool) {
             print("didScrollToPageAtIndex: \(index)")
+            
+            if index != MainTab.mini.rawValue {
+                tabcontainer.alpha = 1
+                return
+            }
+            
+            tabcontainer.alpha = minVC.isTriggle ? 0 : 1
+            
 //
 //            gradient?.gradientOffset = CGFloat(index)
 //            statusView.currentIndex = index

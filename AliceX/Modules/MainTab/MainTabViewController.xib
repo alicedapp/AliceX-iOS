@@ -16,6 +16,7 @@
                 <outlet property="tab2Icon" destination="x57-77-82d" id="r5f-5o-Cdd"/>
                 <outlet property="tab3Conatiner" destination="AGb-yk-G8t" id="PCg-aX-ysA"/>
                 <outlet property="tab3Icon" destination="aVh-PZ-Tpc" id="m7N-jN-ivx"/>
+                <outlet property="tabcontainer" destination="uv1-Jk-TUe" id="A0r-dd-Ap9"/>
                 <outlet property="view" destination="sD4-Wc-qWU" id="aVO-hW-Abv"/>
             </connections>
         </placeholder>

@@ -30,10 +30,12 @@ extension MiniAppViewController {
             self.naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 0)
 //            self.collectionView.roundCorners(corners: [.topRight, .topRight], radius: 0)
             self.cameraVC.blurView.alpha = 1.0
+            self.tabRef.alpha = 1
         }) { _ in
             self.scrollViewCover.isUserInteractionEnabled = false
             self.collectionView.isScrollEnabled = true
             self.cameraVC.disableCamera()
+            
         }
 
         view.layoutIfNeeded()
@@ -89,12 +91,13 @@ extension MiniAppViewController: UIScrollViewDelegate {
         naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 40 * percentage)
         naviContainer.transform = CGAffineTransform(translationX: 0, y: -120 * percentage)
         scrollViewCover.alpha = percentage
+        
+        tabRef.alpha = 1 - percentage
     }
 
     func updateCameraVC(slowPercentage: CGFloat) {
         cameraVC.view.transform = CGAffineTransform(scaleX: 1.2 - 0.2 * percentage,
                                                     y: 1.3 - 0.3 * percentage)
-
         cameraVC.blurView.alpha = 1 - slowPercentage
         cameraVC.coverView.alpha = 1 - percentage
     }
@@ -120,6 +123,7 @@ extension MiniAppViewController: UIScrollViewDelegate {
                 self.cameraVC.activeCamera()
                 self.cameraVC.blurView.alpha = 0
                 self.cameraVC.coverView.alpha = 0
+                self.tabRef.alpha = 0
             }
         }
     }

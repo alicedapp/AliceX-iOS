@@ -11,6 +11,8 @@ import UIKit
 
 class MiniAppViewController: BaseViewController {
 
+    weak var tabRef: UIStackView!
+    
     @IBOutlet var naviContainer: UIView!
     @IBOutlet var deleteZone: UIView!
     @IBOutlet var deleteLabel: UILabel!
@@ -25,7 +27,7 @@ class MiniAppViewController: BaseViewController {
     @IBOutlet var titleLabel: UILabel!
 
     @IBOutlet var collectionView: UICollectionView!
-
+    
     var overPlay: Bool = false
     var percentage: CGFloat = 0.0
 
