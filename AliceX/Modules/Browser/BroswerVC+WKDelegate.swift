@@ -30,7 +30,9 @@ extension BrowserViewController: WKNavigationDelegate {
 
         backButtonImage.isHighlighted = webview.canGoBack
 
-        PinManager.shared.updatePinItem(item: (wrapper?.pinItem())!)
+        if let wrapper = self.wrapper, let item = wrapper.pinItem() {
+            PinManager.shared.updatePinItem(item: item)
+        }
 
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity

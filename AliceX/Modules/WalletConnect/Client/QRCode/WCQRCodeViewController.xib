@@ -146,7 +146,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                             <constraints>
                                 <constraint firstItem="K7D-We-Q9D" firstAttribute="height" secondItem="keq-1k-iFf" secondAttribute="height" id="3YU-2O-q1L"/>
                                 <constraint firstItem="K7D-We-Q9D" firstAttribute="leading" secondItem="keq-1k-iFf" secondAttribute="leading" id="AS2-U6-X9L"/>
@@ -181,7 +181,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-White"/>
+                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                             <constraints>
                                 <constraint firstItem="tOb-wz-JY4" firstAttribute="centerY" secondItem="DRa-Cs-8bC" secondAttribute="centerY" id="06X-ey-pto"/>
                                 <constraint firstItem="tOb-wz-JY4" firstAttribute="centerX" secondItem="DRa-Cs-8bC" secondAttribute="centerX" constant="-60" id="gWk-W4-sC7"/>
@@ -190,7 +190,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-White"/>
+                    <color key="backgroundColor" name="Alice-WhiteGrey"/>
                     <constraints>
                         <constraint firstItem="vzx-X0-tN8" firstAttribute="leading" secondItem="gmq-Ft-xiO" secondAttribute="leading" constant="35" id="02a-9y-HHf"/>
                         <constraint firstItem="DRa-Cs-8bC" firstAttribute="leading" secondItem="keq-1k-iFf" secondAttribute="leading" id="0jp-PR-Fen"/>
@@ -236,10 +236,13 @@
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
