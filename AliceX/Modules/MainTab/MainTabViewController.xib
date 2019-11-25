@@ -26,32 +26,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uv1-Jk-TUe">
-                    <rect key="frame" x="0.0" y="782" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="797" width="414" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-w5-8cu">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="60"/>
                             <subviews>
                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAW-6B-Erd" customClass="UIControl">
-                                    <rect key="frame" x="44" y="5" width="50" height="50"/>
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniapp-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-jw-QlU">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="3xV-t5-zyL"/>
+                                                <constraint firstAttribute="height" constant="45" id="3xV-t5-zyL"/>
                                                 <constraint firstAttribute="width" secondItem="a6v-jw-QlU" secondAttribute="height" multiplier="1:1" id="vS3-3v-liw"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniapp-tab" translatesAutoresizingMaskIntoConstraints="NO" id="uAP-jY-5c7">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="uAP-jY-5c7" secondAttribute="height" multiplier="1:1" id="6D1-cC-tbE"/>
-                                                <constraint firstAttribute="height" constant="50" id="z6A-9q-MLN"/>
+                                                <constraint firstAttribute="height" constant="45" id="z6A-9q-MLN"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="3wh-kv-mQz"/>
+                                        <constraint firstAttribute="height" constant="45" id="3wh-kv-mQz"/>
                                         <constraint firstItem="a6v-jw-QlU" firstAttribute="centerY" secondItem="MAW-6B-Erd" secondAttribute="centerY" id="K0k-nu-2jJ"/>
                                         <constraint firstItem="uAP-jY-5c7" firstAttribute="bottom" secondItem="a6v-jw-QlU" secondAttribute="bottom" id="L9X-nB-3Ro"/>
                                         <constraint firstItem="uAP-jY-5c7" firstAttribute="width" secondItem="uAP-jY-5c7" secondAttribute="height" multiplier="1:1" id="Mac-Ka-duF"/>
@@ -79,19 +79,19 @@
                             <rect key="frame" x="138" y="0.0" width="138" height="60"/>
                             <subviews>
                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vm-ra7" customClass="UIControl">
-                                    <rect key="frame" x="44" y="5" width="50" height="50"/>
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="UgZ-P2-r76">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UgZ-P2-r76" secondAttribute="height" multiplier="1:1" id="cm8-mN-xXG"/>
-                                                <constraint firstAttribute="height" constant="50" id="rs9-oz-7FQ"/>
+                                                <constraint firstAttribute="height" constant="45" id="rs9-oz-7FQ"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset-tab" translatesAutoresizingMaskIntoConstraints="NO" id="x57-77-82d">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="Qtf-4l-lzf"/>
+                                                <constraint firstAttribute="height" constant="45" id="Qtf-4l-lzf"/>
                                                 <constraint firstAttribute="width" secondItem="x57-77-82d" secondAttribute="height" multiplier="1:1" id="XAW-pL-Ws6"/>
                                             </constraints>
                                         </imageView>
@@ -104,7 +104,7 @@
                                         <constraint firstItem="UgZ-P2-r76" firstAttribute="centerY" secondItem="T4h-vm-ra7" secondAttribute="centerY" id="J9Q-yD-k6f"/>
                                         <constraint firstItem="x57-77-82d" firstAttribute="bottom" secondItem="UgZ-P2-r76" secondAttribute="bottom" id="YCG-7V-bev"/>
                                         <constraint firstAttribute="width" secondItem="T4h-vm-ra7" secondAttribute="height" multiplier="1:1" id="d26-bm-0cX"/>
-                                        <constraint firstAttribute="height" constant="50" id="eBP-kR-6Zw"/>
+                                        <constraint firstAttribute="height" constant="45" id="eBP-kR-6Zw"/>
                                         <constraint firstItem="x57-77-82d" firstAttribute="top" secondItem="UgZ-P2-r76" secondAttribute="top" id="kVg-tV-QsD"/>
                                         <constraint firstItem="x57-77-82d" firstAttribute="leading" secondItem="UgZ-P2-r76" secondAttribute="leading" id="lbh-k2-KFY"/>
                                     </constraints>
@@ -126,20 +126,20 @@
                             <rect key="frame" x="276" y="0.0" width="138" height="60"/>
                             <subviews>
                                 <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-yk-G8t" customClass="UIControl">
-                                    <rect key="frame" x="44" y="5" width="50" height="50"/>
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-QT-3uc">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="0Y4-af-Gh3"/>
-                                                <constraint firstAttribute="height" constant="50" id="Qv3-Dg-TeU"/>
+                                                <constraint firstAttribute="height" constant="45" id="Qv3-Dg-TeU"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting-tab" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-PZ-Tpc">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="aVh-PZ-Tpc" secondAttribute="height" multiplier="1:1" id="Kdo-1g-btU"/>
-                                                <constraint firstAttribute="height" constant="50" id="xNa-yW-oGS"/>
+                                                <constraint firstAttribute="height" constant="45" id="xNa-yW-oGS"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -152,7 +152,7 @@
                                         <constraint firstItem="aVh-PZ-Tpc" firstAttribute="centerX" secondItem="AGb-yk-G8t" secondAttribute="centerX" id="bsM-iT-dIa"/>
                                         <constraint firstAttribute="width" secondItem="AGb-yk-G8t" secondAttribute="height" multiplier="1:1" id="eqr-Uj-psK"/>
                                         <constraint firstItem="Zs1-QT-3uc" firstAttribute="bottom" secondItem="aVh-PZ-Tpc" secondAttribute="bottom" id="mJP-TH-bNC"/>
-                                        <constraint firstAttribute="height" constant="50" id="uRp-Ad-KhJ"/>
+                                        <constraint firstAttribute="height" constant="45" id="uRp-Ad-KhJ"/>
                                         <constraint firstItem="Zs1-QT-3uc" firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="wxo-t5-Gbv"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -178,7 +178,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IsL-iD-Nks" firstAttribute="bottom" secondItem="uv1-Jk-TUe" secondAttribute="bottom" constant="20" id="5JZ-52-XjO"/>
+                <constraint firstItem="IsL-iD-Nks" firstAttribute="bottom" secondItem="uv1-Jk-TUe" secondAttribute="bottom" constant="5" id="5JZ-52-XjO"/>
                 <constraint firstItem="IsL-iD-Nks" firstAttribute="trailing" secondItem="uv1-Jk-TUe" secondAttribute="trailing" id="vnv-Dc-V2U"/>
                 <constraint firstItem="uv1-Jk-TUe" firstAttribute="leading" secondItem="IsL-iD-Nks" secondAttribute="leading" id="wR1-Ah-kGD"/>
             </constraints>

@@ -19,7 +19,7 @@ class MiniAppViewController: BaseViewController {
     
     var scrollViewCover: UIView!
     var scrollViewBG: UIView!
-    var collectionColor: UIColor!
+    var collectionColor: UIColor = UIColor(hex: "F1F4F5")
     
     @IBOutlet var backIndicator: UIImageView!
     @IBOutlet var backButton: UIView!
@@ -54,7 +54,7 @@ class MiniAppViewController: BaseViewController {
         return vc
     }()
 
-    var naviColor: UIColor = .white
+//    var naviColor: UIColor = .white
     var data: [HomeItem] = []
     
     var selectIndexPath: IndexPath?
@@ -85,7 +85,7 @@ class MiniAppViewController: BaseViewController {
             }
         }
         // cameraVC.view.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
-        naviColor = naviContainer.backgroundColor!
+//        naviColor = naviContainer.backgroundColor!
 
 //        backButton.transform = CGAffineTransform.init(translationX: 0, y: 30)
 //        backIndicator.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi / 2))
@@ -93,11 +93,11 @@ class MiniAppViewController: BaseViewController {
             collectionView.registerCell(nibName: cell.name)
         }
         
-        collectionColor = collectionView.backgroundColor
+//        collectionColor = collectionView.backgroundColor as! UIColor
         
         scrollViewBG = UIView()
         scrollViewBG.isUserInteractionEnabled = false
-        scrollViewBG.backgroundColor = collectionView.backgroundColor
+        scrollViewBG.backgroundColor = AliceColor.lightBackground()
         scrollViewBG.layer.cornerRadius = 40
         scrollViewBG.layer.zPosition = -1
         collectionView.insertSubview(scrollViewBG, belowSubview: collectionView)
@@ -175,6 +175,7 @@ class MiniAppViewController: BaseViewController {
 
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
-        naviColor = style == .dark ? .black : .white
+//        naviColor = style == .dark ? .black : .white
+        collectionColor = collectionView.backgroundColor as! UIColor
     }
 }

@@ -234,8 +234,8 @@
                                                         <constraint firstAttribute="width" secondItem="zLy-9L-iCJ" secondAttribute="height" multiplier="1:1" id="nsm-iu-jND"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-FK-CU7">
-                                                    <rect key="frame" x="36" y="68" width="21.5" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-FK-CU7">
+                                                    <rect key="frame" x="17" y="68" width="59.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
