@@ -91,7 +91,7 @@ extension MiniAppViewController: UIScrollViewDelegate {
 
     func updateStyle(slowPercentage _: CGFloat) {
 //        collectionView.roundCorners(corners: [.topRight, .topRight], radius: 40)
-        naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 40 * percentage)
+        naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 38 * percentage)
         naviContainer.transform = CGAffineTransform(translationX: 0, y: -120 * percentage)
         scrollViewCover.alpha = percentage
         

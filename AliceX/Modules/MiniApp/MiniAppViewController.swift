@@ -98,7 +98,7 @@ class MiniAppViewController: BaseViewController {
         scrollViewBG = UIView()
         scrollViewBG.isUserInteractionEnabled = false
         scrollViewBG.backgroundColor = AliceColor.lightBackground()
-        scrollViewBG.layer.cornerRadius = 40
+        scrollViewBG.layer.cornerRadius = 38
         scrollViewBG.layer.zPosition = -1
         collectionView.insertSubview(scrollViewBG, belowSubview: collectionView)
         scrollViewBG.fillSuperview()
@@ -107,7 +107,7 @@ class MiniAppViewController: BaseViewController {
         scrollViewCover = UIView()
         scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
         scrollViewCover.alpha = 0
-        scrollViewCover.layer.cornerRadius = 40
+        scrollViewCover.layer.cornerRadius = 38
         collectionView.addSubview(scrollViewCover)
         collectionView.bringSubviewToFront(scrollViewCover)
         scrollViewCover.fillSuperview()
@@ -158,7 +158,7 @@ class MiniAppViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         
-        collectionView.layer.cornerRadius = 40
+        collectionView.layer.cornerRadius = 38
         let extendHeight: CGFloat = Constant.SAFE_BOTTOM == 0 ? 34.0 : 0
         let collectionFrame = collectionView.frame
         collectionView.frame = CGRect(x: collectionFrame.minX,
