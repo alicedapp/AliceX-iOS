@@ -118,7 +118,7 @@ extension WCServerHelper: ServerDelegate {
             let vc = WCControlPanel()
             let pinItem = PinItem.walletConnect(image: image, id: session.url.key,
                                                 title: "WC: \(dappInfo.url.host!)", viewcontroller: vc)
-            PinManager.shared.addPinItem(item: pinItem)
+            PinManager.shared.addPinIztem(item: pinItem)
             self.isConnecting = true
             self.connectedDate = Date()
         }
