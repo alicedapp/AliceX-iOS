@@ -52,11 +52,9 @@ class MiniAppViewController: BaseViewController {
 
     lazy var cameraVC: CameraContainerViewController = { () -> CameraContainerViewController in
         let vc = CameraContainerViewController()
-//        vc.view.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: Constant.SCREEN_HEIGHT)
         return vc
     }()
 
-//    var naviColor: UIColor = .white
     var data: [HomeItem] = []
     
     var selectIndexPath: IndexPath?
@@ -67,8 +65,6 @@ class MiniAppViewController: BaseViewController {
         view.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
-//        collectionView.dragDelegate = self
-//        collectionView.dropDelegate = self
 
         addChild(cameraVC)
         view.insertSubview(cameraVC.view, belowSubview: naviContainer)
@@ -126,7 +122,7 @@ class MiniAppViewController: BaseViewController {
                                       buttonType: .buttonMinusType,
                                       buttonStyle: .buttonRoundedStyle,
                                       animateToInitialState: true)
-        backButton.tintColor = AliceColor.darkGrey()
+        backButton.tintColor = AliceColor.greyNew()
         collectionView.addSubview(backButton)
         backButton.lineThickness = 5
         backButton.lineRadius = 4
@@ -195,6 +191,19 @@ class MiniAppViewController: BaseViewController {
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
 //        naviColor = style == .dark ? .black : .white
-        collectionColor = collectionView.backgroundColor as! UIColor
+//        collectionColor = collectionView.backgroundColor as! UIColor
+        scrollViewBG.backgroundColor = AliceColor.lightBackground()
     }
+    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        if #available(iOS 12.0, *) {
+//            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+//                return
+//            }
+//
+////            let userInterfaceStyle = traitCollection.userInterfaceStyle
+//            scrollViewBG.backgroundColor = AliceColor.lightBackground()
+//        }
+//    }
 }

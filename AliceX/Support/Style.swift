@@ -11,7 +11,7 @@ import UIKit
 class AliceColor {
     @available(iOS 12.0, *)
     static var themeMode: UIUserInterfaceStyle {
-        return UIScreen.main.traitCollection.userInterfaceStyle
+        return UIApplication.shared.keyWindow!.traitCollection.userInterfaceStyle
     }
 
     @available(iOS 12.0, *)
@@ -59,7 +59,6 @@ class AliceColor {
     static let red = UIColor(hex: "FF6565", alpha: 1)
     static let blue = UIColor(hex: "1B92FF", alpha: 1)
     static let green = UIColor(hex: "ADF157", alpha: 1)
-    
     
     class func color(light: UIColor, dark: UIColor) -> UIColor {
         if #available(iOS 12, *) {
