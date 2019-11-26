@@ -31,7 +31,6 @@ class MainTabViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         minVC.tabRef = tabcontainer
         vcs = [minVC, AssetViewController(), SettingViewController.make(hideBackButton: true)]
         
@@ -88,14 +87,14 @@ extension MainTabViewController: PageboyViewControllerDelegate {
         func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                    didCancelScrollToPageAt index: PageboyViewController.PageIndex,
                                    returnToPageAt previousIndex: PageboyViewController.PageIndex) {
-            print("didCancelScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
+//            print("didCancelScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
         }
         
         func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                    didScrollTo position: CGPoint,
                                    direction: PageboyViewController.NavigationDirection,
                                    animated: Bool) {
-            print("didScrollToPosition: \(position)")
+//            print("didScrollToPosition: \(position)")
             let x = position.x
             if x >= 0 && x <= 1.0 {
                 let alpha = x
@@ -119,7 +118,7 @@ extension MainTabViewController: PageboyViewControllerDelegate {
                                    didScrollToPageAt index: PageboyViewController.PageIndex,
                                    direction: PageboyViewController.NavigationDirection,
                                    animated: Bool) {
-            print("didScrollToPageAtIndex: \(index)")
+//            print("didScrollToPageAtIndex: \(index)")
             
             if index != MainTab.mini.rawValue {
                 tabcontainer.alpha = 1
@@ -127,11 +126,6 @@ extension MainTabViewController: PageboyViewControllerDelegate {
             }
             
             tabcontainer.alpha = minVC.isTriggle ? 0 : 1
-            
-//
-//            gradient?.gradientOffset = CGFloat(index)
-//            statusView.currentIndex = index
-//            updateBarButtonsForCurrentIndex()
         }
         
         func pageboyViewController(_ pageboyViewController: PageboyViewController,

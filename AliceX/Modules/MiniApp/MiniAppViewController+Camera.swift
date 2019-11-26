@@ -20,6 +20,7 @@ extension MiniAppViewController {
         isTriggle = false
 
         percentage = 0.0
+        backButton.currentButtonType = .buttonMinusType
 
         UIView.animate(withDuration: 0.3, animations: {
             self.scrollViewCover.alpha = 0.0
@@ -50,7 +51,7 @@ extension MiniAppViewController: UIScrollViewDelegate {
             let percentage = min(max(y / 104, 0), 1.0)
             titleLabel.alpha = percentage
             
-            collectionView.backgroundColor = collectionColor
+            collectionView.backgroundColor = AliceColor.lightBackground()
 //            scrollViewBG.isHidden = true
             return
         }
@@ -70,7 +71,9 @@ extension MiniAppViewController: UIScrollViewDelegate {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 overPlay = true
             }
+            backButton.currentButtonType = .buttonUpBasicType
         } else {
+            backButton.currentButtonType = .buttonMinusType
             overPlay = false
         }
 

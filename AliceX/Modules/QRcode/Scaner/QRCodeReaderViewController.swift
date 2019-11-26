@@ -46,7 +46,7 @@ class QRCodeReaderViewController: LBXScanViewController {
         scanStyle = style
         setNeedCodeImage(needCodeImg: false)
         scanStyle?.centerUpOffset += 10
-        isOpenInterestRect = true
+//        isOpenInterestRect = true
     }
 
     override func viewDidAppear(_ animated: Bool) {

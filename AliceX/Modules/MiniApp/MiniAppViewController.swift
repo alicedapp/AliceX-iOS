@@ -8,6 +8,8 @@
 
 import Hero
 import UIKit
+import web3swift
+import VBFPopFlatButton
 
 class MiniAppViewController: BaseViewController {
 
@@ -21,8 +23,8 @@ class MiniAppViewController: BaseViewController {
     var scrollViewBG: UIView!
     var collectionColor: UIColor = UIColor(hex: "F1F4F5")
     
-    @IBOutlet var backIndicator: UIImageView!
-    @IBOutlet var backButton: UIView!
+//    @IBOutlet var backIndicator: UIImageView!
+    @IBOutlet var backButton: VBFPopFlatButton!
 
     @IBOutlet var titleLabel: UILabel!
 
@@ -77,6 +79,14 @@ class MiniAppViewController: BaseViewController {
 
         cameraVC.block = { result in
             self.coverClick()
+            
+            if let _ = EthereumAddress(result) {
+                let vc = TransferPopUp.make(address: result, coin: Coin.coin(chain: .Ethereum))
+                vc.modalPresentationStyle = .overCurrentContext
+                UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+                return
+            }
+            
             if result.isValidURL {
                 let vc = BrowserWrapperViewController.make(urlString: result)
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -111,6 +121,15 @@ class MiniAppViewController: BaseViewController {
         collectionView.addSubview(scrollViewCover)
         collectionView.bringSubviewToFront(scrollViewCover)
         scrollViewCover.fillSuperview()
+        
+        backButton = VBFPopFlatButton(frame: CGRect(x: (Constant.SCREEN_WIDTH - 30)/2, y: 8, width: 30, height: 10),
+                                      buttonType: .buttonMinusType,
+                                      buttonStyle: .buttonRoundedStyle,
+                                      animateToInitialState: true)
+        backButton.tintColor = AliceColor.darkGrey()
+        collectionView.addSubview(backButton)
+        backButton.lineThickness = 5
+        backButton.lineRadius = 4
         
 //        scrollViewBG.isHidden = true
         

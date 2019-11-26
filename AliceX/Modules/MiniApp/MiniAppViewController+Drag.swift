@@ -28,6 +28,7 @@ extension MiniAppViewController {
             
             UIView.animate(withDuration: 0.3) {
                 self.deleteZone.transform = CGAffineTransform.init(translationX: 0, y: -self.deleteZone.bounds.height)
+                self.tabRef.alpha = 0
             }
             
         case .changed:
@@ -55,13 +56,18 @@ extension MiniAppViewController {
                     break
                 }
                 
-                if let cell = collectionView.cellForItem(at: indexPath) {
-                    cell.isHidden = true
+                if !data[indexPath.item].isApp { // Enforce NOT allow delete mini App
+                    
+                    if let cell = collectionView.cellForItem(at: indexPath) {
+                        cell.isHidden = true
+                    }
+                    
+                    collectionView.endInteractiveMovement()
+                    data.remove(at: indexPath.item)
+                    collectionView.deleteItems(at: [indexPath])
+                } else {
+                    collectionView.endInteractiveMovement()
                 }
-                
-                collectionView.endInteractiveMovement()
-                data.remove(at: indexPath.item)
-                collectionView.deleteItems(at: [indexPath])
                 
             } else {
                 collectionView.endInteractiveMovement()
@@ -69,6 +75,7 @@ extension MiniAppViewController {
             
             UIView.animate(withDuration: 0.3) {
                 self.deleteZone.transform = CGAffineTransform.identity
+                self.tabRef.alpha = 1
             }
             HomeItemHelper.shared.updatList(list: data)
             
