@@ -132,7 +132,7 @@
                                         <constraint firstItem="z4u-Te-UMm" firstAttribute="centerX" secondItem="JQZ-4q-svP" secondAttribute="centerX" id="oXZ-M5-agE"/>
                                     </constraints>
                                     <connections>
-                                        <action selector="cancelBtnClicked" destination="-1" eventType="touchDragInside" id="pDx-K6-d6m"/>
+                                        <action selector="cancelBtnClicked" destination="-1" eventType="touchUpInside" id="pXB-kZ-dsj"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSE-0P-nPu" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
@@ -390,13 +390,13 @@
     <resources>
         <image name="ethereum-icon" width="40" height="40"/>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83499997854232788" green="0.83499997854232788" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.47600001096725464" green="0.47600001096725464" blue="0.47600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47499999403953552" green="0.47499999403953552" blue="0.47499999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-WhiteGrey">
-            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

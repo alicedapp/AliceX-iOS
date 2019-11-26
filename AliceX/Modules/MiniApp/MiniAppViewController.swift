@@ -90,16 +90,10 @@ class MiniAppViewController: BaseViewController {
                 HUDManager.shared.showErrorAlert(text: result, isAlert: true)
             }
         }
-        // cameraVC.view.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
-//        naviColor = naviContainer.backgroundColor!
 
-//        backButton.transform = CGAffineTransform.init(translationX: 0, y: 30)
-//        backIndicator.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi / 2))
         for cell in MiniAppTab.allCases {
             collectionView.registerCell(nibName: cell.name)
         }
-        
-//        collectionColor = collectionView.backgroundColor as! UIColor
         
         scrollViewBG = UIView()
         scrollViewBG.isUserInteractionEnabled = false
@@ -165,8 +159,12 @@ class MiniAppViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         
         collectionView.layer.cornerRadius = 40
-//        collectionView.roundCorners(corners: .allCorners, radius: 40)
-//        view.bringSubviewToFront(deleteZone)
+        let extendHeight: CGFloat = Constant.SAFE_BOTTOM == 0 ? 34.0 : 0
+        let collectionFrame = collectionView.frame
+        collectionView.frame = CGRect(x: collectionFrame.minX,
+                                      y: collectionFrame.minY,
+                                      width: collectionFrame.width,
+                                      height: collectionFrame.height + extendHeight )
     }
     
     @IBAction func browserButtonClick() {

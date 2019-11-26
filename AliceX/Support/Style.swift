@@ -20,8 +20,8 @@ class AliceColor {
     }
     
     class func lightBackground() -> UIColor {
-        return AliceColor.color(light: UIColor(hex: "212121"),
-                                dark: UIColor(hex: "F1F4F5"))
+        return AliceColor.color(light:UIColor(hex: "F1F4F5"),
+                                dark: UIColor(hex: "212121"))
     }
     
     class func white() -> UIColor {
