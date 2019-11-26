@@ -26,15 +26,15 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="teN-lc-I1U" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="93.5" height="100"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="ORJ-AK-U7c">
-                                                    <rect key="frame" x="29" y="20" width="36" height="40"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preferences" translatesAutoresizingMaskIntoConstraints="NO" id="ORJ-AK-U7c">
+                                                    <rect key="frame" x="27" y="20" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ORJ-AK-U7c" secondAttribute="height" multiplier="18:20" id="20P-YG-Vzs"/>
+                                                        <constraint firstAttribute="width" secondItem="ORJ-AK-U7c" secondAttribute="height" multiplier="1:1" id="20P-YG-Vzs"/>
                                                         <constraint firstAttribute="height" constant="40" id="RWY-qy-1L6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fw-Bz-xzw">
-                                                    <rect key="frame" x="12.5" y="68" width="69" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fw-Bz-xzw">
+                                                    <rect key="frame" x="14" y="68" width="65.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
@@ -47,6 +47,9 @@
                                                 <constraint firstItem="3fw-Bz-xzw" firstAttribute="top" secondItem="ORJ-AK-U7c" secondAttribute="bottom" constant="8" id="ciS-R7-bCN"/>
                                                 <constraint firstItem="3fw-Bz-xzw" firstAttribute="centerX" secondItem="teN-lc-I1U" secondAttribute="centerX" id="hKS-Xf-lTY"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="configureButton" destination="iN0-l3-epB" eventType="touchUpInside" id="WhZ-KC-xZe"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WH-ha-wEI" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                                             <rect key="frame" x="93.5" y="0.0" width="93.5" height="100"/>
@@ -231,8 +234,8 @@
                                                         <constraint firstAttribute="width" secondItem="zLy-9L-iCJ" secondAttribute="height" multiplier="1:1" id="nsm-iu-jND"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-FK-CU7">
-                                                    <rect key="frame" x="36" y="68" width="21.5" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-FK-CU7">
+                                                    <rect key="frame" x="17" y="68" width="59.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" name="Alice-DarkGrey"/>
                                                     <nil key="highlightedColor"/>
@@ -286,11 +289,11 @@
         </view>
     </objects>
     <resources>
-        <image name="bookmark" width="34" height="40"/>
         <image name="dapp-list" width="40" height="40"/>
         <image name="favourite" width="42" height="42"/>
         <image name="network" width="42" height="42"/>
         <image name="pin" width="40" height="40"/>
+        <image name="preferences" width="42" height="42"/>
         <image name="right-arrow" width="40" height="40"/>
         <image name="safari" width="40" height="40"/>
         <image name="share" width="42" height="42"/>

@@ -69,8 +69,8 @@ extension PinManager: UIGestureRecognizerDelegate {
 //                self.ball.alpha = 1
 
                 self.floatVC = self.tempFloatVC
-                if let vc = self.floatVC as? PinDelegate {
-                    self.addPinItem(item: vc.pinItem())
+                if let vc = self.floatVC as? PinDelegate, let item = vc.pinItem() {
+                    self.addPinItem(item: item)
                 }
                 self.show()
             }

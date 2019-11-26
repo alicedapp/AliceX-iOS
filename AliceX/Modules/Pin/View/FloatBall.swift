@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 protocol FloatBallDelegate: class {
     func floatBallDidClick(floatBall: FloatBall)
@@ -29,13 +30,13 @@ class FloatBall: UIView {
             progressView.isHidden = !showPending
         }
     }
-
+    
     class func instanceFromNib() -> FloatBall {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! FloatBall
         view.configure()
         return view
     }
-
+    
     func configure() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
         addGestureRecognizer(tap)
@@ -50,38 +51,61 @@ class FloatBall: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 5
 
-        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
-
+//        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
 //        updateImage()
     }
-
+    
     func updateImage() {
+        
         if let pinItem = PinManager.shared.pinList.last {
+            
             let image = pinItem.image
             imageView.kf.setImage(with: image) { result in
                 switch result {
                 case let .failure(error):
-                    //TODO
+                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
                     break
                 case .success:
                     break
                 }
             }
+            
+            if pinItem.isWebSite {
+                 guard let url = pinItem.URL, let domain = url.host else {
+                     return
+                 }
+                    
+                ImageCache.default.retrieveImage(forKey: domain) { result in
+                 onMainThread {
+                    switch result {
+                    case let .success(respone):
+                         if let image = respone.image {
+                            self.imageView.image = image
+                            return
+                        }
+                    case .failure:
+                        break
+                    }
+                 }
+                }
+            }
+            
         } else {
-            imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+            imageView.image = nil
+//                UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
         }
     }
 
     func updateIfNeeded() {
         var shouldShow = false
-        walletConnect.isHidden = true
+//        walletConnect.isHidden = true
         for item in PinManager.shared.pinList {
             if item.txHash.count > 0 {
                 shouldShow = true
             }
-            if item.isWalletConnect {
-                walletConnect.isHidden = false
-            }
+//            if item.isWalletConnect {
+//                walletConnect.isHidden = false
+//            }
         }
         showPending = shouldShow
         updateImage()

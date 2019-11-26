@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 // Wrapper Broswer For Switch Network
 class BrowserWrapperViewController: BaseViewController {
     var vc: BrowserViewController!
-    var urlString: String = "https://www.duckduckgo.com/"
-    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+    var urlString: String = ""
+//    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -29,6 +30,9 @@ class BrowserWrapperViewController: BaseViewController {
     }
 
     override func viewDidLoad() {
+        if urlString.isEmptyAfterTrim() {
+            urlString = Defaults[\.homepage].absoluteString
+        }
         addBrowser()
         NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork), name: .networkChange, object: nil)
     }
@@ -58,13 +62,20 @@ class BrowserWrapperViewController: BaseViewController {
 }
 
 extension BrowserWrapperViewController: PinDelegate {
-    func pinItem() -> PinItem {
-        var url = URL(string: "https://cdn4.iconfinder.com/data/icons/hosting-and-server/500/Hosting-30-512.png")!
-
-        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
-            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+    func pinItem() -> PinItem? {
+        
+        guard let url = vc.webview.url else {            
+            return nil
         }
-        return .website(image: url,
+        
+        let imageURL = FaviconHelper.bestIcon(url: url)
+
+//        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
+//            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+//        }
+        
+        FaviconHelper.prefetchFavicon(urls: [url])
+        return .website(image: imageURL,
                         url: vc.webview.url!,
                         title: vc.webview.title ?? vc.webview.url!.absoluteString,
                         viewcontroller: self)

@@ -167,7 +167,7 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocY-NG-zeG">
                                     <rect key="frame" x="10" y="42" width="95.5" height="95.5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="ocY-NG-zeG" secondAttribute="height" multiplier="1:1" id="pgh-7g-CJa"/>
                                     </constraints>
@@ -218,7 +218,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="Alice-White"/>
+            <color key="backgroundColor" name="Alice-WhiteGrey"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Ccs-xH-A2R" secondAttribute="trailing" constant="20" id="052-Zd-VKu"/>
                 <constraint firstItem="9Be-Ak-wt0" firstAttribute="top" secondItem="n1p-vF-B9Q" secondAttribute="bottom" constant="20" id="2CX-9o-Gvz"/>
@@ -251,16 +251,16 @@
         <image name="WalletConnect-blue" width="23" height="14"/>
         <image name="right-arrow-long" width="32" height="23"/>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-Grey">
-            <color red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
             <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -23,14 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        // FirebaseApp.configure()
+        FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
         onBackgroundThread {
             PriceHelper.shared.fetchFromCache()
         }
-//        GasPriceHelper.shared.getGasPrice()
 
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
         #if RCT_DEV
@@ -57,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi = rootVC
 
         PinManager.addFloatVC(list: [BrowserWrapperViewController.nameOfClass,
-                                     BaseRNAppViewController.nameOfClass])
+                                     BaseRNAppViewController.nameOfClass,
+                                     HomeWebBrowserWrapper.nameOfClass])
 
         WalletManager.shared.checkMnemonic()
 

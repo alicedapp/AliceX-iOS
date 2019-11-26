@@ -162,12 +162,16 @@ class HUDManager: NSObject {
         }
     }
 
-    func showAlertVCNoBackground(viewController: UIViewController, type: EKAttributes = .centerFloat) {
+    func showAlertVCNoBackground(viewController: UIViewController, type: EKAttributes = .centerFloat, haveBG: Bool = false) {
         onMainThread {
             var attributes: EKAttributes = EKAttributes()
             attributes = type
             attributes.displayDuration = .infinity
-//            attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
+            
+            if haveBG {
+                attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
+            }
+            
             attributes.entryBackground = .color(color: .clear)
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .absorbTouches

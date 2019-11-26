@@ -55,7 +55,7 @@ enum HomeItem {
     var vc: UIViewController {
         switch self {
         case let .web(url):
-            return BrowserWrapperViewController.make(urlString: url.absoluteString)
+            return HomeWebBrowserWrapper.make(urlString: url.absoluteString)
         case let .app(name):
             return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
         }

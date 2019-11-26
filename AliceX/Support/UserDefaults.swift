@@ -15,4 +15,7 @@ extension DefaultsKeys {
     var isHideAsset: DefaultsKey<Bool> { return .init("isHideAsset", defaultValue: false) }
     var lastTimeUpdateAsset: DefaultsKey<Date?> { return .init("lastTimeUpdateAsset") }
     var lastAssetBalance: DefaultsKey<Double> { return .init("lastAssetBalance", defaultValue: 0.0) }
+    
+    var homepage: DefaultsKey<URL> { return .init("homepage", defaultValue: URL(string: "https://duckduckgo.com")!)}
+    var searchEngine: DefaultsKey<Int> { return .init("searchEngine", defaultValue: 0)}
 }

@@ -52,11 +52,11 @@ class BrowserPanelView: BaseView {
     }
 
     @IBAction func pinButton() {
-        guard let ref = self.vcRef, let wrapper = ref.wrapper else {
+        guard let ref = self.vcRef, let wrapper = ref.wrapper, let item = wrapper.pinItem() else {
             return
         }
         HUDManager.shared.dismiss()
-        PinManager.shared.addPinItem(item: wrapper.pinItem())
+        PinManager.shared.addPinItem(item: item)
         PinManager.shared.currentPin = wrapper.pinItem()
         wrapper.navigationController?.popViewController(animated: true)
     }
@@ -70,7 +70,18 @@ class BrowserPanelView: BaseView {
     @IBAction func dappButton() {
         let vc = DAppListViewController()
         vc.vcRef = vcRef
-        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+    }
+    
+    @IBAction func configureButton() {
+//        HUDManager.shared.dismiss()
+        let vc = BrowserSettingViewController()
+        vc.vcRef = vcRef
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+        
+//        vc.modalPresentationStyle = .overCurrentContext
+//        vcRef?.present(vc, animated: true, completion: nil)
+//        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
 
     @IBAction func networkButton() {

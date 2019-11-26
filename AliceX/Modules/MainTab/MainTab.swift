@@ -16,16 +16,9 @@ enum MainTab: Int, CaseIterable {
     var vc: UIViewController {
         switch self {
         case .mini:
-            return
-                MiniAppViewController()
-//                RNModule.makeViewController(module: .alice)
-//                SettingViewController()
-
+            return MiniAppViewController()
         case .asset:
             return AssetViewController()
-//        case .profile:
-//            return UIViewController()
-//            return ProfileViewController()
         case .setting:
             let vc = SettingViewController.make(hideBackButton: true)
             return vc

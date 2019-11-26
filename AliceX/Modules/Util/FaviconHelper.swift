@@ -21,7 +21,14 @@ class FaviconHelper {
                 switch result {
                 case let .success(response):
                     guard let modelArray = response.mapArray(FaviconGrabberModel.self, designatedPath: "icons") else {
-                        seal.reject(MyError.DecodeFailed)
+                        seal.fulfill(FaviconHelper.bestIcon(domain: domain))
+//                        seal.reject(MyError.DecodeFailed)
+                        return
+                    }
+                    
+                    if modelArray.count == 0 {
+//                        seal.fulfill(URL(string: "http://\(domain)/favicon.ico")!)
+                        seal.fulfill(FaviconHelper.bestIcon(domain: domain))
                         return
                     }
 
@@ -35,23 +42,41 @@ class FaviconHelper {
                         }.first!
 
                         guard let firstURL = first, let imageURL = URL(string: firstURL.src) else {
-                            seal.reject(MyError.FoundNil("Image URL convert failed"))
+                            seal.fulfill(FaviconHelper.bestIcon(domain: domain))
+//                            seal.reject(MyError.FoundNil("Image URL convert failed"))
                             return
                         }
 
                         seal.fulfill(imageURL)
+                        
                     } else {
-                        guard let firstModel = modelArray.first else {
-                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
-                            return
-                        }
+                        
+                        for model in modelArray {
+                            
+                            if model!.src.hasSuffix(".svg") {
+                                continue
+                            }
+                            
+                            guard let firstURL = model, let imageURL = URL(string: firstURL.src) else {
+                                seal.fulfill(FaviconHelper.bestIcon(domain: domain))
+//                                seal.reject(MyError.FoundNil("Image URL convert failed"))
+                                return
+                            }
 
-                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
-                            seal.reject(MyError.FoundNil("Image URL convert failed"))
-                            return
+                            seal.fulfill(imageURL)
                         }
-
-                        seal.fulfill(imageURL)
+                        
+//                        guard let firstModel = modelArray.first else {
+//                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
+//                            return
+//                        }
+//
+//                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
+//                            seal.reject(MyError.FoundNil("Image URL convert failed"))
+//                            return
+//                        }
+//
+//                        seal.fulfill(imageURL)
                     }
 
                 case let .failure(error):
@@ -88,5 +113,18 @@ class FaviconHelper {
                 print(error)
             }
         }
+    }
+    
+    class func bestIcon(domain: String, size: Int = 120) -> URL {
+        return URL(string: "https://besticon-demo.herokuapp.com/icon?url=\(domain)&size=\(size)")!
+    }
+    
+    class func bestIcon(url: URL, size: Int = 120) -> URL {
+        
+        guard let domain = url.host else {
+            return URL(string: "http://\(url.host!)/favicon.ico")!
+        }
+        
+        return URL(string: "https://besticon-demo.herokuapp.com/icon?url=\(domain)&size=\(size)")!
     }
 }
