@@ -121,7 +121,7 @@ class MiniAppViewController: BaseViewController {
         backButton = VBFPopFlatButton(frame: CGRect(x: (Constant.SCREEN_WIDTH - 30)/2, y: 8, width: 30, height: 10),
                                       buttonType: .buttonMinusType,
                                       buttonStyle: .buttonRoundedStyle,
-                                      animateToInitialState: true)
+                                      animateToInitialState: false)
         backButton.tintColor = AliceColor.greyNew()
         collectionView.addSubview(backButton)
         backButton.lineThickness = 5

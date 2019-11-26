@@ -125,6 +125,11 @@ class SettingViewController: BaseViewController {
 
     @objc func updateNetwork() {
         networkLabel.text = WalletManager.currentNetwork.name
+        if WalletManager.currentNetwork == .main {
+            networkLabel.textColor = UIColor(hex: "B1B1B1")
+            return
+        }
+        networkLabel.textColor = WalletManager.currentNetwork.color
     }
 
     @objc func updateCurrency() {
