@@ -118,7 +118,8 @@ extension WalletCore {
                                                   txHash: result.hash,
                                                   title: "Pending BNB",
                                                   viewcontroller: browser)
-                PendingTransactionHelper.shared.add(item: pinItem)
+//                PendingTransactionHelper.shared.add(item: pinItem)
+                PinManager.shared.addPinItem(item: pinItem)
             }.catch { error in
                 seal.reject(error)
             }

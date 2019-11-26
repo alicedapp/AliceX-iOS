@@ -46,6 +46,7 @@ class SettingViewController: BaseViewController {
         
         if hideBackButton {
             scrollView.alwaysBounceVertical = true
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         }
         
         if #available(iOS 13.0, *) {
@@ -124,6 +125,11 @@ class SettingViewController: BaseViewController {
 
     @objc func updateNetwork() {
         networkLabel.text = WalletManager.currentNetwork.name
+        if WalletManager.currentNetwork == .main {
+            networkLabel.textColor = UIColor(hex: "B1B1B1")
+            return
+        }
+        networkLabel.textColor = WalletManager.currentNetwork.color
     }
 
     @objc func updateCurrency() {

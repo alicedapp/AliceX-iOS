@@ -10,7 +10,7 @@ import Foundation
 import Kingfisher
 
 protocol PinDelegate {
-    func pinItem() -> PinItem
+    func pinItem() -> PinItem?
 }
 
 enum PinItem {
@@ -19,6 +19,20 @@ enum PinItem {
     case transaction(coin: Coin, network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
     case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
 
+    
+    var id: String {
+        switch self {
+        case let .dapplet(_, url, _, _):
+            return url.absoluteString
+        case let .transaction(_, _, hash, _, _):
+            return hash
+        case let .website(_, url, _, _):
+            return url.absoluteString
+        case let .walletConnect(_, id, _, _):
+            return id
+        }
+    }
+    
     var txHash: String {
         switch self {
         case .transaction(_, _, let txHash, _, _):
@@ -50,7 +64,6 @@ enum PinItem {
         }
     }
     
-    
     var isWebSite: Bool {
         switch self {
         case .website:
@@ -59,7 +72,6 @@ enum PinItem {
             return false
         }
     }
-
 
     var wcKey: String {
         switch self {
@@ -123,7 +135,7 @@ enum PinItem {
 
 extension PinItem: Hashable, Equatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.vc == rhs.vc
+        return lhs.id == rhs.id
     }
 
     var hashValue: Int {

@@ -10,6 +10,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTabViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="tab1Conatiner" destination="MAW-6B-Erd" id="17a-WK-fhz"/>
+                <outlet property="tab1Icon" destination="uAP-jY-5c7" id="ond-mx-RKz"/>
+                <outlet property="tab2Conatiner" destination="T4h-vm-ra7" id="8ti-mG-dd6"/>
+                <outlet property="tab2Icon" destination="x57-77-82d" id="r5f-5o-Cdd"/>
+                <outlet property="tab3Conatiner" destination="AGb-yk-G8t" id="PCg-aX-ysA"/>
+                <outlet property="tab3Icon" destination="aVh-PZ-Tpc" id="m7N-jN-ivx"/>
+                <outlet property="tabcontainer" destination="uv1-Jk-TUe" id="A0r-dd-Ap9"/>
                 <outlet property="view" destination="sD4-Wc-qWU" id="aVO-hW-Abv"/>
             </connections>
         </placeholder>
@@ -17,9 +24,166 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sD4-Wc-qWU">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uv1-Jk-TUe">
+                    <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-w5-8cu">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="60"/>
+                            <subviews>
+                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAW-6B-Erd" customClass="UIControl">
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniapp-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-jw-QlU">
+                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="a6v-jw-QlU" secondAttribute="height" multiplier="1:1" id="vS3-3v-liw"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniapp-tab" translatesAutoresizingMaskIntoConstraints="NO" id="uAP-jY-5c7">
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="z6A-9q-MLN"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="a6v-jw-QlU" firstAttribute="width" secondItem="uAP-jY-5c7" secondAttribute="width" multiplier="0.98" id="1IC-Gw-qb7"/>
+                                        <constraint firstAttribute="height" constant="45" id="3wh-kv-mQz"/>
+                                        <constraint firstItem="a6v-jw-QlU" firstAttribute="centerY" secondItem="MAW-6B-Erd" secondAttribute="centerY" id="K0k-nu-2jJ"/>
+                                        <constraint firstItem="uAP-jY-5c7" firstAttribute="width" secondItem="uAP-jY-5c7" secondAttribute="height" multiplier="1:1" id="Mac-Ka-duF"/>
+                                        <constraint firstItem="uAP-jY-5c7" firstAttribute="centerX" secondItem="MAW-6B-Erd" secondAttribute="centerX" id="Ow5-le-kKQ"/>
+                                        <constraint firstAttribute="width" secondItem="MAW-6B-Erd" secondAttribute="height" multiplier="1:1" id="aRP-0a-7Ac"/>
+                                        <constraint firstItem="uAP-jY-5c7" firstAttribute="centerY" secondItem="MAW-6B-Erd" secondAttribute="centerY" id="gSF-RE-au0"/>
+                                        <constraint firstItem="a6v-jw-QlU" firstAttribute="centerX" secondItem="MAW-6B-Erd" secondAttribute="centerX" id="v8j-Zs-YaN"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="UIControl"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tabClickWithButton:" destination="-1" eventType="touchUpInside" id="qls-FG-9vB"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="MAW-6B-Erd" firstAttribute="centerX" secondItem="M1B-w5-8cu" secondAttribute="centerX" id="3eq-th-Ndt"/>
+                                <constraint firstItem="MAW-6B-Erd" firstAttribute="centerY" secondItem="M1B-w5-8cu" secondAttribute="centerY" id="Slh-1V-Rh5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyJ-5q-lgj">
+                            <rect key="frame" x="138" y="0.0" width="138" height="60"/>
+                            <subviews>
+                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vm-ra7" customClass="UIControl">
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="UgZ-P2-r76">
+                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="UgZ-P2-r76" secondAttribute="height" multiplier="1:1" id="cm8-mN-xXG"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset-tab" translatesAutoresizingMaskIntoConstraints="NO" id="x57-77-82d">
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="Qtf-4l-lzf"/>
+                                                <constraint firstAttribute="width" secondItem="x57-77-82d" secondAttribute="height" multiplier="1:1" id="XAW-pL-Ws6"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="UgZ-P2-r76" firstAttribute="centerX" secondItem="T4h-vm-ra7" secondAttribute="centerX" id="Igb-Ve-PIu"/>
+                                        <constraint firstItem="UgZ-P2-r76" firstAttribute="centerY" secondItem="T4h-vm-ra7" secondAttribute="centerY" id="J9Q-yD-k6f"/>
+                                        <constraint firstItem="x57-77-82d" firstAttribute="centerX" secondItem="T4h-vm-ra7" secondAttribute="centerX" id="KLD-k8-vxc"/>
+                                        <constraint firstItem="UgZ-P2-r76" firstAttribute="width" secondItem="x57-77-82d" secondAttribute="width" multiplier="0.98" id="TZQ-Iz-UUG"/>
+                                        <constraint firstItem="x57-77-82d" firstAttribute="centerY" secondItem="T4h-vm-ra7" secondAttribute="centerY" id="c8q-0f-Ihw"/>
+                                        <constraint firstAttribute="width" secondItem="T4h-vm-ra7" secondAttribute="height" multiplier="1:1" id="d26-bm-0cX"/>
+                                        <constraint firstAttribute="height" constant="45" id="eBP-kR-6Zw"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="UIControl"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tabClickWithButton:" destination="-1" eventType="touchUpInside" id="JL4-iy-llW"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="T4h-vm-ra7" firstAttribute="centerX" secondItem="jyJ-5q-lgj" secondAttribute="centerX" id="ld5-Ne-1RL"/>
+                                <constraint firstItem="T4h-vm-ra7" firstAttribute="centerY" secondItem="jyJ-5q-lgj" secondAttribute="centerY" id="rNs-Pj-PS4"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-4x-N32">
+                            <rect key="frame" x="276" y="0.0" width="138" height="60"/>
+                            <subviews>
+                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-yk-G8t" customClass="UIControl">
+                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-QT-3uc">
+                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="0Y4-af-Gh3"/>
+                                                <constraint firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="DZg-F0-Pj1"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting-tab" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-PZ-Tpc">
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="aVh-PZ-Tpc" secondAttribute="height" multiplier="1:1" id="Kdo-1g-btU"/>
+                                                <constraint firstAttribute="height" constant="45" id="xNa-yW-oGS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Zs1-QT-3uc" firstAttribute="centerY" secondItem="AGb-yk-G8t" secondAttribute="centerY" id="E9h-cB-OKv"/>
+                                        <constraint firstItem="aVh-PZ-Tpc" firstAttribute="centerY" secondItem="AGb-yk-G8t" secondAttribute="centerY" id="VbJ-A6-jNA"/>
+                                        <constraint firstItem="aVh-PZ-Tpc" firstAttribute="centerX" secondItem="AGb-yk-G8t" secondAttribute="centerX" id="bsM-iT-dIa"/>
+                                        <constraint firstAttribute="width" secondItem="AGb-yk-G8t" secondAttribute="height" multiplier="1:1" id="eqr-Uj-psK"/>
+                                        <constraint firstItem="Zs1-QT-3uc" firstAttribute="width" secondItem="aVh-PZ-Tpc" secondAttribute="width" multiplier="0.98" id="ev6-ve-9QD"/>
+                                        <constraint firstItem="Zs1-QT-3uc" firstAttribute="centerX" secondItem="AGb-yk-G8t" secondAttribute="centerX" id="fAv-I3-a8g"/>
+                                        <constraint firstAttribute="height" constant="45" id="uRp-Ad-KhJ"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="UIControl"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tabClickWithButton:" destination="-1" eventType="touchUpInside" id="LHa-U1-RC3"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="AGb-yk-G8t" firstAttribute="centerY" secondItem="wfi-4x-N32" secondAttribute="centerY" id="MnK-y1-XeE"/>
+                                <constraint firstItem="AGb-yk-G8t" firstAttribute="centerX" secondItem="wfi-4x-N32" secondAttribute="centerX" id="S95-DL-iU9"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="QTg-zD-Hoj"/>
+                    </constraints>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IsL-iD-Nks" firstAttribute="bottom" secondItem="uv1-Jk-TUe" secondAttribute="bottom" id="5JZ-52-XjO"/>
+                <constraint firstItem="IsL-iD-Nks" firstAttribute="trailing" secondItem="uv1-Jk-TUe" secondAttribute="trailing" id="vnv-Dc-V2U"/>
+                <constraint firstItem="uv1-Jk-TUe" firstAttribute="leading" secondItem="IsL-iD-Nks" secondAttribute="leading" id="wR1-Ah-kGD"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="IsL-iD-Nks"/>
             <point key="canvasLocation" x="-441" y="120"/>
         </view>
     </objects>
+    <resources>
+        <image name="asset-tab" width="50" height="50"/>
+        <image name="asset-tab-selected" width="50" height="50"/>
+        <image name="miniapp-tab" width="50" height="50"/>
+        <image name="miniapp-tab-selected" width="50" height="50"/>
+        <image name="setting-tab" width="50" height="50"/>
+        <image name="setting-tab-selected" width="50" height="50"/>
+    </resources>
 </document>

@@ -8,21 +8,28 @@
 
 import Hero
 import UIKit
+import web3swift
+import VBFPopFlatButton
 
 class MiniAppViewController: BaseViewController {
 
+    weak var tabRef: UIStackView!
+    
     @IBOutlet var naviContainer: UIView!
     @IBOutlet var deleteZone: UIView!
     @IBOutlet var deleteLabel: UILabel!
     
-    @IBOutlet var scrollViewCover: UIView!
-    @IBOutlet var backIndicator: UIImageView!
-    @IBOutlet var backButton: UIView!
+    var scrollViewCover: UIView!
+    var scrollViewBG: UIView!
+    var collectionColor: UIColor = UIColor(hex: "F1F4F5")
+    
+//    @IBOutlet var backIndicator: UIImageView!
+    @IBOutlet var backButton: VBFPopFlatButton!
 
     @IBOutlet var titleLabel: UILabel!
 
     @IBOutlet var collectionView: UICollectionView!
-
+    
     var overPlay: Bool = false
     var percentage: CGFloat = 0.0
 
@@ -45,11 +52,9 @@ class MiniAppViewController: BaseViewController {
 
     lazy var cameraVC: CameraContainerViewController = { () -> CameraContainerViewController in
         let vc = CameraContainerViewController()
-//        vc.view.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: Constant.SCREEN_HEIGHT)
         return vc
     }()
 
-    var naviColor: UIColor = .white
     var data: [HomeItem] = []
     
     var selectIndexPath: IndexPath?
@@ -60,8 +65,6 @@ class MiniAppViewController: BaseViewController {
         view.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
-//        collectionView.dragDelegate = self
-//        collectionView.dropDelegate = self
 
         addChild(cameraVC)
         view.insertSubview(cameraVC.view, belowSubview: naviContainer)
@@ -72,6 +75,14 @@ class MiniAppViewController: BaseViewController {
 
         cameraVC.block = { result in
             self.coverClick()
+            
+            if let _ = EthereumAddress(result) {
+                let vc = TransferPopUp.make(address: result, coin: Coin.coin(chain: .Ethereum))
+                vc.modalPresentationStyle = .overCurrentContext
+                UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+                return
+            }
+            
             if result.isValidURL {
                 let vc = BrowserWrapperViewController.make(urlString: result)
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -80,7 +91,7 @@ class MiniAppViewController: BaseViewController {
             }
         }
         // cameraVC.view.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
-        naviColor = naviContainer.backgroundColor!
+//        naviColor = naviContainer.backgroundColor!
 
 //        backButton.transform = CGAffineTransform.init(translationX: 0, y: 30)
 //        backIndicator.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi / 2))
@@ -88,16 +99,44 @@ class MiniAppViewController: BaseViewController {
             collectionView.registerCell(nibName: cell.name)
         }
         
+//        collectionColor = collectionView.backgroundColor as! UIColor
+        
+        scrollViewBG = UIView()
+        scrollViewBG.isUserInteractionEnabled = false
+        scrollViewBG.backgroundColor = AliceColor.lightBackground()
+        scrollViewBG.layer.cornerRadius = 40
+        scrollViewBG.layer.zPosition = -1
+        collectionView.insertSubview(scrollViewBG, belowSubview: collectionView)
+        scrollViewBG.fillSuperview()
+//        collectionView.backgroundView = scrollViewBG
+        
         scrollViewCover = UIView()
         scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
         scrollViewCover.alpha = 0
+        scrollViewCover.layer.cornerRadius = 40
         collectionView.addSubview(scrollViewCover)
+        collectionView.bringSubviewToFront(scrollViewCover)
         scrollViewCover.fillSuperview()
+        
+        backButton = VBFPopFlatButton(frame: CGRect(x: (Constant.SCREEN_WIDTH - 30)/2, y: 8, width: 30, height: 10),
+                                      buttonType: .buttonMinusType,
+                                      buttonStyle: .buttonRoundedStyle,
+                                      animateToInitialState: false)
+        backButton.tintColor = AliceColor.greyNew()
+        collectionView.addSubview(backButton)
+        backButton.lineThickness = 5
+        backButton.lineRadius = 4
+        
+//        scrollViewBG.isHidden = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(coverClick))
         scrollViewCover.addGestureRecognizer(tap)
         scrollViewCover.isUserInteractionEnabled = false
+        
 //        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
 //        scrollViewCover.addGestureRecognizer(pan)
+        
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         
         HomeItemHelper.shared.loadFromCache().done { item in
             self.data = item
@@ -118,7 +157,6 @@ class MiniAppViewController: BaseViewController {
         collectionView.addGestureRecognizer(longPress)
     }
 
-    
     @objc func listChange() {
         data = HomeItemHelper.shared.list
         collectionView.reloadData()
@@ -126,8 +164,8 @@ class MiniAppViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         
-//        collectionView.layer.cornerRadius = 40
-        collectionView.roundCorners(corners: .allCorners, radius: 40)
+        collectionView.layer.cornerRadius = 40
+//        collectionView.roundCorners(corners: .allCorners, radius: 40)
 //        view.bringSubviewToFront(deleteZone)
     }
     
@@ -152,6 +190,20 @@ class MiniAppViewController: BaseViewController {
 
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
-        naviColor = style == .dark ? .black : .white
+//        naviColor = style == .dark ? .black : .white
+//        collectionColor = collectionView.backgroundColor as! UIColor
+        scrollViewBG.backgroundColor = AliceColor.lightBackground()
     }
+    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        if #available(iOS 12.0, *) {
+//            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+//                return
+//            }
+//
+////            let userInterfaceStyle = traitCollection.userInterfaceStyle
+//            scrollViewBG.backgroundColor = AliceColor.lightBackground()
+//        }
+//    }
 }

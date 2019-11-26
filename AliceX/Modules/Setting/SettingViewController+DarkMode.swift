@@ -10,19 +10,20 @@ import Foundation
 
 extension SettingViewController: CAAnimationDelegate {
     func changeThemeAnimation() {
-        guard let frame = darkSwitch?.superview!.convert(darkSwitch.frame, from: UIApplication.topViewController()?.view) else {
+        guard let window = UIApplication.shared.keyWindow, let frame = darkSwitch?.superview!.convert(darkSwitch.frame, from: window)
+            else {
             return
         }
 
         darkSwitch.isUserInteractionEnabled = false
 
-        let snapshot = view.snapshot()
-        let snapshotView = UIImageView(frame: view.bounds)
+        let snapshot = window.snapshot()
+        let snapshotView = UIImageView(frame: window.bounds)
         snapshotView.image = snapshot
         snapshotView.tag = 10
-        view.addSubview(snapshotView)
+        window.addSubview(snapshotView)
 
-        view.bringSubviewToFront(darkSwitch)
+//        window.bringSubviewToFront(darkSwitch)
 
         let switchFrame = CGRect(x: frame.origin.x, y: -frame.origin.y + 30,
                                  width: frame.width,
@@ -70,11 +71,11 @@ extension SettingViewController: CAAnimationDelegate {
 
     func animationDidStop(_: CAAnimation, finished _: Bool) {
         darkSwitch.isUserInteractionEnabled = true
-        if let snapshot = view.viewWithTag(10) {
+        if let snapshot = UIApplication.shared.keyWindow!.viewWithTag(10) {
             snapshot.removeFromSuperview()
         }
-        if let snapshot = view.viewWithTag(11) {
-            snapshot.removeFromSuperview()
-        }
+//        if let snapshot = view.viewWithTag(11) {
+//            snapshot.removeFromSuperview()
+//        }
     }
 }
