@@ -136,7 +136,7 @@ class SendTransactionHandler: WCHandler {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(wcTx)
             let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
-            guard let transactionJSON = jsonString?.toJSON() as? [String: Any] else {
+            guard let json = jsonString, let transactionJSON = json.toJSON() as? [String: Any] else {
                 throw WalletError.custom("Parse tx failed")
             }
 
@@ -158,9 +158,10 @@ class SendTransactionHandler: WCHandler {
                 self.server.send(response)
 //                HUDManager.shared.dismiss()
             }
-        } catch {
+        } catch let error {
             server.send(.invalid(request))
-            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
+//            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
+            HUDManager.shared.showError(error: error)
             return
         }
     }
