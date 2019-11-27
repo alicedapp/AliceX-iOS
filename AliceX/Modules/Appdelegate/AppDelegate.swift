@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import React
 import SPStorkController
 import RNFirebase
+import UserNotifications
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -20,7 +21,7 @@ private var bridge: RCTBridge?
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        var jsCodeLocation: URL?
@@ -66,7 +67,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             test()
         #endif
-
+        
+        Messaging.messaging().delegate = self
+        
         return true
     }
 
@@ -125,10 +128,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
-        completionHandler()
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("APNs token retrieved: \(deviceToken)")
+        Messaging.messaging().apnsToken = deviceToken
     }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+    
 }

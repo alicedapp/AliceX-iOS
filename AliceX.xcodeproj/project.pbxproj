@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		055A65DCCA9BEF8AC3DDBF16 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */; };
 		15015DA223659DFF008DDD80 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15015DA123659DFF008DDD80 /* Coin.swift */; };
 		15015DA82365AD27008DDD80 /* AssetCoinHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15015DA62365AD27008DDD80 /* AssetCoinHeaderCell.swift */; };
 		15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15015DA72365AD27008DDD80 /* AssetCoinHeaderCell.xib */; };
@@ -301,10 +300,12 @@
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
 		15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985E522C34E1400942357 /* ContractPopUp.swift */; };
+		15FF6B32238EC12600673F49 /* AppDelegate+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF6B31238EC12600673F49 /* AppDelegate+Notification.swift */; };
 		15FFCF872366073000E0BB80 /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFCF852366073000E0BB80 /* CoinListViewController.swift */; };
 		15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF862366073000E0BB80 /* CoinListViewController.xib */; };
 		15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFCF89236607E900E0BB80 /* CoinListCell.swift */; };
 		15FFCF8C236607E900E0BB80 /* CoinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF8A236607E900E0BB80 /* CoinListCell.xib */; };
+		7DE094395A395ECB2EAFF56B /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81923CC007AC60A93EE98175 /* Pods_AliceX.framework */; };
 		BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6D23027828006BEA0C /* exocet-light.ttf */; };
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
 /* End PBXBuildFile section */
@@ -607,16 +608,17 @@
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
 		15F985E522C34E1400942357 /* ContractPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractPopUp.swift; sourceTree = "<group>"; };
+		15FF6B31238EC12600673F49 /* AppDelegate+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notification.swift"; sourceTree = "<group>"; };
 		15FFCF852366073000E0BB80 /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
 		15FFCF862366073000E0BB80 /* CoinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListViewController.xib; sourceTree = "<group>"; };
 		15FFCF89236607E900E0BB80 /* CoinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListCell.swift; sourceTree = "<group>"; };
 		15FFCF8A236607E900E0BB80 /* CoinListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListCell.xib; sourceTree = "<group>"; };
-		573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
-		BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
+		81923CC007AC60A93EE98175 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C4C61B44401DADA4F0A430 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
 		BD3A7A6D23027828006BEA0C /* exocet-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-light.ttf"; sourceTree = "<group>"; };
 		BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-heavy.ttf"; sourceTree = "<group>"; };
 		BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_onesignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1051D56A3F8FA1642E850F8 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -624,7 +626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				055A65DCCA9BEF8AC3DDBF16 /* Pods_AliceX.framework in Frameworks */,
+				7DE094395A395ECB2EAFF56B /* Pods_AliceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1580,6 +1582,7 @@
 			isa = PBXGroup;
 			children = (
 				15F67C0C236A90D800E00CDE /* AppDelegate.swift */,
+				15FF6B31238EC12600673F49 /* AppDelegate+Notification.swift */,
 				154E7F332306AA7500D571A8 /* AppDelegate+AliceSDK.swift */,
 			);
 			path = Appdelegate;
@@ -1882,8 +1885,8 @@
 		876CA3F15BC9D26DB41AD374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */,
-				A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */,
+				A0C4C61B44401DADA4F0A430 /* Pods-AliceX.debug.xcconfig */,
+				C1051D56A3F8FA1642E850F8 /* Pods-AliceX.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1892,7 +1895,7 @@
 			isa = PBXGroup;
 			children = (
 				BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */,
-				573C8D7D6C286EB7E3002F97 /* Pods_AliceX.framework */,
+				81923CC007AC60A93EE98175 /* Pods_AliceX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1916,7 +1919,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B86B6722AA044000110C06 /* Build configuration list for PBXNativeTarget "AliceX" */;
 			buildPhases = (
-				3DB0071C2B8655993A638C28 /* [CP] Check Pods Manifest.lock */,
+				F7165EDC0F850B689F4C0EB9 /* [CP] Check Pods Manifest.lock */,
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
@@ -1925,8 +1928,8 @@
 				15B86B5322AA043F00110C06 /* Resources */,
 				152B192C22F407E200EBDA9E /* Swift Format */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
-				4A90360DAB66B76DB4E0CE45 /* [CP] Embed Pods Frameworks */,
 				1577DDD5238093FD00225DE6 /* Fabric - Firebase */,
+				568A4B8D411F5B406CF2350B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2142,29 +2145,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		3DB0071C2B8655993A638C28 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AliceX-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4A90360DAB66B76DB4E0CE45 /* [CP] Embed Pods Frameworks */ = {
+		568A4B8D411F5B406CF2350B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2198,6 +2179,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Launch React Native Packager\nif nc -w 5 -z localhost 8081 ; then\nif ! curl -s \"http://localhost:8081/status\" | grep -q \"packager-status:running\" ; then\necho \"Port 8081 already in use, packager is either not running or not running correctly\"\nexit 2\nfi\nelse\nopen -a Terminal $SRCROOT/../node_modules/react-native/scripts/launchPackager.command || echo \"Can't start packager automatically\"\nfi\n";
+		};
+		F7165EDC0F850B689F4C0EB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AliceX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2271,6 +2274,7 @@
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				157A2EFA23657916006EC0EA /* AssetBalanceCell.swift in Sources */,
 				1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */,
+				15FF6B32238EC12600673F49 /* AppDelegate+Notification.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				15A18179232A40EA00DFE686 /* Util.swift in Sources */,
 				15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */,
@@ -2558,7 +2562,7 @@
 		};
 		15B86B6822AA044000110C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC7D914BE36BBE2C6864AB30 /* Pods-AliceX.debug.xcconfig */;
+			baseConfigurationReference = A0C4C61B44401DADA4F0A430 /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2566,7 +2570,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2589,7 +2593,7 @@
 		};
 		15B86B6922AA044000110C06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A371C89E7752E83DF46B74CB /* Pods-AliceX.release.xcconfig */;
+			baseConfigurationReference = C1051D56A3F8FA1642E850F8 /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2597,7 +2601,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

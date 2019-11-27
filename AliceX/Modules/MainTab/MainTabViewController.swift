@@ -51,6 +51,17 @@ class MainTabViewController: PageboyViewController {
         }
         
         tab2Icon.alpha = 0
+        
+        registerNotification()
+    }
+    
+    func registerNotification() {
+        UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate! as! UNUserNotificationCenterDelegate
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        UIApplication.shared.registerForRemoteNotifications()
     }
     
     @IBAction func tabClick(button: UIControl) {
