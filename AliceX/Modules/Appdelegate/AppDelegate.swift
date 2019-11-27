@@ -11,6 +11,7 @@ import Firebase
 import IQKeyboardManagerSwift
 import React
 import SPStorkController
+import RNFirebase
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        var jsCodeLocation: URL?
 
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
@@ -114,5 +116,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return handleAliceURL(url: url)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
+    }
+
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        RNFirebaseMessaging.instance().didRegister(notificationSettings)
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
+        completionHandler()
     }
 }

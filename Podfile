@@ -39,6 +39,10 @@ target 'AliceX' do
   pod 'Pageboy', '~> 3.5.0'
   pod 'Tabman', '~> 2.6'
   
+  #for push notifications
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Analytics'
@@ -68,6 +72,7 @@ target 'AliceX' do
   pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
   
 end
 
