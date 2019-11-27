@@ -24,7 +24,7 @@ target 'AliceX' do
   pod 'WalletConnectSwift', git: 'https://github.com/WalletConnect/WalletConnectSwift', branch: 'master'
   pod 'HanekeSwift',  git: 'https://github.com/Haneke/HanekeSwift', branch: 'master'
   pod 'BonMot'
-  pod 'SwiftyUserDefaults', '5.0.0-beta.4'
+  pod 'SwiftyUserDefaults',  git: 'https://github.com/sunshinejr/SwiftyUserDefaults', branch: 'master'
   pod 'TrustWalletCore'
    
   pod 'VBFPopFlatButton'
@@ -42,7 +42,6 @@ target 'AliceX' do
   #for push notifications
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Analytics'
