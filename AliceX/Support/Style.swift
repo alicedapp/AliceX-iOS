@@ -20,7 +20,7 @@ class AliceColor {
     }
     
     class func lightBackground() -> UIColor {
-        return AliceColor.color(light:UIColor(hex: "F1F4F5"),
+        return AliceColor.color(light: UIColor(hex: "F1F4F5"),
                                 dark: UIColor(hex: "212121"))
     }
     
@@ -62,7 +62,7 @@ class AliceColor {
     
     class func color(light: UIColor, dark: UIColor) -> UIColor {
         if #available(iOS 12, *) {
-            return AliceColor.isDarkMode ? light : dark
+            return AliceColor.isDarkMode ? dark : light
         }
         return light
     }

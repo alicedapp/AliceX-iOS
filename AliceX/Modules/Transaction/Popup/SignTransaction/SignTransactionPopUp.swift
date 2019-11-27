@@ -102,8 +102,8 @@ class SignTransactionPopUp: UIViewController {
     }
 
     @objc func gasChange(_ notification: Notification) {
-        guard let text = notification.userInfo?["gasPrice"] as? String else { return }
-        let gasPrice = GasPrice(rawValue: text)!
+        guard let text = notification.userInfo?["gasPrice"] as? String,
+        let gasPrice = GasPrice.make(string: text) else { return }
         self.gasPrice = gasPrice
         updateGas()
     }

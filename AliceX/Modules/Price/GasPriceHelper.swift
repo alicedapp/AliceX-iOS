@@ -11,12 +11,14 @@ import Foundation
 import PromiseKit
 import web3swift
 
-enum GasPrice: String, CaseIterable {
+enum GasPrice {
     case fast
     case average
     case slow
-//    case custom(BigUInt)
+    case custom(BigUInt)
 
+    // TODO FIX Custom
+    
     // GWei
     var price: Float {
         switch self {
@@ -26,8 +28,11 @@ enum GasPrice: String, CaseIterable {
             return GasPriceHelper.shared.average ?? 3
         case .slow:
             return GasPriceHelper.shared.safeLow ?? 1
-//        case .custom(let wei):
-//            return wei.
+        case .custom(let wei):
+            guard let str = Web3.Utils.formatToEthereumUnits(wei, toUnits: .Gwei, decimals: 18, decimalSeparator: ".") else {
+                return GasPriceHelper.shared.average ?? 3
+            }
+            return Float(str)!
         }
     }
 
@@ -39,17 +44,53 @@ enum GasPrice: String, CaseIterable {
             return GasPriceHelper.shared.avgWait ?? 3
         case .slow:
             return GasPriceHelper.shared.safeLowWait ?? 10
+        case .custom(_):
+            return GasPriceHelper.shared.avgWait ?? 3
         }
     }
 
     var wei: BigUInt {
         // GWei to wei 9
-        let wei = self.price * pow(10, 9)
-        return BigUInt(wei)
+        switch self {
+        case .fast, .average, .slow:
+            let wei = self.price * pow(10, 9)
+            return BigUInt(wei)
+        case .custom(let wei):
+            return wei
+        }
     }
 
     var timeString: String {
         return "~ \(self.time) mins"
+    }
+    
+    var option: String {
+        switch self {
+        case .fast:
+            return "fast"
+        case .slow:
+            return "slow"
+        case .average:
+            return "average"
+        case .custom(let gas):
+            return String( gas, radix: 16)
+        }
+    }
+    
+    static func make(string: String) -> GasPrice? {
+        switch string {
+        case "fast":
+            return GasPrice.fast
+        case "slow":
+            return GasPrice.slow
+        case "average":
+            return GasPrice.average
+        default:
+            if let gasPrice = BigUInt(string.stripHexPrefix(), radix: 16) {
+                return .custom(gasPrice)
+            }
+            return nil
+        }
     }
 
     func toEth(gasLimit: BigUInt) -> Float {

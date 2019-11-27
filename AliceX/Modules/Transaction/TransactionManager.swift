@@ -105,12 +105,16 @@ class TransactionManager {
                                amount: BigUInt,
                                data: Data,
                                coin: Coin,
+                               gasPrice: GasPrice = GasPrice.average,
+                               gasLimit: BigUInt = BigUInt(0),
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = PaymentPopUp.make(toAddress: toAddress,
                                       amount: amount,
                                       data: data,
                                       coin: coin,
+                                      gasPrice: gasPrice,
+                                      gasLimit: gasLimit,
                                       success: success)
         let height = 430 - 34 + Constant.SAFE_BOTTOM
         modal.modalPresentationStyle = .overCurrentContext
@@ -120,14 +124,17 @@ class TransactionManager {
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
-                              password _: String = "web3swift",
-                              gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
+                              password: String = "web3swift",
+                              gasPrice: GasPrice = GasPrice.average,
+                              gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
         return TransactionManager.writeSmartContract(contractAddress: address,
                                                      functionName: "fallback",
                                                      abi: Web3.Utils.coldWalletABI,
                                                      parameters: [AnyObject](),
                                                      extraData: data,
-                                                     value: amount)
+                                                     value: amount,
+                                                     gasPrice: gasPrice,
+                                                     gasLimit: gasLimit)
     }
 
     // MARK: - Payment Popup
@@ -253,7 +260,7 @@ class TransactionManager {
             firstly {
                 TransactionManager.shared.checkBalance(amountInDouble: amountInDouble, notERC20: notERC20)
             }.then { _ in
-                tx.sendPromise()
+                tx.sendPromise(password: "web3swift", transactionOptions: options)
             }.done { result in
                 seal.fulfill(result.hash)
                 let url = PinItem.txURL(network: WalletManager.currentNetwork,

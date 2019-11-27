@@ -84,7 +84,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-White"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="NiP-OE-Uag" firstAttribute="centerX" secondItem="imY-R1-d6F" secondAttribute="centerX" id="EMb-r5-zjc"/>
                                         <constraint firstItem="NiP-OE-Uag" firstAttribute="centerY" secondItem="imY-R1-d6F" secondAttribute="centerY" id="dSA-yf-YaA"/>
@@ -103,7 +103,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="Alice-White"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="qFh-ue-6dD" firstAttribute="centerX" secondItem="kik-Ac-L7j" secondAttribute="centerX" id="c1S-ff-JQL"/>
                                         <constraint firstItem="qFh-ue-6dD" firstAttribute="centerY" secondItem="kik-Ac-L7j" secondAttribute="centerY" id="r4b-Xi-sYa"/>
@@ -128,7 +128,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" name="Alice-White"/>
+                            <color key="backgroundColor" name="Alice-WhiteGrey"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="E9G-Ft-W1y"/>
                                 <constraint firstItem="imY-R1-d6F" firstAttribute="top" secondItem="Gch-cH-MzP" secondAttribute="bottom" id="HWs-gw-G7k"/>
@@ -188,7 +188,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-White"/>
+                    <color key="backgroundColor" name="Alice-WhiteGrey"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="I4S-9q-jd8" secondAttribute="trailing" constant="10" id="0Xq-dq-P9p"/>
                         <constraint firstItem="kL5-Oe-yhv" firstAttribute="top" secondItem="fMk-Rf-bhO" secondAttribute="bottom" constant="10" id="2Xb-pj-Jnb"/>
@@ -230,13 +230,13 @@
     </objects>
     <resources>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83499997854232788" green="0.83499997854232788" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Alice-White">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Alice-WhiteGrey">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
