@@ -90,7 +90,7 @@ class GasFeeViewController: BaseViewController {
     }
 
     func postNotification(gasPrice: GasPrice) {
-        let userInfo = ["gasPrice": gasPrice.rawValue]
+        let userInfo = ["gasPrice": gasPrice.option]
         NotificationCenter.default.post(name: .gasSelectionCahnge, object: nil, userInfo: userInfo)
     }
 }

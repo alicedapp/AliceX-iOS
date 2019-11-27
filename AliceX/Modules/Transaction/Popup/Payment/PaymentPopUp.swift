@@ -28,13 +28,15 @@ class PaymentPopUp: UIViewController {
     @IBOutlet var gasTimeLabel: UILabel!
 
     @IBOutlet var gasBtn: UIControl!
+    
+    var isCustomGasLimit: Bool = false
 
     var toAddress: String?
     var amount: BigUInt!
     var data: Data!
     var successBlock: StringBlock?
 
-    var gasLimit: BigUInt?
+    var gasLimit: BigUInt!
     var gasPrice: GasPrice = GasPrice.average
 
     var coin: Coin!
@@ -44,6 +46,8 @@ class PaymentPopUp: UIViewController {
                     amount: BigUInt,
                     data: Data,
                     coin: Coin,
+                    gasPrice: GasPrice = GasPrice.average,
+                    gasLimit: BigUInt = BigUInt(0),
                     success: @escaping StringBlock) -> PaymentPopUp {
         let vc = PaymentPopUp()
         vc.toAddress = toAddress
@@ -51,12 +55,16 @@ class PaymentPopUp: UIViewController {
         vc.successBlock = success
         vc.data = data
         vc.coin = coin
+        vc.gasLimit = gasLimit
+        vc.gasPrice = gasPrice
         return vc
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        isCustomGasLimit = gasLimit != BigUInt(0)
+        
         guard let chain = coin.blockchain, let info = coin.info else {
             HUDManager.shared.showError(text: "Wrong coin type")
             dismiss(animated: true, completion: nil)
@@ -102,7 +110,11 @@ class PaymentPopUp: UIViewController {
         }.then {
             TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!, data: self.data)
         }.done { gasLimit in
-            self.gasLimit = gasLimit
+            
+            if !self.isCustomGasLimit { // NO Custom Gas Limit
+                self.gasLimit = gasLimit
+            }
+            
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
@@ -124,8 +136,9 @@ class PaymentPopUp: UIViewController {
     }
 
     @objc func gasChange(_ notification: Notification) {
-        guard let text = notification.userInfo?["gasPrice"] as? String else { return }
-        let gasPrice = GasPrice(rawValue: text)!
+        guard let text = notification.userInfo?["gasPrice"] as? String,
+        let gasPrice = GasPrice.make(string: text) else { return }
+        
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -161,9 +174,15 @@ extension PaymentPopUp: PayButtonDelegate {
         guard let chain = coin.blockchain else {
             return
         }
+        
+        var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
+        if isCustomGasLimit {
+            gasLimitOption = TransactionOptions.GasLimitPolicy.manual(gasLimit)
+        }
 
         firstly {
-            chain.transfer(toAddress: toAddress!, value: amount!, gasPrice: gasPrice)
+            chain.transfer(toAddress: toAddress!, value: amount!, data: self.data,
+                           gasPrice: gasPrice, gasLimit: gasLimitOption)
         }.done { hash in
             print(hash)
             self.successBlock!(hash)

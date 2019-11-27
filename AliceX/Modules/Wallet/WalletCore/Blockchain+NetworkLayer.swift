@@ -64,13 +64,18 @@ extension BlockChain: NetworkLayer {
         }
     }
 
-    func transfer(toAddress: String, value: BigUInt, gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
+    func transfer(toAddress: String, value: BigUInt, data: Data = Data(),
+                  gasPrice: GasPrice = GasPrice.average,
+                  gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
         return Promise<String> { seal in
 
             var method: Promise<String>?
             switch self {
             case .Ethereum:
-                method = TransactionManager.shared.sendEtherSync(to: toAddress, amount: value, data: Data())
+                method = TransactionManager.shared.sendEtherSync(to: toAddress, amount: value,
+                                                                 data: data,
+                                                                 gasPrice: gasPrice,
+                                                                 gasLimit: gasLimit)
             case .Binance:
                 method = WalletCore.shared.binanceSend(toAddress: toAddress, value: value)
 

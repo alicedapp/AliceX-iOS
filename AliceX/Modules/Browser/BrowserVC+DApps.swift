@@ -44,11 +44,25 @@ extension BrowserViewController: WKScriptMessageHandler {
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else { return }
             guard let options = TransactionOptions.fromJSON(transactionJSON) else { return }
             let value = options.value != nil ? options.value! : BigUInt(0)
-
+            
+            var gasLimit = BigUInt(0)
+            
+            if transactionJSON.keys.contains("gas"), let gas = transactionJSON["gas"] as? String,
+                let gasInt = BigUInt(gas.stripHexPrefix(), radix: 16) {
+                gasLimit = gasInt
+            }
+            
+            var gasPrice = GasPrice.average
+            if tx.gasPrice != BigUInt(0) {
+                gasPrice = GasPrice.custom(tx.gasPrice)
+            }
+            
             TransactionManager.showPaymentView(toAddress: tx.to.address,
                                                amount: value,
                                                data: tx.data,
-                                               coin: Coin.coin(chain: .Ethereum)) { signData in
+                                               coin: Coin.coin(chain: .Ethereum),
+                                               gasPrice: gasPrice,
+                                               gasLimit: gasLimit) { signData in
                 self.notifyFinish(callbackID: 8888, value: signData)
             }
 
