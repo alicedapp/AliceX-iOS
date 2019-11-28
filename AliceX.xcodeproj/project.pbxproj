@@ -240,6 +240,9 @@
 		15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */; };
 		15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301E2365E15A00A5BD1A /* Blockchain.swift */; };
 		15D34525236C76E20085EFFC /* WatchingCoinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D34524236C76E20085EFFC /* WatchingCoinHelper.swift */; };
+		15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */; };
+		15D572EE238FB8F4009BB9BE /* SampleBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */; };
+		15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
@@ -285,6 +288,7 @@
 		15E71E0F2373284E0069BFD2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E0E2373284E0069BFD2 /* Date.swift */; };
 		15E71E1323740A310069BFD2 /* CoinReOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */; };
 		15E71E1423740A310069BFD2 /* CoinReOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */; };
+		15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0C7DF239031A500F0D4AB /* CryptTools.swift */; };
 		15F197B623816B6F00960DE1 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B523816B6F00960DE1 /* ENS.swift */; };
 		15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B8238182F000960DE1 /* CustomTokenViewController.swift */; };
 		15F197BB238182F000960DE1 /* CustomTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F197B9238182F000960DE1 /* CustomTokenViewController.xib */; };
@@ -547,6 +551,9 @@
 		15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+Collection.swift"; sourceTree = "<group>"; };
 		15CE301E2365E15A00A5BD1A /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		15D34524236C76E20085EFFC /* WatchingCoinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingCoinHelper.swift; sourceTree = "<group>"; };
+		15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
+		15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserViewController.swift; sourceTree = "<group>"; };
+		15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleBrowserViewController.xib; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
@@ -593,6 +600,7 @@
 		15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinReOrderViewController.swift; sourceTree = "<group>"; };
 		15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinReOrderViewController.xib; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
+		15F0C7DF239031A500F0D4AB /* CryptTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptTools.swift; sourceTree = "<group>"; };
 		15F197B523816B6F00960DE1 /* ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENS.swift; sourceTree = "<group>"; };
 		15F197B8238182F000960DE1 /* CustomTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTokenViewController.swift; sourceTree = "<group>"; };
 		15F197B9238182F000960DE1 /* CustomTokenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTokenViewController.xib; sourceTree = "<group>"; };
@@ -1128,6 +1136,7 @@
 		1581EC0E22D837FE00B74F30 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				15D572E9238FB8CC009BB9BE /* Sample */,
 				15DF2A0F2387CB6B0013664E /* Setting */,
 				15DF29FB2387ACB00013664E /* HomeWebBrowserVC */,
 				15BC4DB522DAD00500313CA9 /* DAppList */,
@@ -1423,6 +1432,7 @@
 		15B86BA622AA1C4600110C06 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				15F0C7DE2390318E00F0D4AB /* Crypto */,
 				15015DA023659DDF008DDD80 /* Coin */,
 				1514464723617AAC005E87CE /* WalletCore */,
 				1514464623617A99005E87CE /* Web3 */,
@@ -1499,6 +1509,7 @@
 				154E7F312306A9A100D571A8 /* URL.swift */,
 				15E71E0E2373284E0069BFD2 /* Date.swift */,
 				15F197B523816B6F00960DE1 /* ENS.swift */,
+				15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1657,6 +1668,15 @@
 			path = WatchingCoin;
 			sourceTree = "<group>";
 		};
+		15D572E9238FB8CC009BB9BE /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */,
+				15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		15DE8E3822C9DD23004B45A2 /* Import */ = {
 			isa = PBXGroup;
 			children = (
@@ -1791,6 +1811,14 @@
 				1573B5312375B1D200257A1A /* CoinReOrderCell.xib */,
 			);
 			path = Reorder;
+			sourceTree = "<group>";
+		};
+		15F0C7DE2390318E00F0D4AB /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				15F0C7DF239031A500F0D4AB /* CryptTools.swift */,
+			);
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 		15F11C1B233A3DB5000920CC /* Server */ = {
@@ -2020,6 +2048,7 @@
 				1533C9942379B0330052010A /* erc20.json in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
+				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
@@ -2248,6 +2277,7 @@
 				15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */,
 				1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */,
 				15E71E072371C6600069BFD2 /* WatchingCoinHelper+Network.swift in Sources */,
+				15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */,
 				15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */,
 				1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
@@ -2275,6 +2305,7 @@
 				157A2EFA23657916006EC0EA /* AssetBalanceCell.swift in Sources */,
 				1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */,
 				15FF6B32238EC12600673F49 /* AppDelegate+Notification.swift in Sources */,
+				15D572EE238FB8F4009BB9BE /* SampleBrowserViewController.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				15A18179232A40EA00DFE686 /* Util.swift in Sources */,
 				15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */,
@@ -2336,6 +2367,7 @@
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */,
+				15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */,
 				15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
@@ -2570,7 +2602,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2675,6 +2707,8 @@
 					"-framework",
 					"\"Moya\"",
 					"-framework",
+					"\"OneSignal\"",
+					"-framework",
 					"\"Pageboy\"",
 					"-framework",
 					"\"PromiseKit\"",
@@ -2745,6 +2779,8 @@
 					"-framework",
 					"\"react_native_mapbox_gl\"",
 					"-framework",
+					"\"react_native_onesignal\"",
+					"-framework",
 					"\"react_native_video\"",
 					"-framework",
 					"\"secp256k1\"",
@@ -2776,7 +2812,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 23;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2882,6 +2918,8 @@
 					"-framework",
 					"\"Moya\"",
 					"-framework",
+					"\"OneSignal\"",
+					"-framework",
 					"\"Pageboy\"",
 					"-framework",
 					"\"PromiseKit\"",
@@ -2951,6 +2989,8 @@
 					"\"react_native_camera\"",
 					"-framework",
 					"\"react_native_mapbox_gl\"",
+					"-framework",
+					"\"react_native_onesignal\"",
 					"-framework",
 					"\"react_native_video\"",
 					"-framework",

@@ -17,8 +17,8 @@ enum GasPrice {
     case slow
     case custom(BigUInt)
 
-    // TODO FIX Custom
-    
+    // TODO: FIX Custom
+
     // GWei
     var price: Float {
         switch self {
@@ -28,7 +28,7 @@ enum GasPrice {
             return GasPriceHelper.shared.average ?? 3
         case .slow:
             return GasPriceHelper.shared.safeLow ?? 1
-        case .custom(let wei):
+        case let .custom(wei):
             guard let str = Web3.Utils.formatToEthereumUnits(wei, toUnits: .Gwei, decimals: 18, decimalSeparator: ".") else {
                 return GasPriceHelper.shared.average ?? 3
             }
@@ -44,7 +44,7 @@ enum GasPrice {
             return GasPriceHelper.shared.avgWait ?? 3
         case .slow:
             return GasPriceHelper.shared.safeLowWait ?? 10
-        case .custom(_):
+        case .custom:
             return GasPriceHelper.shared.avgWait ?? 3
         }
     }
@@ -55,7 +55,7 @@ enum GasPrice {
         case .fast, .average, .slow:
             let wei = self.price * pow(10, 9)
             return BigUInt(wei)
-        case .custom(let wei):
+        case let .custom(wei):
             return wei
         }
     }
@@ -63,7 +63,7 @@ enum GasPrice {
     var timeString: String {
         return "~ \(self.time) mins"
     }
-    
+
     var option: String {
         switch self {
         case .fast:
@@ -72,11 +72,11 @@ enum GasPrice {
             return "slow"
         case .average:
             return "average"
-        case .custom(let gas):
-            return String( gas, radix: 16)
+        case let .custom(gas):
+            return String(gas, radix: 16)
         }
     }
-    
+
     static func make(string: String) -> GasPrice? {
         switch string {
         case "fast":

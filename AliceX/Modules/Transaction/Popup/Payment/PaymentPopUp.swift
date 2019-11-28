@@ -28,7 +28,7 @@ class PaymentPopUp: UIViewController {
     @IBOutlet var gasTimeLabel: UILabel!
 
     @IBOutlet var gasBtn: UIControl!
-    
+
     var isCustomGasLimit: Bool = false
 
     var toAddress: String?
@@ -64,7 +64,7 @@ class PaymentPopUp: UIViewController {
         super.viewDidLoad()
 
         isCustomGasLimit = gasLimit != BigUInt(0)
-        
+
         guard let chain = coin.blockchain, let info = coin.info else {
             HUDManager.shared.showError(text: "Wrong coin type")
             dismiss(animated: true, completion: nil)
@@ -110,11 +110,11 @@ class PaymentPopUp: UIViewController {
         }.then {
             TransactionManager.shared.gasForSendingEth(to: self.toAddress!, amount: self.amount!, data: self.data)
         }.done { gasLimit in
-            
+
             if !self.isCustomGasLimit { // NO Custom Gas Limit
                 self.gasLimit = gasLimit
             }
-            
+
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
@@ -137,8 +137,8 @@ class PaymentPopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-        let gasPrice = GasPrice.make(string: text) else { return }
-        
+            let gasPrice = GasPrice.make(string: text) else { return }
+
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -174,7 +174,7 @@ extension PaymentPopUp: PayButtonDelegate {
         guard let chain = coin.blockchain else {
             return
         }
-        
+
         var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
         if isCustomGasLimit {
             gasLimitOption = TransactionOptions.GasLimitPolicy.manual(gasLimit)

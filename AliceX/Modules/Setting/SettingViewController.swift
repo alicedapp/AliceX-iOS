@@ -18,13 +18,15 @@ class SettingViewController: BaseViewController {
 
     var hideBackButton: Bool = false
     @IBOutlet var backButton: UIView!
-    
+
     @IBOutlet var backupView: UIView!
 
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
     @IBOutlet var darkSwitch: UISwitch!
-    
+
+    @IBOutlet var notiSwitch: UISwitch!
+
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
         vc.hideBackButton = hideBackButton
@@ -43,12 +45,21 @@ class SettingViewController: BaseViewController {
 //        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
         backButton.isHidden = hideBackButton
-        
+
+        notiSwitch.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            onMainThread {
+                if settings.authorizationStatus != .authorized {
+                    self.notiSwitch.isOn = false
+                }
+            }
+        }
+
         if hideBackButton {
             scrollView.alwaysBounceVertical = true
             scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         }
-        
+
         if #available(iOS 13.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
@@ -134,6 +145,25 @@ class SettingViewController: BaseViewController {
 
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
+    }
+
+    @IBAction func notificationChange(switcher: UISwitch) {
+        if switcher.isOn {
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                onMainThread {
+                    if settings.authorizationStatus != .authorized {
+                        let url = URL(string: UIApplication.openSettingsURLString)!
+                        if UIApplication.shared.canOpenURL(url) {
+                            _ = UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    } else {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+            return
+        }
+        UIApplication.shared.unregisterForRemoteNotifications()
     }
 
     @IBAction func darkThemeDidChange(switch _: UISwitch) {

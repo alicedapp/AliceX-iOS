@@ -84,14 +84,14 @@ class NativeVCModule: NSObject {
             }
         }
     }
-    
+
     @objc func popToRootVC() {
         DispatchQueue.main.async {
             let topNavi = UIApplication.topNavigationController()
             topNavi?.popToRootViewController(animated: true)
         }
     }
-    
+
     @objc func popBack() {
         DispatchQueue.main.async {
             let topVC = UIApplication.topViewController()

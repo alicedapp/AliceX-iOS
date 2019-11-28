@@ -44,7 +44,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MyP-hq-0cw">
-                    <rect key="frame" x="30" y="697" width="354" height="135"/>
+                    <rect key="frame" x="30" y="642" width="354" height="190"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-zhh" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="354" height="60"/>
@@ -96,10 +96,10 @@
                                 <action selector="importButtonClicked" destination="-1" eventType="touchUpInside" id="Mlk-JU-sMQ"/>
                             </connections>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCi-Iy-b1f">
-                            <rect key="frame" x="0.0" y="135" width="354" height="30"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCi-Iy-b1f">
+                            <rect key="frame" x="0.0" y="150" width="354" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Zed Lab Terms of Service and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-8E-fZv">
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Zed Labs Terms of Service and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-8E-fZv">
                                     <rect key="frame" x="45" y="0.0" width="309" height="33.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
@@ -122,7 +122,7 @@
                                 <constraint firstItem="JzL-8E-fZv" firstAttribute="top" secondItem="fCi-Iy-b1f" secondAttribute="top" id="5nd-sU-Gi0"/>
                                 <constraint firstItem="shc-IC-cA5" firstAttribute="leading" secondItem="fCi-Iy-b1f" secondAttribute="leading" id="8ly-CE-4pL"/>
                                 <constraint firstAttribute="trailing" secondItem="JzL-8E-fZv" secondAttribute="trailing" id="LJn-xx-HpN"/>
-                                <constraint firstAttribute="height" constant="30" id="O5y-uD-2dt"/>
+                                <constraint firstAttribute="height" constant="40" id="O5y-uD-2dt"/>
                                 <constraint firstItem="JzL-8E-fZv" firstAttribute="leading" secondItem="shc-IC-cA5" secondAttribute="trailing" constant="15" id="cAi-lJ-LEZ"/>
                                 <constraint firstItem="shc-IC-cA5" firstAttribute="top" secondItem="fCi-Iy-b1f" secondAttribute="top" id="gDs-lf-Qel"/>
                             </constraints>

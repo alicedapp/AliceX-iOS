@@ -18,6 +18,7 @@
                 <outlet property="darkSwitch" destination="MJH-ef-ITT" id="zGo-As-J82"/>
                 <outlet property="darkTheme" destination="hA9-Uo-7g0" id="wIL-Qn-b89"/>
                 <outlet property="networkLabel" destination="dzC-sl-izU" id="csg-8Z-ftW"/>
+                <outlet property="notiSwitch" destination="h0X-zW-Sc4" id="1ef-Yr-1W6"/>
                 <outlet property="scrollView" destination="ckU-Ov-Q5N" id="LXJ-8X-S60"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -127,6 +128,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-zW-Sc4">
                                                     <rect key="frame" x="350" y="14.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="notificationChangeWithSwitcher:" destination="-1" eventType="touchUpInside" id="TD6-MA-lYF"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" name="Alice-White"/>

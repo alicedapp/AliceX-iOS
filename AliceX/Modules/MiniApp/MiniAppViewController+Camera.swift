@@ -9,13 +9,12 @@
 import Foundation
 
 extension MiniAppViewController {
-    
     @objc func panHandler(gesture: UIPanGestureRecognizer) {
         let center = gesture.translation(in: view)
         print(center.y)
-        self.collectionView.transform = CGAffineTransform.init(translationX: 0, y: center.y)
+        collectionView.transform = CGAffineTransform(translationX: 0, y: center.y)
     }
-    
+
     @objc func coverClick() {
         isTriggle = false
 
@@ -36,7 +35,6 @@ extension MiniAppViewController {
             self.scrollViewCover.isUserInteractionEnabled = false
             self.collectionView.isScrollEnabled = true
             self.cameraVC.disableCamera()
-            
         }
 
         view.layoutIfNeeded()
@@ -50,12 +48,12 @@ extension MiniAppViewController: UIScrollViewDelegate {
         if y > 0 {
             let percentage = min(max(y / 104, 0), 1.0)
             titleLabel.alpha = percentage
-            
+
             collectionView.backgroundColor = AliceColor.lightBackground()
 //            scrollViewBG.isHidden = true
             return
         }
-        
+
         collectionView.backgroundColor = .clear
 //        scrollViewBG.isHidden = false
 
@@ -94,7 +92,7 @@ extension MiniAppViewController: UIScrollViewDelegate {
         naviContainer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 38 * percentage)
         naviContainer.transform = CGAffineTransform(translationX: 0, y: -120 * percentage)
         scrollViewCover.alpha = percentage
-        
+
         tabRef.alpha = 1 - percentage
     }
 
@@ -116,11 +114,11 @@ extension MiniAppViewController: UIScrollViewDelegate {
             UIView.animate(withDuration: 0.3, animations: {
                 self.scrollViewCover.alpha = 1.0
                 self.cameraVC.view.transform = CGAffineTransform.identity
-                self.collectionView.transform = CGAffineTransform.init(translationX: 0, y: Constant.SCREEN_HEIGHT - 250)
-                self.naviContainer.transform = CGAffineTransform.init(translationX: 0, y: -120)
-            //                self.backButton.transform = CGAffineTransform.identity
-            //                self.backIndicator.transform = CGAffineTransform.identity
-            }) { (_) in
+                self.collectionView.transform = CGAffineTransform(translationX: 0, y: Constant.SCREEN_HEIGHT - 250)
+                self.naviContainer.transform = CGAffineTransform(translationX: 0, y: -120)
+                //                self.backButton.transform = CGAffineTransform.identity
+                //                self.backIndicator.transform = CGAffineTransform.identity
+            }) { _ in
                 self.scrollViewCover.isUserInteractionEnabled = true
                 self.collectionView.isScrollEnabled = false
                 self.cameraVC.activeCamera()

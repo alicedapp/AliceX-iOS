@@ -9,9 +9,8 @@
 import UIKit
 
 class QuerySuggestCell: UITableViewCell {
-
     @IBOutlet var queryLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,7 +21,7 @@ class QuerySuggestCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func configure(text: String) {
         queryLabel.text = text
     }

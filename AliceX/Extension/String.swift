@@ -56,12 +56,12 @@ extension String {
         }
     }
 
-    func validateUrl () -> Bool {
+    func validateUrl() -> Bool {
         guard !contains("..") else { return false }
 
-        let head     = "((http|https)://)?([(w|W)]{3}+\\.)?"
-        let tail     = "\\.+[A-Za-z]{1,10}+(\\.)?+(/(.)*)?"
-        let urlRegEx = head+"+(.)+"+tail
+        let head = "((http|https)://)?([(w|W)]{3}+\\.)?"
+        let tail = "\\.+[A-Za-z]{1,10}+(\\.)?+(/(.)*)?"
+        let urlRegEx = head + "+(.)+" + tail
 
         let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegEx)
         return urlTest.evaluate(with: trimmingCharacters(in: .whitespaces))

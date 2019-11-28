@@ -10,8 +10,8 @@ import CodePush
 import Firebase
 import IQKeyboardManagerSwift
 import React
-import SPStorkController
 import RNFirebase
+import SPStorkController
 import UserNotifications
 
 private var navi: UINavigationController?
@@ -67,9 +67,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             test()
         #endif
-        
+
         Messaging.messaging().delegate = self
-        
+
         return true
     }
 
@@ -120,22 +120,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return handleAliceURL(url: url)
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
     }
 
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+    func application(_: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken
     }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-      print("Unable to register for remote notifications: \(error.localizedDescription)")
+
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
-    
 }

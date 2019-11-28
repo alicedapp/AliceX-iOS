@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Moya
 import HandyJSON
+import Moya
 
 struct QuerySuggestModel: HandyJSON {
     var phrase: String!
@@ -42,8 +42,8 @@ extension QuerySuggest: TargetType {
 
     var task: Task {
         switch self {
-        case .query(let query):
-            let dict = ["q" : query, "type" : "json"]
+        case let .query(query):
+            let dict = ["q": query, "type": "json"]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }

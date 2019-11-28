@@ -158,7 +158,7 @@ class SendTransactionHandler: WCHandler {
                 self.server.send(response)
 //                HUDManager.shared.dismiss()
             }
-        } catch let error {
+        } catch {
             server.send(.invalid(request))
 //            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
             HUDManager.shared.showError(error: error)

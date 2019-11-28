@@ -11,7 +11,6 @@ import Kingfisher
 import PromiseKit
 
 class FaviconHelper {
-    
     class func getBestFavicon(domain: String) -> Promise<URL> {
         return Promise<URL> { seal in
 //           guard let domain = url.host else {
@@ -25,14 +24,14 @@ class FaviconHelper {
 //                        seal.reject(MyError.DecodeFailed)
                         return
                     }
-                    
+
                     if modelArray.count == 0 {
 //                        seal.fulfill(URL(string: "http://\(domain)/favicon.ico")!)
                         seal.fulfill(FaviconHelper.bestIcon(domain: domain))
                         return
                     }
 
-                    let hasSize = modelArray.filter { $0!.sizes != nil && $0!.sizes != "any"}
+                    let hasSize = modelArray.filter { $0!.sizes != nil && $0!.sizes != "any" }
 
                     if hasSize.count > 0 {
                         let first = hasSize.sorted { (model1, model2) -> Bool in
@@ -48,15 +47,13 @@ class FaviconHelper {
                         }
 
                         seal.fulfill(imageURL)
-                        
+
                     } else {
-                        
                         for model in modelArray {
-                            
                             if model!.src.hasSuffix(".svg") {
                                 continue
                             }
-                            
+
                             guard let firstURL = model, let imageURL = URL(string: firstURL.src) else {
                                 seal.fulfill(FaviconHelper.bestIcon(domain: domain))
 //                                seal.reject(MyError.FoundNil("Image URL convert failed"))
@@ -65,7 +62,7 @@ class FaviconHelper {
 
                             seal.fulfill(imageURL)
                         }
-                        
+
 //                        guard let firstModel = modelArray.first else {
 //                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
 //                            return
@@ -114,17 +111,16 @@ class FaviconHelper {
             }
         }
     }
-    
+
     class func bestIcon(domain: String, size: Int = 120) -> URL {
         return URL(string: "https://besticon-demo.herokuapp.com/icon?url=\(domain)&size=\(size)")!
     }
-    
+
     class func bestIcon(url: URL, size: Int = 120) -> URL {
-        
         guard let domain = url.host else {
             return URL(string: "http://\(url.host!)/favicon.ico")!
         }
-        
+
         return URL(string: "https://besticon-demo.herokuapp.com/icon?url=\(domain)&size=\(size)")!
     }
 }

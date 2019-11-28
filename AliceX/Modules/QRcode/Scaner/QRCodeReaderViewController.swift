@@ -94,8 +94,8 @@ extension QRCodeReaderViewController: LBXScanViewControllerDelegate {
             scanObj?.start()
             return
         }
-        
-        guard let strScanned = scanResult.strScanned  else {
+
+        guard let strScanned = scanResult.strScanned else {
             block("No result detected")
             return
         }

@@ -18,6 +18,9 @@ class Setting {
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
     static let password = "web3swift"
+
+    static let termURL = URL(string: "https://www.alicedapp.com/terms-of-service")!
+    static let privacyURL = URL(string: "https://www.alicedapp.com/privacy-policy")!
 }
 
 typealias MainFont = Font.HelveticaNeue
@@ -62,9 +65,9 @@ extension Notification.Name {
 
     static let priceUpdate = Notification.Name("priceUpdate")
     static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
-    
+
     static let homeItemListChange = Notification.Name("homeItemListChange")
-    
+
     static let faviconDownload = Notification.Name("faviconDownload")
 }
 
@@ -77,7 +80,7 @@ class CacheKey {
 
     static let homeItemList = "alice.miniApp.list"
     static let browserDappList = "alice.browser.dapp.list"
-    
+
     static let watchingList = "alice.asset.watchingList"
     static let unWatchingList = "alice.asset.un.watchingList"
 
@@ -113,10 +116,10 @@ class Constant {
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
 
     static let SCREEN_HEIGHT_NO_SAFE: CGFloat = UIScreen.main.bounds.height - SAFE_TOP - SAFE_BOTTOM
-    
+
     class func randomEmoji() -> String {
-        let emoji = ["🐶","🐱","🐭","🐹","🐰","🦊","🦝","🐻","🐼","🦘","🦡","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦢","🦅","🦉","🦚","🦜","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🦗","🕷","🕸","🦂","🦟","🦠","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🐘","🦏","🦛","🐪","🐫","🦙","🦒","🐃","🐂","🐄","🐎","🐖","🐏","🐑","🐐","🦌","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🦔","🐾","🐉","🐲"]
-        
+        let emoji = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🦝", "🐻", "🐼", "🦘", "🦡", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦢", "🦅", "🦉", "🦚", "🦜", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐚", "🐞", "🐜", "🦗", "🕷", "🕸", "🦂", "🦟", "🦠", "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦐", "🦀", "🐡", "🐠", "🐟", "🐬", "🐳", "🐋", "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🐘", "🦏", "🦛", "🐪", "🐫", "🦙", "🦒", "🐃", "🐂", "🐄", "🐎", "🐖", "🐏", "🐑", "🐐", "🦌", "🐕", "🐩", "🐈", "🐓", "🦃", "🕊", "🐇", "🐁", "🐀", "🐿", "🦔", "🐾", "🐉", "🐲"]
+
         return emoji.randomElement()!
     }
 }
