@@ -22,7 +22,7 @@ extension WalletManager {
             throw WalletError.malformedKeystore
         }
 
-        guard let encryp = try? CryptTools.Endcode_AES_ECB(dataToEncode: keystoreData, key: Setting.password ) else {
+        guard let encryp = try? CryptTools.endcodeAESECB(dataToEncode: keystoreData, key: Setting.password ) else {
             throw WalletError.encryptFailure
         }
 
@@ -109,7 +109,7 @@ extension WalletManager {
                 }
                 filePath += file
                 guard let content = fileManager.contents(atPath: filePath) else {continue}
-                guard let decode = try? CryptTools.Decode_AES_ECB(dataToDecode: content, key: "web3swift") else {
+                guard let decode = try? CryptTools.decodeAESECB(dataToDecode: content, key: "web3swift") else {
                     continue
                 }
                 
@@ -126,7 +126,7 @@ extension WalletManager {
                 }
                 filePath += file
                 guard let content = fileManager.contents(atPath: filePath) else {continue}
-                guard let decode = try? CryptTools.Decode_AES_ECB(dataToDecode: content, key: Setting.password) else {
+                guard let decode = try? CryptTools.decodeAESECB(dataToDecode: content, key: Setting.password) else {
                     continue
                 }
                 if scanForHDwallets {
