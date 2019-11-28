@@ -10,20 +10,19 @@ import UIKit
 import WebKit
 
 class SampleBrowserViewController: BaseViewController {
-
     @IBOutlet var webView: WKWebView!
     @IBOutlet var titleLabel: UILabel!
 
     var url: URL = URL(string: "https://www.alicedapp.com")!
     var headerTitle: String?
-    
+
     class func make(url: URL, title: String?) -> SampleBrowserViewController {
         let vc = SampleBrowserViewController()
         vc.url = url
         vc.headerTitle = title
         return vc
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = URLRequest(url: url)
@@ -33,7 +32,7 @@ class SampleBrowserViewController: BaseViewController {
 }
 
 extension SampleBrowserViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
         if headerTitle == nil {
             titleLabel.text = webView.title
         }

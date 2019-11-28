@@ -35,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL1-Fa-Upv">
-                    <rect key="frame" x="148" y="367.5" width="118" height="67"/>
+                    <rect key="frame" x="153" y="367.5" width="108.5" height="58.5"/>
                     <fontDescription key="fontDescription" name="PlayfairDisplay-Black" family="Playfair Display Black" pointSize="50"/>
                     <color key="textColor" name="Alice-DarkGrey"/>
                     <nil key="highlightedColor"/>

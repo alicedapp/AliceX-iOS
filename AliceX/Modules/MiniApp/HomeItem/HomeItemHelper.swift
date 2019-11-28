@@ -12,9 +12,9 @@ import PromiseKit
 
 class HomeItemHelper {
     static let shared = HomeItemHelper()
-    
+
     var list: [HomeItem] = []
-    
+
     func add(item: HomeItem) {
         if list.contains(item) {
             return
@@ -22,17 +22,17 @@ class HomeItemHelper {
         list.append(item)
         storeInCache()
         postNotification()
-        
+
         if !item.isApp {
             FaviconHelper.prefetchFavicon(urls: [item.url!])
         }
     }
-    
+
     func remove(item: HomeItem) {
         if !list.contains(item) {
             return
         }
-        
+
         guard let index = list.firstIndex(of: item) else {
             return
         }
@@ -40,22 +40,21 @@ class HomeItemHelper {
         storeInCache()
         postNotification()
     }
-    
+
     func updatList(list: [HomeItem]) {
         self.list = list
         storeInCache()
     }
-    
+
     func contain(item: HomeItem) -> Bool {
         return list.contains(item)
     }
 }
 
 extension HomeItemHelper {
-    
     func loadFromCache() -> Promise<[HomeItem]> {
         return Promise<[HomeItem]> { seal in
-             let cacheKey = CacheKey.homeItemList
+            let cacheKey = CacheKey.homeItemList
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 var itemList: [HomeItem] = []
                 let idList = result.split(separator: ",")
@@ -87,13 +86,13 @@ extension HomeItemHelper {
             }
         }
     }
-    
+
     func storeInCache() {
         let cacheKey = CacheKey.homeItemList
         let idList = list.compactMap { $0.id }.joined(separator: ",")
         Shared.stringCache.set(value: idList, key: cacheKey)
     }
-    
+
     func postNotification() {
         NotificationCenter.default.post(name: .homeItemListChange, object: nil)
     }

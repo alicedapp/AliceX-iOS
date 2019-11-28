@@ -84,7 +84,7 @@ class PinManager: NSObject {
                                                name: .wallectConnectClientDisconnect, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(walletConnectDisconnect),
                                                name: .wallectConnectServerDisconnect, object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(updateImage(noti:)), name: .faviconDownload, object: nil)
     }
 

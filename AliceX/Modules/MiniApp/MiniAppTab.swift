@@ -14,7 +14,6 @@ enum MiniAppTab: Int, CaseIterable {
 }
 
 extension MiniAppTab {
-
     var name: String {
         switch self {
         case .homeItem:
@@ -25,7 +24,6 @@ extension MiniAppTab {
     }
 
     var size: CGSize {
-        
         switch self {
         case .homeItem:
             let width = (Constant.SCREEN_WIDTH - 20 * 2 - 3 * 5) / 4
@@ -34,8 +32,5 @@ extension MiniAppTab {
             let width = Constant.SCREEN_WIDTH - 20 * 2
             return CGSize(width: width, height: 120)
         }
-        
-
     }
 }
-
