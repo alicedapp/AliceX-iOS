@@ -36,7 +36,7 @@ extension WalletManager {
         }
 
         FileManager.default.createFile(atPath: userDir + Setting.KeystoreDirectoryName +
-            Setting.KeystoreFileName, contents: encryp, attributes: nil)
+            Setting.KeystoreFileName, contents: encryp, attributes: [.protectionKey: FileProtectionType.complete])
     }
 
     func loadKeystore() throws -> BIP32Keystore {
