@@ -240,6 +240,9 @@
 		15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */; };
 		15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE301E2365E15A00A5BD1A /* Blockchain.swift */; };
 		15D34525236C76E20085EFFC /* WatchingCoinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D34524236C76E20085EFFC /* WatchingCoinHelper.swift */; };
+		15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */; };
+		15D572EE238FB8F4009BB9BE /* SampleBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */; };
+		15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
@@ -547,6 +550,9 @@
 		15CE301B2365C01100A5BD1A /* AssetViewController+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+Collection.swift"; sourceTree = "<group>"; };
 		15CE301E2365E15A00A5BD1A /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		15D34524236C76E20085EFFC /* WatchingCoinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingCoinHelper.swift; sourceTree = "<group>"; };
+		15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
+		15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserViewController.swift; sourceTree = "<group>"; };
+		15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleBrowserViewController.xib; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
@@ -1128,6 +1134,7 @@
 		1581EC0E22D837FE00B74F30 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				15D572E9238FB8CC009BB9BE /* Sample */,
 				15DF2A0F2387CB6B0013664E /* Setting */,
 				15DF29FB2387ACB00013664E /* HomeWebBrowserVC */,
 				15BC4DB522DAD00500313CA9 /* DAppList */,
@@ -1499,6 +1506,7 @@
 				154E7F312306A9A100D571A8 /* URL.swift */,
 				15E71E0E2373284E0069BFD2 /* Date.swift */,
 				15F197B523816B6F00960DE1 /* ENS.swift */,
+				15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1655,6 +1663,15 @@
 				15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */,
 			);
 			path = WatchingCoin;
+			sourceTree = "<group>";
+		};
+		15D572E9238FB8CC009BB9BE /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */,
+				15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 		15DE8E3822C9DD23004B45A2 /* Import */ = {
@@ -2020,6 +2037,7 @@
 				1533C9942379B0330052010A /* erc20.json in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
+				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
 				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
@@ -2248,6 +2266,7 @@
 				15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */,
 				1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */,
 				15E71E072371C6600069BFD2 /* WatchingCoinHelper+Network.swift in Sources */,
+				15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */,
 				15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */,
 				1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
@@ -2275,6 +2294,7 @@
 				157A2EFA23657916006EC0EA /* AssetBalanceCell.swift in Sources */,
 				1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */,
 				15FF6B32238EC12600673F49 /* AppDelegate+Notification.swift in Sources */,
+				15D572EE238FB8F4009BB9BE /* SampleBrowserViewController.swift in Sources */,
 				1587396A22BB48FD00F36F92 /* BaseControl.swift in Sources */,
 				15A18179232A40EA00DFE686 /* Util.swift in Sources */,
 				15CE301C2365C01100A5BD1A /* AssetViewController+Collection.swift in Sources */,
