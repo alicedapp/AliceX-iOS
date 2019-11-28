@@ -6,9 +6,9 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import UIKit
-import PromiseKit
 import Haneke
+import PromiseKit
+import UIKit
 
 class DAppListViewController: BaseViewController {
     weak var vcRef: BrowserViewController?
@@ -28,24 +28,22 @@ class DAppListViewController: BaseViewController {
     @IBAction func dismissView() {
         HUDManager.shared.dismiss()
     }
-    
+
     func requestData() {
-        
         GithubAPI.request(.dappList) { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 guard let modelArray = response.mapArray(DAppModel.self) else {
                     return
                 }
                 self.dappList = modelArray as! [DAppModel]
                 self.tableView.reloadData()
                 self.storeInCache()
-            case .failure(let error):
+            case let .failure(error):
                 self.loadData()
                 print(error.errorDescription)
             }
         }
-        
     }
 
     func loadData() {
@@ -79,7 +77,6 @@ extension DAppListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 extension DAppListViewController {
     func loadFromCache() {
         let cacheKey = CacheKey.browserDappList
@@ -89,12 +86,11 @@ extension DAppListViewController {
             }
             self.dappList = modelArray as! [DAppModel]
             self.tableView.reloadData()
-        }.onFailure { error in
+        }.onFailure { _ in
             self.loadData()
         }
-        
     }
-    
+
     func storeInCache() {
         let cacheKey = CacheKey.browserDappList
         Shared.stringCache.set(value: (dappList?.toJSONString())!, key: cacheKey)

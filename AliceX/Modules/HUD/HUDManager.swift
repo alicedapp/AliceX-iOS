@@ -167,11 +167,11 @@ class HUDManager: NSObject {
             var attributes: EKAttributes = EKAttributes()
             attributes = type
             attributes.displayDuration = .infinity
-            
+
             if haveBG {
                 attributes.screenBackground = .color(color: EKColor(UIColor(white: 50.0 / 255.0, alpha: 0.3)))
             }
-            
+
             attributes.entryBackground = .color(color: .clear)
             attributes.screenInteraction = .dismiss
             attributes.entryInteraction = .absorbTouches

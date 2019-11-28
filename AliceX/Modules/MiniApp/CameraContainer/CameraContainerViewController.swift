@@ -10,14 +10,14 @@ import UIKit
 
 class CameraContainerViewController: LBXScanViewController {
     @IBOutlet var blurView: UIVisualEffectView!
-    
+
     @IBOutlet var coverView: UIView!
 
     var block: StringBlock!
     var noFirst: Bool = false
-    
+
     var isActive: Bool = false
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -34,9 +34,9 @@ class CameraContainerViewController: LBXScanViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         scanResultDelegate = self
-        
+
         var style = LBXScanViewStyle()
 //        style.animationImage = UIImage(named: "qrcode_scan_light_white")
         style.colorAngle = UIColor.lightGray
@@ -45,22 +45,21 @@ class CameraContainerViewController: LBXScanViewController {
         scanStyle?.centerUpOffset += 10
 //        isOpenInterestRect = true
     }
-    
+
     override func viewDidLayoutSubviews() {
         view.bringSubviewToFront(coverView)
     }
-    
-    open override func viewDidAppear(_ animated: Bool) {
+
+    open override func viewDidAppear(_: Bool) {
         view.layoutIfNeeded()
         drawScanView()
-        
-        if noFirst && isActive {
+
+        if noFirst, isActive {
             startScan()
         }
     }
 
     func activeCamera() {
-        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
         }
@@ -82,7 +81,7 @@ extension CameraContainerViewController: LBXScanViewControllerDelegate {
             scanObj?.start()
             return
         }
-        
+
         guard let strScanned = scanResult.strScanned else {
             scanObj?.start()
             return
@@ -92,7 +91,7 @@ extension CameraContainerViewController: LBXScanViewControllerDelegate {
             WCServerHelper.shared.connect(url: scanResult.strScanned!)
             return
         }
-        
+
         block(strScanned.dropEthPrefix())
     }
 }

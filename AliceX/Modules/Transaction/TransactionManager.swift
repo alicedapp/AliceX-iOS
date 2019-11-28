@@ -124,7 +124,7 @@ class TransactionManager {
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
-                              password: String = "web3swift",
+                              password _: String = "web3swift",
                               gasPrice: GasPrice = GasPrice.average,
                               gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
         return TransactionManager.writeSmartContract(contractAddress: address,

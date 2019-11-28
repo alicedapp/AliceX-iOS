@@ -288,6 +288,7 @@
 		15E71E0F2373284E0069BFD2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E0E2373284E0069BFD2 /* Date.swift */; };
 		15E71E1323740A310069BFD2 /* CoinReOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */; };
 		15E71E1423740A310069BFD2 /* CoinReOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */; };
+		15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0C7DF239031A500F0D4AB /* CryptTools.swift */; };
 		15F197B623816B6F00960DE1 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B523816B6F00960DE1 /* ENS.swift */; };
 		15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B8238182F000960DE1 /* CustomTokenViewController.swift */; };
 		15F197BB238182F000960DE1 /* CustomTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F197B9238182F000960DE1 /* CustomTokenViewController.xib */; };
@@ -599,6 +600,7 @@
 		15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinReOrderViewController.swift; sourceTree = "<group>"; };
 		15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinReOrderViewController.xib; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
+		15F0C7DF239031A500F0D4AB /* CryptTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptTools.swift; sourceTree = "<group>"; };
 		15F197B523816B6F00960DE1 /* ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENS.swift; sourceTree = "<group>"; };
 		15F197B8238182F000960DE1 /* CustomTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTokenViewController.swift; sourceTree = "<group>"; };
 		15F197B9238182F000960DE1 /* CustomTokenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTokenViewController.xib; sourceTree = "<group>"; };
@@ -1430,6 +1432,7 @@
 		15B86BA622AA1C4600110C06 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				15F0C7DE2390318E00F0D4AB /* Crypto */,
 				15015DA023659DDF008DDD80 /* Coin */,
 				1514464723617AAC005E87CE /* WalletCore */,
 				1514464623617A99005E87CE /* Web3 */,
@@ -1808,6 +1811,14 @@
 				1573B5312375B1D200257A1A /* CoinReOrderCell.xib */,
 			);
 			path = Reorder;
+			sourceTree = "<group>";
+		};
+		15F0C7DE2390318E00F0D4AB /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				15F0C7DF239031A500F0D4AB /* CryptTools.swift */,
+			);
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 		15F11C1B233A3DB5000920CC /* Server */ = {
@@ -2356,6 +2367,7 @@
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */,
+				15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */,
 				15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */,
 				156548EA22CDBD6E005C8B2D /* String.swift in Sources */,
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,

@@ -22,6 +22,8 @@ public enum WalletError: Error {
     case contractFailure
     case netCacheFailure
     case netSwitchFailure
+    case encryptFailure
+    case decryptFailure
 
     case unKnown
     case custom(String)
@@ -56,6 +58,10 @@ public enum WalletError: Error {
             return 1712
         case .netSwitchFailure:
             return 1713
+        case .encryptFailure:
+            return 1714
+        case .decryptFailure:
+            return 1715
         default:
             return -1
         }
@@ -91,6 +97,10 @@ public enum WalletError: Error {
             return "Web3Net cache failure"
         case .netSwitchFailure:
             return "Switch network failure"
+        case .encryptFailure:
+            return "Encrpyt failure"
+        case .decryptFailure:
+            return "Decrpyt failure"
         case let .custom(msg):
             return msg
         default:

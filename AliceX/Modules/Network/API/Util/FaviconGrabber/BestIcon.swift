@@ -34,9 +34,9 @@ extension BestIcon: TargetType {
 
     var task: Task {
         switch self {
-        case .favicon(let domain):
-            let paras = ["url": domain, "size" : "120"]
-            return .requestParameters(parameters: paras, encoding: URLEncoding.queryString )
+        case let .favicon(domain):
+            let paras = ["url": domain, "size": "120"]
+            return .requestParameters(parameters: paras, encoding: URLEncoding.queryString)
         }
     }
 
