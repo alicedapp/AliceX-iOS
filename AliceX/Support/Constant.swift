@@ -19,7 +19,7 @@ class Setting {
     static let KeystoreFileName = "/key.json"
     static let password = "web3swift"
 
-    static let termURL = URL(string: "https://www.alicedapp.com")!
+    static let termURL = URL(string: "https://www.alicedapp.com/terms-of-service")!
     static let privacyURL = URL(string: "https://www.alicedapp.com/privacy-policy")!
 }
 
