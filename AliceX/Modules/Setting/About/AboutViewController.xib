@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -83,13 +83,13 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ty-fc-n1n">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u11-au-aaW" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XM5-Fb-4fl">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="510"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qds-iU-CYN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -353,8 +353,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8S-hr-ogH">
                                                     <rect key="frame" x="20" y="14" width="42" height="42"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="㊙️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vra-TB-655">
-                                                            <rect key="frame" x="2.5" y="1.5" width="37" height="39.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vra-TB-655">
+                                                            <rect key="frame" x="4.5" y="11.5" width="33.5" height="39.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -362,7 +362,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="vra-TB-655" firstAttribute="centerY" secondItem="r8S-hr-ogH" secondAttribute="centerY" id="SsC-Ex-hPL"/>
+                                                        <constraint firstItem="vra-TB-655" firstAttribute="centerY" secondItem="r8S-hr-ogH" secondAttribute="centerY" constant="10" id="SsC-Ex-hPL"/>
                                                         <constraint firstAttribute="height" constant="42" id="mGy-h8-v3L"/>
                                                         <constraint firstItem="vra-TB-655" firstAttribute="centerX" secondItem="r8S-hr-ogH" secondAttribute="centerX" id="qOV-XQ-yzB"/>
                                                         <constraint firstAttribute="width" secondItem="r8S-hr-ogH" secondAttribute="height" multiplier="1:1" id="tgA-JL-V4h"/>
@@ -394,6 +394,31 @@
                                                 <action selector="privacyClicked" destination="-1" eventType="touchUpInside" id="ZMi-N4-RZK"/>
                                             </connections>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNc-vC-wgu">
+                                            <rect key="frame" x="0.0" y="510" width="414" height="250"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Zed Labs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeJ-CS-tg1">
+                                                    <rect key="frame" x="152.5" y="226.5" width="109.5" height="15.5"/>
+                                                    <fontDescription key="fontDescription" name="PlayfairDisplay-Black" family="Playfair Display Black" pointSize="13"/>
+                                                    <color key="textColor" name="Alice-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zed" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-Ed-KY8">
+                                                    <rect key="frame" x="194.5" y="160" width="25" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="4Jp-D7-BFi"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="zeJ-CS-tg1" firstAttribute="centerX" secondItem="NNc-vC-wgu" secondAttribute="centerX" id="5AF-LT-Mbj"/>
+                                                <constraint firstAttribute="bottom" secondItem="zeJ-CS-tg1" secondAttribute="bottom" constant="8" id="Ajx-Ml-V13"/>
+                                                <constraint firstAttribute="height" constant="250" id="BU4-7D-WlE"/>
+                                                <constraint firstItem="QQS-Ed-KY8" firstAttribute="centerX" secondItem="NNc-vC-wgu" secondAttribute="centerX" id="Cwv-s4-cbQ"/>
+                                                <constraint firstItem="zeJ-CS-tg1" firstAttribute="top" secondItem="QQS-Ed-KY8" secondAttribute="bottom" constant="8.5" id="SkD-Gt-Fjb"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JCP-6L-eBY" firstAttribute="height" secondItem="Kyy-oV-wHH" secondAttribute="height" id="YLC-mJ-Aik"/>
@@ -403,7 +428,7 @@
                             </subviews>
                             <color key="backgroundColor" name="Alice-LightBackground"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="XM5-Fb-4fl" secondAttribute="bottom" constant="220" id="FHs-Ej-TiD"/>
+                                <constraint firstAttribute="bottom" secondItem="XM5-Fb-4fl" secondAttribute="bottom" id="FHs-Ej-TiD"/>
                                 <constraint firstAttribute="trailing" secondItem="XM5-Fb-4fl" secondAttribute="trailing" id="hcE-5j-4DA"/>
                                 <constraint firstItem="XM5-Fb-4fl" firstAttribute="top" secondItem="u11-au-aaW" secondAttribute="top" id="y3Y-Ob-6np"/>
                                 <constraint firstItem="XM5-Fb-4fl" firstAttribute="leading" secondItem="u11-au-aaW" secondAttribute="leading" id="yiL-If-wdf"/>
@@ -427,7 +452,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="NfR-uX-M5W" secondAttribute="trailing" id="U4C-SY-11Z"/>
                 <constraint firstItem="NfR-uX-M5W" firstAttribute="leading" secondItem="ZHK-EQ-E88" secondAttribute="leading" id="X2Y-9O-qjA"/>
-                <constraint firstItem="ZHK-EQ-E88" firstAttribute="bottom" secondItem="8ty-fc-n1n" secondAttribute="bottom" id="bbh-r7-WZs"/>
+                <constraint firstAttribute="bottom" secondItem="8ty-fc-n1n" secondAttribute="bottom" id="bbh-r7-WZs"/>
                 <constraint firstItem="8ty-fc-n1n" firstAttribute="top" secondItem="NfR-uX-M5W" secondAttribute="bottom" id="bhc-Wf-9uD"/>
                 <constraint firstItem="NfR-uX-M5W" firstAttribute="top" secondItem="ZHK-EQ-E88" secondAttribute="top" id="g57-q5-blf"/>
                 <constraint firstItem="8ty-fc-n1n" firstAttribute="leading" secondItem="ZHK-EQ-E88" secondAttribute="leading" id="lWb-au-1aA"/>
@@ -443,6 +468,7 @@
         <image name="logo" width="60" height="60"/>
         <image name="telegram" width="24" height="20"/>
         <image name="twitter" width="24" height="20"/>
+        <image name="zed" width="29" height="29"/>
         <namedColor name="Alice-DarkGrey">
             <color red="0.83499997854232788" green="0.83499997854232788" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
