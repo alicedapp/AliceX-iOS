@@ -26,6 +26,8 @@ class SettingViewController: BaseViewController {
     @IBOutlet var darkSwitch: UISwitch!
     @IBOutlet var darkImage: UIImageView!
     
+    @IBOutlet var notiSwitch: UISwitch!
+    
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
         vc.hideBackButton = hideBackButton
@@ -44,6 +46,15 @@ class SettingViewController: BaseViewController {
 //        versionLabel.text = "v \(Util.version)(\(Util.build))"
         backupView.isHidden = Defaults[\.MnemonicsBackup]
         backButton.isHidden = hideBackButton
+        
+        notiSwitch.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            onMainThread {
+                if settings.authorizationStatus != .authorized {
+                    self.notiSwitch.isOn = false
+                }
+            }
+        }
         
         if hideBackButton {
             scrollView.alwaysBounceVertical = true
@@ -136,6 +147,26 @@ class SettingViewController: BaseViewController {
 
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
+    }
+    
+    @IBAction func notificationChange(switcher: UISwitch) {
+        if switcher.isOn {
+            
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                onMainThread {
+                    if settings.authorizationStatus != .authorized {
+                        let url = URL(string: UIApplication.openSettingsURLString)!
+                         if UIApplication.shared.canOpenURL(url) {
+                             _ =  UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                          }
+                    } else {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+            return
+        }
+        UIApplication.shared.unregisterForRemoteNotifications()
     }
 
     @IBAction func darkThemeDidChange(switch _: UISwitch) {
