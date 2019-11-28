@@ -76,6 +76,7 @@ extension HomeItemHelper {
                                  .app(name: "CheezeWizards"),
                                  .app(name: "CryptoKitties"),
                                  .app(name: "Foam"),
+                                 .app(name: "Test"),
                                  .web(url: URL(string: "https://uniswap.exchange")!),
                                  .web(url: URL(string: "https://app.compound.finance/")!)]
                     self.storeInCache()
