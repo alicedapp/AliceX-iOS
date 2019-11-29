@@ -75,24 +75,30 @@ class WalletManager {
             return
         }
 
-        let bitsOfEntropy: Int = 128 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
-        let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
+        do {
+            let bitsOfEntropy: Int = 128 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
+            let mnemonics = try BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
 
-        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+            KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
-        let keystore = try! BIP32Keystore(mnemonics: mnemonics)
-        let name = Setting.WalletName
-        let keyData = try! JSONEncoder().encode(keystore!.keystoreParams)
-        let address = keystore!.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            let keystore = try BIP32Keystore(mnemonics: mnemonics)
+            let name = Setting.WalletName
+            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
+            let address = keystore!.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
 
-        WalletManager.wallet = wallet
-        WalletManager.shared.keystore = keystore
-        try! WalletManager.shared.saveKeystore(keystore!)
-        WalletManager.addKeyStoreIfNeeded()
+            WalletManager.wallet = wallet
+            WalletManager.shared.keystore = keystore
+            try! WalletManager.shared.saveKeystore(keystore!)
+            WalletManager.addKeyStoreIfNeeded()
+            
+            guard let completion = completion else { return }
+            completion!()
+            
+        } catch {
+            HUDManager.shared.showError(text: "Create Wallet Failed")
+        }
 
-        guard let completion = completion else { return }
-        completion!()
     }
 
     class func importAccount(mnemonics: String, completion: VoidBlock?) throws {
@@ -109,23 +115,30 @@ class WalletManager {
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             throw WalletError.malformedKeystore
         }
+        
+        do {
+            KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
-        KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+            let name = Setting.WalletName
+            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
 
-        let name = Setting.WalletName
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            WalletManager.wallet = wallet
+            WalletManager.shared.keystore = keystore
+            try WalletManager.shared.saveKeystore(keystore)
+            
+            WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
 
-        WalletManager.wallet = wallet
-        WalletManager.shared.keystore = keystore
-        try WalletManager.shared.saveKeystore(keystore)
-
-        guard let completion = completion else { return }
-        completion!()
+            guard let completion = completion else { return }
+            completion!()
+        } catch {
+            HUDManager.shared.showError(text: "Import Wallet Failed")
+        }
     }
 
     class func replaceAccount(mnemonics: String, completion _: VoidBlock?) {
+        
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
 //            throw WalletError.malformedKeystore
@@ -144,6 +157,8 @@ class WalletManager {
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
 
+            WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+            
             HUDManager.shared.showSuccess(text: "Replace wallet success")
             CallRNModule.sendWalletChangedEvent(address: address)
             NotificationCenter.default.post(name: .walletChange, object: nil)

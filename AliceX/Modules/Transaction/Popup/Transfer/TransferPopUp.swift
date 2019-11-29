@@ -150,6 +150,10 @@ class TransferPopUp: UIViewController {
         self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
         addressFieldDidChange(addressField)
     }
+    
+    
+    
+    
 
     @IBAction func cameraBtnClicked() {
         let vc = QRCodeReaderViewController.make { result in
@@ -205,7 +209,11 @@ class TransferPopUp: UIViewController {
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
-
+        
+        if let addStr = textField.text {
+            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
         if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
             return
         }

@@ -50,7 +50,7 @@ class LandingViewController: BaseViewController {
             ])
         )
 
-        let content = "I agree to the Zed Lab <blue>Terms of Service</blue> and <blue>Privacy Policy</blue>."
+        let content = "I agree to the Zed Labs' <blue>Terms of Service</blue> and <blue>Privacy Policy</blue>."
         let attributedString = content.styled(with: fishStyle)
         conditionLabel.attributedText = attributedString
 
