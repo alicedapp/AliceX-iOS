@@ -32,8 +32,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-cF-hfV">
                     <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-6h-6aE">
-                            <rect key="frame" x="187.5" y="18.5" width="39.5" height="23"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-6h-6aE">
+                            <rect key="frame" x="80" y="30" width="254" height="0.0"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                             <color key="textColor" name="Alice-DarkGrey"/>
                             <nil key="highlightedColor"/>
@@ -78,6 +78,7 @@
                         <constraint firstAttribute="trailing" secondItem="af9-lA-Fyq" secondAttribute="trailing" id="917-8c-CWO"/>
                         <constraint firstItem="cyp-lh-pbD" firstAttribute="leading" secondItem="3Ny-cF-hfV" secondAttribute="leading" id="IRT-lc-ejj"/>
                         <constraint firstAttribute="height" constant="60" id="L8E-7K-WVK"/>
+                        <constraint firstItem="Ewo-6h-6aE" firstAttribute="leading" secondItem="cyp-lh-pbD" secondAttribute="trailing" constant="20" id="a3j-Fg-kMe"/>
                         <constraint firstAttribute="bottom" secondItem="cyp-lh-pbD" secondAttribute="bottom" constant="0.5" id="f3i-SO-E36"/>
                         <constraint firstItem="Ewo-6h-6aE" firstAttribute="centerY" secondItem="3Ny-cF-hfV" secondAttribute="centerY" id="h4I-BQ-YiA"/>
                         <constraint firstAttribute="bottom" secondItem="af9-lA-Fyq" secondAttribute="bottom" id="nIO-HS-VSj"/>

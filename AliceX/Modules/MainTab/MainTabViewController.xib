@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTabViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="badge" destination="6pw-gU-Nnm" id="uUs-Bf-mN3"/>
                 <outlet property="tab1Conatiner" destination="MAW-6B-Erd" id="17a-WK-fhz"/>
                 <outlet property="tab1Icon" destination="uAP-jY-5c7" id="ond-mx-RKz"/>
                 <outlet property="tab2Conatiner" destination="T4h-vm-ra7" id="8ti-mG-dd6"/>
@@ -154,11 +155,26 @@
                                         <action selector="tabClickWithButton:" destination="-1" eventType="touchUpInside" id="LHa-U1-RC3"/>
                                     </connections>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pw-gU-Nnm">
+                                    <rect key="frame" x="75.5" y="13.5" width="10" height="10"/>
+                                    <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="YUC-wC-oXU"/>
+                                        <constraint firstAttribute="height" constant="10" id="o2h-xZ-AvV"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="AGb-yk-G8t" firstAttribute="centerY" secondItem="wfi-4x-N32" secondAttribute="centerY" id="MnK-y1-XeE"/>
+                                <constraint firstItem="6pw-gU-Nnm" firstAttribute="top" secondItem="AGb-yk-G8t" secondAttribute="top" constant="6" id="RGT-WS-ELe"/>
                                 <constraint firstItem="AGb-yk-G8t" firstAttribute="centerX" secondItem="wfi-4x-N32" secondAttribute="centerX" id="S95-DL-iU9"/>
+                                <constraint firstItem="6pw-gU-Nnm" firstAttribute="trailing" secondItem="AGb-yk-G8t" secondAttribute="trailing" constant="-6" id="VcI-ov-pge"/>
                             </constraints>
                         </view>
                     </subviews>
