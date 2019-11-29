@@ -64,7 +64,7 @@ class ImportWalletViewController: BaseViewController {
                 let vc = MainTabViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 self.navigationController?.viewControllers = [vc]
-                WalletCore.loadFromCache()
+                WalletCore.shared.loadFromCache()
             })
         } catch let error as WalletError {
             HUDManager.shared.showError(text: error.errorDescription)
