@@ -15,7 +15,7 @@ class CoinReOrderViewController: BaseViewController {
 
     var data: [[Coin]] = [[Coin]]()
     var dragAndDropManager: KDDragAndDropManager?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +50,21 @@ class CoinReOrderViewController: BaseViewController {
 
     @IBAction func closeButtonClick() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func sortButtonClick() {
+        
+        let view = BaseAlertView.instanceFromNib(content: "Sort coins by balance?",
+                                                 confirmBlock: {
+                                                    WatchingCoinHelper.shared.noCache = true
+                                                    NotificationCenter.default.post(name: .currencyChange, object: nil)
+                                                    HUDManager.shared.dismiss()
+                                                    self.dismiss(animated: true, completion: nil)
+                                                    
+        }, cancelBlock: nil)
+
+        HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
+                                        type: .centerFloat, widthIsFull: false, canDismiss: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
