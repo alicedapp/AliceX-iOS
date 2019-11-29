@@ -69,6 +69,8 @@ extension Notification.Name {
     static let homeItemListChange = Notification.Name("homeItemListChange")
 
     static let faviconDownload = Notification.Name("faviconDownload")
+    
+    static let mnemonicBackuped = Notification.Name("mnemonicBackuped")
 }
 
 class CacheKey {

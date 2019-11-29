@@ -19,6 +19,8 @@ class MainTabViewController: PageboyViewController {
     @IBOutlet var tab1Icon: UIImageView!
     @IBOutlet var tab2Icon: UIImageView!
     @IBOutlet var tab3Icon: UIImageView!
+    
+    @IBOutlet var badge: UIView!
 
     var tabs = MainTab.allCases
 
@@ -51,7 +53,19 @@ class MainTabViewController: PageboyViewController {
 
         tab2Icon.alpha = 0
 
+        badge.isHidden = Defaults[\.MnemonicsBackup]
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(mnemonicBackuped), name: .mnemonicBackuped, object: nil)
+        
         registerNotification()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func mnemonicBackuped() {
+        badge.isHidden = Defaults[\.MnemonicsBackup]
     }
 
     func registerNotification() {

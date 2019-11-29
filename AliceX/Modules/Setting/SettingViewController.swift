@@ -39,11 +39,22 @@ class SettingViewController: BaseViewController {
                                                name: .networkChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCurrency),
                                                name: .currencyChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mnemonicBackuped),
+                                               name: .mnemonicBackuped, object: nil)
+        
         updateNetwork()
         updateCurrency()
 
-//        versionLabel.text = "v \(Util.version)(\(Util.build))"
-        backupView.isHidden = Defaults[\.MnemonicsBackup]
+        let isBackuped = Defaults[\.MnemonicsBackup]
+        backupView.isHidden = isBackuped
+        if !isBackuped {
+//            UIView.animate(withDuration: 0.1, delay: 0.5, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
+//                self.backupView.transform = .init(translationX: 0, y: -2)
+//            }) { _ in
+//                self.backupView.transform = .identity
+//            }
+        }
+        
         backButton.isHidden = hideBackButton
 
         notiSwitch.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
@@ -70,6 +81,10 @@ class SettingViewController: BaseViewController {
         darkTheme.isHidden = true
     }
 
+    @objc func mnemonicBackuped() {
+        backupView.isHidden = Defaults[\.MnemonicsBackup]
+    }
+    
     @IBAction func replaceClicked() {
         let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
         navigationController?.pushViewController(vc, animated: true)
