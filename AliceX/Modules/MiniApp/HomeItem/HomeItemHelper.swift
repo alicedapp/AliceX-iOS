@@ -72,8 +72,6 @@ extension HomeItemHelper {
             }.onFailure { error in
                 if let err = error, err._code == -100 { // No Key
                     self.list = [.app(name: "DAOstack"),
-                                 .app(name: "CheezeWizards"),
-                                 .app(name: "CryptoKitties"),
                                  .app(name: "Foam"),
                                  .app(name: "Test"),
                                  .web(url: URL(string: "https://uniswap.exchange")!),
