@@ -2613,7 +2613,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2707,8 +2707,6 @@
 					"-framework",
 					"\"Moya\"",
 					"-framework",
-					"\"OneSignal\"",
-					"-framework",
 					"\"Pageboy\"",
 					"-framework",
 					"\"PromiseKit\"",
@@ -2778,8 +2776,6 @@
 					"\"react_native_camera\"",
 					"-framework",
 					"\"react_native_mapbox_gl\"",
-					"-framework",
-					"\"react_native_onesignal\"",
 					"-framework",
 					"\"react_native_video\"",
 					"-framework",
@@ -2812,7 +2808,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M47FAQ65HD;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2824,7 +2820,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2918,8 +2914,6 @@
 					"-framework",
 					"\"Moya\"",
 					"-framework",
-					"\"OneSignal\"",
-					"-framework",
 					"\"Pageboy\"",
 					"-framework",
 					"\"PromiseKit\"",
@@ -2989,8 +2983,6 @@
 					"\"react_native_camera\"",
 					"-framework",
 					"\"react_native_mapbox_gl\"",
-					"-framework",
-					"\"react_native_onesignal\"",
 					"-framework",
 					"\"react_native_video\"",
 					"-framework",
