@@ -53,7 +53,7 @@ class BrowserSettingViewController: UIViewController {
     }
 
     @IBAction func cacheButtonClicked() {
-        let view = BaseAlertView.instanceFromNib(content: "Clean browser cache ?",
+        let view = BaseAlertView.instanceFromNib(content: "Do you wanna clean browser cache?",
                                                  confirmBlock: {
                                                      BrowserViewController.cleanCache()
         }, cancelBlock: nil)

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
-            WalletCore.loadFromCache()
+            WalletCore.shared.loadFromCache()
             vc = MainTabViewController()
         } else {
             vc = LandingViewController()
