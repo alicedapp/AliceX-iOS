@@ -35,9 +35,15 @@ class FaviconHelper {
 
                     if hasSize.count > 0 {
                         let first = hasSize.sorted { (model1, model2) -> Bool in
-                            let size1 = Int(String((model1?.sizes!.split(separator: "x").first)!))!
-                            let size2 = Int(String((model2?.sizes!.split(separator: "x").first)!))!
-                            return size1 > size2
+                            
+                            guard let size1Str = model1?.sizes, let size2Str = model2?.sizes,
+                            let size1First = size1Str.split(separator: "x").first,
+                                let size2First = size2Str.split(separator: "x").first,
+                            let size1Int = Int(String(size1First)),
+                            let size2Int = Int(String(size2First))else {
+                                return false
+                            }
+                            return size1Int > size2Int
                         }.first!
 
                         guard let firstURL = first, let imageURL = URL(string: firstURL.src) else {
