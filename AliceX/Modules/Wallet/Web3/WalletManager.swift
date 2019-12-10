@@ -6,6 +6,8 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+/// https://bankex.github.io/web3swift/accounts.html
+
 import Foundation
 import SPStorkController
 import SwiftyUserDefaults
@@ -45,7 +47,7 @@ class WalletManager {
         if WalletManager.web3Net.provider.attachedKeystoreManager != nil {
             return
         }
-
+        
         WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
     }
 

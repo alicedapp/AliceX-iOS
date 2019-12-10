@@ -161,12 +161,12 @@
 		157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */; };
 		157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */; };
 		157C39F6236D40AD004CED9B /* PriceHelper+Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */; };
+		157FB521239F52E700BFB33F /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 157FB520239F52E700BFB33F /* web3-min.js */; };
 		1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */; };
 		1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1022D8390D00B74F30 /* BrowserViewController.xib */; };
 		1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */; };
 		1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */; };
 		1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1922D8661200B74F30 /* BroswerWKWebConfiguration.swift */; };
-		1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1C22D8685E00B74F30 /* web3-min.js */; };
 		1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1E22D86A9B00B74F30 /* ScriptMessageProxy.swift */; };
 		1581EC2222D88A0300B74F30 /* Dapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC2122D88A0300B74F30 /* Dapp.swift */; };
 		1581EC2422D88F0F00B74F30 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC2322D88F0F00B74F30 /* Data.swift */; };
@@ -469,12 +469,12 @@
 		157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsView.xib; sourceTree = "<group>"; };
 		157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWrapperViewController.swift; sourceTree = "<group>"; };
 		157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceHelper+Blockchain.swift"; sourceTree = "<group>"; };
+		157FB520239F52E700BFB33F /* web3-min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
 		1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		1581EC1022D8390D00B74F30 /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
 		1581EC1622D8566E00B74F30 /* EditAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAddressViewController.xib; sourceTree = "<group>"; };
 		1581EC1922D8661200B74F30 /* BroswerWKWebConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroswerWKWebConfiguration.swift; sourceTree = "<group>"; };
-		1581EC1C22D8685E00B74F30 /* web3-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
 		1581EC1E22D86A9B00B74F30 /* ScriptMessageProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptMessageProxy.swift; sourceTree = "<group>"; };
 		1581EC2122D88A0300B74F30 /* Dapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dapp.swift; sourceTree = "<group>"; };
 		1581EC2322D88F0F00B74F30 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -1176,7 +1176,7 @@
 		1581EC1B22D8685600B74F30 /* js */ = {
 			isa = PBXGroup;
 			children = (
-				1581EC1C22D8685E00B74F30 /* web3-min.js */,
+				157FB520239F52E700BFB33F /* web3-min.js */,
 			);
 			path = js;
 			sourceTree = "<group>";
@@ -2015,6 +2015,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157FB521239F52E700BFB33F /* web3-min.js in Resources */,
 				15015DAD2365B253008DDD80 /* AssetNFTHeaderCell.xib in Resources */,
 				1514464E236437F7005E87CE /* MainTabViewController.xib in Resources */,
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
@@ -2049,7 +2050,6 @@
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
 				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
-				1581EC1D22D8685E00B74F30 /* web3-min.js in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
 				15E1AA9F23688AEF00F29369 /* BlockChainQRCodeViewController.xib in Resources */,
@@ -2600,7 +2600,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
@@ -2810,7 +2810,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
