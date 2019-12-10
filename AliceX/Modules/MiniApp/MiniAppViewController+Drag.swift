@@ -53,17 +53,19 @@ extension MiniAppViewController {
                     break
                 }
 
-                if !data[indexPath.item].isApp { // Enforce NOT allow delete mini App
-                    if let cell = collectionView.cellForItem(at: indexPath) {
-                        cell.isHidden = true
-                    }
-
-                    collectionView.endInteractiveMovement()
-                    data.remove(at: indexPath.item)
-                    collectionView.deleteItems(at: [indexPath])
-                } else {
-                    collectionView.endInteractiveMovement()
+//                if !data[indexPath.item].isApp { // Enforce NOT allow delete mini App
+//
+//                } else {
+//                    collectionView.endInteractiveMovement()
+//                }
+                
+                if let cell = collectionView.cellForItem(at: indexPath) {
+                    cell.isHidden = true
                 }
+
+                collectionView.endInteractiveMovement()
+                data.remove(at: indexPath.item)
+                collectionView.deleteItems(at: [indexPath])
 
             } else {
                 collectionView.endInteractiveMovement()

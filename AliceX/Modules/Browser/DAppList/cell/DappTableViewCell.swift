@@ -18,6 +18,8 @@ class DappTableViewCell: UITableViewCell {
     @IBOutlet var addLabel: UILabel!
     @IBOutlet var addButton: VBFPopFlatButton!
     @IBOutlet var addBackground: UIView!
+    
+    @IBOutlet var dappView: UIView!
 
     @IBOutlet var tagName: UILabel!
     @IBOutlet var tagView: UIView!
@@ -69,11 +71,16 @@ class DappTableViewCell: UITableViewCell {
         }
 
         let url = URL(string: link)!
-        let item = HomeItem.web(url: url)
+        var item = HomeItem.web(url: url)
+        dappView.isHidden = true
+        
+        if model.type == .MiniApp, let dappName = model.dappName {
+            item = HomeItem.app(name: dappName)
+            dappView.isHidden = false
+        }
+        
         self.item = item
-
         let isAdd = HomeItemHelper.shared.contain(item: item)
-
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
 //        addButton.tintColor = isAdd ? AliceColor.red : .white
         addLabel.text = isAdd ? "Added" : "Add"

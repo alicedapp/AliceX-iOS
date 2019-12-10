@@ -26,7 +26,12 @@ extension Github: TargetType {
     var path: String {
         switch self {
         case .dappList:
-            return "AliceX-iOS/master/DappList/dapps.json"
+            #if DEBUG
+                return "AliceX-iOS/Dev/DappList/dapps.json"
+            #else
+                return "AliceX-iOS/master/DappList/dapps.json"
+            #endif
+            
         }
     }
 

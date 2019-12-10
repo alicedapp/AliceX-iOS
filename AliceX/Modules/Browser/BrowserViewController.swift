@@ -51,7 +51,6 @@ class BrowserViewController: BaseViewController {
         controller.addUserScript(scriptConfig.injectedScript)
         let proxy = ScriptMessageProxy(delegate: self)
         for name in ETHDAppMethod.allCases {
-            print(name)
             controller.add(proxy, name: name.rawValue)
         }
         config.userContentController = controller

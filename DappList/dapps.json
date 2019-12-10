@@ -1,5 +1,23 @@
 [
     {
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/DAOstack/Assets/logo.png?raw=true",
+        "name": "DAOStack",
+        "description": "DAO Stack on Mobile",
+        "category": "Governance",
+        "link": "https://alchemy.daostack.io",
+        "type": 0,
+        "dappName": "DAOstack"
+    },
+    {
+        "link": "http://www.cryptokitties.co",
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/CryptoKitties/Assets/logo.png?raw=true",
+        "name": "CryptoKitties Tinder",
+        "description": "Breed digital cats with Tinder swipe",
+        "category": "Marketplaces",
+        "type": 0,
+        "dappName": "CryptoKitties"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
         "name": "Uniswap",
         "description": "Protocol for automated token exchange",
