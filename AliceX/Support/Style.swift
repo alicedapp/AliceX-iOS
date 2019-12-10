@@ -11,7 +11,10 @@ import UIKit
 class AliceColor {
     @available(iOS 12.0, *)
     static var themeMode: UIUserInterfaceStyle {
-        return UIApplication.shared.keyWindow!.traitCollection.userInterfaceStyle
+        guard let keyWindow = UIApplication.shared.keyWindow else {
+            return UIUserInterfaceStyle.light
+        }
+        return keyWindow.traitCollection.userInterfaceStyle
     }
 
     @available(iOS 12.0, *)
