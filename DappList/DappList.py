@@ -30,11 +30,12 @@ for dapp in dapp_list:
 	dapp_dict['name'] = name
 	dapp_dict['description'] = desc
 	dapp_dict['category'] = category
+	dapp_dict['type'] = 1
 	
 	dapps_json.append(dapp_dict)
 	
 	print(name)
 	
 
-with open('dapp.json', 'w') as fp:
+with open('dapps.json', 'w') as fp:
 	json.dump(dapps_json, fp, indent=4)
