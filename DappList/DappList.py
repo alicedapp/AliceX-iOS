@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
-import json
+import json, re
 
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
@@ -8,9 +8,6 @@ browser = webdriver.Chrome('/Users/lmcmz/Downloads/chromedriver', chrome_options
 browser.set_window_size(2400,1000)
 browser.get('https://www.stateofthedapps.com/rankings/platform/ethereum')
 soup = BeautifulSoup(browser.page_source, 'lxml')
-
-#dapp_list = soup.find_all(")
-#print(soup)
 
 dapp_list = soup.find_all("div", class_="table-row")
 dapp_list.pop(0)
@@ -25,16 +22,28 @@ for dapp in dapp_list:
 	category = dapp.find("div", class_="RankingTableCategory").a.string
 #	
 	dapp_dict = {}
-	dapp_dict['link'] = link
+	
 	dapp_dict['img'] = img
 	dapp_dict['name'] = name
 	dapp_dict['description'] = desc
 	dapp_dict['category'] = category
+	dapp_dict['type'] = 1
+	
+	detailLink = "https://www.stateofthedapps.com"+link
+#	print(detailLink)
+	browser.get(detailLink)
+	detail = BeautifulSoup(browser.page_source, 'lxml')
+#	print(detail)
+
+	dappLink = detail.find("a", class_="button", target = "_blank", rel="noopener")["href"]
+	dapp_dict['link'] = re.sub(r'/?\??utm_source=StateOfTheDApps$', '', dappLink)
+	print(dapp_dict['link'])
 	
 	dapps_json.append(dapp_dict)
 	
 	print(name)
+#	break
 	
 
-with open('dapp.json', 'w') as fp:
+with open('dapps.json', 'w') as fp:
 	json.dump(dapps_json, fp, indent=4)

@@ -21,7 +21,6 @@ class BrowserViewController: BaseViewController {
 
     @IBOutlet var panelImage: UIImageView!
 
-    var config: WKWebViewConfiguration!
     var webview: WKWebView!
     var urlString: String = "https://uniswap.exchange"
 //    "https://app.compound.finance/"
@@ -32,6 +31,7 @@ class BrowserViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,21 @@ class BrowserViewController: BaseViewController {
 
         navigationController?.navigationBar.barStyle = .default
 
-        config = WKWebViewConfiguration.make(forServer: WalletManager.currentNetwork,
-                                             address: WalletManager.wallet!.address,
-                                             in: ScriptMessageProxy(delegate: self))
+        let scriptConfig = ETHWeb3ScriptWKConfig( address: WalletManager.wallet!.address,
+                                                  chainId: WalletManager.currentNetwork.chainID,
+                                                  rpcUrl: WalletManager.currentNetwork.rpcURL.absoluteString,
+                                                  privacyMode: false )
+        
+        let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.default()
-
+        let controller = WKUserContentController()
+        controller.addUserScript(scriptConfig.providerScript)
+        controller.addUserScript(scriptConfig.injectedScript)
+        let proxy = ScriptMessageProxy(delegate: self)
+        for name in ETHDAppMethod.allCases {
+            controller.add(proxy, name: name.rawValue)
+        }
+        config.userContentController = controller
         webview = WKWebView(frame: .zero, configuration: config)
 
         // TODO: Conflict with Pin
