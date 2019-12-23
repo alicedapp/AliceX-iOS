@@ -39,9 +39,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch-screen" width="112" height="201"/>
+        <image name="launch-screen" width="112" height="211"/>
         <namedColor name="Alice-LightBackground">
-            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
