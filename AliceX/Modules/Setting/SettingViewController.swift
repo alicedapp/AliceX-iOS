@@ -24,9 +24,9 @@ class SettingViewController: BaseViewController {
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
     @IBOutlet var darkSwitch: UISwitch!
-
     @IBOutlet var notiSwitch: UISwitch!
-
+    @IBOutlet var darkImage: UIImageView!
+    
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
         vc.hideBackButton = hideBackButton
@@ -74,7 +74,8 @@ class SettingViewController: BaseViewController {
         if #available(iOS 13.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
-            darkLabel.text = traitCollection.userInterfaceStyle == .dark ? "🌝" : "🌚"
+            darkLabel.text = darkSwitch.isOn ? "🌝" : "🌚"
+            darkImage.image = darkSwitch.isOn ? UIImage(named: "light-mode-setting") : UIImage(named: "dark-mode-setting")
             return
         }
         darkTheme.isHidden = true
@@ -185,7 +186,7 @@ class SettingViewController: BaseViewController {
         if #available(iOS 13.0, *) {
             changeThemeAnimation()
             darkLabel.text = darkSwitch.isOn ? "🌝" : "🌚"
-
+            darkImage.image = darkSwitch.isOn ? UIImage(named: "light-mode-setting") : UIImage(named: "dark-mode-setting")
             SPStorkTransitioningDelegate.changeBackground()
         }
     }
