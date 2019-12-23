@@ -26,7 +26,8 @@ class SettingViewController: BaseViewController {
     @IBOutlet var darkSwitch: UISwitch!
     @IBOutlet var darkImage: UIImageView!
     @IBOutlet var notiSwitch: UISwitch!
-
+    @IBOutlet var darkImage: UIImageView!
+    
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
         vc.hideBackButton = hideBackButton
