@@ -36,7 +36,7 @@ class AssetBalanceCell: UICollectionViewCell {
 
         let balance = Defaults[\.lastAssetBalance].toString(decimal: 2)
         balanceLabel.text = balance
-        currencyLabel.text = PriceHelper.shared.currentCurrency.flag
+        currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
     }
 
     @IBAction func hidenButtonClick() {
@@ -64,8 +64,9 @@ class AssetBalanceCell: UICollectionViewCell {
     }
 
     func configure(isHidden: Bool, newBalance: Double) {
-        currencyLabel.text = PriceHelper.shared.currentCurrency.flag
-        hideLabel.text = isHidden ? "🐵" : "🙈"
+        currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
+        hideLabel.text = isHidden ? "Show" : "Hide"
+//            "🐵" : "🙈"
 
         let oldBalance = Defaults[\.lastAssetBalance]
         if newBalance >= oldBalance {
@@ -84,7 +85,8 @@ class AssetBalanceCell: UICollectionViewCell {
         }
 
         if isHidden {
-            balanceLabel.text = "🙉🙈🙊"
+            balanceLabel.text = "***"
+//            "🙉🙈🙊"
             return
         }
 
