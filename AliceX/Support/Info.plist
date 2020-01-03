@@ -72,14 +72,6 @@
 	<string>Scanning QR codes, Pictures</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Use Face ID to confirm your identity</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>For dapps using maps</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>For dapps using maps</string>
-	<key>NSLocationUsageDescription</key>
-	<string>For dapps using maps</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>For dapps using maps</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>For voice features</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

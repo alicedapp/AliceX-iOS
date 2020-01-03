@@ -72,11 +72,11 @@ extension HomeItemHelper {
                 seal.fulfill(itemList)
             }.onFailure { error in
                 if let err = error, err._code == -100 { // No Key
-                    self.list = [.app(name: "DAOstack"),
-
-                                 .web(url: URL(string: "https://uniswap.exchange")!),
-                                 .web(url: URL(string: "https://app.compound.finance/")!)]
-                    self.storeInCache()
+                        self.list = [.app(name: "DAOstack"),
+                                 .web(url: URL(string: "https://opensea.io/assets")!),
+                                 .web(url: URL(string: "https://www.mycryptoheroes.net")!),
+                                 .web(url: URL(string: "https://peepeth.com/a/login")!),
+                                 .web(url: URL(string: "https://app.compound.finance")!)]
                     seal.fulfill(self.list)
                     return
                 }
