@@ -66,7 +66,7 @@ target 'AliceX' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'react-native-camera', path: '../node_modules/react-native-camera'
-  pod 'react-native-onesignal', :git => 'https://github.com/alicedapp/react-native-onesignal', :branch => 'master'
+  pod 'react-native-mapbox-gl', :path => '../node_modules/@react-native-mapbox-gl/maps'
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
