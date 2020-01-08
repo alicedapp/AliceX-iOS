@@ -20,7 +20,7 @@ class MyQRCodeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var address = WalletManager.wallet!.address
+        var address = WalletManager.currentAccount!.address
 
         let qrcode = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator",
                                                codeString: address,
@@ -42,14 +42,14 @@ class MyQRCodeViewController: BaseViewController {
     }
 
     @IBAction func copyBtnClicked() {
-        UIPasteboard.general.string = WalletManager.wallet?.address
+        UIPasteboard.general.string = WalletManager.currentAccount?.address
     }
 
     @IBAction func shareBtnClicked() {
         shareConver.isHidden = false
         let image = container.snapshot()
         HUDManager.shared.dismiss()
-        ShareHelper.share(text: WalletManager.wallet!.address, image: image, urlString: "")
+        ShareHelper.share(text: WalletManager.currentAccount!.address, image: image, urlString: "")
         shareConver.isHidden = true
     }
 }

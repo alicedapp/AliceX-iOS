@@ -39,7 +39,7 @@ class BrowserViewController: BaseViewController {
 
         navigationController?.navigationBar.barStyle = .default
 
-        let scriptConfig = ETHWeb3ScriptWKConfig( address: WalletManager.wallet!.address,
+        let scriptConfig = ETHWeb3ScriptWKConfig( address: WalletManager.currentAccount!.address,
                                                   chainId: WalletManager.currentNetwork.chainID,
                                                   rpcUrl: WalletManager.currentNetwork.rpcURL.absoluteString,
                                                   privacyMode: false )

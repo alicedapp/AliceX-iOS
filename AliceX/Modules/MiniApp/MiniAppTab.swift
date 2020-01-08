@@ -30,7 +30,7 @@ extension MiniAppTab {
             return CGSize(width: width, height: width + 10)
         case .add:
             let width = Constant.SCREEN_WIDTH - 20 * 2
-            return CGSize(width: width, height: 120)
+            return CGSize(width: width, height: 320)
         }
     }
 }

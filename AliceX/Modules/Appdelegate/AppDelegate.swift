@@ -81,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }.catch { error in
 //            print(error.localizedDescription)
 //        }
+        
+//        WalletManager.createAccount()
     }
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {

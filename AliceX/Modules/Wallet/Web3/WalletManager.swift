@@ -15,9 +15,16 @@ import web3swift
 
 class WalletManager {
     static let shared = WalletManager()
-    static var wallet: Wallet?
+    static var currentAccount: Account?
+    static var Accounts: [Account]? {
+        didSet {
+            if oldValue == WalletManager.Accounts {
+                return
+            }
+            WalletManager.storeAccountsToCache()
+        }
+    }
     static var currentNetwork: Web3NetEnum = .main
-
     static var customNetworkList: [Web3NetModel] = []
 
 //    #if DEBUG
@@ -29,7 +36,7 @@ class WalletManager {
     var keystore: BIP32Keystore?
 
     class func hasWallet() -> Bool {
-        if WalletManager.wallet != nil {
+        if WalletManager.currentAccount != nil && WalletManager.Accounts!.count > 0 {
             return true
         }
         return false
@@ -57,19 +64,30 @@ class WalletManager {
         }
         // Load web3 net from user default
         web3Net = WalletManager.fetchFromCache()
-
+        
         WalletManager.shared.loadRPCFromCache()
 
         WalletManager.shared.keystore = keystore
-        let name = Setting.WalletName
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-        WalletManager.wallet = wallet
-        WalletManager.addKeyStoreIfNeeded()
+
+//        let result = try! await(WalletManager.fetchAccountsFromCache())
+//        print(result)
+        
+        // Wait for acccunt loaded
+        do {
+            let accounts = try WalletManager.fetchAccountsFromCache().wait()
+            let index = Defaults[\.defaultAccountIndex]
+            WalletManager.currentAccount = accounts[index]
+            WalletManager.addKeyStoreIfNeeded()
+            
+        } catch {
+            print("Waiting for account loading fail")
+        }
+
     }
 
-    class func createAccount(completion: VoidBlock?) {
+    // MARK: - Wallet
+    
+    class func createWallet(completion: VoidBlock?) {
 //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
 
         if WalletManager.hasWallet() {
@@ -84,12 +102,15 @@ class WalletManager {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
             let keystore = try BIP32Keystore(mnemonics: mnemonics)
-            let name = Setting.WalletName
-            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
-            let address = keystore!.addresses!.first!.address
-            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+//            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
+            let defaultAccount = Defaults[\.defaultAccountIndex]
+            let address = keystore!.addresses![defaultAccount].address
+            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
 
-            WalletManager.wallet = wallet
+            WalletManager.Accounts = [wallet]
+            
+            WalletManager.currentAccount = wallet
             WalletManager.shared.keystore = keystore
             try! WalletManager.shared.saveKeystore(keystore!)
             WalletManager.addKeyStoreIfNeeded()
@@ -103,11 +124,11 @@ class WalletManager {
 
     }
 
-    class func importAccount(mnemonics: String, completion: VoidBlock?) throws {
+    class func importWallet(mnemonics: String, completion: VoidBlock?) throws {
         if WalletManager.hasWallet() {
 //            throw WalletError.hasAccount
             let vc = SignYesViewController.make {
-                WalletManager.replaceAccount(mnemonics: mnemonics, completion: nil)
+                WalletManager.replaceWallet(mnemonics: mnemonics, completion: nil)
             }
 //            HUDManager.shared.showAlertVCNoBackground(viewController: vc, entryInteraction: .absorbTouches)
             HUDManager.shared.showAlertVCNoBackground(viewController: vc)
@@ -121,12 +142,15 @@ class WalletManager {
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
-            let name = Setting.WalletName
-            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+//            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-
-            WalletManager.wallet = wallet
+            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
+            
+            WalletManager.Accounts = [wallet]
+//            WalletManager.storeAccountsToCache()
+            WalletManager.currentAccount = wallet
+            
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
             
@@ -139,7 +163,7 @@ class WalletManager {
         }
     }
 
-    class func replaceAccount(mnemonics: String, completion _: VoidBlock?) {
+    class func replaceWallet(mnemonics: String, completion _: VoidBlock?) {
         
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
@@ -150,12 +174,15 @@ class WalletManager {
 
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
-            let name = Setting.WalletName
-            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+//            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-
-            WalletManager.wallet = wallet
+            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
+            
+            WalletManager.currentAccount = wallet
+            WalletManager.Accounts = [wallet]
+//            WalletManager.storeAccountsToCache()
+            
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
 

@@ -7,18 +7,27 @@
 //
 
 import Foundation
+import HandyJSON
 
-struct Wallet {
+struct Account: Codable, Equatable {
     let address: String
-    let data: Data
-    let name: String
-    let isHD: Bool
+//    let data: Data
+//    let isHD: Bool
+    
+    var name: String
+    var imageName: String
+//    var color: UIColor
 }
 
 struct HDKey {
     let name: String?
     let address: String
 }
+
+//struct Account {
+//    let wallet: Wallet
+//    let image: UIImage
+//}
 
 // struct ERC20Token {
 //    var name: String

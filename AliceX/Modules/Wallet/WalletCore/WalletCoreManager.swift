@@ -36,7 +36,7 @@ class WalletCore {
 
         switch blockchain {
         case .Ethereum:
-            return WalletManager.wallet!.address
+            return WalletManager.currentAccount!.address
         default:
             let key = WalletCore.wallet.getKeyForCoin(coin: coinType)
             let address = coinType.deriveAddress(privateKey: key)

@@ -37,7 +37,7 @@ func handleAliceURL(url: URL) -> Bool {
     case "getAddress":
         let url = URL(string: "\(callback)://")!
             .appending("method", value: method)
-            .appending("address", value: WalletManager.wallet!.address)
+            .appending("address", value: WalletManager.currentAccount!.address)
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     case "signMessage":
 

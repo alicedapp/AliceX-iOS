@@ -14,7 +14,7 @@ typealias StringBlock = ((String) -> Void)
 class Setting {
     static let AliceKeychainPrefix = "AliceKeychain"
     static let MnemonicsKey = "AliceMnemonics"
-    static let WalletName = "AliceWallet"
+    static let WalletName = "Alice X"
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
     static let password = "web3swift"
@@ -47,7 +47,12 @@ enum Font {
 }
 
 extension Notification.Name {
+    
     static let walletChange = Notification.Name("walletChange")
+    static let accountChange = Notification.Name("accountChange")
+    
+//    static let accountChange = Notification.Name("accountCreate")
+    
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
@@ -89,6 +94,10 @@ class CacheKey {
     static let blockchainKey = "alice.asset.watchingList"
 
     static let coinInfoList = "alice.asset.coinInfoList"
+}
+
+class IMPCacheKey {
+    static let accountCacheKey = "alice.wallet.accounts"
 }
 
 class Constant {

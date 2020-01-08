@@ -96,7 +96,7 @@ class LandingViewController: BaseViewController {
             return
         }
 
-        WalletManager.createAccount { () -> Void in
+        WalletManager.createWallet { () -> Void in
             self.popUp()
             WalletCore.shared.loadFromCache()
         }

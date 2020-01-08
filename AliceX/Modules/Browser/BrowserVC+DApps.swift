@@ -30,7 +30,7 @@ extension BrowserViewController: WKScriptMessageHandler {
         switch method {
             
         case .requestAccounts:
-            let address = WalletManager.wallet!.address
+            let address = WalletManager.currentAccount!.address
             webview?.evaluateJavaScript("window.ethereum.setAddress(\"\(address)\");", completionHandler: nil)
             webview?.evaluateJavaScript("window.ethereum.sendResponse(\(id), [\"\(address)\"])", completionHandler: nil)
         case .signPersonalMessage:

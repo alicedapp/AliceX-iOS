@@ -16,6 +16,10 @@
 		1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252C233A113D009C9D51 /* WCServerHandler.swift */; };
 		15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507252F233A2167009C9D51 /* WCConnectPopup.swift */; };
 		15072532233A2172009C9D51 /* WCConnectPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15072531233A2172009C9D51 /* WCConnectPopup.xib */; };
+		150BF1F823C4D4CE00AD00EC /* SwitchAccountLarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150BF1F623C4D4CD00AD00EC /* SwitchAccountLarkController.swift */; };
+		150BF1F923C4D4CE00AD00EC /* SwitchAccountLarkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150BF1F723C4D4CD00AD00EC /* SwitchAccountLarkController.xib */; };
+		150BF1FC23C55F5C00AD00EC /* SwitchAccountLarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150BF1FA23C55F5C00AD00EC /* SwitchAccountLarkCell.swift */; };
+		150BF1FD23C55F5C00AD00EC /* SwitchAccountLarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150BF1FB23C55F5C00AD00EC /* SwitchAccountLarkCell.xib */; };
 		1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511B0F7233CDE0D00024FCC /* PinManager+WalletConnect.swift */; };
 		151250C623661F4A00AD37BB /* OpenSea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151250C523661F4A00AD37BB /* OpenSea.swift */; };
 		151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151250C72366209600AD37BB /* OpenSeaModel.swift */; };
@@ -62,6 +66,11 @@
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
+		1528139123BEC50000EE847D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1528139023BEC50000EE847D /* GoogleService-Info.plist */; };
+		1528139623C1B00000EE847D /* SwitchAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528139423C1B00000EE847D /* SwitchAccountViewController.swift */; };
+		1528139723C1B00000EE847D /* SwitchAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1528139523C1B00000EE847D /* SwitchAccountViewController.xib */; };
+		1528139C23C1B0FA00EE847D /* SwitchAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528139A23C1B0FA00EE847D /* SwitchAccountCell.swift */; };
+		1528139D23C1B0FA00EE847D /* SwitchAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1528139B23C1B0FA00EE847D /* SwitchAccountCell.xib */; };
 		1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529411B231D82940044C92D /* PinTransitionPop.swift */; };
 		152FAE0B2344BA7200D6305C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152FAE0A2344BA7200D6305C /* UserDefaults.swift */; };
 		15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E52233E25D0004E9144 /* WC+CustomHandler.swift */; };
@@ -199,6 +208,9 @@
 		158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FAC2A233CA20600F281B1 /* WCControlPanel.swift */; };
 		158FAC2D233CA20600F281B1 /* WCControlPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158FAC2B233CA20600F281B1 /* WCControlPanel.xib */; };
 		159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159085D822CCAC32000BA7E4 /* CGRect.swift */; };
+		159B72CF23C41D71006556C3 /* AddAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159B72CD23C41D71006556C3 /* AddAccountCell.xib */; };
+		159B72D023C41D72006556C3 /* AddAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B72CE23C41D71006556C3 /* AddAccountCell.swift */; };
+		159B72D223C43712006556C3 /* WalletManager+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B72D123C43712006556C3 /* WalletManager+Account.swift */; };
 		15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */; };
 		15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A18161232922E400DFE686 /* RPCCustomViewController.swift */; };
 		15A18164232922E400DFE686 /* RPCCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A18162232922E400DFE686 /* RPCCustomViewController.xib */; };
@@ -287,6 +299,8 @@
 		15E71E0F2373284E0069BFD2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E0E2373284E0069BFD2 /* Date.swift */; };
 		15E71E1323740A310069BFD2 /* CoinReOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */; };
 		15E71E1423740A310069BFD2 /* CoinReOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */; };
+		15E7568A23C1CC5100F57003 /* AddAccountFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E7568923C1CC5100F57003 /* AddAccountFooter.swift */; };
+		15E7568C23C1CC5C00F57003 /* AddAccountFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */; };
 		15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0C7DF239031A500F0D4AB /* CryptTools.swift */; };
 		15F197B623816B6F00960DE1 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B523816B6F00960DE1 /* ENS.swift */; };
 		15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B8238182F000960DE1 /* CustomTokenViewController.swift */; };
@@ -311,7 +325,6 @@
 		7DE094395A395ECB2EAFF56B /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81923CC007AC60A93EE98175 /* Pods_AliceX.framework */; };
 		BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6D23027828006BEA0C /* exocet-light.ttf */; };
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
-		BD65E0AD2399352600E7E6C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD65E0AC2399352500E7E6C3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +337,10 @@
 		1507252C233A113D009C9D51 /* WCServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCServerHandler.swift; sourceTree = "<group>"; };
 		1507252F233A2167009C9D51 /* WCConnectPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCConnectPopup.swift; sourceTree = "<group>"; };
 		15072531233A2172009C9D51 /* WCConnectPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCConnectPopup.xib; sourceTree = "<group>"; };
+		150BF1F623C4D4CD00AD00EC /* SwitchAccountLarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccountLarkController.swift; sourceTree = "<group>"; };
+		150BF1F723C4D4CD00AD00EC /* SwitchAccountLarkController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccountLarkController.xib; sourceTree = "<group>"; };
+		150BF1FA23C55F5C00AD00EC /* SwitchAccountLarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccountLarkCell.swift; sourceTree = "<group>"; };
+		150BF1FB23C55F5C00AD00EC /* SwitchAccountLarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccountLarkCell.xib; sourceTree = "<group>"; };
 		1511B0F7233CDE0D00024FCC /* PinManager+WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PinManager+WalletConnect.swift"; sourceTree = "<group>"; };
 		151250C523661F4A00AD37BB /* OpenSea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSea.swift; sourceTree = "<group>"; };
 		151250C72366209600AD37BB /* OpenSeaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSeaModel.swift; sourceTree = "<group>"; };
@@ -370,6 +387,11 @@
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		1528139023BEC50000EE847D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1528139423C1B00000EE847D /* SwitchAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccountViewController.swift; sourceTree = "<group>"; };
+		1528139523C1B00000EE847D /* SwitchAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccountViewController.xib; sourceTree = "<group>"; };
+		1528139A23C1B0FA00EE847D /* SwitchAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccountCell.swift; sourceTree = "<group>"; };
+		1528139B23C1B0FA00EE847D /* SwitchAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccountCell.xib; sourceTree = "<group>"; };
 		1529411B231D82940044C92D /* PinTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTransitionPop.swift; sourceTree = "<group>"; };
 		152FAE0A2344BA7200D6305C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		15300E52233E25D0004E9144 /* WC+CustomHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomHandler.swift"; sourceTree = "<group>"; };
@@ -508,6 +530,9 @@
 		158FAC2A233CA20600F281B1 /* WCControlPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCControlPanel.swift; sourceTree = "<group>"; };
 		158FAC2B233CA20600F281B1 /* WCControlPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCControlPanel.xib; sourceTree = "<group>"; };
 		159085D822CCAC32000BA7E4 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		159B72CD23C41D71006556C3 /* AddAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAccountCell.xib; sourceTree = "<group>"; };
+		159B72CE23C41D71006556C3 /* AddAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountCell.swift; sourceTree = "<group>"; };
+		159B72D123C43712006556C3 /* WalletManager+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+Account.swift"; sourceTree = "<group>"; };
 		15A1815F2328BEDA00DFE686 /* TransactionManager+Pending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManager+Pending.swift"; sourceTree = "<group>"; };
 		15A18161232922E400DFE686 /* RPCCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RPCCustomViewController.swift; path = AliceX/Modules/Setting/Network/RPCCustomViewController.swift; sourceTree = SOURCE_ROOT; };
 		15A18162232922E400DFE686 /* RPCCustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RPCCustomViewController.xib; path = AliceX/Modules/Setting/Network/RPCCustomViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -598,6 +623,8 @@
 		15E71E0E2373284E0069BFD2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		15E71E1123740A310069BFD2 /* CoinReOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinReOrderViewController.swift; sourceTree = "<group>"; };
 		15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinReOrderViewController.xib; sourceTree = "<group>"; };
+		15E7568923C1CC5100F57003 /* AddAccountFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFooter.swift; sourceTree = "<group>"; };
+		15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountFooter.xib; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F0C7DF239031A500F0D4AB /* CryptTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptTools.swift; sourceTree = "<group>"; };
 		15F197B523816B6F00960DE1 /* ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENS.swift; sourceTree = "<group>"; };
@@ -625,7 +652,6 @@
 		BD3A7A6D23027828006BEA0C /* exocet-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-light.ttf"; sourceTree = "<group>"; };
 		BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-heavy.ttf"; sourceTree = "<group>"; };
 		BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_onesignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD65E0AC2399352500E7E6C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1051D56A3F8FA1642E850F8 /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -678,6 +704,17 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		150BF1F523C4D4A100AD00EC /* bar */ = {
+			isa = PBXGroup;
+			children = (
+				150BF1F623C4D4CD00AD00EC /* SwitchAccountLarkController.swift */,
+				150BF1F723C4D4CD00AD00EC /* SwitchAccountLarkController.xib */,
+				150BF1FA23C55F5C00AD00EC /* SwitchAccountLarkCell.swift */,
+				150BF1FB23C55F5C00AD00EC /* SwitchAccountLarkCell.xib */,
+			);
+			path = bar;
+			sourceTree = "<group>";
+		};
 		151250C423661F3B00AD37BB /* OpenSea */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86BAC22AA1C9000110C06 /* WalletManager.swift */,
+				159B72D123C43712006556C3 /* WalletManager+Account.swift */,
 				157AA56D22CC8959008AF3A5 /* WalletManager+Network.swift */,
 				15C7D0FB237CE9700037E418 /* WalletManager+ENS.swift */,
 				15A18176232A304F00DFE686 /* WalletManager+CustomRPC.swift */,
@@ -825,6 +863,37 @@
 				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		1528139223BF096800EE847D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		1528139823C1B0CD00EE847D /* SwitchAccount */ = {
+			isa = PBXGroup;
+			children = (
+				150BF1F523C4D4A100AD00EC /* bar */,
+				1528139923C1B0D900EE847D /* cell */,
+				1528139423C1B00000EE847D /* SwitchAccountViewController.swift */,
+				1528139523C1B00000EE847D /* SwitchAccountViewController.xib */,
+			);
+			path = SwitchAccount;
+			sourceTree = "<group>";
+		};
+		1528139923C1B0D900EE847D /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				1528139A23C1B0FA00EE847D /* SwitchAccountCell.swift */,
+				1528139B23C1B0FA00EE847D /* SwitchAccountCell.xib */,
+				15E7568923C1CC5100F57003 /* AddAccountFooter.swift */,
+				15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */,
+				159B72CE23C41D71006556C3 /* AddAccountCell.swift */,
+				159B72CD23C41D71006556C3 /* AddAccountCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		15300E61233E373F004E9144 /* Custom */ = {
@@ -1538,7 +1607,7 @@
 		15B86BB322AA1D9100110C06 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				BD65E0AC2399352500E7E6C3 /* GoogleService-Info.plist */,
+				1528139023BEC50000EE847D /* GoogleService-Info.plist */,
 				15E71E04237161E00069BFD2 /* env.json */,
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
@@ -1554,6 +1623,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1528139223BF096800EE847D /* Profile */,
 				1533C999237ABAFB0052010A /* MiniApp */,
 				15E1AA9523670EE400F29369 /* Account */,
 				1514464A236437DE005E87CE /* MainTab */,
@@ -1744,6 +1814,7 @@
 		15E1AA9523670EE400F29369 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				1528139823C1B0CD00EE847D /* SwitchAccount */,
 				15E1AA96236715DB00F29369 /* Address */,
 			);
 			path = Account;
@@ -2015,8 +2086,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159B72CF23C41D71006556C3 /* AddAccountCell.xib in Resources */,
 				157FB521239F52E700BFB33F /* web3-min.js in Resources */,
 				15015DAD2365B253008DDD80 /* AssetNFTHeaderCell.xib in Resources */,
+				1528139D23C1B0FA00EE847D /* SwitchAccountCell.xib in Resources */,
 				1514464E236437F7005E87CE /* MainTabViewController.xib in Resources */,
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
 				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
@@ -2042,6 +2115,7 @@
 				15A7D502233B289F001D720F /* SingleButtonAlertView.xib in Resources */,
 				158FAC29233C95C300F281B1 /* WCQRCodeViewController.xib in Resources */,
 				15DF29FF2387ACCE0013664E /* HomeWebBrowserVC.xib in Resources */,
+				150BF1FD23C55F5C00AD00EC /* SwitchAccountLarkCell.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				15F197C523830CFB00960DE1 /* CameraContainerViewController.xib in Resources */,
@@ -2072,6 +2146,7 @@
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
+				15E7568C23C1CC5C00F57003 /* AddAccountFooter.xib in Resources */,
 				153B044C236D7C83008A2139 /* CoinViewController.xib in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
 				1573B5332375B1D200257A1A /* CoinReOrderCell.xib in Resources */,
@@ -2080,7 +2155,7 @@
 				153B2811231BB8C60062B2E8 /* PinListViewController.xib in Resources */,
 				15A18169232924B000DFE686 /* RPCCustomFooterView.xib in Resources */,
 				15FFCF8C236607E900E0BB80 /* CoinListCell.xib in Resources */,
-				BD65E0AD2399352600E7E6C3 /* GoogleService-Info.plist in Resources */,
+				1528139123BEC50000EE847D /* GoogleService-Info.plist in Resources */,
 				15F197BB238182F000960DE1 /* CustomTokenViewController.xib in Resources */,
 				BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */,
 				1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */,
@@ -2089,11 +2164,13 @@
 				153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */,
 				158E1D01236554520081C1AA /* AssetCoinCell.xib in Resources */,
 				15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */,
+				1528139723C1B00000EE847D /* SwitchAccountViewController.xib in Resources */,
 				15BC4DB222DA466400313CA9 /* BrowserPanelView.xib in Resources */,
 				1533C998237AA6A40052010A /* AddCoinCell.xib in Resources */,
 				156548F222CDC330005C8B2D /* NetworkSwitchViewController.xib in Resources */,
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
+				150BF1F923C4D4CE00AD00EC /* SwitchAccountLarkController.xib in Resources */,
 				155FACED233910DE0002B478 /* TestViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
 			);
@@ -2245,6 +2322,7 @@
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				15015DA82365AD27008DDD80 /* AssetCoinHeaderCell.swift in Sources */,
 				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
+				150BF1F823C4D4CE00AD00EC /* SwitchAccountLarkController.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
 				158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */,
 				15F67C0D236A90D800E00CDE /* AppDelegate.swift in Sources */,
@@ -2279,6 +2357,7 @@
 				15E71E072371C6600069BFD2 /* WatchingCoinHelper+Network.swift in Sources */,
 				15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */,
 				15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */,
+				1528139C23C1B0FA00EE847D /* SwitchAccountCell.swift in Sources */,
 				1525E7972331E8ED009DAB83 /* PinManager+Navigation.swift in Sources */,
 				157AA56B22CC6CE0008AF3A5 /* SettingViewController.swift in Sources */,
 				157C39F6236D40AD004CED9B /* PriceHelper+Blockchain.swift in Sources */,
@@ -2358,14 +2437,17 @@
 				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
 				1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */,
 				1514464923617ACB005E87CE /* WalletCoreManager.swift in Sources */,
+				1528139623C1B00000EE847D /* SwitchAccountViewController.swift in Sources */,
 				15E3C8FA234471AE00DCADBF /* TTGTagCollectionView.m in Sources */,
 				156F07E9236B3E6D00602A01 /* AddressQRViewController.swift in Sources */,
 				152541F62386BC11005CC83E /* Github.swift in Sources */,
 				15E2876422DEC40F00637135 /* BrowserVC+DApps.swift in Sources */,
 				15DF2A142387CBA60013664E /* BrowserSettingViewController.swift in Sources */,
 				1573B52E2375A7C300257A1A /* KDDragAndDropCollectionView.swift in Sources */,
+				159B72D223C43712006556C3 /* WalletManager+Account.swift in Sources */,
 				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
+				159B72D023C41D72006556C3 /* AddAccountCell.swift in Sources */,
 				15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */,
 				15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */,
 				15AF403922E043550059FB18 /* TransactionManager+Gas.swift in Sources */,
@@ -2434,11 +2516,13 @@
 				152151E622ECB76200A4613A /* LBXScanView.swift in Sources */,
 				15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */,
 				154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */,
+				15E7568A23C1CC5100F57003 /* AddAccountFooter.swift in Sources */,
 				15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */,
 				15DF29F623871DF30013664E /* PinManager+Favicon.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				15F197B623816B6F00960DE1 /* ENS.swift in Sources */,
 				1573B52F2375A7C300257A1A /* KDDragAndDropManager.swift in Sources */,
+				150BF1FC23C55F5C00AD00EC /* SwitchAccountLarkCell.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1533C997237AA6A40052010A /* AddCoinCell.swift in Sources */,
 				154E7F322306A9A200D571A8 /* URL.swift in Sources */,
