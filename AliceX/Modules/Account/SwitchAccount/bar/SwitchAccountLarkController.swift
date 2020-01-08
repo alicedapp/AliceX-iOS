@@ -24,6 +24,16 @@ class SwitchAccountLarkController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.collectionView.layoutIfNeeded()
+        
+        let index = data.firstIndex(of: WalletManager.currentAccount!)!
+        let indexPath = IndexPath(item: index, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
     @objc func swicthAccount() {
         collectionView.reloadData()
         delay(0.5) {

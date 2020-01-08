@@ -157,6 +157,8 @@
 		1577DDD0237E684300225DE6 /* Cosmos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDCF237E684300225DE6 /* Cosmos.swift */; };
 		1577DDD2237E68D300225DE6 /* CosmosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDD1237E68D300225DE6 /* CosmosModel.swift */; };
 		1577DDD4237EC10700225DE6 /* WalletCoreManager+Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577DDD3237EC10700225DE6 /* WalletCoreManager+Binance.swift */; };
+		1578EE2223C5A75000ED69CB /* MnemonicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1578EE2023C5A75000ED69CB /* MnemonicTableViewCell.swift */; };
+		1578EE2323C5A75000ED69CB /* MnemonicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1578EE2123C5A75000ED69CB /* MnemonicTableViewCell.xib */; };
 		157A2EFA23657916006EC0EA /* AssetBalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A2EF823657916006EC0EA /* AssetBalanceCell.swift */; };
 		157A2EFB23657916006EC0EA /* AssetBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157A2EF923657916006EC0EA /* AssetBalanceCell.xib */; };
 		157A2EFD23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A2EFC23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift */; };
@@ -478,6 +480,8 @@
 		1577DDCF237E684300225DE6 /* Cosmos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmos.swift; sourceTree = "<group>"; };
 		1577DDD1237E68D300225DE6 /* CosmosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosmosModel.swift; sourceTree = "<group>"; };
 		1577DDD3237EC10700225DE6 /* WalletCoreManager+Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletCoreManager+Binance.swift"; sourceTree = "<group>"; };
+		1578EE2023C5A75000ED69CB /* MnemonicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicTableViewCell.swift; sourceTree = "<group>"; };
+		1578EE2123C5A75000ED69CB /* MnemonicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicTableViewCell.xib; sourceTree = "<group>"; };
 		157A2EF823657916006EC0EA /* AssetBalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBalanceCell.swift; sourceTree = "<group>"; };
 		157A2EF923657916006EC0EA /* AssetBalanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetBalanceCell.xib; sourceTree = "<group>"; };
 		157A2EFC23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetViewController+ScrollViewDelegate.swift"; sourceTree = "<group>"; };
@@ -892,6 +896,8 @@
 				15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */,
 				159B72CE23C41D71006556C3 /* AddAccountCell.swift */,
 				159B72CD23C41D71006556C3 /* AddAccountCell.xib */,
+				1578EE2023C5A75000ED69CB /* MnemonicTableViewCell.swift */,
+				1578EE2123C5A75000ED69CB /* MnemonicTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -2097,6 +2103,7 @@
 				15DF2A0B2387C3B00013664E /* QuerySuggestCell.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */,
+				1578EE2323C5A75000ED69CB /* MnemonicTableViewCell.xib in Resources */,
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
 				15E71E05237161E00069BFD2 /* env.json in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
@@ -2508,6 +2515,7 @@
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
+				1578EE2223C5A75000ED69CB /* MnemonicTableViewCell.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
 				15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */,
 				15E1AAA12368B16600F29369 /* BlockChainQRCodeView.swift in Sources */,

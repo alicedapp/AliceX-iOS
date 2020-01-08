@@ -41,7 +41,7 @@ class SwitchAccountCell: FoldingCell {
         return durations[itemIndex]
     }
     
-    @IBAction func switchAccount() {   
+    @IBAction func switchAccount() {
         WalletManager.switchAccount(account: account)
     }
     

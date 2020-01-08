@@ -37,7 +37,7 @@
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJS-Eg-Wnw">
                                                 <rect key="frame" x="20" y="0.0" width="10" height="10"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bJS-Eg-Wnw" secondAttribute="height" multiplier="1:1" id="ZoV-Ch-as5"/>
                                                     <constraint firstAttribute="height" constant="10" id="p1p-f2-qqB"/>
@@ -74,7 +74,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYe-D2-fDZ">
                                         <rect key="frame" x="0.0" y="82" width="201" height="8"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="kIh-GF-9sh"/>
                                         </constraints>
@@ -107,7 +107,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F0j-BT-yVy" firstAttribute="leading" secondItem="avQ-fF-ytH" secondAttribute="leading" id="02z-Q1-iCm"/>
                             <constraint firstItem="F0j-BT-yVy" firstAttribute="top" secondItem="avQ-fF-ytH" secondAttribute="top" id="B6G-gO-GJB"/>

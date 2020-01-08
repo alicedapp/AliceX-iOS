@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="accountLabel" destination="AT1-9V-oYa" id="X3q-wt-6Fq"/>
                 <outlet property="backButton" destination="JnJ-FT-awO" id="qvX-Ek-KYa"/>
                 <outlet property="backupView" destination="Ws2-Q7-e7z" id="Yo8-Ql-41u"/>
                 <outlet property="currencyLabel" destination="Z7U-0h-w9g" id="YPg-E5-4gw"/>

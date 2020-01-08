@@ -17,6 +17,34 @@ class SwitchAccountViewController: BaseViewController {
         static let openCellHeight: CGFloat = 260 + 30
     }
     
+    enum Cells: Int, CaseIterable {
+        case mnemonic = 0
+        case account
+        case create
+        
+        var cellName: String {
+            switch self {
+            case .mnemonic:
+                return MnemonicTableViewCell.nameOfClass
+            case .account:
+                return SwitchAccountCell.nameOfClass
+            case .create:
+                return AddAccountCell.nameOfClass
+            }
+        }
+        
+//        var height: CGFloat {
+//            switch self {
+//            case .mnemonic:
+//                return CGSize(width: , height: <#T##CGFloat#>)
+//            case .account:
+//                return SwitchAccountCell.nameOfClass
+//            case .create:
+//                return AddAccountCell.nameOfClass
+//            }
+//        }
+    }
+    
     var cellHeights: [CGFloat] = []
     
     @IBOutlet var tableView: UITableView!
@@ -29,8 +57,10 @@ class SwitchAccountViewController: BaseViewController {
         tableView.dataSource = self
         tableView.registerCell(nibName: SwitchAccountCell.nameOfClass)
         tableView.registerCell(nibName: AddAccountCell.nameOfClass)
+        tableView.registerCell(nibName: MnemonicTableViewCell.nameOfClass)
 //        tableView.registerHeaderFooter(nibName: AddAccountFooter.nameOfClass)
-//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        
         
         cellHeights = Array(repeating: Const.closeCellHeight, count: data.count)
         NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
@@ -44,12 +74,12 @@ class SwitchAccountViewController: BaseViewController {
 extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case Cells.account.rawValue:
             return data.count
         default:
             return 1
@@ -57,10 +87,20 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 {
+//        if indexPath.section == Cells.account.rawValue {
+//            return cellHeights[indexPath.row]
+//        }
+        
+        switch indexPath.section {
+        case Cells.account.rawValue:
+            return cellHeights[indexPath.row]
+        case Cells.mnemonic.rawValue:
+            return 80
+        case Cells.create.rawValue:
+            return 100
+        default:
             return 100
         }
-        return cellHeights[indexPath.row]
     }
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -81,7 +121,12 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0:
+        case Cells.mnemonic.rawValue:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MnemonicTableViewCell.nameOfClass, for: indexPath) as! MnemonicTableViewCell
+//            let account = data[indexPath.row]
+//            cell.configure(account: account)
+            return cell
+        case Cells.account.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchAccountCell.nameOfClass, for: indexPath) as! SwitchAccountCell
             let account = data[indexPath.row]
             cell.configure(account: account)
