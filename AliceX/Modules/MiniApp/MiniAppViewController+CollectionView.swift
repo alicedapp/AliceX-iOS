@@ -41,7 +41,7 @@ extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataS
         case MiniAppTab.homeItem.rawValue:
             return data.count
         case MiniAppTab.add.rawValue:
-            return data.count > 3 ? 0 : 0
+            return data.count > 3 ? 0 : 1
         default:
             return 0
         }
@@ -97,35 +97,6 @@ extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataS
         data.insert(item, at: destIndex)
     }
 }
-
-// extension MiniAppViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
-//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-//        let item = data[indexPath.item]
-//        let itemProvider = NSItemProvider(object: item.id as NSString)
-//        let dragItem = UIDragItem(itemProvider: itemProvider)
-//        dragItem.localObject = item
-//        return [dragItem]
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-//
-//        var destIndex: IndexPath
-//        if let indexPath = coordinator.destinationIndexPath {
-//            destIndex = indexPath
-//        } else {
-//            let row = collectionView.numberOfItems(inSection: 0)
-//            destIndex = IndexPath(item: row-1, section: 0)
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-//        if collectionView.hasActiveDrag {
-//            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-//        }
-//
-//        return UICollectionViewDropProposal(operation: .forbidden)
-//    }
-// }
 
 extension MiniAppViewController {
     func homeItemAimation() {

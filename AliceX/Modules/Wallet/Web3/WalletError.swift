@@ -24,6 +24,7 @@ public enum WalletError: Error {
     case netSwitchFailure
     case encryptFailure
     case decryptFailure
+    case createAccountFailure
 
     case unKnown
     case custom(String)
@@ -62,6 +63,8 @@ public enum WalletError: Error {
             return 1714
         case .decryptFailure:
             return 1715
+        case .createAccountFailure:
+            return 1716
         default:
             return -1
         }
@@ -101,6 +104,8 @@ public enum WalletError: Error {
             return "Encrpyt failure"
         case .decryptFailure:
             return "Decrpyt failure"
+        case .createAccountFailure:
+            return "Create account failure"
         case let .custom(msg):
             return msg
         default:

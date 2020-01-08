@@ -35,9 +35,10 @@ target 'AliceX' do
 #  pod 'lottie-ios'
   pod "ESPullToRefresh"
   pod 'JXSegmentedView', '~> 1.0.2'
-  
+  pod 'FoldingCell'
   pod 'Pageboy', '~> 3.5.0'
   pod 'Tabman', '~> 2.6'
+#  pod 'AwaitKit'
   
   #for push notifications
   pod 'Firebase/Core'

@@ -39,6 +39,8 @@
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnJ-FT-awO" customClass="UIControl">
@@ -84,18 +86,123 @@
                         <constraint firstItem="Uhr-0K-OQD" firstAttribute="centerY" secondItem="yTs-RM-7Vg" secondAttribute="centerY" id="cwC-Ia-FP1"/>
                         <constraint firstItem="JnJ-FT-awO" firstAttribute="top" secondItem="yTs-RM-7Vg" secondAttribute="top" id="o94-rH-Xdn"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceNaviBar"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckU-Ov-Q5N">
                     <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-ei-679" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Id4-6N-VQ1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAB-4J-eLa">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gio-Ar-e2g">
+                                                    <rect key="frame" x="20" y="10" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.27989394429999997" green="0.27989394429999997" blue="0.27989394429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="JFj-mB-6zW"/>
+                                                <constraint firstItem="Gio-Ar-e2g" firstAttribute="centerY" secondItem="JAB-4J-eLa" secondAttribute="centerY" id="MPd-Wy-9pb"/>
+                                                <constraint firstItem="Gio-Ar-e2g" firstAttribute="leading" secondItem="JAB-4J-eLa" secondAttribute="leading" constant="20" id="OrY-YP-wE1"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhD-WR-PeV" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="20" width="414" height="60"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkB-qm-yxn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🌐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-yk-FcS">
+                                                            <rect key="frame" x="16" y="15" width="28" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network-setting" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Ig-dd2">
+                                                            <rect key="frame" x="-2" y="-2" width="64" height="64"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="6oM-yk-FcS" firstAttribute="centerX" secondItem="CkB-qm-yxn" secondAttribute="centerX" id="3aN-nd-nFh"/>
+                                                        <constraint firstAttribute="width" constant="60" id="44t-vH-CmB"/>
+                                                        <constraint firstItem="GIr-Ig-dd2" firstAttribute="centerY" secondItem="CkB-qm-yxn" secondAttribute="centerY" id="O7o-Ab-rOC"/>
+                                                        <constraint firstItem="6oM-yk-FcS" firstAttribute="centerY" secondItem="CkB-qm-yxn" secondAttribute="centerY" id="cbE-B2-q0u"/>
+                                                        <constraint firstItem="GIr-Ig-dd2" firstAttribute="centerX" secondItem="CkB-qm-yxn" secondAttribute="centerX" id="xL9-of-pXP"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="N07-qz-f00">
+                                                    <rect key="frame" x="375" y="12" width="24" height="36"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-9w-0DD">
+                                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
+                                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="fMt-BI-vlx"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgr-uu-zJg">
+                                                    <rect key="frame" x="68" y="20" width="72" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="Alice-DarkGrey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT1-9V-oYa">
+                                                    <rect key="frame" x="281" y="20.5" width="84" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="tYm-9w-0DD" secondAttribute="bottom" id="3P6-cq-Gfa"/>
+                                                <constraint firstItem="N07-qz-f00" firstAttribute="centerY" secondItem="JhD-WR-PeV" secondAttribute="centerY" id="85v-Ip-KD7"/>
+                                                <constraint firstItem="tYm-9w-0DD" firstAttribute="leading" secondItem="JhD-WR-PeV" secondAttribute="leading" id="Fug-NB-E6S"/>
+                                                <constraint firstAttribute="height" constant="60" id="JSB-J5-B9o"/>
+                                                <constraint firstItem="CkB-qm-yxn" firstAttribute="top" secondItem="JhD-WR-PeV" secondAttribute="top" id="Mpz-Bx-q2n"/>
+                                                <constraint firstAttribute="bottom" secondItem="CkB-qm-yxn" secondAttribute="bottom" id="P75-kS-bZH"/>
+                                                <constraint firstItem="CkB-qm-yxn" firstAttribute="leading" secondItem="JhD-WR-PeV" secondAttribute="leading" id="ccH-2F-PgQ"/>
+                                                <constraint firstItem="xgr-uu-zJg" firstAttribute="leading" secondItem="CkB-qm-yxn" secondAttribute="trailing" constant="8" id="ccO-Y2-Txi"/>
+                                                <constraint firstAttribute="trailing" secondItem="N07-qz-f00" secondAttribute="trailing" constant="15" id="haJ-cj-aaB"/>
+                                                <constraint firstItem="AT1-9V-oYa" firstAttribute="centerY" secondItem="JhD-WR-PeV" secondAttribute="centerY" id="idf-Bh-egQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="tYm-9w-0DD" secondAttribute="trailing" id="lvK-fM-10F"/>
+                                                <constraint firstItem="N07-qz-f00" firstAttribute="leading" secondItem="AT1-9V-oYa" secondAttribute="trailing" constant="10" id="slM-J9-DJ9"/>
+                                                <constraint firstItem="xgr-uu-zJg" firstAttribute="centerY" secondItem="JhD-WR-PeV" secondAttribute="centerY" id="sss-yl-xMC"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="accountBtnClicked" destination="-1" eventType="touchUpInside" id="naY-LR-2Do"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-TY-OkO">
+                                            <rect key="frame" x="0.0" y="80" width="414" height="20"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sj-Fk-0NW">
+                                                    <rect key="frame" x="20" y="10" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.27989394429999997" green="0.27989394429999997" blue="0.27989394429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <constraints>
+                                                <constraint firstItem="0Sj-Fk-0NW" firstAttribute="leading" secondItem="SOV-TY-OkO" secondAttribute="leading" constant="20" id="SzI-TW-Hx8"/>
+                                                <constraint firstAttribute="height" constant="20" id="g8j-3g-Id0"/>
+                                                <constraint firstItem="0Sj-Fk-0NW" firstAttribute="centerY" secondItem="SOV-TY-OkO" secondAttribute="centerY" id="n5V-PI-fRD"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-zM-O6a" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="100" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ax9-hO-2hW">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -155,7 +262,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GxD-0N-fLl" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="60" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="160" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tt6-5g-rOf">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -223,7 +330,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6V-Dd-bOX" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="120" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="220" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUC-I3-z2a">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -291,7 +398,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Zv-Vot" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="180" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="280" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beV-TF-16L">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -376,7 +483,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbM-4W-MVC" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="240" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="340" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUJ-cN-q9j">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -436,7 +543,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qf-Ck-oKm" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="300" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="400" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-qc-h9r">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -491,7 +598,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-8t-qmW" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="360" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="460" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1K-nJ-wYN">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -551,7 +658,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRB-GK-aez">
-                                            <rect key="frame" x="0.0" y="420" width="414" height="20"/>
+                                            <rect key="frame" x="0.0" y="520" width="414" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-1t-9ae">
                                                     <rect key="frame" x="20" y="10" width="0.0" height="0.0"/>
@@ -568,7 +675,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-Dx-5az" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="440" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="540" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9V-Sc-xNs">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -628,7 +735,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hA9-Uo-7g0" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="500" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="600" width="414" height="60"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-X6-dBM">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>

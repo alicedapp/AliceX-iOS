@@ -37,3 +37,29 @@ struct AmberdataToken: HandyJSON {
     var isERC884: Bool!
     var isERC998: Bool!
 }
+
+struct AmberdataAddress: HandyJSON {
+    var address: String!
+}
+
+struct AmberdataTXRecord: HandyJSON {
+    var transactionHash: String!
+    var blockHash: String!
+    var blockNumber: String!
+    var tokenAddress: String!
+    var amount: String!
+    var timestamp: Int64!
+    var timestampNanoseconds: Int!
+    var logIndex: Int!
+    var blockchainId: String!
+    var to: AmberdataAddress!
+    var from: AmberdataAddress!
+    var decimals: Int!
+    var name: String!
+    var symbol: String!
+    var isERC20: Bool!
+    var isERC777: Bool!
+    var isERC721: Bool!
+    var isERC884: Bool!
+    var isERC998: Bool!
+}

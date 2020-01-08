@@ -115,6 +115,11 @@ class SettingViewController: BaseViewController {
         let vc = WCControlPanel()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func accountBtnClicked() {
+        let vc = SwitchAccountViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     @IBAction func aboutBtnClicked() {
         let vc = AboutViewController()

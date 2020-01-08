@@ -75,6 +75,9 @@
                         <constraint firstItem="eTf-Tx-gVP" firstAttribute="centerX" secondItem="NTL-ck-1Jv" secondAttribute="centerX" id="u37-G2-Jw8"/>
                         <constraint firstItem="iW6-ZX-A6t" firstAttribute="leading" secondItem="NTL-ck-1Jv" secondAttribute="leading" id="yWR-xy-Oig"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceNaviBar"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-Nh-GKr">
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
@@ -102,7 +105,7 @@
     <resources>
         <image name="back-dark" width="12" height="19"/>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83499997854232788" green="0.83499997854232788" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

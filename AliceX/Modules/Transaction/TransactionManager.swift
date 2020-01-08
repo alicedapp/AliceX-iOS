@@ -45,14 +45,14 @@ class TransactionManager {
     }
 
     class func getAddress() throws -> String {
-        guard let address = WalletManager.wallet?.address else { throw WalletError.accountDoesNotExist }
+        guard let address = WalletManager.currentAccount?.address else { throw WalletError.accountDoesNotExist }
         return address
     }
 
     // MARK: - Balance
 
     public func etherBalanceSync() throws -> String {
-        guard let address = WalletManager.wallet?.address else { throw WalletError.accountDoesNotExist }
+        guard let address = WalletManager.currentAccount?.address else { throw WalletError.accountDoesNotExist }
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
 
         guard let balanceInWeiUnitResult = try? WalletManager.web3Net.eth.getBalance(address: ethereumAddress) else {
@@ -69,7 +69,7 @@ class TransactionManager {
 
     public func etherBalance() -> Promise<String> {
         return Promise<String> { seal in
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 seal.reject(WalletError.accountDoesNotExist)
                 return
             }
@@ -210,7 +210,7 @@ class TransactionManager {
                                          notERC20: Bool = true) -> Promise<String> {
         return Promise<String> { seal in
 
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 seal.reject(WalletError.invalidAddress)
                 return
             }
@@ -312,7 +312,7 @@ class TransactionManager {
                                         value: String = "0.0") -> Promise<[String: Any]> {
         return Promise<[String: Any]> { seal in
 
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 throw WalletError.invalidAddress
             }
 
@@ -363,7 +363,7 @@ class TransactionManager {
     }
 
     class func signMessage(message: Data) throws -> String? {
-        guard let address = WalletManager.wallet?.address else {
+        guard let address = WalletManager.currentAccount?.address else {
             throw WalletError.invalidAddress
         }
 
@@ -412,7 +412,7 @@ class TransactionManager {
             throw WalletError.invalidAddress
         }
 
-        guard let address = WalletManager.wallet?.address else {
+        guard let address = WalletManager.currentAccount?.address else {
             throw WalletError.invalidAddress
         }
 
@@ -471,7 +471,7 @@ class TransactionManager {
 //            throw WalletError.invalidAddress
 //        }
 //
-//        guard let address = WalletManager.wallet?.address else {
+//        guard let address = WalletManager.currentAccount?.address else {
 //            throw WalletError.invalidAddress
 //        }
 //

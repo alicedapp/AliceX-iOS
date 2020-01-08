@@ -50,7 +50,7 @@ extension WatchingCoinHelper {
         return Promise<Bool> { seal in
             firstly { () -> Promise<AmberdataTokenList> in
                 // TODO:
-                API(AmberData.tokens(address: WalletManager.wallet!.address), path: "payload")
+                API(AmberData.tokens(address: WalletManager.currentAccount!.address), path: "payload")
             }.done { model in
 
                 if let records = model.records, records.count > 0 {
@@ -82,6 +82,7 @@ extension WatchingCoinHelper {
                     seal.fulfill(true)
                 } else {
                     seal.fulfill(true)
+                    
                     //                    throw MyError.FoundNil("ERC20 is empty")
                 }
 

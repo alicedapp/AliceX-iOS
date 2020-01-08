@@ -51,6 +51,8 @@ class AssetViewController: BaseViewController {
         requestData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .accountChange, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .walletChange, object: nil)
@@ -123,7 +125,7 @@ class AssetViewController: BaseViewController {
             print(error)
         }
 
-        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.wallet!.address)"
+        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
         Shared.stringCache.fetch(key: cacheKey).onSuccess { string in
             guard let model = OpenSeaReponse.deserialize(from: string) else {
                 return
@@ -168,7 +170,7 @@ class AssetViewController: BaseViewController {
     }
 
     func requestNFT() -> Promise<Bool> {
-        let currentAddress = WalletManager.wallet!.address
+        let currentAddress = WalletManager.currentAccount!.address
 
         let cacheKey = "\(CacheKey.assetNFTKey).\(currentAddress)"
 

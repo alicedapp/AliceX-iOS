@@ -60,7 +60,7 @@ class ImportWalletViewController: BaseViewController {
         mnemonics = mnemonics?.lowercased()
 
         do {
-            try WalletManager.importAccount(mnemonics: mnemonics!, completion: { () -> Void in
+            try WalletManager.importWallet(mnemonics: mnemonics!, completion: { () -> Void in
                 let vc = MainTabViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 self.navigationController?.viewControllers = [vc]
