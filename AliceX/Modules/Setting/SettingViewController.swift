@@ -12,6 +12,8 @@ import SwiftyUserDefaults
 import UIKit
 
 class SettingViewController: BaseViewController {
+    
+    @IBOutlet var accountLabel: UILabel!
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
@@ -54,6 +56,9 @@ class SettingViewController: BaseViewController {
 //                self.backupView.transform = .identity
 //            }
         }
+        
+        
+        accountLabel.text = WalletManager.currentAccount?.name
         
         backButton.isHidden = hideBackButton
 

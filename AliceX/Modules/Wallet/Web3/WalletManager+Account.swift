@@ -102,6 +102,12 @@ extension WalletManager {
     }
     
     class func switchAccount(account: Account) {
+        
+        // if same account, not change
+        if account == WalletManager.currentAccount {
+            return
+        }
+        
         WalletManager.currentAccount = account
         Defaults[\.defaultAccountIndex] = WalletManager.Accounts!.firstIndex(of: account)!
         NotificationCenter.default.post(name: .accountChange, object: nil)

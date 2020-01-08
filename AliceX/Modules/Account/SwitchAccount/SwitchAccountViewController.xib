@@ -82,14 +82,14 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VeG-Or-0Iy">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
             <constraints>
                 <constraint firstItem="VeG-Or-0Iy" firstAttribute="top" secondItem="unJ-w0-bCt" secondAttribute="bottom" id="HoW-9s-Bqw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VeG-Or-0Iy" secondAttribute="bottom" id="HzY-OA-Kxu"/>
+                <constraint firstAttribute="bottom" secondItem="VeG-Or-0Iy" secondAttribute="bottom" id="HzY-OA-Kxu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VeG-Or-0Iy" secondAttribute="trailing" id="KaJ-VI-zyW"/>
                 <constraint firstAttribute="trailing" secondItem="unJ-w0-bCt" secondAttribute="trailing" id="SAn-rs-8zs"/>
                 <constraint firstItem="VeG-Or-0Iy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="feO-Mo-1lM"/>
