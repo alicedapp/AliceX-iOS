@@ -65,6 +65,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellView" destination="2cy-23-oiP" id="smS-4M-UiC"/>
+                <outlet property="firstImage" destination="Tij-Bi-EWV" id="WSr-7i-5KT"/>
+                <outlet property="secondImage" destination="4ft-P0-Xc4" id="nPM-Jj-gOc"/>
                 <outlet property="titleLabel" destination="F2d-Qh-fDk" id="flg-Q2-DDx"/>
             </connections>
             <point key="canvasLocation" x="176.81159420289856" y="144.30803571428569"/>
