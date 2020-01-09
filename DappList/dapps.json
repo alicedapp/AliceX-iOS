@@ -1,352 +1,421 @@
 [
     {
-        "link": "https://uniswap.exchange/",
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/DAOstack/Assets/logo.png?raw=true",
+        "name": "DAOStack",
+        "description": "DAO Stack on Mobile",
+        "category": "Governance",
+        "link": "https://alchemy.daostack.io",
+        "type": 0,
+        "dappName": "DAOstack"
+    },
+    {
+        "link": "http://www.cryptokitties.co",
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/CryptoKitties/Assets/logo.png?raw=true",
+        "name": "CryptoKitties Tinder",
+        "description": "Breed digital cats with Tinder swipe",
+        "category": "Marketplaces",
+        "type": 0,
+        "dappName": "CryptoKitties"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
         "name": "Uniswap",
         "description": "Protocol for automated token exchange",
-        "category": "Exchanges"
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://uniswap.exchange"
     },
     {
         "link": "http://www.cryptokitties.co",
         "img": "https://cdn.stateofthedapps.com/dapps/cryptokitties/icon_small_cryptokitties_f10091871f0167a36c0b4fc6ed225a9fdbd48cb54d1b12d94f61803ce1e2e56a_opti.png",
         "name": "CryptoKitties",
         "description": "Collect and breed digital cats",
-        "category": "Marketplaces"
+        "category": "Marketplaces",
+        "type": 1
     },
     {
-        "link": "https://map.foam.space/",
-        "img": "https://cdn.stateofthedapps.com/dapps/foam/icon_small_foam_3e0582514d5557dd9c5edf0b66734fba7581a83aeb16b790126a3e3ec32b23c6_opti.png",
-        "name": "FOAM",
-        "description": "The consensus-driven map of the world",
-        "category": "Property"
-    },
-    {
-        "link": "https://www.mycryptoheroes.net/",
-        "img": "https://cdn.stateofthedapps.com/dapps/my-crypto-heroes/icon_small_my-crypto-heroes_688aeecec4ac630cac6ea634e40002bdea7c4e186d04b5403fa447c09e5a8842_opti.png",
-        "name": "My Crypto Heroes",
-        "description": "Hero worker-placement RPG.",
-        "category": "Games"
-    },
-    {
-        "link": "https://www.airswap.io/trade",
-        "img": "https://cdn.stateofthedapps.com/dapps/airswap/icon_small_airswap_92fc838f38499148b90ed1dd13ff1811bbbf870223a03b6ccde575782f0a60b6_opti.png",
-        "name": "AirSwap",
-        "description": "Simple wallet-to-wallet token trading",
-        "category": "Exchanges"
-    },
-    {
-        "link": "https://cdp.makerdao.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/makerdao/icon_makerdao_330d28465b81a279ee17b47a2886b82711d0a522d72684dbc65e5d1616b42778_opti.png",
-        "name": "MakerDAO",
-        "description": "Where you can interact with the Dai Credit System",
-        "category": "Finance"
-    },
-    {
-        "link": "https://chain.link",
-        "img": "https://cdn.stateofthedapps.com/dapps/chainlink/icon_small_chainlink_a71fc8d97c5d10f325f7679bfecef669ab1ec5fb0479e1a00919f4fe999148ad_opti.jpg",
-        "name": "Chainlink",
-        "description": "Your smart contracts connected to real world data, events and payments.",
-        "category": "Security"
-    },
-    {
-        "link": "https://basicattentiontoken.org/",
-        "img": "https://cdn.stateofthedapps.com/dapps/basic-attention-token/icon_small_basic-attention-token_0f4b90c7664d3e9197a17e5b178cb90e68247da6c28edfea0b1e6238082b6516_opti.png",
-        "name": "Basic Attention Token",
-        "description": "Digital advertising",
-        "category": "Wallet"
-    },
-    {
-        "link": "https://idex.market/",
-        "img": "https://cdn.stateofthedapps.com/dapps/idex/icon_small_idex_4399b16c81ff4d1253736468b628315ae1cf024b916073a2715d83adcbd1b580_opti.png",
-        "name": "IDEX",
-        "description": "Distributed exchange made of smart contracts",
-        "category": "Exchanges"
-    },
-    {
-        "link": "http://status.im/",
-        "img": "https://cdn.stateofthedapps.com/dapps/status/icon_small_status_28bcb318ae1c6f909e945fd0f75e597e711ee5af12b7af8aee5a85d830817bc7_opti.png",
-        "name": "Status",
-        "description": "Access a Better Web, Anywhere",
-        "category": "Wallet"
-    },
-    {
-        "link": "https://market.decentraland.org/",
-        "img": "https://cdn.stateofthedapps.com/dapps/decentraland/icon_decentraland_3749b5cc41cd9a5981d6b5fd82d014980ff962e5539a57ee54313f8cb5403f85.ico",
-        "name": "Decentraland",
-        "description": "A virtual world run on open standards",
-        "category": "Property"
-    },
-    {
-        "link": "https://www.0xproject.com/portal",
-        "img": "https://cdn.stateofthedapps.com/dapps/0x/icon_0x_660cce54539f5b8831431f682ab787423518301ef12eaa7f54ec7500616b58a0_opti.png",
-        "name": "0x",
-        "description": "The protocol for trading tokens",
-        "category": "Exchanges"
-    },
-    {
-        "link": "https://kyber.network/",
-        "img": "https://cdn.stateofthedapps.com/dapps/kybernetwork/icon_small_kybernetwork_edea578c83e91c34a2c4881e2a8852def51d9d31394f5188a8b4a7c57f15f225_opti.png",
-        "name": "KyberNetwork",
-        "description": "Enabling Token Swaps Everywhere",
-        "category": "Exchanges"
-    },
-    {
-        "link": "https://cryptodozer.io",
-        "img": "https://cdn.stateofthedapps.com/dapps/cryptodozer/icon_small_cryptodozer_2712499d42c2bb1776b748c6f551b8414e088f3299fe68823a86b1957ab77717_opti.png",
-        "name": "CryptoDozer",
-        "description": "Play and get the 70 ETH Doll!",
-        "category": "Games"
-    },
-    {
-        "link": "https://omisego.network/",
-        "img": "https://cdn.stateofthedapps.com/dapps/omisego/icon_small_omisego_2c42ef80e71c25ffa0407b175876d57c6cce3cad9d7ceadd944ac7679b2be168_opti.png",
-        "name": "OmiseGO",
-        "description": "Unbank the banked",
-        "category": "Finance"
-    },
-    {
-        "link": "https://www.arinatycoon.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/arinalandtycoon/icon_small_arinalandtycoon_124cf759451934ecfd4fe49bd6d939a2c2d8266c4135e60ce5d0090aefaa0dd9_opti.png",
-        "name": "ARINALANDTYCOON",
-        "description": "Unique Monopoly + Simcity!",
-        "category": "Games"
-    },
-    {
-        "link": "https://validation.v-id.org",
-        "img": "https://cdn.stateofthedapps.com/dapps/v-id/icon_small_v-id_42e92851d36585ac39d6bd468ecab99c9334600ba32b8243bde560512d01ad6f_opti.png",
-        "name": "V-ID",
-        "description": "Certify and secure all digital assets",
-        "category": "Security"
-    },
-    {
-        "link": "https://play.0xuniverse.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/0xuniverse/icon_small_0xuniverse_53b91170aba37f57f185a10abac8512abb27146eeb14c21215b3141511536f8d_opti.png",
-        "name": "0xUniverse",
-        "description": "Conquer The Universe!",
-        "category": "Games"
-    },
-    {
-        "link": "https://dev.augur.net/",
-        "img": "https://cdn.stateofthedapps.com/dapps/augur/icon_small_augur_1a1dbce16d0d1b4738fe6cf4c166e9f0473033e35eb4080c1862172d570c840f_opti.png",
-        "name": "Augur",
-        "description": "Decentralized prediction market",
-        "category": "Exchanges"
-    },
-    {
-        "link": "https://app.auctionity.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/auctionity/icon_small_auctionity_d8169fe3726ed40b3d4168bc8f37082b01d369e6351d1900a052ae9b35ed8e39_opti.jpg",
-        "name": "Auctionity",
-        "description": "Platform auctioning NFT in ETH",
-        "category": "Marketplaces"
-    },
-    {
-        "link": "https://golem.network/rendering/download/",
-        "img": "https://cdn.stateofthedapps.com/dapps/golem/icon_small_golem_e4eb00b7e646a47c7e5b5f18e9e2e0e8830b2f51506e687a6f38c60753b92b3b_opti.png",
-        "name": "Golem",
-        "description": "Distributed computation",
-        "category": "Development"
-    },
-    {
-        "link": "https://storj.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/storj/icon_small_storj_46f7434956614c4c1371013cb5456d89d75fe2a6126e94770f2bfb5803760eca_opti.png",
-        "name": "Storj",
-        "description": "Affordable, private, secure cloud storage",
-        "category": "Storage"
-    },
-    {
-        "link": "https://www.bancor.network/",
-        "img": "https://cdn.stateofthedapps.com/dapps/bancor/icon_small_bancor_3325cae7f8211ccd638b44121939542bcb145bae36efed2a759598ce4b01af8b_opti.png",
-        "name": "Bancor",
-        "description": "Built-in price discovery and a liquidity mechanism for tokens",
-        "category": "Exchanges"
-    },
-    {
-        "link": "https://opensea.io/assets",
         "img": "https://cdn.stateofthedapps.com/dapps/opensea/icon_small_opensea_d8e194dbb99a85d43308dda4ec509074f72bc75d3db665e68a0686bf47eb0d26_opti.png",
         "name": "OpenSea",
         "description": "Peer-to-peer marketplace for scarce digital goods",
-        "category": "Marketplaces"
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://opensea.io/assets"
     },
     {
-        "link": "https://apps.apple.com/us/app/qiibee-wallet/id1372837663?ign-mpt=uo%3D4&utm_source=StateOfTheDApps",
-        "img": "https://cdn.stateofthedapps.com/dapps/qiibee/icon_small_qiibee_a9178c29292e0e50d27a79b42b6006d550edaa12f421620deed12f2ef92b7814_opti.png",
-        "name": "qiibee",
-        "description": "Loyalty on the blockchain",
-        "category": "Exchanges"
+        "img": "https://cdn.stateofthedapps.com/dapps/alchemy/icon_small_alchemy_0e60743a38ef2cfb07b297ff2a7c45c891e0082569dda53c26ccebe252c3ed4d_opti.png",
+        "name": "Alchemy",
+        "description": "Interface and resource allocation tool for DAOs",
+        "category": "Governance",
+        "type": 1,
+        "link": "https://alchemy.daostack.io"
     },
     {
-        "link": "https://dabanking.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/dabanking/icon_small_dabanking_d725db414fa6340c8d465b5e7156e281d808d36b4730108f890ef9b8cc566447_opti.png",
-        "name": "Dabanking",
-        "description": "Decentralized gaming platform",
-        "category": "Games"
-    },
-    {
-        "link": "https://tokenstudio.polymath.network/",
-        "img": "https://cdn.stateofthedapps.com/dapps/polymath/icon_small_polymath_7e62f19d0c7d79e470eae869b68ee41171425430f26b904e3a6f24dfd2ed5294_opti.png",
-        "name": "Polymath",
-        "description": "The Securities Token Platform",
-        "category": "Finance"
-    },
-    {
-        "link": "https://aelf.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/aelf/icon_aelf_61a5dd04a7f0ec81e822ba3b2f3c37a30dda2699ffd1b8c9359837001eeed9e5_opti.png",
-        "name": "aelf",
-        "description": "Cloud computing blockchain network",
-        "category": "Development"
-    },
-    {
-        "link": "https://land.axieinfinity.com/purchase?r=b2eD2l0oCSszpjF79ZtY9erjbYg&utm_source=StateOfTheDApps",
-        "img": "https://cdn.stateofthedapps.com/dapps/axie-infinity/icon_axie-infinity_c861e44cc8a12163dcc808cb20ee9ada4ba94e00848817590ae7913269abc5ee.ico",
-        "name": "Axie Infinity",
-        "description": "Collect and raise fantasy creatures",
-        "category": "Games"
-    },
-    {
-        "link": "https://member.iotex.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/iotex-voting-portal/icon_small_iotex-voting-portal_acab9bfa427dd30d78efda6863c5a693342d90d2a1b77094231d622e4dd3e3dd_opti.png",
-        "name": "IoTeX-Voting-Portal",
-        "description": "Voting Portal for IoTeX",
-        "category": "Governance"
-    },
-    {
-        "link": "https://beta.spankchain.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/spankchain/icon_small_spankchain_09a58395bf379d59a7658d8bd60844ee6379f01e8c3e94d96d59a50e78c35146_opti.jpg",
-        "name": "SpankChain",
-        "description": "An adult cam platform",
-        "category": "Social"
-    },
-    {
-        "link": "https://godsunchained.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/gods-unchained/icon_small_gods-unchained_3cd0c43b930b4b7577cdaab745fcefbc9106d1e0f9729221a88cc462315b9dfa_opti.jpg",
-        "name": "Gods Unchained",
-        "description": "The first on-chain eSport",
-        "category": "Games"
-    },
-    {
-        "link": "https://mainnet.aragon.org/",
-        "img": "https://cdn.stateofthedapps.com/dapps/aragon/icon_small_aragon_231b5bd0306dd81dd7876e8f6fd5091240a0f21908b9eb990fa663ba04dbb483_opti.png",
-        "name": "Aragon",
-        "description": "Create and manage DAOs",
-        "category": "Governance"
-    },
-    {
-        "link": "https://livepeer.org/",
-        "img": "https://cdn.stateofthedapps.com/dapps/livepeer/icon_small_livepeer_e67a75f853c7211ae31f38c56ed044de560785e5e0b735f23fbd540f033ca7a7_opti.jpg",
-        "name": "Livepeer",
-        "description": "An open platform for live video broadcasting",
-        "category": "Media"
-    },
-    {
-        "link": "https://localethereum.com/r/sotd",
         "img": "https://cdn.stateofthedapps.com/dapps/localethereum/icon_small_localethereum_26ae24e4aee30ba16817ac9e1ac54bd2cff76309476c52cf15084f9a7f4f1ecd_opti.png",
         "name": "LocalEthereum",
         "description": "Peer-to-peer ETH-to-fiat marketplace",
-        "category": "Exchanges"
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://localethereum.com/r/sotd"
     },
     {
-        "link": "https://genesis.vision/investor/programs/",
-        "img": "https://cdn.stateofthedapps.com/dapps/genesis-vision/icon_small_genesis-vision_9b93b40c94fdf3fca238668ac446b609112be899dcfbf06bfe8b9d743495e719_opti.png",
-        "name": "Genesis Vision",
-        "description": "Finance Asset Management and Copytrading Platform",
-        "category": "Finance"
-    },
-    {
-        "link": "https://beta.singularitynet.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/singularitynet/icon_singularitynet_97fef6dc97d9ebb76ade8801c3e07f1e9bc64310a76d76ef61bc17ab12125862.ico",
-        "name": "SingularityNET",
-        "description": "The global AI network",
-        "category": "Marketplaces"
-    },
-    {
-        "link": "https://synthetix.exchange/",
         "img": "https://cdn.stateofthedapps.com/dapps/synthetix/icon_small_synthetix_0442ee4e2b4ce5d71c8d8056b0deefa91e63021272f4ddaf602e3d608d553ed5_opti.png",
         "name": "Synthetix",
         "description": "Synthetic assets (formerly Havven)",
-        "category": "Finance"
+        "category": "Finance",
+        "type": 1,
+        "link": "https://synthetix.exchange"
     },
     {
-        "link": "https://www.canwork.io/home",
-        "img": "https://cdn.stateofthedapps.com/dapps/canwork/icon_canwork_0e8a6183734a336e1290f320976800ba001529b4a8e7138f27c30c8e6cbec749.svg",
-        "name": "CanWork",
-        "description": "Freelance Marketplace for Digital Services",
-        "category": "Marketplaces"
+        "img": "https://cdn.stateofthedapps.com/dapps/makerdao/icon_makerdao_330d28465b81a279ee17b47a2886b82711d0a522d72684dbc65e5d1616b42778_opti.png",
+        "name": "MakerDAO",
+        "description": "Where you can interact with the Dai Credit System",
+        "category": "Finance",
+        "type": 1,
+        "link": "https://cdp.makerdao.com"
     },
     {
-        "link": "https://mycontract.co/",
-        "img": "https://cdn.stateofthedapps.com/dapps/mycontract/icon_small_mycontract_3ab01e570872a2221427f7635289efadc6e872cc71142b98ec3acfca926ff07b_opti.png",
-        "name": "Mycontract",
-        "description": "Create Smart Contract without Coding",
-        "category": "Development"
+        "img": "https://cdn.stateofthedapps.com/dapps/chainlink/icon_small_chainlink_a71fc8d97c5d10f325f7679bfecef669ab1ec5fb0479e1a00919f4fe999148ad_opti.jpg",
+        "name": "Chainlink",
+        "description": "Your smart contracts connected to real world data, events and payments.",
+        "category": "Security",
+        "type": 1,
+        "link": "https://chain.link"
     },
     {
-        "link": "https://nexo.io",
-        "img": "https://cdn.stateofthedapps.com/dapps/nexo/icon_small_nexo_912bf1643986a06cca842d9b7e0158188f39671b442baa45178dd11df2f133b4_opti.png",
-        "name": "Nexo",
-        "description": "Instant crypto-backed loans",
-        "category": "Finance"
+        "img": "https://cdn.stateofthedapps.com/dapps/my-crypto-heroes/icon_small_my-crypto-heroes_688aeecec4ac630cac6ea634e40002bdea7c4e186d04b5403fa447c09e5a8842_opti.png",
+        "name": "My Crypto Heroes",
+        "description": "Hero worker-placement RPG.",
+        "category": "Games",
+        "type": 1,
+        "link": "https://www.mycryptoheroes.net"
     },
     {
-        "link": "https://forkdelta.github.io/",
-        "img": "https://cdn.stateofthedapps.com/dapps/forkdelta/icon_small_forkdelta_34b77da8b85e262c771ec04a3a2a0a782611d14b74941c1a3b61a164afe0a737_opti.png",
-        "name": "ForkDelta",
-        "description": "ERC20 tokens exchange",
-        "category": "Exchanges"
+        "img": "https://cdn.stateofthedapps.com/dapps/hex/icon_small_hex_77b98dafce719a3c1f94963a89b783e416af1fa1b346d80708de808073d33984_opti.png",
+        "name": "HEX",
+        "description": "Stake HEX to get interest. First ever crypto CD",
+        "category": "Finance",
+        "type": 1,
+        "link": "https://go.hex.win"
     },
     {
-        "link": "https://mcp.town/",
-        "img": "https://cdn.stateofthedapps.com/dapps/megacryptopolis/icon_small_megacryptopolis_460d925dd30bd33d3eb4237bcf712cb85f4c4bf579a432a3bb88845e35293ae3_opti.jpg",
-        "name": "MegaCryptoPolis",
-        "description": "City builder strategy game",
-        "category": "Games"
+        "img": "https://cdn.stateofthedapps.com/dapps/kybernetwork/icon_small_kybernetwork_edea578c83e91c34a2c4881e2a8852def51d9d31394f5188a8b4a7c57f15f225_opti.png",
+        "name": "KyberNetwork",
+        "description": "Enabling Token Swaps Everywhere",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://kyber.network"
     },
     {
-        "link": "https://v3.market.iex.ec/",
-        "img": "https://cdn.stateofthedapps.com/dapps/iexec/icon_small_iexec_7b52c6d227d42e704e7c51c380c98f8e3dba0bea5d0ca283c4b91357439d9cdd_opti.png",
-        "name": "iExec",
-        "description": "A Marketplace for Cloud Computing Resources",
-        "category": "Marketplaces"
+        "img": "https://cdn.stateofthedapps.com/dapps/cryptodozer/icon_small_cryptodozer_2712499d42c2bb1776b748c6f551b8414e088f3299fe68823a86b1957ab77717_opti.png",
+        "name": "CryptoDozer",
+        "description": "Play and get the 70 ETH Doll!",
+        "category": "Games",
+        "type": 1,
+        "link": "https://cryptodozer.io"
     },
     {
-        "link": "https://explorer.bounties.network/",
+        "img": "https://cdn.stateofthedapps.com/dapps/knight-story/icon_small_knight-story_39e607d42070ece6242cddc7525f7dcb38c7e9b82cb420e91a21c1f9b533b7ef_opti.jpg",
+        "name": "Knight Story",
+        "description": "Knight Story is an innovative mobile RPG",
+        "category": "Games",
+        "type": 1,
+        "link": "http://knightstory.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/0x/icon_0x_660cce54539f5b8831431f682ab787423518301ef12eaa7f54ec7500616b58a0_opti.png",
+        "name": "0x",
+        "description": "The protocol for trading tokens",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://www.0xproject.com/portal"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/basic-attention-token/icon_small_basic-attention-token_0f4b90c7664d3e9197a17e5b178cb90e68247da6c28edfea0b1e6238082b6516_opti.png",
+        "name": "Basic Attention Token",
+        "description": "Digital advertising",
+        "category": "Wallet",
+        "type": 1,
+        "link": "https://basicattentiontoken.org"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/0xuniverse/icon_small_0xuniverse_53b91170aba37f57f185a10abac8512abb27146eeb14c21215b3141511536f8d_opti.png",
+        "name": "0xUniverse",
+        "description": "Conquer The Universe!",
+        "category": "Games",
+        "type": 1,
+        "link": "https://play.0xuniverse.com"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/omisego/icon_small_omisego_2c42ef80e71c25ffa0407b175876d57c6cce3cad9d7ceadd944ac7679b2be168_opti.png",
+        "name": "OmiseGO",
+        "description": "Unbank the banked",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://omisego.network"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/dozerbird/icon_small_dozerbird_dec842693dbc257559ee6aadd4db727141384fbb62f0b5ef824e59897e2a7795_opti.png",
+        "name": "DozerBird",
+        "description": "Fly your way to crypto riches!",
+        "category": "Games",
+        "type": 1,
+        "link": "https://dozerbird.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/idex/icon_small_idex_4399b16c81ff4d1253736468b628315ae1cf024b916073a2715d83adcbd1b580_opti.png",
+        "name": "IDEX",
+        "description": "Distributed exchange made of smart contracts",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://idex.market"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/auctionity/icon_small_auctionity_d8169fe3726ed40b3d4168bc8f37082b01d369e6351d1900a052ae9b35ed8e39_opti.jpg",
+        "name": "Auctionity",
+        "description": "Platform auctioning NFT in ETH",
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://app.auctionity.com"
+    },
+
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/augur/icon_small_augur_1a1dbce16d0d1b4738fe6cf4c166e9f0473033e35eb4080c1862172d570c840f_opti.png",
+        "name": "Augur",
+        "description": "Decentralized prediction market",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://dev.augur.net"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/bancor/icon_small_bancor_3325cae7f8211ccd638b44121939542bcb145bae36efed2a759598ce4b01af8b_opti.png",
+        "name": "Bancor",
+        "description": "Built-in price discovery and a liquidity mechanism for tokens",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://www.bancor.network"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/blockchain-cuties/icon_blockchain-cuties_9e887582ffbbbc2fa4727f79409b363e3de1fd6bba12d16fc4acbd4f40d2a2af_opti.png",
+        "name": "Blockchain Cuties",
+        "description": "Cutest collectible adventure game with NFT Pets",
+        "category": "Games",
+        "type": 1,
+        "link": "https://blockchaincuties.com"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/axie-infinity/icon_axie-infinity_c861e44cc8a12163dcc808cb20ee9ada4ba94e00848817590ae7913269abc5ee.ico",
+        "name": "Axie Infinity",
+        "description": "Collect and raise fantasy creatures",
+        "category": "Games",
+        "type": 1,
+        "link": "https://land.axieinfinity.com/purchase?r=b2eD2l0oCSszpjF79ZtY9erjbYg&"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/storj/icon_small_storj_46f7434956614c4c1371013cb5456d89d75fe2a6126e94770f2bfb5803760eca_opti.png",
+        "name": "Storj",
+        "description": "Affordable, private, secure cloud storage",
+        "category": "Storage",
+        "type": 1,
+        "link": "https://storj.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/golem/icon_small_golem_e4eb00b7e646a47c7e5b5f18e9e2e0e8830b2f51506e687a6f38c60753b92b3b_opti.png",
+        "name": "Golem",
+        "description": "Distributed computation",
+        "category": "Development",
+        "type": 1,
+        "link": "https://golem.network/rendering/download"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/saturn-network/icon_small_saturn-network_491e7c26ef6f6f49b72f065cfb3b2a6b58506b1593a61e63fb01fcd697c0f9c9_opti.png",
+        "name": "Saturn Network",
+        "description": "Peer-to-peer one transaction uncensorable exchange",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://saturn.network"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/1inch-exchange/icon_small_1inch-exchange_b1fbfbd471379ca91df50308a3fb1842dfaea76b915fafd097d83a9c05882afc_opti.png",
+        "name": "1inch.exchange",
+        "description": "DEX Aggregator with the best prices on the market.",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://1inch.exchange"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/decentraland/icon_decentraland_3749b5cc41cd9a5981d6b5fd82d014980ff962e5539a57ee54313f8cb5403f85.ico",
+        "name": "Decentraland",
+        "description": "A virtual world run on open standards",
+        "category": "Property",
+        "type": 1,
+        "link": "https://market.decentraland.org"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/iotex-voting-portal/icon_small_iotex-voting-portal_acab9bfa427dd30d78efda6863c5a693342d90d2a1b77094231d622e4dd3e3dd_opti.png",
+        "name": "IoTeX-Voting-Portal",
+        "description": "Voting Portal for IoTeX",
+        "category": "Governance",
+        "type": 1,
+        "link": "https://member.iotex.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/b0x/icon_small_b0x_e4724e70976520c8e750b145a9307f0c66023ec50d5aaa7b09af04adc848acfd_opti.png",
+        "name": "b0x",
+        "description": "A financial primitive for shorting and lending.",
+        "category": "Finance",
+        "type": 1,
+        "link": "https://fulcrum.trade"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/whitebetting/icon_small_whitebetting_7b95571cd296818dbcd1c65bda30159fa9b0e36f3adbde791cf1999da169d69e_opti.jpg",
+        "name": "WhiteBetting",
+        "description": "World's First European Football Betting Game",
+        "category": "Games",
+        "type": 1,
+        "link": "https://whitebetting.com"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/polymath/icon_small_polymath_7e62f19d0c7d79e470eae869b68ee41171425430f26b904e3a6f24dfd2ed5294_opti.png",
+        "name": "Polymath",
+        "description": "The Securities Token Platform",
+        "category": "Finance",
+        "type": 1,
+        "link": "https://tokenstudio.polymath.network"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/singularitynet/icon_singularitynet_97fef6dc97d9ebb76ade8801c3e07f1e9bc64310a76d76ef61bc17ab12125862.ico",
+        "name": "SingularityNET",
+        "description": "The global AI network",
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://beta.singularitynet.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/nagemon/icon_small_nagemon_3fb91ec3bf392975598993c66c6691b6866c3e54c9c48dcb647f5ba9d96c8c3a_opti.png",
+        "name": "Nagemon",
+        "description": "Nagemon, Gacha, Dapps Games, AI bots, Readyplayer",
+        "category": "Games",
+        "type": 1,
+        "link": "https://nagemon.com"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/veridex/icon_small_veridex_743177e16f540e3a91607fe068d892f384db1b0d1f735e9ee4c9bf2be179110f_opti.png",
+        "name": "Veridex",
+        "description": "Open Source Dex running 0x mesh",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://dex.verisafe.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/aragon/icon_small_aragon_231b5bd0306dd81dd7876e8f6fd5091240a0f21908b9eb990fa663ba04dbb483_opti.png",
+        "name": "Aragon",
+        "description": "Create and manage DAOs",
+        "category": "Governance",
+        "type": 1,
+        "link": "https://mainnet.aragon.org"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/bounties-network/icon_small_bounties-network_cd99529b906dd57b5bf879b96bc641a09455b922004afbf842bceb01b61a444f_opti.png",
         "name": "Bounties Network",
         "description": "Bounties on any task paid in tokens",
-        "category": "Marketplaces"
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://explorer.bounties.network"
     },
     {
-        "link": "http://hyperdragons.alfakingdom.com/home/marketplace",
-        "img": "https://cdn.stateofthedapps.com/dapps/hyperdragons/icon_hyperdragons_35f35230a7843fe04b0168d524c94995921f02e8fe640656387e8d876ba613f1_opti.png",
-        "name": "HyperDragons",
-        "description": "Large scale strategy battle game",
-        "category": "Games"
+        "img": "https://cdn.stateofthedapps.com/dapps/livepeer/icon_small_livepeer_e67a75f853c7211ae31f38c56ed044de560785e5e0b735f23fbd540f033ca7a7_opti.jpg",
+        "name": "Livepeer",
+        "description": "An open platform for live video broadcasting",
+        "category": "Media",
+        "type": 1,
+        "link": "https://livepeer.org"
     },
     {
-        "link": "https://enigma.co/",
+        "img": "https://cdn.stateofthedapps.com/dapps/imtoken-tokenlon/icon_small_imtoken-tokenlon_760182344ae269aeaa108037eccb6943a6f519bfa94ed2753f7a7b584ca6e5ef_opti.png",
+        "name": "imToken Tokenlon",
+        "description": "1click trading in your imToken wallet based on 0x",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://tokenlon.im"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/crypt-oink/icon_crypt-oink_cd37839c92611ee5cb87a1221c1674169d1637c4e9af56532bafdab56d343d6c_opti.png",
+        "name": "Crypt-Oink",
+        "description": "Loveable, huggable Crypton to collect and race",
+        "category": "Games",
+        "type": 1,
+        "link": "https://www.crypt-oink.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/dabanking/icon_small_dabanking_d725db414fa6340c8d465b5e7156e281d808d36b4730108f890ef9b8cc566447_opti.png",
+        "name": "Dabanking",
+        "description": "Decentralized gaming platform",
+        "category": "Games",
+        "type": 1,
+        "link": "https://dabanking.io"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/totle/icon_small_totle_0cc6bae54e0ac7ad3e04de9948c01b0f5e7ced3d8ec0379d81d11cd83a750226_opti.png",
+        "name": "Totle",
+        "description": "Instant token swap at the best price across DEXs",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://swap.totle.com"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/switchdex/icon_switchdex_f9af32997f1a23d82c4618e7117fc8e5342cce17b8988ff8e5f1d5e0ce353f3d_opti.png",
+        "name": "SwitchDex",
+        "description": "SwitchDex is a decentralized exchange on Ethereum",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://www.switchdex.ag"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/multiven-open-marketplace/icon_small_multiven-open-marketplace_48ac1087c01d9622e7bdcb629ba816315d93bc02600c9b3f4285c759d18fe536_opti.png",
+        "name": "Multiven Open Marketplace",
+        "description": "P2P Marketplace for IT Products and Services",
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://multiven.io"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/enigma/icon_small_enigma_21e5f49589043ea3a66dffc8b1c247ee930f2f6915110453dc9705c77c37e2ce_opti.png",
         "name": "Enigma",
         "description": "Privacy protocol layer",
-        "category": "Development"
+        "category": "Development",
+        "type": 1,
+        "link": "https://enigma.co"
     },
     {
-        "link": "https://www.paxos.com/standard/",
-        "img": "https://cdn.stateofthedapps.com/dapps/paxos-standard/icon_small_paxos-standard_e4bcbfcadeb836a35f1351f3242afe1217104276a2d5dc4fd396294acfb2de26_opti.png",
-        "name": "Paxos Standard",
-        "description": "Transact at the speed of internet",
-        "category": "Finance"
+        "img": "https://cdn.stateofthedapps.com/dapps/mycontract/icon_small_mycontract_3ab01e570872a2221427f7635289efadc6e872cc71142b98ec3acfca926ff07b_opti.png",
+        "name": "Mycontract",
+        "description": "Create Smart Contract without Coding",
+        "category": "Development",
+        "type": 1,
+        "link": "https://mycontract.co"
     },
     {
-        "link": "https://www.etheremon.com/#/my-mons",
-        "img": "https://cdn.stateofthedapps.com/dapps/etheremon/icon_small_etheremon_937e2068f306088ecf44c9bf5c29f9d314e74238e1c67461f450d29a67baa672_opti.png",
-        "name": "Etheremon",
-        "description": "Capture, train, evolve, battle and trade Etheremons",
-        "category": "Games"
+        "img": "https://cdn.stateofthedapps.com/dapps/replin/icon_small_replin_2362736cf54396198912172a244b81cb42f611923c36f4da913155999221e160_opti.png",
+        "name": "Replin",
+        "description": "Create Your Free Onlineshop with PayPal Payments",
+        "category": "Marketplaces",
+        "type": 1,
+        "link": "https://replin.com/login"
     },
     {
-        "link": "https://protocol.quantstamp.com/",
-        "img": "https://cdn.stateofthedapps.com/dapps/quantstamp-betanet/icon_small_quantstamp-betanet_39c707d0c7918aa45c8a1c349861e98406e347b4267ab3b802cd73c99ff67e5d_opti.png",
-        "name": "Quantstamp Betanet",
-        "description": "Scan any smart contract easily with QSP",
-        "category": "Security"
+        "img": "https://cdn.stateofthedapps.com/dapps/switcheo-network-eth/icon_small_switcheo-network-eth_41dd7468d853c3e05126ef3da430400b4a38984bcfce04ed8df24726346953cc_opti.png",
+        "name": "Switcheo Network (ETH)",
+        "description": "First multichain DEX with cross-chain trading",
+        "category": "Exchanges",
+        "type": 1,
+        "link": "https://switcheo.exchange"
+    },
+    {
+        "img": "https://cdn.stateofthedapps.com/dapps/hyperdragons/icon_hyperdragons_35f35230a7843fe04b0168d524c94995921f02e8fe640656387e8d876ba613f1_opti.png",
+        "name": "HyperDragons",
+        "description": "Large scale strategy battle game",
+        "category": "Games",
+        "type": 1,
+        "link": "http://hyperdragons.alfakingdom.com/home/marketplace"
     }
 ]

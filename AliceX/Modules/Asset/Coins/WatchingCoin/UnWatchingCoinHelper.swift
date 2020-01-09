@@ -71,7 +71,7 @@ class IgnoreCoinHelper {
 extension IgnoreCoinHelper {
     func loadFromCache() -> Promise<Void> {
         return Promise<Void> { _ in
-            let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.wallet!.address)"
+            let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.currentAccount!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 var watchingList: [Coin] = []
                 let idList = result.split(separator: ",")
@@ -96,7 +96,7 @@ extension IgnoreCoinHelper {
     }
 
     func storeInCache() {
-        let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.wallet!.address)"
+        let cacheKey = "\(CacheKey.unWatchingList).\(WalletManager.currentAccount!.address)"
         let idList = list.compactMap { $0.id }.joined(separator: ",")
         Shared.stringCache.set(value: idList, key: cacheKey)
     }

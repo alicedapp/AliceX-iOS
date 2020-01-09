@@ -14,10 +14,13 @@ typealias StringBlock = ((String) -> Void)
 class Setting {
     static let AliceKeychainPrefix = "AliceKeychain"
     static let MnemonicsKey = "AliceMnemonics"
-    static let WalletName = "AliceWallet"
+    static let WalletName = "Alice X"
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
     static let password = "web3swift"
+
+    static let termURL = URL(string: "https://www.alicedapp.com/terms-of-service")!
+    static let privacyURL = URL(string: "https://www.alicedapp.com/privacy-policy")!
 }
 
 typealias MainFont = Font.HelveticaNeue
@@ -44,7 +47,12 @@ enum Font {
 }
 
 extension Notification.Name {
+    
     static let walletChange = Notification.Name("walletChange")
+    static let accountChange = Notification.Name("accountChange")
+    
+//    static let accountChange = Notification.Name("accountCreate")
+    
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
@@ -62,10 +70,12 @@ extension Notification.Name {
 
     static let priceUpdate = Notification.Name("priceUpdate")
     static let watchingCoinListChange = Notification.Name("watchingCoinListChange")
-    
+
     static let homeItemListChange = Notification.Name("homeItemListChange")
-    
+
     static let faviconDownload = Notification.Name("faviconDownload")
+    
+    static let mnemonicBackuped = Notification.Name("mnemonicBackuped")
 }
 
 class CacheKey {
@@ -77,13 +87,17 @@ class CacheKey {
 
     static let homeItemList = "alice.miniApp.list"
     static let browserDappList = "alice.browser.dapp.list"
-    
+
     static let watchingList = "alice.asset.watchingList"
     static let unWatchingList = "alice.asset.un.watchingList"
 
     static let blockchainKey = "alice.asset.watchingList"
 
     static let coinInfoList = "alice.asset.coinInfoList"
+}
+
+class IMPCacheKey {
+    static let accountCacheKey = "alice.wallet.accounts"
 }
 
 class Constant {
@@ -113,10 +127,10 @@ class Constant {
     static let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.height
 
     static let SCREEN_HEIGHT_NO_SAFE: CGFloat = UIScreen.main.bounds.height - SAFE_TOP - SAFE_BOTTOM
-    
+
     class func randomEmoji() -> String {
-        let emoji = ["🐶","🐱","🐭","🐹","🐰","🦊","🦝","🐻","🐼","🦘","🦡","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦢","🦅","🦉","🦚","🦜","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🦗","🕷","🕸","🦂","🦟","🦠","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🐘","🦏","🦛","🐪","🐫","🦙","🦒","🐃","🐂","🐄","🐎","🐖","🐏","🐑","🐐","🦌","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🦔","🐾","🐉","🐲"]
-        
+        let emoji = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🦝", "🐻", "🐼", "🦘", "🦡", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦢", "🦅", "🦉", "🦚", "🦜", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐚", "🐞", "🐜", "🦗", "🕷", "🕸", "🦂", "🦟", "🦠", "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦐", "🦀", "🐡", "🐠", "🐟", "🐬", "🐳", "🐋", "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🐘", "🦏", "🦛", "🐪", "🐫", "🦙", "🦒", "🐃", "🐂", "🐄", "🐎", "🐖", "🐏", "🐑", "🐐", "🦌", "🐕", "🐩", "🐈", "🐓", "🦃", "🕊", "🐇", "🐁", "🐀", "🐿", "🦔", "🐾", "🐉", "🐲"]
+
         return emoji.randomElement()!
     }
 }

@@ -19,7 +19,6 @@ enum PinItem {
     case transaction(coin: Coin, network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
     case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
 
-    
     var id: String {
         switch self {
         case let .dapplet(_, url, _, _):
@@ -32,7 +31,7 @@ enum PinItem {
             return id
         }
     }
-    
+
     var txHash: String {
         switch self {
         case .transaction(_, _, let txHash, _, _):
@@ -63,7 +62,7 @@ enum PinItem {
             return false
         }
     }
-    
+
     var isWebSite: Bool {
         switch self {
         case .website:

@@ -10,7 +10,6 @@ import Foundation
 import Kingfisher
 
 extension BrowserViewController: WKNavigationDelegate {
-    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
         UIView.animate(withDuration: 0.3, animations: {
             self.navBarContainer.transform = CGAffineTransform.identity

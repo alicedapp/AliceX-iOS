@@ -158,7 +158,7 @@ class SendTransactionHandler: WCHandler {
                 self.server.send(response)
 //                HUDManager.shared.dismiss()
             }
-        } catch let error {
+        } catch {
             server.send(.invalid(request))
 //            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
             HUDManager.shared.showError(error: error)
@@ -182,7 +182,7 @@ class PersonalSignHandler: WCHandler {
                 swap(&address, &messageBytes)
             }
 
-            if address.lowercased() != WalletManager.wallet?.address.lowercased() {
+            if address.lowercased() != WalletManager.currentAccount?.address.lowercased() {
                 server.send(.reject(request))
                 HUDManager.shared.showError(text: "Address Not Matched")
                 return
@@ -247,7 +247,7 @@ class PersonalSignHandler: WCHandler {
 //                swap(&address, &messageBytes)
 //            }
 //
-//            if address.lowercased() != WalletManager.wallet?.address.lowercased() {
+//            if address.lowercased() != WalletManager.currentAccount?.address.lowercased() {
 //               server.send(.reject(request))
 //                HUDManager.shared.showError(text: "Address Not Matched")
 //               return

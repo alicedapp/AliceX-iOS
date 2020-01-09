@@ -28,7 +28,6 @@ class SendERC20PopUp: UIViewController {
     @IBOutlet var gasTimeLabel: UILabel!
     @IBOutlet var gasBtn: UIControl!
 
-    var tokenAdress: String!
     var toAddress: String!
     var amount: BigUInt!
     var data: Data!
@@ -39,7 +38,7 @@ class SendERC20PopUp: UIViewController {
     var tokenInfo: TokenInfo?
     var payView: PayButtonView?
 
-    var token: Coin?
+    var token: Coin!
 
     class func make(token: Coin,
                     toAddress: String,
@@ -59,7 +58,7 @@ class SendERC20PopUp: UIViewController {
         super.viewDidLoad()
 
         addressLabel.text = toAddress
-
+        
         let value = amount.readableValue
         amountLabel.text = value.round(decimal: 4)
 //        let price = Float(value)! * PriceHelper.shared.exchangeRate
@@ -91,7 +90,7 @@ class SendERC20PopUp: UIViewController {
 
         } else {
             firstly {
-                PriceHelper.shared.getTokenInfo(tokenAdress: self.tokenAdress)
+                PriceHelper.shared.getTokenInfo(tokenAdress: token.id)
             }.done { model in
                 self.tokenInfo = model
                 self.updateToken()
@@ -146,7 +145,7 @@ class SendERC20PopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-        let gasPrice = GasPrice.make(string: text) else { return }
+            let gasPrice = GasPrice.make(string: text) else { return }
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -183,7 +182,7 @@ extension SendERC20PopUp: PayButtonDelegate {
         payView!.showLoading()
 
         firstly {
-            TransactionManager.shared.sendERC20Token(tokenAddrss: tokenAdress,
+            TransactionManager.shared.sendERC20Token(tokenAddrss: token.id,
                                                      to: toAddress,
                                                      amount: value,
                                                      data: data,

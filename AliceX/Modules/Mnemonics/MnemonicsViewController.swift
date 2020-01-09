@@ -32,7 +32,7 @@ class MnemonicsViewController: BaseViewController {
         collectionView.addTags(secertText)
 
         let configure = collectionView.defaultConfig
-        configure?.backgroundColor = AliceColor.lightGrey
+        configure?.backgroundColor = AliceColor.lightBackground()
         configure?.textColor = .white
         configure?.borderColor = .clear
         configure?.cornerRadius = 20
@@ -48,14 +48,15 @@ class MnemonicsViewController: BaseViewController {
 
         if isShown {
             let configure = collectionView.defaultConfig
-            configure?.backgroundColor = AliceColor.dark
+            configure?.backgroundColor = AliceColor.darkGrey()
+            configure?.textColor = AliceColor.whiteGrey()
             showLabel.text = "🙈  Hide"
             collectionView.removeAllTags()
             collectionView.addTags(tags)
             return
         }
         let configure = collectionView.defaultConfig
-        configure?.backgroundColor = AliceColor.lightGrey
+        configure?.backgroundColor = AliceColor.lightBackground()
         showLabel.text = "🐵  Show"
         collectionView.removeAllTags()
         collectionView.addTags(secertText)
@@ -63,7 +64,7 @@ class MnemonicsViewController: BaseViewController {
 
     @IBAction func backupButtonClick() {
         let configure = collectionView.defaultConfig
-        configure?.backgroundColor = AliceColor.lightGrey
+        configure?.backgroundColor = AliceColor.lightBackground()
         showLabel.text = "🐵  Show"
         collectionView.removeAllTags()
         collectionView.addTags(secertText)

@@ -12,19 +12,22 @@ import SwiftyUserDefaults
 import UIKit
 
 class SettingViewController: BaseViewController {
+    
+    @IBOutlet var accountLabel: UILabel!
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
 
     var hideBackButton: Bool = false
     @IBOutlet var backButton: UIView!
-    
+
     @IBOutlet var backupView: UIView!
 
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
     @IBOutlet var darkSwitch: UISwitch!
     @IBOutlet var darkImage: UIImageView!
+    @IBOutlet var notiSwitch: UISwitch!
     
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
@@ -38,18 +41,41 @@ class SettingViewController: BaseViewController {
                                                name: .networkChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCurrency),
                                                name: .currencyChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mnemonicBackuped),
+                                               name: .mnemonicBackuped, object: nil)
+        
         updateNetwork()
         updateCurrency()
 
-//        versionLabel.text = "v \(Util.version)(\(Util.build))"
-        backupView.isHidden = Defaults[\.MnemonicsBackup]
-        backButton.isHidden = hideBackButton
+        let isBackuped = Defaults[\.MnemonicsBackup]
+        backupView.isHidden = isBackuped
+        if !isBackuped {
+//            UIView.animate(withDuration: 0.1, delay: 0.5, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
+//                self.backupView.transform = .init(translationX: 0, y: -2)
+//            }) { _ in
+//                self.backupView.transform = .identity
+//            }
+        }
         
+        
+        accountLabel.text = WalletManager.currentAccount?.name
+        
+        backButton.isHidden = hideBackButton
+
+        notiSwitch.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            onMainThread {
+                if settings.authorizationStatus != .authorized {
+                    self.notiSwitch.isOn = false
+                }
+            }
+        }
+
         if hideBackButton {
             scrollView.alwaysBounceVertical = true
             scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         }
-        
+
         if #available(iOS 13.0, *) {
             darkSwitch.isOn = traitCollection.userInterfaceStyle == .dark
             darkTheme.isHidden = false
@@ -60,6 +86,10 @@ class SettingViewController: BaseViewController {
         darkTheme.isHidden = true
     }
 
+    @objc func mnemonicBackuped() {
+        backupView.isHidden = Defaults[\.MnemonicsBackup]
+    }
+    
     @IBAction func replaceClicked() {
         let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
         navigationController?.pushViewController(vc, animated: true)
@@ -88,6 +118,11 @@ class SettingViewController: BaseViewController {
 
     @IBAction func walletConnectBtnClicked() {
         let vc = WCControlPanel()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func accountBtnClicked() {
+        let vc = SwitchAccountViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -136,6 +171,25 @@ class SettingViewController: BaseViewController {
 
     @objc func updateCurrency() {
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
+    }
+
+    @IBAction func notificationChange(switcher: UISwitch) {
+        if switcher.isOn {
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                onMainThread {
+                    if settings.authorizationStatus != .authorized {
+                        let url = URL(string: UIApplication.openSettingsURLString)!
+                        if UIApplication.shared.canOpenURL(url) {
+                            _ = UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    } else {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+            return
+        }
+        UIApplication.shared.unregisterForRemoteNotifications()
     }
 
     @IBAction func darkThemeDidChange(switch _: UISwitch) {

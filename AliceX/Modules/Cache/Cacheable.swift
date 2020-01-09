@@ -6,9 +6,9 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import PromiseKit
-import Haneke
 import HandyJSON
+import Haneke
+import PromiseKit
 
 protocol Cacheable {
     func cacheKey() -> CacheKey
@@ -16,7 +16,7 @@ protocol Cacheable {
     func storeInCahe(jsonString: String)
 }
 
-//class CacheableObject: Cacheable {
+// class CacheableObject: Cacheable {
 //    func cacheKey() -> CacheKey {
 //        return .
 //    }
@@ -28,4 +28,4 @@ protocol Cacheable {
 //    func storeInCahe() {
 //        <#code#>
 //    }
-//}
+// }

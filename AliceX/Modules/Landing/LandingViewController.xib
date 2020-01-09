@@ -16,6 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController" customModule="AliceX" customModuleProvider="target">
             <connections>
+                <outlet property="checkBox" destination="shc-IC-cA5" id="9Q8-nT-XIb"/>
+                <outlet property="conditionContainer" destination="fCi-Iy-b1f" id="IDR-Lh-tiU"/>
+                <outlet property="conditionLabel" destination="JzL-8E-fZv" id="wLt-EA-vM7"/>
                 <outlet property="importBtn" destination="46r-PY-39g" id="02b-OA-rtv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,71 +29,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSO-KQ-Vru">
-                    <rect key="frame" x="96.5" y="289.5" width="221" height="48"/>
+                    <rect key="frame" x="97" y="289.5" width="220.5" height="48"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="40"/>
                     <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCC-RZ-Z8k">
-                    <rect key="frame" x="30" y="692" width="354" height="60"/>
-                    <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="importView"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="30"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46r-PY-39g" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                    <rect key="frame" x="30" y="772" width="354" height="60"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abg-PE-oFl">
-                            <rect key="frame" x="124.5" y="20" width="105" height="20"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" name="Alice-LightBackground"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="HUr-eG-CsH"/>
-                        <constraint firstItem="abg-PE-oFl" firstAttribute="centerY" secondItem="46r-PY-39g" secondAttribute="centerY" id="RlZ-OQ-dwz"/>
-                        <constraint firstItem="abg-PE-oFl" firstAttribute="centerX" secondItem="46r-PY-39g" secondAttribute="centerX" id="ndx-Lu-1e2"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="30"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="importButtonClicked" destination="-1" eventType="touchUpInside" id="Mlk-JU-sMQ"/>
-                    </connections>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-zhh" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                    <rect key="frame" x="30" y="692" width="354" height="60"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-AL-Eu9">
-                            <rect key="frame" x="124.5" y="20" width="105" height="20"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" name="Alice-LightBackground"/>
-                    <constraints>
-                        <constraint firstItem="L9f-AL-Eu9" firstAttribute="centerX" secondItem="vka-bP-zhh" secondAttribute="centerX" id="ALx-GO-8LI"/>
-                        <constraint firstAttribute="height" constant="60" id="VRr-Ap-GS2"/>
-                        <constraint firstItem="L9f-AL-Eu9" firstAttribute="centerY" secondItem="vka-bP-zhh" secondAttribute="centerY" id="kGH-Vl-Jhq"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="30"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="createButtonClicked" destination="-1" eventType="touchUpInside" id="m6M-77-r7p"/>
-                    </connections>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL1-Fa-Upv">
                     <rect key="frame" x="153" y="367.5" width="108.5" height="58.5"/>
                     <fontDescription key="fontDescription" name="PlayfairDisplay-Black" family="Playfair Display Black" pointSize="50"/>
@@ -100,34 +43,113 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MyP-hq-0cw">
+                    <rect key="frame" x="30" y="642" width="354" height="190"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vka-bP-zhh" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="354" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-AL-Eu9">
+                                    <rect key="frame" x="124.5" y="20" width="105" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstItem="L9f-AL-Eu9" firstAttribute="centerX" secondItem="vka-bP-zhh" secondAttribute="centerX" id="ALx-GO-8LI"/>
+                                <constraint firstAttribute="height" constant="60" id="VRr-Ap-GS2"/>
+                                <constraint firstItem="L9f-AL-Eu9" firstAttribute="centerY" secondItem="vka-bP-zhh" secondAttribute="centerY" id="kGH-Vl-Jhq"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createButtonClicked" destination="-1" eventType="touchUpInside" id="m6M-77-r7p"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46r-PY-39g" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="75" width="354" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abg-PE-oFl">
+                                    <rect key="frame" x="124.5" y="20" width="105" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="HUr-eG-CsH"/>
+                                <constraint firstItem="abg-PE-oFl" firstAttribute="centerY" secondItem="46r-PY-39g" secondAttribute="centerY" id="RlZ-OQ-dwz"/>
+                                <constraint firstItem="abg-PE-oFl" firstAttribute="centerX" secondItem="46r-PY-39g" secondAttribute="centerX" id="ndx-Lu-1e2"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="importButtonClicked" destination="-1" eventType="touchUpInside" id="Mlk-JU-sMQ"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCi-Iy-b1f">
+                            <rect key="frame" x="0.0" y="150" width="354" height="40"/>
+                            <subviews>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the Zed Labs Terms of Service and Privacy Policy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-8E-fZv">
+                                    <rect key="frame" x="45" y="0.0" width="309" height="33.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shc-IC-cA5" customClass="VBFPopFlatButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="shc-IC-cA5" secondAttribute="height" multiplier="1:1" id="fEm-19-03v"/>
+                                        <constraint firstAttribute="height" constant="30" id="i0j-TS-ahv"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="checkClicked" destination="-1" eventType="touchUpInside" id="Tft-I4-7wD"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="JzL-8E-fZv" firstAttribute="top" secondItem="fCi-Iy-b1f" secondAttribute="top" id="5nd-sU-Gi0"/>
+                                <constraint firstItem="shc-IC-cA5" firstAttribute="leading" secondItem="fCi-Iy-b1f" secondAttribute="leading" id="8ly-CE-4pL"/>
+                                <constraint firstAttribute="trailing" secondItem="JzL-8E-fZv" secondAttribute="trailing" id="LJn-xx-HpN"/>
+                                <constraint firstAttribute="height" constant="40" id="O5y-uD-2dt"/>
+                                <constraint firstItem="JzL-8E-fZv" firstAttribute="leading" secondItem="shc-IC-cA5" secondAttribute="trailing" constant="15" id="cAi-lJ-LEZ"/>
+                                <constraint firstItem="shc-IC-cA5" firstAttribute="top" secondItem="fCi-Iy-b1f" secondAttribute="top" id="gDs-lf-Qel"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="46r-PY-39g" secondAttribute="trailing" constant="30" id="1qx-Ng-X1c"/>
-                <constraint firstItem="NCC-RZ-Z8k" firstAttribute="leading" secondItem="vka-bP-zhh" secondAttribute="leading" id="4tT-5I-M8T"/>
                 <constraint firstItem="FL1-Fa-Upv" firstAttribute="top" secondItem="HSO-KQ-Vru" secondAttribute="bottom" constant="30" id="6jL-R3-Tgj"/>
-                <constraint firstItem="46r-PY-39g" firstAttribute="top" secondItem="vka-bP-zhh" secondAttribute="bottom" constant="20" id="6yu-UH-vue"/>
-                <constraint firstItem="NCC-RZ-Z8k" firstAttribute="bottom" secondItem="vka-bP-zhh" secondAttribute="bottom" id="8Sy-WA-AV6"/>
                 <constraint firstItem="FL1-Fa-Upv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ESk-3O-Wnq"/>
-                <constraint firstItem="46r-PY-39g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="FHv-N0-M0e"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="46r-PY-39g" secondAttribute="bottom" constant="30" id="Hxk-16-4aw"/>
+                <constraint firstItem="MyP-hq-0cw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="OMF-2S-jCW"/>
                 <constraint firstItem="HSO-KQ-Vru" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.7" id="Qv8-bq-Mub"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vka-bP-zhh" secondAttribute="trailing" constant="30" id="WoA-es-8Ej"/>
-                <constraint firstItem="vka-bP-zhh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="hAg-uL-ny5"/>
-                <constraint firstItem="NCC-RZ-Z8k" firstAttribute="top" secondItem="vka-bP-zhh" secondAttribute="top" id="v0j-sN-mDT"/>
-                <constraint firstItem="NCC-RZ-Z8k" firstAttribute="trailing" secondItem="vka-bP-zhh" secondAttribute="trailing" id="wS6-qp-pMS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MyP-hq-0cw" secondAttribute="bottom" constant="30" id="Uut-2f-g4y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MyP-hq-0cw" secondAttribute="trailing" constant="30" id="pqL-Qf-GgL"/>
                 <constraint firstItem="HSO-KQ-Vru" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wtC-X6-fbZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
     <resources>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.83499997854232788" green="0.83499997854232788" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
-            <color red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

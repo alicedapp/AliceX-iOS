@@ -22,11 +22,16 @@ extension Github: TargetType {
     var baseURL: URL {
         return URL(string: "https://raw.githubusercontent.com/alicedapp/")!
     }
-    
+
     var path: String {
         switch self {
         case .dappList:
-            return "AliceX-iOS/master/DappList/dapps.json"
+            #if DEBUG
+                return "AliceX-iOS/Dev/DappList/dapps.json"
+            #else
+                return "AliceX-iOS/master/DappList/dapps.json"
+            #endif
+            
         }
     }
 
@@ -42,4 +47,3 @@ extension Github: TargetType {
         return "".data(using: String.Encoding.utf8)!
     }
 }
-

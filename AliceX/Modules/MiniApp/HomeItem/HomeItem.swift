@@ -15,13 +15,13 @@ enum HomeItem {
 
     var id: String {
         switch self {
-        case .app(let name):
+        case let .app(name):
             return name
-        case .web(let url):
+        case let .web(url):
             return url.absoluteString
         }
     }
-    
+
     var name: String {
         switch self {
         case let .app(name):
@@ -33,11 +33,11 @@ enum HomeItem {
 //            guard let first = domain.split(separator: ".").first else {
 //                return url.absoluteString
 //            }
-            
+
             var urls = domain.split(separator: ".").dropLast(1)
-            
+
             if urls.count == 2 {
-               urls = urls.dropFirst()
+                urls = urls.dropFirst()
             }
             return urls.joined().firstCapitalized
         }
@@ -60,19 +60,19 @@ enum HomeItem {
             return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
         }
     }
-    
+
     var url: URL? {
         switch self {
         case .app:
             return nil
-        case .web(let url):
+        case let .web(url):
             return url
         }
     }
-    
+
     var appImage: URL? {
         switch self {
-        case .app(let name):
+        case let .app(name):
             return URL(string: "https://github.com/alicedapp/AliceX/blob/master/src/Apps/\(name)/Assets/logo.png?raw=true")!
         case .web:
             // fetch from FaviconHelper
@@ -81,9 +81,7 @@ enum HomeItem {
     }
 }
 
-
 extension HomeItem: Hashable, Equatable {
-    
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
     }
@@ -96,4 +94,3 @@ extension HomeItem: Hashable, Equatable {
         hasher.combine(id)
     }
 }
-

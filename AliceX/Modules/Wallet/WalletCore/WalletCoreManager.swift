@@ -24,7 +24,7 @@ class WalletCore {
         NotificationCenter.default.addObserver(self, selector: #selector(updateWallet), name: .walletChange, object: nil)
     }
 
-    class func loadFromCache() {
+    func loadFromCache() {
         guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
             return
         }
@@ -36,7 +36,7 @@ class WalletCore {
 
         switch blockchain {
         case .Ethereum:
-            return WalletManager.wallet!.address
+            return WalletManager.currentAccount!.address
         default:
             let key = WalletCore.wallet.getKeyForCoin(coin: coinType)
             let address = coinType.deriveAddress(privateKey: key)

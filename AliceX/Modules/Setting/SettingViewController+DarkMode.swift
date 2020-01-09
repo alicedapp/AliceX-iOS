@@ -11,7 +11,7 @@ import Foundation
 extension SettingViewController: CAAnimationDelegate {
     func changeThemeAnimation() {
         guard let window = UIApplication.shared.keyWindow, let frame = darkSwitch?.superview!.convert(darkSwitch.frame, from: window)
-            else {
+        else {
             return
         }
 

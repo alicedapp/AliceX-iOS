@@ -93,7 +93,7 @@ extension CoinInfoCenter {
         return Promise<Bool> { seal in
 
             let cacheKey = CacheKey.coinInfoList
-//            "\(CacheKey.coinInfoList).\(WalletManager.wallet!.address)"
+//            "\(CacheKey.coinInfoList).\(WalletManager.currentAccount!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 guard let modelArray = [CoinInfo].deserialize(from: result) else {
                     seal.reject(MyError.DecodeFailed)
@@ -147,7 +147,7 @@ extension CoinInfoCenter {
             return
         }
 
-//        let cacheKey = "\(CacheKey.).\(WalletManager.wallet!.address)"
+//        let cacheKey = "\(CacheKey.).\(WalletManager.currentAccount!.address)"
         let values = Array(pool.values)
         guard let jsonString = values.toJSONString() else {
             return

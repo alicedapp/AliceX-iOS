@@ -11,7 +11,7 @@ import Foundation
 enum SearchEngine: Int {
     case DuckDuckGo = 0
     case Google
-    
+
     var baseURL: URL {
         switch self {
         case .DuckDuckGo:
@@ -20,7 +20,7 @@ enum SearchEngine: Int {
             return URL(string: "https://google.com")!
         }
     }
-    
+
     var queryString: String {
         switch self {
         case .DuckDuckGo:
