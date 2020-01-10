@@ -71,6 +71,7 @@ target 'AliceX' do
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+  pod 'ReactNativeExceptionHandler', :podspec => '../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec'
   
 end
 
