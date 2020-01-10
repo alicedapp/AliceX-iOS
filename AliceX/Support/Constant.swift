@@ -133,6 +133,12 @@ class Constant {
 
         return emoji.randomElement()!
     }
+    
+    class func randomAnimal() -> String {
+        let list = ["baboon","cow","frog","llama","sheep","bear","crab","giraffe","mink","skunk","beaver","crocodile","globefish","moose","sloth","bison","deadlock","goat","mouse","snake","boar","deer","goldfish","owl","sparrow","bulldog","dog","guinea", "pig","panda", "kangaroo","squirrel","butterfly","dolphin","hedgehog","pig","starfish","capybara","duck","hippopotamus","platypus","swan","cat","eagle","horse","rabbit","tiger","chameleon","elephant","koala","raccoon","wolf","chimpanzee","fennec","lemur","seal","colibri","fox","lion","shark"]
+        
+        return list.randomElement()!
+    }
 }
 
 extension Constant {

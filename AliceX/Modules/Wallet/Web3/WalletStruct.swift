@@ -9,7 +9,7 @@
 import Foundation
 import HandyJSON
 
-struct Account: Codable, Equatable {
+struct Account: Codable {
     let address: String
 //    let data: Data
 //    let isHD: Bool
@@ -17,6 +17,20 @@ struct Account: Codable, Equatable {
     var name: String
     var imageName: String
 //    var color: UIColor
+}
+
+extension Account: Hashable, Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.address == rhs.address
+    }
+
+    var hashValue: Int {
+        return address.hashValue
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(address)
+    }
 }
 
 struct HDKey {

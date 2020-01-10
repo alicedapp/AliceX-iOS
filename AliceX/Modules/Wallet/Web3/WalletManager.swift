@@ -102,11 +102,12 @@ class WalletManager {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
             let keystore = try BIP32Keystore(mnemonics: mnemonics)
-            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+            let animal = Constant.randomAnimal()
+            let name = "\(animal.firstUppercased) Wallet"
 //            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
             let defaultAccount = Defaults[\.defaultAccountIndex]
             let address = keystore!.addresses![defaultAccount].address
-            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
+            let wallet = Account(address: address, name: name, imageName: animal)
 
             WalletManager.Accounts = [wallet]
             
@@ -142,10 +143,11 @@ class WalletManager {
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
-            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+            let animal = Constant.randomAnimal()
+            let name = "\(animal.firstUppercased) Wallet"
 //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
+            let wallet = Account(address: address, name: name, imageName: animal)
             
             WalletManager.Accounts = [wallet]
 //            WalletManager.storeAccountsToCache()
@@ -174,10 +176,11 @@ class WalletManager {
 
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
-            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+            let animal = Constant.randomAnimal()
+            let name = "\(animal.firstUppercased) Wallet"
 //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Account(address: address, name: name, imageName: "Money_Face_3")
+            let wallet = Account(address: address, name: name, imageName: animal)
             
             WalletManager.currentAccount = wallet
             WalletManager.Accounts = [wallet]

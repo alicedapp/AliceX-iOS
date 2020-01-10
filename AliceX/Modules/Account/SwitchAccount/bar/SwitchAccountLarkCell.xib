@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,12 +28,7 @@
                                         <rect key="frame" x="15" y="10" width="30" height="30"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money_Face_5" translatesAutoresizingMaskIntoConstraints="NO" id="Nbh-Vr-WL3">
-                                                <rect key="frame" x="0.5" y="0.5" width="29" height="29"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <real key="value" value="14.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <rect key="frame" x="5" y="5" width="20" height="20"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJS-Eg-Wnw">
                                                 <rect key="frame" x="20" y="0.0" width="10" height="10"/>
@@ -53,12 +48,12 @@
                                         <constraints>
                                             <constraint firstItem="bJS-Eg-Wnw" firstAttribute="top" secondItem="ctF-9G-rvD" secondAttribute="top" id="IoU-Ft-Wsh"/>
                                             <constraint firstAttribute="height" constant="30" id="Jqi-Fu-tGk"/>
-                                            <constraint firstAttribute="bottom" secondItem="Nbh-Vr-WL3" secondAttribute="bottom" constant="0.5" id="P2Z-hp-Je0"/>
-                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="leading" secondItem="ctF-9G-rvD" secondAttribute="leading" constant="0.5" id="UeK-CO-IRu"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nbh-Vr-WL3" secondAttribute="bottom" constant="5" id="P2Z-hp-Je0"/>
+                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="leading" secondItem="ctF-9G-rvD" secondAttribute="leading" constant="5" id="UeK-CO-IRu"/>
                                             <constraint firstAttribute="width" secondItem="ctF-9G-rvD" secondAttribute="height" multiplier="1:1" id="VLH-Gn-CYL"/>
-                                            <constraint firstAttribute="trailing" secondItem="Nbh-Vr-WL3" secondAttribute="trailing" constant="0.5" id="gJa-ZI-xz3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nbh-Vr-WL3" secondAttribute="trailing" constant="5" id="gJa-ZI-xz3"/>
                                             <constraint firstAttribute="trailing" secondItem="bJS-Eg-Wnw" secondAttribute="trailing" id="i6y-Sq-JFE"/>
-                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="top" secondItem="ctF-9G-rvD" secondAttribute="top" constant="0.5" id="s2Z-B6-tHX"/>
+                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="top" secondItem="ctF-9G-rvD" secondAttribute="top" constant="5" id="s2Z-B6-tHX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -146,13 +141,13 @@
     <resources>
         <image name="Money_Face_5" width="180" height="180"/>
         <namedColor name="Alice-Grey">
-            <color red="0.47499999403953552" green="0.47499999403953552" blue="0.47499999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
-            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.2630000114440918" green="0.2630000114440918" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

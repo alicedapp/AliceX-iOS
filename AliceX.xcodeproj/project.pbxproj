@@ -125,6 +125,10 @@
 		154F60A723846E910011200F /* FaviconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A623846E910011200F /* FaviconHelper.swift */; };
 		154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60A8238592A50011200F /* BaseRNAppViewController.swift */; };
 		154F60AB238596090011200F /* MiniAppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F60AA238596090011200F /* MiniAppTab.swift */; };
+		155456DA23C89A9C0082BC2F /* WalletAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155456D823C89A9C0082BC2F /* WalletAvatarViewController.swift */; };
+		155456DB23C89A9C0082BC2F /* WalletAvatarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155456D923C89A9C0082BC2F /* WalletAvatarViewController.xib */; };
+		155456DF23C8A6AF0082BC2F /* WalletImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155456DD23C8A6AF0082BC2F /* WalletImageCell.swift */; };
+		155456E023C8A6AF0082BC2F /* WalletImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155456DE23C8A6AF0082BC2F /* WalletImageCell.xib */; };
 		1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1559C5FA236974EC008ADCB1 /* UIViewController.swift */; };
 		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
 		155FACED233910DE0002B478 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACEB233910DD0002B478 /* TestViewController.xib */; };
@@ -448,6 +452,10 @@
 		154F60A623846E910011200F /* FaviconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconHelper.swift; sourceTree = "<group>"; };
 		154F60A8238592A50011200F /* BaseRNAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRNAppViewController.swift; sourceTree = "<group>"; };
 		154F60AA238596090011200F /* MiniAppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppTab.swift; sourceTree = "<group>"; };
+		155456D823C89A9C0082BC2F /* WalletAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAvatarViewController.swift; sourceTree = "<group>"; };
+		155456D923C89A9C0082BC2F /* WalletAvatarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletAvatarViewController.xib; sourceTree = "<group>"; };
+		155456DD23C8A6AF0082BC2F /* WalletImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImageCell.swift; sourceTree = "<group>"; };
+		155456DE23C8A6AF0082BC2F /* WalletImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletImageCell.xib; sourceTree = "<group>"; };
 		1559C5FA236974EC008ADCB1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		155FACEB233910DD0002B478 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -879,6 +887,7 @@
 		1528139823C1B0CD00EE847D /* SwitchAccount */ = {
 			isa = PBXGroup;
 			children = (
+				155456D723C89A7A0082BC2F /* avatar */,
 				150BF1F523C4D4A100AD00EC /* bar */,
 				1528139923C1B0D900EE847D /* cell */,
 				1528139423C1B00000EE847D /* SwitchAccountViewController.swift */,
@@ -1066,6 +1075,25 @@
 				154F60A423846D1E0011200F /* FaviconGrabberModel.swift */,
 			);
 			path = FaviconGrabber;
+			sourceTree = "<group>";
+		};
+		155456D723C89A7A0082BC2F /* avatar */ = {
+			isa = PBXGroup;
+			children = (
+				155456DC23C8A6950082BC2F /* cell */,
+				155456D823C89A9C0082BC2F /* WalletAvatarViewController.swift */,
+				155456D923C89A9C0082BC2F /* WalletAvatarViewController.xib */,
+			);
+			path = avatar;
+			sourceTree = "<group>";
+		};
+		155456DC23C8A6950082BC2F /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				155456DD23C8A6AF0082BC2F /* WalletImageCell.swift */,
+				155456DE23C8A6AF0082BC2F /* WalletImageCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		155FACE9233910C50002B478 /* Test */ = {
@@ -2160,6 +2188,7 @@
 				15477B4522E161A0008E3230 /* GasFeeViewController.xib in Resources */,
 				15E1AAA32368B17000F29369 /* BlockChainQRCodeView.xib in Resources */,
 				153B2811231BB8C60062B2E8 /* PinListViewController.xib in Resources */,
+				155456E023C8A6AF0082BC2F /* WalletImageCell.xib in Resources */,
 				15A18169232924B000DFE686 /* RPCCustomFooterView.xib in Resources */,
 				15FFCF8C236607E900E0BB80 /* CoinListCell.xib in Resources */,
 				1528139123BEC50000EE847D /* GoogleService-Info.plist in Resources */,
@@ -2169,6 +2198,7 @@
 				15E71E1423740A310069BFD2 /* CoinReOrderViewController.xib in Resources */,
 				15A4F0F3232A7E73007A63A3 /* CustomNetworkCell.xib in Resources */,
 				153B2815231BBA060062B2E8 /* PinListCell.xib in Resources */,
+				155456DB23C89A9C0082BC2F /* WalletAvatarViewController.xib in Resources */,
 				158E1D01236554520081C1AA /* AssetCoinCell.xib in Resources */,
 				15A4F0F8232D1016007A63A3 /* AboutViewController.xib in Resources */,
 				1528139723C1B00000EE847D /* SwitchAccountViewController.xib in Resources */,
@@ -2338,6 +2368,7 @@
 				151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */,
 				15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
+				155456DA23C89A9C0082BC2F /* WalletAvatarViewController.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				158A909123704A0E002F9F18 /* PriceManager+Cache.swift in Sources */,
 				15DF2A112387CB7F0013664E /* BrowserSetting.swift in Sources */,
@@ -2517,6 +2548,7 @@
 				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
 				1578EE2223C5A75000ED69CB /* MnemonicTableViewCell.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
+				155456DF23C8A6AF0082BC2F /* WalletImageCell.swift in Sources */,
 				15A181602328BEDA00DFE686 /* TransactionManager+Pending.swift in Sources */,
 				15E1AAA12368B16600F29369 /* BlockChainQRCodeView.swift in Sources */,
 				15F67C33236B2B5D00E00CDE /* AssetImgeAnimator.swift in Sources */,
@@ -2694,7 +2726,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2896,7 +2928,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = M47FAQ65HD;
+				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -81,6 +81,7 @@ class AssetBalanceCell: UICollectionViewCell {
     func configure(isHidden: Bool, newBalance: Double) {
         
         accountButton.isHidden = !(WalletManager.Accounts!.count > 1)
+        accountImage.image = UIImage(named: WalletManager.currentAccount!.imageName)
         
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
         hideLabel.text = isHidden ? "Show" : "Hide"
