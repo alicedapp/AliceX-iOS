@@ -37,12 +37,17 @@ class SwitchAccountCell: FoldingCell {
     }
     
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
-        let durations = [0.1, 0.1, 0.1]
+        let durations = [0.1, 0.1]
         return durations[itemIndex]
     }
     
     @IBAction func switchAccount() {
         WalletManager.switchAccount(account: account)
+    }
+    
+    @IBAction func walletImageButton() {
+        let vc = WalletAvatarViewController.make(account: account)
+        UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func configure(account: Account) {

@@ -27,8 +27,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvW-sD-aSW">
                             <rect key="frame" x="0.0" y="44" width="375" height="60"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRR-Jy-9zU">
-                                    <rect key="frame" x="150.66666666666666" y="18.666666666666664" width="74" height="22.666666666666664"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRR-Jy-9zU">
+                                    <rect key="frame" x="133" y="18.666666666666664" width="109" height="22.666666666666664"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                     <color key="textColor" red="0.85882352941176465" green="0.87450980392156863" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>

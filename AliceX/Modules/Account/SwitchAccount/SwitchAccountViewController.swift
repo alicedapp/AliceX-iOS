@@ -14,7 +14,7 @@ class SwitchAccountViewController: BaseViewController {
 
     enum Const {
         static let closeCellHeight: CGFloat = 80 + 30
-        static let openCellHeight: CGFloat = 260 + 30
+        static let openCellHeight: CGFloat = 200 + 30
     }
     
     enum Cells: Int, CaseIterable {
@@ -61,12 +61,12 @@ class SwitchAccountViewController: BaseViewController {
 //        tableView.registerHeaderFooter(nibName: AddAccountFooter.nameOfClass)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         
-        
         cellHeights = Array(repeating: Const.closeCellHeight, count: data.count)
         NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
     }
     
     @objc func swicthAccount() {
+        data = WalletManager.Accounts!
         tableView.reloadData()
     }
 }
@@ -146,7 +146,7 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? FoldingCell else {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SwitchAccountCell else {
             return
         }
 
@@ -175,6 +175,12 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
                 self.tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             }
         }, completion: nil)
+        
+        // Update wallet name
+        let account = data[indexPath.row]
+        if let name = cell.nameField.text, !name.isEmptyAfterTrim(), name != account.name {
+            WalletManager.shared.updateAccount(account: account, imageName: nil, name: name)
+        }
     }
     
 //    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {

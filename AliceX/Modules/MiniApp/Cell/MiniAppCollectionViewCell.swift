@@ -17,6 +17,8 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var colorView: UIView!
 
+    @IBOutlet var textColorView: UIView!
+    
     var url: URL?
 
     override func awakeFromNib() {
@@ -53,10 +55,14 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                         return
                     }
                     self.emojiLabel.isHidden = false
-                    self.emojiLabel.text = Constant.randomEmoji()
+                    self.textColorView.isHidden = false
+                    self.emojiLabel.text = String(domain.first!)
+//                        Constant.randomEmoji()
                 case .failure:
                     self.emojiLabel.isHidden = false
-                    self.emojiLabel.text = Constant.randomEmoji()
+                    self.textColorView.isHidden = false
+                    self.emojiLabel.text = String(domain.first!)
+//                        Constant.randomEmoji()
                 }
             }
         }
@@ -71,6 +77,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
         iconView.layer.cornerRadius = iconView.bounds.height / 2
         shadowView.layer.cornerRadius = shadowView.bounds.height / 2
 
+        textColorView.layer.cornerRadius = textColorView.bounds.height / 2
         colorView.layer.cornerRadius = colorView.bounds.height / 2
 
         shadowView.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.5).cgColor
@@ -85,11 +92,13 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
         }
         
         colorView.layer.borderWidth = 1.0
+        textColorView.backgroundColor = UIColor.random
     }
 
     func configure(item: HomeItem) {
         setup(item: item)
 
+        textColorView.isHidden = true
         emojiLabel.isHidden = true
         nameLabel.text = item.name.firstCapitalized
 
@@ -107,7 +116,8 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                     break
                 case .failure:
                     self.emojiLabel.isHidden = false
-                    self.emojiLabel.text = Constant.randomEmoji()
+                    self.emojiLabel.text = String(item.name.first!)
+                    self.textColorView.isHidden = false
                 }
             }
         } else {
@@ -115,7 +125,8 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
 
             guard let url = item.url, let domain = url.host else {
                 emojiLabel.isHidden = false
-                emojiLabel.text = Constant.randomEmoji()
+                emojiLabel.text = String(item.name.first!)
+//                    Constant.randomEmoji()
                 return
             }
 
@@ -130,10 +141,14 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                             return
                         }
                         self.emojiLabel.isHidden = false
-                        self.emojiLabel.text = Constant.randomEmoji()
+                        self.textColorView.isHidden = false
+                        self.emojiLabel.text = String(item.name.first!)
+//                            Constant.randomEmoji()
                     case let .failure:
                         self.emojiLabel.isHidden = false
-                        self.emojiLabel.text = Constant.randomEmoji()
+                        self.textColorView.isHidden = false
+                        self.emojiLabel.text = String(item.name.first!)
+//                            Constant.randomEmoji()
                     }
                 }
             }

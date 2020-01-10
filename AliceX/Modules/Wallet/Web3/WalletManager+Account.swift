@@ -50,23 +50,6 @@ extension WalletManager {
                 HUDManager.shared.showError(error: error)
                 seal.reject(error)
             }
-            
-//            Shared.dataCache.fetch(key: IMPCacheKey.accountCacheKey).onSuccess { data in
-//                do {
-//                    let accounts = try JSONDecoder().decode([Account].self, from: data)
-//                    WalletManager.Accounts = accounts
-//                    seal.fulfill(accounts)
-//                } catch {
-//                    let error = WalletError.custom("Decode accounts failed")
-//                    HUDManager.shared.showError(error: error)
-//                    seal.reject(error)
-//                }
-//            }.onFailure { error in
-//                let error = WalletError.custom("Decode accounts failed")
-//                HUDManager.shared.showError(error: error)
-//                seal.reject(error)
-//            }
-            
         }
     }
     
@@ -78,13 +61,14 @@ extension WalletManager {
             try WalletManager.shared.keystore?.createNewChildAccount()
             try WalletManager.shared.saveKeystore(WalletManager.shared.keystore!)
             
-            let name = "\(Setting.WalletName) \(Constant.randomEmoji())"
+            let animal = Constant.randomAnimal()
+            let name = "\(animal.firstUppercased) Wallet"
             
             let newPaths = WalletManager.shared.keystore!.paths.keys
             
             let newPath = newPaths.filter{ !oldPaths.contains($0) }.first!
             let address = WalletManager.shared.keystore!.paths[newPath]!.address
-            let account = Account(address: address, name: name, imageName: "Money_Face_\(Int.random(in: 0...16))")
+            let account = Account(address: address, name: name, imageName: animal)
             WalletManager.Accounts?.append(account)
             
 //            WalletManager.storeAccountsToCache()
@@ -112,4 +96,38 @@ extension WalletManager {
         Defaults[\.defaultAccountIndex] = WalletManager.Accounts!.firstIndex(of: account)!
         NotificationCenter.default.post(name: .accountChange, object: nil)
     }
+    
+    // MARK: - Account info
+    
+    func updateAccount(account: Account, imageName: String?, name: String?) {
+        
+        guard let index = WalletManager.Accounts?.firstIndex(of: account) else {
+            return
+        }
+        
+        if let image = imageName {
+            WalletManager.Accounts?[index].imageName = image
+        }
+        
+        if let walletName = name {
+            WalletManager.Accounts![index].name = walletName
+        }
+        
+        WalletManager.storeAccountsToCache()
+        
+        if account == WalletManager.currentAccount {
+            if let image = imageName {
+                WalletManager.currentAccount?.imageName = image
+            }
+            
+            if let walletName = name {
+                WalletManager.currentAccount?.name = walletName
+            }
+        }
+        
+        NotificationCenter.default.post(name: .accountChange, object: nil)
+    }
+        
+    
+
 }
