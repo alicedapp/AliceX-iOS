@@ -81,6 +81,8 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
         switch section {
         case Cells.account.rawValue:
             return data.count
+        case Cells.mnemonic.rawValue:
+            return 2
         default:
             return 1
         }
@@ -124,7 +126,7 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
         case Cells.mnemonic.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: MnemonicTableViewCell.nameOfClass, for: indexPath) as! MnemonicTableViewCell
 //            let account = data[indexPath.row]
-//            cell.configure(account: account)
+            cell.configure(isMnemonic: indexPath.row == 0)
             return cell
         case Cells.account.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchAccountCell.nameOfClass, for: indexPath) as! SwitchAccountCell
@@ -186,4 +188,29 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
 //       }
 //       return footerView
 //   }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == Cells.create.rawValue {
+            return nil
+        }
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = AliceColor.white()
+        let label = UILabel()
+        label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width-40, height: headerView.frame.height-10)
+        label.text = section == Cells.mnemonic.rawValue ? "Mnemonic" : "Accounts"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = AliceColor.darkGrey()
+        headerView.addSubview(label)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == Cells.create.rawValue {
+            return 0
+        }
+        
+        return 50
+    }
 }

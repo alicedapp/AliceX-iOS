@@ -103,7 +103,7 @@
                                 <rect key="frame" x="496.5" y="0.0" width="53.5" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="f3g-me-ocw">
-                                        <rect key="frame" x="21" y="31" width="12" height="18"/>
+                                        <rect key="frame" x="15" y="22" width="24" height="36"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="Alice-LightBackground"/>
@@ -189,7 +189,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="mdK-Yp-VZa">
-                                        <rect key="frame" x="523" y="31" width="12" height="18"/>
+                                        <rect key="frame" x="511" y="22" width="24" height="36"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-CU-gpk">
                                         <rect key="frame" x="0.0" y="79.5" width="550" height="0.5"/>
@@ -285,13 +285,13 @@
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-light-dark" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-XD-u2d">
-                                        <rect key="frame" x="523" y="21" width="12" height="18"/>
+                                        <rect key="frame" x="511" y="12" width="24" height="36"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mnemonics-setting" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-kt-XVu">
-                                        <rect key="frame" x="15" y="14" width="32" height="32"/>
+                                        <rect key="frame" x="15" y="-2" width="64" height="64"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup Mnemonic" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0zt-24-hEs">
-                                        <rect key="frame" x="62" y="20" width="141.5" height="20.5"/>
+                                        <rect key="frame" x="94" y="20" width="141.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="Alice-DarkGrey"/>
                                         <nil key="highlightedColor"/>

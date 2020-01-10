@@ -22,6 +22,7 @@ class SettingViewController: BaseViewController {
     @IBOutlet var backButton: UIView!
 
     @IBOutlet var backupView: UIView!
+    @IBOutlet var newBackupView: UIView!
 
     @IBOutlet var darkLabel: UILabel!
     @IBOutlet var darkTheme: UIView!
@@ -49,6 +50,8 @@ class SettingViewController: BaseViewController {
 
         let isBackuped = Defaults[\.MnemonicsBackup]
         backupView.isHidden = isBackuped
+        newBackupView.isHidden = isBackuped
+        accountLabel.isHidden = !newBackupView.isHidden
         if !isBackuped {
 //            UIView.animate(withDuration: 0.1, delay: 0.5, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
 //                self.backupView.transform = .init(translationX: 0, y: -2)
