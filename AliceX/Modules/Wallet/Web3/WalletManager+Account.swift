@@ -97,6 +97,11 @@ extension WalletManager {
         NotificationCenter.default.post(name: .accountChange, object: nil)
     }
     
+    func walletChange() {
+        Defaults[\.defaultAccountIndex] = 0
+        WalletManager.storeAccountsToCache()
+    }
+    
     // MARK: - Account info
     
     func updateAccount(account: Account, imageName: String?, name: String?) {

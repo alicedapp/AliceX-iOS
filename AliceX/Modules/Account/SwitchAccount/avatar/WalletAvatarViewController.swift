@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class WalletAvatarViewController: BaseViewController {
 
@@ -30,6 +31,34 @@ class WalletAvatarViewController: BaseViewController {
         collectionView.dataSource = self
         
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 34, right: 10)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        showAimation()
+    }
+    
+    func showAimation() {
+        collectionView.reloadSections(IndexSet(arrayLiteral: 0))
+
+        let animateCell = collectionView!.visibleCells(in: 0)
+        let orderCell = animateCell.sorted { (cell1, cell2) -> Bool in
+            let index1 = self.collectionView.indexPath(for: cell1)!
+            let index2 = self.collectionView.indexPath(for: cell2)!
+            return index1.item < index2.item
+        }
+
+        let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
+        cellAnimation(cells: orderCell, animator: animations)
+    }
+
+    func cellAnimation(cells: [UICollectionViewCell], animator: [AnimationType]) {
+        collectionView.performBatchUpdates({
+            UIView.animate(views: cells,
+                           animations: animator,
+                           completion: nil)
+        }, completion: nil)
     }
 }
 

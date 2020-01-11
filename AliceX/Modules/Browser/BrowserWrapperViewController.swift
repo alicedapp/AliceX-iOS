@@ -34,7 +34,23 @@ class BrowserWrapperViewController: BaseViewController {
             urlString = Defaults[\.homepage].absoluteString
         }
         addBrowser()
-        NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork), name: .networkChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork),
+                                               name: .networkChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork),
+                                               name: .accountChange, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork),
+                                               name: .walletChange, object: nil)
+        
+        
+        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
+        gesture.edges = .bottom
+        self.view.addGestureRecognizer(gesture)
+    }
+    
+    @objc func swipeUp() {
+        //TODO: Force show
     }
 
     deinit {
@@ -58,6 +74,14 @@ class BrowserWrapperViewController: BaseViewController {
         vc.view.removeFromSuperview()
         vc.removeFromParent()
         addBrowser()
+    }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return false
+    }
+
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+        return UIRectEdge.bottom
     }
 }
 

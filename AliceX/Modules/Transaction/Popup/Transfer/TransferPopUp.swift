@@ -206,9 +206,11 @@ class TransferPopUp: UIViewController {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
         
-        if let addStr = textField.text {
-            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
+//        if let addStr = textField.text {
+//            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
+//        }
+        
+        self.address = textField.text
         
         if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
             return

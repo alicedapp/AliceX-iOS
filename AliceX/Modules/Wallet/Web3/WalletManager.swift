@@ -75,7 +75,12 @@ class WalletManager {
         // Wait for acccunt loaded
         do {
             let accounts = try WalletManager.fetchAccountsFromCache().wait()
-            let index = Defaults[\.defaultAccountIndex]
+            var index = Defaults[\.defaultAccountIndex]
+            // fix defaultAccountIndex is out of range
+            if index > accounts.count-1 {
+                Defaults[\.defaultAccountIndex] = 0
+                index = 0
+            }
             WalletManager.currentAccount = accounts[index]
             WalletManager.addKeyStoreIfNeeded()
             
@@ -194,6 +199,9 @@ class WalletManager {
             HUDManager.shared.showSuccess(text: "Replace wallet success")
             CallRNModule.sendWalletChangedEvent(address: address)
             NotificationCenter.default.post(name: .walletChange, object: nil)
+            
+            WalletManager.shared.walletChange()
+            
         } catch {
             HUDManager.shared.showError(text: "Replace Wallet Failed")
         }
