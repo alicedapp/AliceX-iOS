@@ -26,12 +26,21 @@ class BrowserViewController: BaseViewController {
 //    "https://app.compound.finance/"
 //    "http://www.google.com"
 
+    var forceHide: Bool = false {
+        didSet {
+            if self.forceHide {
+                forceHideBar()
+            } else {
+                forceShowBar()
+            }
+        }
+    }
+    
     weak var wrapper: BrowserWrapperViewController?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +93,52 @@ class BrowserViewController: BaseViewController {
             navBar.layer.borderColor = WalletManager.currentNetwork.color.cgColor
             navBar.layer.borderWidth = 1
         }
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(navBarSwipe(swipe:)))
+        swipeGesture.direction = .down
+        navBar.addGestureRecognizer(swipeGesture)
+        
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(navBarPan(pan:)))
+////        panGesture.
+//        navBar.addGestureRecognizer(panGesture)
+        
+        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
+        gesture.edges = .right
+        self.view.addGestureRecognizer(gesture)
+        
+    }
+
+    @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        //TODO: Force show
+        
+        if recognizer.state == .recognized {
+            print("Screen edge swiped!")
+            forceHide = false
+        }
+        
+        print("AAAAA")
+//        vc.forceShowBar()
+    }
+    
+    
+    func forceHideBar() {
+        UIView.animate(withDuration: 0.3) {
+            self.navBarContainer.transform = CGAffineTransform(translationX: 0, y: 94)
+        }
+    }
+    
+    func forceShowBar() {
+        UIView.animate(withDuration: 0.3) {
+            self.navBarContainer.transform = CGAffineTransform.identity
+        }
+    }
+    
+    @objc func navBarSwipe(swipe: UISwipeGestureRecognizer) {
+        forceHide = true
+    }
+    
+    @objc func navBarPan(pan: UIPanGestureRecognizer) {
+        
     }
 
     deinit {

@@ -92,7 +92,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
         }
         
         colorView.layer.borderWidth = 1.0
-        textColorView.backgroundColor = UIColor.random
+        textColorView.backgroundColor = AliceColor.dark
     }
 
     func configure(item: HomeItem) {
