@@ -67,17 +67,17 @@
 		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>Sharing photos</string>
+	<string>Alice requires to accrss meida libray to share photos</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Scanning QR codes, Pictures</string>
+	<string>Alice requires to access camera for scanning qr code</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Use Face ID to confirm your identity</string>
+	<string>Alice requires to use Face ID to confirm your identity</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>For voice features</string>
+	<string>Alice requires to accrss meida libray to send voice message</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Sharing photos</string>
+	<string>Alice requires to accrss meida libray to store qr code image</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Sharing photos</string>
+	<string>Alice requires to accrss meida libray to upload image</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PlayfairDisplay-Black.ttf</string>

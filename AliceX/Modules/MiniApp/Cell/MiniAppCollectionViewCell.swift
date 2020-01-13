@@ -51,7 +51,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                 case let .success(respone):
                     if let image = respone.image {
                         self.iconView.image = image
-                        self.emojiLabel.isHidden = true
+                        self.textColorView.isHidden = true
                         return
                     }
                     self.emojiLabel.isHidden = false
@@ -138,6 +138,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                     case let .success(respone):
                         if let image = respone.image {
                             self.iconView.image = image
+                            self.textColorView.isHidden = true
                             return
                         }
                         self.emojiLabel.isHidden = false
