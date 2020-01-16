@@ -8,7 +8,7 @@
 
 import Foundation
 import Pageboy
-import Tabman
+//import Tabman
 
 // class AddressQRViewController: TabmanViewController {
 //
