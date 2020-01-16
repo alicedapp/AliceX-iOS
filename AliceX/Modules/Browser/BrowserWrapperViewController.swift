@@ -10,11 +10,13 @@ import Foundation
 import SwiftyUserDefaults
 
 // Wrapper Broswer For Switch Network
-class BrowserWrapperViewController: BaseViewController {
+class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDelegate {
     var vc: BrowserViewController!
     var urlString: String = ""
 //    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
+    private var observer: NSObjectProtocol?
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -27,6 +29,9 @@ class BrowserWrapperViewController: BaseViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        
+//        setNeedsUpdateOfHomeIndicatorAutoHidden()
+//        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
     }
 
     override func viewDidLoad() {
@@ -43,18 +48,36 @@ class BrowserWrapperViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork),
                                                name: .walletChange, object: nil)
         
-        
-        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
-        gesture.edges = .bottom
-        self.view.addGestureRecognizer(gesture)
+//        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
+//        gesture.edges = .bottom
+//        gesture.delegate = self
+//        self.view.addGestureRecognizer(gesture)
+//        
+////        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+//        
+//        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+//            self.setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+//        }
     }
     
-    @objc func swipeUp() {
-        //TODO: Force show
-    }
+//    @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+//        //TODO: Force show
+//
+//        if recognizer.state == .recognized {
+//            print("Screen edge swiped!")
+//        }
+//
+//        print("DDDDDD")
+////        vc.forceShowBar()
+//        vc.forceHide = false
+//    }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+        
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
 
     func addBrowser() {
@@ -75,14 +98,14 @@ class BrowserWrapperViewController: BaseViewController {
         vc.removeFromParent()
         addBrowser()
     }
-    
-    override var prefersHomeIndicatorAutoHidden: Bool {
-        return false
-    }
 
-    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
-        return UIRectEdge.bottom
-    }
+//    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+//        return .bottom
+//    }
+    
+//    override var childForScreenEdgesDeferringSystemGestures: UIViewController? {
+//        return vc
+//    }
 }
 
 extension BrowserWrapperViewController: PinDelegate {

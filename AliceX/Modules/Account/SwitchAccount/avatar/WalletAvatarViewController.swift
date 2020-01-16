@@ -13,7 +13,7 @@ class WalletAvatarViewController: BaseViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
-    var data: [String] = ["baboon","cow","frog","llama","sheep","bear","crab","giraffe","mink","skunk","beaver","crocodile","globefish","moose","sloth","bison","deadlock","goat","mouse","snake","boar","deer","goldfish","owl","sparrow","bulldog","dog","guinea", "pig","panda", "kangaroo","squirrel","butterfly","dolphin","hedgehog","pig","starfish","capybara","duck","hippopotamus","platypus","swan","cat","eagle","horse","rabbit","tiger","chameleon","elephant","koala","raccoon","wolf","chimpanzee","fennec","lemur","seal","colibri","fox","lion","shark"]
+    var data: [String] = Constant.animals
     
     var account: Account?
     
@@ -57,6 +57,7 @@ class WalletAvatarViewController: BaseViewController {
         collectionView.performBatchUpdates({
             UIView.animate(views: cells,
                            animations: animator,
+                           duration: 0.1,
                            completion: nil)
         }, completion: nil)
     }
