@@ -149,7 +149,7 @@ class AssetViewController: BaseViewController {
         vc.selectBlockCahin = .Ethereum
 //        vc.modalPresentationStyle = .overCurrentContext
 //        present(vc, animated: true, completion: nil)
-        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
 
     func requestCoins() -> Promise<Void> {

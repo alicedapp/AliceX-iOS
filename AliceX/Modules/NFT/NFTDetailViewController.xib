@@ -13,12 +13,15 @@
             <connections>
                 <outlet property="NFTImageView" destination="JmA-5b-VZc" id="DSF-WQ-XQv"/>
                 <outlet property="OpenSeaImageView" destination="YHU-lp-b7Q" id="0d6-tI-3Dj"/>
+                <outlet property="OpenSeaIndicator" destination="Cz6-Vg-RBX" id="X2c-wU-xj2"/>
                 <outlet property="contractImageView" destination="ZdC-Pe-QbR" id="8zu-UL-ure"/>
+                <outlet property="contractIndicator" destination="USe-Km-2cm" id="POA-FB-Pob"/>
                 <outlet property="contractLabel" destination="Ce7-LJ-Q0g" id="pjh-3R-5rz"/>
                 <outlet property="descTextView" destination="5HI-GV-RNA" id="5BF-uL-d3T"/>
                 <outlet property="nameLabel" destination="JYr-5K-kXi" id="92C-PF-Lur"/>
                 <outlet property="priceLabel" destination="p1V-3z-8vd" id="2gI-rX-HQl"/>
                 <outlet property="priceNameLabel" destination="7Vx-Vm-DXO" id="nUw-Pq-M3S"/>
+                <outlet property="scrollView" destination="iSF-49-F3D" id="QZL-Ej-3M5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,7 +46,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="f2e-fT-4gy">
-                                    <rect key="frame" x="18" y="11" width="24" height="38"/>
+                                    <rect key="frame" x="24" y="20.5" width="12" height="19"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
@@ -84,7 +87,7 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSF-49-F3D">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEQ-bR-Ath" userLabel="ContentView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
@@ -111,6 +114,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-aI-T5k">
                                             <rect key="frame" x="0.0" y="300" width="414" height="140"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydq-ku-E8e">
+                                                    <rect key="frame" x="12" y="139" width="390" height="1"/>
+                                                    <color key="backgroundColor" name="Alice-LightBackground"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="QKl-6K-MYK"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYr-5K-kXi" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                     <rect key="frame" x="12" y="8" width="57.5" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
@@ -144,8 +154,11 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ydq-ku-E8e" secondAttribute="trailing" constant="12" id="4TO-nG-HaL"/>
+                                                <constraint firstAttribute="bottom" secondItem="ydq-ku-E8e" secondAttribute="bottom" id="BLp-Lf-o84"/>
                                                 <constraint firstItem="1vL-a7-F62" firstAttribute="leading" secondItem="yAL-aI-T5k" secondAttribute="leading" constant="12" id="Dry-Ss-7j5"/>
                                                 <constraint firstItem="JYr-5K-kXi" firstAttribute="top" secondItem="yAL-aI-T5k" secondAttribute="top" constant="8" id="Gak-bl-vP1"/>
+                                                <constraint firstItem="ydq-ku-E8e" firstAttribute="leading" secondItem="yAL-aI-T5k" secondAttribute="leading" constant="12" id="VMN-Cl-SOD"/>
                                                 <constraint firstAttribute="trailing" secondItem="5HI-GV-RNA" secondAttribute="trailing" constant="12" id="cMj-mq-5lS"/>
                                                 <constraint firstItem="JYr-5K-kXi" firstAttribute="leading" secondItem="yAL-aI-T5k" secondAttribute="leading" constant="12" id="ffg-yg-BJU"/>
                                                 <constraint firstItem="5HI-GV-RNA" firstAttribute="top" secondItem="JYr-5K-kXi" secondAttribute="bottom" constant="23" id="hii-Gh-0lL"/>
@@ -163,8 +176,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View on OpenSea" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1V-3z-8vd">
-                                                            <rect key="frame" x="12" y="25" width="135.5" height="20"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <rect key="frame" x="12" y="25" width="142.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" name="Alice-DarkGrey"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -174,12 +187,9 @@
                                                         <constraint firstItem="p1V-3z-8vd" firstAttribute="centerY" secondItem="3in-Wi-Fmx" secondAttribute="centerY" constant="5" id="Cgv-lB-a8V"/>
                                                         <constraint firstItem="p1V-3z-8vd" firstAttribute="leading" secondItem="3in-Wi-Fmx" secondAttribute="leading" constant="12" id="jew-lY-Rg7"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="contractClick" destination="-1" eventType="touchUpInside" id="rUu-Ef-Fhb"/>
-                                                    </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Sale Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vx-Vm-DXO">
-                                                    <rect key="frame" x="12" y="0.0" width="90" height="15.5"/>
+                                                    <rect key="frame" x="12" y="5" width="90" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" name="Alice-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -190,7 +200,7 @@
                                             </subviews>
                                             <color key="backgroundColor" name="Alice-LightBackground"/>
                                             <constraints>
-                                                <constraint firstItem="7Vx-Vm-DXO" firstAttribute="top" secondItem="wA2-uq-UWu" secondAttribute="top" id="Ne5-9V-pKJ"/>
+                                                <constraint firstItem="7Vx-Vm-DXO" firstAttribute="top" secondItem="wA2-uq-UWu" secondAttribute="top" constant="5" id="Ne5-9V-pKJ"/>
                                                 <constraint firstItem="3in-Wi-Fmx" firstAttribute="top" secondItem="wA2-uq-UWu" secondAttribute="top" id="YEG-SW-58o"/>
                                                 <constraint firstAttribute="trailing" secondItem="3in-Wi-Fmx" secondAttribute="trailing" id="g8r-kL-4jl"/>
                                                 <constraint firstAttribute="height" constant="60" id="pgW-x4-dl8"/>
@@ -217,9 +227,6 @@
                                                         <constraint firstItem="9Uf-Un-Sup" firstAttribute="leading" secondItem="lQH-tl-sC2" secondAttribute="leading" constant="12" id="ZrM-2E-FP6"/>
                                                         <constraint firstItem="9Uf-Un-Sup" firstAttribute="top" secondItem="lQH-tl-sC2" secondAttribute="top" constant="12" id="eZp-Au-raq"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="contractClick" destination="-1" eventType="touchUpInside" id="w5v-lH-6G1"/>
-                                                    </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BU-c7-18f">
                                                     <rect key="frame" x="12" y="0.0" width="33" height="15.5"/>
@@ -268,7 +275,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-dark-grey" translatesAutoresizingMaskIntoConstraints="NO" id="USe-Km-2cm">
-                                                            <rect key="frame" x="377" y="11" width="22" height="38"/>
+                                                            <rect key="frame" x="388" y="20.5" width="11" height="19"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -314,7 +321,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-dark-grey" translatesAutoresizingMaskIntoConstraints="NO" id="Cz6-Vg-RBX">
-                                                            <rect key="frame" x="377" y="11" width="22" height="38"/>
+                                                            <rect key="frame" x="388" y="20.5" width="11" height="19"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -371,37 +378,40 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wR-sQ-57R">
                     <rect key="frame" x="0.0" y="782" width="414" height="114"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H86-Rg-va5">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H86-Rg-va5">
+                            <rect key="frame" x="20" y="0.0" width="374" height="70"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-Ks-Fgl">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-Ks-Fgl">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjp-t7-izc" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="206" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="70"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w74-sW-U4P">
-                                                    <rect key="frame" x="71" y="29.5" width="64" height="21"/>
+                                                    <rect key="frame" x="61.5" y="24.5" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" name="Alice-LightBackground"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-PayButton"/>
                                             <constraints>
                                                 <constraint firstItem="w74-sW-U4P" firstAttribute="centerY" secondItem="gjp-t7-izc" secondAttribute="centerY" id="iC7-aF-RQI"/>
                                                 <constraint firstItem="w74-sW-U4P" firstAttribute="centerX" secondItem="gjp-t7-izc" secondAttribute="centerX" id="jyu-Mu-oTX"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="addressButtonClick" destination="-1" eventType="touchUpInside" id="KqA-Dc-XS8"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nG-ww-CNd">
-                                            <rect key="frame" x="207" y="0.0" width="0.5" height="80"/>
+                                            <rect key="frame" x="187" y="0.0" width="0.5" height="70"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYF-RT-5Dj">
-                                                    <rect key="frame" x="0.0" y="15" width="0.5" height="50"/>
+                                                    <rect key="frame" x="0.0" y="15" width="0.5" height="40"/>
                                                     <color key="backgroundColor" name="Alice-Grey"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-PayButton"/>
                                             <constraints>
                                                 <constraint firstItem="eYF-RT-5Dj" firstAttribute="leading" secondItem="0nG-ww-CNd" secondAttribute="leading" id="3C9-YB-UZm"/>
                                                 <constraint firstAttribute="bottom" secondItem="eYF-RT-5Dj" secondAttribute="bottom" constant="15" id="DeT-1H-M2J"/>
@@ -411,22 +421,26 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wi-KX-vbd" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
-                                            <rect key="frame" x="208.5" y="0.0" width="205.5" height="80"/>
+                                            <rect key="frame" x="187.5" y="0.0" width="186.5" height="70"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-A9-KDT">
-                                                    <rect key="frame" x="81.5" y="29.5" width="42.5" height="21"/>
+                                                    <rect key="frame" x="72" y="24.5" width="42.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" name="Alice-LightBackground"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="Alice-PayButton"/>
                                             <constraints>
                                                 <constraint firstItem="gM9-A9-KDT" firstAttribute="centerY" secondItem="2wi-KX-vbd" secondAttribute="centerY" id="K2H-eR-IBS"/>
                                                 <constraint firstItem="gM9-A9-KDT" firstAttribute="centerX" secondItem="2wi-KX-vbd" secondAttribute="centerX" id="QoQ-s7-byZ"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="sendButtonClick" destination="-1" eventType="touchUpInside" id="nMm-2W-e4k"/>
+                                            </connections>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="2wi-KX-vbd" firstAttribute="width" secondItem="gjp-t7-izc" secondAttribute="width" id="usL-wB-AlT"/>
                                     </constraints>
@@ -438,15 +452,20 @@
                                 <constraint firstItem="5YN-Ks-Fgl" firstAttribute="top" secondItem="H86-Rg-va5" secondAttribute="top" id="smm-th-UCG"/>
                                 <constraint firstAttribute="trailing" secondItem="5YN-Ks-Fgl" secondAttribute="trailing" id="tkK-VF-1Tm"/>
                                 <constraint firstAttribute="bottom" secondItem="5YN-Ks-Fgl" secondAttribute="bottom" id="yat-C0-eJe"/>
-                                <constraint firstAttribute="height" constant="80" id="zZL-Gh-bOJ"/>
+                                <constraint firstAttribute="height" constant="70" id="zZL-Gh-bOJ"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="35"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="Alice-PayButton"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="H86-Rg-va5" firstAttribute="leading" secondItem="3wR-sQ-57R" secondAttribute="leading" id="5CX-6w-Cff"/>
+                        <constraint firstItem="H86-Rg-va5" firstAttribute="leading" secondItem="3wR-sQ-57R" secondAttribute="leading" constant="20" id="5CX-6w-Cff"/>
                         <constraint firstItem="H86-Rg-va5" firstAttribute="top" secondItem="3wR-sQ-57R" secondAttribute="top" id="F8W-bB-w7f"/>
-                        <constraint firstAttribute="trailing" secondItem="H86-Rg-va5" secondAttribute="trailing" id="PlY-e8-O0I"/>
+                        <constraint firstAttribute="trailing" secondItem="H86-Rg-va5" secondAttribute="trailing" constant="20" id="PlY-e8-O0I"/>
                     </constraints>
                 </view>
             </subviews>
@@ -461,7 +480,7 @@
                 <constraint firstItem="yuM-6v-nIB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Fhb-nu-I0S"/>
                 <constraint firstItem="iSF-49-F3D" firstAttribute="top" secondItem="yuM-6v-nIB" secondAttribute="bottom" id="SVg-Vx-S4d"/>
                 <constraint firstAttribute="trailing" secondItem="iSF-49-F3D" secondAttribute="trailing" id="TKz-GM-KKZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iSF-49-F3D" secondAttribute="bottom" id="WHE-BF-WXb"/>
+                <constraint firstAttribute="bottom" secondItem="iSF-49-F3D" secondAttribute="bottom" id="WHE-BF-WXb"/>
                 <constraint firstItem="iSF-49-F3D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="w1Y-5c-rCr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -19,12 +19,17 @@ class NFTDetailViewController: BaseViewController {
     @IBOutlet var contractImageView: UIImageView!
     @IBOutlet var OpenSeaImageView: UIImageView!
     
+    @IBOutlet var contractIndicator: UIImageView!
+    @IBOutlet var OpenSeaIndicator: UIImageView!
+    
     @IBOutlet var contractLabel: UILabel!
     @IBOutlet var nameLabel: MarqueeLabel!
     @IBOutlet var descTextView: UITextView!
     
     @IBOutlet var priceNameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    
+    @IBOutlet var scrollView: UIScrollView!
     
     var model: OpenSeaModel?
     
@@ -41,8 +46,13 @@ class NFTDetailViewController: BaseViewController {
             return
         }
         
-        if let name = model.name {
+        scrollView.alwaysBounceVertical = true
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        
+        if let name = model.name, !name.isEmptyAfterTrim() {
             nameLabel.text = name
+        } else {
+            nameLabel.text = "(No Name)"
         }
         
         if let image = model.image_url, let imageURL = URL(string: image) {
@@ -58,7 +68,8 @@ class NFTDetailViewController: BaseViewController {
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
         } else {
-            NFTImageView.backgroundColor = UIColor(hex: "D5D5D5", alpha: 0.15)
+            NFTImageView.backgroundColor = UIColor.white
+//                UIColor(hex: "D5D5D5", alpha: 0.15)
         }
 
         if let image = model.asset_contract!.image_url, let imageURL = URL(string: image) {
@@ -74,10 +85,13 @@ class NFTDetailViewController: BaseViewController {
             contractImageView.image = nil
         }
         
+        
         let openSeaLogo = URL(string: "https://files.readme.io/381114e-opensea-logomark-flat-colored-blue.png")!
         OpenSeaImageView.kf.setImage(with: openSeaLogo)
         
-        descTextView.text = model.description
+        OpenSeaIndicator.image = OpenSeaIndicator.image?.filled(with: UIColor(hex: "3291E9"))
+        
+        descTextView.text = model.description ?? "(No Description)"
         contractLabel.text = model.asset_contract?.name
 //        contractAddressLabel.text = model?.asset_contract?.address
         
@@ -94,6 +108,8 @@ class NFTDetailViewController: BaseViewController {
             priceNameLabel.text = "Token ID"
             priceLabel.text = model.token_id
         }
+        
+        contractIndicator.isHidden = model.asset_contract?.external_link?.isEmpty ?? true
     }
     
     @IBAction func contractClick() {
@@ -115,5 +131,23 @@ class NFTDetailViewController: BaseViewController {
         
         let vc = BrowserWrapperViewController.make(urlString: url)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func addressButtonClick() {
+        let vc = AddressQRCodeViewController()
+        vc.selectBlockCahin = .Ethereum
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+    }
+    
+    @IBAction func sendButtonClick() {
+        
+        guard let model = self.model else {
+            return
+        }
+        
+        TransactionManager.showERC721PopUp(toAddress: "0x56519083C3cfeAE833B93a93c843C993bE1D74EA",
+                                           NFTModel: model) { txHash in
+                                            
+        }
     }
 }
