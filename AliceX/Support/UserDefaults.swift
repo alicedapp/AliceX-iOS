@@ -18,8 +18,8 @@ extension DefaultsKeys {
 
     var homepage: DefaultsKey<URL> { return .init("homepage", defaultValue: URL(string: "https://duckduckgo.com")!) }
     var searchEngine: DefaultsKey<Int> { return .init("searchEngine", defaultValue: 0) }
-    
+
     var defaultAccountIndex: DefaultsKey<Int> { return .init("defaultAccountIndex", defaultValue: 0) }
-    
+
     var accountsData: DefaultsKey<Data?> { return .init("accountsData") }
 }

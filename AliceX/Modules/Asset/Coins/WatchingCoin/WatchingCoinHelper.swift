@@ -20,7 +20,7 @@ class WatchingCoinHelper {
 
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(accountChange), name: .accountChange, object: nil)
     }
 
@@ -28,7 +28,7 @@ class WatchingCoinHelper {
         list.removeAll()
         loadFromCache()
     }
-    
+
     @objc func accountChange() {
         list.removeAll()
         loadFromCache()

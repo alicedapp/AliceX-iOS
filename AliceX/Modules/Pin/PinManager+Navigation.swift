@@ -10,11 +10,10 @@ import Foundation
 
 extension PinManager: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
         guard let topVC = UIApplication.topNavigationController() else {
             return false
         }
-        
+
         if topVC.viewControllers.count > 1 {
             beginScreenEdgePanBack(gestureRecognizer: gestureRecognizer)
             return true

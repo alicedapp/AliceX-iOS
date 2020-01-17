@@ -24,6 +24,7 @@ class WalletManager {
             WalletManager.storeAccountsToCache()
         }
     }
+
     static var currentNetwork: Web3NetEnum = .main
     static var customNetworkList: [Web3NetModel] = []
 
@@ -36,7 +37,7 @@ class WalletManager {
     var keystore: BIP32Keystore?
 
     class func hasWallet() -> Bool {
-        if WalletManager.currentAccount != nil && WalletManager.Accounts!.count > 0 {
+        if WalletManager.currentAccount != nil, WalletManager.Accounts!.count > 0 {
             return true
         }
         return false
@@ -54,7 +55,7 @@ class WalletManager {
         if WalletManager.web3Net.provider.attachedKeystoreManager != nil {
             return
         }
-        
+
         WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
     }
 
@@ -64,34 +65,33 @@ class WalletManager {
         }
         // Load web3 net from user default
         web3Net = WalletManager.fetchFromCache()
-        
+
         WalletManager.shared.loadRPCFromCache()
 
         WalletManager.shared.keystore = keystore
 
 //        let result = try! await(WalletManager.fetchAccountsFromCache())
 //        print(result)
-        
+
         // Wait for acccunt loaded
         do {
             let accounts = try WalletManager.fetchAccountsFromCache().wait()
             var index = Defaults[\.defaultAccountIndex]
             // fix defaultAccountIndex is out of range
-            if index > accounts.count-1 {
+            if index > accounts.count - 1 {
                 Defaults[\.defaultAccountIndex] = 0
                 index = 0
             }
             WalletManager.currentAccount = accounts[index]
             WalletManager.addKeyStoreIfNeeded()
-            
+
         } catch {
             print("Waiting for account loading fail")
         }
-
     }
 
     // MARK: - Wallet
-    
+
     class func createWallet(completion: VoidBlock?) {
 //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
 
@@ -115,19 +115,18 @@ class WalletManager {
             let wallet = Account(address: address, name: name, imageName: animal)
 
             WalletManager.Accounts = [wallet]
-            
+
             WalletManager.currentAccount = wallet
             WalletManager.shared.keystore = keystore
             try! WalletManager.shared.saveKeystore(keystore!)
             WalletManager.addKeyStoreIfNeeded()
-            
+
             guard let completion = completion else { return }
             completion!()
-            
+
         } catch {
             HUDManager.shared.showError(text: "Create Wallet Failed")
         }
-
     }
 
     class func importWallet(mnemonics: String, completion: VoidBlock?) throws {
@@ -144,7 +143,7 @@ class WalletManager {
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             throw WalletError.malformedKeystore
         }
-        
+
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
@@ -153,14 +152,14 @@ class WalletManager {
 //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
-            
+
             WalletManager.Accounts = [wallet]
 //            WalletManager.storeAccountsToCache()
             WalletManager.currentAccount = wallet
-            
+
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
-            
+
             WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
 
             guard let completion = completion else { return }
@@ -171,7 +170,6 @@ class WalletManager {
     }
 
     class func replaceWallet(mnemonics: String, completion _: VoidBlock?) {
-        
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
 //            throw WalletError.malformedKeystore
@@ -186,22 +184,22 @@ class WalletManager {
 //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
-            
+
             WalletManager.currentAccount = wallet
             WalletManager.Accounts = [wallet]
 //            WalletManager.storeAccountsToCache()
-            
+
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
 
             WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
-            
+
             HUDManager.shared.showSuccess(text: "Replace wallet success")
             CallRNModule.sendWalletChangedEvent(address: address)
             NotificationCenter.default.post(name: .walletChange, object: nil)
-            
+
             WalletManager.shared.walletChange()
-            
+
         } catch {
             HUDManager.shared.showError(text: "Replace Wallet Failed")
         }

@@ -47,12 +47,11 @@ enum Font {
 }
 
 extension Notification.Name {
-    
     static let walletChange = Notification.Name("walletChange")
     static let accountChange = Notification.Name("accountChange")
-    
+
 //    static let accountChange = Notification.Name("accountCreate")
-    
+
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
@@ -74,7 +73,7 @@ extension Notification.Name {
     static let homeItemListChange = Notification.Name("homeItemListChange")
 
     static let faviconDownload = Notification.Name("faviconDownload")
-    
+
     static let mnemonicBackuped = Notification.Name("mnemonicBackuped")
 }
 
@@ -133,9 +132,9 @@ class Constant {
 
         return emoji.randomElement()!
     }
-    
-    static let animals: [String] = ["baboon","cow","frog","llama","sheep","bear","crab","giraffe","crocodile","globefish","moose","sloth","deadlock","goat","mouse","snake","deer","goldfish","owl","bulldog","dog","guinea","panda", "kangaroo","squirrel","butterfly","dolphin","hedgehog","pig","starfish","duck","swan","cat","eagle","horse","rabbit","tiger","chameleon","elephant","koala","raccoon","wolf","chimpanzee","fennec","lemur","seal","colibri","fox","lion","shark"]
-    
+
+    static let animals: [String] = ["baboon", "cow", "frog", "llama", "sheep", "bear", "crab", "giraffe", "crocodile", "globefish", "moose", "sloth", "deadlock", "goat", "mouse", "snake", "deer", "goldfish", "owl", "bulldog", "dog", "guinea", "panda", "kangaroo", "squirrel", "butterfly", "dolphin", "hedgehog", "pig", "starfish", "duck", "swan", "cat", "eagle", "horse", "rabbit", "tiger", "chameleon", "elephant", "koala", "raccoon", "wolf", "chimpanzee", "fennec", "lemur", "seal", "colibri", "fox", "lion", "shark"]
+
     class func randomAnimal() -> String {
         return Constant.animals.randomElement()!
     }

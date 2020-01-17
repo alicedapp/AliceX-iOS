@@ -58,7 +58,7 @@ class SendERC20PopUp: UIViewController {
         super.viewDidLoad()
 
         addressLabel.text = toAddress
-        
+
         let value = amount.readableValue
         amountLabel.text = value.round(decimal: 4)
 //        let price = Float(value)! * PriceHelper.shared.exchangeRate

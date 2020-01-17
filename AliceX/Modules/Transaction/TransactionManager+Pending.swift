@@ -17,7 +17,7 @@ class PendingTransactionHelper {
 
     var pendingTxList: Set<PinItem> = Set<PinItem>()
     var timer: Timer!
-    
+
     var errorCount: Int = 0
 
     func start() {
@@ -25,7 +25,7 @@ class PendingTransactionHelper {
             timer.invalidate()
             timer = nil
         }
-        
+
         errorCount = 0
 
         timer = Timer(timeInterval: fetchPendingFrequency, target: self, selector: #selector(fetchStatus), userInfo: nil, repeats: true)

@@ -16,9 +16,8 @@ extension BrowserViewController: WKScriptMessageHandler {
         webview.evaluateJavaScript(script, completionHandler: nil)
     }
 
-    func userContentController(_ userContentController: WKUserContentController,
+    func userContentController(_: WKUserContentController,
                                didReceive message: WKScriptMessage) {
-
         let json = message.json
         print(json)
         guard let name = json["name"] as? String,
@@ -26,9 +25,8 @@ extension BrowserViewController: WKScriptMessageHandler {
             let id = json["id"] as? Int64 else {
             return
         }
-        
+
         switch method {
-            
         case .requestAccounts:
             let address = WalletManager.currentAccount!.address
             webview?.evaluateJavaScript("window.ethereum.setAddress(\"\(address)\");", completionHandler: nil)
@@ -87,7 +85,6 @@ extension BrowserViewController: WKScriptMessageHandler {
         }
     }
 }
-
 
 extension WKScriptMessage {
     var json: [String: Any] {

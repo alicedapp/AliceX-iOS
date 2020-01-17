@@ -31,7 +31,6 @@ extension Github: TargetType {
             #else
                 return "AliceX-iOS/master/DappList/dapps.json"
             #endif
-            
         }
     }
 

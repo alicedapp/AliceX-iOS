@@ -9,9 +9,8 @@
 import UIKit
 
 class AddAccountCell: UITableViewCell {
-
     var block: VoidBlock!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,10 +21,9 @@ class AddAccountCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     @IBAction func createAccountClick() {
         WalletManager.createAccount()
         block!()
     }
-    
 }

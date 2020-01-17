@@ -6,23 +6,22 @@
 //  Copyright © 2020 lmcmz. All rights reserved.
 //
 
-import UIKit
 import FoldingCell
+import UIKit
 
 class SwitchAccountCell: FoldingCell {
-
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var upImageView: UIImageView!
     @IBOutlet var downImageView: UIImageView!
     @IBOutlet var nameField: UITextField!
-    
+
     @IBOutlet var indicator: UIImageView!
     @IBOutlet var selectView: UIView!
-    
+
     var account: Account!
 //    @IBOutlet var : UITextField!
-    
+
     override func awakeFromNib() {
 //        foregroundView.layer.cornerRadius = 10
 //        foregroundView.layer.masksToBounds = true
@@ -35,31 +34,30 @@ class SwitchAccountCell: FoldingCell {
 
         // Configure the view for the selected state
     }
-    
+
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
         let durations = [0.1, 0.1]
         return durations[itemIndex]
     }
-    
+
     @IBAction func switchAccount() {
         WalletManager.switchAccount(account: account)
     }
-    
+
     @IBAction func walletImageButton() {
         let vc = WalletAvatarViewController.make(account: account)
         UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     func configure(account: Account) {
-        
         self.account = account
-        
+
         nameLabel.text = account.name
         addressLabel.text = account.address
         nameField.text = account.name
         upImageView.image = UIImage(named: account.imageName)
         downImageView.image = UIImage(named: account.imageName)
-        
+
         if account == WalletManager.currentAccount! {
             foregroundView.layer.borderColor = UIColor.systemGreen.cgColor
             foregroundView.layer.borderWidth = 1

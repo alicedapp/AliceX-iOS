@@ -39,7 +39,7 @@ extension BrowserViewController: WKNavigationDelegate {
         }) { _ in
             self.progressView.transform = CGAffineTransform.identity
             self.progressView.alpha = 1
-            
+
             if self.forceHide {
                 self.forceHideBar()
             }
@@ -51,11 +51,10 @@ extension BrowserViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         if translation.y >= 0 {
-            
             if forceHide {
                 return
             }
-            
+
             UIView.animate(withDuration: 0.3) {
                 self.navBarContainer.transform = CGAffineTransform.identity
             }

@@ -9,31 +9,30 @@
 import UIKit
 
 class SwitchAccountLarkController: UIViewController {
-
     @IBOutlet var collectionView: UICollectionView!
 
     var data: [Account] = WalletManager.Accounts!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(nibName: SwitchAccountLarkCell.nameOfClass)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.collectionView.layoutIfNeeded()
-        
+
+        collectionView.layoutIfNeeded()
+
         let index = data.firstIndex(of: WalletManager.currentAccount!)!
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-    
+
     @objc func swicthAccount() {
         collectionView.reloadData()
         delay(0.5) {
@@ -42,16 +41,15 @@ class SwitchAccountLarkController: UIViewController {
     }
 }
 
-
 extension SwitchAccountLarkController: UICollectionViewDelegate, UICollectionViewDataSource {
 //    func numberOfSections(in _: UICollectionView) -> Int {
 //        return Asset.allCases.count
 //    }
 
-    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return data.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwitchAccountLarkCell.nameOfClass,
                                                       for: indexPath) as! SwitchAccountLarkCell
@@ -60,7 +58,6 @@ extension SwitchAccountLarkController: UICollectionViewDelegate, UICollectionVie
         return cell
     }
 }
-
 
 extension SwitchAccountLarkController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,

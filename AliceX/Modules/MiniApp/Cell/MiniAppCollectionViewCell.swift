@@ -18,7 +18,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
     @IBOutlet var colorView: UIView!
 
     @IBOutlet var textColorView: UIView!
-    
+
     var url: URL?
 
     override func awakeFromNib() {
@@ -84,13 +84,13 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         shadowView.layer.shadowOpacity = 0.3
         shadowView.layer.shadowRadius = 5
-        
+
         if item.isApp {
             colorView.layer.borderColor = UIColor(hex: "#CA42FF", alpha: 0.8).cgColor
         } else {
             colorView.layer.borderColor = UIColor.clear.cgColor
         }
-        
+
         colorView.layer.borderWidth = 1.0
         textColorView.backgroundColor = AliceColor.dark
     }

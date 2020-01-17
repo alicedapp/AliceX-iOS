@@ -10,7 +10,6 @@ import Foundation
 import web3swift
 
 struct ETHWeb3ScriptWKConfig {
-
     let address: String
     let chainId: Int
     let rpcUrl: String

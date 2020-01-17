@@ -307,6 +307,10 @@
 		15E71E1423740A310069BFD2 /* CoinReOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */; };
 		15E7568A23C1CC5100F57003 /* AddAccountFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E7568923C1CC5100F57003 /* AddAccountFooter.swift */; };
 		15E7568C23C1CC5C00F57003 /* AddAccountFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */; };
+		15E802FB23D193B800CBE7FB /* SendERC721PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E802F923D193B800CBE7FB /* SendERC721PopUp.swift */; };
+		15E802FC23D193B800CBE7FB /* SendERC721PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E802FA23D193B800CBE7FB /* SendERC721PopUp.xib */; };
+		15E8030023D1BF3F00CBE7FB /* NFTDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E802FE23D1BF3F00CBE7FB /* NFTDetailViewController.swift */; };
+		15E8030123D1BF3F00CBE7FB /* NFTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E802FF23D1BF3F00CBE7FB /* NFTDetailViewController.xib */; };
 		15F0C7E0239031A500F0D4AB /* CryptTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0C7DF239031A500F0D4AB /* CryptTools.swift */; };
 		15F197B623816B6F00960DE1 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B523816B6F00960DE1 /* ENS.swift */; };
 		15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F197B8238182F000960DE1 /* CustomTokenViewController.swift */; };
@@ -637,6 +641,10 @@
 		15E71E1223740A310069BFD2 /* CoinReOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinReOrderViewController.xib; sourceTree = "<group>"; };
 		15E7568923C1CC5100F57003 /* AddAccountFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFooter.swift; sourceTree = "<group>"; };
 		15E7568B23C1CC5C00F57003 /* AddAccountFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountFooter.xib; sourceTree = "<group>"; };
+		15E802F923D193B800CBE7FB /* SendERC721PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendERC721PopUp.swift; sourceTree = "<group>"; };
+		15E802FA23D193B800CBE7FB /* SendERC721PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendERC721PopUp.xib; sourceTree = "<group>"; };
+		15E802FE23D1BF3F00CBE7FB /* NFTDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewController.swift; sourceTree = "<group>"; };
+		15E802FF23D1BF3F00CBE7FB /* NFTDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NFTDetailViewController.xib; sourceTree = "<group>"; };
 		15EF382522D5835B00C4A2C1 /* AliceX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = AliceX.entitlements; sourceTree = "<group>"; };
 		15F0C7DF239031A500F0D4AB /* CryptTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptTools.swift; sourceTree = "<group>"; };
 		15F197B523816B6F00960DE1 /* ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENS.swift; sourceTree = "<group>"; };
@@ -865,6 +873,7 @@
 		1527873122AE209100D63C7F /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				153F081423D1935800847632 /* NFT */,
 				155FACEE2339445D0002B478 /* View */,
 				15764E0F22E9E10300784848 /* Transfer */,
 				15F6E1F622E591D50006A24A /* SendToken */,
@@ -1045,6 +1054,15 @@
 				153B280F231BB8C60062B2E8 /* PinListViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		153F081423D1935800847632 /* NFT */ = {
+			isa = PBXGroup;
+			children = (
+				15E802F923D193B800CBE7FB /* SendERC721PopUp.swift */,
+				15E802FA23D193B800CBE7FB /* SendERC721PopUp.xib */,
+			);
+			path = NFT;
 			sourceTree = "<group>";
 		};
 		15477B3B22E15B09008E3230 /* EthGasStation */ = {
@@ -1657,6 +1675,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15E802FD23D1BF2C00CBE7FB /* NFT */,
 				1528139223BF096800EE847D /* Profile */,
 				1533C999237ABAFB0052010A /* MiniApp */,
 				15E1AA9523670EE400F29369 /* Account */,
@@ -1918,6 +1937,15 @@
 			path = Reorder;
 			sourceTree = "<group>";
 		};
+		15E802FD23D1BF2C00CBE7FB /* NFT */ = {
+			isa = PBXGroup;
+			children = (
+				15E802FE23D1BF3F00CBE7FB /* NFTDetailViewController.swift */,
+				15E802FF23D1BF3F00CBE7FB /* NFTDetailViewController.xib */,
+			);
+			path = NFT;
+			sourceTree = "<group>";
+		};
 		15F0C7DE2390318E00F0D4AB /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -2158,6 +2186,7 @@
 				1533C9942379B0330052010A /* erc20.json in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
+				15E802FC23D193B800CBE7FB /* SendERC721PopUp.xib in Resources */,
 				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
@@ -2181,6 +2210,7 @@
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
+				15E8030123D1BF3F00CBE7FB /* NFTDetailViewController.xib in Resources */,
 				15E7568C23C1CC5C00F57003 /* AddAccountFooter.xib in Resources */,
 				153B044C236D7C83008A2139 /* CoinViewController.xib in Resources */,
 				1581EC1822D8566E00B74F30 /* EditAddressViewController.xib in Resources */,
@@ -2410,6 +2440,7 @@
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
 				15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */,
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
+				15E802FB23D193B800CBE7FB /* SendERC721PopUp.swift in Sources */,
 				158E1D04236554AC0081C1AA /* AssetNFTCell.swift in Sources */,
 				153B2808231B75250062B2E8 /* FloatBall.swift in Sources */,
 				154F60A723846E910011200F /* FaviconHelper.swift in Sources */,
@@ -2546,6 +2577,7 @@
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
 				1587395C22B9E5C900F36F92 /* CryptoCoin.swift in Sources */,
 				152151E822ECB76200A4613A /* LBXScanLineAnimation.swift in Sources */,
+				15E8030023D1BF3F00CBE7FB /* NFTDetailViewController.swift in Sources */,
 				1578EE2223C5A75000ED69CB /* MnemonicTableViewCell.swift in Sources */,
 				15AF403F22E05A5B0059FB18 /* CoinMarketCapModel.swift in Sources */,
 				155456DF23C8A6AF0082BC2F /* WalletImageCell.swift in Sources */,

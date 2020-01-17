@@ -22,6 +22,6 @@ class DAppModel: HandyJSON {
     var type: DAppType!
 
     var dappName: String?
-    
+
     required init() {}
 }

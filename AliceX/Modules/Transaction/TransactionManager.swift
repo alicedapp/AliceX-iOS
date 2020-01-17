@@ -464,6 +464,57 @@ class TransactionManager {
         return "Sign Transaction Failed"
     }
 
+    // MARK: - Send ERC721
+
+    class func showERC721PopUp(toAddress: String,
+                               NFTModel: OpenSeaModel,
+                               data: Data = Data(),
+                               success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = SendERC721PopUp.make(NFTModel: NFTModel, toAddress: toAddress, success: success)
+        let height = 550 - 34 + Constant.SAFE_BOTTOM
+        topVC?.presentAsStork(modal, height: height)
+    }
+
+    public func sendERC721Token(tokenId _: String,
+                                to _: String,
+                                password _: String,
+                                gasPrice _: GasPrice = GasPrice.average) {
+        let ETHAddress = EthereumAddress(WalletManager.currentAccount!.address)!
+//        let erc = ERC721(web3: WalletManager.web3Net, provider: WalletManager.web3Net.provider, address: ETHAddress)
+//        let id = BigUInt("705")
+//
+//        erc.readProperties()
+//
+//
+//        do {
+//
+        ////            let contract = try erc.transfer(from: ETHAddress,
+        ////                                            to: EthereumAddress("0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB")!,
+        ////                                            tokenId: id)
+//            let contract = try erc.safeTransferFrom(from: ETHAddress,
+//                                                    to: EthereumAddress("0x56519083C3cfeAE833B93a93c843C993bE1D74EA")!,
+//                                                    originalOwner: ETHAddress,
+//                                                    tokenId: id, data: [])
+//
+//            let result = try contract.send()
+//            print("AAAAAA")
+//
+//            print(result.hash)
+//
+//        } catch let error {
+//            print(error)
+//        }
+
+        TransactionManager.writeSmartContract(contractAddress: "0x8979d84ff2c2b797dfec02469d3a5322cbef4b98",
+                                              functionName: "safeTransferFrom",
+                                              abi: Web3.Utils.erc721ABI,
+                                              parameters: [WalletManager.currentAccount!.address, "0x56519083C3cfeAE833B93a93c843C993bE1D74EA", 20, Data()],
+                                              extraData: Data(),
+                                              value: BigUInt(0))
+//
+    }
+
     // MARK: - Validator
 
 //    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {

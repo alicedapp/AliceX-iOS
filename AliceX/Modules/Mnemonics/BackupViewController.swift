@@ -113,7 +113,7 @@ class BackupViewController: BaseViewController {
 
         Defaults[\.MnemonicsBackup] = true
         navigationController?.popToRootViewController(animated: true)
-        
+
         NotificationCenter.default.post(name: .mnemonicBackuped, object: nil)
     }
 }

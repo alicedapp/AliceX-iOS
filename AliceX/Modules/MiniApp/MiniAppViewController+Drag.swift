@@ -10,12 +10,11 @@ import Foundation
 
 extension MiniAppViewController {
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        
         // Disable drag if item number less than 3
         if data.count <= 3 {
             return
         }
-        
+
         switch gesture.state {
         case .began:
             let point = gesture.location(in: collectionView)
@@ -64,7 +63,7 @@ extension MiniAppViewController {
 //                } else {
 //                    collectionView.endInteractiveMovement()
 //                }
-                
+
                 if let cell = collectionView.cellForItem(at: indexPath) {
                     cell.isHidden = true
                 }

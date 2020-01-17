@@ -12,7 +12,6 @@ import SwiftyUserDefaults
 import UIKit
 
 class SettingViewController: BaseViewController {
-    
     @IBOutlet var accountLabel: UILabel!
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var currencyLabel: UILabel!
@@ -29,7 +28,7 @@ class SettingViewController: BaseViewController {
     @IBOutlet var darkSwitch: UISwitch!
     @IBOutlet var darkImage: UIImageView!
     @IBOutlet var notiSwitch: UISwitch!
-    
+
     class func make(hideBackButton: Bool) -> SettingViewController {
         let vc = SettingViewController()
         vc.hideBackButton = hideBackButton
@@ -44,7 +43,7 @@ class SettingViewController: BaseViewController {
                                                name: .currencyChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(mnemonicBackuped),
                                                name: .mnemonicBackuped, object: nil)
-        
+
         updateNetwork()
         updateCurrency()
 
@@ -59,10 +58,9 @@ class SettingViewController: BaseViewController {
 //                self.backupView.transform = .identity
 //            }
         }
-        
-        
+
         accountLabel.text = WalletManager.currentAccount?.name
-        
+
         backButton.isHidden = hideBackButton
 
         notiSwitch.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
@@ -92,7 +90,7 @@ class SettingViewController: BaseViewController {
     @objc func mnemonicBackuped() {
         backupView.isHidden = Defaults[\.MnemonicsBackup]
     }
-    
+
     @IBAction func replaceClicked() {
         let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
         navigationController?.pushViewController(vc, animated: true)
@@ -123,7 +121,7 @@ class SettingViewController: BaseViewController {
         let vc = WCControlPanel()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @IBAction func accountBtnClicked() {
         let vc = SwitchAccountViewController()
         navigationController?.pushViewController(vc, animated: true)

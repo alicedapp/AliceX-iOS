@@ -35,7 +35,7 @@ class BrowserViewController: BaseViewController {
             }
         }
     }
-    
+
     weak var wrapper: BrowserWrapperViewController?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -48,11 +48,11 @@ class BrowserViewController: BaseViewController {
 
         navigationController?.navigationBar.barStyle = .default
 
-        let scriptConfig = ETHWeb3ScriptWKConfig( address: WalletManager.currentAccount!.address,
-                                                  chainId: WalletManager.currentNetwork.chainID,
-                                                  rpcUrl: WalletManager.currentNetwork.rpcURL.absoluteString,
-                                                  privacyMode: false )
-        
+        let scriptConfig = ETHWeb3ScriptWKConfig(address: WalletManager.currentAccount!.address,
+                                                 chainId: WalletManager.currentNetwork.chainID,
+                                                 rpcUrl: WalletManager.currentNetwork.rpcURL.absoluteString,
+                                                 privacyMode: false)
+
         let config = WKWebViewConfiguration()
         config.websiteDataStore = WKWebsiteDataStore.default()
         let controller = WKUserContentController()
@@ -93,53 +93,49 @@ class BrowserViewController: BaseViewController {
             navBar.layer.borderColor = WalletManager.currentNetwork.color.cgColor
             navBar.layer.borderWidth = 1
         }
-        
+
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(navBarSwipe(swipe:)))
         swipeGesture.direction = .down
         navBar.addGestureRecognizer(swipeGesture)
-        
+
 //        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(navBarPan(pan:)))
-////        panGesture.
+        ////        panGesture.
 //        navBar.addGestureRecognizer(panGesture)
-        
+
         let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
         gesture.edges = .right
-        self.view.addGestureRecognizer(gesture)
-        
+        view.addGestureRecognizer(gesture)
     }
 
     @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        //TODO: Force show
-        
+        // TODO: Force show
+
         if recognizer.state == .recognized {
             print("Screen edge swiped!")
             forceHide = false
         }
-        
+
         print("AAAAA")
 //        vc.forceShowBar()
     }
-    
-    
+
     func forceHideBar() {
         UIView.animate(withDuration: 0.3) {
             self.navBarContainer.transform = CGAffineTransform(translationX: 0, y: 94)
         }
     }
-    
+
     func forceShowBar() {
         UIView.animate(withDuration: 0.3) {
             self.navBarContainer.transform = CGAffineTransform.identity
         }
     }
-    
-    @objc func navBarSwipe(swipe: UISwipeGestureRecognizer) {
+
+    @objc func navBarSwipe(swipe _: UISwipeGestureRecognizer) {
         forceHide = true
     }
-    
-    @objc func navBarPan(pan: UIPanGestureRecognizer) {
-        
-    }
+
+    @objc func navBarPan(pan _: UIPanGestureRecognizer) {}
 
     deinit {
         NotificationCenter.default.removeObserver(self)

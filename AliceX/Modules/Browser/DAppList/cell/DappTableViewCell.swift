@@ -18,7 +18,7 @@ class DappTableViewCell: UITableViewCell {
     @IBOutlet var addLabel: UILabel!
     @IBOutlet var addButton: VBFPopFlatButton!
     @IBOutlet var addBackground: UIView!
-    
+
     @IBOutlet var dappView: UIView!
 
     @IBOutlet var tagName: UILabel!
@@ -73,12 +73,12 @@ class DappTableViewCell: UITableViewCell {
         let url = URL(string: link)!
         var item = HomeItem.web(url: url)
         dappView.isHidden = true
-        
+
         if model.type == .MiniApp, let dappName = model.dappName {
             item = HomeItem.app(name: dappName)
             dappView.isHidden = false
         }
-        
+
         self.item = item
         let isAdd = HomeItemHelper.shared.contain(item: item)
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType

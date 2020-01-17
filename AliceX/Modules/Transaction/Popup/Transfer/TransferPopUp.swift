@@ -205,13 +205,13 @@ class TransferPopUp: UIViewController {
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
-        
+
 //        if let addStr = textField.text {
 //            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
 //        }
-        
-        self.address = textField.text
-        
+
+        address = textField.text
+
         if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
             return
         }
@@ -252,7 +252,7 @@ class TransferPopUp: UIViewController {
             errorAlert(text: "Coin Info invalid")
             return
         }
-        
+
         guard let decimals = info.decimals else {
             errorAlert(text: "Decimals invalid")
             return
@@ -264,7 +264,7 @@ class TransferPopUp: UIViewController {
         }
 
         self.amount = amountBigInt
-        
+
         guard let price = info.price else {
             priceLabel.text = "price"
             return

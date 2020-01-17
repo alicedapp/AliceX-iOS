@@ -9,33 +9,31 @@
 import UIKit
 
 class SwitchAccountLarkCell: UICollectionViewCell {
-
     @IBOutlet var selectView: UIView!
     @IBOutlet var indicatorView: UIView!
-    
+
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
-    
+
     var account: Account!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     @IBAction func switchAccount() {
         WalletManager.switchAccount(account: account)
     }
-    
+
     func configure(account: Account) {
-        
         self.account = account
-        
+
         nameLabel.text = account.name
         addressLabel.text = account.address
-        iconView.image = UIImage.init(named: account.imageName)
-        
+        iconView.image = UIImage(named: account.imageName)
+
         if WalletManager.currentAccount! == account {
             selectView.isHidden = false
             indicatorView.isHidden = false
@@ -46,5 +44,4 @@ class SwitchAccountLarkCell: UICollectionViewCell {
             addressLabel.textColor = AliceColor.greyNew()
         }
     }
-
 }

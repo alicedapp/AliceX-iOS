@@ -51,7 +51,7 @@ class AssetViewController: BaseViewController {
         requestData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .accountChange, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)

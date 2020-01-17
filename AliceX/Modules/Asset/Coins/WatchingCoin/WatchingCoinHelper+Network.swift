@@ -40,19 +40,17 @@ extension WatchingCoinHelper {
                     }
                     count += 1
                     CoinInfoCenter.shared.pool[chain.rawValue]!.amount = String(balance)
-                    
+
                     if count == self.blockchainList().count {
                         seal.fulfill(())
                     }
-                    
+
                 }.catch { _ in
                     count += 1
                     if count == self.blockchainList().count {
                         seal.fulfill(())
                     }
-
                 }
-                
             }
 //            CoinInfoCenter.shared.storeInCache()
         }
@@ -94,7 +92,7 @@ extension WatchingCoinHelper {
                     seal.fulfill(true)
                 } else {
                     seal.fulfill(true)
-                    
+
                     //                    throw MyError.FoundNil("ERC20 is empty")
                 }
 

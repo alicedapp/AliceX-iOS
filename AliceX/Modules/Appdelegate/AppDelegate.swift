@@ -14,8 +14,8 @@ import RNFirebase
 import SPStorkController
 import UserNotifications
 
-import PromiseKit
 import BigInt
+import PromiseKit
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -77,34 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func test() {
-//        WalletCore.shared.testBNB()
-//        WalletManager.shared.test()
-//        WalletCore.shared.binanceSend(toAddress: "bnb1k2emmlq5v5yz4nyzhfcjtdgkveeghrq53ragzp", value: BigUInt(1)).done { txHash in
-//            print("AAAAA: \(txHash)")
-//        }.catch { error in
-//            print(error.localizedDescription)
-//        }
-        
-//        WalletManager.createAccount()
-        
-//        let ABI =
-//        """
-//    [{"constant":false,"inputs":[{"name":"newMessage","type":"string"}],"name":"setMessage","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMessage","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]
-//    """
-        
-//        TransactionManager.writeSmartContract(contractAddress: "0x2f21957c7147c3eE49235903D6471159a16c9ccd", functionName: "setMessage", abi: ABI, parameters: ["Message From Hao - Rinkeby"], extraData: Data(), value: BigUInt(0)).done { tx in
-//            print("BBB")
-//            print(tx)
-//        }.catch { error in
-//            print(error.localizedDescription)
-//        }
-        
-//        TransactionManager.readSmartContract(contractAddress: "0x2f21957c7147c3eE49235903D6471159a16c9ccd", functionName: "getMessage", abi: ABI, parameters: []).done { result in
-//            print("AAAA")
-//            print(result)
-//        }.catch { error in
-//            print(error.localizedDescription)
-//        }
     }
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {
@@ -149,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(" Push notification received:")
         RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
     }
-    
+
     func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print(" APNS token: \(token)")

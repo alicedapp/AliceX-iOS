@@ -16,13 +16,73 @@ class AssetNFTCell: UICollectionViewCell {
     @IBOutlet var NFTImageView: UIImageView!
 //    @IBOutlet var NFTSVGView: SVGKFastImageView!
 //    @IBOutlet var backgroundImageView: UIView!
+    
+    var model: OpenSeaModel?
+
+    @IBOutlet var viewShadow: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+//        let shadowLayer = CAShapeLayer()
+//        shadowLayer.path = UIBezierPath(roundedRect: viewShadow.bounds, cornerRadius: 25).cgPath
+//        shadowLayer.fillColor = UIColor.clear.cgColor
+//        shadowLayer.shadowColor = UIColor(hex: "#000000", alpha: 0.3).cgColor
+//        shadowLayer.shadowPath = shadowLayer.path
+//        shadowLayer.shadowOffset = CGSize(width: 0, height: 1.0)
+//        shadowLayer.shadowOpacity = 0.3
+//        shadowLayer.shadowRadius = 5
+//        viewShadow.layer.insertSublayer(shadowLayer, at: 0)
+
+        viewShadow.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.3).cgColor
+        viewShadow.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        viewShadow.layer.shadowRadius = 2
+        viewShadow.layer.shadowOpacity = 0.3
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
+//        longPress.minimumPressDuration = 0.3
+        self.addGestureRecognizer(longPress)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapAction() {
+        let topVC = UIApplication.topViewController()
+        let vc = NFTDetailViewController.make(NFTModel: self.model!)
+        topVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//                self.background.alpha = 1
+            }
+        case .ended:
+            
+            if let NFTModel = self.model {
+                TransactionManager.showERC721PopUp(toAddress: "0x56519083C3cfeAE833B93a93c843C993bE1D74EA",
+                                                   NFTModel: NFTModel) { txHash in
+                                                    
+                }
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity
+//                self.background.alpha = 0
+            }
+        default:
+            break
+        }
     }
 
     func configure(model: OpenSeaModel) {
+        
+        self.model = model
+        
         if let image = model.image_url, let imageURL = URL(string: image) {
             if image.hasSuffix(".svg") {
 //                NFTSVGView.isHidden = false
@@ -48,7 +108,7 @@ class AssetNFTCell: UICollectionViewCell {
             NFTImageView.backgroundColor = UIColor(hex: "D5D5D5", alpha: 0.15)
         }
 
-        if let image = model.asset_contract.image_url, let imageURL = URL(string: image) {
+        if let image = model.asset_contract!.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
                 switch result {
                 case .success:

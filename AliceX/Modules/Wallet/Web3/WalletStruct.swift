@@ -13,7 +13,7 @@ struct Account: Codable {
     let address: String
 //    let data: Data
 //    let isHD: Bool
-    
+
     var name: String
     var imageName: String
 //    var color: UIColor
@@ -38,10 +38,10 @@ struct HDKey {
     let address: String
 }
 
-//struct Account {
+// struct Account {
 //    let wallet: Wallet
 //    let image: UIImage
-//}
+// }
 
 // struct ERC20Token {
 //    var name: String
