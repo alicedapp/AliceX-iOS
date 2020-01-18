@@ -20,6 +20,12 @@ class AssetNFTCell: UICollectionViewCell {
     var model: OpenSeaModel?
 
     @IBOutlet var viewShadow: UIView!
+    
+    lazy var addressVC: AddressPopUp = {
+         let vc = AddressPopUp.make(delegate: self, address: nil)
+         return vc
+     }()
+     
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,7 +68,8 @@ class AssetNFTCell: UICollectionViewCell {
 //                self.background.alpha = 1
             }
             if let NFTModel = self.model {
-                let vc = AddressPopUp.make(delegate: self, address: nil)
+                addressVC.address = nil
+                let vc = addressVC
                 vc.modalPresentationStyle = .overCurrentContext
                 UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -120,10 +127,13 @@ class AssetNFTCell: UICollectionViewCell {
             contractImageView.image = nil
         }
 
-        contractName.text = model.name
+        if let name = model.name, !name.isEmptyAfterTrim() {
+            contractName.text = model.name
+        } else {
+            contractName.text = model.asset_contract?.name
+        }
     }
 }
-
 
 extension AssetNFTCell: AddressPopUpDelegate {
     
@@ -135,7 +145,7 @@ extension AssetNFTCell: AddressPopUpDelegate {
         
         TransactionManager.showERC721PopUp(toAddress: address,
                                            NFTModel: model) { txHash in
-                                            
+                                            self.addressVC.cancelBtnClicked()
         }
     }
     

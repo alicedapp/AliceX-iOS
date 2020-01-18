@@ -26,7 +26,27 @@ class SwitchAccountCell: FoldingCell {
 //        foregroundView.layer.cornerRadius = 10
 //        foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
-        // Initialization code
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))
+        foregroundView.addGestureRecognizer(longPress)
+    }
+    
+    @objc func longPressGesture(gesture: UILongPressGestureRecognizer) {
+        
+        switch gesture.state {
+        case .began:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+            UIPasteboard.general.string = account.address
+            HUDManager.shared.showSuccess(text: "Address Copied")
+        case .ended:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity
+            }
+        default:
+            break
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

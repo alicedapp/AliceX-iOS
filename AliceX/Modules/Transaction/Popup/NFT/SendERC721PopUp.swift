@@ -46,10 +46,11 @@ class SendERC721PopUp: UIViewController {
 
     class func make(NFTModel: OpenSeaModel,
                     toAddress: String,
-                    success _: @escaping StringBlock) -> SendERC721PopUp {
+                    success: @escaping StringBlock) -> SendERC721PopUp {
         let vc = SendERC721PopUp()
         vc.NFTModel = NFTModel
         vc.toAddress = toAddress
+        vc.successBlock = success
         return vc
     }
 
@@ -181,27 +182,23 @@ extension SendERC721PopUp: PayButtonDelegate {
     }
 
     func send() {
-//        guard let value = Web3Utils.parseToBigUInt(amount.readableValue, units: .eth) else {
-//            HUDManager.shared.showError(text: "Value is invalid")
-//            return
-//        }
-//
-//        payView!.showLoading()
-//
-//        firstly {
-//            TransactionManager.shared.sendERC20Token(tokenAddrss: token.id,
-//                                                     to: toAddress,
-//                                                     amount: value,
-//                                                     data: data,
-//                                                     password: "",
-//                                                     gasPrice: gasPrice)
-//        }.done { hash in
-//            print(hash)
-//            self.successBlock!(hash)
-//            self.dismiss(animated: true, completion: nil)
-//        }.catch { error in
-//            self.payView!.failed()
-//            HUDManager.shared.showError(error: error)
-//        }
+
+        payView!.showLoading()
+
+        firstly {
+            
+            TransactionManager.shared.sendERC721Token(tokenId: NFTModel.token_id,
+                                                      toAddress: toAddress,
+                                                      contractAddress: NFTModel.asset_contract!.address,
+                                                      password: "")
+            
+        }.done { hash in
+            print(hash)
+            self.successBlock!(hash)
+            self.dismiss(animated: true, completion: nil)
+        }.catch { error in
+            self.payView!.failed()
+            HUDManager.shared.showError(error: error)
+        }
     }
 }

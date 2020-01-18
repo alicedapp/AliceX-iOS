@@ -56,7 +56,7 @@ struct OpenSeaLastSell: HandyJSON {
     }
 }
 
-struct OpenSeaTrait {
+struct OpenSeaTrait: HandyJSON {
     var trait_type: String?
     var value: String?
     var display_type: String?

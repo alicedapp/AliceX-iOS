@@ -31,7 +31,23 @@ class NFTDetailViewController: BaseViewController {
     
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet var NFTScrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    
+    @IBOutlet var traitsView: UIView!
+    
+    @IBOutlet var textViewHeight: NSLayoutConstraint!
+    
+    var collectionView: TTGTagCollectionView!
+    
+    var tagView: [UIView]? = []
+    
     var model: OpenSeaModel?
+    
+    lazy var addressVC: AddressPopUp = {
+        let vc = AddressPopUp.make(delegate: self, address: nil)
+        return vc
+    }()
     
     class func make(NFTModel: OpenSeaModel) -> NFTDetailViewController {
         let vc = NFTDetailViewController()
@@ -45,6 +61,8 @@ class NFTDetailViewController: BaseViewController {
         guard let model = self.model else {
             return
         }
+        
+        NFTScrollView.delegate = self
         
         scrollView.alwaysBounceVertical = true
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
@@ -68,9 +86,11 @@ class NFTDetailViewController: BaseViewController {
         if let color = model.background_color {
             NFTImageView.backgroundColor = UIColor(hex: color)
         } else {
-            NFTImageView.backgroundColor = UIColor.white
+            NFTImageView.backgroundColor = AliceColor.white()
 //                UIColor(hex: "D5D5D5", alpha: 0.15)
         }
+        
+        traitsView.backgroundColor = NFTImageView.backgroundColor
 
         if let image = model.asset_contract!.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
@@ -89,6 +109,11 @@ class NFTDetailViewController: BaseViewController {
         
         descTextView.text = model.description ?? "(No Description)"
         contractLabel.text = model.asset_contract?.name
+        descTextView.translatesAutoresizingMaskIntoConstraints = false
+        descTextView.isScrollEnabled = false
+        descTextView.sizeToFit()
+        textViewHeight.constant = descTextView.contentSize.height
+        
 //        contractAddressLabel.text = model?.asset_contract?.address
         
         if let lastSell = model.last_sale, let payment_token = lastSell.payment_token {
@@ -106,6 +131,33 @@ class NFTDetailViewController: BaseViewController {
         }
         
         contractIndicator.isHidden = model.asset_contract?.external_link?.isEmpty ?? true
+        
+        if let traits = model.traits, traits.count > 0 {
+            pageControl.numberOfPages = 2
+            NFTScrollView.isScrollEnabled = true
+            
+            for trait in traits {
+                let view = TraitView.instanceFromNib()
+                view.configure(type: trait.trait_type, name: trait.value)
+                tagView?.append(view)
+            }
+            
+            collectionView = TTGTagCollectionView()
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.alignment = .center
+            collectionView.numberOfLines = 3
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            traitsView.addSubview(collectionView)
+            collectionView.fillSuperview()
+            
+            collectionView.reload()
+            collectionView.reloadInputViews()
+            
+        } else {
+            pageControl.numberOfPages = 1
+            NFTScrollView.isScrollEnabled = false
+        }
     }
     
     @IBAction func contractClick() {
@@ -136,7 +188,7 @@ class NFTDetailViewController: BaseViewController {
     }
     
     @IBAction func sendButtonClick() {
-        let vc = AddressPopUp.make(delegate: self, address: nil)
+        let vc = addressVC
         vc.modalPresentationStyle = .overCurrentContext
         UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -154,8 +206,22 @@ extension NFTDetailViewController: AddressPopUpDelegate {
         
         TransactionManager.showERC721PopUp(toAddress: address,
                                            NFTModel: model) { txHash in
-                                            
+                                            self.addressVC.cancelBtnClicked()
         }
     }
     
+}
+
+
+extension NFTDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let x = scrollView.contentOffset.x
+        
+        if x > Constant.SCREEN_WIDTH/2 {
+            pageControl.currentPage = 1
+        } else {
+            pageControl.currentPage = 0
+        }
+    }
 }

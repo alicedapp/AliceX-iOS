@@ -52,10 +52,10 @@ class AssetViewController: BaseViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .accountChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWithAnimation), name: .accountChange, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .walletChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWithAnimation), name: .walletChange, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .networkChange, object: nil)
 
@@ -69,6 +69,10 @@ class AssetViewController: BaseViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func refreshWithAnimation() {
+        self.collectionView.es.startPullToRefresh()
     }
 
     @objc func requestData() {

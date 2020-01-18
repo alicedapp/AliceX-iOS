@@ -21,6 +21,27 @@ class SwitchAccountLarkCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))
+        self.addGestureRecognizer(longPress)
+    }
+    
+    @objc func longPressGesture(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+            UIPasteboard.general.string = account.address
+            HUDManager.shared.showSuccess(text: "Address Copied")
+            
+        case .ended:
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity
+            }
+        default:
+            break
+        }
     }
 
     @IBAction func switchAccount() {

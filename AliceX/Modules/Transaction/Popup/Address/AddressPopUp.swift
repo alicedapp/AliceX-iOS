@@ -102,7 +102,7 @@ class AddressPopUp: UIViewController {
         
         if let delegate = self.delegate {
             delegate.comfirmedAddress(address: addr)
-            cancelBtnClicked()
+//            cancelBtnClicked()
 //            HUDManager.shared.dismiss()
         }
     }

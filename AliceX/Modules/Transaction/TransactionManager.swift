@@ -476,10 +476,12 @@ class TransactionManager {
         topVC?.presentAsStork(modal, height: height)
     }
 
-    public func sendERC721Token(tokenId _: String,
-                                to _: String,
-                                password _: String,
-                                gasPrice _: GasPrice = GasPrice.average) {
+    public func sendERC721Token(tokenId: String,
+                                toAddress: String,
+                                contractAddress: String,
+                                data: Data = Data(),
+                                password: String?,
+                                gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
         let ETHAddress = EthereumAddress(WalletManager.currentAccount!.address)!
 //        let erc = ERC721(web3: WalletManager.web3Net, provider: WalletManager.web3Net.provider, address: ETHAddress)
 //        let id = BigUInt("705")
@@ -505,14 +507,20 @@ class TransactionManager {
 //        } catch let error {
 //            print(error)
 //        }
-
-        TransactionManager.writeSmartContract(contractAddress: "0x8979d84ff2c2b797dfec02469d3a5322cbef4b98",
+        
+        return Promise<String> { seal in
+            TransactionManager.writeSmartContract(contractAddress: contractAddress,
                                               functionName: "safeTransferFrom",
                                               abi: Web3.Utils.erc721ABI,
-                                              parameters: [WalletManager.currentAccount!.address, "0x56519083C3cfeAE833B93a93c843C993bE1D74EA", 20, Data()],
+                                              parameters: [WalletManager.currentAccount!.address, toAddress, tokenId, data],
                                               extraData: Data(),
-                                              value: BigUInt(0))
-//
+                                              value: BigUInt(0)).done { txHash in
+                                                seal.fulfill(txHash)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+
     }
 
     // MARK: - Validator
