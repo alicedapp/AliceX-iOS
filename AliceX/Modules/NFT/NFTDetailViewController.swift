@@ -85,10 +85,6 @@ class NFTDetailViewController: BaseViewController {
             contractImageView.image = nil
         }
         
-        
-        let openSeaLogo = URL(string: "https://files.readme.io/381114e-opensea-logomark-flat-colored-blue.png")!
-        OpenSeaImageView.kf.setImage(with: openSeaLogo)
-        
         OpenSeaIndicator.image = OpenSeaIndicator.image?.filled(with: UIColor(hex: "3291E9"))
         
         descTextView.text = model.description ?? "(No Description)"
@@ -140,14 +136,26 @@ class NFTDetailViewController: BaseViewController {
     }
     
     @IBAction func sendButtonClick() {
-        
+        let vc = AddressPopUp.make(delegate: self, address: nil)
+        vc.modalPresentationStyle = .overCurrentContext
+        UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
+}
+
+
+extension NFTDetailViewController: AddressPopUpDelegate {
+    
+    func comfirmedAddress(address: String) {
+
         guard let model = self.model else {
             return
         }
         
-        TransactionManager.showERC721PopUp(toAddress: "0x56519083C3cfeAE833B93a93c843C993bE1D74EA",
+        TransactionManager.showERC721PopUp(toAddress: address,
                                            NFTModel: model) { txHash in
                                             
         }
     }
+    
 }

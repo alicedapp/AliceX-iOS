@@ -136,8 +136,12 @@ class SendTransactionHandler: WCHandler {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(wcTx)
             let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
-            guard let json = jsonString, let transactionJSON = json.toJSON() as? [String: Any] else {
+            guard let json = jsonString, var transactionJSON = json.toJSON() as? [String: Any] else {
                 throw WalletError.custom("Parse tx failed")
+            }
+            
+            if !transactionJSON.keys.contains("value") {
+                transactionJSON["value"] = String(BigUInt(0))
             }
 
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {

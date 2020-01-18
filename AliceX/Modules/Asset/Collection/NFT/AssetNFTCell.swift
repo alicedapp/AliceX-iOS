@@ -61,15 +61,14 @@ class AssetNFTCell: UICollectionViewCell {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
 //                self.background.alpha = 1
             }
-        case .ended:
-            
             if let NFTModel = self.model {
-                TransactionManager.showERC721PopUp(toAddress: "0x56519083C3cfeAE833B93a93c843C993bE1D74EA",
-                                                   NFTModel: NFTModel) { txHash in
-                                                    
-                }
+                let vc = AddressPopUp.make(delegate: self, address: nil)
+                vc.modalPresentationStyle = .overCurrentContext
+                UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
             
+        case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
 //                self.background.alpha = 0
@@ -123,4 +122,21 @@ class AssetNFTCell: UICollectionViewCell {
 
         contractName.text = model.name
     }
+}
+
+
+extension AssetNFTCell: AddressPopUpDelegate {
+    
+    func comfirmedAddress(address: String) {
+
+        guard let model = self.model else {
+            return
+        }
+        
+        TransactionManager.showERC721PopUp(toAddress: address,
+                                           NFTModel: model) { txHash in
+                                            
+        }
+    }
+    
 }

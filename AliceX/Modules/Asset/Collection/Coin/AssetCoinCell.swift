@@ -96,12 +96,12 @@ class AssetCoinCell: UICollectionViewCell {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 self.background.alpha = 1
             }
-        case .ended:
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-
+            
+        case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
                 self.background.alpha = 0
