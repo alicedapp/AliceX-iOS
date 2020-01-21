@@ -27,9 +27,11 @@ class TraitView: UIView {
     }
     
     func configure(type: String?, name: String?) {
-        typeLabel.text = type?.split(separator: "_").joined(separator: " ").firstCapitalized
+        typeLabel.text = type?.split(separator: "_")
+            .compactMap { String($0).firstCapitalized }
+            .joined(separator: "").camelCaseToWords().uppercased()
         textLabel.text = name?.firstCapitalized
-//        self.sizeToFit()
+        self.sizeToFit()
     }
     
 }

@@ -198,7 +198,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     <connections>
-                                        <action selector="addressFieldDidChange:" destination="-1" eventType="valueChanged" id="SXc-RA-gZl"/>
+                                        <action selector="addressFieldDidChange:" destination="-1" eventType="editingChanged" id="7fI-9L-HsR"/>
                                     </connections>
                                 </textField>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-tw-u4Y">

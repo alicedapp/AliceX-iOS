@@ -146,13 +146,20 @@ class NFTDetailViewController: BaseViewController {
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.alignment = .center
-            collectionView.numberOfLines = 3
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.numberOfLines = 4
+//            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.scrollDirection = .horizontal
             traitsView.addSubview(collectionView)
             collectionView.fillSuperview()
             
             collectionView.reload()
-            collectionView.reloadInputViews()
+            
+            let centerOffsetX = (collectionView.scrollView.contentSize.width - collectionView.frame.size.width) / 2
+            let centerOffsetY = (collectionView.scrollView.contentSize.height - collectionView.frame.size.height) / 2
+            let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
+            collectionView.scrollView.setContentOffset(centerPoint, animated: true)
+            
+//            collectionView.reloadInputViews()
             
         } else {
             pageControl.numberOfPages = 1

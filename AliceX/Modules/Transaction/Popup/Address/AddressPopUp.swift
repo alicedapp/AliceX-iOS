@@ -126,8 +126,6 @@ class AddressPopUp: UIViewController {
     
 
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
-        let coin = Coin.coin(chain: .Ethereum)
-        
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
 
@@ -136,10 +134,6 @@ class AddressPopUp: UIViewController {
 //        }
 
         address = textField.text
-
-        if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
-            return
-        }
 
         guard let text = textField.text else {
             return

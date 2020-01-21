@@ -121,6 +121,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="U3x-ig-lAA" firstAttribute="leading" secondItem="AwK-BA-m3N" secondAttribute="trailing" id="208-be-pLc"/>
                                                                 <constraint firstAttribute="bottom" secondItem="U3x-ig-lAA" secondAttribute="bottom" id="ZLM-ol-Zss"/>
+                                                                <constraint firstItem="U3x-ig-lAA" firstAttribute="width" secondItem="AwK-BA-m3N" secondAttribute="width" id="dRT-Uq-Tfv"/>
                                                                 <constraint firstItem="U3x-ig-lAA" firstAttribute="top" secondItem="0fZ-W5-c2o" secondAttribute="top" id="hNl-r3-cek"/>
                                                                 <constraint firstItem="AwK-BA-m3N" firstAttribute="top" secondItem="0fZ-W5-c2o" secondAttribute="top" id="lUq-tJ-tfX"/>
                                                                 <constraint firstItem="AwK-BA-m3N" firstAttribute="leading" secondItem="0fZ-W5-c2o" secondAttribute="leading" id="oha-8g-XSy"/>
