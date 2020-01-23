@@ -32,10 +32,16 @@ class WCConnectPopup: UIView {
 
     override func awakeFromNib() {
         arrowImage.transform = CGAffineTransform(scaleX: -1, y: 1)
-        roundCorners(corners: [.topLeft, .topRight], radius: 20)
+//        roundCorners(corners: [.topLeft, .topRight], radius: 20)
+//        layer.cornerRadius = 20
+        
     }
 
     func configure(portAImage: URL?, portAName: String, portBImage: URL?, portBName: String) {
+        
+        layoutIfNeeded()
+        roundCorners(corners: [.topLeft, .topRight], radius: 20)
+        
         portA.kf.setImage(with: portAImage, placeholder: Constant.placeholder)
         portB.kf.setImage(with: portBImage, placeholder: Constant.placeholder)
 
