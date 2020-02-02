@@ -38,6 +38,7 @@ target 'AliceX' do
   pod 'FoldingCell'
   pod 'Pageboy', '~> 3.5.0'
 #  pod 'AwaitKit'
+  pod 'Instructions', '~> 1.4.0'
   
   #for push notifications
   pod 'Firebase/Core'
@@ -72,6 +73,10 @@ target 'AliceX' do
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
   pod 'ReactNativeExceptionHandler', :podspec => '../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec'
   
+#  
+#  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+#  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
 end
 
 post_install do |installer|

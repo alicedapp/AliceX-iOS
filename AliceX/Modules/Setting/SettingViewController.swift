@@ -89,6 +89,7 @@ class SettingViewController: BaseViewController {
 
     @objc func mnemonicBackuped() {
         backupView.isHidden = Defaults[\.MnemonicsBackup]
+        newBackupView.isHidden = Defaults[\.MnemonicsBackup]
     }
 
     @IBAction func replaceClicked() {

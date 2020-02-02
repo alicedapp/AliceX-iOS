@@ -281,6 +281,12 @@
 		15DF2A112387CB7F0013664E /* BrowserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A102387CB7F0013664E /* BrowserSetting.swift */; };
 		15DF2A142387CBA60013664E /* BrowserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF2A122387CBA60013664E /* BrowserSettingViewController.swift */; };
 		15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF2A132387CBA60013664E /* BrowserSettingViewController.xib */; };
+		15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18F8823E690C5007C0263 /* LayoutAlignment.swift */; };
+		15E18F8D23E690C5007C0263 /* TagCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18F8923E690C5007C0263 /* TagCellLayout.swift */; };
+		15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18F8A23E690C5007C0263 /* LayoutInfo.swift */; };
+		15E18F8F23E690C5007C0263 /* TagCellLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18F8B23E690C5007C0263 /* TagCellLayoutDelegate.swift */; };
+		15E18F9223E6F211007C0263 /* TraitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18F9023E6F211007C0263 /* TraitCell.swift */; };
+		15E18F9323E6F211007C0263 /* TraitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E18F9123E6F211007C0263 /* TraitCell.xib */; };
 		15E1AA93236706FE00F29369 /* Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA92236706FE00F29369 /* Binance.swift */; };
 		15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */; };
 		15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */; };
@@ -337,12 +343,13 @@
 		15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF862366073000E0BB80 /* CoinListViewController.xib */; };
 		15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFCF89236607E900E0BB80 /* CoinListCell.swift */; };
 		15FFCF8C236607E900E0BB80 /* CoinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF8A236607E900E0BB80 /* CoinListCell.xib */; };
-		BC570CA05D386572CC148A53 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5F5A99E6888CE1DC40CF95 /* Pods_AliceX.framework */; };
 		BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6D23027828006BEA0C /* exocet-light.ttf */; };
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
+		BFF5706C7AEEF4F8D0FF0BA8 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF6775BC83DE810A026B03 /* Pods_AliceX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060B0B321B0BBBA02E08ADFA /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 		15015DA123659DFF008DDD80 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		15015DA62365AD27008DDD80 /* AssetCoinHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCoinHeaderCell.swift; sourceTree = "<group>"; };
 		15015DA72365AD27008DDD80 /* AssetCoinHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCoinHeaderCell.xib; sourceTree = "<group>"; };
@@ -620,6 +627,12 @@
 		15DF2A102387CB7F0013664E /* BrowserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSetting.swift; sourceTree = "<group>"; };
 		15DF2A122387CBA60013664E /* BrowserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSettingViewController.swift; sourceTree = "<group>"; };
 		15DF2A132387CBA60013664E /* BrowserSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserSettingViewController.xib; sourceTree = "<group>"; };
+		15E18F8823E690C5007C0263 /* LayoutAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAlignment.swift; sourceTree = "<group>"; };
+		15E18F8923E690C5007C0263 /* TagCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCellLayout.swift; sourceTree = "<group>"; };
+		15E18F8A23E690C5007C0263 /* LayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInfo.swift; sourceTree = "<group>"; };
+		15E18F8B23E690C5007C0263 /* TagCellLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCellLayoutDelegate.swift; sourceTree = "<group>"; };
+		15E18F9023E6F211007C0263 /* TraitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCell.swift; sourceTree = "<group>"; };
+		15E18F9123E6F211007C0263 /* TraitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraitCell.xib; sourceTree = "<group>"; };
 		15E1AA92236706FE00F29369 /* Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance.swift; sourceTree = "<group>"; };
 		15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressQRCodeViewController.swift; sourceTree = "<group>"; };
 		15E1AA982367162800F29369 /* AddressQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRCodeViewController.xib; sourceTree = "<group>"; };
@@ -677,12 +690,10 @@
 		15FFCF862366073000E0BB80 /* CoinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListViewController.xib; sourceTree = "<group>"; };
 		15FFCF89236607E900E0BB80 /* CoinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListCell.swift; sourceTree = "<group>"; };
 		15FFCF8A236607E900E0BB80 /* CoinListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListCell.xib; sourceTree = "<group>"; };
-		4B5F5A99E6888CE1DC40CF95 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57D829C04F7A7DD21402E420 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
+		1F16C2531F3D960DF6CD6698 /* Pods-AliceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.debug.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.debug.xcconfig"; sourceTree = "<group>"; };
+		5FFF6775BC83DE810A026B03 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3A7A6D23027828006BEA0C /* exocet-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-light.ttf"; sourceTree = "<group>"; };
 		BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-heavy.ttf"; sourceTree = "<group>"; };
-		BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_onesignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD837BD7060EA978C324D08A /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,7 +701,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC570CA05D386572CC148A53 /* Pods_AliceX.framework in Frameworks */,
+				BFF5706C7AEEF4F8D0FF0BA8 /* Pods_AliceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +731,8 @@
 			children = (
 				1503623C23D3248500B9B0A9 /* TraitView.swift */,
 				1503623E23D3249000B9B0A9 /* TraitView.xib */,
+				15E18F9023E6F211007C0263 /* TraitCell.swift */,
+				15E18F9123E6F211007C0263 /* TraitCell.xib */,
 			);
 			path = Trait;
 			sourceTree = "<group>";
@@ -1543,7 +1556,9 @@
 				15B86B5722AA043F00110C06 /* AliceX */,
 				15B86B5622AA043F00110C06 /* Products */,
 				876CA3F15BC9D26DB41AD374 /* Pods */,
-				E140F226DB6F1398B69A36F7 /* Frameworks */,
+				D2EB78AA33124BBD99B1B7DB /* Libraries */,
+				15E584C123E026D00047FD2D /* Recovered References */,
+				DA2C65F6CDB90D221AABF906 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1658,6 +1673,7 @@
 		15B86BAF22AA1CE200110C06 /* Libary */ = {
 			isa = PBXGroup;
 			children = (
+				15E18F8723E690C5007C0263 /* TagLayout */,
 				1573B52B2375A7C200257A1A /* DragableCollectionView */,
 				15E3C8F1234471AE00DCADBF /* TTGTagCollectionView */,
 				152151DD22ECB76200A4613A /* SwiftScan */,
@@ -1875,6 +1891,17 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		15E18F8723E690C5007C0263 /* TagLayout */ = {
+			isa = PBXGroup;
+			children = (
+				15E18F8823E690C5007C0263 /* LayoutAlignment.swift */,
+				15E18F8923E690C5007C0263 /* TagCellLayout.swift */,
+				15E18F8A23E690C5007C0263 /* LayoutInfo.swift */,
+				15E18F8B23E690C5007C0263 /* TagCellLayoutDelegate.swift */,
+			);
+			path = TagLayout;
+			sourceTree = "<group>";
+		};
 		15E1AA9423670D1800F29369 /* Binance */ = {
 			isa = PBXGroup;
 			children = (
@@ -1944,6 +1971,13 @@
 				15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */,
 			);
 			path = Mnemonics;
+			sourceTree = "<group>";
+		};
+		15E584C123E026D00047FD2D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		15E71E10237409ED0069BFD2 /* Reorder */ = {
@@ -2077,17 +2111,23 @@
 		876CA3F15BC9D26DB41AD374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				57D829C04F7A7DD21402E420 /* Pods-AliceX.debug.xcconfig */,
-				CD837BD7060EA978C324D08A /* Pods-AliceX.release.xcconfig */,
+				1F16C2531F3D960DF6CD6698 /* Pods-AliceX.debug.xcconfig */,
+				060B0B321B0BBBA02E08ADFA /* Pods-AliceX.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E140F226DB6F1398B69A36F7 /* Frameworks */ = {
+		D2EB78AA33124BBD99B1B7DB /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C2A6122CF1D670072FACE /* react_native_onesignal.framework */,
-				4B5F5A99E6888CE1DC40CF95 /* Pods_AliceX.framework */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		DA2C65F6CDB90D221AABF906 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FFF6775BC83DE810A026B03 /* Pods_AliceX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2111,7 +2151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B86B6722AA044000110C06 /* Build configuration list for PBXNativeTarget "AliceX" */;
 			buildPhases = (
-				46EE0A69CC98A3BCF47B10F5 /* [CP] Check Pods Manifest.lock */,
+				2DB7EAA6DC9BDE6B7DDAF4DC /* [CP] Check Pods Manifest.lock */,
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
@@ -2121,7 +2161,7 @@
 				152B192C22F407E200EBDA9E /* Swift Format */,
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 				1577DDD5238093FD00225DE6 /* Fabric - Firebase */,
-				6E17F141B0DB9F2757DB1648 /* [CP] Embed Pods Frameworks */,
+				3F84764BA0CB38DC5615C690 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2192,6 +2232,7 @@
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */,
 				1578EE2323C5A75000ED69CB /* MnemonicTableViewCell.xib in Resources */,
+				15E18F9323E6F211007C0263 /* TraitCell.xib in Resources */,
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
 				15E71E05237161E00069BFD2 /* env.json in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
@@ -2351,7 +2392,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		46EE0A69CC98A3BCF47B10F5 /* [CP] Check Pods Manifest.lock */ = {
+		2DB7EAA6DC9BDE6B7DDAF4DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2373,7 +2414,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E17F141B0DB9F2757DB1648 /* [CP] Embed Pods Frameworks */ = {
+		3F84764BA0CB38DC5615C690 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2453,6 +2494,7 @@
 				153B2814231BBA060062B2E8 /* PinListCell.swift in Sources */,
 				1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */,
 				15E71E0F2373284E0069BFD2 /* Date.swift in Sources */,
+				15E18F8D23E690C5007C0263 /* TagCellLayout.swift in Sources */,
 				1527871F22ADEDAB00D63C7F /* Style.swift in Sources */,
 				15A4F0FA232E85D2007A63A3 /* Transaction.swift in Sources */,
 				1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */,
@@ -2505,9 +2547,11 @@
 				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				158E1CF8236553240081C1AA /* Asset.swift in Sources */,
 				15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */,
+				15E18F8F23E690C5007C0263 /* TagCellLayoutDelegate.swift in Sources */,
 				1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
+				15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
 				15E1AA9E23688AEF00F29369 /* BlockChainQRCodeViewController.swift in Sources */,
@@ -2566,6 +2610,7 @@
 				15DF2A072387C2C80013664E /* QuerySuggest.swift in Sources */,
 				152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
+				15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
@@ -2585,6 +2630,7 @@
 				15E71E0B2372845F0069BFD2 /* CoinInfo.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
 				158E1D00236554520081C1AA /* AssetCoinCell.swift in Sources */,
+				15E18F9223E6F211007C0263 /* TraitCell.swift in Sources */,
 				153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */,
 				1525E79323311C18009DAB83 /* AmberData.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
@@ -2786,7 +2832,7 @@
 		};
 		15B86B6822AA044000110C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57D829C04F7A7DD21402E420 /* Pods-AliceX.debug.xcconfig */;
+			baseConfigurationReference = 1F16C2531F3D960DF6CD6698 /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2804,6 +2850,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AliceX/ReactNative",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
@@ -2984,7 +3031,7 @@
 		};
 		15B86B6922AA044000110C06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD837BD7060EA978C324D08A /* Pods-AliceX.release.xcconfig */;
+			baseConfigurationReference = 060B0B321B0BBBA02E08ADFA /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3003,6 +3050,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AliceX/ReactNative",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (

@@ -15,6 +15,7 @@
                 <outlet property="NFTScrollView" destination="7On-Z4-diD" id="C25-sE-WVL"/>
                 <outlet property="OpenSeaImageView" destination="YHU-lp-b7Q" id="0d6-tI-3Dj"/>
                 <outlet property="OpenSeaIndicator" destination="Cz6-Vg-RBX" id="X2c-wU-xj2"/>
+                <outlet property="collectionView" destination="U3x-ig-lAA" id="RNw-r6-I1J"/>
                 <outlet property="contractImageView" destination="ZdC-Pe-QbR" id="8zu-UL-ure"/>
                 <outlet property="contractIndicator" destination="USe-Km-2cm" id="POA-FB-Pob"/>
                 <outlet property="contractLabel" destination="Ce7-LJ-Q0g" id="pjh-3R-5rz"/>
@@ -25,7 +26,6 @@
                 <outlet property="priceNameLabel" destination="7Vx-Vm-DXO" id="nUw-Pq-M3S"/>
                 <outlet property="scrollView" destination="iSF-49-F3D" id="QZL-Ej-3M5"/>
                 <outlet property="textViewHeight" destination="4bG-I2-Zi2" id="HXT-jV-vQL"/>
-                <outlet property="traitsView" destination="U3x-ig-lAA" id="MzT-8y-vaN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -112,7 +112,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                                     <color key="backgroundColor" name="Alice-White"/>
                                                                 </imageView>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3x-ig-lAA">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3x-ig-lAA" customClass="UICollectionView">
                                                                     <rect key="frame" x="414" y="0.0" width="414" height="300"/>
                                                                     <color key="backgroundColor" name="Alice-White"/>
                                                                 </view>

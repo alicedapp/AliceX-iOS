@@ -38,7 +38,7 @@ class NFTDetailViewController: BaseViewController {
     
     @IBOutlet var textViewHeight: NSLayoutConstraint!
     
-    var collectionView: TTGTagCollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     
     var tagView: [UIView]? = []
     
@@ -90,7 +90,7 @@ class NFTDetailViewController: BaseViewController {
 //                UIColor(hex: "D5D5D5", alpha: 0.15)
         }
         
-        traitsView.backgroundColor = NFTImageView.backgroundColor
+//        traitsView.backgroundColor = NFTImageView.backgroundColor
 
         if let image = model.asset_contract!.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
@@ -137,29 +137,19 @@ class NFTDetailViewController: BaseViewController {
             NFTScrollView.isScrollEnabled = true
             
             for trait in traits {
-                let view = TraitView.instanceFromNib()
-                view.configure(type: trait.trait_type, name: trait.value)
+//                let view = TraitView.instanceFromNib()
+//                view.translatesAutoresizingMaskIntoConstraints = false
+//                view.configure(type: trait.trait_type, name: trait.value)
+                let view = viewForTratis(model: trait)
                 tagView?.append(view)
             }
             
-            collectionView = TTGTagCollectionView()
+            collectionView.backgroundColor = NFTImageView.backgroundColor
+            
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.alignment = .center
-            collectionView.numberOfLines = 4
-//            collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.scrollDirection = .horizontal
-            traitsView.addSubview(collectionView)
-            collectionView.fillSuperview()
-            
-            collectionView.reload()
-            
-            let centerOffsetX = (collectionView.scrollView.contentSize.width - collectionView.frame.size.width) / 2
-            let centerOffsetY = (collectionView.scrollView.contentSize.height - collectionView.frame.size.height) / 2
-            let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
-            collectionView.scrollView.setContentOffset(centerPoint, animated: true)
-            
-//            collectionView.reloadInputViews()
+            collectionView.registerCell(nibName: TraitCell.nameOfClass)
+            collectionView.collectionViewLayout = TagCellLayout(alignment: .center, delegate: self)
             
         } else {
             pageControl.numberOfPages = 1
@@ -202,7 +192,6 @@ class NFTDetailViewController: BaseViewController {
     }
 }
 
-
 extension NFTDetailViewController: AddressPopUpDelegate {
     
     func comfirmedAddress(address: String) {
@@ -218,7 +207,6 @@ extension NFTDetailViewController: AddressPopUpDelegate {
     }
     
 }
-
 
 extension NFTDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

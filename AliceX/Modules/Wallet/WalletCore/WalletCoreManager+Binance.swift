@@ -39,7 +39,7 @@ extension WalletCore {
     func binanceTransaction(node: BinanceNodeInfo, account: BinanceAccount, toAddress: String, amount: BigUInt) -> Promise<BinanceResult> {
         return Promise<BinanceResult> { seal in
 
-            guard let toAddress = CosmosAddress(string: toAddress) else {
+            guard let toAddress = AnyAddress(string: toAddress, coin: .binance) else {
                 throw WalletError.invalidAddress
             }
 
@@ -56,11 +56,11 @@ extension WalletCore {
             token.amount = Int64(amount)
 
             var input = TW_Binance_Proto_SendOrder.Input()
-            input.address = CosmosAddress(hrp: .binance, publicKey: publicKey)!.keyHash
+            input.address =  AnyAddress(publicKey: publicKey, coin: .binance).data
             input.coins = [token]
 
             var output = TW_Binance_Proto_SendOrder.Output()
-            output.address = toAddress.keyHash
+            output.address = toAddress.data
             output.coins = [token]
 
             var sendOrder = TW_Binance_Proto_SendOrder()

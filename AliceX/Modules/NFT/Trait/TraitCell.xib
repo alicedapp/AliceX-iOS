@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TraitCell" id="gTV-IL-0wX" customClass="TraitCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="124" height="75"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="124" height="75"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55T-DR-7iJ">
+                        <rect key="frame" x="10" y="10" width="104" height="55"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-lM-5uc">
+                                <rect key="frame" x="8" y="3" width="88" height="26.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" name="Alice-Grey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHM-QW-euk">
+                                <rect key="frame" x="8" y="34.5" width="88" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" name="Alice-DarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U21-M2-ypq">
+                                <rect key="frame" x="8" y="30.5" width="88" height="1"/>
+                                <color key="backgroundColor" name="Alice-Grey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="L9y-Vt-MOr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <constraints>
+                            <constraint firstItem="U21-M2-ypq" firstAttribute="top" secondItem="DGz-lM-5uc" secondAttribute="bottom" constant="1" id="5l3-Mb-P2U"/>
+                            <constraint firstItem="DGz-lM-5uc" firstAttribute="leading" secondItem="55T-DR-7iJ" secondAttribute="leading" constant="8" id="8Pq-kG-uDw"/>
+                            <constraint firstItem="U21-M2-ypq" firstAttribute="leading" secondItem="55T-DR-7iJ" secondAttribute="leading" constant="8" id="K1L-Qi-dZT"/>
+                            <constraint firstAttribute="bottom" secondItem="oHM-QW-euk" secondAttribute="bottom" constant="5" id="QRf-9X-42F"/>
+                            <constraint firstAttribute="trailing" secondItem="DGz-lM-5uc" secondAttribute="trailing" constant="8" id="R6f-6A-Qog"/>
+                            <constraint firstItem="oHM-QW-euk" firstAttribute="leading" secondItem="55T-DR-7iJ" secondAttribute="leading" constant="8" id="fpK-oN-akv"/>
+                            <constraint firstItem="DGz-lM-5uc" firstAttribute="top" secondItem="55T-DR-7iJ" secondAttribute="top" constant="3" id="mpY-kq-O4R"/>
+                            <constraint firstAttribute="trailing" secondItem="oHM-QW-euk" secondAttribute="trailing" constant="8" id="qlC-6Z-PTT"/>
+                            <constraint firstItem="oHM-QW-euk" firstAttribute="top" secondItem="DGz-lM-5uc" secondAttribute="bottom" constant="5" id="rXf-qC-e7M"/>
+                            <constraint firstAttribute="trailing" secondItem="U21-M2-ypq" secondAttribute="trailing" constant="8" id="uZJ-CE-feG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="55T-DR-7iJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="7NW-Fg-AWP"/>
+                <constraint firstAttribute="trailing" secondItem="55T-DR-7iJ" secondAttribute="trailing" constant="10" id="OwU-Cr-5c1"/>
+                <constraint firstItem="55T-DR-7iJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="glL-W1-rbA"/>
+                <constraint firstAttribute="bottom" secondItem="55T-DR-7iJ" secondAttribute="bottom" constant="10" id="pHi-E7-N7x"/>
+            </constraints>
+            <size key="customSize" width="124" height="75"/>
+            <connections>
+                <outlet property="textLabel" destination="oHM-QW-euk" id="7De-wH-aCq"/>
+                <outlet property="typeLabel" destination="DGz-lM-5uc" id="P49-qr-pVH"/>
+            </connections>
+            <point key="canvasLocation" x="130" y="126"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
