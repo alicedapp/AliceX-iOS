@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="container" destination="fh9-TB-o1U" id="tNI-ZT-NmV"/>
                 <outlet property="segmentedContainer" destination="Soa-nD-bF9" id="UkG-MP-BPC"/>
+                <outlet property="sendAndRecevieContainer" destination="uGl-RX-eNd" id="qb5-uD-7rs"/>
+                <outlet property="titleText" destination="qjz-Gu-uHg" id="UAe-TM-vnR"/>
                 <outlet property="view" destination="If2-bt-zZQ" id="ImJ-ym-Z6I"/>
             </connections>
         </placeholder>
@@ -54,7 +56,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-Gu-uHg">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-Gu-uHg">
                             <rect key="frame" x="72" y="18.666666666666664" width="231" height="22.666666666666664"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                             <color key="textColor" name="Alice-DarkGrey"/>
@@ -65,6 +67,28 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soa-nD-bF9">
+                            <rect key="frame" x="72" y="0.0" width="231" height="60"/>
+                            <subviews>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10m-qw-59B">
+                                    <rect key="frame" x="0.0" y="59.666666666666671" width="231" height="0.3333333333333357"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.5" id="0As-hl-Dck"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="10m-qw-59B" firstAttribute="leading" secondItem="Soa-nD-bF9" secondAttribute="leading" id="2Tw-rF-dDf"/>
+                                <constraint firstAttribute="height" constant="60" id="5qY-8L-Zeq"/>
+                                <constraint firstAttribute="trailing" secondItem="10m-qw-59B" secondAttribute="trailing" id="GCo-oK-Vmm"/>
+                                <constraint firstAttribute="bottom" secondItem="10m-qw-59B" secondAttribute="bottom" id="zh6-Wg-hBJ"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
@@ -73,9 +97,13 @@
                         <constraint firstAttribute="trailing" secondItem="Wh2-La-RkR" secondAttribute="trailing" id="8Oj-Ah-Lux"/>
                         <constraint firstAttribute="bottom" secondItem="fS4-4R-QCS" secondAttribute="bottom" id="9aL-Ip-XXD"/>
                         <constraint firstAttribute="height" constant="60" id="CQu-Bj-3sB"/>
+                        <constraint firstItem="Soa-nD-bF9" firstAttribute="centerX" secondItem="PN4-1f-n3d" secondAttribute="centerX" id="CS3-1D-q5n"/>
+                        <constraint firstAttribute="bottom" secondItem="Soa-nD-bF9" secondAttribute="bottom" id="Nrf-rP-QCt"/>
                         <constraint firstItem="qjz-Gu-uHg" firstAttribute="centerX" secondItem="PN4-1f-n3d" secondAttribute="centerX" id="Pb3-gp-Oa0"/>
                         <constraint firstItem="Wh2-La-RkR" firstAttribute="leading" secondItem="PN4-1f-n3d" secondAttribute="leading" id="Pou-Ss-2tc"/>
+                        <constraint firstItem="Soa-nD-bF9" firstAttribute="leading" secondItem="fS4-4R-QCS" secondAttribute="trailing" constant="12" id="Uj2-0b-sW1"/>
                         <constraint firstItem="fS4-4R-QCS" firstAttribute="leading" secondItem="PN4-1f-n3d" secondAttribute="leading" id="UmL-tR-0Am"/>
+                        <constraint firstItem="Soa-nD-bF9" firstAttribute="top" secondItem="PN4-1f-n3d" secondAttribute="top" id="oz2-DO-yIj"/>
                         <constraint firstAttribute="bottom" secondItem="Wh2-La-RkR" secondAttribute="bottom" id="vdP-OF-wKL"/>
                         <constraint firstItem="qjz-Gu-uHg" firstAttribute="centerY" secondItem="PN4-1f-n3d" secondAttribute="centerY" id="vjh-Ov-ZHg"/>
                     </constraints>
@@ -86,35 +114,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwp-Oj-FYe">
-                    <rect key="frame" x="0.0" y="104" width="375" height="614"/>
+                    <rect key="frame" x="0.0" y="104" width="375" height="708"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QdF-TC-Upu">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="614"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soa-nD-bF9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10m-qw-59B">
-                                            <rect key="frame" x="0.0" y="59.666666666666657" width="375" height="0.3333333333333357"/>
-                                            <color key="backgroundColor" name="Alice-LightGrey"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="0.5" id="0As-hl-Dck"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstItem="10m-qw-59B" firstAttribute="leading" secondItem="Soa-nD-bF9" secondAttribute="leading" id="2Tw-rF-dDf"/>
-                                        <constraint firstAttribute="height" constant="60" id="5qY-8L-Zeq"/>
-                                        <constraint firstAttribute="trailing" secondItem="10m-qw-59B" secondAttribute="trailing" id="GCo-oK-Vmm"/>
-                                        <constraint firstAttribute="bottom" secondItem="10m-qw-59B" secondAttribute="bottom" id="zh6-Wg-hBJ"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fh9-TB-o1U">
-                                    <rect key="frame" x="0.0" y="60" width="375" height="554"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
                             </subviews>
@@ -124,8 +130,8 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="QdF-TC-Upu" secondAttribute="trailing" id="AL8-Vs-aVf"/>
                         <constraint firstItem="QdF-TC-Upu" firstAttribute="top" secondItem="fwp-Oj-FYe" secondAttribute="top" id="OyL-b0-QDJ"/>
+                        <constraint firstAttribute="bottom" secondItem="QdF-TC-Upu" secondAttribute="bottom" id="S5G-TG-TZT"/>
                         <constraint firstItem="QdF-TC-Upu" firstAttribute="leading" secondItem="fwp-Oj-FYe" secondAttribute="leading" id="bJi-B0-1MU"/>
-                        <constraint firstAttribute="bottom" secondItem="QdF-TC-Upu" secondAttribute="bottom" id="k6J-tE-Zui"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGl-RX-eNd">
@@ -218,10 +224,10 @@
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="fwp-Oj-FYe" secondAttribute="bottom" id="7xj-Wh-NPT"/>
                 <constraint firstItem="GQW-oE-tgy" firstAttribute="trailing" secondItem="PN4-1f-n3d" secondAttribute="trailing" id="7zq-wW-Xkx"/>
                 <constraint firstItem="fwp-Oj-FYe" firstAttribute="top" secondItem="PN4-1f-n3d" secondAttribute="bottom" id="8KF-KR-Alw"/>
                 <constraint firstItem="uGl-RX-eNd" firstAttribute="leading" secondItem="GQW-oE-tgy" secondAttribute="leading" id="8YE-hq-YAO"/>
-                <constraint firstItem="uGl-RX-eNd" firstAttribute="top" secondItem="fwp-Oj-FYe" secondAttribute="bottom" id="ChE-T6-c3y"/>
                 <constraint firstItem="GQW-oE-tgy" firstAttribute="trailing" secondItem="fwp-Oj-FYe" secondAttribute="trailing" id="Ti1-0f-FWS"/>
                 <constraint firstItem="PN4-1f-n3d" firstAttribute="top" secondItem="GQW-oE-tgy" secondAttribute="top" id="UFz-v5-4hL"/>
                 <constraint firstAttribute="bottom" secondItem="uGl-RX-eNd" secondAttribute="bottom" id="UR7-iw-9wy"/>
@@ -231,7 +237,7 @@
                 <constraint firstItem="uGl-RX-eNd" firstAttribute="top" secondItem="GQW-oE-tgy" secondAttribute="bottom" constant="-60" id="c8q-rH-ozS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="GQW-oE-tgy"/>
-            <point key="canvasLocation" x="137.68115942028987" y="121.875"/>
+            <point key="canvasLocation" x="136.80000000000001" y="121.18226600985223"/>
         </view>
     </objects>
     <resources>

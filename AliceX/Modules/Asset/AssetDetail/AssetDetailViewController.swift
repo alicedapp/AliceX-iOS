@@ -10,8 +10,10 @@ import JXSegmentedView
 import UIKit
 
 class AssetDetailViewController: BaseViewController {
+    @IBOutlet var sendAndRecevieContainer: UIView!
     @IBOutlet var segmentedContainer: UIView!
     @IBOutlet var container: UIView!
+    @IBOutlet var titleText: UILabel!
 //    @IBOutlet var chartContainer: UIView!
 //    @IBOutlet var chartView: BEMSimpleLineGraphView!
 
@@ -30,28 +32,19 @@ class AssetDetailViewController: BaseViewController {
         didSet {
             if currentCoin != oldValue {
 //                requestData()
+                updateCoin()
             }
         }
     }
 
-    var pagingView: JXPagingView!
-    var userHeaderView: AssetDetailHeader!
-    var userHeaderContainerView: UIView!
-
-    var JXTableHeaderViewHeight: Int = 200
-    var JXheightForHeaderInSection: Int = 50
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
-                                                       height: CGFloat(JXTableHeaderViewHeight)))
-        userHeaderView = AssetDetailHeader.instanceFromNib()
-        userHeaderContainerView.addSubview(userHeaderView)
-        userHeaderView.fillSuperview()
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
 
-//        segmentedView.delegate = self
+        segmentedView.delegate = self
         segmentedContainer.addSubview(segmentedView)
+        segmentedView.fillSuperview()
 
         dataSource = JXSegmentedTitleImageDataSource()
         dataSource.titleNormalColor = AliceColor.darkGrey()
@@ -68,31 +61,53 @@ class AssetDetailViewController: BaseViewController {
 
         segmentedView.dataSource = dataSource
 
-//        let indicator = JXSegmentedIndicatorDotLineView()
-//       indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
-//       indicator.lineStyle = .lengthenOffset
-
         let indicator = JXSegmentedIndicatorBackgroundView()
         indicator.isIndicatorConvertToItemFrameEnabled = true
         indicator.indicatorHeight = 30
         indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
 
-//        listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)
-//        segmentedView.listContainer = listContainerView
+        listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)
+        segmentedView.listContainer = listContainerView
+        segmentedView.contentScrollView = listContainerView.scrollView
 
-        pagingView = JXPagingView(delegate: self)
-        container.addSubview(pagingView)
-        segmentedView.contentScrollView = pagingView.listContainerView.collectionView
+//        segmentedView.contentScrollView?.delegate = self
 
-//        container.addSubview(listContainerView)
-        segmentedView.fillSuperview()
-        pagingView.fillSuperview()
+        container.addSubview(listContainerView)
+        listContainerView.fillSuperview()
 
 //       if let index = chains.firstIndex(of: selectBlockCahin) {
 //           segmentedView.defaultSelectedIndex = index
 //       }
 //        setupChartView()
 //        requestData()
+
+        updateCoin()
+    }
+
+    func updateCoin() {
+        titleText.text = currentCoin.info?.name
+        titleAnimation()
+    }
+
+    func titleAnimation() {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        transition.type = CATransitionType(rawValue: "cube")
+        transition.subtype = CATransitionSubtype.fromTop
+        titleText.layer.add(transition, forKey: "country1_animation")
+    }
+
+    func mainTabScroll(offset: CGFloat) {
+        if offset >= 0 {
+            UIView.animate(withDuration: 0.3) {
+                self.sendAndRecevieContainer.transform = CGAffineTransform.identity
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.sendAndRecevieContainer.transform = CGAffineTransform(translationX: 0, y: 104)
+            }
+        }
     }
 }

@@ -178,6 +178,9 @@
 		157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */; };
 		157C39F6236D40AD004CED9B /* PriceHelper+Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */; };
 		157FB521239F52E700BFB33F /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 157FB520239F52E700BFB33F /* web3-min.js */; };
+		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
+		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
+		158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */; };
 		1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */; };
 		1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1022D8390D00B74F30 /* BrowserViewController.xib */; };
 		1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */; };
@@ -542,6 +545,9 @@
 		157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWrapperViewController.swift; sourceTree = "<group>"; };
 		157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceHelper+Blockchain.swift"; sourceTree = "<group>"; };
 		157FB520239F52E700BFB33F /* web3-min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
+		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
+		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
+		158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailChildVC+Segement.swift"; sourceTree = "<group>"; };
 		1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		1581EC1022D8390D00B74F30 /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
@@ -1327,6 +1333,16 @@
 				158A909423713756002F9F18 /* BlockchainNetwork.swift */,
 			);
 			path = Blockchain;
+			sourceTree = "<group>";
+		};
+		158124C123EAE0300021B62E /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				158124C223EAE0540021B62E /* AssetDetailChildVC.swift */,
+				158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */,
+				158124C323EAE0540021B62E /* AssetDetailChildVC.xib */,
+			);
+			path = Child;
 			sourceTree = "<group>";
 		};
 		1581EC0E22D837FE00B74F30 /* Browser */ = {
@@ -2144,6 +2160,7 @@
 		15F197BC2382D68E00960DE1 /* AssetDetail */ = {
 			isa = PBXGroup;
 			children = (
+				158124C123EAE0300021B62E /* Child */,
 				15E18FA923E867C4007C0263 /* View */,
 				15F197BD2382D6BE00960DE1 /* AssetDetailViewController.swift */,
 				15E18FAE23E8746A007C0263 /* AssetDetailViewController+Chart.swift */,
@@ -2336,6 +2353,7 @@
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
 				15E71E05237161E00069BFD2 /* env.json in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
+				158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */,
@@ -2625,6 +2643,7 @@
 				154F60A723846E910011200F /* FaviconHelper.swift in Sources */,
 				1581EC1F22D86A9B00B74F30 /* ScriptMessageProxy.swift in Sources */,
 				15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */,
+				158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */,
 				153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */,
 				15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */,
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
@@ -2657,6 +2676,7 @@
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
 				15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */,
+				158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
 				15E1AA9E23688AEF00F29369 /* BlockChainQRCodeViewController.swift in Sources */,

@@ -39,6 +39,8 @@ class NFTDetailViewController: BaseViewController {
 
     @IBOutlet var collectionView: UICollectionView!
 
+    @IBOutlet var bottomContainerRef: UIView!
+
     var tagView: [UIView]? = []
 
     var model: OpenSeaModel?
@@ -65,6 +67,8 @@ class NFTDetailViewController: BaseViewController {
 
         scrollView.alwaysBounceVertical = true
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+
+        scrollView.delegate = self
 
         if let name = model.name, !name.isEmptyAfterTrim() {
             nameLabel.text = name
@@ -204,8 +208,22 @@ extension NFTDetailViewController: AddressPopUpDelegate {
 
 extension NFTDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let x = scrollView.contentOffset.x
+        if scrollView == self.scrollView {
+            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+            if translation.y >= 0 {
+                UIView.animate(withDuration: 0.3) {
+                    self.bottomContainerRef.transform = CGAffineTransform.identity
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.bottomContainerRef.transform = CGAffineTransform(translationX: 0, y: 104)
+                }
+            }
 
+            return
+        }
+
+        let x = scrollView.contentOffset.x
         if x > Constant.SCREEN_WIDTH / 2 {
             pageControl.currentPage = 1
         } else {

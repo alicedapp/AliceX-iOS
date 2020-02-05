@@ -76,12 +76,25 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-1R-eBq">
+                            <rect key="frame" x="0.0" y="244.5" width="414" height="0.5"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="Zvv-cc-Zv3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="Alice-White"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="MIN-1R-eBq" secondAttribute="trailing" id="5EP-6e-2BH"/>
                         <constraint firstAttribute="trailing" secondItem="Rsv-z7-8jd" secondAttribute="trailing" constant="12" id="Dgo-dq-RZj"/>
+                        <constraint firstAttribute="bottom" secondItem="MIN-1R-eBq" secondAttribute="bottom" id="LbN-ZZ-hb9"/>
                         <constraint firstItem="Esb-3z-dyQ" firstAttribute="leading" secondItem="RuB-j9-tJW" secondAttribute="trailing" constant="20" id="WYc-A0-9qf"/>
                         <constraint firstItem="UTK-Is-lGD" firstAttribute="centerY" secondItem="Esb-3z-dyQ" secondAttribute="centerY" id="Yiu-S6-wq4"/>
+                        <constraint firstItem="MIN-1R-eBq" firstAttribute="leading" secondItem="mdH-vh-Mu3" secondAttribute="leading" id="biy-OC-b4r"/>
                         <constraint firstItem="Rsv-z7-8jd" firstAttribute="top" secondItem="Esb-3z-dyQ" secondAttribute="bottom" constant="10" id="edG-ag-C85"/>
                         <constraint firstItem="UTK-Is-lGD" firstAttribute="leading" secondItem="Esb-3z-dyQ" secondAttribute="trailing" constant="20" id="gln-FJ-n5L"/>
                         <constraint firstItem="RuB-j9-tJW" firstAttribute="centerY" secondItem="Esb-3z-dyQ" secondAttribute="centerY" id="had-1h-EVV"/>
@@ -115,6 +128,9 @@
         </namedColor>
         <namedColor name="Alice-LightBackground">
             <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
