@@ -17,4 +17,6 @@
 #import "TTGTagCollectionView.h"
 #import "TTGTextTagCollectionView.h"
 
+#import "BEMSimpleLineGraphView.h"
+
 #endif

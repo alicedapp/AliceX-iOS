@@ -65,7 +65,7 @@ extension AmberData: TargetType {
         case let .tokens(address):
             return "addresses/\(address)/tokens"
         case let .assetPriceHistorical(symbol):
-            return "market/prices/\(symbol)/historical"
+            return "market/prices/\(symbol.lowercased())/historical"
         case let .addressTransactions(address):
             return "addresses/\(address)/token-transfers"
         }
@@ -80,6 +80,8 @@ extension AmberData: TargetType {
 
     var task: Task {
         switch self {
+        case .assetPriceHistorical:
+            return .requestParameters(parameters: ["quote": "usd"], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

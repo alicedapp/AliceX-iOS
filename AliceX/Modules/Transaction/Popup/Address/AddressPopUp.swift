@@ -13,36 +13,35 @@ protocol AddressPopUpDelegate {
 }
 
 class AddressPopUp: UIViewController {
-
     @IBOutlet var addressField: UITextField!
-    
+
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var ensAddressLabel: UILabel!
 
     @IBOutlet var titleLabel: UILabel!
-    
+
     @IBOutlet var containView: UIView!
     @IBOutlet var bgView: UIView!
-    
+
     var NFTModel: OpenSeaModel?
     var address: String?
     let coin = Coin.coin(chain: .Ethereum)
-    
+
     var delegate: AddressPopUpDelegate?
-    
+
     class func make(delegate: AddressPopUpDelegate, address: String?) -> AddressPopUp {
         let vc = AddressPopUp()
         vc.address = address
         vc.delegate = delegate
         return vc
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addressField.text = address
 //        self.addressField.becomeFirstResponder()
     }
-    
+
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
 
@@ -58,10 +57,10 @@ class AddressPopUp: UIViewController {
                            self.bgView.alpha = 1
                            self.containView.transform = CGAffineTransform.identity
                        }, completion: { _ in
-                        self.addressField.becomeFirstResponder()
+                           self.addressField.becomeFirstResponder()
         })
     }
-    
+
     @IBAction func cancelBtnClicked() {
         view.endEditing(true)
         UIView.animate(withDuration: 0.3,
@@ -93,20 +92,20 @@ class AddressPopUp: UIViewController {
         self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
         addressFieldDidChange(addressField)
     }
-    
+
     @IBAction func confirmBtnClicked() {
         guard let addr = self.address, coin.verify(address: addr) else {
             errorAlert(text: "Address invalid")
             return
         }
-        
+
         if let delegate = self.delegate {
             delegate.comfirmedAddress(address: addr)
 //            cancelBtnClicked()
 //            HUDManager.shared.dismiss()
         }
     }
-    
+
     @IBAction func cameraBtnClicked() {
         let vc = QRCodeReaderViewController.make { result in
             let trimStr = result.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -123,7 +122,6 @@ class AddressPopUp: UIViewController {
         }
         present(vc, animated: true, completion: nil)
     }
-    
 
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
         addressLabel.text = "Address"
@@ -161,7 +159,7 @@ class AddressPopUp: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Error
 
     func errorAlert(text: String) {

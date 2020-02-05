@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let rootVC = BaseNavigationController(rootViewController: vc)
+        rootVC.hero.isEnabled = true
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         navi = rootVC
@@ -76,8 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func test() {
-    }
+    func test() {}
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG

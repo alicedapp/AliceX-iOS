@@ -8,10 +8,10 @@
 
 import BigInt
 import Kingfisher
+import MarqueeLabel
 import PromiseKit
 import UIKit
 import web3swift
-import MarqueeLabel
 
 class SendERC721PopUp: UIViewController {
     @IBOutlet var payButton: UIControl!
@@ -21,10 +21,10 @@ class SendERC721PopUp: UIViewController {
     @IBOutlet var descLabel: MarqueeLabel!
     @IBOutlet var contractLabel: MarqueeLabel!
     @IBOutlet var contractAddressLabel: MarqueeLabel!
-    
+
     @IBOutlet var priceNameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
-    
+
     @IBOutlet var NFTImageView: UIImageView!
     @IBOutlet var contractImageView: UIImageView!
 
@@ -61,20 +61,20 @@ class SendERC721PopUp: UIViewController {
         payButton.addSubview(payView!)
         payView!.fillSuperview()
         payView?.delegate = self
-        
+
         addressLabel.text = toAddress
-        
+
         if let name = NFTModel.name {
             nameLabel.text = name
         }
-        
-        guard let model = self.NFTModel else{
+
+        guard let model = self.NFTModel else {
             return
         }
-        
+
         if let image = model.image_url, let imageURL = URL(string: image) {
             if image.hasSuffix(".svg") {
-                NFTImageView.kf.setImage(with: URL(string: (model.image_preview_url!))!)
+                NFTImageView.kf.setImage(with: URL(string: model.image_preview_url!)!)
             } else {
                 NFTImageView.kf.setImage(with: imageURL)
             }
@@ -100,7 +100,7 @@ class SendERC721PopUp: UIViewController {
         } else {
             contractImageView.image = nil
         }
-        
+
         if let lastSell = model.last_sale, let payment_token = lastSell.payment_token {
             var price = BigUInt(lastSell.total_price!)
             let priceStr = Web3Utils.formatToPrecision(price!,
@@ -115,16 +115,16 @@ class SendERC721PopUp: UIViewController {
             priceLabel.text = model.token_id
         }
 
-        descLabel.text =  model.description
+        descLabel.text = model.description
         contractLabel.text = model.asset_contract?.name
         contractAddressLabel.text = model.asset_contract?.address
-        
+
         gasBtn.isUserInteractionEnabled = false
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(gasChange(_:)),
                                                name: .gasSelectionCahnge, object: nil)
-        
+
         firstly {
             GasPriceHelper.shared.getGasPrice()
         }.then {
@@ -143,9 +143,8 @@ class SendERC721PopUp: UIViewController {
             self.gasPriceLabel.text = "Failed to get gas"
             self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
         }
-        
     }
-    
+
     @IBAction func gasButtonClick() {
         let vc = GasFeeViewController.make(gasLimit: gasLimit!)
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
@@ -182,16 +181,14 @@ extension SendERC721PopUp: PayButtonDelegate {
     }
 
     func send() {
-
         payView!.showLoading()
 
         firstly {
-            
             TransactionManager.shared.sendERC721Token(tokenId: NFTModel.token_id,
                                                       toAddress: toAddress,
                                                       contractAddress: NFTModel.asset_contract!.address,
                                                       password: "")
-            
+
         }.done { hash in
             print(hash)
             self.successBlock!(hash)

@@ -32,8 +32,18 @@ class MainTabViewController: PageboyViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        hero.isEnabled = true
+        view.isHeroEnabledForSubviews = true
+        view.isHeroEnabled = true
+
         minVC.tabRef = tabcontainer
         vcs = [minVC, AssetViewController(), SettingViewController.make(hideBackButton: true)]
+
+        vcs.forEach { vc in
+            vc.hero.isEnabled = true
+            vc.view.isHeroEnabledForSubviews = true
+            vc.view.isHeroEnabled = true
+        }
 
         dataSource = self
         delegate = self

@@ -63,3 +63,37 @@ struct AmberdataTXRecord: HandyJSON {
     var isERC884: Bool!
     var isERC998: Bool!
 }
+
+struct AmberdataPricePoint: HandyJSON {
+    var timestamp: TimeInterval?
+    var price: Double?
+
+    public mutating func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            timestamp <-- TransformOf<TimeInterval, Double>(fromJSON: { rawString -> TimeInterval? in
+
+                guard let double = rawString else {
+                    return nil
+                }
+
+                let time = double / 1000
+                let timestamp = TimeInterval(time)
+                return timestamp
+            }, toJSON: { value -> Double? in
+                Double(value!)
+            })
+
+        mapper <<<
+            price <-- TransformOf<Double, String>(fromJSON: { rawString -> Double? in
+
+                guard let price = Double(rawString!) else {
+                    return nil
+                }
+
+                return price
+
+            }, toJSON: { value -> String in
+                String(value!)
+            })
+    }
+}

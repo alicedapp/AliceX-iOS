@@ -468,7 +468,7 @@ class TransactionManager {
 
     class func showERC721PopUp(toAddress: String,
                                NFTModel: OpenSeaModel,
-                               data: Data = Data(),
+                               data _: Data = Data(),
                                success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SendERC721PopUp.make(NFTModel: NFTModel, toAddress: toAddress, success: success)
@@ -507,20 +507,19 @@ class TransactionManager {
 //        } catch let error {
 //            print(error)
 //        }
-        
+
         return Promise<String> { seal in
             TransactionManager.writeSmartContract(contractAddress: contractAddress,
-                                              functionName: "safeTransferFrom",
-                                              abi: Web3.Utils.erc721ABI,
-                                              parameters: [WalletManager.currentAccount!.address, toAddress, tokenId, data],
-                                              extraData: Data(),
-                                              value: BigUInt(0)).done { txHash in
-                                                seal.fulfill(txHash)
+                                                  functionName: "safeTransferFrom",
+                                                  abi: Web3.Utils.erc721ABI,
+                                                  parameters: [WalletManager.currentAccount!.address, toAddress, tokenId, data],
+                                                  extraData: Data(),
+                                                  value: BigUInt(0)).done { txHash in
+                seal.fulfill(txHash)
             }.catch { error in
                 seal.reject(error)
             }
         }
-
     }
 
     // MARK: - Validator

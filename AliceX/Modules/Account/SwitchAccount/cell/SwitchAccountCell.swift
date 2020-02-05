@@ -26,13 +26,12 @@ class SwitchAccountCell: FoldingCell {
 //        foregroundView.layer.cornerRadius = 10
 //        foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
-        
+
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))
         foregroundView.addGestureRecognizer(longPress)
     }
-    
+
     @objc func longPressGesture(gesture: UILongPressGestureRecognizer) {
-        
         switch gesture.state {
         case .began:
             UIView.animate(withDuration: 0.3) {

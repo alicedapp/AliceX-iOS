@@ -16,16 +16,15 @@ class AssetNFTCell: UICollectionViewCell {
     @IBOutlet var NFTImageView: UIImageView!
 //    @IBOutlet var NFTSVGView: SVGKFastImageView!
 //    @IBOutlet var backgroundImageView: UIView!
-    
+
     var model: OpenSeaModel?
 
     @IBOutlet var viewShadow: UIView!
-    
+
     lazy var addressVC: AddressPopUp = {
-         let vc = AddressPopUp.make(delegate: self, address: nil)
-         return vc
-     }()
-     
+        let vc = AddressPopUp.make(delegate: self, address: nil)
+        return vc
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,21 +44,21 @@ class AssetNFTCell: UICollectionViewCell {
         viewShadow.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         viewShadow.layer.shadowRadius = 2
         viewShadow.layer.shadowOpacity = 0.3
-        
+
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
 //        longPress.minimumPressDuration = 0.3
-        self.addGestureRecognizer(longPress)
-        
+        addGestureRecognizer(longPress)
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        self.addGestureRecognizer(tap)
+        addGestureRecognizer(tap)
     }
-    
+
     @objc func tapAction() {
         let topVC = UIApplication.topViewController()
-        let vc = NFTDetailViewController.make(NFTModel: self.model!)
+        let vc = NFTDetailViewController.make(NFTModel: model!)
         topVC?.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
@@ -74,7 +73,7 @@ class AssetNFTCell: UICollectionViewCell {
                 UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
-            
+
         case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
@@ -86,9 +85,8 @@ class AssetNFTCell: UICollectionViewCell {
     }
 
     func configure(model: OpenSeaModel) {
-        
         self.model = model
-        
+
         if let image = model.image_url, let imageURL = URL(string: image) {
             if image.hasSuffix(".svg") {
 //                NFTSVGView.isHidden = false
@@ -136,17 +134,14 @@ class AssetNFTCell: UICollectionViewCell {
 }
 
 extension AssetNFTCell: AddressPopUpDelegate {
-    
     func comfirmedAddress(address: String) {
-
         guard let model = self.model else {
             return
         }
-        
+
         TransactionManager.showERC721PopUp(toAddress: address,
-                                           NFTModel: model) { txHash in
-                                            self.addressVC.cancelBtnClicked()
+                                           NFTModel: model) { _ in
+            self.addressVC.cancelBtnClicked()
         }
     }
-    
 }

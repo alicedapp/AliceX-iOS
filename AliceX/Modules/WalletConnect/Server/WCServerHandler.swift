@@ -139,7 +139,7 @@ class SendTransactionHandler: WCHandler {
             guard let json = jsonString, var transactionJSON = json.toJSON() as? [String: Any] else {
                 throw WalletError.custom("Parse tx failed")
             }
-            
+
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))
             }

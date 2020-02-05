@@ -31,10 +31,9 @@ class WCPopUp: UIView {
     }
 
     func configure(logo: URL?, name: String, title: String, content: String) {
-        
         layoutIfNeeded()
         roundCorners(corners: [.topLeft, .topRight], radius: 20)
-        
+
         titleLabel.text = title
         nameLabel.text = name
         logoView.kf.setImage(with: logo, placeholder: Constant.placeholder)

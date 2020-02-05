@@ -52,41 +52,49 @@ class AssetCoinCell: UICollectionViewCell {
         animationButton.tintColor = UIColor(hex: "9A9A9A", alpha: 0.5)
 
         // TODO:
-//        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
 //        longPress.minimumPressDuration = 0
-//        self.addGestureRecognizer(longPress)
+        addGestureRecognizer(longPress)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         addGestureRecognizer(tap)
+
+        isHeroEnabled = true
+        isHeroEnabledForSubviews = true
     }
 
-    @objc func tapAction(gesture: UITapGestureRecognizer) {
+    @objc func tapAction(gesture _: UITapGestureRecognizer) {
 //        || coin == Coin.coin(chain: .Cosmos)
         if coin == Coin.coin(chain: .Bitcoin) {
             HUDManager.shared.showError(text: "Not available now")
             return
         }
 
-        switch gesture.state {
-        case .began:
-            UIView.animate(withDuration: 0.3) {
-                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                self.background.alpha = 1
-            }
+        let vc = AssetDetailViewController()
+        let topVC = UIApplication.topViewController()
 
-        case .ended:
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            let vc = TransferPopUp.make(address: "", coin: coin)
-            vc.modalPresentationStyle = .overCurrentContext
-            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
-            UIView.animate(withDuration: 0.3) {
-                self.transform = CGAffineTransform.identity
-                self.background.alpha = 0
-            }
+        topVC?.navigationController?.pushViewController(vc, animated: true)
 
-        default:
-            break
-        }
+//        switch gesture.state {
+//        case .began:
+//            UIView.animate(withDuration: 0.3) {
+//                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//                self.background.alpha = 1
+//            }
+//
+//        case .ended:
+//            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+//            let vc = TransferPopUp.make(address: "", coin: coin)
+//            vc.modalPresentationStyle = .overCurrentContext
+//            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+//            UIView.animate(withDuration: 0.3) {
+//                self.transform = CGAffineTransform.identity
+//                self.background.alpha = 0
+//            }
+//
+//        default:
+//            break
+//        }
     }
 
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
@@ -100,7 +108,7 @@ class AssetCoinCell: UICollectionViewCell {
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-            
+
         case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
@@ -117,6 +125,8 @@ class AssetCoinCell: UICollectionViewCell {
 
     func configure(coin: Coin, isHidden: Bool) {
         self.coin = coin
+
+        coinImageView.heroID = coin.id
 
         nameLabel.text = ""
         coinImageView.image = nil

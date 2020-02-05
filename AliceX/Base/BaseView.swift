@@ -12,6 +12,8 @@ class BaseView: UIView {
     class func instanceFromNib() -> BaseView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BaseView
         view.configure()
+        view.isHeroEnabledForSubviews = true
+        view.isHeroEnabled = true
         return view
     }
 

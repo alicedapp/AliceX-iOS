@@ -70,9 +70,9 @@ class AssetViewController: BaseViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     @objc func refreshWithAnimation() {
-        self.collectionView.es.startPullToRefresh()
+        collectionView.es.startPullToRefresh()
     }
 
     @objc func requestData() {

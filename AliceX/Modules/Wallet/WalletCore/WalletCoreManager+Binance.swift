@@ -56,7 +56,7 @@ extension WalletCore {
             token.amount = Int64(amount)
 
             var input = TW_Binance_Proto_SendOrder.Input()
-            input.address =  AnyAddress(publicKey: publicKey, coin: .binance).data
+            input.address = AnyAddress(publicKey: publicKey, coin: .binance).data
             input.coins = [token]
 
             var output = TW_Binance_Proto_SendOrder.Output()
