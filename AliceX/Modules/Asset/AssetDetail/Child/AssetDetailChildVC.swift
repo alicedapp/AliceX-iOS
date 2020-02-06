@@ -10,6 +10,13 @@ import JXSegmentedView
 import UIKit
 
 class AssetDetailChildVC: UIViewController {
+    
+    enum AssetTab: Int, CaseIterable {
+        case transaction = 0
+        case price
+        case info
+    }
+    
     var pagingView: JXPagingView!
     var userHeaderView: AssetDetailHeader!
     var userHeaderContainerView: UIView!
@@ -41,7 +48,7 @@ class AssetDetailChildVC: UIViewController {
         segmentedViewDataSource.reloadData(selectedIndex: 0)
 
         segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXheightForHeaderInSection)))
-        segmentedView.backgroundColor = UIColor.white
+        segmentedView.backgroundColor = AliceColor.white()
         segmentedView.dataSource = segmentedViewDataSource
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
 
@@ -59,7 +66,7 @@ class AssetDetailChildVC: UIViewController {
 
         let lineWidth = 1 / UIScreen.main.scale
         let lineLayer = CALayer()
-        lineLayer.backgroundColor = UIColor.lightGray.cgColor
+        lineLayer.backgroundColor = AliceColor.greyNew().cgColor
         lineLayer.frame = CGRect(x: 0, y: segmentedView.bounds.height - lineWidth, width: segmentedView.bounds.width, height: lineWidth)
         segmentedView.layer.addSublayer(lineLayer)
 
@@ -72,7 +79,6 @@ class AssetDetailChildVC: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
         pagingView.frame = view.bounds
     }
 }

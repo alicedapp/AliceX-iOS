@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AssetPriceViewController" customModule="AliceX" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView" destination="YaY-ad-iCA" id="GN5-j5-4bT"/>
+                <outlet property="scrollView" destination="FSB-XA-Yn5" id="mxE-Sl-OTH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSB-XA-Yn5">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4H-iX-5ny" userLabel="ContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2ZX-Pj-aBH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YaY-ad-iCA" customClass="BEMSimpleLineGraphView">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                                            <color key="tintColor" name="Alice-PayButton"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="300" id="dP1-bc-Jo3"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
+                                                    <color key="value" name="Alice-LightBackground"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="alphaBottom">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
+                                                    <color key="value" name="Alice-LightBackground"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="alphaTop">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorLine">
+                                                    <color key="value" name="Alice-DarkGrey"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="alphaLine">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="widthLine">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="colorPoint">
+                                                    <color key="value" name="Alice-DarkGrey"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWl-i5-cPl">
+                                            <rect key="frame" x="0.0" y="300" width="414" height="200"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="59A-Xt-oRR"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="2ZX-Pj-aBH" secondAttribute="bottom" constant="60" id="CUP-Tr-cVd"/>
+                                <constraint firstAttribute="trailing" secondItem="2ZX-Pj-aBH" secondAttribute="trailing" id="Pbm-6u-wkG"/>
+                                <constraint firstItem="2ZX-Pj-aBH" firstAttribute="leading" secondItem="d4H-iX-5ny" secondAttribute="leading" id="uGm-LF-omJ"/>
+                                <constraint firstItem="2ZX-Pj-aBH" firstAttribute="top" secondItem="d4H-iX-5ny" secondAttribute="top" id="ugZ-6o-Nm0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Alice-LightBackground"/>
+                    <constraints>
+                        <constraint firstItem="d4H-iX-5ny" firstAttribute="top" secondItem="FSB-XA-Yn5" secondAttribute="top" id="0vx-Dy-ZYd"/>
+                        <constraint firstAttribute="bottom" secondItem="d4H-iX-5ny" secondAttribute="bottom" id="15e-hH-Oim"/>
+                        <constraint firstItem="d4H-iX-5ny" firstAttribute="leading" secondItem="FSB-XA-Yn5" secondAttribute="leading" id="4Sc-PJ-ppg"/>
+                        <constraint firstItem="d4H-iX-5ny" firstAttribute="top" secondItem="FSB-XA-Yn5" secondAttribute="top" id="Ucy-Jz-glv"/>
+                        <constraint firstAttribute="trailing" secondItem="d4H-iX-5ny" secondAttribute="trailing" id="pen-hS-z7d"/>
+                        <constraint firstItem="d4H-iX-5ny" firstAttribute="centerX" secondItem="FSB-XA-Yn5" secondAttribute="centerX" id="quE-Pg-YhB"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="NTH-ys-T09"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="rQg-JD-kM9"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FSB-XA-Yn5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2Hd-70-Y68"/>
+                <constraint firstItem="FSB-XA-Yn5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cZO-PE-E0K"/>
+                <constraint firstItem="FSB-XA-Yn5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lPh-3s-1B4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FSB-XA-Yn5" secondAttribute="bottom" id="zLG-7Q-hiU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="126"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-PayButton">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

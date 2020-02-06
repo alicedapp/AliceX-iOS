@@ -39,6 +39,7 @@ target 'AliceX' do
   pod 'Pageboy', '~> 3.5.0'
 #  pod 'AwaitKit'
   pod 'Instructions', '~> 1.4.0'
+  pod "SkeletonView"
   
   #for push notifications
   pod 'Firebase/Core'
@@ -46,6 +47,7 @@ target 'AliceX' do
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Analytics'
+  
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

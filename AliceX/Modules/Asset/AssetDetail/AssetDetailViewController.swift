@@ -14,19 +14,12 @@ class AssetDetailViewController: BaseViewController {
     @IBOutlet var segmentedContainer: UIView!
     @IBOutlet var container: UIView!
     @IBOutlet var titleText: UILabel!
-//    @IBOutlet var chartContainer: UIView!
-//    @IBOutlet var chartView: BEMSimpleLineGraphView!
-
-    var gradient: CGGradient?
-    var lineGradient: CGGradient?
 
     var dataSource: JXSegmentedTitleImageDataSource!
     var segmentedView = JXSegmentedView()
     var listContainerView: JXSegmentedListContainerView!
 
     var coins: [Coin] = WatchingCoinHelper.shared.list
-
-    var data = [Coin: [AmberdataPricePoint?]]()
 
     var currentCoin: Coin = .coin(chain: .Ethereum) {
         didSet {

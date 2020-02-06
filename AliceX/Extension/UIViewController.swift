@@ -45,4 +45,12 @@ extension UIViewController: JXSegmentedListContainerViewListDelegate {
         removeFromParent()
         view.removeFromSuperview()
     }
+    
+    static func loadFromNib() -> Self {
+        func instantiateFromNib<T: UIViewController>() -> T {
+            return T.init(nibName: String(describing: T.self), bundle: nil)
+        }
+
+        return instantiateFromNib()
+    }
 }

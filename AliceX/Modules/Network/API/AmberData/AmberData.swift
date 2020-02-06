@@ -17,7 +17,8 @@ enum AmberData {
     case accountBalance(address: String, blockchain: BlockChain)
     case tokens(address: String)
     case assetPriceHistorical(symbol: String)
-    case addressTransactions(address: String)
+    case addressTX(address: String, page: Int)
+    case addressTokenTX(address: String, page: Int)
 }
 
 extension AmberData: TargetType {
@@ -66,7 +67,9 @@ extension AmberData: TargetType {
             return "addresses/\(address)/tokens"
         case let .assetPriceHistorical(symbol):
             return "market/prices/\(symbol.lowercased())/historical"
-        case let .addressTransactions(address):
+        case let .addressTX(address, _):
+            return "addresses/\(address)/transactions"
+        case let .addressTokenTX(address):
             return "addresses/\(address)/token-transfers"
         }
     }
@@ -82,6 +85,8 @@ extension AmberData: TargetType {
         switch self {
         case .assetPriceHistorical:
             return .requestParameters(parameters: ["quote": "usd"], encoding: URLEncoding.queryString)
+//        case .addressTX(_, let page):
+//            return .requestParameters(parameters: ["size": 20, "page": page], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

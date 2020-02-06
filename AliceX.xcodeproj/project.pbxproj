@@ -181,6 +181,16 @@
 		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
 		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
 		158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */; };
+		158124CA23EB0EAD0021B62E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C923EB0EAD0021B62E /* test.swift */; };
+		158124CD23EB159D0021B62E /* AssetTXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124CB23EB159C0021B62E /* AssetTXViewController.swift */; };
+		158124D223EB167F0021B62E /* AssetTXCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124D023EB167F0021B62E /* AssetTXCell.swift */; };
+		158124D323EB167F0021B62E /* AssetTXCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124D123EB167F0021B62E /* AssetTXCell.xib */; };
+		158124D823EBB6D30021B62E /* AssetTXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124D723EBB6D30021B62E /* AssetTXViewController.xib */; };
+		158124DB23EBDC0B0021B62E /* AssetPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124D923EBDC0B0021B62E /* AssetPriceViewController.swift */; };
+		158124DC23EBDC0B0021B62E /* AssetPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124DA23EBDC0B0021B62E /* AssetPriceViewController.xib */; };
+		158124DE23EBE29E0021B62E /* AssetPriceVC+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124DD23EBE29E0021B62E /* AssetPriceVC+Chart.swift */; };
+		158124E223EBF3450021B62E /* AssetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124E023EBF3450021B62E /* AssetInfoViewController.swift */; };
+		158124E323EBF3450021B62E /* AssetInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124E123EBF3450021B62E /* AssetInfoViewController.xib */; };
 		1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */; };
 		1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1022D8390D00B74F30 /* BrowserViewController.xib */; };
 		1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */; };
@@ -219,7 +229,6 @@
 		158FA3AC23EA8D80002FFC76 /* JXPagingListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA3A823EA8D80002FFC76 /* JXPagingListContainerView.swift */; };
 		158FA3AF23EA8E46002FFC76 /* AssetDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA3AE23EA8E46002FFC76 /* AssetDetailHeader.swift */; };
 		158FA3B123EA8E4D002FFC76 /* AssetDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158FA3B023EA8E4D002FFC76 /* AssetDetailHeader.xib */; };
-		158FA3B323EAA4F1002FFC76 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FA3B223EAA4F1002FFC76 /* test.swift */; };
 		158FAC24233C938700F281B1 /* WCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FAC23233C938700F281B1 /* WCClient.swift */; };
 		158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158FAC26233C95C300F281B1 /* WCQRCodeViewController.swift */; };
 		158FAC29233C95C300F281B1 /* WCQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158FAC27233C95C300F281B1 /* WCQRCodeViewController.xib */; };
@@ -548,6 +557,16 @@
 		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
 		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
 		158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailChildVC+Segement.swift"; sourceTree = "<group>"; };
+		158124C923EB0EAD0021B62E /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		158124CB23EB159C0021B62E /* AssetTXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTXViewController.swift; sourceTree = "<group>"; };
+		158124D023EB167F0021B62E /* AssetTXCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTXCell.swift; sourceTree = "<group>"; };
+		158124D123EB167F0021B62E /* AssetTXCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTXCell.xib; sourceTree = "<group>"; };
+		158124D723EBB6D30021B62E /* AssetTXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTXViewController.xib; sourceTree = "<group>"; };
+		158124D923EBDC0B0021B62E /* AssetPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPriceViewController.swift; sourceTree = "<group>"; };
+		158124DA23EBDC0B0021B62E /* AssetPriceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetPriceViewController.xib; sourceTree = "<group>"; };
+		158124DD23EBE29E0021B62E /* AssetPriceVC+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetPriceVC+Chart.swift"; sourceTree = "<group>"; };
+		158124E023EBF3450021B62E /* AssetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfoViewController.swift; sourceTree = "<group>"; };
+		158124E123EBF3450021B62E /* AssetInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetInfoViewController.xib; sourceTree = "<group>"; };
 		1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		1581EC1022D8390D00B74F30 /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
@@ -587,7 +606,6 @@
 		158FA3A823EA8D80002FFC76 /* JXPagingListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingListContainerView.swift; sourceTree = "<group>"; };
 		158FA3AE23EA8E46002FFC76 /* AssetDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailHeader.swift; sourceTree = "<group>"; };
 		158FA3B023EA8E4D002FFC76 /* AssetDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailHeader.xib; sourceTree = "<group>"; };
-		158FA3B223EAA4F1002FFC76 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		158FAC23233C938700F281B1 /* WCClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCClient.swift; sourceTree = "<group>"; };
 		158FAC26233C95C300F281B1 /* WCQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCQRCodeViewController.swift; sourceTree = "<group>"; };
 		158FAC27233C95C300F281B1 /* WCQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCQRCodeViewController.xib; sourceTree = "<group>"; };
@@ -1343,6 +1361,45 @@
 				158124C323EAE0540021B62E /* AssetDetailChildVC.xib */,
 			);
 			path = Child;
+			sourceTree = "<group>";
+		};
+		158124C823EB0DFF0021B62E /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				158124CF23EB16670021B62E /* Cell */,
+				158124C923EB0EAD0021B62E /* test.swift */,
+				158124CB23EB159C0021B62E /* AssetTXViewController.swift */,
+				158124D723EBB6D30021B62E /* AssetTXViewController.xib */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		158124CF23EB16670021B62E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				158124D023EB167F0021B62E /* AssetTXCell.swift */,
+				158124D123EB167F0021B62E /* AssetTXCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		158124D623EB374A0021B62E /* Price */ = {
+			isa = PBXGroup;
+			children = (
+				158124D923EBDC0B0021B62E /* AssetPriceViewController.swift */,
+				158124DD23EBE29E0021B62E /* AssetPriceVC+Chart.swift */,
+				158124DA23EBDC0B0021B62E /* AssetPriceViewController.xib */,
+			);
+			path = Price;
+			sourceTree = "<group>";
+		};
+		158124DF23EBF3310021B62E /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				158124E023EBF3450021B62E /* AssetInfoViewController.swift */,
+				158124E123EBF3450021B62E /* AssetInfoViewController.xib */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		1581EC0E22D837FE00B74F30 /* Browser */ = {
@@ -2160,12 +2217,14 @@
 		15F197BC2382D68E00960DE1 /* AssetDetail */ = {
 			isa = PBXGroup;
 			children = (
+				158124DF23EBF3310021B62E /* Info */,
+				158124D623EB374A0021B62E /* Price */,
+				158124C823EB0DFF0021B62E /* Transaction */,
 				158124C123EAE0300021B62E /* Child */,
 				15E18FA923E867C4007C0263 /* View */,
 				15F197BD2382D6BE00960DE1 /* AssetDetailViewController.swift */,
 				15E18FAE23E8746A007C0263 /* AssetDetailViewController+Chart.swift */,
 				15E18FB023E87481007C0263 /* AssetDetailViewController+Segement.swift */,
-				158FA3B223EAA4F1002FFC76 /* test.swift */,
 				15F197BE2382D6BE00960DE1 /* AssetDetailViewController.xib */,
 			);
 			path = AssetDetail;
@@ -2340,6 +2399,7 @@
 				1503623F23D3249000B9B0A9 /* TraitView.xib in Resources */,
 				157FB521239F52E700BFB33F /* web3-min.js in Resources */,
 				15015DAD2365B253008DDD80 /* AssetNFTHeaderCell.xib in Resources */,
+				158124D323EB167F0021B62E /* AssetTXCell.xib in Resources */,
 				1528139D23C1B0FA00EE847D /* SwitchAccountCell.xib in Resources */,
 				1514464E236437F7005E87CE /* MainTabViewController.xib in Resources */,
 				15B86B6322AA044000110C06 /* LaunchScreen.storyboard in Resources */,
@@ -2352,11 +2412,13 @@
 				15E18F9323E6F211007C0263 /* TraitCell.xib in Resources */,
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
 				15E71E05237161E00069BFD2 /* env.json in Resources */,
+				158124D823EBB6D30021B62E /* AssetTXViewController.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
 				158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
 				15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */,
+				158124E323EBF3450021B62E /* AssetInfoViewController.xib in Resources */,
 				15DF2A042387AEA60013664E /* HomeWebPanelView.xib in Resources */,
 				15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */,
 				15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */,
@@ -2369,6 +2431,7 @@
 				15E8030623D2C90300CBE7FB /* AddressPopUp.xib in Resources */,
 				15A7D502233B289F001D720F /* SingleButtonAlertView.xib in Resources */,
 				158FAC29233C95C300F281B1 /* WCQRCodeViewController.xib in Resources */,
+				158124DC23EBDC0B0021B62E /* AssetPriceViewController.xib in Resources */,
 				15DF29FF2387ACCE0013664E /* HomeWebBrowserVC.xib in Resources */,
 				150BF1FD23C55F5C00AD00EC /* SwitchAccountLarkCell.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
@@ -2456,7 +2519,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    swiftformat .\n#echo \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    #swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		1577DDD5238093FD00225DE6 /* Fabric - Firebase */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2675,24 +2738,26 @@
 				1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
+				158124CA23EB0EAD0021B62E /* test.swift in Sources */,
 				15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */,
 				158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
 				15E1AA9E23688AEF00F29369 /* BlockChainQRCodeViewController.swift in Sources */,
 				153B2819231CFDBB0062B2E8 /* PinItem.swift in Sources */,
-				158FA3B323EAA4F1002FFC76 /* test.swift in Sources */,
 				158A9059236DAA9A002F9F18 /* UnWatchingCoinHelper.swift in Sources */,
 				1573B5322375B1D200257A1A /* CoinReOrderCell.swift in Sources */,
 				15E2876622DEC58E00637135 /* BroswerVC+WKDelegate.swift in Sources */,
 				153B280D231BB89B0062B2E8 /* PinManager.swift in Sources */,
 				151250C623661F4A00AD37BB /* OpenSea.swift in Sources */,
+				158124E223EBF3450021B62E /* AssetInfoViewController.swift in Sources */,
 				15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */,
 				15E71E0D2372EA000069BFD2 /* CoinInfoCenter.swift in Sources */,
 				15E1AA93236706FE00F29369 /* Binance.swift in Sources */,
 				15DF29F22386F0640013664E /* Cacheable.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */,
+				158124D223EB167F0021B62E /* AssetTXCell.swift in Sources */,
 				15DF29F42386F6F40013664E /* MiniAppViewController+Drag.swift in Sources */,
 				15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */,
 				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
@@ -2770,9 +2835,11 @@
 				153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */,
 				15D34525236C76E20085EFFC /* WatchingCoinHelper.swift in Sources */,
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
+				158124DB23EBDC0B0021B62E /* AssetPriceViewController.swift in Sources */,
 				15E3C8F023421AD300DCADBF /* ShareHelper.swift in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
 				154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */,
+				158124CD23EB159D0021B62E /* AssetTXViewController.swift in Sources */,
 				158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */,
 				15015DAC2365B253008DDD80 /* AssetNFTHeaderCell.swift in Sources */,
 				158FA3AB23EA8D80002FFC76 /* JXPagingListRefreshView.swift in Sources */,
@@ -2805,6 +2872,7 @@
 				15A4F0F7232D1016007A63A3 /* AboutViewController.swift in Sources */,
 				154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */,
 				15E7568A23C1CC5100F57003 /* AddAccountFooter.swift in Sources */,
+				158124DE23EBE29E0021B62E /* AssetPriceVC+Chart.swift in Sources */,
 				15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */,
 				15DF29F623871DF30013664E /* PinManager+Favicon.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
