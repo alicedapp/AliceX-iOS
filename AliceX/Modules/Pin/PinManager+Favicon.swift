@@ -9,22 +9,19 @@
 import Foundation
 
 extension PinManager {
-    
     @objc func updateImage(noti: Notification) {
         guard let info = noti.userInfo, let domain = info["domain"] as? String else {
             return
         }
-        
-        let matched = self.pinList.filter{ $0.URL?.host == domain }
-        
+
+        let matched = pinList.filter { $0.URL?.host == domain }
+
         if matched.count == 0 {
             return
         }
-        
-        for item in matched {
-            
-        }
-        
+
+        for item in matched {}
+
 //        guard let url = self.pinList, let localDomain = url.host, localDomain == domain else {
 //             return
 //         }
@@ -47,5 +44,4 @@ extension PinManager {
 //         }
 //        }
     }
-    
 }

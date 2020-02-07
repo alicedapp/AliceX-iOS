@@ -27,10 +27,13 @@ class WCPopUp: UIView {
     }
 
     override func awakeFromNib() {
-        roundCorners(corners: [.topLeft, .topRight], radius: 20)
+//        layer.cornerRadius = 20
     }
 
     func configure(logo: URL?, name: String, title: String, content: String) {
+        layoutIfNeeded()
+        roundCorners(corners: [.topLeft, .topRight], radius: 20)
+
         titleLabel.text = title
         nameLabel.text = name
         logoView.kf.setImage(with: logo, placeholder: Constant.placeholder)

@@ -30,19 +30,29 @@ extension WatchingCoinHelper {
     func updateCoins() -> Promise<Void> {
         return Promise<Void> { seal in
 
+            var count = 0
             blockchainList().forEach { chain in
                 chain.getBalance().done { balance in
 //                    info.amount = String(balance)
-                    guard let coin = CoinInfoCenter.shared.pool[chain.rawValue] else {
+                    guard let _ = CoinInfoCenter.shared.pool[chain.rawValue] else {
 //                        seal.reject()
                         throw MyError.FoundNil("chain not found")
                     }
+                    count += 1
                     CoinInfoCenter.shared.pool[chain.rawValue]!.amount = String(balance)
+
+                    if count == self.blockchainList().count {
+                        seal.fulfill(())
+                    }
+
+                }.catch { _ in
+                    count += 1
+                    if count == self.blockchainList().count {
+                        seal.fulfill(())
+                    }
                 }
             }
-
 //            CoinInfoCenter.shared.storeInCache()
-            seal.fulfill(())
         }
     }
 
@@ -50,7 +60,7 @@ extension WatchingCoinHelper {
         return Promise<Bool> { seal in
             firstly { () -> Promise<AmberdataTokenList> in
                 // TODO:
-                API(AmberData.tokens(address: WalletManager.wallet!.address), path: "payload")
+                API(AmberData.tokens(address: WalletManager.currentAccount!.address), path: "payload")
             }.done { model in
 
                 if let records = model.records, records.count > 0 {
@@ -82,6 +92,7 @@ extension WatchingCoinHelper {
                     seal.fulfill(true)
                 } else {
                     seal.fulfill(true)
+
                     //                    throw MyError.FoundNil("ERC20 is empty")
                 }
 

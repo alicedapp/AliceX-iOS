@@ -7,18 +7,41 @@
 //
 
 import Foundation
+import HandyJSON
 
-struct Wallet {
+struct Account: Codable {
     let address: String
-    let data: Data
-    let name: String
-    let isHD: Bool
+//    let data: Data
+//    let isHD: Bool
+
+    var name: String
+    var imageName: String
+//    var color: UIColor
+}
+
+extension Account: Hashable, Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.address == rhs.address
+    }
+
+    var hashValue: Int {
+        return address.hashValue
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(address)
+    }
 }
 
 struct HDKey {
     let name: String?
     let address: String
 }
+
+// struct Account {
+//    let wallet: Wallet
+//    let image: UIImage
+// }
 
 // struct ERC20Token {
 //    var name: String

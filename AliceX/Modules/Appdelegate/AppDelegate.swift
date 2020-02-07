@@ -10,8 +10,12 @@ import CodePush
 import Firebase
 import IQKeyboardManagerSwift
 import React
-import SPStorkController
 import RNFirebase
+import SPStorkController
+import UserNotifications
+
+import BigInt
+import PromiseKit
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
@@ -20,7 +24,7 @@ private var bridge: RCTBridge?
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        var jsCodeLocation: URL?
@@ -46,13 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc = UIViewController()
 
         if WalletManager.hasWallet() {
-            WalletCore.loadFromCache()
+            WalletCore.shared.loadFromCache()
             vc = MainTabViewController()
         } else {
             vc = LandingViewController()
         }
 
         let rootVC = BaseNavigationController(rootViewController: vc)
+        rootVC.hero.isEnabled = true
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         navi = rootVC
@@ -67,18 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             test()
         #endif
 
+        Messaging.messaging().delegate = self
+
         return true
     }
 
-    func test() {
-//        WalletCore.shared.testBNB()
-//        WalletManager.shared.test()
-//        WalletCore.shared.binanceSend(toAddress: "bnb1k2emmlq5v5yz4nyzhfcjtdgkveeghrq53ragzp", value: BigUInt(1)).done { txHash in
-//            print("AAAAA: \(txHash)")
-//        }.catch { error in
-//            print(error.localizedDescription)
-//        }
-    }
+    func test() {}
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG
@@ -117,18 +116,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return handleAliceURL(url: url)
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print(" Push notification received:")
         RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
     }
 
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print(" APNS token: \(token)")
+        Messaging.messaging().apnsToken = deviceToken
+    }
+
+    func application(_: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
-        completionHandler()
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
 }

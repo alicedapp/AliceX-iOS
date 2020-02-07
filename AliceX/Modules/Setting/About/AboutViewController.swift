@@ -36,4 +36,14 @@ class AboutViewController: BaseViewController {
 
         UIApplication.shared.open(Constant.AliceTwitterScheme, options: [:], completionHandler: nil)
     }
+
+    @IBAction func privacyClicked() {
+        let vc = SampleBrowserViewController.make(url: Setting.privacyURL, title: "Privacy Policy")
+        presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
+    }
+
+    @IBAction func termClicked() {
+        let vc = SampleBrowserViewController.make(url: Setting.termURL, title: "Terms of Service")
+        presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
+    }
 }

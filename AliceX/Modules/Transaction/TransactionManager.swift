@@ -45,14 +45,14 @@ class TransactionManager {
     }
 
     class func getAddress() throws -> String {
-        guard let address = WalletManager.wallet?.address else { throw WalletError.accountDoesNotExist }
+        guard let address = WalletManager.currentAccount?.address else { throw WalletError.accountDoesNotExist }
         return address
     }
 
     // MARK: - Balance
 
     public func etherBalanceSync() throws -> String {
-        guard let address = WalletManager.wallet?.address else { throw WalletError.accountDoesNotExist }
+        guard let address = WalletManager.currentAccount?.address else { throw WalletError.accountDoesNotExist }
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
 
         guard let balanceInWeiUnitResult = try? WalletManager.web3Net.eth.getBalance(address: ethereumAddress) else {
@@ -69,7 +69,7 @@ class TransactionManager {
 
     public func etherBalance() -> Promise<String> {
         return Promise<String> { seal in
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 seal.reject(WalletError.accountDoesNotExist)
                 return
             }
@@ -124,7 +124,7 @@ class TransactionManager {
     public func sendEtherSync(to address: String,
                               amount: BigUInt,
                               data: Data,
-                              password: String = "web3swift",
+                              password _: String = "web3swift",
                               gasPrice: GasPrice = GasPrice.average,
                               gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
         return TransactionManager.writeSmartContract(contractAddress: address,
@@ -210,7 +210,7 @@ class TransactionManager {
                                          notERC20: Bool = true) -> Promise<String> {
         return Promise<String> { seal in
 
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 seal.reject(WalletError.invalidAddress)
                 return
             }
@@ -276,14 +276,6 @@ class TransactionManager {
 
             }.catch { error in
 
-//                if let error = error as? WalletError {
-//                    HUDManager.shared.showError(text: error.errorMessage)
-//                } else if let error = error as? Web3Error {
-//                    HUDManager.shared.showError(text: error.errorDescription)
-//                } else {
-//                    HUDManager.shared.showError(text: WalletError.unKnown.errorMessage)
-//                }
-
                 seal.reject(error)
             }
         }
@@ -320,7 +312,7 @@ class TransactionManager {
                                         value: String = "0.0") -> Promise<[String: Any]> {
         return Promise<[String: Any]> { seal in
 
-            guard let address = WalletManager.wallet?.address else {
+            guard let address = WalletManager.currentAccount?.address else {
                 throw WalletError.invalidAddress
             }
 
@@ -371,7 +363,7 @@ class TransactionManager {
     }
 
     class func signMessage(message: Data) throws -> String? {
-        guard let address = WalletManager.wallet?.address else {
+        guard let address = WalletManager.currentAccount?.address else {
             throw WalletError.invalidAddress
         }
 
@@ -420,7 +412,7 @@ class TransactionManager {
             throw WalletError.invalidAddress
         }
 
-        guard let address = WalletManager.wallet?.address else {
+        guard let address = WalletManager.currentAccount?.address else {
             throw WalletError.invalidAddress
         }
 
@@ -472,6 +464,64 @@ class TransactionManager {
         return "Sign Transaction Failed"
     }
 
+    // MARK: - Send ERC721
+
+    class func showERC721PopUp(toAddress: String,
+                               NFTModel: OpenSeaModel,
+                               data _: Data = Data(),
+                               success: @escaping StringBlock) {
+        let topVC = UIApplication.topViewController()
+        let modal = SendERC721PopUp.make(NFTModel: NFTModel, toAddress: toAddress, success: success)
+        let height = 550 - 34 + Constant.SAFE_BOTTOM
+        topVC?.presentAsStork(modal, height: height)
+    }
+
+    public func sendERC721Token(tokenId: String,
+                                toAddress: String,
+                                contractAddress: String,
+                                data: Data = Data(),
+                                password: String?,
+                                gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
+        let ETHAddress = EthereumAddress(WalletManager.currentAccount!.address)!
+//        let erc = ERC721(web3: WalletManager.web3Net, provider: WalletManager.web3Net.provider, address: ETHAddress)
+//        let id = BigUInt("705")
+//
+//        erc.readProperties()
+//
+//
+//        do {
+//
+        ////            let contract = try erc.transfer(from: ETHAddress,
+        ////                                            to: EthereumAddress("0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB")!,
+        ////                                            tokenId: id)
+//            let contract = try erc.safeTransferFrom(from: ETHAddress,
+//                                                    to: EthereumAddress("0x56519083C3cfeAE833B93a93c843C993bE1D74EA")!,
+//                                                    originalOwner: ETHAddress,
+//                                                    tokenId: id, data: [])
+//
+//            let result = try contract.send()
+//            print("AAAAAA")
+//
+//            print(result.hash)
+//
+//        } catch let error {
+//            print(error)
+//        }
+
+        return Promise<String> { seal in
+            TransactionManager.writeSmartContract(contractAddress: contractAddress,
+                                                  functionName: "safeTransferFrom",
+                                                  abi: Web3.Utils.erc721ABI,
+                                                  parameters: [WalletManager.currentAccount!.address, toAddress, tokenId, data],
+                                                  extraData: Data(),
+                                                  value: BigUInt(0)).done { txHash in
+                seal.fulfill(txHash)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+    }
+
     // MARK: - Validator
 
 //    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {
@@ -479,7 +529,7 @@ class TransactionManager {
 //            throw WalletError.invalidAddress
 //        }
 //
-//        guard let address = WalletManager.wallet?.address else {
+//        guard let address = WalletManager.currentAccount?.address else {
 //            throw WalletError.invalidAddress
 //        }
 //

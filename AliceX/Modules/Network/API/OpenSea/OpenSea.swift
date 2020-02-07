@@ -24,6 +24,9 @@ extension OpenSea: TargetType {
     }
 
     var baseURL: URL {
+        if WalletManager.currentNetwork == .rinkeby {
+            return URL(string: "https://rinkeby-api.opensea.io/api/")!
+        }
         return URL(string: "https://api.opensea.io/api/")!
     }
 

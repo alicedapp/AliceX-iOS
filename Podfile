@@ -35,9 +35,11 @@ target 'AliceX' do
 #  pod 'lottie-ios'
   pod "ESPullToRefresh"
   pod 'JXSegmentedView', '~> 1.0.2'
-  
+  pod 'FoldingCell'
   pod 'Pageboy', '~> 3.5.0'
-  pod 'Tabman', '~> 2.6'
+#  pod 'AwaitKit'
+  pod 'Instructions', '~> 1.4.0'
+  pod "SkeletonView"
   
   #for push notifications
   pod 'Firebase/Core'
@@ -45,6 +47,7 @@ target 'AliceX' do
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Analytics'
+  
 
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
@@ -65,14 +68,17 @@ target 'AliceX' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'react-native-camera', path: '../node_modules/react-native-camera'
-  pod 'react-native-mapbox-gl', :path => '../node_modules/@react-native-mapbox-gl/maps'
-  pod 'react-native-onesignal', :git => 'https://github.com/alicedapp/react-native-onesignal', :branch => 'master'
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+  pod 'ReactNativeExceptionHandler', :podspec => '../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec'
   
+#  
+#  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+#  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
 end
 
 post_install do |installer|

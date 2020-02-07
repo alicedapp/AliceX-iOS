@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-Bs-API">
                         <rect key="frame" x="10" y="10" width="162" height="208"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-vL-iyr">
-                                <rect key="frame" x="0.0" y="0.0" width="162" height="178"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-vL-iyr">
+                                <rect key="frame" x="1" y="1" width="160" height="177"/>
                                 <color key="backgroundColor" name="Alice-LightGrey"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -69,11 +69,11 @@
                         <color key="backgroundColor" name="Alice-LightBackground"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ukb-Q2-e6z" secondAttribute="bottom" id="IKR-F8-Mgm"/>
-                            <constraint firstItem="ngF-vL-iyr" firstAttribute="top" secondItem="SZ1-Bs-API" secondAttribute="top" id="hwN-I4-J2z"/>
-                            <constraint firstAttribute="trailing" secondItem="ngF-vL-iyr" secondAttribute="trailing" id="l3G-nb-smF"/>
+                            <constraint firstItem="ngF-vL-iyr" firstAttribute="top" secondItem="SZ1-Bs-API" secondAttribute="top" constant="1" id="hwN-I4-J2z"/>
+                            <constraint firstAttribute="trailing" secondItem="ngF-vL-iyr" secondAttribute="trailing" constant="1" id="l3G-nb-smF"/>
                             <constraint firstItem="ukb-Q2-e6z" firstAttribute="centerX" secondItem="SZ1-Bs-API" secondAttribute="centerX" id="n44-Iz-iTM"/>
                             <constraint firstAttribute="bottom" secondItem="ngF-vL-iyr" secondAttribute="bottom" constant="30" id="t0a-EA-pFe"/>
-                            <constraint firstItem="ngF-vL-iyr" firstAttribute="leading" secondItem="SZ1-Bs-API" secondAttribute="leading" id="wSu-qs-2Xi"/>
+                            <constraint firstItem="ngF-vL-iyr" firstAttribute="leading" secondItem="SZ1-Bs-API" secondAttribute="leading" constant="1" id="wSu-qs-2Xi"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -94,19 +94,20 @@
                 <outlet property="NFTImageView" destination="ngF-vL-iyr" id="u16-mU-upl"/>
                 <outlet property="contractImageView" destination="WNh-lB-9cK" id="mSU-bj-hqS"/>
                 <outlet property="contractName" destination="DpP-yl-LA0" id="o9w-4s-XXe"/>
+                <outlet property="viewShadow" destination="SZ1-Bs-API" id="3Gg-DI-mQb"/>
             </connections>
             <point key="canvasLocation" x="233.33333333333334" y="172.09821428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
         <namedColor name="Alice-DarkGrey">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightBackground">
-            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
-            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

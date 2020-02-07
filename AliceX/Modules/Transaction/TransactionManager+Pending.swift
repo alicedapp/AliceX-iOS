@@ -18,11 +18,15 @@ class PendingTransactionHelper {
     var pendingTxList: Set<PinItem> = Set<PinItem>()
     var timer: Timer!
 
+    var errorCount: Int = 0
+
     func start() {
         if timer != nil {
             timer.invalidate()
             timer = nil
         }
+
+        errorCount = 0
 
         timer = Timer(timeInterval: fetchPendingFrequency, target: self, selector: #selector(fetchStatus), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: .default)
@@ -34,6 +38,7 @@ class PendingTransactionHelper {
             timer.invalidate()
             timer = nil
         }
+        errorCount = 0
     }
 
     @objc func fetchStatus() {
@@ -66,8 +71,12 @@ class PendingTransactionHelper {
                     break
                 }
             }.catch { error in
-                self.stop()
-                print(error.localizedDescription)
+                self.errorCount += 1
+                print("Fetching TX Status got error, count: \(self.errorCount)")
+                if self.errorCount > 5 {
+                    self.stop()
+                    print(error.localizedDescription)
+                }
             }
         }
     }
@@ -76,6 +85,7 @@ class PendingTransactionHelper {
         -> Promise<TransactionReceipt> {
         return Promise<TransactionReceipt> { seal in
 
+            // TODO: Recently, listen to tx, got node error in First Time
             firstly {
                 WalletManager.make(url: rpcURL)
             }.then { web3 in

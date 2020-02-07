@@ -136,8 +136,12 @@ class SendTransactionHandler: WCHandler {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(wcTx)
             let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
-            guard let json = jsonString, let transactionJSON = json.toJSON() as? [String: Any] else {
+            guard let json = jsonString, var transactionJSON = json.toJSON() as? [String: Any] else {
                 throw WalletError.custom("Parse tx failed")
+            }
+
+            if !transactionJSON.keys.contains("value") {
+                transactionJSON["value"] = String(BigUInt(0))
             }
 
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else {
@@ -158,7 +162,7 @@ class SendTransactionHandler: WCHandler {
                 self.server.send(response)
 //                HUDManager.shared.dismiss()
             }
-        } catch let error {
+        } catch {
             server.send(.invalid(request))
 //            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
             HUDManager.shared.showError(error: error)
@@ -182,7 +186,7 @@ class PersonalSignHandler: WCHandler {
                 swap(&address, &messageBytes)
             }
 
-            if address.lowercased() != WalletManager.wallet?.address.lowercased() {
+            if address.lowercased() != WalletManager.currentAccount?.address.lowercased() {
                 server.send(.reject(request))
                 HUDManager.shared.showError(text: "Address Not Matched")
                 return
@@ -247,7 +251,7 @@ class PersonalSignHandler: WCHandler {
 //                swap(&address, &messageBytes)
 //            }
 //
-//            if address.lowercased() != WalletManager.wallet?.address.lowercased() {
+//            if address.lowercased() != WalletManager.currentAccount?.address.lowercased() {
 //               server.send(.reject(request))
 //                HUDManager.shared.showError(text: "Address Not Matched")
 //               return

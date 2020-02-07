@@ -139,7 +139,7 @@ class TransferPopUp: UIViewController {
         guard let addr = address,
             coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
             if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
-                errorAlert(text: "Addess invalid")
+                errorAlert(text: "Address invalid")
             }
             addressField.text = address?.trimmingCharacters(in: .whitespacesAndNewlines)
             self.address = address?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -155,7 +155,7 @@ class TransferPopUp: UIViewController {
         let vc = QRCodeReaderViewController.make { result in
             let trimStr = result.trimmingCharacters(in: .whitespacesAndNewlines)
             if !self.coin.verify(address: trimStr) {
-                self.errorAlert(text: "Addess invalid")
+                self.errorAlert(text: "Address invalid")
                 self.addressField.text = trimStr
                 self.address = trimStr
                 self.addressFieldDidChange(self.addressField)
@@ -170,7 +170,7 @@ class TransferPopUp: UIViewController {
 
     @IBAction func confirmBtnClicked() {
         guard let addr = self.address, coin.verify(address: addr) else {
-            errorAlert(text: "Addess invalid")
+            errorAlert(text: "Address invalid")
             return
         }
 
@@ -205,6 +205,12 @@ class TransferPopUp: UIViewController {
     @IBAction func addressFieldDidChange(_ textField: UITextField) {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
+
+//        if let addStr = textField.text {
+//            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
+//        }
+
+        address = textField.text
 
         if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
             return
@@ -242,25 +248,30 @@ class TransferPopUp: UIViewController {
             return
         }
 
-        guard let info = coin.info, let price = info.price else {
-            priceLabel.text = "price"
+        guard let info = coin.info else {
+            errorAlert(text: "Coin Info invalid")
             return
         }
-
-        let finalPrice = amount * price
-        priceLabel.text = finalPrice.currencyString
 
         guard let decimals = info.decimals else {
             errorAlert(text: "Decimals invalid")
             return
         }
 
-        guard let amountBigInt = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
+        guard let amountBigInt = Web3Utils.parseToBigUInt(text, decimals: decimals) else {
             errorAlert(text: "Value invalid")
             return
         }
 
         self.amount = amountBigInt
+
+        guard let price = info.price else {
+            priceLabel.text = "price"
+            return
+        }
+
+        let finalPrice = amount * price
+        priceLabel.text = finalPrice.currencyString
     }
 
     // MARK: Error

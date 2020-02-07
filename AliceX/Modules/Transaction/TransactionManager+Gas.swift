@@ -37,7 +37,7 @@ extension TransactionManager {
                 return
             }
 
-            let walletAddress = EthereumAddress(WalletManager.wallet!.address)!
+            let walletAddress = EthereumAddress(WalletManager.currentAccount!.address)!
             guard let contract = WalletManager.web3Net.contract(contractABI, at: toAddress, abiVersion: 2) else {
                 seal.reject(WalletError.contractFailure)
                 return

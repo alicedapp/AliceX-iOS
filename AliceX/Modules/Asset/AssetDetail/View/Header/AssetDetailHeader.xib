@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AssetDetailHeader" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdH-vh-Mu3">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Esb-3z-dyQ">
+                            <rect key="frame" x="177" y="15" width="60" height="60"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="hnB-BE-fxN"/>
+                                <constraint firstAttribute="width" secondItem="Esb-3z-dyQ" secondAttribute="height" multiplier="1:1" id="ryL-Gf-zXm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123.45 ETH" textAlignment="center" lineBreakMode="middleTruncation" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rsv-z7-8jd">
+                            <rect key="frame" x="12" y="85" width="390" height="28.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTK-Is-lGD">
+                            <rect key="frame" x="257" y="30" width="70" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERC20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg9-Xu-Zoa">
+                                    <rect key="frame" x="8" y="5" width="54" height="20"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" name="Alice-Grey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstItem="sg9-Xu-Zoa" firstAttribute="top" secondItem="UTK-Is-lGD" secondAttribute="top" constant="5" id="5qe-Fz-j97"/>
+                                <constraint firstAttribute="bottom" secondItem="sg9-Xu-Zoa" secondAttribute="bottom" constant="5" id="Wry-Z1-KYp"/>
+                                <constraint firstAttribute="trailing" secondItem="sg9-Xu-Zoa" secondAttribute="trailing" constant="8" id="dBJ-QP-bxx"/>
+                                <constraint firstItem="sg9-Xu-Zoa" firstAttribute="leading" secondItem="UTK-Is-lGD" secondAttribute="leading" constant="8" id="xva-iQ-g7A"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-j9-tJW">
+                            <rect key="frame" x="87" y="30" width="70" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERC20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLn-Rp-RVW">
+                                    <rect key="frame" x="8" y="5" width="54" height="20"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" name="Alice-Grey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstItem="ZLn-Rp-RVW" firstAttribute="top" secondItem="RuB-j9-tJW" secondAttribute="top" constant="5" id="B9F-ac-q9q"/>
+                                <constraint firstAttribute="trailing" secondItem="ZLn-Rp-RVW" secondAttribute="trailing" constant="8" id="Pbz-Va-bWJ"/>
+                                <constraint firstAttribute="bottom" secondItem="ZLn-Rp-RVW" secondAttribute="bottom" constant="5" id="i0B-yA-1Pn"/>
+                                <constraint firstItem="ZLn-Rp-RVW" firstAttribute="leading" secondItem="RuB-j9-tJW" secondAttribute="leading" constant="8" id="rYe-Ux-5U4"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-1R-eBq">
+                            <rect key="frame" x="0.0" y="244.5" width="414" height="0.5"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="Zvv-cc-Zv3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Alice-White"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="MIN-1R-eBq" secondAttribute="trailing" id="5EP-6e-2BH"/>
+                        <constraint firstAttribute="trailing" secondItem="Rsv-z7-8jd" secondAttribute="trailing" constant="12" id="Dgo-dq-RZj"/>
+                        <constraint firstAttribute="bottom" secondItem="MIN-1R-eBq" secondAttribute="bottom" id="LbN-ZZ-hb9"/>
+                        <constraint firstItem="Esb-3z-dyQ" firstAttribute="leading" secondItem="RuB-j9-tJW" secondAttribute="trailing" constant="20" id="WYc-A0-9qf"/>
+                        <constraint firstItem="UTK-Is-lGD" firstAttribute="centerY" secondItem="Esb-3z-dyQ" secondAttribute="centerY" id="Yiu-S6-wq4"/>
+                        <constraint firstItem="MIN-1R-eBq" firstAttribute="leading" secondItem="mdH-vh-Mu3" secondAttribute="leading" id="biy-OC-b4r"/>
+                        <constraint firstItem="Rsv-z7-8jd" firstAttribute="top" secondItem="Esb-3z-dyQ" secondAttribute="bottom" constant="10" id="edG-ag-C85"/>
+                        <constraint firstItem="UTK-Is-lGD" firstAttribute="leading" secondItem="Esb-3z-dyQ" secondAttribute="trailing" constant="20" id="gln-FJ-n5L"/>
+                        <constraint firstItem="RuB-j9-tJW" firstAttribute="centerY" secondItem="Esb-3z-dyQ" secondAttribute="centerY" id="had-1h-EVV"/>
+                        <constraint firstItem="Esb-3z-dyQ" firstAttribute="top" secondItem="mdH-vh-Mu3" secondAttribute="top" constant="15" id="tfg-w5-UFH"/>
+                        <constraint firstItem="Rsv-z7-8jd" firstAttribute="centerX" secondItem="mdH-vh-Mu3" secondAttribute="centerX" id="uNr-1i-7Qu"/>
+                        <constraint firstItem="Esb-3z-dyQ" firstAttribute="centerX" secondItem="mdH-vh-Mu3" secondAttribute="centerX" id="xbx-AN-C5k"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mdH-vh-Mu3" secondAttribute="trailing" id="WeV-AS-FdA"/>
+                <constraint firstItem="mdH-vh-Mu3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XAT-la-xGQ"/>
+                <constraint firstAttribute="bottom" secondItem="mdH-vh-Mu3" secondAttribute="bottom" id="iGg-Va-HyO"/>
+                <constraint firstItem="mdH-vh-Mu3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jTY-j4-SAM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="amountLabel" destination="Rsv-z7-8jd" id="ucB-DS-Q1h"/>
+                <outlet property="logoImageView" destination="Esb-3z-dyQ" id="IsZ-pI-2Hx"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-79.352678571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

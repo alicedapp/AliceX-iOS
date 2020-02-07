@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SwitchAccountLarkCell" id="gTV-IL-0wX" customClass="SwitchAccountLarkCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="201" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="201" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avQ-fF-ytH" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="201" height="90"/>
+                        <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-BT-yVy">
+                                <rect key="frame" x="0.0" y="0.0" width="201" height="90"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctF-9G-rvD">
+                                        <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money_Face_5" translatesAutoresizingMaskIntoConstraints="NO" id="Nbh-Vr-WL3">
+                                                <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJS-Eg-Wnw">
+                                                <rect key="frame" x="20" y="0.0" width="10" height="10"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bJS-Eg-Wnw" secondAttribute="height" multiplier="1:1" id="ZoV-Ch-as5"/>
+                                                    <constraint firstAttribute="height" constant="10" id="p1p-f2-qqB"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Alice-LightGrey"/>
+                                        <constraints>
+                                            <constraint firstItem="bJS-Eg-Wnw" firstAttribute="top" secondItem="ctF-9G-rvD" secondAttribute="top" id="IoU-Ft-Wsh"/>
+                                            <constraint firstAttribute="height" constant="30" id="Jqi-Fu-tGk"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nbh-Vr-WL3" secondAttribute="bottom" constant="5" id="P2Z-hp-Je0"/>
+                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="leading" secondItem="ctF-9G-rvD" secondAttribute="leading" constant="5" id="UeK-CO-IRu"/>
+                                            <constraint firstAttribute="width" secondItem="ctF-9G-rvD" secondAttribute="height" multiplier="1:1" id="VLH-Gn-CYL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nbh-Vr-WL3" secondAttribute="trailing" constant="5" id="gJa-ZI-xz3"/>
+                                            <constraint firstAttribute="trailing" secondItem="bJS-Eg-Wnw" secondAttribute="trailing" id="i6y-Sq-JFE"/>
+                                            <constraint firstItem="Nbh-Vr-WL3" firstAttribute="top" secondItem="ctF-9G-rvD" secondAttribute="top" constant="5" id="s2Z-B6-tHX"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Wallet" lineBreakMode="tailTruncation" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="msv-B6-pFN">
+                                        <rect key="frame" x="57" y="14.5" width="136" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYe-D2-fDZ">
+                                        <rect key="frame" x="0.0" y="82" width="201" height="8"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="kIh-GF-9sh"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0x00..000" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-gY-JI9">
+                                        <rect key="frame" x="12" y="55.5" width="177" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" name="Alice-Grey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Alice-LightBackground"/>
+                                <constraints>
+                                    <constraint firstItem="msv-B6-pFN" firstAttribute="centerY" secondItem="ctF-9G-rvD" secondAttribute="centerY" id="51a-V3-RBv"/>
+                                    <constraint firstItem="dYe-D2-fDZ" firstAttribute="top" secondItem="KbF-gY-JI9" secondAttribute="bottom" constant="10" id="8Kg-Ko-nSA"/>
+                                    <constraint firstItem="ctF-9G-rvD" firstAttribute="leading" secondItem="F0j-BT-yVy" secondAttribute="leading" constant="15" id="C3U-c7-Oxr"/>
+                                    <constraint firstItem="msv-B6-pFN" firstAttribute="leading" secondItem="ctF-9G-rvD" secondAttribute="trailing" constant="12" id="Eik-R9-kXm"/>
+                                    <constraint firstAttribute="trailing" secondItem="msv-B6-pFN" secondAttribute="trailing" constant="8" id="FVO-x5-qAu"/>
+                                    <constraint firstItem="KbF-gY-JI9" firstAttribute="leading" secondItem="F0j-BT-yVy" secondAttribute="leading" constant="12" id="P8f-Bd-rzr"/>
+                                    <constraint firstAttribute="bottom" secondItem="dYe-D2-fDZ" secondAttribute="bottom" id="POm-Gq-xx1"/>
+                                    <constraint firstAttribute="trailing" secondItem="dYe-D2-fDZ" secondAttribute="trailing" id="SFR-97-xO9"/>
+                                    <constraint firstItem="dYe-D2-fDZ" firstAttribute="leading" secondItem="F0j-BT-yVy" secondAttribute="leading" id="WG1-Uf-C2V"/>
+                                    <constraint firstItem="ctF-9G-rvD" firstAttribute="top" secondItem="F0j-BT-yVy" secondAttribute="top" constant="10" id="pb1-9Q-mHh"/>
+                                    <constraint firstAttribute="trailing" secondItem="KbF-gY-JI9" secondAttribute="trailing" constant="12" id="tpU-Ju-bp8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F0j-BT-yVy" firstAttribute="leading" secondItem="avQ-fF-ytH" secondAttribute="leading" id="02z-Q1-iCm"/>
+                            <constraint firstItem="F0j-BT-yVy" firstAttribute="top" secondItem="avQ-fF-ytH" secondAttribute="top" id="B6G-gO-GJB"/>
+                            <constraint firstAttribute="trailing" secondItem="F0j-BT-yVy" secondAttribute="trailing" id="ade-mo-BmA"/>
+                            <constraint firstAttribute="bottom" secondItem="F0j-BT-yVy" secondAttribute="bottom" id="fF4-bb-8YE"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="switchAccount" destination="gTV-IL-0wX" eventType="touchUpInside" id="3OG-QX-d1b"/>
+                        </connections>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="avQ-fF-ytH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bY4-VU-2HF"/>
+                <constraint firstAttribute="bottom" secondItem="avQ-fF-ytH" secondAttribute="bottom" id="cEN-LH-re1"/>
+                <constraint firstAttribute="trailing" secondItem="avQ-fF-ytH" secondAttribute="trailing" id="saH-rQ-8Br"/>
+                <constraint firstItem="avQ-fF-ytH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zrv-qb-nlf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="201" height="90"/>
+            <connections>
+                <outlet property="addressLabel" destination="KbF-gY-JI9" id="XPi-rG-OpB"/>
+                <outlet property="iconView" destination="Nbh-Vr-WL3" id="YCX-GC-VNJ"/>
+                <outlet property="indicatorView" destination="bJS-Eg-Wnw" id="pMK-L7-JOc"/>
+                <outlet property="nameLabel" destination="msv-B6-pFN" id="poY-LD-icW"/>
+                <outlet property="selectView" destination="dYe-D2-fDZ" id="6v1-aJ-pGi"/>
+            </connections>
+            <point key="canvasLocation" x="247.10144927536234" y="117.1875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Money_Face_5" width="180" height="180"/>
+        <namedColor name="Alice-Grey">
+            <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

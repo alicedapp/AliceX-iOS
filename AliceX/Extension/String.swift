@@ -56,12 +56,12 @@ extension String {
         }
     }
 
-    func validateUrl () -> Bool {
+    func validateUrl() -> Bool {
         guard !contains("..") else { return false }
 
-        let head     = "((http|https)://)?([(w|W)]{3}+\\.)?"
-        let tail     = "\\.+[A-Za-z]{1,10}+(\\.)?+(/(.)*)?"
-        let urlRegEx = head+"+(.)+"+tail
+        let head = "((http|https)://)?([(w|W)]{3}+\\.)?"
+        let tail = "\\.+[A-Za-z]{1,10}+(\\.)?+(/(.)*)?"
+        let urlRegEx = head + "+(.)+" + tail
 
         let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegEx)
         return urlTest.evaluate(with: trimmingCharacters(in: .whitespaces))
@@ -174,5 +174,15 @@ extension String {
             return UIImage(data: data)
         }
         return nil
+    }
+
+    func camelCaseToWords() -> String {
+        return unicodeScalars.reduce("") {
+            if CharacterSet.uppercaseLetters.contains($1) {
+                return ($0 + " " + String($1))
+            } else {
+                return $0 + String($1)
+            }
+        }
     }
 }

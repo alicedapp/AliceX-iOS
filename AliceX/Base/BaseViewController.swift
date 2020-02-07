@@ -33,6 +33,9 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
+        isHeroEnabled = true
+        view.isHeroEnabledForSubviews = true
+        view.isHeroEnabled = true
     }
 
     @IBAction func backButtonClicked() {

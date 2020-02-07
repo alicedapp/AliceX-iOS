@@ -16,7 +16,7 @@ extension BlockChain: NetworkLayer {
         return Promise<BigUInt> { seal in
             switch self {
             case .Ethereum:
-                guard let address = WalletManager.wallet?.address else {
+                guard let address = WalletManager.currentAccount?.address else {
                     seal.reject(WalletError.accountDoesNotExist)
                     return
                 }

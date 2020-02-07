@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MnemonicTableViewCell" rowHeight="119" id="KGk-i7-Jjw" customClass="MnemonicTableViewCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cy-23-oiP" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                        <rect key="frame" x="20" y="10" width="334" height="109"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Up My Mnemonic" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="F2d-Qh-fDk">
+                                <rect key="frame" x="57" y="43" width="220" height="23"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="mnemonics-setting" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-Bi-EWV">
+                                <rect key="frame" x="10" y="38.5" width="32" height="32"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="mnemonics-setting" translatesAutoresizingMaskIntoConstraints="NO" id="4ft-P0-Xc4">
+                                <rect key="frame" x="292" y="38.5" width="32" height="32"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.48627450980392156" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Tij-Bi-EWV" firstAttribute="leading" secondItem="2cy-23-oiP" secondAttribute="leading" constant="10" id="0Ku-9x-SdH"/>
+                            <constraint firstItem="4ft-P0-Xc4" firstAttribute="centerY" secondItem="2cy-23-oiP" secondAttribute="centerY" id="2nc-Aw-I5f"/>
+                            <constraint firstItem="F2d-Qh-fDk" firstAttribute="centerY" secondItem="2cy-23-oiP" secondAttribute="centerY" id="Kxn-GD-8Bv"/>
+                            <constraint firstAttribute="trailing" secondItem="4ft-P0-Xc4" secondAttribute="trailing" constant="10" id="ONF-sK-cBc"/>
+                            <constraint firstItem="F2d-Qh-fDk" firstAttribute="leading" secondItem="Tij-Bi-EWV" secondAttribute="trailing" constant="15" id="dFZ-ZY-Nom"/>
+                            <constraint firstItem="Tij-Bi-EWV" firstAttribute="centerY" secondItem="2cy-23-oiP" secondAttribute="centerY" id="fZN-W8-9c3"/>
+                            <constraint firstItem="4ft-P0-Xc4" firstAttribute="leading" secondItem="F2d-Qh-fDk" secondAttribute="trailing" constant="15" id="yiL-Ne-ntk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="mnemonicsClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fnd-r1-PJo"/>
+                        </connections>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="2cy-23-oiP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Med-bf-IeV"/>
+                    <constraint firstItem="2cy-23-oiP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cqf-0q-zcV"/>
+                    <constraint firstAttribute="trailing" secondItem="2cy-23-oiP" secondAttribute="trailing" constant="20" id="qNq-78-tFp"/>
+                    <constraint firstAttribute="bottom" secondItem="2cy-23-oiP" secondAttribute="bottom" id="zrG-eS-svE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellView" destination="2cy-23-oiP" id="smS-4M-UiC"/>
+                <outlet property="firstImage" destination="Tij-Bi-EWV" id="WSr-7i-5KT"/>
+                <outlet property="secondImage" destination="4ft-P0-Xc4" id="nPM-Jj-gOc"/>
+                <outlet property="titleLabel" destination="F2d-Qh-fDk" id="flg-Q2-DDx"/>
+            </connections>
+            <point key="canvasLocation" x="176.81159420289856" y="144.30803571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mnemonics-setting" width="32" height="32"/>
+    </resources>
+</document>

@@ -9,93 +9,61 @@
 import Foundation
 import web3swift
 
-extension WKWebViewConfiguration {
-    static func make(forServer server: Web3NetEnum, address: String, in messageHandler: WKScriptMessageHandler) -> WKWebViewConfiguration {
-        let webViewConfig = WKWebViewConfiguration()
-        var js = ""
+struct ETHWeb3ScriptWKConfig {
+    let address: String
+    let chainId: Int
+    let rpcUrl: String
+    let privacyMode: Bool
 
-        guard let bundlePath = Bundle.main.path(forResource: "web3-min", ofType: "js") else {
-            HUDManager.shared.showError(text: "Initial WebView Failure")
-            return WKWebViewConfiguration()
+    var providerJsBundleUrl: URL {
+        let bundlePath = Bundle.main.path(forResource: "TrustWeb3Provider", ofType: "bundle")
+        let bundle = Bundle(path: bundlePath!)!
+        return bundle.url(forResource: "trust-min", withExtension: "js")!
+    }
+
+    var providerJsString: String {
+        return Bundle.main.path(forResource: "web3-min", ofType: "js")!
+    }
+
+    var providerScript: WKUserScript {
+        let source = try! String(contentsOfFile: providerJsString)
+        let script = WKUserScript(source: source, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+        return script
+    }
+
+    var injectedScript: WKUserScript {
+        let source: String
+        if privacyMode {
+            source = """
+            (function() {
+                var config = {
+                    chainId: \(chainId),
+                    rpcUrl: "\(rpcUrl)"
+                };
+                const provider = new window.Trust(config);
+                window.ethereum = provider;
+
+                window.chrome = {webstore: {}};
+            })();
+            """
+        } else {
+            source = """
+            (function() {
+                var config = {
+                    address: "\(address)".toLowerCase(),
+                    chainId: \(chainId),
+                    rpcUrl: "\(rpcUrl)"
+                };
+                const provider = new window.Trust(config);
+                window.ethereum = provider;
+                window.web3 = new window.Web3(provider);
+                window.web3.eth.defaultAccount = config.address;
+
+                window.chrome = {webstore: {}};
+            })();
+            """
         }
-
-        js += try! String(contentsOfFile: bundlePath)
-
-        let addressCheckSum = EthereumAddress.toChecksumAddress(address)
-
-        js +=
-            """
-            const addressHex = "\(address)"
-            const rpcURL = "\(server.rpcURL.absoluteString)"
-            const chainID = "\(server.chainID)"
-            
-            function executeCallback (id, error, value) {
-            Alice.executeCallback(id, error, value)
-            }
-            
-            Alice.init(rpcURL, {
-            getAccounts: function (cb) { alert('hello'); cb(null, [addressHex]) },
-            processTransaction: function (tx, cb){
-                console.log('signing a transaction', tx)
-                const { id = 8888 } = tx
-                Alice.addCallback(id, cb)
-                webkit.messageHandlers.signTransaction.postMessage({"name": "signTransaction", "object": tx, id: id})
-            },
-            signMessage: function (msgParams, cb) {
-                const { data } = msgParams
-                const { id = 8888 } = msgParams
-                console.log("signing a message", msgParams)
-                Alice.addCallback(id, cb)
-                webkit.messageHandlers.signMessage.postMessage({"name": "signMessage", "object": { data }, id: id})
-            },
-            signPersonalMessage: function (msgParams, cb) {
-                const { data } = msgParams
-                const { id = 8888 } = msgParams
-                console.log("signing a personal message", msgParams)
-                Alice.addCallback(id, cb)
-                webkit.messageHandlers.signPersonalMessage.postMessage({"name": "signPersonalMessage", "object": { data }, id: id})
-            },
-            signTypedMessage: function (msgParams, cb) {
-                const { data } = msgParams
-                const { id = 8888 } = msgParams
-                console.log("signing a typed message", msgParams)
-                Alice.addCallback(id, cb)
-                webkit.messageHandlers.signTypedMessage.postMessage({"name": "signTypedMessage", "object": { data }, id: id})
-            },
-            enable: function() {
-            return new Promise(function(resolve, reject) {
-            //send back the coinbase account as an array of one
-            resolve([addressHex])
-            })
-            }
-            }, {
-            address: addressHex,
-            networkVersion: chainID
-            })
-            
-            web3.setProvider = function () {
-            console.debug('Alice - overrode web3.setProvider')
-            }
-            
-            web3.eth.defaultAccount = addressHex
-            
-            web3.version.getNetwork = function(cb) {
-            cb(null, chainID)
-            }
-            
-            web3.eth.getCoinbase = function(cb) {
-            return cb(null, addressHex)
-            }
-            
-            window.ethereum = web3.currentProvider
-            """
-
-        let userScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: false)
-        webViewConfig.userContentController.add(messageHandler, name: Method.signTransaction.rawValue)
-        webViewConfig.userContentController.add(messageHandler, name: Method.signPersonalMessage.rawValue)
-        webViewConfig.userContentController.add(messageHandler, name: Method.signMessage.rawValue)
-        webViewConfig.userContentController.add(messageHandler, name: Method.signTypedMessage.rawValue)
-        webViewConfig.userContentController.addUserScript(userScript)
-        return webViewConfig
+        let script = WKUserScript(source: source, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+        return script
     }
 }

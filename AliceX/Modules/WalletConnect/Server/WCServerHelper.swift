@@ -80,7 +80,7 @@ extension WCServerHelper: ServerDelegate {
                                             url: URL(string: "https://www.alicedapp.com")!)
 
         let walletInfo = Session.WalletInfo(approved: true,
-                                            accounts: [WalletManager.wallet!.address],
+                                            accounts: [WalletManager.currentAccount!.address],
                                             chainId: WalletManager.currentNetwork.chainID,
                                             peerId: UUID().uuidString,
                                             peerMeta: walletMeta)

@@ -35,12 +35,12 @@ class BrowserPanelView: BaseView {
     @IBAction func safariButton() {
         UIApplication.shared.open((vcRef?.webview.url)!)
     }
-    
+
     @IBAction func favoriteButton() {
         guard let url = vcRef?.webview.url else {
             return
         }
-        
+
         let item = HomeItem.web(url: url)
         HomeItemHelper.shared.add(item: item)
         HUDManager.shared.showSuccess(text: "Added to screen")
@@ -72,13 +72,13 @@ class BrowserPanelView: BaseView {
         vc.vcRef = vcRef
         HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
-    
+
     @IBAction func configureButton() {
 //        HUDManager.shared.dismiss()
         let vc = BrowserSettingViewController()
         vc.vcRef = vcRef
         HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
-        
+
 //        vc.modalPresentationStyle = .overCurrentContext
 //        vcRef?.present(vc, animated: true, completion: nil)
 //        HUDManager.shared.showAlertVCNoBackground(viewController: vc)

@@ -52,8 +52,10 @@ class AssetViewController: BaseViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWithAnimation), name: .accountChange, object: nil)
+
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .currencyChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .walletChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWithAnimation), name: .walletChange, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .networkChange, object: nil)
 
@@ -67,6 +69,10 @@ class AssetViewController: BaseViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func refreshWithAnimation() {
+        collectionView.es.startPullToRefresh()
     }
 
     @objc func requestData() {
@@ -123,7 +129,7 @@ class AssetViewController: BaseViewController {
             print(error)
         }
 
-        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.wallet!.address)"
+        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
         Shared.stringCache.fetch(key: cacheKey).onSuccess { string in
             guard let model = OpenSeaReponse.deserialize(from: string) else {
                 return
@@ -147,7 +153,7 @@ class AssetViewController: BaseViewController {
         vc.selectBlockCahin = .Ethereum
 //        vc.modalPresentationStyle = .overCurrentContext
 //        present(vc, animated: true, completion: nil)
-        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
 
     func requestCoins() -> Promise<Void> {
@@ -168,7 +174,7 @@ class AssetViewController: BaseViewController {
     }
 
     func requestNFT() -> Promise<Bool> {
-        let currentAddress = WalletManager.wallet!.address
+        let currentAddress = WalletManager.currentAccount!.address
 
         let cacheKey = "\(CacheKey.assetNFTKey).\(currentAddress)"
 

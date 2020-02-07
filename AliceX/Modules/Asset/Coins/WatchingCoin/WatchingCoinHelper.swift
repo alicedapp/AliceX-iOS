@@ -20,9 +20,16 @@ class WatchingCoinHelper {
 
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(accountChange), name: .accountChange, object: nil)
     }
 
     @objc func walletChange() {
+        list.removeAll()
+        loadFromCache()
+    }
+
+    @objc func accountChange() {
         list.removeAll()
         loadFromCache()
     }
@@ -141,7 +148,7 @@ extension WatchingCoinHelper {
         }
 
         return Promise<[Coin]> { seal in
-            let cacheKey = "\(CacheKey.watchingList).\(WalletManager.wallet!.address)"
+            let cacheKey = "\(CacheKey.watchingList).\(WalletManager.currentAccount!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 var watchingList: [Coin] = []
                 let idList = result.split(separator: ",")
@@ -178,7 +185,7 @@ extension WatchingCoinHelper {
     }
 
     func storeInCache() {
-        let cacheKey = "\(CacheKey.watchingList).\(WalletManager.wallet!.address)"
+        let cacheKey = "\(CacheKey.watchingList).\(WalletManager.currentAccount!.address)"
         let idList = list.compactMap { $0.id }.joined(separator: ",")
         Shared.stringCache.set(value: idList, key: cacheKey)
     }

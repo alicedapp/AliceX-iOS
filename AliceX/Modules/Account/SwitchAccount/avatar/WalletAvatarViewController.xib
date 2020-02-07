@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletAvatarViewController" customModule="AliceX" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Mim-67-xY4" id="pe8-cn-YeQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhr-uq-MXW">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zb-dr-G58">
+                            <rect key="frame" x="148.5" y="18.5" width="117.5" height="23"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                            <color key="textColor" name="Alice-DarkGrey"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceText"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3D-So-QBR" customClass="UIControl">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="T7o-4Y-8lI">
+                                    <rect key="frame" x="18" y="11" width="24" height="38"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" name="Alice-White"/>
+                            <constraints>
+                                <constraint firstItem="T7o-4Y-8lI" firstAttribute="centerY" secondItem="r3D-So-QBR" secondAttribute="centerY" id="f37-dv-kBy"/>
+                                <constraint firstItem="T7o-4Y-8lI" firstAttribute="centerX" secondItem="r3D-So-QBR" secondAttribute="centerX" id="ijs-X3-KOd"/>
+                                <constraint firstAttribute="width" constant="60" id="tzd-hK-rVb"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backArrow"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="backButtonClicked" destination="-1" eventType="touchUpInside" id="4Ru-cC-6v0"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4i-bI-NR7">
+                            <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
+                            <color key="backgroundColor" name="Alice-LightGrey"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="XMh-ky-MSv"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="navLine"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Alice-White"/>
+                    <constraints>
+                        <constraint firstItem="0Zb-dr-G58" firstAttribute="centerY" secondItem="Vhr-uq-MXW" secondAttribute="centerY" id="5UA-k5-VEU"/>
+                        <constraint firstItem="0Zb-dr-G58" firstAttribute="centerX" secondItem="Vhr-uq-MXW" secondAttribute="centerX" id="MvS-Vo-quO"/>
+                        <constraint firstAttribute="height" constant="60" id="OZ9-j0-eP5"/>
+                        <constraint firstItem="v4i-bI-NR7" firstAttribute="leading" secondItem="Vhr-uq-MXW" secondAttribute="leading" id="QSx-uD-UgW"/>
+                        <constraint firstAttribute="bottom" secondItem="v4i-bI-NR7" secondAttribute="bottom" id="VAa-uS-8Lr"/>
+                        <constraint firstItem="r3D-So-QBR" firstAttribute="leading" secondItem="Vhr-uq-MXW" secondAttribute="leading" id="VVY-ke-Ccs"/>
+                        <constraint firstAttribute="bottom" secondItem="r3D-So-QBR" secondAttribute="bottom" id="aPG-vL-A9I"/>
+                        <constraint firstAttribute="trailing" secondItem="v4i-bI-NR7" secondAttribute="trailing" id="dvV-Py-O30"/>
+                        <constraint firstItem="r3D-So-QBR" firstAttribute="top" secondItem="Vhr-uq-MXW" secondAttribute="top" id="zy4-xz-7t7"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="AliceNaviBar"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mim-67-xY4">
+                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NHY-ip-wEZ">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" name="Alice-White"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mim-67-xY4" secondAttribute="trailing" id="4py-cu-vei"/>
+                <constraint firstAttribute="bottom" secondItem="Mim-67-xY4" secondAttribute="bottom" id="f65-fB-xeB"/>
+                <constraint firstItem="Mim-67-xY4" firstAttribute="top" secondItem="Vhr-uq-MXW" secondAttribute="bottom" id="gws-4W-ZKe"/>
+                <constraint firstItem="Vhr-uq-MXW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hbN-ww-kM1"/>
+                <constraint firstItem="Vhr-uq-MXW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j85-q8-EpR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vhr-uq-MXW" secondAttribute="trailing" id="y9j-kG-Ave"/>
+                <constraint firstItem="Mim-67-xY4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z3R-Oo-QHr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="128"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back-dark" width="12" height="19"/>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
