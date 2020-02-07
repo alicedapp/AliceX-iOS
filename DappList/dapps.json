@@ -18,6 +18,24 @@
         "dappName": "CryptoKitties"
     },
     {
+        "link": "http://www.defizap.com",
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/DeFiZap/Assets/logo.png?raw=true",
+        "name": "DeFi Zap",
+        "description": "Get instant exposure across multiple DeFi protocols based on your investment goals.",
+        "category": "Investments",
+        "type": 0,
+        "dappName": "DeFiZap"
+    },
+       {
+        "link": "https://www.ethdenver.com/",
+        "img": "https://github.com/alicedapp/AliceX/blob/master/src/Apps/ETHDenver/Assets/logo.png?raw=true",
+        "name": "ETHDenver 2020",
+        "description": "Bringing together diverse minds who are passionate about decentralization & the blockchain ecosystem.",
+        "category": "Hackathon",
+        "type": 0,
+        "dappName": "ETHDenver"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/uniswap/icon_small_uniswap_e78bc5782198ea4b303323c314a6183f991bd11a53a0d721df5fa259cddce439_opti.png",
         "name": "Uniswap",
         "description": "Protocol for automated token exchange",
