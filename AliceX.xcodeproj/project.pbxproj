@@ -138,6 +138,8 @@
 		155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACF1233947EB0002B478 /* PayButtonView.xib */; };
 		1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561A03A236B492A00962949 /* AddressQRViewController.xib */; };
 		1562602023EFDBF900A53E8D /* Etherscan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562601F23EFDBF900A53E8D /* Etherscan.swift */; };
+		1562602323F0400100A53E8D /* TransactionRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562602223F0400100A53E8D /* TransactionRecordHelper.swift */; };
+		1562602523F0553700A53E8D /* AssetDetailHeader+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562602423F0553700A53E8D /* AssetDetailHeader+Chart.swift */; };
 		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
@@ -515,6 +517,8 @@
 		155FACF1233947EB0002B478 /* PayButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayButtonView.xib; sourceTree = "<group>"; };
 		1561A03A236B492A00962949 /* AddressQRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRViewController.xib; sourceTree = "<group>"; };
 		1562601F23EFDBF900A53E8D /* Etherscan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etherscan.swift; sourceTree = "<group>"; };
+		1562602223F0400100A53E8D /* TransactionRecordHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRecordHelper.swift; sourceTree = "<group>"; };
+		1562602423F0553700A53E8D /* AssetDetailHeader+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailHeader+Chart.swift"; sourceTree = "<group>"; };
 		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -960,6 +964,7 @@
 		1527872F22AE207400D63C7F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				1562602123EFF06D00A53E8D /* TransactionRecord */,
 				1587396B22BB4A1500F36F92 /* GasFee */,
 				1527873122AE209100D63C7F /* Popup */,
 				1527873922AE216C00D63C7F /* TransactionManager.swift */,
@@ -1247,6 +1252,14 @@
 				1562601F23EFDBF900A53E8D /* Etherscan.swift */,
 			);
 			path = Etherscan;
+			sourceTree = "<group>";
+		};
+		1562602123EFF06D00A53E8D /* TransactionRecord */ = {
+			isa = PBXGroup;
+			children = (
+				1562602223F0400100A53E8D /* TransactionRecordHelper.swift */,
+			);
+			path = TransactionRecord;
 			sourceTree = "<group>";
 		};
 		156548EE22CDC30F005C8B2D /* Network */ = {
@@ -1632,6 +1645,7 @@
 			isa = PBXGroup;
 			children = (
 				158FA3AE23EA8E46002FFC76 /* AssetDetailHeader.swift */,
+				1562602423F0553700A53E8D /* AssetDetailHeader+Chart.swift */,
 				158FA3B023EA8E4D002FFC76 /* AssetDetailHeader.xib */,
 			);
 			path = Header;
@@ -2820,6 +2834,7 @@
 				15E18FAB23E867E4007C0263 /* AssetDetailView.swift in Sources */,
 				152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
+				1562602523F0553700A53E8D /* AssetDetailHeader+Chart.swift in Sources */,
 				15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */,
@@ -2851,6 +2866,7 @@
 				15E3C8F023421AD300DCADBF /* ShareHelper.swift in Sources */,
 				153A654822C9CE2B0035EB2C /* LandingViewController.swift in Sources */,
 				154F60A9238592A50011200F /* BaseRNAppViewController.swift in Sources */,
+				1562602323F0400100A53E8D /* TransactionRecordHelper.swift in Sources */,
 				158124CD23EB159D0021B62E /* AssetTXViewController.swift in Sources */,
 				158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */,
 				15015DAC2365B253008DDD80 /* AssetNFTHeaderCell.swift in Sources */,

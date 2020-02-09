@@ -55,6 +55,15 @@ class PriceManager {
                             if let info = CoinInfoCenter.shared.pool[coin.id] {
                                 CoinInfoCenter.shared.pool[coin.id]?.price = model.PRICE
                                 CoinInfoCenter.shared.pool[coin.id]?.changeIn24H = model.CHANGE24HOUR
+                                
+                                let market = CoinInfo.CoinMaketData(open24H: model.OPEN24HOUR,
+                                                                    high24H: model.HIGH24HOUR,
+                                                                    low24H: model.LOW24HOUR,
+                                                                    vol24H: model.VOLUME24HOUR,
+                                                                    lastUpdate: model.LASTUPDATE,
+                                                                    supply: model.SUPPLY,
+                                                                    MKTCAP: model.MKTCAP)
+                                CoinInfoCenter.shared.pool[coin.id]?.market = market
                             }
                         }
                     }

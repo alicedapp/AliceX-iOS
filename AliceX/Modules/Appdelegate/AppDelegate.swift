@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WalletManager.loadFromCache()
         onBackgroundThread {
             PriceHelper.shared.fetchFromCache()
+            TransactionRecordHelper.shared.loadFromCache()
         }
 
         bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)

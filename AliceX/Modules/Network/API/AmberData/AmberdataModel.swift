@@ -138,7 +138,7 @@ struct AmberdataTXModel: HandyJSON {
     var gasPrice: String?
     var gasUsed: String!
 
-    var hash: String?
+    var hash: String!
     var index: Int64?
     var input: String?
 
@@ -159,4 +159,18 @@ struct AmberdataTXModel: HandyJSON {
     }
     
     init() {}
+}
+
+extension AmberdataTXModel: Equatable, Hashable {
+    static func == (lhs: AmberdataTXModel, rhs: AmberdataTXModel) -> Bool {
+        return lhs.hash == rhs.hash
+    }
+    
+    var hashValue: Int {
+        return hash.hashValue
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(hash)
+    }
 }

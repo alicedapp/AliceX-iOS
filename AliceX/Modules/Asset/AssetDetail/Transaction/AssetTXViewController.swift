@@ -46,6 +46,11 @@ class AssetTXViewController: UIViewController {
         tableView.isSkeletonable = true
         tableView.estimatedRowHeight = 70
         
+        if TransactionRecordHelper.shared.list.count > 0 {
+            self.group = self.groupRecordByMonth(list: Array(TransactionRecordHelper.shared.list))
+            self.tableView.reloadData()
+        }
+        
         requestData(page: 0)
    }
     
@@ -58,55 +63,62 @@ class AssetTXViewController: UIViewController {
     }
 
     func requestData(page: Int) {
-        let address = WalletManager.currentAccount!.address
-//            WalletCore.address(blockchain: .Ethereum)
-        if page == 0 {
-            view.showAnimatedGradientSkeleton()
-        }
+
+//        if page == 0 {
+//            view.showAnimatedGradientSkeleton()
+//        }
         
-        firstly { () -> Promise<[AmberdataTXModel?]> in
-            API(AmberData.addressTX(address: address, page: page), path: "payload.records")
+        firstly {
+            TransactionRecordHelper.shared.fetchTXHistory(page: page)
         }.done { list in
             
             if list.count == 0 {
                 self.tableView.es.noticeNoMoreData()
             }
             
-            let tmpList = self.data + list
+            self.group = self.groupRecordByMonth(list: Array(TransactionRecordHelper.shared.list))
             
-            self.data = tmpList.compactMap { $0 }.sorted(by: { (model1, model2) -> Bool in
-                guard let date1 = model1.timestamp, let date2 = model2.timestamp else {
-                    return true
-                }
-                return date1 > date2
-            })
-            
-            self.group = Dictionary(grouping: self.data) { model -> DateComponents in
-                let component = Calendar.current.dateComponents([.year, .month], from: model.timestamp!)
-                return component
-            }.sorted(by: { ( dict1, dict2) -> Bool in
-                let key1 = dict1.key
-                let key2 = dict2.key
-                
-                if key1.year! == key2.year! {
-                    return key1.month! > key2.month!
-                }
-                return key1.year! > key2.year!
-            })
-//                .reduce(into: [String: [AmberdataTXModel]]()) { (arr, crr) in
-//                let title = "\(crr.key.month!) \(crr.key.year!)"
-//                arr[title] = crr.value
-//            }
-            
+//            self.view.hideSkeleton()
             self.tableView.reloadData()
             self.page += 1
         }.ensure {
             self.tableView.es.stopLoadingMore()
-            self.view.hideSkeleton()
+//            self.view.hideSkeleton()
         }.catch { error in
-//            print("BBBB")
+    //            print("BBBB")
             print(error.localizedDescription)
         }
+    }
+    
+    func groupRecordByMonth(list: [AmberdataTXModel]) -> [(key: DateComponents, value: [AmberdataTXModel])] {
+        
+        self.data = list.compactMap { $0 }.sorted(by: { (model1, model2) -> Bool in
+            guard let date1 = model1.timestamp, let date2 = model2.timestamp else {
+                return true
+            }
+            return date1 > date2
+        })
+        
+        let result = Dictionary(grouping: self.data) { model -> DateComponents in
+            let component = Calendar.current.dateComponents([.year, .month], from: model.timestamp!)
+            return component
+        }.sorted(by: { ( dict1, dict2) -> Bool in
+            let key1 = dict1.key
+            let key2 = dict2.key
+
+            if key1.year! == key2.year! {
+                return key1.month! > key2.month!
+            }
+            return key1.year! > key2.year!
+        })
+        return result
+    }
+
+}
+
+extension AssetTXViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 

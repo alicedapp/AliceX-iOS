@@ -13,6 +13,17 @@ import PromiseKit
 import web3swift
 
 struct CoinInfo: HandyJSON {
+    
+    struct CoinMaketData {
+        var open24H: Double!
+        var high24H: Double!
+        var low24H: Double!
+        var vol24H: Double!
+        var lastUpdate: TimeInterval!
+        var supply: Int64!
+        var MKTCAP: NSNumber!
+    }
+    
     var id: String! // ERC20 address, Blockchain Name
     var name: String!
     var symbol: String!
@@ -20,8 +31,9 @@ struct CoinInfo: HandyJSON {
     var price: Double?
     var image: String!
     var changeIn24H: Double?
-
     var amount: String?
+    
+    var market: CoinMaketData?
 
     var isPined: Bool = false
 

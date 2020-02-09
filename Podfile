@@ -40,6 +40,7 @@ target 'AliceX' do
 #  pod 'AwaitKit'
   pod 'Instructions', '~> 1.4.0'
   pod "SkeletonView"
+  pod 'SwiftDate', '~> 5.0'
   
   #for push notifications
   pod 'Firebase/Core'
