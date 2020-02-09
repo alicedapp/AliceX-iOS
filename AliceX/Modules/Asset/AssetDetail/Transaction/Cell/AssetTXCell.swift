@@ -48,8 +48,17 @@ class AssetTXCell: UITableViewCell {
             return
         }
         
-        if to.address.lowercased() == WalletManager.currentAccount!.address.lowercased() {
-            titleLabel.text = "Received"
+        if !model.statusResult!.confirmed {
+            print(model)
+        }
+        
+        logoView.image = nil
+        
+        let currentAddress = WalletManager.currentAccount!.address.lowercased()
+        let walletList = WalletManager.Accounts!.map { $0.address.lowercased() }
+        
+        if to.address.lowercased() == currentAddress {
+            titleLabel.text = model.statusResult!.confirmed ? "Received" : "❌ Received"
             addressLabel.text = from.address
             statusButton.currentButtonType = .buttonDownBasicType
             statusButton.tintColor = AliceColor.green
@@ -63,8 +72,14 @@ class AssetTXCell: UITableViewCell {
                 addressLabel.text = name
             }
             
+            if let index = walletList.firstIndex(of: from.address) {
+                let wallet = WalletManager.Accounts![index]
+                addressLabel.text = wallet.name
+                logoView.image = UIImage(named: wallet.imageName)
+            }
+            
         } else {
-            titleLabel.text = "Sent"
+            titleLabel.text = model.statusResult!.confirmed ? "Sent" : "❌ Sent"
             addressLabel.text = to.address
             statusButton.currentButtonType = .buttonUpBasicType
             statusButton.tintColor = AliceColor.red
@@ -78,9 +93,19 @@ class AssetTXCell: UITableViewCell {
             if let name = to.nameNormalized {
                 addressLabel.text = name
             }
+            
+            if let index = walletList.firstIndex(of: to.address) {
+                let wallet = WalletManager.Accounts![index]
+                addressLabel.text = wallet.name
+                logoView.image = UIImage(named: wallet.imageName)
+            }
         }
         
-        logoView.image = nil
+        if to.address.lowercased() == currentAddress &&
+            from.address.lowercased() == currentAddress {
+            logoView.image = UIImage(named: WalletManager.currentAccount!.imageName)
+            addressLabel.text = "Self"
+        }
         
         if let icon = to.icon {
             logoView.kf.setImage(with: URL(string: icon)!)
@@ -90,9 +115,17 @@ class AssetTXCell: UITableViewCell {
             logoView.kf.setImage(with: URL(string: icon)!)
         }
         
+        if let transfers = model.tokenTransfers, let transfer = transfers.last {
+            addressLabel.text = transfer.name
+        }
+        
         if let date = model.timestamp {
-            let time = Date.getTimeComponentString(olderDate: date, newerDate: Date())
-            hashLabel.text = "\(time ?? "unknow") ago"
+//            let time = Date.getTimeComponentString(olderDate: date, newerDate: Date())
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
+            hashLabel.text = dateFormatter.string(from: date)
+//            "\(time ?? "unknow") ago"
         }
     }
 }

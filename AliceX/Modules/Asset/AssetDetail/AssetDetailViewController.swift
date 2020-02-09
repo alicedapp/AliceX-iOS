@@ -25,7 +25,7 @@ class AssetDetailViewController: BaseViewController {
         didSet {
             if currentCoin != oldValue {
 //                requestData()
-                updateCoin()
+//                updateCoin()
             }
         }
     }
@@ -55,11 +55,11 @@ class AssetDetailViewController: BaseViewController {
         segmentedView.dataSource = dataSource
 
         let indicator = JXSegmentedIndicatorBackgroundView()
-        indicator.isIndicatorConvertToItemFrameEnabled = true
+//        indicator.isIndicatorConvertToItemFrameEnabled = true
         indicator.indicatorHeight = 30
         indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
-
+        
         listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)
         segmentedView.listContainer = listContainerView
         segmentedView.contentScrollView = listContainerView.scrollView
@@ -75,13 +75,21 @@ class AssetDetailViewController: BaseViewController {
 //        setupChartView()
 //        requestData()
 
-        updateCoin()
+        if let index = coins.firstIndex(of: currentCoin) {
+            segmentedView.defaultSelectedIndex = index
+        }
+        
+//        updateCoin()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        segmentedView.indicators.first!.centerInSuperview()
     }
 
-    func updateCoin() {
-        titleText.text = currentCoin.info?.name
-        titleAnimation()
-    }
+//    func updateCoin() {
+//        titleText.text = currentCoin.info?.name
+//        titleAnimation()
+//    }
 
     func titleAnimation() {
         let transition = CATransition()

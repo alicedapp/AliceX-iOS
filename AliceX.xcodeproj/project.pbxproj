@@ -137,6 +137,7 @@
 		155FACF2233947EB0002B478 /* PayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACF0233947EB0002B478 /* PayButtonView.swift */; };
 		155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACF1233947EB0002B478 /* PayButtonView.xib */; };
 		1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561A03A236B492A00962949 /* AddressQRViewController.xib */; };
+		1562602023EFDBF900A53E8D /* Etherscan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562601F23EFDBF900A53E8D /* Etherscan.swift */; };
 		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
@@ -181,7 +182,7 @@
 		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
 		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
 		158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */; };
-		158124CA23EB0EAD0021B62E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C923EB0EAD0021B62E /* test.swift */; };
+		158124CA23EB0EAD0021B62E /* PagingListBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C923EB0EAD0021B62E /* PagingListBaseView.swift */; };
 		158124CD23EB159D0021B62E /* AssetTXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124CB23EB159C0021B62E /* AssetTXViewController.swift */; };
 		158124D223EB167F0021B62E /* AssetTXCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124D023EB167F0021B62E /* AssetTXCell.swift */; };
 		158124D323EB167F0021B62E /* AssetTXCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124D123EB167F0021B62E /* AssetTXCell.xib */; };
@@ -513,6 +514,7 @@
 		155FACF0233947EB0002B478 /* PayButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayButtonView.swift; sourceTree = "<group>"; };
 		155FACF1233947EB0002B478 /* PayButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayButtonView.xib; sourceTree = "<group>"; };
 		1561A03A236B492A00962949 /* AddressQRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRViewController.xib; sourceTree = "<group>"; };
+		1562601F23EFDBF900A53E8D /* Etherscan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etherscan.swift; sourceTree = "<group>"; };
 		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -557,7 +559,7 @@
 		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
 		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
 		158124C623EAF6E20021B62E /* AssetDetailChildVC+Segement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailChildVC+Segement.swift"; sourceTree = "<group>"; };
-		158124C923EB0EAD0021B62E /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		158124C923EB0EAD0021B62E /* PagingListBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseView.swift; sourceTree = "<group>"; };
 		158124CB23EB159C0021B62E /* AssetTXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTXViewController.swift; sourceTree = "<group>"; };
 		158124D023EB167F0021B62E /* AssetTXCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTXCell.swift; sourceTree = "<group>"; };
 		158124D123EB167F0021B62E /* AssetTXCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTXCell.xib; sourceTree = "<group>"; };
@@ -1239,6 +1241,14 @@
 			path = PayButton;
 			sourceTree = "<group>";
 		};
+		1562601E23EFDBEB00A53E8D /* Etherscan */ = {
+			isa = PBXGroup;
+			children = (
+				1562601F23EFDBF900A53E8D /* Etherscan.swift */,
+			);
+			path = Etherscan;
+			sourceTree = "<group>";
+		};
 		156548EE22CDC30F005C8B2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1367,7 +1377,7 @@
 			isa = PBXGroup;
 			children = (
 				158124CF23EB16670021B62E /* Cell */,
-				158124C923EB0EAD0021B62E /* test.swift */,
+				158124C923EB0EAD0021B62E /* PagingListBaseView.swift */,
 				158124CB23EB159C0021B62E /* AssetTXViewController.swift */,
 				158124D723EBB6D30021B62E /* AssetTXViewController.xib */,
 			);
@@ -1517,6 +1527,7 @@
 		1587396722BA0EB900F36F92 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1562601E23EFDBEB00A53E8D /* Etherscan */,
 				152541F42386BC01005CC83E /* Github */,
 				158A905A2370259D002F9F18 /* Cryptocompare */,
 				151250C423661F3B00AD37BB /* OpenSea */,
@@ -2738,7 +2749,7 @@
 				1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
-				158124CA23EB0EAD0021B62E /* test.swift in Sources */,
+				158124CA23EB0EAD0021B62E /* PagingListBaseView.swift in Sources */,
 				15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */,
 				158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
@@ -2776,6 +2787,7 @@
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15E18FA323E710A4007C0263 /* BEMAverageLine.m in Sources */,
 				158A905C237025AE002F9F18 /* Cryptocompare.swift in Sources */,
+				1562602023EFDBF900A53E8D /* Etherscan.swift in Sources */,
 				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
 				1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */,
 				1514464923617ACB005E87CE /* WalletCoreManager.swift in Sources */,

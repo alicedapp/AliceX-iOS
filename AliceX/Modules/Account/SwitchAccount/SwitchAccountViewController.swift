@@ -62,6 +62,12 @@ class SwitchAccountViewController: BaseViewController {
 
         cellHeights = Array(repeating: Const.closeCellHeight, count: data.count)
         NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
+    }
+    
+    @objc func walletChange() {
+        var data = WalletManager.Accounts!
+        self.tableView.reloadData()
     }
 
     @objc func swicthAccount() {
@@ -192,21 +198,6 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
 //       return footerView
     //   }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == Cells.create.rawValue {
-            return nil
-        }
-
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        headerView.backgroundColor = AliceColor.white()
-        let label = UILabel()
-        label.frame = CGRect(x: 20, y: 5, width: headerView.frame.width - 40, height: headerView.frame.height - 10)
-        label.text = section == Cells.mnemonic.rawValue ? "Mnemonic" : "Accounts"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.textColor = AliceColor.darkGrey()
-        headerView.addSubview(label)
-        return headerView
-    }
 
     func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == Cells.create.rawValue {

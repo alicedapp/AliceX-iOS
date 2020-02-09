@@ -11,8 +11,9 @@ import JXSegmentedView
 import PromiseKit
 
 extension AssetDetailViewController: JXSegmentedListContainerViewDataSource {
-    func listContainerView(_: JXSegmentedListContainerView, initListAt _: Int) -> JXSegmentedListContainerViewListDelegate {
+    func listContainerView(_: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         let vc = AssetDetailChildVC()
+        vc.coin = coins[index]
         vc.detailRef = self
         vc.view.backgroundColor = .random
         return vc

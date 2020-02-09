@@ -71,8 +71,8 @@ class AssetCoinCell: UICollectionViewCell {
         }
 
         let vc = AssetDetailViewController()
+        vc.currentCoin = coin
         let topVC = UIApplication.topViewController()
-
         topVC?.navigationController?.pushViewController(vc, animated: true)
 
 //        switch gesture.state {
@@ -198,13 +198,24 @@ class AssetCoinCell: UICollectionViewCell {
             if change > 0.0 {
                 animationButton.currentButtonType = .buttonUpBasicType
                 animationButton.tintColor = AliceColor.green
-//                precentageLabel.textColor = AliceColor.green
-//                precentageLabel.text = "\(change.toString(decimal: 3))%"
+                precentageLabel.textColor = UIColor.systemGreen
+                let precentage = change.toString(decimal: 5)
+                if precentage != "0" {
+                    precentageLabel.text = "+\(precentage)%"
+                } else {
+                    precentageLabel.text = ""
+                }
+                
             } else {
                 animationButton.currentButtonType = .buttonDownBasicType
                 animationButton.tintColor = AliceColor.red
-//                precentageLabel.textColor = AliceColor.red
-//                precentageLabel.text = "\(change.toString(decimal: 3))%"
+                precentageLabel.textColor = AliceColor.red
+                let precentage = change.toString(decimal: 5)
+                if precentage != "-0" {
+                    precentageLabel.text = "\(precentage)%"
+                } else {
+                    precentageLabel.text = ""
+                }
             }
         }
 

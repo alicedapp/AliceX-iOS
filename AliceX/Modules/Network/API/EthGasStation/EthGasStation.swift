@@ -12,7 +12,6 @@ import Moya
 let gasStationAPI = MoyaProvider<EthGasStation>(plugins:
     [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-// Due to Coinmarketcap plan, just support ETH in
 enum EthGasStation {
     case gas
 }

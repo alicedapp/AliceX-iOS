@@ -149,12 +149,12 @@ extension Web3NetEnum {
     var rpcURL: URL {
         let urlString: String = {
             switch self {
-            case .main: return "https://mainnet.infura.io/v3/\(Constant.infuraKey)"
-            case .kovan: return "https://kovan.infura.io/v3/\(Constant.infuraKey)"
-            case .ropsten: return "https://ropsten.infura.io/v3/\(Constant.infuraKey)"
-            case .rinkeby: return "https://rinkeby.infura.io/v3/\(Constant.infuraKey)"
+            case .main: return "https://mainnet.infura.io/v3/\(APIKey.infuraKey)"
+            case .kovan: return "https://kovan.infura.io/v3/\(APIKey.infuraKey)"
+            case .ropsten: return "https://ropsten.infura.io/v3/\(APIKey.infuraKey)"
+            case .rinkeby: return "https://rinkeby.infura.io/v3/\(APIKey.infuraKey)"
             case .poa: return "https://core.poa.network"
-            case .goerli: return "https://goerli.infura.io/v3/\(Constant.infuraKey)"
+            case .goerli: return "https://goerli.infura.io/v3/\(APIKey.infuraKey)"
             case .xDai: return "https://dai.poa.network"
             case let .custom(model):
                 return model.rpcURL

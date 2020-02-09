@@ -13,7 +13,7 @@ class AssetDetailChildVC: UIViewController {
     
     enum AssetTab: Int, CaseIterable {
         case transaction = 0
-        case price
+//        case price
         case info
     }
     
@@ -22,19 +22,23 @@ class AssetDetailChildVC: UIViewController {
     var userHeaderContainerView: UIView!
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     var segmentedView: JXSegmentedView!
-    let titles = ["Transactions", "Price", "Info"]
-    var JXTableHeaderViewHeight: Int = 200
+    let titles = ["Transactions", "Info"]
+    var JXTableHeaderViewHeight: Int = 500
     var JXheightForHeaderInSection: Int = 50
 
     var detailRef: AssetDetailViewController?
 
+    var coin: Coin!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
-        userHeaderView = AssetDetailHeader.instanceFromNib()
+        let header = AssetDetailHeader.instanceFromNib()
+        header.configure(coin: coin)
+        userHeaderView = header
         userHeaderContainerView.addSubview(userHeaderView)
         userHeaderView.fillSuperview()
 
@@ -44,7 +48,7 @@ class AssetDetailChildVC: UIViewController {
         segmentedViewDataSource.titleSelectedColor = AliceColor.white()
         segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
         segmentedViewDataSource.isTitleColorGradientEnabled = true
-//        segmentedViewDataSource.isTitleZoomEnabled = true
+        segmentedViewDataSource.isItemSpacingAverageEnabled = true
         segmentedViewDataSource.reloadData(selectedIndex: 0)
 
         segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXheightForHeaderInSection)))

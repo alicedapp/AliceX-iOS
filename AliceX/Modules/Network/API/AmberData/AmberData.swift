@@ -85,8 +85,8 @@ extension AmberData: TargetType {
         switch self {
         case .assetPriceHistorical:
             return .requestParameters(parameters: ["quote": "usd"], encoding: URLEncoding.queryString)
-//        case .addressTX(_, let page):
-//            return .requestParameters(parameters: ["size": 20, "page": page], encoding: URLEncoding.queryString)
+        case .addressTX(_, let page):
+            return .requestParameters(parameters: ["size": 50, "page": page, "includeTokenTransfers": "true"], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

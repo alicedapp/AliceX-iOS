@@ -12,7 +12,6 @@ import Moya
 let OpenSeaAPI = MoyaProvider<OpenSea>(plugins:
     [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-// Due to Coinmarketcap plan, just support ETH in
 enum OpenSea {
     case assets(address: String)
 }

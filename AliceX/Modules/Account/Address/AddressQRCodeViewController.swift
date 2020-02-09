@@ -70,7 +70,7 @@ class AddressQRCodeViewController: UIViewController {
         let indicator = JXSegmentedIndicatorLineView()
         indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
         indicator.lineStyle = .lengthenOffset
-        indicator.indicatorColor = AliceColor.dark
+        indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
 
         listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)

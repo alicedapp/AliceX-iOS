@@ -140,6 +140,7 @@ class Constant {
     }
 }
 
-extension Constant {
+class APIKey {
     static let infuraKey = "da3717f25f824cc1baa32d812386d93f"
+    static let etherscanKey = "HKFT391NVPRQTI4348DRSCWZPMA4JJPR9R"
 }

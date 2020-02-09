@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import SkeletonView
 
 class AssetInfoViewController: UIViewController {
 
@@ -24,7 +25,9 @@ class AssetInfoViewController: UIViewController {
     @IBOutlet var issuancesCountLabel: UILabel!
     @IBOutlet var totalSupplyLabel: UILabel!
     
-    @IBOutlet var descriptionView: UITextView!
+    @IBOutlet var descTextView: UITextView!
+    
+    @IBOutlet var textViewHeight: NSLayoutConstraint!
     
     var listViewDidScrollCallback: ((UIScrollView) -> Void)?
     
@@ -49,28 +52,37 @@ class AssetInfoViewController: UIViewController {
         addressLabel.text = model.address
         
         symbolLabel.text = model.symbol
-        descriptionView.text = model.description
+        ownerLabel.text = model.owner
         
         transfersCountLabel.text = String(model.transfersCount)
         holdersCountLabel.text = String(model.holdersCount)
         issuancesCountLabel.text = String(model.issuancesCount)
         
         totalSupplyLabel.text = String(model.totalSupply)
+        
+        descTextView.text = model.description ?? "(No Description)"
+        descTextView.translatesAutoresizingMaskIntoConstraints = false
+        descTextView.isScrollEnabled = false
+        descTextView.sizeToFit()
+        textViewHeight.constant = descTextView.contentSize.height
     }
     
     func requestData() {
         
-//        if !coin.isERC20 {
-//            return
-//        }
+        if !coin.isERC20 {
+            return
+        }
+        
+        view.showAnimatedGradientSkeleton()
         
         firstly { () -> Promise<TokenInfo> in
-            API(Ethplorer.getTokenInfo(address: "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"))
+            API(Ethplorer.getTokenInfo(address: coin.id))
         }.done { model in
             self.data = model
+            self.view.hideSkeleton()
             self.configure()
-       }.catch { error in
-            
+        }.catch { error in
+            self.view.showSkeleton()
         }
         
     }

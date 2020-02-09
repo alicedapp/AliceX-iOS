@@ -149,7 +149,7 @@ struct AmberdataTXModel: HandyJSON {
     var to: [AmberdataTXAddress]?
 
     var value: String?
-    var tokenTransfers: AmberdataTXTokenTransfers?
+    var tokenTransfers: [AmberdataTXTokenTransfers]?
     
     mutating func mapping(mapper: HelpingMapper) {
         

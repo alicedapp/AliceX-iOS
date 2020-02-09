@@ -51,7 +51,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="f2e-fT-4gy">
-                                    <rect key="frame" x="24" y="20.5" width="12" height="19"/>
+                                    <rect key="frame" x="18" y="11" width="24" height="38"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
@@ -326,7 +326,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-dark-grey" translatesAutoresizingMaskIntoConstraints="NO" id="USe-Km-2cm">
-                                                            <rect key="frame" x="388" y="20.5" width="11" height="19"/>
+                                                            <rect key="frame" x="377" y="11" width="22" height="38"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -372,7 +372,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-dark-grey" translatesAutoresizingMaskIntoConstraints="NO" id="Cz6-Vg-RBX">
-                                                            <rect key="frame" x="388" y="20.5" width="11" height="19"/>
+                                                            <rect key="frame" x="377" y="11" width="22" height="38"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
