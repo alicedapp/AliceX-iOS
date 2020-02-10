@@ -75,7 +75,9 @@ target 'AliceX' do
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
   pod 'ReactNativeExceptionHandler', :podspec => '../node_modules/react-native-exception-handler/ReactNativeExceptionHandler.podspec'
-  
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
 #  
 #  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
 #  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
