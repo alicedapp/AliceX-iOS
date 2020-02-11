@@ -49,7 +49,6 @@ target 'AliceX' do
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Analytics'
   
-
 # React Native Dependencies
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
   'Core',

@@ -60,6 +60,7 @@ class PriceManager {
                                                                     high24H: model.HIGH24HOUR,
                                                                     low24H: model.LOW24HOUR,
                                                                     vol24H: model.VOLUME24HOUR,
+                                                                    volTo24H: model.VOLUME24HOURTO,
                                                                     lastUpdate: model.LASTUPDATE,
                                                                     supply: model.SUPPLY,
                                                                     MKTCAP: model.MKTCAP)

@@ -24,12 +24,12 @@ enum Coin {
         }
     }
 
-    var blockchain: BlockChain? {
+    var blockchain: BlockChain {
         switch self {
         case let .coin(chain):
             return chain
         default:
-            return nil
+            return .Ethereum
         }
     }
 

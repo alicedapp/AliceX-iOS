@@ -27,20 +27,26 @@ class AssetDetailHeader: BaseView {
     
     @IBOutlet var chartView: BEMSimpleLineGraphView!
     
+    @IBOutlet var closeLabel: UILabel!
     @IBOutlet var openLabel: UILabel!
     @IBOutlet var HighLabel: UILabel!
     @IBOutlet var lowLabel: UILabel!
-    @IBOutlet var volLabel: UILabel!
+    @IBOutlet var volFromLabel: UILabel!
+    @IBOutlet var volToLabel: UILabel!
     @IBOutlet var supplyLabel: UILabel!
     @IBOutlet var mktcapLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     
+    @IBOutlet var loadingView: UIView!
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     var segmentedView: JXSegmentedView!
-    let titles = ["1D", "1W", "1M", "3M", "1Y", "All"]
 
     var coin: Coin! = .coin(chain: .Ethereum)
     var data = [CryptocompareHistoryData]()
+    
+    var currentPeriod: Period = Period.oneDay
     
     var gradient: CGGradient!
     
@@ -60,18 +66,20 @@ class AssetDetailHeader: BaseView {
     }
     
     override func awakeFromNib() {
-         segmentedViewDataSource = JXSegmentedTitleDataSource()
-        segmentedViewDataSource.titles = titles
+        segmentedViewDataSource = JXSegmentedTitleDataSource()
+        segmentedViewDataSource.titles = Period.allCases.compactMap{ $0.text }
         segmentedViewDataSource.titleSelectedColor = AliceColor.white()
         segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
         segmentedViewDataSource.isTitleColorGradientEnabled = true
 //        segmentedViewDataSource.isTitleZoomEnabled = true
         segmentedViewDataSource.reloadData(selectedIndex: 0)
 
+        
         segmentedView = JXSegmentedView()
         segmentedView.backgroundColor = AliceColor.white()
         segmentedView.dataSource = segmentedViewDataSource
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
+        segmentedView.delegate = self
         
         segmentedContainer.addSubview(segmentedView)
         segmentedView.fillSuperview()
@@ -142,25 +150,35 @@ class AssetDetailHeader: BaseView {
         openLabel.text = String(market.open24H)
         HighLabel.text = String(market.high24H)
         lowLabel.text = String(market.low24H)
+        closeLabel.text = String(info.price!)
         
-        mktcapLabel.text = String(market.MKTCAP.doubleValue)
+        mktcapLabel.text = String(market.MKTCAP.doubleValue.rounded(toPlaces: 3))
         supplyLabel.text = String(market.supply)
-        volLabel.text = String(market.vol24H)
+        volFromLabel.text = String(market.vol24H)
+        volToLabel.text = String(market.volTo24H)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy '\n' HH:mm"
+        dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
         let date = Date(timeIntervalSince1970: market.lastUpdate)
         timeLabel.text = dateFormatter.string(from: date)
+    }
+    
+    @IBAction func viewOnClick() {
+        let url = "https://www.coinbase.com/price/\(coin.info!.symbol!.lowercased())"
+        let vc = BrowserWrapperViewController.make(urlString: url)
+        let topVC = UIApplication.topViewController()
+        topVC?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension AssetDetailHeader: JXSegmentedViewDelegate {
     
-    func segmentedView(_: JXSegmentedView, didSelectedItemAt index: Int) {
-//        currentCoin = coins[index]
+    func segmentedView(_ segmentedView: JXSegmentedView, didClickSelectedItemAt index: Int) {
+        currentPeriod = Period.allCases[index]
+        requestData()
     }
 
     func numberOfLists(in _: JXSegmentedListContainerView) -> Int {
-        return titles.count
+        return Period.allCases.count
     }
 }

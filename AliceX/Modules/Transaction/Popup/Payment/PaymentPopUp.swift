@@ -65,7 +65,8 @@ class PaymentPopUp: UIViewController {
 
         isCustomGasLimit = gasLimit != BigUInt(0)
 
-        guard let chain = coin.blockchain, let info = coin.info else {
+        let chain = coin.blockchain
+        guard let info = coin.info else {
             HUDManager.shared.showError(text: "Wrong coin type")
             dismiss(animated: true, completion: nil)
             return
@@ -171,9 +172,10 @@ extension PaymentPopUp: PayButtonDelegate {
     func send() {
         payView!.showLoading()
 
-        guard let chain = coin.blockchain else {
-            return
-        }
+        let chain = coin.blockchain
+//        guard  else {
+//            return
+//        }
 
         var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
         if isCustomGasLimit {

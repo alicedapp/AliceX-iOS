@@ -20,6 +20,7 @@ struct CryptocompareModel: HandyJSON {
     var HIGH24HOUR: Double!
     var LOW24HOUR: Double!
     var VOLUME24HOUR: Double!
+    var VOLUME24HOURTO: Double!
     var LASTUPDATE: TimeInterval!
     
     var SUPPLY: Int64!

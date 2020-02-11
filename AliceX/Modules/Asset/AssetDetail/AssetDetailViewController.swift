@@ -111,4 +111,17 @@ class AssetDetailViewController: BaseViewController {
             }
         }
     }
+    
+    @IBAction func receiveButtonClick() {
+        let vc = AddressQRCodeViewController()
+        vc.selectBlockCahin = currentCoin.blockchain
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+    }
+    
+    @IBAction func sendButtonClick() {
+        let vc = TransferPopUp.make(address: "", coin: currentCoin)
+        vc.modalPresentationStyle = .overCurrentContext
+        UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
 }

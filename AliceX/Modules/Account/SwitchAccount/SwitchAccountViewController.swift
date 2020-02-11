@@ -108,6 +108,22 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
             return 100
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == Cells.create.rawValue {
+            return nil
+        }
+
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = AliceColor.white()
+        let label = UILabel()
+        label.frame = CGRect(x: 20, y: 5, width: headerView.frame.width - 40, height: headerView.frame.height - 10)
+        label.text = section == Cells.mnemonic.rawValue ? "Mnemonic" : "Accounts"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = AliceColor.darkGrey()
+        headerView.addSubview(label)
+        return headerView
+    }
 
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard case let cell as SwitchAccountCell = cell else {

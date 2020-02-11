@@ -64,7 +64,7 @@ class TransferPopUp: UIViewController {
         if coin.isERC20 || coin == Coin.coin(chain: .Ethereum) {
             addressField.placeholder = "ETH Addres or ENS"
         } else {
-            addressField.placeholder = "\(coin.blockchain!.rawValue) Address"
+            addressField.placeholder = "\(coin.blockchain.rawValue) Address"
         }
     }
 

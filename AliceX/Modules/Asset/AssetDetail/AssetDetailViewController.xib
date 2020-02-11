@@ -68,10 +68,10 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soa-nD-bF9">
-                            <rect key="frame" x="72" y="0.0" width="231" height="60"/>
+                            <rect key="frame" x="72" y="0.0" width="291" height="60"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10m-qw-59B">
-                                    <rect key="frame" x="0.0" y="59.666666666666671" width="231" height="0.3333333333333357"/>
+                                    <rect key="frame" x="0.0" y="59.666666666666671" width="291" height="0.3333333333333357"/>
                                     <color key="backgroundColor" name="Alice-LightGrey"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="0As-hl-Dck"/>
@@ -97,12 +97,12 @@
                         <constraint firstAttribute="trailing" secondItem="Wh2-La-RkR" secondAttribute="trailing" id="8Oj-Ah-Lux"/>
                         <constraint firstAttribute="bottom" secondItem="fS4-4R-QCS" secondAttribute="bottom" id="9aL-Ip-XXD"/>
                         <constraint firstAttribute="height" constant="60" id="CQu-Bj-3sB"/>
-                        <constraint firstItem="Soa-nD-bF9" firstAttribute="centerX" secondItem="PN4-1f-n3d" secondAttribute="centerX" id="CS3-1D-q5n"/>
                         <constraint firstAttribute="bottom" secondItem="Soa-nD-bF9" secondAttribute="bottom" id="Nrf-rP-QCt"/>
                         <constraint firstItem="qjz-Gu-uHg" firstAttribute="centerX" secondItem="PN4-1f-n3d" secondAttribute="centerX" id="Pb3-gp-Oa0"/>
                         <constraint firstItem="Wh2-La-RkR" firstAttribute="leading" secondItem="PN4-1f-n3d" secondAttribute="leading" id="Pou-Ss-2tc"/>
                         <constraint firstItem="Soa-nD-bF9" firstAttribute="leading" secondItem="fS4-4R-QCS" secondAttribute="trailing" constant="12" id="Uj2-0b-sW1"/>
                         <constraint firstItem="fS4-4R-QCS" firstAttribute="leading" secondItem="PN4-1f-n3d" secondAttribute="leading" id="UmL-tR-0Am"/>
+                        <constraint firstAttribute="trailing" secondItem="Soa-nD-bF9" secondAttribute="trailing" constant="12" id="cVA-vS-j7H"/>
                         <constraint firstItem="Soa-nD-bF9" firstAttribute="top" secondItem="PN4-1f-n3d" secondAttribute="top" id="oz2-DO-yIj"/>
                         <constraint firstAttribute="bottom" secondItem="Wh2-La-RkR" secondAttribute="bottom" id="vdP-OF-wKL"/>
                         <constraint firstItem="qjz-Gu-uHg" firstAttribute="centerY" secondItem="PN4-1f-n3d" secondAttribute="centerY" id="vjh-Ov-ZHg"/>
@@ -158,6 +158,9 @@
                                                 <constraint firstItem="0Ay-Ft-ocy" firstAttribute="centerY" secondItem="MKr-94-TGS" secondAttribute="centerY" id="lxy-pm-h4V"/>
                                                 <constraint firstItem="0Ay-Ft-ocy" firstAttribute="centerX" secondItem="MKr-94-TGS" secondAttribute="centerX" id="omY-7U-nho"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="receiveButtonClick" destination="-1" eventType="touchUpInside" id="4SU-Nr-XIy"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1r9-Po-ucO">
                                             <rect key="frame" x="187.33333333333334" y="0.0" width="0.33333333333334281" height="60"/>
@@ -191,6 +194,9 @@
                                                 <constraint firstItem="4eG-Pn-BCa" firstAttribute="centerY" secondItem="3G7-H7-vvy" secondAttribute="centerY" id="1fg-mR-skS"/>
                                                 <constraint firstItem="4eG-Pn-BCa" firstAttribute="centerX" secondItem="3G7-H7-vvy" secondAttribute="centerX" id="QbY-04-MT7"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="sendButtonClick" destination="-1" eventType="touchUpInside" id="roy-jK-9LH"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

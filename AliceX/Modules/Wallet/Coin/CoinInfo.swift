@@ -14,11 +14,12 @@ import web3swift
 
 struct CoinInfo: HandyJSON {
     
-    struct CoinMaketData {
+    struct CoinMaketData: HandyJSON {
         var open24H: Double!
         var high24H: Double!
         var low24H: Double!
         var vol24H: Double!
+        var volTo24H: Double!
         var lastUpdate: TimeInterval!
         var supply: Int64!
         var MKTCAP: NSNumber!
