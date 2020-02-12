@@ -65,10 +65,6 @@ class AssetCoinCell: UICollectionViewCell {
 
     @objc func tapAction(gesture _: UITapGestureRecognizer) {
 //        || coin == Coin.coin(chain: .Cosmos)
-        if coin == Coin.coin(chain: .Bitcoin) {
-            HUDManager.shared.showError(text: "Not available now")
-            return
-        }
 
         let vc = AssetDetailViewController()
         vc.currentCoin = coin
@@ -98,12 +94,19 @@ class AssetCoinCell: UICollectionViewCell {
     }
 
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        
+        if coin == Coin.coin(chain: .Bitcoin) {
+            HUDManager.shared.showError(text: "Not available now")
+            return
+        }
+        
         switch gesture.state {
         case .began:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 self.background.alpha = 1
             }
+            
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
@@ -193,13 +196,13 @@ class AssetCoinCell: UICollectionViewCell {
             balanceLabel.text = "\(currencySymbol) 0"
         }
 
-        if let change = info.changeIn24H {
+        if let change = info.changeIn24HPercentage {
             animationButton.isHidden = false
             if change > 0.0 {
                 animationButton.currentButtonType = .buttonUpBasicType
                 animationButton.tintColor = AliceColor.green
                 precentageLabel.textColor = UIColor.systemGreen
-                let precentage = change.toString(decimal: 5)
+                let precentage = change.toString(decimal: 2)
                 if precentage != "0" {
                     precentageLabel.text = "+\(precentage)%"
                 } else {
@@ -210,7 +213,7 @@ class AssetCoinCell: UICollectionViewCell {
                 animationButton.currentButtonType = .buttonDownBasicType
                 animationButton.tintColor = AliceColor.red
                 precentageLabel.textColor = AliceColor.red
-                let precentage = change.toString(decimal: 5)
+                let precentage = change.toString(decimal: 2)
                 if precentage != "-0" {
                     precentageLabel.text = "\(precentage)%"
                 } else {

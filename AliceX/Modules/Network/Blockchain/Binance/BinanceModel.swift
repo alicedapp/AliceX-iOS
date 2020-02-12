@@ -46,3 +46,37 @@ struct BinanceBalance: HandyJSON {
 
     init() {}
 }
+
+
+struct BinanceTXModel: HandyJSON {
+    
+    var txHash: String!
+    var blockHeight: NSNumber!
+    var timeStamp: String! //"2019-12-09T11:09:38.151Z",
+    var fromAddr: String!
+    var toAddr: String!
+    
+    var value: String!
+    var txAsset: String!
+    var txFee: Double!
+    var txAge: NSNumber!
+    var code: NSNumber!
+    var sequence: NSNumber!
+    var memo: String!
+
+    init() {}
+    
+    func convertToAmberdata() -> AmberdataTXModel {
+        var model = AmberdataTXModel()
+        var from = AmberdataTXAddress()
+        from.address = fromAddr
+        model.from = [from]
+        var to = AmberdataTXAddress()
+        to.address = toAddr
+        model.to = [to]
+        model.timestamp = timeStamp.toDate(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        model.value = String(Int64(Double(value)! * pow(10, BlockChain.Binance.decimal).doubleValue))
+        model.hash = txHash
+        return model
+    }
+}

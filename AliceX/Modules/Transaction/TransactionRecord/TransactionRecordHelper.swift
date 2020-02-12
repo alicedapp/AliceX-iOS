@@ -26,12 +26,19 @@ class TransactionRecordHelper {
         TransactionRecordHelper.shared.loadFromCache()
     }
     
-    func fetchTXHistory(page: Int = 0, size: Int = 30, address: String = WalletManager.currentAccount!.address) -> Promise<[AmberdataTXModel]> {
+    func fetchTXHistory(page: Int = 0, size: Int = 30,
+                        address: String = WalletManager.currentAccount!.address,
+                        blockchain: BlockChain = .Ethereum ) -> Promise<[AmberdataTXModel]> {
         
         return Promise<[AmberdataTXModel]> { seal in
             
+            var requestAddress = address
+            if blockchain == .Bitcoin {
+                requestAddress = WalletCore.address(blockchain: .Bitcoin)
+            }
+            
             firstly { () -> Promise<[AmberdataTXModel?]> in
-                API(AmberData.addressTX(address: address, page: page, size: size), path: "payload.records")
+                API(AmberData.addressTX(address: requestAddress, page: page, size: size, blokchain: blockchain), path: "payload.records")
             }.done { list in
                 let array = list.compactMap { $0 }
                 let setList = Set(array)
@@ -48,7 +55,7 @@ class TransactionRecordHelper {
 
 extension TransactionRecordHelper {
     
-    func loadFromCache() -> Promise<[AmberdataTXModel]> {
+    func loadFromCache(blockchain: BlockChain = .Ethereum) -> Promise<[AmberdataTXModel]> {
         
         return Promise<[AmberdataTXModel]> { seal in
             
@@ -56,7 +63,7 @@ extension TransactionRecordHelper {
                 return
             }
             
-            let key = "\(CacheKey.txHistory).\(account.address)"
+            let key = "\(CacheKey.txHistory).\(blockchain.symbol).\(account.address)"
             Shared.stringCache.fetch(key: key).onSuccess { string in
                 
                 if let list = [AmberdataTXModel].deserialize(from: string) {
@@ -74,8 +81,8 @@ extension TransactionRecordHelper {
         }
     }
     
-    func storeInCache() {
-        let key = "\(CacheKey.txHistory).\(WalletManager.currentAccount!.address)"
+    func storeInCache(blockchain: BlockChain = .Ethereum) {
+        let key = "\(CacheKey.txHistory).\(blockchain.symbol).\(WalletManager.currentAccount!.address)"
         
         if let string = Array(TransactionRecordHelper.shared.list).toJSONString() {
             Shared.stringCache.set(value: string, key: key)

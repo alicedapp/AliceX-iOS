@@ -88,9 +88,9 @@
                                     <constraint firstAttribute="width" constant="0.5" id="iGO-pV-K7F"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="+ 100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5k6-ws-Dgs">
-                                <rect key="frame" x="8" y="18.5" width="54" height="22.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="+ 100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="5k6-ws-Dgs">
+                                <rect key="frame" x="8" y="8" width="54" height="43"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -101,9 +101,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="esA-0B-ZvN" firstAttribute="leading" secondItem="7vP-G7-Zu5" secondAttribute="leading" id="771-qo-YdS"/>
+                            <constraint firstAttribute="bottom" secondItem="5k6-ws-Dgs" secondAttribute="bottom" constant="8" id="BV5-y0-H9s"/>
                             <constraint firstAttribute="trailing" secondItem="5k6-ws-Dgs" secondAttribute="trailing" constant="8" id="MVF-17-aTx"/>
                             <constraint firstItem="esA-0B-ZvN" firstAttribute="top" secondItem="7vP-G7-Zu5" secondAttribute="top" constant="15" id="OuK-eN-jMc"/>
                             <constraint firstAttribute="bottom" secondItem="esA-0B-ZvN" secondAttribute="bottom" constant="15" id="SAL-pK-rVc"/>
+                            <constraint firstItem="5k6-ws-Dgs" firstAttribute="top" secondItem="7vP-G7-Zu5" secondAttribute="top" constant="8" id="VQl-WT-Bd9"/>
                             <constraint firstItem="5k6-ws-Dgs" firstAttribute="centerY" secondItem="7vP-G7-Zu5" secondAttribute="centerY" id="YSG-9H-heU"/>
                             <constraint firstItem="5k6-ws-Dgs" firstAttribute="centerX" secondItem="7vP-G7-Zu5" secondAttribute="centerX" id="bHs-sk-JAD"/>
                             <constraint firstAttribute="width" constant="70" id="oyP-Ak-N8E"/>

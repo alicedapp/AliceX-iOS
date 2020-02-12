@@ -18,6 +18,7 @@ class AssetDetailHeader: BaseView {
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var precentageLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var balanceChangeLabel: UILabel!
     @IBOutlet var segmentedContainer: UIView!
     
     @IBOutlet var coinImageView: UIImageView!
@@ -36,6 +37,8 @@ class AssetDetailHeader: BaseView {
     @IBOutlet var supplyLabel: UILabel!
     @IBOutlet var mktcapLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+    
+    @IBOutlet var marketLabel: UILabel!
     
     @IBOutlet var loadingView: UIView!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
@@ -74,7 +77,6 @@ class AssetDetailHeader: BaseView {
 //        segmentedViewDataSource.isTitleZoomEnabled = true
         segmentedViewDataSource.reloadData(selectedIndex: 0)
 
-        
         segmentedView = JXSegmentedView()
         segmentedView.backgroundColor = AliceColor.white()
         segmentedView.dataSource = segmentedViewDataSource
@@ -99,16 +101,18 @@ class AssetDetailHeader: BaseView {
             return
         }
         
+        marketLabel.text = info.market?.lastMarket
+        
         coinImageView.kf.setImage(with: coin.image)
         coinNameLabel.text = info.name
         coinSymbolLabel.text = info.symbol
         coinTypeLabel.text = coin.isERC20 ? "ERC20" : "Coin"
         
         priceLabel.text = info.price?.currencyString
-        if let change = info.changeIn24H {
+        if let change = info.changeIn24HPercentage {
            if change > 0.0 {
                precentageLabel.textColor = UIColor.systemGreen
-               let precentage = change.toString(decimal: 5)
+               let precentage = change.toString(decimal: 3)
                if precentage != "0" {
                    precentageLabel.text = "+\(precentage)%"
                } else {
@@ -117,7 +121,7 @@ class AssetDetailHeader: BaseView {
                
            } else {
                precentageLabel.textColor = AliceColor.red
-               let precentage = change.toString(decimal: 5)
+               let precentage = change.toString(decimal: 3)
                if precentage != "-0" {
                    precentageLabel.text = "\(precentage)%"
                } else {
@@ -136,6 +140,17 @@ class AssetDetailHeader: BaseView {
             if let price = info.price, let doubleAmount = Double(amount) {
                 balanceLabel.text = "\(currencySymbol) \((doubleAmount * price).toString(decimal: 3))"
             }
+            
+            if let changePrice = info.changeIn24H {
+                if changePrice > 0.0 {
+                    balanceChangeLabel.textColor = UIColor.systemGreen
+                    balanceChangeLabel.text = "+ \(currencySymbol)\((amountInDouble*changePrice).toString(decimal: 3))"
+                } else {
+                    balanceChangeLabel.textColor = AliceColor.red
+                    balanceChangeLabel.text = "- \(currencySymbol)\((amountInDouble*changePrice).toString(decimal: 3))"
+                }
+            }
+            
         } else {
             amountLabel.text = "0 \(info.symbol!)"
             balanceLabel.text = "\(currencySymbol) 0"
@@ -147,15 +162,15 @@ class AssetDetailHeader: BaseView {
             return
         }
         
-        openLabel.text = String(market.open24H)
-        HighLabel.text = String(market.high24H)
-        lowLabel.text = String(market.low24H)
-        closeLabel.text = String(info.price!)
+        openLabel.text = market.open24H.toString(decimal: 3)
+        HighLabel.text = market.high24H.toString(decimal: 3)
+        lowLabel.text = market.low24H.toString(decimal: 3)
+        closeLabel.text = info.price!.toString(decimal: 3)
         
-        mktcapLabel.text = String(market.MKTCAP.doubleValue.rounded(toPlaces: 3))
-        supplyLabel.text = String(market.supply)
-        volFromLabel.text = String(market.vol24H)
-        volToLabel.text = String(market.volTo24H)
+        mktcapLabel.text = market.MKTCAP.intValue.formatUsingAbbrevation()
+        supplyLabel.text = market.supply.intValue.formatUsingAbbrevation()
+        volFromLabel.text = market.vol24H.intValue.delimiter
+        volToLabel.text = market.volTo24H.intValue.delimiter
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"

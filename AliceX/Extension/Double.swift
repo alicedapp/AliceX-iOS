@@ -44,6 +44,12 @@ extension Double {
     }
 }
 
+extension Decimal {
+    var doubleValue:Double {
+        return NSDecimalNumber(decimal:self).doubleValue
+    }
+}
+
 extension Float {
     /// Rounds the double to decimal places value
     func rounded(toPlaces places: Int) -> Float {

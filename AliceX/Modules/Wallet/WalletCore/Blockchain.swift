@@ -76,6 +76,8 @@ extension BlockChain {
             return "1c9c969065fcd1cf"
         case .Bitcoin:
             return "408fa195a34b533de9ad9889f076045e"
+        case .Binance:
+            return "none"
         default:
             return "1c9c969065fcd1cf"
         }
@@ -103,6 +105,26 @@ extension BlockChain {
         case .Bitcoin:
             return URL(string: "https://btc.com")!
         }
+    }
+    
+    var basicInfo: TokenInfo {
+        var info = TokenInfo()
+        info.decimals = decimal
+        info.symbol = symbol
+        switch self {
+        case .Ethereum:
+            info.decimals = decimal
+            info.name = "Ethereum"
+            info.symbol = symbol
+            info.description = "Ethereum is an open source, public, blockchain-based distributed computing platform and operating system featuring smart contract (scripting) functionality. It supports a modified version of Nakamoto consensus via transaction-based state transitions."
+        case .Bitcoin:
+            info.name = "Bitcoin"
+            info.description = "Bitcoin (₿) is a cryptocurrency. It is a decentralized digital currency without a central bank or single administrator that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries"
+        case .Binance:
+            info.name = "Binance Coin"
+            info.description = "Binance coin is a digital currency issued by the cryptocurrency exchange Binance. The cryptocurrency is denoted by the symbol BNB. It is based on the Ethereum blockchain and similar to Ether, the BNB token also fuels all operations on Binance.com."
+        }
+        return info
     }
 
     func txURL(txHash: String, network: Web3NetEnum? = WalletManager.currentNetwork) -> URL {

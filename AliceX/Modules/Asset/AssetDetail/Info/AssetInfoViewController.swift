@@ -54,11 +54,21 @@ class AssetInfoViewController: UIViewController {
         symbolLabel.text = model.symbol
         ownerLabel.text = model.owner
         
-        transfersCountLabel.text = String(model.transfersCount)
-        holdersCountLabel.text = String(model.holdersCount)
-        issuancesCountLabel.text = String(model.issuancesCount)
+        if let transfersCount =  model.transfersCount {
+            transfersCountLabel.text = transfersCount.formatUsingAbbrevation()
+        }
         
-        totalSupplyLabel.text = String(model.totalSupply)
+        if let holdersCount =  model.holdersCount {
+            holdersCountLabel.text = holdersCount.formatUsingAbbrevation()
+        }
+        
+        if let issuancesCount =  model.issuancesCount {
+            issuancesCountLabel.text = issuancesCount.formatUsingAbbrevation()
+        }
+        
+        if let totalSupply =  model.totalSupply {
+            totalSupplyLabel.text = Int(totalSupply)?.delimiter
+        }
         
         descTextView.text = model.description ?? "(No Description)"
         descTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +80,9 @@ class AssetInfoViewController: UIViewController {
     func requestData() {
         
         if !coin.isERC20 {
+            self.data = coin.blockchain.basicInfo
+            self.view.hideSkeleton()
+            self.configure()
             return
         }
         

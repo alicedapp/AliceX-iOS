@@ -14,10 +14,11 @@ import SkeletonView
 class AssetTXViewController: UIViewController {
     var tableView: UITableView!
     var listViewDidScrollCallback: ((UIScrollView) -> Void)?
-
     var data: [AmberdataTXModel] = []
     var page: Int = 0
     var group = [(key: DateComponents, value: [AmberdataTXModel])]()
+    
+    var coin: Coin = .coin(chain: .Ethereum)
     
     override init(nibName: String?, bundle: Bundle?) {
        super.init(nibName: nibName, bundle: bundle)
@@ -42,16 +43,9 @@ class AssetTXViewController: UIViewController {
             self.requestData(page: self.page)
         }
         
-        view.isSkeletonable = true
-        tableView.isSkeletonable = true
+//        view.isSkeletonable = true
+//        tableView.isSkeletonable = true
         tableView.estimatedRowHeight = 70
-        
-        if TransactionRecordHelper.shared.list.count > 0 {
-            self.group = self.groupRecordByMonth(list: Array(TransactionRecordHelper.shared.list))
-            self.tableView.reloadData()
-        }
-        
-        requestData(page: 0)
    }
     
     required init?(coder: NSCoder) {
@@ -61,6 +55,20 @@ class AssetTXViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if coin.isERC20 || coin == Coin.coin(chain: .Ethereum) {
+            if TransactionRecordHelper.shared.list.count > 0 {
+                let list = filterERC20(list: Array(TransactionRecordHelper.shared.list))
+                self.group = self.groupRecordByMonth(list: list)
+                self.tableView.reloadData()
+            }
+        }
+        
+        requestData(page: 0)
+    }
 
     func requestData(page: Int) {
 
@@ -68,15 +76,25 @@ class AssetTXViewController: UIViewController {
 //            view.showAnimatedGradientSkeleton()
 //        }
         
+        if coin == .coin(chain: .Binance) {
+            binanceTXRequestData(page: page)
+            return
+        }
+        
         firstly {
-            TransactionRecordHelper.shared.fetchTXHistory(page: page)
+            TransactionRecordHelper.shared.fetchTXHistory(page: page, blockchain: coin.blockchain)
         }.done { list in
             
             if list.count == 0 {
                 self.tableView.es.noticeNoMoreData()
             }
             
-            self.group = self.groupRecordByMonth(list: Array(TransactionRecordHelper.shared.list))
+            if self.coin.blockchain == .Ethereum {
+                self.group = self.groupRecordByMonth(list: Array(TransactionRecordHelper.shared.list))
+            } else {
+                self.group = self.groupRecordByMonth(list: list)
+            }
+            
             
 //            self.view.hideSkeleton()
             self.tableView.reloadData()
@@ -92,7 +110,9 @@ class AssetTXViewController: UIViewController {
     
     func groupRecordByMonth(list: [AmberdataTXModel]) -> [(key: DateComponents, value: [AmberdataTXModel])] {
         
-        self.data = list.compactMap { $0 }.sorted(by: { (model1, model2) -> Bool in
+        let filterList = filterERC20(list: list)
+        
+        self.data = filterList.compactMap { $0 }.sorted(by: { (model1, model2) -> Bool in
             guard let date1 = model1.timestamp, let date2 = model2.timestamp else {
                 return true
             }
@@ -112,6 +132,75 @@ class AssetTXViewController: UIViewController {
             return key1.year! > key2.year!
         })
         return result
+    }
+    
+    func filterERC20(list: [AmberdataTXModel]) -> [AmberdataTXModel] {
+        if coin.isERC20 {
+            return list.filter { model in
+                guard let fromList = model.from,
+                    let from = fromList.first,
+                    let toList = model.to,
+                    let to = toList.first else {
+                    return false
+                }
+                
+                if from.address.lowercased() == coin.id.lowercased() || to.address.lowercased() == coin.id.lowercased() {
+                    return true
+                }
+                
+                if let tokenTransfers = model.tokenTransfers, let transfer = tokenTransfers.last {
+                    return transfer.tokenAddress.lowercased() == coin.id.lowercased()
+                }
+                
+                return false
+            }.compactMap { $0 }
+        }
+        
+        return list
+    }
+
+    // TODO: Temporary Support Multiple Blockchain
+    
+    func binanceTXRequestData(page: Int) {
+        
+        let nowTime = Date().timeIntervalSince1970
+        let threeMonthTime: TimeInterval = 3 * 30 * 24 * 60 * 60
+        
+        let endTime = nowTime - Double(page)*threeMonthTime
+        let startTime = endTime - threeMonthTime
+        
+        firstly { () -> Promise<[BinanceTXModel?]> in
+            API(BNBAPI.transactions(address: WalletCore.address(blockchain: .Binance),
+                                    startTime: startTime,
+                                    endTime: endTime), path: "tx")
+        }.done { list in
+            
+            if list.count == 0 {
+                self.tableView.es.noticeNoMoreData()
+            }
+            
+            var appendList = self.data + list.compactMap { $0?.convertToAmberdata() }
+            
+            self.data = appendList.sorted(by: { (model1, model2) -> Bool in
+                guard let date1 = model1.timestamp, let date2 = model2.timestamp else {
+                    return true
+                }
+                return date1 > date2
+            })
+            
+            self.group = self.groupRecordByMonth(list: self.data)
+            
+//            self.view.hideSkeleton()
+            self.tableView.reloadData()
+            self.page += 1
+        }.ensure {
+            self.tableView.es.stopLoadingMore()
+//            self.view.hideSkeleton()
+        }.catch { error in
+    //            print("BBBB")
+            print(error.localizedDescription)
+        }
+        
     }
 
 }
@@ -176,7 +265,7 @@ extension AssetTXViewController: UITableViewDataSource, UITableViewDelegate {
         let section = indexPath.section
         let row = indexPath.row
         let tx = group[section].value[row]
-        cell.configure(model: tx)
+        cell.configure(model: tx, coin: coin)
         return cell
     }
 
@@ -188,7 +277,7 @@ extension AssetTXViewController: UITableViewDataSource, UITableViewDelegate {
         let section = indexPath.section
         let row = indexPath.row
         let tx = group[section].value[row]
-        let vc = BrowserWrapperViewController.make(urlString: "https://etherscan.io/tx/\(tx.hash!)")
+        let vc = BrowserWrapperViewController.make(urlString: coin.blockchain.txURL(txHash: tx.hash).absoluteString)
         UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -36,7 +36,6 @@ import PromiseKit
             }
         }
         
-        
         func requestMethod(symbol: String) -> Promise<CryptocompareHistoryModel> {
             let currentCurrency = PriceHelper.shared.currentCurrency
             switch self {
@@ -149,6 +148,7 @@ import PromiseKit
         }.done { model in
             if let data = model.Data {
                 self.data = data
+                self.chartView.averageLine.yValue = CGFloat(data.compactMap { $0.close }.reduce(0, +)/Double(data.count))
                 self.chartView.reloadGraph()
             }
         }.ensure {
@@ -162,12 +162,12 @@ import PromiseKit
     func lineGraph(_ graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
         
         let model = self.data[index]
-        openLabel.text = String(model.open)
-        HighLabel.text = String(model.high)
-        lowLabel.text = String(model.low)
-        volFromLabel.text = String(model.volumefrom)
-        volToLabel.text = String(model.volumeto)
-        closeLabel.text = String(model.close!)
+        openLabel.text = model.open.toString(decimal: 3)
+        HighLabel.text = model.high.toString(decimal: 3)
+        lowLabel.text = model.low.toString(decimal: 3)
+        volFromLabel.text = model.volumefrom.intValue.delimiter
+       volToLabel.text = model.volumeto.intValue.delimiter
+        closeLabel.text = model.close!.toString(decimal: 3)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = currentPeriod == .oneDay ? "d MMMM HH:mm" : "dd MMM yyyy"
@@ -181,15 +181,15 @@ import PromiseKit
             return
         }
         
-        openLabel.text = String(market.open24H)
-        HighLabel.text = String(market.high24H)
-        lowLabel.text = String(market.low24H)
-        closeLabel.text = String(info.price!)
+        openLabel.text = market.open24H.toString(decimal: 3)
+        HighLabel.text = market.high24H.toString(decimal: 3)
+        lowLabel.text = market.low24H.toString(decimal: 3)
+        closeLabel.text = info.price!.toString(decimal: 3)
         
-        mktcapLabel.text = String(market.MKTCAP.doubleValue)
-        supplyLabel.text = String(market.supply)
-        volFromLabel.text = String(market.vol24H)
-        volToLabel.text = String(market.volTo24H)
+        mktcapLabel.text = market.MKTCAP.intValue.formatUsingAbbrevation()
+        supplyLabel.text = market.supply.intValue.formatUsingAbbrevation()
+        volFromLabel.text = market.vol24H.intValue.delimiter
+        volToLabel.text = market.volTo24H.intValue.delimiter
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
@@ -209,6 +209,10 @@ import PromiseKit
 //    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
 //
 //    }
+    
+    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
+        
+    }
     
     func startGraphLoading() {
         loadingView.isHidden = false

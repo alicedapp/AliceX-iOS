@@ -15,18 +15,39 @@ struct CryptocompareModel: HandyJSON {
     var TOSYMBOL: String!
     var PRICE: Double!
     var CHANGE24HOUR: Double!
+    var CHANGEPCT24HOUR: Double!
     
     var OPEN24HOUR: Double!
     var HIGH24HOUR: Double!
     var LOW24HOUR: Double!
-    var VOLUME24HOUR: Double!
-    var VOLUME24HOURTO: Double!
+    var VOLUME24HOUR: NSNumber!
+    var VOLUME24HOURTO: NSNumber!
     var LASTUPDATE: TimeInterval!
     
-    var SUPPLY: Int64!
+    var LASTMARKET: String!
+    
+    var SUPPLY: NSNumber!
     var MKTCAP: NSNumber!
 }
 
+struct CryptocompareDisplayModel: HandyJSON {
+    var MARKET: String!
+    var FROMSYMBOL: String!
+    var TOSYMBOL: String!
+    var PRICE: String!
+    var CHANGE24HOUR: String!
+    var CHANGEPCT24HOUR: String!
+    
+    var OPEN24HOUR: String!
+    var HIGH24HOUR: String!
+    var LOW24HOUR: String!
+    var VOLUME24HOUR: String!
+    var VOLUME24HOURTO: String!
+    var LASTUPDATE: String!
+    
+    var SUPPLY: String!
+    var MKTCAP: String!
+}
 
 struct CryptocompareHistoryData: HandyJSON {
     var time: TimeInterval!
@@ -34,8 +55,8 @@ struct CryptocompareHistoryData: HandyJSON {
     var low: Double!
     var open: Double!
     var close: Double!
-    var volumefrom: Double!
-    var volumeto: Double!
+    var volumefrom: NSNumber!
+    var volumeto: NSNumber!
     
     var conversionType: String?
     var conversionSymbol: String?

@@ -23,6 +23,8 @@ class AssetTXCell: UITableViewCell {
     
     @IBOutlet var statusButton: VBFPopFlatButton!
     
+//    var coin: Coin = .coin(chain: .Ethereum)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,30 +44,33 @@ class AssetTXCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(model: AmberdataTXModel) {
+    func configure(model: AmberdataTXModel, coin: Coin) {
         
         guard let toList = model.to, let to = toList.first, let fromList = model.from, let from = fromList.first else {
             return
         }
         
-        if !model.statusResult!.confirmed {
-            print(model)
-        }
-        
         logoView.image = nil
         
-        let currentAddress = WalletManager.currentAccount!.address.lowercased()
+        var currentAddress = WalletManager.currentAccount!.address.lowercased()
         let walletList = WalletManager.Accounts!.map { $0.address.lowercased() }
         
+        if coin.blockchain == .Binance || coin.blockchain == .Bitcoin {
+            currentAddress = WalletCore.address(blockchain: coin.blockchain)
+        }
+        
         if to.address.lowercased() == currentAddress {
-            titleLabel.text = model.statusResult!.confirmed ? "Received" : "❌ Received"
+            titleLabel.text = "Received"
+            if let statusResult = model.statusResult, !statusResult.success {
+                titleLabel.text = "Received ❌"
+            }
             addressLabel.text = from.address
             statusButton.currentButtonType = .buttonDownBasicType
             statusButton.tintColor = AliceColor.green
             
             let amountInt = BigUInt(model.value!)
-            let amount = amountInt!.formatToPrecision(decimals: 18)!.round(decimal: 3)
-            amountLabel.text = "+ \(String(describing: amount))"
+            let amount = amountInt!.formatToPrecision(decimals: coin.info!.decimals)!.round(decimal: 3)
+            amountLabel.text = "+ \(String(describing: amount)) \(coin.info!.symbol ?? "")"
             amountLabel.textColor = AliceColor.green
             
             if let name = from.nameNormalized {
@@ -79,15 +84,20 @@ class AssetTXCell: UITableViewCell {
             }
             
         } else {
-            titleLabel.text = model.statusResult!.confirmed ? "Sent" : "❌ Sent"
+            
+            titleLabel.text = "Sent"
+            if let statusResult = model.statusResult, !statusResult.success {
+                titleLabel.text = "Sent ❌"
+            }
+            
             addressLabel.text = to.address
             statusButton.currentButtonType = .buttonUpBasicType
             statusButton.tintColor = AliceColor.red
             
             let amountInt = BigUInt(model.value!)
-            let amount = amountInt!.formatToPrecision(decimals: 18)!.round(decimal: 3)
+            let amount = amountInt!.formatToPrecision(decimals: coin.info!.decimals)!.round(decimal: 3)
             
-            amountLabel.text = "- \(String(describing: amount))"
+            amountLabel.text = "- \(String(describing: amount)) \(coin.info!.symbol ?? "")"
             amountLabel.textColor = AliceColor.red
             
             if let name = to.nameNormalized {
@@ -126,6 +136,18 @@ class AssetTXCell: UITableViewCell {
             dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
             hashLabel.text = dateFormatter.string(from: date)
 //            "\(time ?? "unknow") ago"
+        }
+        
+        if coin.isERC20, let transfers = model.tokenTransfers, let transfer = transfers.last {
+            
+            let amountInt = BigUInt(transfer.amount)
+            let amount = amountInt!.formatToPrecision(decimals: Int(transfer.decimals)!)!.round(decimal: 3)
+            
+            if amountLabel.textColor == AliceColor.green {
+                amountLabel.text = "+ \(String(describing: amount)) \(coin.info!.symbol ?? "")"
+            } else {
+                amountLabel.text = "- \(String(describing: amount)) \(coin.info!.symbol ?? "")"
+            }
         }
     }
 }

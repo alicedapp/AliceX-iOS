@@ -18,11 +18,12 @@ struct CoinInfo: HandyJSON {
         var open24H: Double!
         var high24H: Double!
         var low24H: Double!
-        var vol24H: Double!
-        var volTo24H: Double!
+        var vol24H: NSNumber!
+        var volTo24H: NSNumber!
         var lastUpdate: TimeInterval!
-        var supply: Int64!
+        var supply: NSNumber!
         var MKTCAP: NSNumber!
+        var lastMarket: String!
     }
     
     var id: String! // ERC20 address, Blockchain Name
@@ -31,11 +32,12 @@ struct CoinInfo: HandyJSON {
     var decimals: Int!
     var price: Double?
     var image: String!
-    var changeIn24H: Double?
-    var amount: String?
     
+    var changeIn24H: Double?
+    var changeIn24HPercentage: Double?
+    
+    var amount: String?
     var market: CoinMaketData?
-
     var isPined: Bool = false
 
     init() {}

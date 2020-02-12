@@ -17,6 +17,7 @@ enum BNBAPI {
     case sequence(address: String)
     case account(address: String)
     case broadcast(data: Data)
+    case transactions(address: String, startTime: TimeInterval, endTime: TimeInterval)
 }
 
 extension BNBAPI: TargetType {
@@ -47,6 +48,8 @@ extension BNBAPI: TargetType {
             return "account/\(address)"
         case .broadcast:
             return "broadcast"
+        case .transactions:
+            return "transactions"
         }
     }
 
@@ -63,6 +66,9 @@ extension BNBAPI: TargetType {
         switch self {
         case let .broadcast(data):
             return .requestCompositeData(bodyData: data, urlParameters: ["sync": true])
+        case let .transactions(address, startTime, endTime):
+            let dict = ["address": address, "startTime": Int64(startTime*1000), "endTime": Int64(endTime*1000)] as [String : Any]
+            return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

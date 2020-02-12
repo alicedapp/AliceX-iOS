@@ -17,14 +17,14 @@ struct TokenInfo: HandyJSON {
     var name: String!
     var symbol: String!
     var decimals: Int!
-    var owner: String!
-    var countOps: Int!
-    var totalIn: Int!
-    var totalOut: Int!
-    var transfersCount: Int!
-    var holdersCount: Int!
-    var issuancesCount: Int!
-    var lastUpdated: Int!
+    var owner: String?
+    var countOps: Int?
+    var totalIn: Int?
+    var totalOut: Int?
+    var transfersCount: Int?
+    var holdersCount: Int?
+    var issuancesCount: Int?
+    var lastUpdated: Int?
     var description: String?
     var website: String?
     var ethTransfersCount: Int?

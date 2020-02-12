@@ -25,6 +25,7 @@
 		1511B0F8233CDE0D00024FCC /* PinManager+WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511B0F7233CDE0D00024FCC /* PinManager+WalletConnect.swift */; };
 		151250C623661F4A00AD37BB /* OpenSea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151250C523661F4A00AD37BB /* OpenSea.swift */; };
 		151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151250C72366209600AD37BB /* OpenSeaModel.swift */; };
+		1512B09223F3D768002B68AA /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512B09123F3D768002B68AA /* Int.swift */; };
 		1514464923617ACB005E87CE /* WalletCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514464823617ACB005E87CE /* WalletCoreManager.swift */; };
 		1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514464B236437F7005E87CE /* MainTabViewController.swift */; };
 		1514464E236437F7005E87CE /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1514464C236437F7005E87CE /* MainTabViewController.xib */; };
@@ -321,7 +322,6 @@
 		15E18FA823E710A5007C0263 /* BEMAverageLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E18F9E23E710A4007C0263 /* BEMAverageLine.h */; };
 		15E18FAB23E867E4007C0263 /* AssetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18FAA23E867E4007C0263 /* AssetDetailView.swift */; };
 		15E18FAD23E867ED007C0263 /* AssetDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E18FAC23E867ED007C0263 /* AssetDetailView.xib */; };
-		15E18FAF23E8746A007C0263 /* AssetDetailViewController+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18FAE23E8746A007C0263 /* AssetDetailViewController+Chart.swift */; };
 		15E18FB123E87481007C0263 /* AssetDetailViewController+Segement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E18FB023E87481007C0263 /* AssetDetailViewController+Segement.swift */; };
 		15E1AA93236706FE00F29369 /* Binance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA92236706FE00F29369 /* Binance.swift */; };
 		15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */; };
@@ -404,6 +404,7 @@
 		1511B0F7233CDE0D00024FCC /* PinManager+WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PinManager+WalletConnect.swift"; sourceTree = "<group>"; };
 		151250C523661F4A00AD37BB /* OpenSea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSea.swift; sourceTree = "<group>"; };
 		151250C72366209600AD37BB /* OpenSeaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSeaModel.swift; sourceTree = "<group>"; };
+		1512B09123F3D768002B68AA /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		1514464823617ACB005E87CE /* WalletCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoreManager.swift; sourceTree = "<group>"; };
 		1514464B236437F7005E87CE /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		1514464C236437F7005E87CE /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
@@ -703,7 +704,6 @@
 		15E18F9E23E710A4007C0263 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAverageLine.h; sourceTree = "<group>"; };
 		15E18FAA23E867E4007C0263 /* AssetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailView.swift; sourceTree = "<group>"; };
 		15E18FAC23E867ED007C0263 /* AssetDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailView.xib; sourceTree = "<group>"; };
-		15E18FAE23E8746A007C0263 /* AssetDetailViewController+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailViewController+Chart.swift"; sourceTree = "<group>"; };
 		15E18FB023E87481007C0263 /* AssetDetailViewController+Segement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailViewController+Segement.swift"; sourceTree = "<group>"; };
 		15E1AA92236706FE00F29369 /* Binance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance.swift; sourceTree = "<group>"; };
 		15E1AA972367162800F29369 /* AddressQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressQRCodeViewController.swift; sourceTree = "<group>"; };
@@ -1819,6 +1819,7 @@
 				151E346422D59C9A0037157C /* EthereumTransaction.swift */,
 				1581EC2322D88F0F00B74F30 /* Data.swift */,
 				1581EC2522D8AE6D00B74F30 /* Double.swift */,
+				1512B09123F3D768002B68AA /* Int.swift */,
 				15BC4DC522DAFAE800313CA9 /* UIImage.swift */,
 				15477B4622E184AA008E3230 /* BigInt.swift */,
 				15764E1422E9F93A00784848 /* GCD.swift */,
@@ -2248,7 +2249,6 @@
 				158124C123EAE0300021B62E /* Child */,
 				15E18FA923E867C4007C0263 /* View */,
 				15F197BD2382D6BE00960DE1 /* AssetDetailViewController.swift */,
-				15E18FAE23E8746A007C0263 /* AssetDetailViewController+Chart.swift */,
 				15E18FB023E87481007C0263 /* AssetDetailViewController+Segement.swift */,
 				15F197BE2382D6BE00960DE1 /* AssetDetailViewController.xib */,
 			);
@@ -2723,6 +2723,7 @@
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15F197BF2382D6BF00960DE1 /* AssetDetailViewController.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
+				1512B09223F3D768002B68AA /* Int.swift in Sources */,
 				15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */,
 				15477B4922E1AE18008E3230 /* API.swift in Sources */,
 				15E802FB23D193B800CBE7FB /* SendERC721PopUp.swift in Sources */,
@@ -2791,7 +2792,6 @@
 				15E18FA723E710A4007C0263 /* BEMSimpleLineGraphView.m in Sources */,
 				15DF2A012387AE920013664E /* HomeWebPanelView.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
-				15E18FAF23E8746A007C0263 /* AssetDetailViewController+Chart.swift in Sources */,
 				15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */,
 				15E18FA523E710A4007C0263 /* BEMPermanentPopupView.m in Sources */,
 				158A90972371388D002F9F18 /* Blockchain+NetworkLayer.swift in Sources */,

@@ -50,11 +50,12 @@ class PriceManager {
 
                     for coin in pickedCoin {
                         if let model = CryptocompareModel.deserialize(from: dataString, designatedPath: "RAW.\(coin.info!.symbol!).\(currency.rawValue)") {
+                            
                             self.price[coin.id] = model
-
                             if let info = CoinInfoCenter.shared.pool[coin.id] {
                                 CoinInfoCenter.shared.pool[coin.id]?.price = model.PRICE
                                 CoinInfoCenter.shared.pool[coin.id]?.changeIn24H = model.CHANGE24HOUR
+                                CoinInfoCenter.shared.pool[coin.id]?.changeIn24HPercentage = model.CHANGEPCT24HOUR
                                 
                                 let market = CoinInfo.CoinMaketData(open24H: model.OPEN24HOUR,
                                                                     high24H: model.HIGH24HOUR,
@@ -63,7 +64,8 @@ class PriceManager {
                                                                     volTo24H: model.VOLUME24HOURTO,
                                                                     lastUpdate: model.LASTUPDATE,
                                                                     supply: model.SUPPLY,
-                                                                    MKTCAP: model.MKTCAP)
+                                                                    MKTCAP: model.MKTCAP,
+                                                                    lastMarket: model.LASTMARKET)
                                 CoinInfoCenter.shared.pool[coin.id]?.market = market
                             }
                         }
