@@ -171,17 +171,20 @@ class MiniAppViewController: BaseViewController {
     }
 
     @IBAction func cameraButtonClick() {
-        let vc = QRCodeReaderViewController.make { result in
-            if result.isValidURL {
-                let vc = BrowserWrapperViewController.make(urlString: result)
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
-            }
-        }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+//        let vc = QRCodeReaderViewController.make { result in
+//            if result.isValidURL {
+//                let vc = BrowserWrapperViewController.make(urlString: result)
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            } else {
+//                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
+//            }
+//        }
+//        vc.modalPresentationStyle = .fullScreen
+//        present(vc, animated: true, completion: nil)
 //        navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = DAppListViewController()
+        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
 
     @available(iOS 12.0, *)

@@ -52,7 +52,11 @@ extension TransactionRecordHelper {
         
         return Promise<[AmberdataTXModel]> { seal in
             
-            let key = "\(CacheKey.txHistory).\(WalletManager.currentAccount!.address)"
+            guard let account = WalletManager.currentAccount else {
+                return
+            }
+            
+            let key = "\(CacheKey.txHistory).\(account.address)"
             Shared.stringCache.fetch(key: key).onSuccess { string in
                 
                 if let list = [AmberdataTXModel].deserialize(from: string) {

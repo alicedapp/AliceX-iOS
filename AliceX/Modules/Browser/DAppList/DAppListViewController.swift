@@ -72,8 +72,14 @@ extension DAppListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dappList![indexPath.row]
-        vcRef?.goTo(url: URL(string: model.link)!)
-        HUDManager.shared.dismiss()
+        if let vcRef = self.vcRef {
+            vcRef.goTo(url: URL(string: model.link)!)
+            HUDManager.shared.dismiss()
+        } else {
+            let vc = BrowserWrapperViewController.make(urlString: model.link)
+            UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
+            HUDManager.shared.dismiss()
+        }
     }
 }
 

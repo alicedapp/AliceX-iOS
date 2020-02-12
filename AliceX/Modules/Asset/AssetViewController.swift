@@ -140,12 +140,21 @@ class AssetViewController: BaseViewController {
     }
 
     @IBAction func settingClick() {
-        let vc = SettingViewController()
-        let navi = BaseNavigationController(rootViewController: vc)
-//        let transitionDelegate = SPStorkTransitioningDelegate()
-//        navi.transitioningDelegate = transitionDelegate
-//        navi.modalPresentationStyle = .custom
-        presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
+//        let vc = SettingViewController()
+//        let navi = BaseNavigationController(rootViewController: vc)
+//        presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
+        
+        let vc = QRCodeReaderViewController.make { result in
+            if result.isValidURL {
+                let vc = BrowserWrapperViewController.make(urlString: result)
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
+            }
+        }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func addressButtonClick() {

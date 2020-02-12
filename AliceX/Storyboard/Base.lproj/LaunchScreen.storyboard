@@ -18,28 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen" translatesAutoresizingMaskIntoConstraints="NO" id="7e2-6q-KTf">
-                                <rect key="frame" x="151" y="611" width="112" height="201"/>
+                                <rect key="frame" x="69" y="327" width="276" height="242"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zed" translatesAutoresizingMaskIntoConstraints="NO" id="x0Q-mq-AOa">
+                                <rect key="frame" x="152.5" y="784" width="109" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="201" id="5dw-6d-Wiu"/>
-                                    <constraint firstAttribute="width" constant="112" id="tpf-Fr-gYL"/>
+                                    <constraint firstAttribute="width" secondItem="x0Q-mq-AOa" secondAttribute="height" multiplier="47:25" id="kKf-d0-7SB"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7e2-6q-KTf" secondAttribute="bottom" constant="50" id="LAH-F2-RJW"/>
+                            <constraint firstItem="x0Q-mq-AOa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5nB-9L-JE2"/>
+                            <constraint firstItem="7e2-6q-KTf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="M1F-FL-4vh"/>
                             <constraint firstItem="7e2-6q-KTf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vnA-5B-iwP"/>
+                            <constraint firstItem="x0Q-mq-AOa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="zIP-ZW-ycr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launch-screen" width="112" height="211"/>
+        <image name="launch-screen" width="138" height="121"/>
+        <image name="zed" width="29" height="29"/>
         <namedColor name="Alice-LightBackground">
             <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
