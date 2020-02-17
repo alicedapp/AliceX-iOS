@@ -91,9 +91,9 @@
                             </connections>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hpD-Hw-qAz">
-                            <rect key="frame" x="16" y="17.5" width="28" height="25"/>
+                            <rect key="frame" x="17.5" y="19" width="25" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="GtT-Gq-30T"/>
+                                <constraint firstAttribute="height" constant="22" id="GtT-Gq-30T"/>
                                 <constraint firstAttribute="width" secondItem="hpD-Hw-qAz" secondAttribute="height" multiplier="28:25" id="gdx-KA-zdp"/>
                             </constraints>
                         </imageView>

@@ -1026,6 +1026,29 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		152E483723FA649E00C79A03 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				152E483923FA74FA00C79A03 /* UI */,
+				152E483823FA74EE00C79A03 /* Manager */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		152E483823FA74EE00C79A03 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		152E483923FA74FA00C79A03 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		15300E61233E373F004E9144 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -1874,6 +1897,7 @@
 		15B86BB422AA1DAF00110C06 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				152E483723FA649E00C79A03 /* Chat */,
 				15E802FD23D1BF2C00CBE7FB /* NFT */,
 				1528139223BF096800EE847D /* Profile */,
 				1533C999237ABAFB0052010A /* MiniApp */,
@@ -3070,7 +3094,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 35;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
@@ -3084,7 +3108,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3252,7 +3276,7 @@
 					"-weak_framework",
 					"\"Combine\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3269,7 +3293,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 35;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 47Q6KQQW55;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3284,7 +3308,7 @@
 					"$(PROJECT_DIR)/AliceX/ReactNative",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3452,7 +3476,7 @@
 					"-weak_framework",
 					"\"Combine\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.lmcmz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";

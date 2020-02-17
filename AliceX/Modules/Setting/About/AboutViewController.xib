@@ -42,7 +42,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-dark" translatesAutoresizingMaskIntoConstraints="NO" id="FfT-4x-5iv">
-                                    <rect key="frame" x="24" y="20.5" width="12" height="19"/>
+                                    <rect key="frame" x="18" y="11" width="24" height="38"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
@@ -110,7 +110,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyn-ER-6es">
-                                                            <rect key="frame" x="110" y="23" width="57" height="32"/>
+                                                            <rect key="frame" x="110" y="23" width="52" height="28"/>
                                                             <fontDescription key="fontDescription" name="PlayfairDisplay-Black" family="Playfair Display Black" pointSize="24"/>
                                                             <color key="textColor" name="Alice-DarkGrey"/>
                                                             <nil key="highlightedColor"/>
@@ -186,7 +186,7 @@
                                                     <rect key="frame" x="20" y="14" width="42" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="2eM-G8-Bce">
-                                                            <rect key="frame" x="9" y="7" width="24" height="28"/>
+                                                            <rect key="frame" x="-3" y="7" width="48" height="28"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.28627450980000002" green="0.63137254899999995" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -239,7 +239,7 @@
                                                     <rect key="frame" x="20" y="14" width="42" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telegram" translatesAutoresizingMaskIntoConstraints="NO" id="uen-To-0hQ">
-                                                            <rect key="frame" x="8" y="7" width="24" height="28"/>
+                                                            <rect key="frame" x="-4" y="7" width="48" height="28"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2666666667" green="0.29803921570000003" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -407,13 +407,13 @@
                                             <rect key="frame" x="0.0" y="510" width="414" height="250"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Zed Labs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeJ-CS-tg1">
-                                                    <rect key="frame" x="153" y="224.5" width="108" height="17.5"/>
+                                                    <rect key="frame" x="152.5" y="226.5" width="109.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="PlayfairDisplay-Black" family="Playfair Display Black" pointSize="13"/>
                                                     <color key="textColor" name="Alice-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zed" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-Ed-KY8">
-                                                    <rect key="frame" x="194.5" y="187" width="25" height="29"/>
+                                                    <rect key="frame" x="194.5" y="160" width="25" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="4Jp-D7-BFi"/>
                                                     </constraints>
