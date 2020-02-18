@@ -68,12 +68,13 @@ class PendingTransactionHelper {
                     HUDManager.shared.showError(text: "Transaction Failed")
                     self.remove(item: item, isSuccess: false)
                 case .notYetProcessed:
+                    self.errorCount -= 1
                     break
                 }
             }.catch { error in
                 self.errorCount += 1
                 print("Fetching TX Status got error, count: \(self.errorCount)")
-                if self.errorCount > 5 {
+                if self.errorCount > 10 {
                     self.stop()
                     print(error.localizedDescription)
                 }

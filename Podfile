@@ -103,7 +103,7 @@ target 'AliceX' do
   use_frameworks!
   
   vendor
-  chat
+#  chat
   remote
   rn
 
