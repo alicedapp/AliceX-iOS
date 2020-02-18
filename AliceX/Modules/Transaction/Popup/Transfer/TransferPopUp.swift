@@ -46,7 +46,7 @@ class TransferPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addressField.text = address
-        valueField.text = value.readableValue
+        valueField.text = value == BigUInt(0) ? "" : value.readableValue
 
 //        symbolLabel.text = coin.
         symbolLabel.text = coin.info!.symbol

@@ -58,16 +58,17 @@ class FloatBall: UIView {
     func updateImage() {
         if let pinItem = PinManager.shared.pinList.last {
             let image = pinItem.image
-            imageView.kf.setImage(with: image) { result in
-                switch result {
-                case let .failure(error):
-                    break
-                    // TODO
-//                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
-                case .success:
-                    break
-                }
-            }
+            imageView.kf.setImage(with: image)
+//            { result in
+//                switch result {
+//                case let .failure(error):
+//                    break
+//                    // TODO
+////                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+//                case .success:
+//                    break
+//                }
+//            }
 
             if pinItem.isWebSite {
                 guard let url = pinItem.URL, let domain = url.host else {
