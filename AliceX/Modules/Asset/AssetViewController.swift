@@ -47,8 +47,13 @@ class AssetViewController: BaseViewController {
             collectionView.registerCell(nibName: cell.name)
         }
 
-        loadFromCache()
-        requestData()
+        loadFromCache().done {
+            self.requestData()
+        }.catch { error in
+            HUDManager.shared.showError(error: error)
+            self.cleanCache()
+            self.requestData()
+        }
 
         NotificationCenter.default.addObserver(self, selector: #selector(listChange), name: .watchingCoinListChange, object: nil)
 
@@ -109,34 +114,55 @@ class AssetViewController: BaseViewController {
         requestNFT()
     }
 
-    func loadFromCache() {
-        firstly {
-            when(fulfilled: CoinInfoCenter.shared.loadFromCache(), WatchingCoinHelper.shared.loadFromCache())
-        }.done { _ in
-            IgnoreCoinHelper.shared.loadFromCache()
-            self.coins = WatchingCoinHelper.shared.list
-//            self.collectionView.reloadData()
-//            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
-            self.coinSectionShowAnimation()
-            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-        }.catch { error in
-            IgnoreCoinHelper.shared.loadFromCache()
-            self.coins = WatchingCoinHelper.shared.list
-//            self.collectionView.reloadData()
-//            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-            self.coinSectionShowAnimation()
-            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-            print(error)
+    func loadFromCache() -> Promise<Void> {
+        
+        return Promise<Void> { seal in
+                firstly {
+                    when(fulfilled: CoinInfoCenter.shared.loadFromCache(),
+                         WatchingCoinHelper.shared.loadFromCache(),
+                         loadNTFFromCache())
+                }.done { _ in
+                    IgnoreCoinHelper.shared.loadFromCache()
+                    self.coins = WatchingCoinHelper.shared.list
+        //            self.collectionView.reloadData()
+        //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
+                    self.coinSectionShowAnimation()
+                    self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                    seal.fulfill(())
+                }.catch { error in
+                    IgnoreCoinHelper.shared.loadFromCache()
+                    self.coins = WatchingCoinHelper.shared.list
+        //            self.collectionView.reloadData()
+        //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                    self.coinSectionShowAnimation()
+                    self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                    print(error)
+                    seal.reject(error)
+                }
         }
-
-        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
-        Shared.stringCache.fetch(key: cacheKey).onSuccess { string in
-            guard let model = OpenSeaReponse.deserialize(from: string) else {
-                return
+    }
+    
+    func loadNTFFromCache() -> Promise<Void> {
+        return Promise<Void> { seal in
+            let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
+            Shared.stringCache.fetch(key: cacheKey).onSuccess { string in
+                guard let model = OpenSeaReponse.deserialize(from: string) else {
+                    seal.fulfill(())
+                    return
+                }
+                self.NFTData = model.assets
+                self.NFTSectionShowAimation()
+                seal.fulfill(())
+            }.onFailure { error in
+                seal.reject(error ?? MyError.FoundNil("Cache Failed in NFT"))
             }
-            self.NFTData = model.assets
-            self.NFTSectionShowAimation()
         }
+    }
+    
+    func cleanCache() {
+        let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
+        Shared.stringCache.remove(key: cacheKey)
+        WatchingCoinHelper.shared.removeCache()
     }
 
     @IBAction func settingClick() {

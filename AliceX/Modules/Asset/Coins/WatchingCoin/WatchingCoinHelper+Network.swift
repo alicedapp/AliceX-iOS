@@ -14,7 +14,7 @@ extension WatchingCoinHelper {
         return Promise<Void> { seal in
             firstly {
                 when(fulfilled: updateTokens(), updateCoins())
-            }.then { _ in
+            }.then {
                 PriceManager.shared.getCoinsPrice(coins: self.list)
             }.done { () in
                 if self.noCache { // Sort by price frist time
@@ -56,15 +56,15 @@ extension WatchingCoinHelper {
         }
     }
 
-    func updateTokens() -> Promise<Bool> {
-        return Promise<Bool> { seal in
+    func updateTokens() -> Promise<Void> {
+        return Promise<Void> { seal in
             firstly { () -> Promise<AmberdataTokenList> in
                 // TODO:
                 API(AmberData.tokens(address: WalletManager.currentAccount!.address), path: "payload")
             }.done { model in
 
                 if let records = model.records, records.count > 0 {
-                    let infoList = records.filter { $0.isERC20 == true }.flatMap { record -> CoinInfo? in
+                    records.filter { $0.isERC20 == true }.forEach { record in
 
                         var info = CoinInfo()
                         info.symbol = record.symbol
@@ -82,17 +82,15 @@ extension WatchingCoinHelper {
                             } else {
                                 self.add(coin: coin, updateCache: true)
                             }
-                            return info
+//                            return info
                         }
-                        return nil
+//                        return nil
                     }
 
                     CoinInfoCenter.shared.storeInCache()
-
-                    seal.fulfill(true)
+                    seal.fulfill(())
                 } else {
-                    seal.fulfill(true)
-
+                    seal.fulfill(())
                     //                    throw MyError.FoundNil("ERC20 is empty")
                 }
 
