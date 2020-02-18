@@ -154,7 +154,7 @@ class AssetViewController: BaseViewController {
         }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
-        navigationController?.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func addressButtonClick() {
