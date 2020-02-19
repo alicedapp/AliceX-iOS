@@ -55,9 +55,21 @@ enum HomeItem {
     var vc: UIViewController {
         switch self {
         case let .web(url):
-            return HomeWebBrowserWrapper.make(urlString: url.absoluteString)
+            let index = PinManager.shared.containItem(id: url.absoluteString)
+            if index == -1 {
+                return HomeWebBrowserWrapper.make(urlString: url.absoluteString)
+            }
+            let item = PinManager.shared.pinList[index]
+            PinManager.shared.currentPin = item
+            return item.vc
         case let .app(name):
-            return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
+            let index = PinManager.shared.containItem(id: name)
+            if index == -1 {
+                return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
+            }
+            let item = PinManager.shared.pinList[index]
+            PinManager.shared.currentPin = item
+            return item.vc
         }
     }
 

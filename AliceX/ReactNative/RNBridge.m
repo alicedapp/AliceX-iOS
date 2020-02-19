@@ -114,6 +114,7 @@ RCT_EXTERN_METHOD(isDarkMode:(RCTPromiseResolveBlock)resolve
 
 RCT_EXTERN_METHOD(popToRootVC)
 RCT_EXTERN_METHOD(popBack)
+RCT_EXTERN_METHOD(minimizeApp)
 
 @end
 

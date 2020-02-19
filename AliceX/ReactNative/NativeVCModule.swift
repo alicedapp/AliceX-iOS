@@ -102,4 +102,15 @@ class NativeVCModule: NSObject {
             navi.popViewController(animated: true)
         }
     }
+    
+    @objc func minimizeApp() {
+        DispatchQueue.main.async {
+            if let topVC = UIApplication.topViewController() as? BaseRNAppViewController,
+                let item = topVC.pinItem() {
+                PinManager.shared.addPinItem(item: item)
+                PinManager.shared.currentPin = item
+                topVC.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
 }

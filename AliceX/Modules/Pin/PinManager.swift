@@ -191,6 +191,15 @@ class PinManager: NSObject {
         }
         pinList[index] = item
     }
+    
+    func containItem(id: String) -> Int {
+        for (index, item) in pinList.enumerated() {
+            if item.id == id {
+                return index
+            }
+        }
+        return -1
+    }
 }
 
 extension PinManager: FloatBallDelegate {

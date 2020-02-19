@@ -15,14 +15,14 @@ protocol PinDelegate {
 
 enum PinItem {
     case website(image: URL, url: URL, title: String, viewcontroller: UIViewController)
-    case dapplet(image: URL, url: URL, title: String, viewcontroller: UIViewController)
+    case dapplet(image: URL, url: URL, name: String, viewcontroller: UIViewController)
     case transaction(coin: Coin, network: Web3NetEnum, txHash: String, title: String, viewcontroller: UIViewController)
     case walletConnect(image: URL, id: String, title: String, viewcontroller: UIViewController)
 
     var id: String {
         switch self {
-        case let .dapplet(_, url, _, _):
-            return url.absoluteString
+        case let .dapplet(_, _, name, _):
+            return name
         case let .transaction(_, _, hash, _, _):
             return hash
         case let .website(_, url, _, _):

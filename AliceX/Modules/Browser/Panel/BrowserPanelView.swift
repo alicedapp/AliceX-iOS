@@ -57,7 +57,7 @@ class BrowserPanelView: BaseView {
         }
         HUDManager.shared.dismiss()
         PinManager.shared.addPinItem(item: item)
-        PinManager.shared.currentPin = wrapper.pinItem()
+        PinManager.shared.currentPin = item
         wrapper.navigationController?.popViewController(animated: true)
     }
 
