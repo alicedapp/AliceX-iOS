@@ -78,7 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func test() {}
+    func test() {
+        MatrixManager.shared.test()
+    }
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG

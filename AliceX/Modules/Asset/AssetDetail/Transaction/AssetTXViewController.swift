@@ -31,6 +31,7 @@ class AssetTXViewController: UIViewController {
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
         tableView.fillSuperview()
+        tableView.backgroundColor = AliceColor.white()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -94,8 +95,6 @@ class AssetTXViewController: UIViewController {
             } else {
                 self.group = self.groupRecordByMonth(list: list)
             }
-            
-            
 //            self.view.hideSkeleton()
             self.tableView.reloadData()
             self.page += 1

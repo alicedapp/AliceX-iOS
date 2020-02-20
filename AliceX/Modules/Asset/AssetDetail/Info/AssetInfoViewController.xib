@@ -584,7 +584,7 @@
                     </userDefinedRuntimeAttributes>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="Alice-White"/>
             <constraints>
                 <constraint firstItem="Kby-Zo-k5N" firstAttribute="leading" secondItem="wow-kJ-8tS" secondAttribute="leading" id="4iu-Y9-BcJ"/>
                 <constraint firstItem="Kby-Zo-k5N" firstAttribute="top" secondItem="wow-kJ-8tS" secondAttribute="top" id="82a-b2-UJl"/>

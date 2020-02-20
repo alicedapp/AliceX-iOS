@@ -63,6 +63,13 @@ extension Date {
 }
 
 extension Date {
+    
+    func formatToString(format: String = "dd/MM/yy" ) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
         calendar.isDate(self, equalTo: date, toGranularity: component)
@@ -83,6 +90,4 @@ extension Date {
 
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
-    
-    
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,8 @@
                 <outlet property="tab2Conatiner" destination="T4h-vm-ra7" id="8ti-mG-dd6"/>
                 <outlet property="tab2Icon" destination="x57-77-82d" id="r5f-5o-Cdd"/>
                 <outlet property="tab3Conatiner" destination="AGb-yk-G8t" id="PCg-aX-ysA"/>
-                <outlet property="tab3Icon" destination="aVh-PZ-Tpc" id="m7N-jN-ivx"/>
+                <outlet property="tab3Icon" destination="7aO-V4-1pS" id="Www-W5-awL"/>
+                <outlet property="tab4Icon" destination="aVh-PZ-Tpc" id="t92-Yq-rLZ"/>
                 <outlet property="tabcontainer" destination="uv1-Jk-TUe" id="A0r-dd-Ap9"/>
                 <outlet property="view" destination="sD4-Wc-qWU" id="aVO-hW-Abv"/>
             </connections>
@@ -30,13 +31,13 @@
                     <rect key="frame" x="0.0" y="797" width="414" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-w5-8cu">
-                            <rect key="frame" x="0.0" y="0.0" width="138" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="60"/>
                             <subviews>
                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAW-6B-Erd" customClass="UIControl">
-                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                    <rect key="frame" x="29.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniapp-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-jw-QlU">
-                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.5" width="44.5" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="a6v-jw-QlU" secondAttribute="height" multiplier="1:1" id="vS3-3v-liw"/>
                                             </constraints>
@@ -74,13 +75,13 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyJ-5q-lgj">
-                            <rect key="frame" x="138" y="0.0" width="138" height="60"/>
+                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="60"/>
                             <subviews>
                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vm-ra7" customClass="UIControl">
-                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                    <rect key="frame" x="29.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="UgZ-P2-r76">
-                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.5" width="44.5" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UgZ-P2-r76" secondAttribute="height" multiplier="1:1" id="cm8-mN-xXG"/>
                                             </constraints>
@@ -117,14 +118,58 @@
                                 <constraint firstItem="T4h-vm-ra7" firstAttribute="centerY" secondItem="jyJ-5q-lgj" secondAttribute="centerY" id="rNs-Pj-PS4"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-4x-N32">
-                            <rect key="frame" x="276" y="0.0" width="138" height="60"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cau-g9-x68">
+                            <rect key="frame" x="207" y="0.0" width="103.5" height="60"/>
                             <subviews>
-                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-yk-G8t" customClass="UIControl">
-                                    <rect key="frame" x="46.5" y="7.5" width="45" height="45"/>
+                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCp-ap-68c" customClass="UIControl">
+                                    <rect key="frame" x="29.5" y="7.5" width="45" height="45"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="Svh-KW-avP">
+                                            <rect key="frame" x="0.0" y="0.5" width="44.5" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Svh-KW-avP" secondAttribute="height" multiplier="1:1" id="vsm-hh-23u"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-tab" translatesAutoresizingMaskIntoConstraints="NO" id="7aO-V4-1pS">
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="a28-20-2qn"/>
+                                                <constraint firstAttribute="width" secondItem="7aO-V4-1pS" secondAttribute="height" multiplier="1:1" id="fke-H8-hJC"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Svh-KW-avP" firstAttribute="centerX" secondItem="sCp-ap-68c" secondAttribute="centerX" id="7aW-lQ-JnF"/>
+                                        <constraint firstAttribute="width" secondItem="sCp-ap-68c" secondAttribute="height" multiplier="1:1" id="Lvh-Jj-mM6"/>
+                                        <constraint firstItem="7aO-V4-1pS" firstAttribute="centerY" secondItem="sCp-ap-68c" secondAttribute="centerY" id="SLg-fa-4l2"/>
+                                        <constraint firstItem="Svh-KW-avP" firstAttribute="width" secondItem="7aO-V4-1pS" secondAttribute="width" multiplier="0.98" id="Y1H-1Z-f3D"/>
+                                        <constraint firstAttribute="height" constant="45" id="az4-fA-FJs"/>
+                                        <constraint firstItem="7aO-V4-1pS" firstAttribute="centerX" secondItem="sCp-ap-68c" secondAttribute="centerX" id="l6o-3M-p2N"/>
+                                        <constraint firstItem="Svh-KW-avP" firstAttribute="centerY" secondItem="sCp-ap-68c" secondAttribute="centerY" id="yXp-J2-I6h"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="UIControl"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tabClickWithButton:" destination="-1" eventType="touchUpInside" id="aV7-pd-wff"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="sCp-ap-68c" firstAttribute="centerY" secondItem="cau-g9-x68" secondAttribute="centerY" id="GnJ-KB-57c"/>
+                                <constraint firstItem="sCp-ap-68c" firstAttribute="centerX" secondItem="cau-g9-x68" secondAttribute="centerX" id="vHf-MI-GjV"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-4x-N32">
+                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="60"/>
+                            <subviews>
+                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-yk-G8t" customClass="UIControl">
+                                    <rect key="frame" x="29.5" y="7.5" width="45" height="45"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting-tab-selected" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-QT-3uc">
-                                            <rect key="frame" x="0.5" y="0.5" width="44" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.5" width="44.5" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="0Y4-af-Gh3"/>
                                                 <constraint firstAttribute="width" secondItem="Zs1-QT-3uc" secondAttribute="height" multiplier="1:1" id="DZg-F0-Pj1"/>
@@ -156,7 +201,7 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pw-gU-Nnm">
-                                    <rect key="frame" x="75.5" y="13.5" width="10" height="10"/>
+                                    <rect key="frame" x="58.5" y="13.5" width="10" height="10"/>
                                     <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="YUC-wC-oXU"/>
@@ -197,6 +242,8 @@
     <resources>
         <image name="asset-tab" width="50" height="50"/>
         <image name="asset-tab-selected" width="50" height="50"/>
+        <image name="chat-tab" width="50" height="50"/>
+        <image name="chat-tab-selected" width="50" height="50"/>
         <image name="miniapp-tab" width="50" height="50"/>
         <image name="miniapp-tab-selected" width="50" height="50"/>
         <image name="setting-tab" width="50" height="50"/>

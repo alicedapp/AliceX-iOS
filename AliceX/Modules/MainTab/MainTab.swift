@@ -11,6 +11,7 @@ import Foundation
 enum MainTab: Int, CaseIterable {
     case mini
     case asset
+    case chat
     case setting
 
     var vc: UIViewController {
@@ -22,6 +23,8 @@ enum MainTab: Int, CaseIterable {
         case .setting:
             let vc = SettingViewController.make(hideBackButton: true)
             return vc
+        case .chat:
+            return RoomViewController()
         }
     }
 
@@ -32,6 +35,8 @@ enum MainTab: Int, CaseIterable {
         case .asset:
             return UIImage(named: "back")!
         case .setting:
+            return UIImage(named: "back")!
+        case .chat:
             return UIImage(named: "back")!
 //        case .transaction:
 //            return UIImage(named: "back")!

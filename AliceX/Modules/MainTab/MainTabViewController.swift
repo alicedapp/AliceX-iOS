@@ -19,7 +19,8 @@ class MainTabViewController: PageboyViewController {
     @IBOutlet var tab1Icon: UIImageView!
     @IBOutlet var tab2Icon: UIImageView!
     @IBOutlet var tab3Icon: UIImageView!
-
+    @IBOutlet var tab4Icon: UIImageView!
+    
     @IBOutlet var badge: UIView!
 
     var tabs = MainTab.allCases
@@ -37,7 +38,7 @@ class MainTabViewController: PageboyViewController {
         view.isHeroEnabled = true
 
         minVC.tabRef = tabcontainer
-        vcs = [minVC, AssetViewController(), SettingViewController.make(hideBackButton: true)]
+        vcs = [minVC, AssetViewController(), RoomViewController(), SettingViewController.make(hideBackButton: true)]
 
         vcs.forEach { vc in
             vc.hero.isEnabled = true
@@ -51,7 +52,7 @@ class MainTabViewController: PageboyViewController {
         view.backgroundColor = .clear
         Defaults[\.isFirstTimeOpen] = false
 
-        for tag in 1 ... 3 {
+        for tag in 1 ... tabs.count {
             guard let tagView = view.viewWithTag(tag) else {
                 continue
             }

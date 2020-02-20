@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomViewController" customModule="AliceX" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="mKi-yB-bQA" id="eWa-Lb-3Je"/>
+                <outlet property="titleLabel" destination="RJx-6Z-RNY" id="czO-zh-2rF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSs-bs-u3a">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4f-6u-vvX">
+                            <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJx-6Z-RNY">
+                                    <rect key="frame" x="183.5" y="17.5" width="47.5" height="25.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                    <color key="textColor" name="Alice-DarkGrey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNJ-bJ-ElN">
+                                    <rect key="frame" x="0.0" y="59.5" width="414" height="0.5"/>
+                                    <color key="backgroundColor" name="Alice-LightGrey"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.5" id="P6l-ea-qfq"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="RJx-6Z-RNY" firstAttribute="centerX" secondItem="P4f-6u-vvX" secondAttribute="centerX" id="1Ut-GL-Prg"/>
+                                <constraint firstAttribute="bottom" secondItem="KNJ-bJ-ElN" secondAttribute="bottom" id="BEx-7Q-BPQ"/>
+                                <constraint firstItem="KNJ-bJ-ElN" firstAttribute="leading" secondItem="P4f-6u-vvX" secondAttribute="leading" id="ek4-jH-mim"/>
+                                <constraint firstAttribute="height" constant="60" id="for-YH-vcv"/>
+                                <constraint firstAttribute="trailing" secondItem="KNJ-bJ-ElN" secondAttribute="trailing" id="kGT-Xc-irn"/>
+                                <constraint firstItem="RJx-6Z-RNY" firstAttribute="centerY" secondItem="P4f-6u-vvX" secondAttribute="centerY" id="l7H-zs-dM3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Alice-White"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="P4f-6u-vvX" secondAttribute="trailing" id="02j-Xo-Yxe"/>
+                        <constraint firstAttribute="height" constant="104" id="6cj-El-31I"/>
+                        <constraint firstItem="P4f-6u-vvX" firstAttribute="leading" secondItem="cSs-bs-u3a" secondAttribute="leading" id="vS9-e1-uEN"/>
+                        <constraint firstAttribute="bottom" secondItem="P4f-6u-vvX" secondAttribute="bottom" id="yjr-ql-geQ"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKi-yB-bQA">
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" name="Alice-White"/>
+            <constraints>
+                <constraint firstItem="cSs-bs-u3a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6HV-C5-rbP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mKi-yB-bQA" secondAttribute="trailing" id="Ghf-N1-xai"/>
+                <constraint firstItem="mKi-yB-bQA" firstAttribute="top" secondItem="cSs-bs-u3a" secondAttribute="bottom" id="KQF-b2-6gK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cSs-bs-u3a" secondAttribute="trailing" id="dOc-lg-xXE"/>
+                <constraint firstItem="cSs-bs-u3a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-44" id="hQT-i9-sPo"/>
+                <constraint firstItem="mKi-yB-bQA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="keT-bg-QEG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mKi-yB-bQA" secondAttribute="bottom" id="xt8-32-vbS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="120"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -374,6 +374,50 @@
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
 		15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985E522C34E1400942357 /* ContractPopUp.swift */; };
+		15FA746C23FCE05A0080A7C2 /* MatrixManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA746B23FCE05A0080A7C2 /* MatrixManager.swift */; };
+		15FA746F23FD17000080A7C2 /* MXResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA746E23FD17000080A7C2 /* MXResponse+Extension.swift */; };
+		15FA747223FD7CA70080A7C2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747023FD7CA70080A7C2 /* ChatViewController.swift */; };
+		15FA747323FD7CA70080A7C2 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA747123FD7CA70080A7C2 /* ChatViewController.xib */; };
+		15FA748D23FD7E490080A7C2 /* DemoPhotoMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747723FD7E490080A7C2 /* DemoPhotoMessageViewModel.swift */; };
+		15FA748E23FD7E490080A7C2 /* DemoPhotoMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747823FD7E490080A7C2 /* DemoPhotoMessageModel.swift */; };
+		15FA748F23FD7E490080A7C2 /* SendingStatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747A23FD7E490080A7C2 /* SendingStatusPresenter.swift */; };
+		15FA749023FD7E490080A7C2 /* SendingStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747B23FD7E490080A7C2 /* SendingStatusCollectionViewCell.swift */; };
+		15FA749123FD7E490080A7C2 /* SendingStatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA747C23FD7E490080A7C2 /* SendingStatusCollectionViewCell.xib */; };
+		15FA749223FD7E490080A7C2 /* DemoTextMessageContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747E23FD7E490080A7C2 /* DemoTextMessageContentFactory.swift */; };
+		15FA749323FD7E490080A7C2 /* DemoImageMessageContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA747F23FD7E490080A7C2 /* DemoImageMessageContentFactory.swift */; };
+		15FA749423FD7E490080A7C2 /* DemoCompoundMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748023FD7E490080A7C2 /* DemoCompoundMessageModel.swift */; };
+		15FA749523FD7E490080A7C2 /* DemoDateMessageContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748123FD7E490080A7C2 /* DemoDateMessageContentFactory.swift */; };
+		15FA749623FD7E490080A7C2 /* DemoCompoundMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748223FD7E490080A7C2 /* DemoCompoundMessageViewModel.swift */; };
+		15FA749723FD7E490080A7C2 /* ContentAwareInputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748423FD7E490080A7C2 /* ContentAwareInputItem.swift */; };
+		15FA749823FD7E490080A7C2 /* CustomInput.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FA748523FD7E490080A7C2 /* CustomInput.xcassets */; };
+		15FA749923FD7E490080A7C2 /* DemoTextMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748723FD7E490080A7C2 /* DemoTextMessageModel.swift */; };
+		15FA749A23FD7E490080A7C2 /* DemoTextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748823FD7E490080A7C2 /* DemoTextMessageViewModel.swift */; };
+		15FA749B23FD7E490080A7C2 /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748A23FD7E490080A7C2 /* BaseMessageHandler.swift */; };
+		15FA749C23FD7E490080A7C2 /* GenericMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748B23FD7E490080A7C2 /* GenericMessageHandler.swift */; };
+		15FA749D23FD7E490080A7C2 /* BaseMessageCollectionViewCellAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA748C23FD7E490080A7C2 /* BaseMessageCollectionViewCellAvatarStyle.swift */; };
+		15FA74AA23FD7E920080A7C2 /* AsyncAvatarLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA749F23FD7E920080A7C2 /* AsyncAvatarLoadingViewController.swift */; };
+		15FA74AB23FD7E920080A7C2 /* UpdateItemTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A023FD7E920080A7C2 /* UpdateItemTypeViewController.swift */; };
+		15FA74AC23FD7E920080A7C2 /* AddRandomMessageChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A123FD7E920080A7C2 /* AddRandomMessageChatViewController.swift */; };
+		15FA74AD23FD7E920080A7C2 /* DemoChatMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A223FD7E920080A7C2 /* DemoChatMessageSender.swift */; };
+		15FA74AE23FD7E920080A7C2 /* ScrollToBottomButtonChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A323FD7E920080A7C2 /* ScrollToBottomButtonChatViewController.swift */; };
+		15FA74AF23FD7E920080A7C2 /* DemoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A423FD7E920080A7C2 /* DemoChatViewController.swift */; };
+		15FA74B023FD7E920080A7C2 /* DemoChatItemsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A523FD7E920080A7C2 /* DemoChatItemsDecorator.swift */; };
+		15FA74B123FD7E920080A7C2 /* TestItemsReloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A623FD7E920080A7C2 /* TestItemsReloadingViewController.swift */; };
+		15FA74B223FD7E920080A7C2 /* DemoChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A723FD7E920080A7C2 /* DemoChatDataSource.swift */; };
+		15FA74B323FD7E920080A7C2 /* DemoChatMessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A823FD7E920080A7C2 /* DemoChatMessageFactory.swift */; };
+		15FA74B423FD7E920080A7C2 /* MessagesSelectionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74A923FD7E920080A7C2 /* MessagesSelectionChatViewController.swift */; };
+		15FA74B723FD7EE80080A7C2 /* BaseMessagesSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74B523FD7EE80080A7C2 /* BaseMessagesSelector.swift */; };
+		15FA74B823FD7EE80080A7C2 /* MessagesSelectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74B623FD7EE80080A7C2 /* MessagesSelectorProtocol.swift */; };
+		15FA74BA23FD7F510080A7C2 /* SlidingDatasSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74B923FD7F510080A7C2 /* SlidingDatasSource.swift */; };
+		15FA74BF23FD7FE60080A7C2 /* TimeSeparatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74BC23FD7FE60080A7C2 /* TimeSeparatorModel.swift */; };
+		15FA74C023FD7FE60080A7C2 /* TimeSeparatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74BD23FD7FE60080A7C2 /* TimeSeparatorPresenter.swift */; };
+		15FA74C123FD7FE60080A7C2 /* TimeSeparatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74BE23FD7FE60080A7C2 /* TimeSeparatorCollectionViewCell.swift */; };
+		15FA74C523FE0C3C0080A7C2 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74C323FE0C3C0080A7C2 /* RoomViewController.swift */; };
+		15FA74C623FE0C3C0080A7C2 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA74C423FE0C3C0080A7C2 /* RoomViewController.xib */; };
+		15FA74CA23FE12400080A7C2 /* ChatRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74C823FE12400080A7C2 /* ChatRoomCell.swift */; };
+		15FA74CB23FE12400080A7C2 /* ChatRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FA74C923FE12400080A7C2 /* ChatRoomCell.xib */; };
+		15FA74D023FE26C40080A7C2 /* RoomRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74CF23FE26C30080A7C2 /* RoomRefreshAnimator.swift */; };
+		15FA74D323FE43630080A7C2 /* UIImageView+Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA74D223FE43620080A7C2 /* UIImageView+Matrix.swift */; };
 		15FF6B32238EC12600673F49 /* AppDelegate+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF6B31238EC12600673F49 /* AppDelegate+Notification.swift */; };
 		15FFCF872366073000E0BB80 /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFCF852366073000E0BB80 /* CoinListViewController.swift */; };
 		15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF862366073000E0BB80 /* CoinListViewController.xib */; };
@@ -757,6 +801,50 @@
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
 		15F985E522C34E1400942357 /* ContractPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractPopUp.swift; sourceTree = "<group>"; };
+		15FA746B23FCE05A0080A7C2 /* MatrixManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixManager.swift; sourceTree = "<group>"; };
+		15FA746E23FD17000080A7C2 /* MXResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXResponse+Extension.swift"; sourceTree = "<group>"; };
+		15FA747023FD7CA70080A7C2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		15FA747123FD7CA70080A7C2 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		15FA747723FD7E490080A7C2 /* DemoPhotoMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPhotoMessageViewModel.swift; sourceTree = "<group>"; };
+		15FA747823FD7E490080A7C2 /* DemoPhotoMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPhotoMessageModel.swift; sourceTree = "<group>"; };
+		15FA747A23FD7E490080A7C2 /* SendingStatusPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusPresenter.swift; sourceTree = "<group>"; };
+		15FA747B23FD7E490080A7C2 /* SendingStatusCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		15FA747C23FD7E490080A7C2 /* SendingStatusCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendingStatusCollectionViewCell.xib; sourceTree = "<group>"; };
+		15FA747E23FD7E490080A7C2 /* DemoTextMessageContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTextMessageContentFactory.swift; sourceTree = "<group>"; };
+		15FA747F23FD7E490080A7C2 /* DemoImageMessageContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoImageMessageContentFactory.swift; sourceTree = "<group>"; };
+		15FA748023FD7E490080A7C2 /* DemoCompoundMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCompoundMessageModel.swift; sourceTree = "<group>"; };
+		15FA748123FD7E490080A7C2 /* DemoDateMessageContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDateMessageContentFactory.swift; sourceTree = "<group>"; };
+		15FA748223FD7E490080A7C2 /* DemoCompoundMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCompoundMessageViewModel.swift; sourceTree = "<group>"; };
+		15FA748423FD7E490080A7C2 /* ContentAwareInputItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentAwareInputItem.swift; sourceTree = "<group>"; };
+		15FA748523FD7E490080A7C2 /* CustomInput.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomInput.xcassets; sourceTree = "<group>"; };
+		15FA748723FD7E490080A7C2 /* DemoTextMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTextMessageModel.swift; sourceTree = "<group>"; };
+		15FA748823FD7E490080A7C2 /* DemoTextMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTextMessageViewModel.swift; sourceTree = "<group>"; };
+		15FA748A23FD7E490080A7C2 /* BaseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
+		15FA748B23FD7E490080A7C2 /* GenericMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericMessageHandler.swift; sourceTree = "<group>"; };
+		15FA748C23FD7E490080A7C2 /* BaseMessageCollectionViewCellAvatarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageCollectionViewCellAvatarStyle.swift; sourceTree = "<group>"; };
+		15FA749F23FD7E920080A7C2 /* AsyncAvatarLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAvatarLoadingViewController.swift; sourceTree = "<group>"; };
+		15FA74A023FD7E920080A7C2 /* UpdateItemTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateItemTypeViewController.swift; sourceTree = "<group>"; };
+		15FA74A123FD7E920080A7C2 /* AddRandomMessageChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRandomMessageChatViewController.swift; sourceTree = "<group>"; };
+		15FA74A223FD7E920080A7C2 /* DemoChatMessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoChatMessageSender.swift; sourceTree = "<group>"; };
+		15FA74A323FD7E920080A7C2 /* ScrollToBottomButtonChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollToBottomButtonChatViewController.swift; sourceTree = "<group>"; };
+		15FA74A423FD7E920080A7C2 /* DemoChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoChatViewController.swift; sourceTree = "<group>"; };
+		15FA74A523FD7E920080A7C2 /* DemoChatItemsDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoChatItemsDecorator.swift; sourceTree = "<group>"; };
+		15FA74A623FD7E920080A7C2 /* TestItemsReloadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestItemsReloadingViewController.swift; sourceTree = "<group>"; };
+		15FA74A723FD7E920080A7C2 /* DemoChatDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoChatDataSource.swift; sourceTree = "<group>"; };
+		15FA74A823FD7E920080A7C2 /* DemoChatMessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoChatMessageFactory.swift; sourceTree = "<group>"; };
+		15FA74A923FD7E920080A7C2 /* MessagesSelectionChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSelectionChatViewController.swift; sourceTree = "<group>"; };
+		15FA74B523FD7EE80080A7C2 /* BaseMessagesSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessagesSelector.swift; sourceTree = "<group>"; };
+		15FA74B623FD7EE80080A7C2 /* MessagesSelectorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSelectorProtocol.swift; sourceTree = "<group>"; };
+		15FA74B923FD7F510080A7C2 /* SlidingDatasSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingDatasSource.swift; sourceTree = "<group>"; };
+		15FA74BC23FD7FE60080A7C2 /* TimeSeparatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeparatorModel.swift; sourceTree = "<group>"; };
+		15FA74BD23FD7FE60080A7C2 /* TimeSeparatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeparatorPresenter.swift; sourceTree = "<group>"; };
+		15FA74BE23FD7FE60080A7C2 /* TimeSeparatorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeparatorCollectionViewCell.swift; sourceTree = "<group>"; };
+		15FA74C323FE0C3C0080A7C2 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		15FA74C423FE0C3C0080A7C2 /* RoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		15FA74C823FE12400080A7C2 /* ChatRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomCell.swift; sourceTree = "<group>"; };
+		15FA74C923FE12400080A7C2 /* ChatRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomCell.xib; sourceTree = "<group>"; };
+		15FA74CF23FE26C30080A7C2 /* RoomRefreshAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRefreshAnimator.swift; sourceTree = "<group>"; };
+		15FA74D223FE43620080A7C2 /* UIImageView+Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Matrix.swift"; sourceTree = "<group>"; };
 		15FF6B31238EC12600673F49 /* AppDelegate+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notification.swift"; sourceTree = "<group>"; };
 		15FFCF852366073000E0BB80 /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
 		15FFCF862366073000E0BB80 /* CoinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListViewController.xib; sourceTree = "<group>"; };
@@ -1029,6 +1117,7 @@
 		152E483723FA649E00C79A03 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				15FA746D23FD16EF0080A7C2 /* Util */,
 				152E483923FA74FA00C79A03 /* UI */,
 				152E483823FA74EE00C79A03 /* Manager */,
 			);
@@ -1038,6 +1127,8 @@
 		152E483823FA74EE00C79A03 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				15FA74D123FE43420080A7C2 /* Util */,
+				15FA746B23FCE05A0080A7C2 /* MatrixManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1045,6 +1136,11 @@
 		152E483923FA74FA00C79A03 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				15FA74C223FE0C2C0080A7C2 /* Room */,
+				15FA749E23FD7E920080A7C2 /* Chat View Controllers */,
+				15FA747523FD7E490080A7C2 /* Chat Items */,
+				15FA747023FD7CA70080A7C2 /* ChatViewController.swift */,
+				15FA747123FD7CA70080A7C2 /* ChatViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2314,6 +2410,156 @@
 			path = Contract;
 			sourceTree = "<group>";
 		};
+		15FA746D23FD16EF0080A7C2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				15FA746E23FD17000080A7C2 /* MXResponse+Extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		15FA747523FD7E490080A7C2 /* Chat Items */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74BB23FD7FE60080A7C2 /* Time Separator */,
+				15FA74B523FD7EE80080A7C2 /* BaseMessagesSelector.swift */,
+				15FA74B923FD7F510080A7C2 /* SlidingDatasSource.swift */,
+				15FA74B623FD7EE80080A7C2 /* MessagesSelectorProtocol.swift */,
+				15FA747623FD7E490080A7C2 /* Photo Messages */,
+				15FA747923FD7E490080A7C2 /* Sending status */,
+				15FA747D23FD7E490080A7C2 /* Compound Messages */,
+				15FA748323FD7E490080A7C2 /* Content Aware Input  */,
+				15FA748623FD7E490080A7C2 /* Text Messages */,
+				15FA748923FD7E490080A7C2 /* Base Message */,
+			);
+			name = "Chat Items";
+			path = "../../../../../../../Desktop/Chat Items";
+			sourceTree = "<group>";
+		};
+		15FA747623FD7E490080A7C2 /* Photo Messages */ = {
+			isa = PBXGroup;
+			children = (
+				15FA747723FD7E490080A7C2 /* DemoPhotoMessageViewModel.swift */,
+				15FA747823FD7E490080A7C2 /* DemoPhotoMessageModel.swift */,
+			);
+			path = "Photo Messages";
+			sourceTree = "<group>";
+		};
+		15FA747923FD7E490080A7C2 /* Sending status */ = {
+			isa = PBXGroup;
+			children = (
+				15FA747A23FD7E490080A7C2 /* SendingStatusPresenter.swift */,
+				15FA747B23FD7E490080A7C2 /* SendingStatusCollectionViewCell.swift */,
+				15FA747C23FD7E490080A7C2 /* SendingStatusCollectionViewCell.xib */,
+			);
+			path = "Sending status";
+			sourceTree = "<group>";
+		};
+		15FA747D23FD7E490080A7C2 /* Compound Messages */ = {
+			isa = PBXGroup;
+			children = (
+				15FA747E23FD7E490080A7C2 /* DemoTextMessageContentFactory.swift */,
+				15FA747F23FD7E490080A7C2 /* DemoImageMessageContentFactory.swift */,
+				15FA748023FD7E490080A7C2 /* DemoCompoundMessageModel.swift */,
+				15FA748123FD7E490080A7C2 /* DemoDateMessageContentFactory.swift */,
+				15FA748223FD7E490080A7C2 /* DemoCompoundMessageViewModel.swift */,
+			);
+			path = "Compound Messages";
+			sourceTree = "<group>";
+		};
+		15FA748323FD7E490080A7C2 /* Content Aware Input  */ = {
+			isa = PBXGroup;
+			children = (
+				15FA748423FD7E490080A7C2 /* ContentAwareInputItem.swift */,
+				15FA748523FD7E490080A7C2 /* CustomInput.xcassets */,
+			);
+			path = "Content Aware Input ";
+			sourceTree = "<group>";
+		};
+		15FA748623FD7E490080A7C2 /* Text Messages */ = {
+			isa = PBXGroup;
+			children = (
+				15FA748723FD7E490080A7C2 /* DemoTextMessageModel.swift */,
+				15FA748823FD7E490080A7C2 /* DemoTextMessageViewModel.swift */,
+			);
+			path = "Text Messages";
+			sourceTree = "<group>";
+		};
+		15FA748923FD7E490080A7C2 /* Base Message */ = {
+			isa = PBXGroup;
+			children = (
+				15FA748A23FD7E490080A7C2 /* BaseMessageHandler.swift */,
+				15FA748B23FD7E490080A7C2 /* GenericMessageHandler.swift */,
+				15FA748C23FD7E490080A7C2 /* BaseMessageCollectionViewCellAvatarStyle.swift */,
+			);
+			path = "Base Message";
+			sourceTree = "<group>";
+		};
+		15FA749E23FD7E920080A7C2 /* Chat View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15FA749F23FD7E920080A7C2 /* AsyncAvatarLoadingViewController.swift */,
+				15FA74A023FD7E920080A7C2 /* UpdateItemTypeViewController.swift */,
+				15FA74A123FD7E920080A7C2 /* AddRandomMessageChatViewController.swift */,
+				15FA74A223FD7E920080A7C2 /* DemoChatMessageSender.swift */,
+				15FA74A323FD7E920080A7C2 /* ScrollToBottomButtonChatViewController.swift */,
+				15FA74A423FD7E920080A7C2 /* DemoChatViewController.swift */,
+				15FA74A523FD7E920080A7C2 /* DemoChatItemsDecorator.swift */,
+				15FA74A623FD7E920080A7C2 /* TestItemsReloadingViewController.swift */,
+				15FA74A723FD7E920080A7C2 /* DemoChatDataSource.swift */,
+				15FA74A823FD7E920080A7C2 /* DemoChatMessageFactory.swift */,
+				15FA74A923FD7E920080A7C2 /* MessagesSelectionChatViewController.swift */,
+			);
+			name = "Chat View Controllers";
+			path = "../../../../../../../Desktop/Chat View Controllers";
+			sourceTree = "<group>";
+		};
+		15FA74BB23FD7FE60080A7C2 /* Time Separator */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74BC23FD7FE60080A7C2 /* TimeSeparatorModel.swift */,
+				15FA74BD23FD7FE60080A7C2 /* TimeSeparatorPresenter.swift */,
+				15FA74BE23FD7FE60080A7C2 /* TimeSeparatorCollectionViewCell.swift */,
+			);
+			path = "Time Separator";
+			sourceTree = "<group>";
+		};
+		15FA74C223FE0C2C0080A7C2 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74CC23FE25310080A7C2 /* Refresh */,
+				15FA74C723FE0D2D0080A7C2 /* Cell */,
+				15FA74C323FE0C3C0080A7C2 /* RoomViewController.swift */,
+				15FA74C423FE0C3C0080A7C2 /* RoomViewController.xib */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		15FA74C723FE0D2D0080A7C2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74C823FE12400080A7C2 /* ChatRoomCell.swift */,
+				15FA74C923FE12400080A7C2 /* ChatRoomCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		15FA74CC23FE25310080A7C2 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74CF23FE26C30080A7C2 /* RoomRefreshAnimator.swift */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
+		15FA74D123FE43420080A7C2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				15FA74D223FE43620080A7C2 /* UIImageView+Matrix.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		15FFCF842366026400E0BB80 /* Coins */ = {
 			isa = PBXGroup;
 			children = (
@@ -2466,6 +2712,8 @@
 				158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
 				15BC4DB922DAD03700313CA9 /* DAppListViewController.xib in Resources */,
+				15FA747323FD7CA70080A7C2 /* ChatViewController.xib in Resources */,
+				15FA749823FD7E490080A7C2 /* CustomInput.xcassets in Resources */,
 				15E1AA9A2367162800F29369 /* AddressQRCodeViewController.xib in Resources */,
 				158124E323EBF3450021B62E /* AssetInfoViewController.xib in Resources */,
 				15DF2A042387AEA60013664E /* HomeWebPanelView.xib in Resources */,
@@ -2503,11 +2751,13 @@
 				155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */,
 				153A654922C9CE2B0035EB2C /* LandingViewController.xib in Resources */,
 				15072532233A2172009C9D51 /* WCConnectPopup.xib in Resources */,
+				15FA74C623FE0C3C0080A7C2 /* RoomViewController.xib in Resources */,
 				158FAC2D233CA20600F281B1 /* WCControlPanel.xib in Resources */,
 				151C8D522386C52200B13AD4 /* MiniAppAddCell.xib in Resources */,
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1533C99D237ABB140052010A /* MiniAppViewController.xib in Resources */,
 				154F609A238442C60011200F /* MiniAppCollectionViewCell.xib in Resources */,
+				15FA74CB23FE12400080A7C2 /* ChatRoomCell.xib in Resources */,
 				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
@@ -2546,6 +2796,7 @@
 				150BF1F923C4D4CE00AD00EC /* SwitchAccountLarkController.xib in Resources */,
 				155FACED233910DE0002B478 /* TestViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
+				15FA749123FD7E490080A7C2 /* SendingStatusCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2692,23 +2943,28 @@
 				15E71E092371CCF10069BFD2 /* WatchingCoinModel.swift in Sources */,
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,
+				15FA74B823FD7EE80080A7C2 /* MessagesSelectorProtocol.swift in Sources */,
 				15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */,
 				15015DA82365AD27008DDD80 /* AssetCoinHeaderCell.swift in Sources */,
 				1529411C231D82940044C92D /* PinTransitionPop.swift in Sources */,
 				150BF1F823C4D4CE00AD00EC /* SwitchAccountLarkController.swift in Sources */,
 				154E7F342306AA7500D571A8 /* AppDelegate+AliceSDK.swift in Sources */,
+				15FA74AE23FD7E920080A7C2 /* ScrollToBottomButtonChatViewController.swift in Sources */,
 				158FAC2C233CA20600F281B1 /* WCControlPanel.swift in Sources */,
 				15F67C0D236A90D800E00CDE /* AppDelegate.swift in Sources */,
 				15A7D500233B2896001D720F /* SingleButtonAlertView.swift in Sources */,
 				154F60AB238596090011200F /* MiniAppTab.swift in Sources */,
 				151250C82366209600AD37BB /* OpenSeaModel.swift in Sources */,
+				15FA749C23FD7E490080A7C2 /* GenericMessageHandler.swift in Sources */,
 				15E3C8FB234471AE00DCADBF /* TTGTextTagCollectionView.m in Sources */,
 				15CB1F2D22F16E8200E3075C /* WCServerHelper.swift in Sources */,
 				155456DA23C89A9C0082BC2F /* WalletAvatarViewController.swift in Sources */,
 				15A4F0EF232A6A46007A63A3 /* CacheManager.swift in Sources */,
 				158A909123704A0E002F9F18 /* PriceManager+Cache.swift in Sources */,
 				15DF2A112387CB7F0013664E /* BrowserSetting.swift in Sources */,
+				15FA749923FD7E490080A7C2 /* DemoTextMessageModel.swift in Sources */,
 				15A4F0F2232A7E73007A63A3 /* CustomNetworkCell.swift in Sources */,
+				15FA746F23FD17000080A7C2 /* MXResponse+Extension.swift in Sources */,
 				1587396E22BB6E9800F36F92 /* UIView.swift in Sources */,
 				1577DDD4237EC10700225DE6 /* WalletCoreManager+Binance.swift in Sources */,
 				15A181672329246100DFE686 /* RPCCustomFooterView.swift in Sources */,
@@ -2741,11 +2997,14 @@
 				1514465423644698005E87CE /* AssetViewController.swift in Sources */,
 				15A18177232A304F00DFE686 /* WalletManager+CustomRPC.swift in Sources */,
 				156BCD5F22C4A41B00B380DF /* SignMessagePopUp.swift in Sources */,
+				15FA74C523FE0C3C0080A7C2 /* RoomViewController.swift in Sources */,
 				15764E1822E9F99700784848 /* Color.swift in Sources */,
 				1526B62922E962E6007663E5 /* FaceIDHelper.swift in Sources */,
+				15FA74BA23FD7F510080A7C2 /* SlidingDatasSource.swift in Sources */,
 				15BC4DBD22DAD82E00313CA9 /* DappTableViewCell.swift in Sources */,
 				1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */,
 				15F197BF2382D6BF00960DE1 /* AssetDetailViewController.swift in Sources */,
+				15FA74AC23FD7E920080A7C2 /* AddRandomMessageChatViewController.swift in Sources */,
 				15BC4DB022DA465900313CA9 /* BrowserPanelView.swift in Sources */,
 				1512B09223F3D768002B68AA /* Int.swift in Sources */,
 				15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */,
@@ -2776,6 +3035,7 @@
 				154F60A023844A540011200F /* HomeItem.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
+				15FA74B323FD7E920080A7C2 /* DemoChatMessageFactory.swift in Sources */,
 				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
 				153A737222ECDCF0003371D3 /* MyQRCodeViewController.swift in Sources */,
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
@@ -2785,11 +3045,14 @@
 				158E1CF8236553240081C1AA /* Asset.swift in Sources */,
 				15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */,
 				15E18F8F23E690C5007C0263 /* TagCellLayoutDelegate.swift in Sources */,
+				15FA749723FD7E490080A7C2 /* ContentAwareInputItem.swift in Sources */,
 				1514464D236437F7005E87CE /* MainTabViewController.swift in Sources */,
 				157AA56E22CC8959008AF3A5 /* WalletManager+Network.swift in Sources */,
 				154F609C2384444B0011200F /* MiniAppViewController+Camera.swift in Sources */,
+				15FA74B423FD7E920080A7C2 /* MessagesSelectionChatViewController.swift in Sources */,
 				158124CA23EB0EAD0021B62E /* PagingListBaseView.swift in Sources */,
 				15E18F8C23E690C5007C0263 /* LayoutAlignment.swift in Sources */,
+				15FA746C23FCE05A0080A7C2 /* MatrixManager.swift in Sources */,
 				158124C723EAF6E20021B62E /* AssetDetailChildVC+Segement.swift in Sources */,
 				15BC4DC622DAFAE800313CA9 /* UIImage.swift in Sources */,
 				15072530233A2167009C9D51 /* WCConnectPopup.swift in Sources */,
@@ -2805,29 +3068,36 @@
 				15E71E0D2372EA000069BFD2 /* CoinInfoCenter.swift in Sources */,
 				15E1AA93236706FE00F29369 /* Binance.swift in Sources */,
 				15DF29F22386F0640013664E /* Cacheable.swift in Sources */,
+				15FA749323FD7E490080A7C2 /* DemoImageMessageContentFactory.swift in Sources */,
 				151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */,
 				15A18163232922E400DFE686 /* RPCCustomViewController.swift in Sources */,
 				158124D223EB167F0021B62E /* AssetTXCell.swift in Sources */,
 				15DF29F42386F6F40013664E /* MiniAppViewController+Drag.swift in Sources */,
+				15FA74B123FD7E920080A7C2 /* TestItemsReloadingViewController.swift in Sources */,
 				15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */,
 				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
 				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				15C7D0FE237D10760037E418 /* BinanceModel.swift in Sources */,
+				15FA748E23FD7E490080A7C2 /* DemoPhotoMessageModel.swift in Sources */,
 				15E18FA723E710A4007C0263 /* BEMSimpleLineGraphView.m in Sources */,
 				15DF2A012387AE920013664E /* HomeWebPanelView.swift in Sources */,
 				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */,
 				15E18FA523E710A4007C0263 /* BEMPermanentPopupView.m in Sources */,
+				15FA74BF23FD7FE60080A7C2 /* TimeSeparatorModel.swift in Sources */,
 				158A90972371388D002F9F18 /* Blockchain+NetworkLayer.swift in Sources */,
 				151446502364466A005E87CE /* MainTab.swift in Sources */,
+				15FA749B23FD7E490080A7C2 /* BaseMessageHandler.swift in Sources */,
 				1577DDD0237E684300225DE6 /* Cosmos.swift in Sources */,
 				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
+				15FA749D23FD7E490080A7C2 /* BaseMessageCollectionViewCellAvatarStyle.swift in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15E18FA323E710A4007C0263 /* BEMAverageLine.m in Sources */,
 				158A905C237025AE002F9F18 /* Cryptocompare.swift in Sources */,
 				1562602023EFDBF900A53E8D /* Etherscan.swift in Sources */,
 				152151E922ECB76200A4613A /* LBXScanViewStyle.swift in Sources */,
 				1507252B233A0F46009C9D51 /* WCClientHelper.swift in Sources */,
+				15FA749623FD7E490080A7C2 /* DemoCompoundMessageViewModel.swift in Sources */,
 				1514464923617ACB005E87CE /* WalletCoreManager.swift in Sources */,
 				1528139623C1B00000EE847D /* SwitchAccountViewController.swift in Sources */,
 				15E3C8FA234471AE00DCADBF /* TTGTagCollectionView.m in Sources */,
@@ -2851,6 +3121,7 @@
 				1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */,
 				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */,
+				15FA74B023FD7E920080A7C2 /* DemoChatItemsDecorator.swift in Sources */,
 				157A2EFD23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift in Sources */,
 				153B044E236D9701008A2139 /* ERC20.swift in Sources */,
 				15B86BB222AA1D2900110C06 /* BaseViewController.swift in Sources */,
@@ -2860,29 +3131,40 @@
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
 				1562602523F0553700A53E8D /* AssetDetailHeader+Chart.swift in Sources */,
 				15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */,
+				15FA74C023FD7FE60080A7C2 /* TimeSeparatorPresenter.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */,
 				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
+				15FA747223FD7CA70080A7C2 /* ChatViewController.swift in Sources */,
+				15FA74AA23FD7E920080A7C2 /* AsyncAvatarLoadingViewController.swift in Sources */,
 				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
 				1503623D23D3248500B9B0A9 /* TraitView.swift in Sources */,
+				15FA748D23FD7E490080A7C2 /* DemoPhotoMessageViewModel.swift in Sources */,
 				15E1AA992367162800F29369 /* AddressQRCodeViewController.swift in Sources */,
 				154F60A323846D040011200F /* FaviconGrabber.swift in Sources */,
 				152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */,
 				15DF29F82387A1D70013664E /* BestIcon.swift in Sources */,
+				15FA74D323FE43630080A7C2 /* UIImageView+Matrix.swift in Sources */,
+				15FA749523FD7E490080A7C2 /* DemoDateMessageContentFactory.swift in Sources */,
+				15FA74AB23FD7E920080A7C2 /* UpdateItemTypeViewController.swift in Sources */,
 				1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */,
+				15FA749423FD7E490080A7C2 /* DemoCompoundMessageModel.swift in Sources */,
 				158A909523713756002F9F18 /* BlockchainNetwork.swift in Sources */,
 				156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */,
 				151C8D512386C52200B13AD4 /* MiniAppAddCell.swift in Sources */,
 				15BE4091233A40080078AF83 /* WCPopUp.swift in Sources */,
 				15E71E0B2372845F0069BFD2 /* CoinInfo.swift in Sources */,
 				1587396122BA070300F36F92 /* Ethplorer.swift in Sources */,
+				15FA748F23FD7E490080A7C2 /* SendingStatusPresenter.swift in Sources */,
 				158E1D00236554520081C1AA /* AssetCoinCell.swift in Sources */,
 				15E18F9223E6F211007C0263 /* TraitCell.swift in Sources */,
+				15FA749A23FD7E490080A7C2 /* DemoTextMessageViewModel.swift in Sources */,
 				153B2810231BB8C60062B2E8 /* PinListViewController.swift in Sources */,
 				1525E79323311C18009DAB83 /* AmberData.swift in Sources */,
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
+				15FA74D023FE26C40080A7C2 /* RoomRefreshAnimator.swift in Sources */,
 				153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */,
 				15D34525236C76E20085EFFC /* WatchingCoinHelper.swift in Sources */,
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
@@ -2893,9 +3175,12 @@
 				1562602323F0400100A53E8D /* TransactionRecordHelper.swift in Sources */,
 				158124CD23EB159D0021B62E /* AssetTXViewController.swift in Sources */,
 				158FAC28233C95C300F281B1 /* WCQRCodeViewController.swift in Sources */,
+				15FA749023FD7E490080A7C2 /* SendingStatusCollectionViewCell.swift in Sources */,
 				15015DAC2365B253008DDD80 /* AssetNFTHeaderCell.swift in Sources */,
 				158FA3AB23EA8D80002FFC76 /* JXPagingListRefreshView.swift in Sources */,
 				158A909323704ABF002F9F18 /* CryptocompareModel.swift in Sources */,
+				15FA74B223FD7E920080A7C2 /* DemoChatDataSource.swift in Sources */,
+				15FA74B723FD7EE80080A7C2 /* BaseMessagesSelector.swift in Sources */,
 				1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */,
 				15E18FA623E710A4007C0263 /* BEMCircle.m in Sources */,
 				1527872322ADEE3500D63C7F /* UITableView.swift in Sources */,
@@ -2905,8 +3190,10 @@
 				1572598522E0A114004D0CC4 /* PriceHelper.swift in Sources */,
 				1527871D22ADEBEE00D63C7F /* Constant.swift in Sources */,
 				1526B62422E89526007663E5 /* HideMaskViewController.swift in Sources */,
+				15FA74AD23FD7E920080A7C2 /* DemoChatMessageSender.swift in Sources */,
 				154F6099238442C60011200F /* MiniAppCollectionViewCell.swift in Sources */,
 				151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */,
+				15FA74C123FD7FE60080A7C2 /* TimeSeparatorCollectionViewCell.swift in Sources */,
 				15764E1522E9F93A00784848 /* GCD.swift in Sources */,
 				157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */,
 				15AF403B22E04DF50059FB18 /* Coinmarketcap.swift in Sources */,
@@ -2925,13 +3212,16 @@
 				154F60A523846D1E0011200F /* FaviconGrabberModel.swift in Sources */,
 				15E7568A23C1CC5100F57003 /* AddAccountFooter.swift in Sources */,
 				158124DE23EBE29E0021B62E /* AssetPriceVC+Chart.swift in Sources */,
+				15FA749223FD7E490080A7C2 /* DemoTextMessageContentFactory.swift in Sources */,
 				15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */,
 				15DF29F623871DF30013664E /* PinManager+Favicon.swift in Sources */,
+				15FA74CA23FE12400080A7C2 /* ChatRoomCell.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
 				15F197B623816B6F00960DE1 /* ENS.swift in Sources */,
 				1573B52F2375A7C300257A1A /* KDDragAndDropManager.swift in Sources */,
 				150BF1FC23C55F5C00AD00EC /* SwitchAccountLarkCell.swift in Sources */,
 				15E18F9F23E710A4007C0263 /* BEMLine.m in Sources */,
+				15FA74AF23FD7E920080A7C2 /* DemoChatViewController.swift in Sources */,
 				1581EC2422D88F0F00B74F30 /* Data.swift in Sources */,
 				1533C997237AA6A40052010A /* AddCoinCell.swift in Sources */,
 				154E7F322306A9A200D571A8 /* URL.swift in Sources */,

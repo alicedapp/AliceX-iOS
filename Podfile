@@ -49,6 +49,7 @@ def chat
   pod 'Chatto', '= 3.5.0'
   pod 'ChattoAdditions', '= 3.5.0'
   pod 'SwiftMatrixSDK'
+#  pod 'MatrixSDK/JingleCallStack'
 end
 
 
@@ -103,7 +104,7 @@ target 'AliceX' do
   use_frameworks!
   
   vendor
-#  chat
+  chat
   remote
   rn
 

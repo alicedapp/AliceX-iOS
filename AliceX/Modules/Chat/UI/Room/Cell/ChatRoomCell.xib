@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="101" id="KGk-i7-Jjw" customClass="ChatRoomCell" customModule="AliceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILh-de-5AL">
+                        <rect key="frame" x="15" y="12" width="56" height="56"/>
+                        <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ILh-de-5AL" secondAttribute="height" multiplier="1:1" id="wpf-He-8Z5"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-e8-Rxw">
+                        <rect key="frame" x="86" y="12" width="48.5" height="23"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
+                        <color key="textColor" name="Alice-DarkGrey"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5P-cI-DJU">
+                        <rect key="frame" x="86" y="47" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" name="Alice-Grey"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-3F-klE">
+                        <rect key="frame" x="86" y="79.5" width="280" height="0.5"/>
+                        <color key="backgroundColor" name="Alice-LightGrey"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="pya-Xg-WCw"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGG-B2-HZh">
+                        <rect key="frame" x="313.5" y="14.5" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" name="Alice-LightGrey"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-P5-84R">
+                        <rect key="frame" x="326" y="44.5" width="25" height="26"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waT-3o-CTe">
+                                <rect key="frame" x="8" y="4" width="9" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="Alice-Grey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="waT-3o-CTe" secondAttribute="bottom" constant="4" id="53r-BV-2hY"/>
+                            <constraint firstAttribute="trailing" secondItem="waT-3o-CTe" secondAttribute="trailing" constant="8" id="CHz-XE-pav"/>
+                            <constraint firstItem="waT-3o-CTe" firstAttribute="leading" secondItem="H4v-P5-84R" secondAttribute="leading" constant="8" id="URK-jp-Xte"/>
+                            <constraint firstItem="waT-3o-CTe" firstAttribute="top" secondItem="H4v-P5-84R" secondAttribute="top" constant="4" id="qsR-c0-0P0"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wL6-e8-Rxw" firstAttribute="leading" secondItem="ILh-de-5AL" secondAttribute="trailing" constant="15" id="1Rf-kj-JVE"/>
+                    <constraint firstAttribute="trailing" secondItem="dlP-3F-klE" secondAttribute="trailing" id="HWI-zK-vU2"/>
+                    <constraint firstItem="wL6-e8-Rxw" firstAttribute="top" secondItem="ILh-de-5AL" secondAttribute="top" id="Kae-jk-00y"/>
+                    <constraint firstItem="H4v-P5-84R" firstAttribute="centerY" secondItem="M5P-cI-DJU" secondAttribute="centerY" id="NyC-05-8MK"/>
+                    <constraint firstItem="M5P-cI-DJU" firstAttribute="bottom" secondItem="ILh-de-5AL" secondAttribute="bottom" id="USe-rO-deB"/>
+                    <constraint firstItem="XGG-B2-HZh" firstAttribute="centerY" secondItem="wL6-e8-Rxw" secondAttribute="centerY" id="WvT-1V-fST"/>
+                    <constraint firstItem="dlP-3F-klE" firstAttribute="leading" secondItem="M5P-cI-DJU" secondAttribute="leading" id="XJr-51-Cid"/>
+                    <constraint firstAttribute="trailing" secondItem="XGG-B2-HZh" secondAttribute="trailing" constant="15" id="dd7-g6-o4u"/>
+                    <constraint firstItem="M5P-cI-DJU" firstAttribute="leading" secondItem="wL6-e8-Rxw" secondAttribute="leading" id="lfA-ez-u9g"/>
+                    <constraint firstItem="ILh-de-5AL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ney-h8-G9U"/>
+                    <constraint firstItem="ILh-de-5AL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="prK-mK-q4Z"/>
+                    <constraint firstAttribute="trailing" secondItem="H4v-P5-84R" secondAttribute="trailing" constant="15" id="qol-fS-7Q7"/>
+                    <constraint firstItem="ILh-de-5AL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="tf8-7h-Zqa"/>
+                    <constraint firstAttribute="bottom" secondItem="dlP-3F-klE" secondAttribute="bottom" id="wu2-VC-a37"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avtarView" destination="ILh-de-5AL" id="KOi-x8-bPj"/>
+                <outlet property="countLabel" destination="waT-3o-CTe" id="gGz-E8-s8T"/>
+                <outlet property="countView" destination="H4v-P5-84R" id="sXt-NG-J9S"/>
+                <outlet property="messageLabel" destination="M5P-cI-DJU" id="e09-wb-QLb"/>
+                <outlet property="nameLabel" destination="wL6-e8-Rxw" id="h9C-AZ-wUZ"/>
+                <outlet property="timeLabel" destination="XGG-B2-HZh" id="gcc-hr-nga"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="138.61607142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Alice-DarkGrey">
+            <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-Grey">
+            <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightGrey">
+            <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
