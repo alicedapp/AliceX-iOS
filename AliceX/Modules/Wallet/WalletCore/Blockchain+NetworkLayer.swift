@@ -45,6 +45,11 @@ extension BlockChain: NetworkLayer {
                     API(BNBAPI.account(address: WalletCore.address(blockchain: self)))
                 }.done { model in
 
+                    if let code = model.code {
+                        seal.fulfill(BigUInt(0))
+                        return
+                    }
+                    
                     let balances = model.balances.filter { $0.symbol == "BNB" }
                     guard let balance = balances.first else {
                         throw MyError.FoundNil("Can't find BNB in API")

@@ -35,6 +35,9 @@ struct BinanceAccount: HandyJSON {
     var public_key: [Int]!
     var balances: [BinanceBalance]!
 
+    var code: Int?
+    var message: String?
+    
     init() {}
 }
 
