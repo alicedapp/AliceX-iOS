@@ -64,15 +64,90 @@
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-QQ-U1v" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                    <rect key="frame" x="344" y="44" width="60" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-Od-GD4" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                            <rect key="frame" x="8" y="8" width="44" height="44"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zZp-Od-GD4" secondAttribute="height" multiplier="1:1" id="hJO-gt-ubn"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-button" translatesAutoresizingMaskIntoConstraints="NO" id="anL-jx-dze">
+                            <rect key="frame" x="17.5" y="19" width="25" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="ERe-Fm-t6e"/>
+                                <constraint firstAttribute="width" secondItem="anL-jx-dze" secondAttribute="height" multiplier="28:25" id="EZL-xZ-Hgx"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="zZp-Od-GD4" firstAttribute="top" secondItem="hFs-QQ-U1v" secondAttribute="top" constant="8" id="5NA-bD-uYv"/>
+                        <constraint firstItem="anL-jx-dze" firstAttribute="centerX" secondItem="hFs-QQ-U1v" secondAttribute="centerX" id="Fer-LQ-dkG"/>
+                        <constraint firstAttribute="width" secondItem="hFs-QQ-U1v" secondAttribute="height" multiplier="1:1" id="Ln9-HH-hgw"/>
+                        <constraint firstItem="anL-jx-dze" firstAttribute="centerY" secondItem="hFs-QQ-U1v" secondAttribute="centerY" id="OAD-Xq-90E"/>
+                        <constraint firstItem="zZp-Od-GD4" firstAttribute="centerY" secondItem="hFs-QQ-U1v" secondAttribute="centerY" id="QPs-BR-qDr"/>
+                        <constraint firstItem="zZp-Od-GD4" firstAttribute="centerX" secondItem="hFs-QQ-U1v" secondAttribute="centerX" id="hbd-7J-ckE"/>
+                        <constraint firstAttribute="width" constant="60" id="sQG-VN-epN"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="khb-kM-lZc"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld3-35-vAQ" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                    <rect key="frame" x="10" y="44" width="60" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTO-gl-LKr" customClass="BaseControl" customModule="AliceX" customModuleProvider="target">
+                            <rect key="frame" x="8" y="8" width="44" height="44"/>
+                            <color key="backgroundColor" name="Alice-LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dTO-gl-LKr" secondAttribute="height" multiplier="1:1" id="OyI-4m-pWa"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-button" translatesAutoresizingMaskIntoConstraints="NO" id="PpV-LN-I5h">
+                            <rect key="frame" x="17.5" y="19" width="25" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="PpV-LN-I5h" secondAttribute="height" multiplier="28:25" id="4dU-bi-X6o"/>
+                                <constraint firstAttribute="height" constant="22" id="K8m-Zm-axM"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dTO-gl-LKr" firstAttribute="top" secondItem="Ld3-35-vAQ" secondAttribute="top" constant="8" id="8C3-Lj-7im"/>
+                        <constraint firstItem="PpV-LN-I5h" firstAttribute="centerX" secondItem="Ld3-35-vAQ" secondAttribute="centerX" id="CcW-S2-53a"/>
+                        <constraint firstAttribute="width" constant="60" id="LSd-6S-VGx"/>
+                        <constraint firstItem="PpV-LN-I5h" firstAttribute="centerY" secondItem="Ld3-35-vAQ" secondAttribute="centerY" id="MFf-dl-pzX"/>
+                        <constraint firstItem="dTO-gl-LKr" firstAttribute="centerX" secondItem="Ld3-35-vAQ" secondAttribute="centerX" id="YEU-26-vd3"/>
+                        <constraint firstAttribute="width" secondItem="Ld3-35-vAQ" secondAttribute="height" multiplier="1:1" id="esH-8K-HGr"/>
+                        <constraint firstItem="dTO-gl-LKr" firstAttribute="centerY" secondItem="Ld3-35-vAQ" secondAttribute="centerY" id="ykV-lJ-86e"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Rm1-kj-JDX"/>
+                </view>
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
             <constraints>
+                <constraint firstItem="Ld3-35-vAQ" firstAttribute="centerY" secondItem="hFs-QQ-U1v" secondAttribute="centerY" id="3zC-4J-qee"/>
                 <constraint firstItem="cSs-bs-u3a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6HV-C5-rbP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mKi-yB-bQA" secondAttribute="trailing" id="Ghf-N1-xai"/>
                 <constraint firstItem="mKi-yB-bQA" firstAttribute="top" secondItem="cSs-bs-u3a" secondAttribute="bottom" id="KQF-b2-6gK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cSs-bs-u3a" secondAttribute="trailing" id="dOc-lg-xXE"/>
                 <constraint firstItem="cSs-bs-u3a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-44" id="hQT-i9-sPo"/>
+                <constraint firstItem="hFs-QQ-U1v" firstAttribute="centerY" secondItem="P4f-6u-vvX" secondAttribute="centerY" id="hqB-Cr-9HT"/>
                 <constraint firstItem="mKi-yB-bQA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="keT-bg-QEG"/>
+                <constraint firstItem="Ld3-35-vAQ" firstAttribute="width" secondItem="Ld3-35-vAQ" secondAttribute="height" multiplier="1:1" id="osp-hf-9iJ"/>
+                <constraint firstItem="hFs-QQ-U1v" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="p9N-ml-DWa"/>
+                <constraint firstItem="Ld3-35-vAQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="qpk-DJ-x7G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mKi-yB-bQA" secondAttribute="bottom" id="xt8-32-vbS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -80,8 +155,12 @@
         </view>
     </objects>
     <resources>
+        <image name="add-button" width="30" height="30"/>
         <namedColor name="Alice-DarkGrey">
             <color red="0.33700001239776611" green="0.33700001239776611" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-LightBackground">
+            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Alice-LightGrey">
             <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

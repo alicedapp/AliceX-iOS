@@ -75,6 +75,11 @@ extension Notification.Name {
     static let faviconDownload = Notification.Name("faviconDownload")
 
     static let mnemonicBackuped = Notification.Name("mnemonicBackuped")
+    
+    
+    // Chat
+    
+    static let chatLoginSuccess = Notification.Name("chatLoginSuccess")
 }
 
 class CacheKey {

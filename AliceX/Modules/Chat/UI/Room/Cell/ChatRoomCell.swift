@@ -15,7 +15,7 @@ class ChatRoomCell: UITableViewCell {
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
-    @IBOutlet var avtarView: UIImageView!
+    @IBOutlet var avatarView: UIImageView!
     
     @IBOutlet var countView: UIView!
     
@@ -38,7 +38,6 @@ class ChatRoomCell: UITableViewCell {
         
         if let event = summary.lastMessageEvent, let body = event.content["body"] as? String {
             messageLabel.text = body
-            
         }
         
         countView.isHidden = true
@@ -48,8 +47,14 @@ class ChatRoomCell: UITableViewCell {
         }
         
         if summary.avatar != nil {
-            avtarView.setMXImage(mxString: summary.avatar)
+            if summary.avatar.hasPrefix("mxc://") {
+                avatarView.setMXImage(mxString: summary.avatar)
+            } else {
+                if summary.directUserId != nil {
+                    let user = room.mxSession.user(withUserId: summary.directUserId)
+                    avatarView.setMXImage(mxString: user!.avatarUrl)
+                }
+            }
         }
-        
     }
 }

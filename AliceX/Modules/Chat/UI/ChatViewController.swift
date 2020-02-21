@@ -9,6 +9,7 @@
 import UIKit
 import Chatto
 import ChattoAdditions
+import SwiftMatrixSDK
 
 class ChatViewController: BaseChatViewController {
 
@@ -19,6 +20,8 @@ class ChatViewController: BaseChatViewController {
     lazy private var baseMessageHandler: BaseMessageHandler = {
         return BaseMessageHandler(messageSender: self.messageSender, messagesSelector: self.messagesSelector)
     }()
+    
+    var room: MXRoom!
     
     var dataSource: DemoChatDataSource! {
         didSet {
@@ -48,6 +51,16 @@ class ChatViewController: BaseChatViewController {
         let item = TextChatInputItem()
         item.textInputHandler = { [weak self] text in
           // Your handling logic
+            var event: MXEvent? = MXEvent()
+            self?.room.sendTextMessage(text, localEcho: &event, completion: { reponse in
+                switch reponse {
+                case.success(let string):
+                    self!.dataSource.addTextMessage(text)
+//                    print(string)
+                case .failure(let error):
+                    HUDManager.shared.showError(error: error)
+                }
+            })
         }
         return item
     }
@@ -95,8 +108,39 @@ class ChatViewController: BaseChatViewController {
 //        return item
 //    }
     
+//    convenience init(room: MXRoom) {
+//        self.init()
+//        self.room = room
+//        guard let events = room.enumeratorForStoredMessages.nextEventsBatch(room.storedMessagesCount),
+//              let userId = MatrixManager.shared.client.credentials.userId else {
+//            return
+//        }
+//
+//        let chatData: [MessageModelProtocol] = events.reversed().compactMap { event in
+//            if let message = event.content["body"] as? String {
+//                return DemoChatMessageFactory.makeTextMessage(NSUUID().uuidString, text: message, isIncoming: event.sender != userId)
+//            }
+//            return nil
+//        }
+//
+//        dataSource = DemoChatDataSource(messages: chatData, pageSize: 50)
+//        messageSender = self.dataSource.messageSender
+//    }
+    
     override func viewDidLoad() {
-        dataSource = DemoChatDataSource(messages: DemoChatMessageFactory.makeOverviewMessages(), pageSize: 50)
+        guard let events = room.enumeratorForStoredMessages.nextEventsBatch(room.storedMessagesCount),
+              let userId = MatrixManager.shared.client.credentials.userId else {
+            return
+        }
+
+        let chatData: [MessageModelProtocol] = events.reversed().compactMap { event in
+            if let message = event.content["body"] as? String {
+                return DemoChatMessageFactory.makeTextMessage(NSUUID().uuidString, text: message, isIncoming: event.sender != userId)
+            }
+            return nil
+        }
+        dataSource = DemoChatDataSource(messages: chatData, pageSize: 50)
+//        dataSource = DemoChatDataSource(messages: DemoChatMessageFactory.makeOverviewMessages(), pageSize: 50)
         super.viewDidLoad()
         messagesSelector.delegate = self
         chatItemsDecorator = DemoChatItemsDecorator(messagesSelector: self.messagesSelector)

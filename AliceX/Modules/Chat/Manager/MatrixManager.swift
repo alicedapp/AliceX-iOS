@@ -23,13 +23,22 @@ class MatrixManager {
         media = MXMediaManager.init(homeServer: serverURL.absoluteString)
         client = MXRestClient(homeServer: serverURL, unrecognizedCertificateHandler: nil)
 //        fileStore = MXFileStore()
-        login().done { _ in
+        
+        // TODO: Cache credential to avoid login every time
+        firstly {
+            login()
+        }.then { _ in
             self.setStore()
+        }.done { _ in
+            self.startSession()
+        }.catch { error in
+            HUDManager.shared.showError(error: error)
         }
     }
     
     func login() -> Promise<MXCredentials> {
         return Promise<MXCredentials> { seal in
+            
             client.login(type: .password, username: "testalice", password: "alice2020") { response in
                 response.done(seal: seal) { credential in
                     self.client = MXRestClient(credentials: credential, unrecognizedCertificateHandler: nil)
@@ -52,20 +61,38 @@ class MatrixManager {
         }
     }
     
+    func startSession() -> Promise<Void> {
+        
+        if session?.state == MXSessionStateRunning {
+            return Promise<Void> { seal in seal.fulfill(())}
+        }
+        
+        return Promise<Void> { seal in
+            session?.start(completion: { response in
+                response.done(seal: seal) {
+                    NotificationCenter.default.post(name: .chatLoginSuccess, object: nil)
+                }
+            })
+        }
+    }
+    
     func fetchRooms() -> Promise<[MXRoom]> {
-        if client.credentials == nil {
+        
+        guard let _ = client.credentials, let session = self.session else {
             return Promise<[MXRoom]> { seal in seal.reject(MyError.FoundNil("Chat not login yet")) }
         }
         
         return Promise<[MXRoom]> { seal in
-            session?.start(completion: { response in
-                switch response {
-                case .success:
-                    seal.fulfill(self.session!.rooms)
-                case .failure(let error):
-                    seal.reject(error)
-                }
-            })
+            seal.fulfill(session.rooms)
+            
+//            session?.backgroundSync(withTimeout: 20, completion: { response in
+//                switch response {
+//                case .success:
+//                    seal.fulfill(self.session!.rooms)
+//                case .failure(let error):
+//                    seal.reject(error)
+//                }
+//            })
         }
     }
     
@@ -105,17 +132,17 @@ class MatrixManager {
 //            }
 //        }
         
-        client.publicRooms(onServer: "https://matrix.org", limit: 10) { response in
-            switch response {
-            case .success(let rooms):
-
-                // rooms is an array of MXPublicRoom objects containing information like room id
-                print("The public rooms are: \(rooms)")
-
-            case .failure:
-                break
-            }
-        }
+//        client.publicRooms(onServer: "https://matrix.org", limit: 10) { response in
+//            switch response {
+//            case .success(let rooms):
+//
+//                // rooms is an array of MXPublicRoom objects containing information like room id
+//                print("The public rooms are: \(rooms)")
+//
+//            case .failure:
+//                break
+//            }
+//        }
         
 
         

@@ -16,12 +16,14 @@ extension UIImageView {
     
     func setMXImage(mxString: String) {
         
-        guard let httpURL = MatrixManager.shared.media.url(ofContentThumbnail: mxString,
-                                                        toFitViewSize: bounds.size,
-                                                        with: MXThumbnailingMethodScale),
-            let url = URL(string: httpURL)  else {
+        let httpURL = mxString.hasPrefix("mxc://") ? MatrixManager.shared.media.url(ofContentThumbnail: mxString,
+                                                                                    toFitViewSize: bounds.size,
+                                                                                    with: MXThumbnailingMethodCrop): mxString
+        
+        guard let http = httpURL, let url = URL(string: http)  else {
             return
         }
+        
         kf.setImage(with: url) { response in
             switch response {
             case .success:

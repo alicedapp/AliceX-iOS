@@ -9,8 +9,9 @@
 import UIKit
 import ESPullToRefresh
 import SwiftMatrixSDK
+import ChattoAdditions
 
-class RoomViewController: UIViewController {
+class RoomViewController: BaseViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
@@ -29,15 +30,12 @@ class RoomViewController: UIViewController {
         tableView.es.addPullToRefresh(animator: animator) {
             self.requestData()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: .chatLoginSuccess, object: nil)
     }
     
-    func requestData() {
-//        delay(3) {
-//            self.tableView.es.stopPullToRefresh()
-//        }
-        
+    @objc func requestData() {
         titleLabel.text = "Loading.."
-        
         MatrixManager.shared.fetchRooms().done { rooms in
             self.rooms = rooms
             self.tableView.reloadData()
@@ -69,7 +67,15 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let room = rooms[indexPath.row]
+        
+//        room.liveTimeline { timelime in
+//            timelime?.paginate(10, direction: .backwards, onlyFromStore: true, completion: { response in
+//
+//            })
+//        }
+    
         let vc = ChatViewController()
+        vc.room = room
         navigationController?.pushViewController(vc, animated: true)
     }
 }

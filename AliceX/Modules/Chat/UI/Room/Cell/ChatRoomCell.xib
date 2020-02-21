@@ -30,15 +30,15 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-e8-Rxw">
-                        <rect key="frame" x="86" y="12" width="48.5" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-e8-Rxw">
+                        <rect key="frame" x="86" y="12" width="217.5" height="23"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
                         <color key="textColor" name="Alice-DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5P-cI-DJU">
-                        <rect key="frame" x="86" y="47" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5P-cI-DJU">
+                        <rect key="frame" x="86" y="68" width="225" height="0.0"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" name="Alice-Grey"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -56,16 +56,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-P5-84R">
-                        <rect key="frame" x="326" y="44.5" width="25" height="26"/>
+                        <rect key="frame" x="326" y="42" width="25" height="26"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waT-3o-CTe">
                                 <rect key="frame" x="8" y="4" width="9" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" name="Alice-Grey"/>
+                                <color key="textColor" name="Alice-White"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="Alice-LightBackground"/>
+                        <color key="backgroundColor" name="Alice-PayButton"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="waT-3o-CTe" secondAttribute="bottom" constant="4" id="53r-BV-2hY"/>
                             <constraint firstAttribute="trailing" secondItem="waT-3o-CTe" secondAttribute="trailing" constant="8" id="CHz-XE-pav"/>
@@ -83,22 +83,24 @@
                     <constraint firstItem="wL6-e8-Rxw" firstAttribute="leading" secondItem="ILh-de-5AL" secondAttribute="trailing" constant="15" id="1Rf-kj-JVE"/>
                     <constraint firstAttribute="trailing" secondItem="dlP-3F-klE" secondAttribute="trailing" id="HWI-zK-vU2"/>
                     <constraint firstItem="wL6-e8-Rxw" firstAttribute="top" secondItem="ILh-de-5AL" secondAttribute="top" id="Kae-jk-00y"/>
-                    <constraint firstItem="H4v-P5-84R" firstAttribute="centerY" secondItem="M5P-cI-DJU" secondAttribute="centerY" id="NyC-05-8MK"/>
                     <constraint firstItem="M5P-cI-DJU" firstAttribute="bottom" secondItem="ILh-de-5AL" secondAttribute="bottom" id="USe-rO-deB"/>
                     <constraint firstItem="XGG-B2-HZh" firstAttribute="centerY" secondItem="wL6-e8-Rxw" secondAttribute="centerY" id="WvT-1V-fST"/>
                     <constraint firstItem="dlP-3F-klE" firstAttribute="leading" secondItem="M5P-cI-DJU" secondAttribute="leading" id="XJr-51-Cid"/>
+                    <constraint firstItem="H4v-P5-84R" firstAttribute="bottom" secondItem="ILh-de-5AL" secondAttribute="bottom" id="bqc-Jg-DSu"/>
                     <constraint firstAttribute="trailing" secondItem="XGG-B2-HZh" secondAttribute="trailing" constant="15" id="dd7-g6-o4u"/>
                     <constraint firstItem="M5P-cI-DJU" firstAttribute="leading" secondItem="wL6-e8-Rxw" secondAttribute="leading" id="lfA-ez-u9g"/>
+                    <constraint firstItem="XGG-B2-HZh" firstAttribute="leading" secondItem="wL6-e8-Rxw" secondAttribute="trailing" constant="10" id="nRG-D1-peb"/>
                     <constraint firstItem="ILh-de-5AL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ney-h8-G9U"/>
                     <constraint firstItem="ILh-de-5AL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="prK-mK-q4Z"/>
                     <constraint firstAttribute="trailing" secondItem="H4v-P5-84R" secondAttribute="trailing" constant="15" id="qol-fS-7Q7"/>
                     <constraint firstItem="ILh-de-5AL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="tf8-7h-Zqa"/>
+                    <constraint firstItem="H4v-P5-84R" firstAttribute="leading" secondItem="M5P-cI-DJU" secondAttribute="trailing" constant="15" id="wXz-gN-nuv"/>
                     <constraint firstAttribute="bottom" secondItem="dlP-3F-klE" secondAttribute="bottom" id="wu2-VC-a37"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="avtarView" destination="ILh-de-5AL" id="KOi-x8-bPj"/>
+                <outlet property="avatarView" destination="ILh-de-5AL" id="pdo-Wj-pvs"/>
                 <outlet property="countLabel" destination="waT-3o-CTe" id="gGz-E8-s8T"/>
                 <outlet property="countView" destination="H4v-P5-84R" id="sXt-NG-J9S"/>
                 <outlet property="messageLabel" destination="M5P-cI-DJU" id="e09-wb-QLb"/>
@@ -120,6 +122,12 @@
         </namedColor>
         <namedColor name="Alice-LightGrey">
             <color red="0.85900002717971802" green="0.875" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-PayButton">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Alice-White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
