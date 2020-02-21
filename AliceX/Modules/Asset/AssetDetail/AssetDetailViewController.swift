@@ -119,6 +119,12 @@ class AssetDetailViewController: BaseViewController {
     }
     
     @IBAction func sendButtonClick() {
+        
+        if currentCoin == Coin.coin(chain: .Bitcoin) {
+            HUDManager.shared.showError(text: "Not available now")
+            return
+        }
+        
         let vc = TransferPopUp.make(address: "", coin: currentCoin)
         vc.modalPresentationStyle = .overCurrentContext
         UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
