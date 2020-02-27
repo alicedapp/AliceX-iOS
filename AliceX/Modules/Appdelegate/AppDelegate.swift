@@ -10,7 +10,7 @@ import CodePush
 import Firebase
 import IQKeyboardManagerSwift
 import React
-import RNFirebase
+//import RNFirebase
 import SPStorkController
 import UserNotifications
 
@@ -22,7 +22,9 @@ private var bridge: RCTBridge?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var window: UIWindow?
+    let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        var jsCodeLocation: URL?
 
         FirebaseApp.configure()
+        
+        Messaging.messaging().delegate = self
+        
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
@@ -72,13 +77,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             test()
         #endif
+        
+       if #available(iOS 10.0, *) {
+          // For iOS 10 display notification (sent via APNS)
+          UNUserNotificationCenter.current().delegate = self
 
-        Messaging.messaging().delegate = self
+          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+          UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        } else {
+          let settings: UIUserNotificationSettings =
+          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+          application.registerUserNotificationSettings(settings)
+        }
+
+        application.registerForRemoteNotifications()
 
         return true
     }
 
-    func test() {}
+    func test() {
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+          if let error = error {
+            print("Error fetching remote instance ID: \(error)")
+          } else if let result = result {
+            print("Remote instance ID token: \(result.token)")
+          }
+        }
+    }
 
     func sourceURL(bridge _: RCTBridge?) -> URL? {
         #if DEBUG
@@ -118,9 +146,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return handleAliceURL(url: url)
     }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+    
+//        Messaging.messaging().appDidReceiveMessage(userInfo)
+        print(userInfo)
+    }
+
     func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(" Push notification received:")
-        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
+//        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
+        
+//        Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        if let messageID = userInfo[gcmMessageIDKey] {
+          print("Message ID: \(messageID)")
+        }
+        
+        print(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
     }
 
     func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -130,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        RNFirebaseMessaging.instance().didRegister(notificationSettings)
+//        RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

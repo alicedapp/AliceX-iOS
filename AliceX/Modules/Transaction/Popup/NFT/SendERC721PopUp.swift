@@ -139,7 +139,13 @@ class SendERC721PopUp: UIViewController {
             self.gasPriceLabel.text = self.gasPrice.toCurrencyFullString(gasLimit: gasLimit)
             self.gasBtn.isUserInteractionEnabled = true
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
-        }.catch { _ in
+        }.catch { error in
+            #if DEBUG
+            HUDManager.shared.showError(error: error)
+            #endif
+            if let error = error as? Web3Error {
+                error.errorDescription
+            }
             self.gasPriceLabel.text = "Failed to get gas"
             self.gasPriceLabel.textColor = UIColor(hex: "FF7E79")
         }

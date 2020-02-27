@@ -47,6 +47,8 @@ extension TransactionManager {
             options.value = value
             options.from = walletAddress
             options.to = toAddress
+            options.gasLimit = .automatic
+            options.gasPrice = .automatic
 
             guard let tx = contract.write(
                 methodName,

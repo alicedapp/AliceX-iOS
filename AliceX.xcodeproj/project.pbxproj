@@ -341,6 +341,8 @@
 		15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3C8FE234472B700DCADBF /* BackupViewController.xib */; };
 		15E3C9032344A12A00DCADBF /* MnemonicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */; };
 		15E3C9042344A12A00DCADBF /* MnemonicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */; };
+		15E5152624081E5E008A717B /* soundA.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 15E5152424081E5D008A717B /* soundA.aiff */; };
+		15E5152724081E5E008A717B /* soundB.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 15E5152524081E5E008A717B /* soundB.aiff */; };
 		15E71E05237161E00069BFD2 /* env.json in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E04237161E00069BFD2 /* env.json */; };
 		15E71E072371C6600069BFD2 /* WatchingCoinHelper+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E062371C65F0069BFD2 /* WatchingCoinHelper+Network.swift */; };
 		15E71E092371CCF10069BFD2 /* WatchingCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */; };
@@ -723,6 +725,8 @@
 		15E3C8FE234472B700DCADBF /* BackupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackupViewController.xib; sourceTree = "<group>"; };
 		15E3C9012344A12A00DCADBF /* MnemonicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicsViewController.swift; sourceTree = "<group>"; };
 		15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsViewController.xib; sourceTree = "<group>"; };
+		15E5152424081E5D008A717B /* soundA.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = soundA.aiff; sourceTree = "<group>"; };
+		15E5152524081E5E008A717B /* soundB.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = soundB.aiff; sourceTree = "<group>"; };
 		15E71E04237161E00069BFD2 /* env.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = env.json; path = ../../../env.json; sourceTree = "<group>"; };
 		15E71E062371C65F0069BFD2 /* WatchingCoinHelper+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchingCoinHelper+Network.swift"; sourceTree = "<group>"; };
 		15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingCoinModel.swift; sourceTree = "<group>"; };
@@ -1824,6 +1828,8 @@
 		15B86BAB22AA1C6E00110C06 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				15E5152424081E5D008A717B /* soundA.aiff */,
+				15E5152524081E5E008A717B /* soundB.aiff */,
 			);
 			path = sounds;
 			sourceTree = "<group>";
@@ -2484,6 +2490,7 @@
 				15DF29FF2387ACCE0013664E /* HomeWebBrowserVC.xib in Resources */,
 				150BF1FD23C55F5C00AD00EC /* SwitchAccountLarkCell.xib in Resources */,
 				1572598E22E0B628004D0CC4 /* CurrencyTableViewCell.xib in Resources */,
+				15E5152624081E5E008A717B /* soundA.aiff in Resources */,
 				15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */,
 				15F197C523830CFB00960DE1 /* CameraContainerViewController.xib in Resources */,
 				BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */,
@@ -2493,6 +2500,7 @@
 				15E802FC23D193B800CBE7FB /* SendERC721PopUp.xib in Resources */,
 				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
 				158FA3B123EA8E4D002FFC76 /* AssetDetailHeader.xib in Resources */,
+				15E5152724081E5E008A717B /* soundB.aiff in Resources */,
 				1587395922B9E16A00F36F92 /* PaymentPopUp.xib in Resources */,
 				15BE4093233A40140078AF83 /* WCPopUp.xib in Resources */,
 				15E1AA9F23688AEF00F29369 /* BlockChainQRCodeViewController.xib in Resources */,
@@ -3096,7 +3104,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 40;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 47Q6KQQW55;
+				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3295,7 +3303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 40;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 47Q6KQQW55;
+				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

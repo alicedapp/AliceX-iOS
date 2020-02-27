@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import RNFirebase
+//import RNFirebase
 import UserNotifications
+import Firebase
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)
@@ -19,12 +20,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
 
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-//    if let messageID = userInfo[gcmMessageIDKey] {
-//      print("Message ID: \(messageID)")
-//    }
+        if let messageID = userInfo[gcmMessageIDKey] {
+          print("Message ID: \(messageID)")
+        }
 
         // Print full message.
         print(userInfo)
@@ -38,11 +37,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
-//    if let messageID = userInfo[gcmMessageIDKey] {
-//      print("Message ID: \(messageID)")
-//    }
+    if let messageID = userInfo[gcmMessageIDKey] {
+      print("Message ID: \(messageID)")
+    }
 
-        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
+//        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
 
         // Print full message.
         print(userInfo)
@@ -51,23 +50,23 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
-//// [END ios_10_message_handling]
-//
+// [END ios_10_message_handling]
+
 extension AppDelegate: MessagingDelegate {
     // [START refresh_token]
     func messaging(_: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
 
-        InstanceID.instanceID().instanceID { result, error in
-            if let error = error {
-                print("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
-            }
-        }
+//        InstanceID.instanceID().instanceID { result, error in
+//            if let error = error {
+//                print("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                print("Remote instance ID token: \(result.token)")
+//            }
+//        }
 
-        let dataDict: [String: String] = ["token": fcmToken]
-        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+//        let dataDict: [String: String] = ["token": fcmToken]
+//        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
