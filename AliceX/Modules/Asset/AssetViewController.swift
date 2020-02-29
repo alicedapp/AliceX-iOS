@@ -50,7 +50,10 @@ class AssetViewController: BaseViewController {
         loadFromCache().done {
             self.requestData()
         }.catch { error in
-            HUDManager.shared.showError(error: error)
+            if !Defaults[\.isFirstTimeOpen] {
+                HUDManager.shared.showError(error: error)
+            }
+            
             self.cleanCache()
             self.requestData()
         }
@@ -70,6 +73,7 @@ class AssetViewController: BaseViewController {
         })
 
         coins = WatchingCoinHelper.shared.list
+        Defaults[\.isFirstTimeOpen] = false
     }
 
     deinit {
@@ -184,6 +188,7 @@ class AssetViewController: BaseViewController {
     }
 
     @IBAction func addressButtonClick() {
+        
         let vc = AddressQRCodeViewController()
         vc.selectBlockCahin = .Ethereum
 //        vc.modalPresentationStyle = .overCurrentContext
