@@ -147,7 +147,7 @@ class AssetDetailHeader: BaseView {
                     balanceChangeLabel.text = "+ \(currencySymbol)\((amountInDouble*changePrice).toString(decimal: 3))"
                 } else {
                     balanceChangeLabel.textColor = AliceColor.red
-                    balanceChangeLabel.text = "- \(currencySymbol)\((amountInDouble*changePrice).toString(decimal: 3))"
+                    balanceChangeLabel.text = "- \(currencySymbol)\(fabs(amountInDouble*changePrice).toString(decimal: 3))"
                 }
             }
             
