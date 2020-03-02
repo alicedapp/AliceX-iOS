@@ -61,19 +61,15 @@ class SwitchAccountViewController: BaseViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
 
         cellHeights = Array(repeating: Const.closeCellHeight, count: data.count)
-        NotificationCenter.default.addObserver(self, selector: #selector(swicthAccount), name: .accountChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(walletChange), name: .walletChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .accountChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .walletChange, object: nil)
     }
     
-    @objc func walletChange() {
-        var data = WalletManager.Accounts!
+    @objc func reload() {
+        data = WalletManager.Accounts!
         self.tableView.reloadData()
     }
 
-    @objc func swicthAccount() {
-        data = WalletManager.Accounts!
-        tableView.reloadData()
-    }
 }
 
 extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSource {
