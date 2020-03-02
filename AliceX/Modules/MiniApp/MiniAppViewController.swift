@@ -75,6 +75,10 @@ class MiniAppViewController: BaseViewController {
         cameraVC.block = { result in
             self.coverClick()
 
+            if result == "" {
+                return
+            }
+            
             if let _ = EthereumAddress(result) {
                 let vc = TransferPopUp.make(address: result, coin: Coin.coin(chain: .Ethereum))
                 vc.modalPresentationStyle = .overCurrentContext

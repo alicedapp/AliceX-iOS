@@ -89,6 +89,7 @@ extension CameraContainerViewController: LBXScanViewControllerDelegate {
 
         if strScanned.hasPrefix("wc:") {
             WCServerHelper.shared.connect(url: scanResult.strScanned!)
+            block("")
             return
         }
 

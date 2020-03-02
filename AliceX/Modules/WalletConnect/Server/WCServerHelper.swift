@@ -72,7 +72,7 @@ extension WCServerHelper: ServerDelegate {
     }
 
     func server(_: Server, shouldStart session: Session, completion: @escaping (Session.WalletInfo) -> Void) {
-        let aliceLogo = URL(string: "https://static1.squarespace.com/static/5c62768baf4683e94383848a/t/5ceca03be2c4834cdc18a838/1568564936191/?format=1500w")!
+        let aliceLogo = URL(string: "https://raw.githubusercontent.com/alicedapp/AliceX-iOS/master/AliceX/Resources/image/Assets.xcassets/AppIcon.appiconset/icon_60pt%403x.png")!
 
         let walletMeta = Session.ClientMeta(name: "Alice",
                                             description: "Alice Wallet Connect",
@@ -92,20 +92,33 @@ extension WCServerHelper: ServerDelegate {
         self.session?.walletInfo = walletInfo
 
         onMainThread {
-            let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
-                                           portBImage: aliceLogo, portBName: "Alice",
-                                           comfirmBlock: {
-                                               completion(walletInfo)
-            }) {
-                completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
-            }
+            
+            let topVC = UIApplication.topViewController()
+           let modal = WCConnectPopupVC.make(portAImage: portAImage, portAName: portAName,
+                                             portBImage: aliceLogo, portBName: "Alice",
+                                             comfirmBlock: {
+                                                completion(walletInfo)
 
-            HUDManager.shared.showAlertView(view: view,
-                                            backgroundColor: .clear,
-                                            haptic: .none,
-                                            type: .bottomFloat,
-                                            widthIsFull: true,
-                                            canDismiss: false)
+           }) {
+            completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
+            }
+           let height = 430 - 34 + Constant.SAFE_BOTTOM
+           topVC?.presentAsStork(modal, height: height)
+            
+//            let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
+//                                           portBImage: aliceLogo, portBName: "Alice",
+//                                           comfirmBlock: {
+//                                               completion(walletInfo)
+//            }) {
+//                completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
+//            }
+//
+//            HUDManager.shared.showAlertView(view: view,
+//                                            backgroundColor: .clear,
+//                                            haptic: .none,
+//                                            type: .bottomFloat,
+//                                            widthIsFull: true,
+//                                            canDismiss: false)
         }
     }
 
