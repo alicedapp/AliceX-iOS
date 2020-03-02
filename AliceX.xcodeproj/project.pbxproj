@@ -183,6 +183,8 @@
 		157C39F6236D40AD004CED9B /* PriceHelper+Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */; };
 		157E3500240D514200C23AD7 /* WCConnectPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */; };
 		157E3501240D514200C23AD7 /* WCConnectPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */; };
+		157E3504240D692F00C23AD7 /* WCPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E3502240D692F00C23AD7 /* WCPopUpVC.swift */; };
+		157E3505240D692F00C23AD7 /* WCPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E3503240D692F00C23AD7 /* WCPopUpVC.xib */; };
 		157FB521239F52E700BFB33F /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 157FB520239F52E700BFB33F /* web3-min.js */; };
 		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
 		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
@@ -592,6 +594,8 @@
 		157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceHelper+Blockchain.swift"; sourceTree = "<group>"; };
 		157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCConnectPopupVC.swift; sourceTree = "<group>"; };
 		157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCConnectPopupVC.xib; sourceTree = "<group>"; };
+		157E3502240D692F00C23AD7 /* WCPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPopUpVC.swift; sourceTree = "<group>"; };
+		157E3503240D692F00C23AD7 /* WCPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPopUpVC.xib; sourceTree = "<group>"; };
 		157FB520239F52E700BFB33F /* web3-min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
 		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
 		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
@@ -870,6 +874,8 @@
 				15072531233A2172009C9D51 /* WCConnectPopup.xib */,
 				15BE4090233A40080078AF83 /* WCPopUp.swift */,
 				15BE4092233A40140078AF83 /* WCPopUp.xib */,
+				157E3502240D692F00C23AD7 /* WCPopUpVC.swift */,
+				157E3503240D692F00C23AD7 /* WCPopUpVC.xib */,
 				157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */,
 				157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */,
 			);
@@ -2603,6 +2609,7 @@
 				15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */,
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
+				157E3505240D692F00C23AD7 /* WCPopUpVC.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				15E8030123D1BF3F00CBE7FB /* NFTDetailViewController.xib in Resources */,
 				15E7568C23C1CC5C00F57003 /* AddAccountFooter.xib in Resources */,
@@ -3038,6 +3045,7 @@
 				15477B4422E161A0008E3230 /* GasFeeViewController.swift in Sources */,
 				157A676A22CDE12E00DA83AB /* SignYesViewController.swift in Sources */,
 				15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */,
+				157E3504240D692F00C23AD7 /* WCPopUpVC.swift in Sources */,
 				15E3C8FF234472B700DCADBF /* BackupViewController.swift in Sources */,
 				15E8030823D3172100CBE7FB /* NFTDetailViewController+TTGTagCollectionView.swift in Sources */,
 				15015DA223659DFF008DDD80 /* Coin.swift in Sources */,

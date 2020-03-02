@@ -37,6 +37,17 @@ class WCHandler: RequestHandler {
     }
 }
 
+extension WCHandler {
+    func showPopUp(logo: URL?, name: String, title: String, content: String, comfirmBlock: VoidBlock?, cancelBlock: VoidBlock?) {
+        let topVC = UIApplication.topViewController()
+        let modal = WCPopUpVC.make(logo: logo, name: name,
+                                   title: title, content: content,
+                                   comfirmBlock: comfirmBlock, cancelBlock: cancelBlock)
+        let height = 430 - 34 + Constant.SAFE_BOTTOM
+        topVC?.presentAsStork(modal, height: height)
+    }
+}
+
 class SignTransactionHandler: WCHandler {
     override func canHandle(request: Request) -> Bool {
         return request.method == "eth_signTransaction"
@@ -47,22 +58,15 @@ class SignTransactionHandler: WCHandler {
             let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
             let name = info?.url.host ?? "Dapp"
 
-            let view = WCPopUp.make(logo: info?.icons.first,
-                                    name: info?.name ?? "Dapp",
-                                    title: "Request To Sign Transaction",
-                                    content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
+            self.showPopUp(logo: info?.icons.first,
+                      name: info?.name ?? "Dapp",
+                      title: "Request To Sign Transaction",
+                      content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
                                     comfirmBlock: {
                                         self.signTx(request: request)
             }) {
                 self.server.send(.reject(request))
             }
-
-            HUDManager.shared.showAlertView(view: view,
-                                            backgroundColor: .clear,
-                                            haptic: .none,
-                                            type: .bottomFloat,
-                                            widthIsFull: true,
-                                            canDismiss: false)
         }
     }
 
@@ -110,8 +114,8 @@ class SendTransactionHandler: WCHandler {
             let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
             let name = info?.url.host ?? "Dapp"
 
-            let view = WCPopUp.make(logo: info?.icons.first,
-                                    name: info?.name ?? "Dapp",
+            self.showPopUp(logo: info?.icons.first,
+                           name: info?.name ?? "Dapp",
                                     title: "Request To Send Transaction",
                                     content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
                                     comfirmBlock: {
@@ -119,13 +123,6 @@ class SendTransactionHandler: WCHandler {
             }) {
                 self.server.send(.reject(request))
             }
-
-            HUDManager.shared.showAlertView(view: view,
-                                            backgroundColor: .clear,
-                                            haptic: .none,
-                                            type: .bottomFloat,
-                                            widthIsFull: true,
-                                            canDismiss: false)
         }
     }
 
@@ -201,7 +198,7 @@ class PersonalSignHandler: WCHandler {
             onMainThread {
                 let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
                 let name = info?.url.host ?? "Dapp"
-                let view = WCPopUp.make(logo: info?.icons.first,
+                self.showPopUp(logo: info?.icons.first,
                                         name: info?.name ?? "Dapp",
                                         title: "Request To Sign Message",
                                         content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
@@ -210,13 +207,6 @@ class PersonalSignHandler: WCHandler {
                 }) {
                     self.server.send(.reject(request))
                 }
-
-                HUDManager.shared.showAlertView(view: view,
-                                                backgroundColor: .clear,
-                                                haptic: .none,
-                                                type: .bottomFloat,
-                                                widthIsFull: true,
-                                                canDismiss: false)
             }
 
 //            let signed = try TransactionManager.signMessage(message: Data.fromHex(messageBytes)!)

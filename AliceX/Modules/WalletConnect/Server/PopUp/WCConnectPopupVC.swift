@@ -31,6 +31,7 @@ class WCConnectPopupVC: UIViewController {
     }
     
     func configure(portAImage: URL?, portAName: String, portBImage: URL?, portBName: String) {
+        view.layoutIfNeeded()
         view.roundCorners(corners: [.topLeft, .topRight], radius: 20)
 
         portA.kf.setImage(with: portAImage, placeholder: Constant.placeholder)
