@@ -29,7 +29,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print(userInfo)
 
         // Change this to your preferred presentation option
-        completionHandler([])
+        completionHandler([.badge, .alert, .sound])
     }
 
     func userNotificationCenter(_: UNUserNotificationCenter,
@@ -47,6 +47,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print(userInfo)
 
         completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        print("CCCCC")
     }
 }
 
@@ -80,4 +84,23 @@ extension AppDelegate: MessagingDelegate {
     }
 
     // [END ios_10_data_message]
+}
+
+
+// MARK: - Router
+extension AppDelegate {
+    
+    func router(path: String) {
+        let component = path.split(separator: "/")
+        if let first = component.first, String(first) == "rn" {
+            let remainStr = component.dropFirst()
+            let router = remainStr.joined(separator: "/")
+            let dict = ["navigationRoute": router]
+            let vc = BaseRNViewController()
+            let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "alice", initialProperties: dict)
+            vc.view = rnView
+            let topVC = UIApplication.topViewController()
+            topVC?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

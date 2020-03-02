@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
-        _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        var jsCodeLocation: URL?
 
@@ -73,27 +73,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                      HomeWebBrowserWrapper.nameOfClass])
 
         WalletManager.shared.checkMnemonic()
-
+        UNUserNotificationCenter.current().delegate = self
+        
         #if DEBUG
             test()
+            Fabric.sharedSDK().debug = true
         #endif
-        
-       if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
-          UNUserNotificationCenter.current().delegate = self
-
-          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-        } else {
-          let settings: UIUserNotificationSettings =
-          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-          application.registerUserNotificationSettings(settings)
+        if let option = launchOption,
+            let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification]  as? [AnyHashable: Any],
+            let aps = userInfo["aps"] as? [AnyHashable: Any],
+            let path = aps["path"] as? String {
+            
+            router(path: path)
+            print(userInfo)
         }
-
-        application.registerForRemoteNotifications()
-
+        
         return true
     }
 
@@ -150,19 +144,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
+        
+        if application.applicationState != .active,
+        let path = userInfo["path"] as? String {
+            router(path: path)
+        }
     
 //        Messaging.messaging().appDidReceiveMessage(userInfo)
         print(userInfo)
     }
+    
+    
 
-    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(" Push notification received:")
+        
+//        if (application.applicationState == .active) {
+            /// Foreground
+            // TODO
+//            return
+//        }
+        
 //        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
         
 //        Messaging.messaging().appDidReceiveMessage(userInfo)
         
         if let messageID = userInfo[gcmMessageIDKey] {
           print("Message ID: \(messageID)")
+        }
+        
+        if let aps = userInfo["aps"] as? [AnyHashable: Any], let path = aps["path"] as? String{
+            router(path: path)
         }
         
         print(userInfo)

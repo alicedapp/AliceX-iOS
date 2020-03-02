@@ -181,6 +181,8 @@
 		157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */; };
 		157B8DF722E748F70092B428 /* BrowserWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */; };
 		157C39F6236D40AD004CED9B /* PriceHelper+Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */; };
+		157E3500240D514200C23AD7 /* WCConnectPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */; };
+		157E3501240D514200C23AD7 /* WCConnectPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */; };
 		157FB521239F52E700BFB33F /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 157FB520239F52E700BFB33F /* web3-min.js */; };
 		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
 		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
@@ -285,6 +287,8 @@
 		15D572E8238FB751009BB9BE /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */; };
 		15D572EE238FB8F4009BB9BE /* SampleBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */; };
 		15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */; };
+		15DAD089240B5A25000AA702 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAD088240B5A25000AA702 /* NotificationService.swift */; };
+		15DAD08D240B5A25000AA702 /* AliceNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 15DAD086240B5A25000AA702 /* AliceNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
@@ -385,6 +389,30 @@
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
 		BFF5706C7AEEF4F8D0FF0BA8 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF6775BC83DE810A026B03 /* Pods_AliceX.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15DAD08B240B5A25000AA702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B86B4D22AA043F00110C06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15DAD085240B5A25000AA702;
+			remoteInfo = AliceNotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15E5153E24082614008A717B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				15DAD08D240B5A25000AA702 /* AliceNotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		060B0B321B0BBBA02E08ADFA /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
@@ -562,6 +590,8 @@
 		157AA67E22CCAA6E008AF3A5 /* MnemonicsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsView.xib; sourceTree = "<group>"; };
 		157B8DF622E748F70092B428 /* BrowserWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWrapperViewController.swift; sourceTree = "<group>"; };
 		157C39F5236D40AD004CED9B /* PriceHelper+Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceHelper+Blockchain.swift"; sourceTree = "<group>"; };
+		157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCConnectPopupVC.swift; sourceTree = "<group>"; };
+		157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCConnectPopupVC.xib; sourceTree = "<group>"; };
 		157FB520239F52E700BFB33F /* web3-min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
 		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
 		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
@@ -669,6 +699,9 @@
 		15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
 		15D572EC238FB8F4009BB9BE /* SampleBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserViewController.swift; sourceTree = "<group>"; };
 		15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleBrowserViewController.xib; sourceTree = "<group>"; };
+		15DAD086240B5A25000AA702 /* AliceNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AliceNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DAD088240B5A25000AA702 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		15DAD08A240B5A25000AA702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
@@ -727,6 +760,8 @@
 		15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicsViewController.xib; sourceTree = "<group>"; };
 		15E5152424081E5D008A717B /* soundA.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = soundA.aiff; sourceTree = "<group>"; };
 		15E5152524081E5E008A717B /* soundB.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = soundB.aiff; sourceTree = "<group>"; };
+		15E5152D24082614008A717B /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		15E5152F24082614008A717B /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		15E71E04237161E00069BFD2 /* env.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = env.json; path = ../../../env.json; sourceTree = "<group>"; };
 		15E71E062371C65F0069BFD2 /* WatchingCoinHelper+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchingCoinHelper+Network.swift"; sourceTree = "<group>"; };
 		15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingCoinModel.swift; sourceTree = "<group>"; };
@@ -781,6 +816,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15DAD083240B5A25000AA702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -828,6 +870,8 @@
 				15072531233A2172009C9D51 /* WCConnectPopup.xib */,
 				15BE4090233A40080078AF83 /* WCPopUp.swift */,
 				15BE4092233A40140078AF83 /* WCPopUp.xib */,
+				157E34FE240D514200C23AD7 /* WCConnectPopupVC.swift */,
+				157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1741,6 +1785,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86B5722AA043F00110C06 /* AliceX */,
+				15DAD087240B5A25000AA702 /* AliceNotificationService */,
 				15B86B5622AA043F00110C06 /* Products */,
 				876CA3F15BC9D26DB41AD374 /* Pods */,
 				D2EB78AA33124BBD99B1B7DB /* Libraries */,
@@ -1753,6 +1798,7 @@
 			isa = PBXGroup;
 			children = (
 				15B86B5522AA043F00110C06 /* AliceX.app */,
+				15DAD086240B5A25000AA702 /* AliceNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2027,6 +2073,15 @@
 				15D572ED238FB8F4009BB9BE /* SampleBrowserViewController.xib */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		15DAD087240B5A25000AA702 /* AliceNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				15DAD088240B5A25000AA702 /* NotificationService.swift */,
+				15DAD08A240B5A25000AA702 /* Info.plist */,
+			);
+			path = AliceNotificationService;
 			sourceTree = "<group>";
 		};
 		15DE8E3822C9DD23004B45A2 /* Import */ = {
@@ -2354,6 +2409,8 @@
 			isa = PBXGroup;
 			children = (
 				5FFF6775BC83DE810A026B03 /* Pods_AliceX.framework */,
+				15E5152D24082614008A717B /* UserNotifications.framework */,
+				15E5152F24082614008A717B /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2393,15 +2450,34 @@
 				1587395F22B9F9FB00F36F92 /* Swift Lint */,
 				1577DDD5238093FD00225DE6 /* Fabric - Firebase */,
 				3F84764BA0CB38DC5615C690 /* [CP] Embed Pods Frameworks */,
+				15E5153E24082614008A717B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				15DAD08C240B5A25000AA702 /* PBXTargetDependency */,
 			);
 			name = AliceX;
 			productName = AliceX;
 			productReference = 15B86B5522AA043F00110C06 /* AliceX.app */;
 			productType = "com.apple.product-type.application";
+		};
+		15DAD085240B5A25000AA702 /* AliceNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15DAD08E240B5A25000AA702 /* Build configuration list for PBXNativeTarget "AliceNotificationService" */;
+			buildPhases = (
+				15DAD082240B5A25000AA702 /* Sources */,
+				15DAD083240B5A25000AA702 /* Frameworks */,
+				15DAD084240B5A25000AA702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AliceNotificationService;
+			productName = AliceNotificationService;
+			productReference = 15DAD086240B5A25000AA702 /* AliceNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -2409,7 +2485,7 @@
 		15B86B4D22AA043F00110C06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = lmcmz;
 				TargetAttributes = {
@@ -2424,6 +2500,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					15DAD085240B5A25000AA702 = {
+						CreatedOnToolsVersion = 11.3;
 					};
 				};
 			};
@@ -2441,6 +2520,7 @@
 			projectRoot = "";
 			targets = (
 				15B86B5422AA043F00110C06 /* AliceX */,
+				15DAD085240B5A25000AA702 /* AliceNotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -2461,6 +2541,7 @@
 				1572598922E0B516004D0CC4 /* CurrencyViewController.xib in Resources */,
 				1514465523644698005E87CE /* AssetViewController.xib in Resources */,
 				15DF2A0B2387C3B00013664E /* QuerySuggestCell.xib in Resources */,
+				157E3501240D514200C23AD7 /* WCConnectPopupVC.xib in Resources */,
 				156BCD6022C4A41B00B380DF /* SignMessagePopUp.xib in Resources */,
 				15E3C900234472B700DCADBF /* BackupViewController.xib in Resources */,
 				1578EE2323C5A75000ED69CB /* MnemonicTableViewCell.xib in Resources */,
@@ -2554,6 +2635,13 @@
 				150BF1F923C4D4CE00AD00EC /* SwitchAccountLarkController.xib in Resources */,
 				155FACED233910DE0002B478 /* TestViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15DAD084240B5A25000AA702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2782,6 +2870,7 @@
 				1527872522ADEE6300D63C7F /* NSObject.swift in Sources */,
 				15DF2A0A2387C3B00013664E /* QuerySuggestCell.swift in Sources */,
 				154F60A023844A540011200F /* HomeItem.swift in Sources */,
+				157E3500240D514200C23AD7 /* WCConnectPopupVC.swift in Sources */,
 				1581EC1A22D8661200B74F30 /* BroswerWKWebConfiguration.swift in Sources */,
 				15477B3F22E15BDA008E3230 /* GasPriceHelper.swift in Sources */,
 				15BC4DB722DAD02C00313CA9 /* DAppListViewController.swift in Sources */,
@@ -2964,7 +3053,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15DAD082240B5A25000AA702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15DAD089240B5A25000AA702 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15DAD08C240B5A25000AA702 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15DAD085240B5A25000AA702 /* AliceNotificationService */;
+			targetProxy = 15DAD08B240B5A25000AA702 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		15B86B6122AA044000110C06 /* LaunchScreen.storyboard */ = {
@@ -3098,6 +3203,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F16C2531F3D960DF6CD6698 /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
@@ -3297,6 +3403,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 060B0B321B0BBBA02E08ADFA /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
@@ -3494,6 +3601,46 @@
 			};
 			name = Release;
 		};
+		15DAD08F240B5A25000AA702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				INFOPLIST_FILE = AliceNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.AliceNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15DAD090240B5A25000AA702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				INFOPLIST_FILE = AliceNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.AliceNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3511,6 +3658,15 @@
 			buildConfigurations = (
 				15B86B6822AA044000110C06 /* Debug */,
 				15B86B6922AA044000110C06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15DAD08E240B5A25000AA702 /* Build configuration list for PBXNativeTarget "AliceNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15DAD08F240B5A25000AA702 /* Debug */,
+				15DAD090240B5A25000AA702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
