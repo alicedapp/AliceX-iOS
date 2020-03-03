@@ -102,5 +102,12 @@ extension AppDelegate {
             let topVC = UIApplication.topViewController()
             topVC?.navigationController?.pushViewController(vc, animated: true)
         }
+        
+        if path.hasPrefix("browser/") {
+            let remainStr = path.dropFirst(8)
+            let vc = BrowserWrapperViewController.make(urlString: String(remainStr))
+            let topVC = UIApplication.topViewController()
+            topVC?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

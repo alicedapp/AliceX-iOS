@@ -88,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(userInfo)
         }
         
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 
