@@ -78,7 +78,7 @@ class MiniAppViewController: BaseViewController {
             if result == "" {
                 return
             }
-            
+
             if let _ = EthereumAddress(result) {
                 let vc = TransferPopUp.make(address: result, coin: Coin.coin(chain: .Ethereum))
                 vc.modalPresentationStyle = .overCurrentContext
@@ -186,9 +186,13 @@ class MiniAppViewController: BaseViewController {
 //        vc.modalPresentationStyle = .fullScreen
 //        present(vc, animated: true, completion: nil)
 //        navigationController?.pushViewController(vc, animated: true)
-        
-        let vc = DAppListViewController()
-        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+
+//        let vc = DAppListViewController()
+//        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+        let vc = MiniAppSearchVC()
+        vc.isFromPopup = true
+        let topVC = UIApplication.topViewController()
+        topVC?.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
     }
 
     @available(iOS 12.0, *)

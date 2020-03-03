@@ -64,7 +64,7 @@ class FloatBall: UIView {
 //                case let .failure(error):
 //                    break
 //                    // TODO
-////                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+            ////                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
 //                case .success:
 //                    break
 //                }

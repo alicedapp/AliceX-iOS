@@ -67,7 +67,7 @@ extension BNBAPI: TargetType {
         case let .broadcast(data):
             return .requestCompositeData(bodyData: data, urlParameters: ["sync": true])
         case let .transactions(address, startTime, endTime):
-            let dict = ["address": address, "startTime": Int64(startTime*1000), "endTime": Int64(endTime*1000)] as [String : Any]
+            let dict = ["address": address, "startTime": Int64(startTime * 1000), "endTime": Int64(endTime * 1000)] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         default:
             return .requestPlain

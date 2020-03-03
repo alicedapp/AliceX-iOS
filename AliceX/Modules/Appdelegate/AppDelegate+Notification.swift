@@ -6,10 +6,10 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import Foundation
-//import RNFirebase
-import UserNotifications
 import Firebase
+import Foundation
+// import RNFirebase
+import UserNotifications
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)
@@ -22,7 +22,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-          print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)")
         }
 
         // Print full message.
@@ -37,9 +37,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
-    if let messageID = userInfo[gcmMessageIDKey] {
-      print("Message ID: \(messageID)")
-    }
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
 
 //        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
 
@@ -48,8 +48,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         completionHandler()
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+
+    func userNotificationCenter(_: UNUserNotificationCenter, openSettingsFor _: UNNotification?) {
         print("CCCCC")
     }
 }
@@ -86,10 +86,9 @@ extension AppDelegate: MessagingDelegate {
     // [END ios_10_data_message]
 }
 
-
 // MARK: - Router
+
 extension AppDelegate {
-    
     func router(path: String) {
         let component = path.split(separator: "/")
         if let first = component.first, String(first) == "rn" {
@@ -102,7 +101,7 @@ extension AppDelegate {
             let topVC = UIApplication.topViewController()
             topVC?.navigationController?.pushViewController(vc, animated: true)
         }
-        
+
         if path.hasPrefix("browser/") {
             let remainStr = path.dropFirst(8)
             let vc = BrowserWrapperViewController.make(urlString: String(remainStr))

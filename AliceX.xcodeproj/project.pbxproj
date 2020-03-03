@@ -185,6 +185,10 @@
 		157E3501240D514200C23AD7 /* WCConnectPopupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */; };
 		157E3504240D692F00C23AD7 /* WCPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E3502240D692F00C23AD7 /* WCPopUpVC.swift */; };
 		157E3505240D692F00C23AD7 /* WCPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E3503240D692F00C23AD7 /* WCPopUpVC.xib */; };
+		157E3509240E999800C23AD7 /* MiniAppSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E3507240E999700C23AD7 /* MiniAppSearchVC.swift */; };
+		157E350A240E999800C23AD7 /* MiniAppSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E3508240E999700C23AD7 /* MiniAppSearchVC.xib */; };
+		157E350E240EA3A600C23AD7 /* AppToBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E350C240EA3A600C23AD7 /* AppToBrowserCell.swift */; };
+		157E350F240EA3A600C23AD7 /* AppToBrowserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E350D240EA3A600C23AD7 /* AppToBrowserCell.xib */; };
 		157FB521239F52E700BFB33F /* web3-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 157FB520239F52E700BFB33F /* web3-min.js */; };
 		158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124C223EAE0540021B62E /* AssetDetailChildVC.swift */; };
 		158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124C323EAE0540021B62E /* AssetDetailChildVC.xib */; };
@@ -596,6 +600,10 @@
 		157E34FF240D514200C23AD7 /* WCConnectPopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCConnectPopupVC.xib; sourceTree = "<group>"; };
 		157E3502240D692F00C23AD7 /* WCPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPopUpVC.swift; sourceTree = "<group>"; };
 		157E3503240D692F00C23AD7 /* WCPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPopUpVC.xib; sourceTree = "<group>"; };
+		157E3507240E999700C23AD7 /* MiniAppSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppSearchVC.swift; sourceTree = "<group>"; };
+		157E3508240E999700C23AD7 /* MiniAppSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniAppSearchVC.xib; sourceTree = "<group>"; };
+		157E350C240EA3A600C23AD7 /* AppToBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToBrowserCell.swift; sourceTree = "<group>"; };
+		157E350D240EA3A600C23AD7 /* AppToBrowserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppToBrowserCell.xib; sourceTree = "<group>"; };
 		157FB520239F52E700BFB33F /* web3-min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "web3-min.js"; sourceTree = "<group>"; };
 		158124C223EAE0540021B62E /* AssetDetailChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailChildVC.swift; sourceTree = "<group>"; };
 		158124C323EAE0540021B62E /* AssetDetailChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetDetailChildVC.xib; sourceTree = "<group>"; };
@@ -1116,6 +1124,7 @@
 		1533C999237ABAFB0052010A /* MiniApp */ = {
 			isa = PBXGroup;
 			children = (
+				157E3506240E997D00C23AD7 /* Search */,
 				151C8D532386D35400B13AD4 /* HomeItem */,
 				154F6096238442AB0011200F /* Cell */,
 				15F197C123830CE700960DE1 /* CameraContainer */,
@@ -1451,6 +1460,25 @@
 				158A909423713756002F9F18 /* BlockchainNetwork.swift */,
 			);
 			path = Blockchain;
+			sourceTree = "<group>";
+		};
+		157E3506240E997D00C23AD7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				157E350B240E9A4C00C23AD7 /* Cell */,
+				157E3507240E999700C23AD7 /* MiniAppSearchVC.swift */,
+				157E3508240E999700C23AD7 /* MiniAppSearchVC.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		157E350B240E9A4C00C23AD7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				157E350C240EA3A600C23AD7 /* AppToBrowserCell.swift */,
+				157E350D240EA3A600C23AD7 /* AppToBrowserCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		158124C123EAE0300021B62E /* Child */ = {
@@ -2555,6 +2583,7 @@
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
 				15E71E05237161E00069BFD2 /* env.json in Resources */,
 				158124D823EBB6D30021B62E /* AssetTXViewController.xib in Resources */,
+				157E350A240E999800C23AD7 /* MiniAppSearchVC.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
 				158124C523EAE0540021B62E /* AssetDetailChildVC.xib in Resources */,
 				15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */,
@@ -2584,6 +2613,7 @@
 				1533C9942379B0330052010A /* erc20.json in Resources */,
 				157AA67F22CCAA6E008AF3A5 /* MnemonicsView.xib in Resources */,
 				15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */,
+				157E350F240EA3A600C23AD7 /* AppToBrowserCell.xib in Resources */,
 				15E802FC23D193B800CBE7FB /* SendERC721PopUp.xib in Resources */,
 				15D572EF238FB8F4009BB9BE /* SampleBrowserViewController.xib in Resources */,
 				158FA3B123EA8E4D002FFC76 /* AssetDetailHeader.xib in Resources */,
@@ -2671,7 +2701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    #swiftformat .\necho \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    swiftformat .\n#echo \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		1577DDD5238093FD00225DE6 /* Fabric - Firebase */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2989,6 +3019,7 @@
 				15BC4DB422DA495000313CA9 /* BaseView.swift in Sources */,
 				153B280A231B7EBF0062B2E8 /* FloatPinView.swift in Sources */,
 				15D34525236C76E20085EFFC /* WatchingCoinHelper.swift in Sources */,
+				157E350E240EA3A600C23AD7 /* AppToBrowserCell.swift in Sources */,
 				15477B3D22E15B4C008E3230 /* Moya+Util.swift in Sources */,
 				158124DB23EBDC0B0021B62E /* AssetPriceViewController.swift in Sources */,
 				15E3C8F023421AD300DCADBF /* ShareHelper.swift in Sources */,
@@ -3032,6 +3063,7 @@
 				15358822236A0D6B00BB4ED2 /* AssetLoadingAnimator.swift in Sources */,
 				15DF29F623871DF30013664E /* PinManager+Favicon.swift in Sources */,
 				1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */,
+				157E3509240E999800C23AD7 /* MiniAppSearchVC.swift in Sources */,
 				15F197B623816B6F00960DE1 /* ENS.swift in Sources */,
 				1573B52F2375A7C300257A1A /* KDDragAndDropManager.swift in Sources */,
 				150BF1FC23C55F5C00AD00EC /* SwitchAccountLarkCell.swift in Sources */,

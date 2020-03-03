@@ -12,8 +12,7 @@ import Moya
 let CryptocompareAPI = MoyaProvider<Cryptocompare>()
 // (plugins:[NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-
-///https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday
+/// https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday
 enum Cryptocompare {
     case price(symbol: [String], currency: Currency)
     case fullPrice(symbol: [String], currency: Currency)
@@ -59,10 +58,10 @@ extension Cryptocompare: TargetType {
             let dict = ["fsyms": symbols.joined(separator: ","), "tsyms": currency.rawValue]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         case let .historyHour(symbol, currency, limit):
-            let dict = ["fsym": symbol.uppercased(), "tsym": currency.rawValue, "limit": limit] as [String : Any]
+            let dict = ["fsym": symbol.uppercased(), "tsym": currency.rawValue, "limit": limit] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
-        case let .historyDay( symbol, currency, limit, allData):
-            let dict = ["fsym": symbol.uppercased(), "tsym": currency.rawValue, "limit": limit, "allData": allData] as [String : Any]
+        case let .historyDay(symbol, currency, limit, allData):
+            let dict = ["fsym": symbol.uppercased(), "tsym": currency.rawValue, "limit": limit, "allData": allData] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }

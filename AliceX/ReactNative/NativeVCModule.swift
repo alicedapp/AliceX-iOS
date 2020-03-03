@@ -102,7 +102,7 @@ class NativeVCModule: NSObject {
             navi.popViewController(animated: true)
         }
     }
-    
+
     @objc func minimizeApp() {
         DispatchQueue.main.async {
             if let topVC = UIApplication.topViewController() as? BaseRNAppViewController,

@@ -59,11 +59,11 @@ class SignTransactionHandler: WCHandler {
             let name = info?.url.host ?? "Dapp"
 
             self.showPopUp(logo: info?.icons.first,
-                      name: info?.name ?? "Dapp",
-                      title: "Request To Sign Transaction",
-                      content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
-                                    comfirmBlock: {
-                                        self.signTx(request: request)
+                           name: info?.name ?? "Dapp",
+                           title: "Request To Sign Transaction",
+                           content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
+                           comfirmBlock: {
+                               self.signTx(request: request)
             }) {
                 self.server.send(.reject(request))
             }
@@ -116,10 +116,10 @@ class SendTransactionHandler: WCHandler {
 
             self.showPopUp(logo: info?.icons.first,
                            name: info?.name ?? "Dapp",
-                                    title: "Request To Send Transaction",
-                                    content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
-                                    comfirmBlock: {
-                                        self.sendTx(request: request)
+                           title: "Request To Send Transaction",
+                           content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
+                           comfirmBlock: {
+                               self.sendTx(request: request)
             }) {
                 self.server.send(.reject(request))
             }
@@ -199,11 +199,11 @@ class PersonalSignHandler: WCHandler {
                 let info = WCServerHelper.shared.session?.dAppInfo.peerMeta
                 let name = info?.url.host ?? "Dapp"
                 self.showPopUp(logo: info?.icons.first,
-                                        name: info?.name ?? "Dapp",
-                                        title: "Request To Sign Message",
-                                        content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
-                                        comfirmBlock: {
-                                            self.signMessage(request: request, message: messageBytes)
+                               name: info?.name ?? "Dapp",
+                               title: "Request To Sign Message",
+                               content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
+                               comfirmBlock: {
+                                   self.signMessage(request: request, message: messageBytes)
                 }) {
                     self.server.send(.reject(request))
                 }

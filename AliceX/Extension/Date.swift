@@ -63,26 +63,23 @@ extension Date {
 }
 
 extension Date {
-
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
         calendar.isDate(self, equalTo: date, toGranularity: component)
     }
 
-    func isInSameYear (date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+    func isInSameYear(date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
     func isInSameMonth(date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
-    func isInSameDay  (date: Date) -> Bool { isEqual(to: date, toGranularity: .day) }
-    func isInSameWeek (date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+    func isInSameDay(date: Date) -> Bool { isEqual(to: date, toGranularity: .day) }
+    func isInSameWeek(date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
 
-    var isInThisYear:  Bool { isInSameYear(date: Date()) }
+    var isInThisYear: Bool { isInSameYear(date: Date()) }
     var isInThisMonth: Bool { isInSameMonth(date: Date()) }
-    var isInThisWeek:  Bool { isInSameWeek(date: Date()) }
+    var isInThisWeek: Bool { isInSameWeek(date: Date()) }
 
     var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
-    var isInToday:     Bool { Calendar.current.isDateInToday(self) }
-    var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+    var isInToday: Bool { Calendar.current.isDateInToday(self) }
+    var isInTomorrow: Bool { Calendar.current.isDateInTomorrow(self) }
 
     var isInTheFuture: Bool { self > Date() }
-    var isInThePast:   Bool { self < Date() }
-    
-    
+    var isInThePast: Bool { self < Date() }
 }

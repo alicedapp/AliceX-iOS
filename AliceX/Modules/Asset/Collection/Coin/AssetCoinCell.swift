@@ -94,19 +94,18 @@ class AssetCoinCell: UICollectionViewCell {
     }
 
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
-        
         if coin == Coin.coin(chain: .Bitcoin) {
             HUDManager.shared.showError(text: "Not available now")
             return
         }
-        
+
         switch gesture.state {
         case .began:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 self.background.alpha = 1
             }
-            
+
             let vc = TransferPopUp.make(address: "", coin: coin)
             vc.modalPresentationStyle = .overCurrentContext
             UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
@@ -208,7 +207,7 @@ class AssetCoinCell: UICollectionViewCell {
                 } else {
                     precentageLabel.text = ""
                 }
-                
+
             } else {
                 animationButton.currentButtonType = .buttonDownBasicType
                 animationButton.tintColor = AliceColor.red

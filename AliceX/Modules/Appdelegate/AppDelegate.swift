@@ -10,7 +10,7 @@ import CodePush
 import Firebase
 import IQKeyboardManagerSwift
 import React
-//import RNFirebase
+// import RNFirebase
 import SPStorkController
 import UserNotifications
 
@@ -22,19 +22,18 @@ private var bridge: RCTBridge?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions
+    func application(_: UIApplication, didFinishLaunchingWithOptions
         launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        var jsCodeLocation: URL?
 
         FirebaseApp.configure()
-        
+
         Messaging.messaging().delegate = self
-        
+
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
@@ -74,32 +73,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         WalletManager.shared.checkMnemonic()
         UNUserNotificationCenter.current().delegate = self
-        
+
         #if DEBUG
             test()
             Fabric.sharedSDK().debug = true
         #endif
         if let option = launchOption,
-            let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification]  as? [AnyHashable: Any],
+            let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any],
             let aps = userInfo["aps"] as? [AnyHashable: Any],
             let path = aps["path"] as? String {
-            
             router(path: path)
             print(userInfo)
         }
-        
+
         UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 
     func test() {
-        
-        InstanceID.instanceID().instanceID { (result, error) in
-          if let error = error {
-            print("Error fetching remote instance ID: \(error)")
-          } else if let result = result {
-            print("Remote instance ID token: \(result.token)")
-          }
+        InstanceID.instanceID().instanceID { result, error in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+            }
         }
     }
 
@@ -145,39 +142,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+
         if application.applicationState != .active,
-        let path = userInfo["path"] as? String {
+            let path = userInfo["path"] as? String {
             router(path: path)
         }
-    
+
 //        Messaging.messaging().appDidReceiveMessage(userInfo)
         print(userInfo)
     }
-    
-    
 
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func application(application _: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(" Push notification received:")
-        
+
 //        if (application.applicationState == .active) {
-            /// Foreground
-            // TODO
+        /// Foreground
+        // TODO:
 //            return
 //        }
-        
+
 //        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
-        
+
 //        Messaging.messaging().appDidReceiveMessage(userInfo)
-        
+
         if let messageID = userInfo[gcmMessageIDKey] {
-          print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)")
         }
-        
-        if let aps = userInfo["aps"] as? [AnyHashable: Any], let path = aps["path"] as? String{
+
+        if let aps = userInfo["aps"] as? [AnyHashable: Any], let path = aps["path"] as? String {
             router(path: path)
         }
-        
+
         print(userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -188,7 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().apnsToken = deviceToken
     }
 
-    func application(_: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+    func application(_: UIApplication, didRegister _: UIUserNotificationSettings) {
 //        RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
 

@@ -10,7 +10,6 @@ import Foundation
 import PromiseKit
 
 extension AssetPriceViewController: BEMSimpleLineGraphDataSource {
-    
     func setupChartView() {
         chartView.delegate = self
         chartView.dataSource = self
@@ -92,6 +91,4 @@ extension AssetPriceViewController: BEMSimpleLineGraphDataSource {
     }
 }
 
-extension AssetPriceViewController: BEMSimpleLineGraphDelegate {
-    
-}
+extension AssetPriceViewController: BEMSimpleLineGraphDelegate {}

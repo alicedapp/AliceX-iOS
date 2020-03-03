@@ -6,98 +6,94 @@
 //  Copyright © 2020 lmcmz. All rights reserved.
 //
 
-import UIKit
 import PromiseKit
 import SkeletonView
+import UIKit
 
 class AssetInfoViewController: UIViewController {
-
     @IBOutlet var scrollView: UIScrollView!
-    
+
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var decimalLabel: UILabel!
     @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var ownerLabel: UILabel!
-    
+
     @IBOutlet var transfersCountLabel: UILabel!
     @IBOutlet var holdersCountLabel: UILabel!
     @IBOutlet var issuancesCountLabel: UILabel!
     @IBOutlet var totalSupplyLabel: UILabel!
-    
+
     @IBOutlet var descTextView: UITextView!
-    
+
     @IBOutlet var textViewHeight: NSLayoutConstraint!
-    
+
     var listViewDidScrollCallback: ((UIScrollView) -> Void)?
-    
+
     var coin: Coin = .coin(chain: .Ethereum)
-    
-    var data: TokenInfo? = nil
-    
+
+    var data: TokenInfo?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         requestData()
     }
-    
+
     func configure() {
-        
         guard let model = data else {
             return
         }
-        
+
         nameLabel.text = model.name
         decimalLabel.text = String(model.decimals)
         addressLabel.text = model.address
-        
+
         symbolLabel.text = model.symbol
         ownerLabel.text = model.owner
-        
-        if let transfersCount =  model.transfersCount {
+
+        if let transfersCount = model.transfersCount {
             transfersCountLabel.text = transfersCount.formatUsingAbbrevation()
         }
-        
-        if let holdersCount =  model.holdersCount {
+
+        if let holdersCount = model.holdersCount {
             holdersCountLabel.text = holdersCount.formatUsingAbbrevation()
         }
-        
-        if let issuancesCount =  model.issuancesCount {
+
+        if let issuancesCount = model.issuancesCount {
             issuancesCountLabel.text = issuancesCount.formatUsingAbbrevation()
         }
-        
-        if let totalSupply =  model.totalSupply {
+
+        if let totalSupply = model.totalSupply {
             totalSupplyLabel.text = Int(totalSupply)?.delimiter
         }
-        
+
         descTextView.text = model.description ?? "(No Description)"
         descTextView.translatesAutoresizingMaskIntoConstraints = false
         descTextView.isScrollEnabled = false
         descTextView.sizeToFit()
         textViewHeight.constant = descTextView.contentSize.height
     }
-    
+
     func requestData() {
-        
         if !coin.isERC20 {
-            self.data = coin.blockchain.basicInfo
-            self.view.hideSkeleton()
-            self.configure()
+            data = coin.blockchain.basicInfo
+            view.hideSkeleton()
+            configure()
             return
         }
-        
+
         view.showAnimatedGradientSkeleton()
-        
+
         firstly { () -> Promise<TokenInfo> in
             API(Ethplorer.getTokenInfo(address: coin.id))
         }.done { model in
             self.data = model
             self.view.hideSkeleton()
             self.configure()
-        }.catch { error in
+        }.catch { _ in
             self.view.showSkeleton()
         }
-        
     }
 }
 
@@ -113,7 +109,7 @@ extension AssetInfoViewController: JXPagingViewListViewDelegate {
     public func listScrollView() -> UIScrollView {
         return scrollView
     }
-    
+
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         listViewDidScrollCallback?(scrollView)
     }

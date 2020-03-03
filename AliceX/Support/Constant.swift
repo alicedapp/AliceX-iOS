@@ -93,7 +93,7 @@ class CacheKey {
     static let blockchainKey = "alice.asset.watchingList"
 
     static let coinInfoList = "alice.asset.coinInfoList"
-    
+
     static let txHistory = "alice.tx.history"
 }
 

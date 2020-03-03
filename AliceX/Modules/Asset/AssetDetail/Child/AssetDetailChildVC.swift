@@ -10,13 +10,12 @@ import JXSegmentedView
 import UIKit
 
 class AssetDetailChildVC: UIViewController {
-    
     enum AssetTab: Int, CaseIterable {
         case transaction = 0
 //        case price
         case info
     }
-    
+
     var pagingView: JXPagingView!
     var userHeaderView: AssetDetailHeader!
     var userHeaderContainerView: UIView!
@@ -29,7 +28,7 @@ class AssetDetailChildVC: UIViewController {
     var detailRef: AssetDetailViewController?
 
     var coin: Coin!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

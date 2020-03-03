@@ -6,6 +6,7 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import SwiftyUserDefaults
 import UIKit
 
 class BrowserViewController: BaseViewController {
@@ -73,19 +74,6 @@ class BrowserViewController: BaseViewController {
         navBarContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
         navBarContainer.layer.shadowRadius = 5
 
-        webview.navigationDelegate = self
-        webview.scrollView.delegate = self
-        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
-                               height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
-
-        urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
-        let url = URL(string: urlString)
-        let request = URLRequest(url: url!)
-        webview.load(request)
-        webContainer.addSubview(webview)
-
-        webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-
         if WalletManager.currentNetwork != .main {
             let newImage = panelImage.image?.filled(with: WalletManager.currentNetwork.color)
             panelImage.image = newImage
@@ -105,6 +93,26 @@ class BrowserViewController: BaseViewController {
         let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
         gesture.edges = .right
         view.addGestureRecognizer(gesture)
+
+        webview.navigationDelegate = self
+        webview.scrollView.delegate = self
+        webview.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
+                               height: Constant.SCREEN_HEIGHT - Constant.SAFE_TOP)
+
+        webContainer.addSubview(webview)
+        webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+
+        urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString).trimed()
+        guard let url = URL(string: urlString) else {
+            let defaultEngine = Defaults[\.searchEngine]
+            let engine = SearchEngine(rawValue: defaultEngine)!
+            let request = URLRequest(url: engine.baseURL)
+            webview.load(request)
+            return
+        }
+
+        let request = URLRequest(url: url)
+        webview.load(request)
     }
 
     @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {

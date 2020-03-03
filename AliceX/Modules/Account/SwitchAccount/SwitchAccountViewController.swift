@@ -64,12 +64,11 @@ class SwitchAccountViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .accountChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .walletChange, object: nil)
     }
-    
+
     @objc func reload() {
         data = WalletManager.Accounts!
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
-
 }
 
 extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,7 +103,7 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
             return 100
         }
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == Cells.create.rawValue {
             return nil
@@ -209,7 +208,6 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
 //       }
 //       return footerView
     //   }
-
 
     func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == Cells.create.rawValue {

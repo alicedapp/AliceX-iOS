@@ -30,9 +30,8 @@ extension AssetDetailChildVC: JXPagingViewDelegate {
     }
 
     func pagingView(_: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
-        
         let tab = AssetTab(rawValue: index)
-        
+
         switch tab {
         case .transaction:
             let vc = AssetTXViewController.loadFromNib()

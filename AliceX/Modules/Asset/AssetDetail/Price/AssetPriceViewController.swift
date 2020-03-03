@@ -9,20 +9,19 @@
 import UIKit
 
 class AssetPriceViewController: UIViewController {
-    
     @IBOutlet var scrollView: UIScrollView!
     var listViewDidScrollCallback: ((UIScrollView) -> Void)?
 
     @IBOutlet var chartView: BEMSimpleLineGraphView!
-    
+
     var gradient: CGGradient?
     var data = [Coin: [AmberdataPricePoint?]]()
-    
+
     var currentCoin: Coin = .coin(chain: .Ethereum)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        chartView = BEMSimpleLineGraphView()
     }
 }
@@ -39,7 +38,7 @@ extension AssetPriceViewController: JXPagingViewListViewDelegate {
     public func listScrollView() -> UIScrollView {
         return scrollView
     }
-    
+
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         listViewDidScrollCallback?(scrollView)
     }

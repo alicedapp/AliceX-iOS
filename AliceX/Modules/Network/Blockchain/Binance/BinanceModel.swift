@@ -34,7 +34,7 @@ struct BinanceAccount: HandyJSON {
     var account_number: Int64!
     var public_key: [Int]!
     var balances: [BinanceBalance]!
-    
+
     var code: Int?
     var message: String?
 
@@ -50,15 +50,13 @@ struct BinanceBalance: HandyJSON {
     init() {}
 }
 
-
 struct BinanceTXModel: HandyJSON {
-    
     var txHash: String!
     var blockHeight: NSNumber!
-    var timeStamp: String! //"2019-12-09T11:09:38.151Z",
+    var timeStamp: String! // "2019-12-09T11:09:38.151Z",
     var fromAddr: String!
     var toAddr: String!
-    
+
     var value: String!
     var txAsset: String!
     var txFee: Double!
@@ -68,7 +66,7 @@ struct BinanceTXModel: HandyJSON {
     var memo: String!
 
     init() {}
-    
+
     func convertToAmberdata() -> AmberdataTXModel {
         var model = AmberdataTXModel()
         var from = AmberdataTXAddress()

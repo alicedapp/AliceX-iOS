@@ -45,8 +45,8 @@ extension Double {
 }
 
 extension Decimal {
-    var doubleValue:Double {
-        return NSDecimalNumber(decimal:self).doubleValue
+    var doubleValue: Double {
+        return NSDecimalNumber(decimal: self).doubleValue
     }
 }
 

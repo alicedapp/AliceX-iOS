@@ -69,7 +69,6 @@ class PendingTransactionHelper {
                     self.remove(item: item, isSuccess: false)
                 case .notYetProcessed:
                     self.errorCount -= 1
-                    break
                 }
             }.catch { error in
                 self.errorCount += 1

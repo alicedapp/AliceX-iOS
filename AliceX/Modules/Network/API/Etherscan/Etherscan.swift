@@ -36,9 +36,8 @@ extension Etherscan: TargetType {
     }
 
     var task: Task {
-        
         switch self {
-        case .getABI(let contractAddress):
+        case let .getABI(contractAddress):
             return .requestParameters(parameters: ["module": "contract",
                                                    "action": "getabi",
                                                    "address": contractAddress,
@@ -53,4 +52,3 @@ extension Etherscan: TargetType {
         return "".data(using: String.Encoding.utf8)!
     }
 }
-

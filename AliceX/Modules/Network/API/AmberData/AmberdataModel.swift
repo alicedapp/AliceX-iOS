@@ -144,20 +144,19 @@ struct AmberdataTXModel: HandyJSON {
 
     var timestamp: Date?
     var statusResult: AmberdataTXResult?
-    
+
     var from: [AmberdataTXAddress]?
     var to: [AmberdataTXAddress]?
 
     var value: String?
     var tokenTransfers: [AmberdataTXTokenTransfers]?
-    
+
     mutating func mapping(mapper: HelpingMapper) {
-        
 //        2019-07-26T08:06:29.000Z"
         mapper <<<
             timestamp <-- CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
     }
-    
+
     init() {}
 }
 
@@ -165,7 +164,7 @@ extension AmberdataTXModel: Equatable, Hashable {
     static func == (lhs: AmberdataTXModel, rhs: AmberdataTXModel) -> Bool {
         return lhs.hash == rhs.hash
     }
-    
+
     var hashValue: Int {
         return hash.hashValue
     }

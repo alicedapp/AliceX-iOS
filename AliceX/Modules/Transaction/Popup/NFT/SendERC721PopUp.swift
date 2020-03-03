@@ -141,7 +141,7 @@ class SendERC721PopUp: UIViewController {
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
         }.catch { error in
             #if DEBUG
-            HUDManager.shared.showError(error: error)
+                HUDManager.shared.showError(error: error)
             #endif
             if let error = error as? Web3Error {
                 error.errorDescription

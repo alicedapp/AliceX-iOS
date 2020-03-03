@@ -59,7 +59,7 @@ class AssetDetailViewController: BaseViewController {
         indicator.indicatorHeight = 30
         indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
-        
+
         listContainerView = JXSegmentedListContainerView(dataSource: self, type: .collectionView)
         segmentedView.listContainer = listContainerView
         segmentedView.contentScrollView = listContainerView.scrollView
@@ -78,10 +78,10 @@ class AssetDetailViewController: BaseViewController {
         if let index = coins.firstIndex(of: currentCoin) {
             segmentedView.defaultSelectedIndex = index
         }
-        
+
 //        updateCoin()
     }
-    
+
     override func viewDidLayoutSubviews() {
 //        segmentedView.indicators.first!.centerInSuperview()
     }
@@ -111,20 +111,19 @@ class AssetDetailViewController: BaseViewController {
             }
         }
     }
-    
+
     @IBAction func receiveButtonClick() {
         let vc = AddressQRCodeViewController()
         vc.selectBlockCahin = currentCoin.blockchain
         HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
-    
+
     @IBAction func sendButtonClick() {
-        
         if currentCoin == Coin.coin(chain: .Bitcoin) {
             HUDManager.shared.showError(text: "Not available now")
             return
         }
-        
+
         let vc = TransferPopUp.make(address: "", coin: currentCoin)
         vc.modalPresentationStyle = .overCurrentContext
         UIApplication.topViewController()?.present(vc, animated: false, completion: nil)

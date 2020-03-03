@@ -9,7 +9,6 @@
 import UIKit
 
 class WCConnectPopupVC: UIViewController {
-
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var arrowImage: UIImageView!
 
@@ -21,7 +20,7 @@ class WCConnectPopupVC: UIViewController {
 
     var comfirmBlock: VoidBlock?
     var cancelBlock: VoidBlock?
-    
+
     class func make(portAImage: URL?, portAName: String, portBImage: URL?, portBName: String, comfirmBlock: VoidBlock?, cancelBlock: VoidBlock?) -> WCConnectPopupVC {
         let vc = WCConnectPopupVC()
         vc.configure(portAImage: portAImage, portAName: portAName, portBImage: portBImage, portBName: portBName)
@@ -29,7 +28,7 @@ class WCConnectPopupVC: UIViewController {
         vc.cancelBlock = cancelBlock
         return vc
     }
-    
+
     func configure(portAImage: URL?, portAName: String, portBImage: URL?, portBName: String) {
         view.layoutIfNeeded()
         view.roundCorners(corners: [.topLeft, .topRight], radius: 20)
@@ -40,7 +39,7 @@ class WCConnectPopupVC: UIViewController {
         portALabel.text = portAName
         portBLabel.text = portBName
     }
-    
+
     @IBAction func comfirmButtonClick() {
         guard let block = comfirmBlock else {
             return
@@ -56,11 +55,10 @@ class WCConnectPopupVC: UIViewController {
         block!()
         dismiss(animated: true)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        arrowImage.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
-
 }

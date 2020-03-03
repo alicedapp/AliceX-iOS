@@ -53,7 +53,7 @@ class AssetViewController: BaseViewController {
             if !Defaults[\.isFirstTimeOpen] {
                 HUDManager.shared.showError(error: error)
             }
-            
+
             self.cleanCache()
             self.requestData()
         }
@@ -119,33 +119,32 @@ class AssetViewController: BaseViewController {
     }
 
     func loadFromCache() -> Promise<Void> {
-        
         return Promise<Void> { seal in
-                firstly {
-                    when(fulfilled: CoinInfoCenter.shared.loadFromCache(),
-                         WatchingCoinHelper.shared.loadFromCache(),
-                         loadNTFFromCache())
-                }.done { _ in
-                    IgnoreCoinHelper.shared.loadFromCache()
-                    self.coins = WatchingCoinHelper.shared.list
-        //            self.collectionView.reloadData()
-        //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
-                    self.coinSectionShowAnimation()
-                    self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-                    seal.fulfill(())
-                }.catch { error in
-                    IgnoreCoinHelper.shared.loadFromCache()
-                    self.coins = WatchingCoinHelper.shared.list
-        //            self.collectionView.reloadData()
-        //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-                    self.coinSectionShowAnimation()
-                    self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-                    print(error)
-                    seal.reject(error)
-                }
+            firstly {
+                when(fulfilled: CoinInfoCenter.shared.loadFromCache(),
+                     WatchingCoinHelper.shared.loadFromCache(),
+                     loadNTFFromCache())
+            }.done { _ in
+                IgnoreCoinHelper.shared.loadFromCache()
+                self.coins = WatchingCoinHelper.shared.list
+                //            self.collectionView.reloadData()
+                //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
+                self.coinSectionShowAnimation()
+                self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                seal.fulfill(())
+            }.catch { error in
+                IgnoreCoinHelper.shared.loadFromCache()
+                self.coins = WatchingCoinHelper.shared.list
+                //            self.collectionView.reloadData()
+                //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                self.coinSectionShowAnimation()
+                self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                print(error)
+                seal.reject(error)
+            }
         }
     }
-    
+
     func loadNTFFromCache() -> Promise<Void> {
         return Promise<Void> { seal in
             let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
@@ -162,7 +161,7 @@ class AssetViewController: BaseViewController {
             }
         }
     }
-    
+
     func cleanCache() {
         let cacheKey = "\(CacheKey.assetNFTKey).\(WalletManager.currentAccount!.address)"
         Shared.stringCache.remove(key: cacheKey)
@@ -173,7 +172,7 @@ class AssetViewController: BaseViewController {
 //        let vc = SettingViewController()
 //        let navi = BaseNavigationController(rootViewController: vc)
 //        presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
-        
+
         let vc = QRCodeReaderViewController.make { result in
             if result.isValidURL {
                 let vc = BrowserWrapperViewController.make(urlString: result)
@@ -188,7 +187,6 @@ class AssetViewController: BaseViewController {
     }
 
     @IBAction func addressButtonClick() {
-        
         let vc = AddressQRCodeViewController()
         vc.selectBlockCahin = .Ethereum
 //        vc.modalPresentationStyle = .overCurrentContext

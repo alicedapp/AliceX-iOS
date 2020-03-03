@@ -189,7 +189,7 @@ extension WatchingCoinHelper {
         let idList = list.compactMap { $0.id }.joined(separator: ",")
         Shared.stringCache.set(value: idList, key: cacheKey)
     }
-    
+
     func removeCache() {
         let cacheKey = "\(CacheKey.watchingList).\(WalletManager.currentAccount!.address)"
         Shared.stringCache.remove(key: cacheKey)

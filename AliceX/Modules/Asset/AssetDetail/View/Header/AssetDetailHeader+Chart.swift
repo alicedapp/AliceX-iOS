@@ -5,12 +5,10 @@
 //  Created by lmcmz on 10/2/20.
 //  Copyright © 2020 lmcmz. All rights reserved.
 
-
 import Foundation
 import PromiseKit
 
- extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
-    
+extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
     enum Period: CaseIterable {
         case oneDay
         case oneWeek
@@ -18,7 +16,7 @@ import PromiseKit
         case threeMonths
         case oneYear
         case all
-        
+
         var text: String {
             switch self {
             case .oneDay:
@@ -35,7 +33,7 @@ import PromiseKit
                 return "All"
             }
         }
-        
+
         func requestMethod(symbol: String) -> Promise<CryptocompareHistoryModel> {
             let currentCurrency = PriceHelper.shared.currentCurrency
             switch self {
@@ -45,12 +43,12 @@ import PromiseKit
                                                      limit: 24), path: "Data")
             case .oneWeek:
                 return API(Cryptocompare.historyHour(symbol: symbol,
-                                              currency: PriceHelper.shared.currentCurrency,
-                                              limit: 7*24), path: "Data")
+                                                     currency: PriceHelper.shared.currentCurrency,
+                                                     limit: 7 * 24), path: "Data")
             case .oneMonth:
                 return API(Cryptocompare.historyDay(symbol: symbol,
-                                             currency: PriceHelper.shared.currentCurrency,
-                                             limit: 30, allData: false), path: "Data")
+                                                    currency: PriceHelper.shared.currentCurrency,
+                                                    limit: 30, allData: false), path: "Data")
             case .threeMonths:
                 return API(Cryptocompare.historyDay(symbol: symbol,
                                                     currency: PriceHelper.shared.currentCurrency,
@@ -62,14 +60,13 @@ import PromiseKit
                                                     limit: 365, allData: false), path: "Data")
             case .all:
                 return API(Cryptocompare.historyDay(symbol: symbol,
-                                             currency: PriceHelper.shared.currentCurrency,
-                                             limit: 200,
-                                             allData: true),path: "Data")
+                                                    currency: PriceHelper.shared.currentCurrency,
+                                                    limit: 200,
+                                                    allData: true), path: "Data")
             }
         }
-        
     }
-    
+
     func setupChartView() {
         chartView.delegate = self
         chartView.dataSource = self
@@ -91,13 +88,13 @@ import PromiseKit
 
         chartView.gradientBottom = gradient!
 //        chartView.gradientLine = self.lineGradient!
-        
+
         chartView.enableTouchReport = true
         chartView.enablePopUpReport = true
 //        chartView.enableReferenceAxisFrame = true
-        
+
         chartView.formatStringForValues = "%.3f"
-        
+
         // Draw an average line
         chartView.averageLine.enableAverageLine = true
         chartView.averageLine.alpha = 0.6
@@ -107,14 +104,14 @@ import PromiseKit
 
         chartView.noDataLabelColor = AliceColor.darkGrey()
         chartView.colorTouchInputLine = AliceColor.darkGrey()
-        
+
 //        chartView.alwaysDisplayPopUpLabels = true
 //        chartView.colorBackgroundPopUplabel =
 //        chartView.displayDotsWhileAnimating = false
 
         chartView.colorBackgroundPopUplabel = AliceColor.white()
         chartView.enableBottomReferenceAxisFrameLine = false
-        
+
         requestData()
     }
 
@@ -128,6 +125,7 @@ import PromiseKit
     }
 
 //     MARK: - Request DATA
+
     func requestData() {
 //        if let list = data[coin], list.count > 0 {
 //            chartView.reloadGraph()
@@ -137,8 +135,8 @@ import PromiseKit
         guard let symbol = coin.info?.symbol.lowercased() else {
             return
         }
-        
-        self.startGraphLoading()
+
+        startGraphLoading()
 
         firstly { () -> Promise<CryptocompareHistoryModel> in
 //            API(Cryptocompare.historyDay(symbol: symbol,
@@ -148,7 +146,7 @@ import PromiseKit
         }.done { model in
             if let data = model.Data {
                 self.data = data
-                self.chartView.averageLine.yValue = CGFloat(data.compactMap { $0.close }.reduce(0, +)/Double(data.count))
+                self.chartView.averageLine.yValue = CGFloat(data.compactMap { $0.close }.reduce(0, +) / Double(data.count))
                 self.chartView.reloadGraph()
             }
         }.ensure {
@@ -158,73 +156,69 @@ import PromiseKit
             self.chartView.reloadGraph()
         }
     }
-    
-    func lineGraph(_ graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
-        
-        let model = self.data[index]
+
+    func lineGraph(_: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
+        let model = data[index]
         openLabel.text = model.open.toString(decimal: 3)
         HighLabel.text = model.high.toString(decimal: 3)
         lowLabel.text = model.low.toString(decimal: 3)
         volFromLabel.text = model.volumefrom.intValue.delimiter
-       volToLabel.text = model.volumeto.intValue.delimiter
+        volToLabel.text = model.volumeto.intValue.delimiter
         closeLabel.text = model.close!.toString(decimal: 3)
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = currentPeriod == .oneDay ? "d MMMM HH:mm" : "dd MMM yyyy"
         let date = Date(timeIntervalSince1970: model.time)
         timeLabel.text = dateFormatter.string(from: date)
     }
-    
-    func lineGraph(_ graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
-        
+
+    func lineGraph(_: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex _: CGFloat) {
         guard let info = coin.info, let market = info.market else {
             return
         }
-        
+
         openLabel.text = market.open24H.toString(decimal: 3)
         HighLabel.text = market.high24H.toString(decimal: 3)
         lowLabel.text = market.low24H.toString(decimal: 3)
         closeLabel.text = info.price!.toString(decimal: 3)
-        
+
         mktcapLabel.text = market.MKTCAP.intValue.formatUsingAbbrevation()
         supplyLabel.text = market.supply.intValue.formatUsingAbbrevation()
         volFromLabel.text = market.vol24H.intValue.delimiter
         volToLabel.text = market.volTo24H.intValue.delimiter
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
         let date = Date(timeIntervalSince1970: market.lastUpdate)
         timeLabel.text = dateFormatter.string(from: date)
     }
-    
+
 //    func popUpSuffixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
 //
 //    }
-    
+
 //    func popUpPrefixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
 //        let currency = PriceHelper.shared.currentCurrency
 //        return "\(currency.rawValue) \(currency.symbol)"
 //    }
-    
+
 //    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
 //
 //    }
-    
-    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
-        
-    }
-    
+
+    func lineGraphDidBeginLoading(_: BEMSimpleLineGraphView) {}
+
     func startGraphLoading() {
         loadingView.isHidden = false
         loadingView.alpha = 0.0
-        self.loadingIndicator.isHidden = true
-        self.loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = true
+        loadingIndicator.startAnimating()
         UIView.animate(withDuration: 0.3) {
             self.loadingView.alpha = 1.0
             self.loadingIndicator.isHidden = false
         }
     }
-    
+
     func stopGraphLoading() {
         loadingView.alpha = 1.0
         UIView.animate(withDuration: 0.3, animations: {
@@ -233,11 +227,8 @@ import PromiseKit
             self.loadingIndicator.isHidden = true
             self.loadingView.isHidden = true
         }
-        self.loadingIndicator.startAnimating()
+        loadingIndicator.startAnimating()
     }
-    
- }
-
-extension AssetDetailHeader: BEMSimpleLineGraphDelegate {
-    
 }
+
+extension AssetDetailHeader: BEMSimpleLineGraphDelegate {}

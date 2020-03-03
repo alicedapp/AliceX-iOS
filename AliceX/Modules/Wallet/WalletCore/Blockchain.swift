@@ -106,7 +106,7 @@ extension BlockChain {
             return URL(string: "https://btc.com")!
         }
     }
-    
+
     var basicInfo: TokenInfo {
         var info = TokenInfo()
         info.decimals = decimal

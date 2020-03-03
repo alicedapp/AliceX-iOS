@@ -6,11 +6,10 @@
 //  Copyright © 2020 lmcmz. All rights reserved.
 //
 
-import UIKit
 import BonMot
+import UIKit
 
 class WCPopUpVC: UIViewController {
-
     @IBOutlet var logoView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var contentView: UITextView!
@@ -18,7 +17,7 @@ class WCPopUpVC: UIViewController {
 
     var comfirmBlock: VoidBlock?
     var cancelBlock: VoidBlock?
-    
+
     class func make(logo: URL?, name: String, title: String, content: String, comfirmBlock: VoidBlock?, cancelBlock: VoidBlock?) -> WCPopUpVC {
         let vc = WCPopUpVC()
         vc.configure(logo: logo, name: name, title: title, content: content)
@@ -26,8 +25,8 @@ class WCPopUpVC: UIViewController {
         vc.cancelBlock = cancelBlock
         return vc
     }
-    
-      func configure(logo: URL?, name: String, title: String, content: String) {
+
+    func configure(logo: URL?, name: String, title: String, content: String) {
         view.layoutIfNeeded()
         view.roundCorners(corners: [.topLeft, .topRight], radius: 20)
 
@@ -81,9 +80,8 @@ class WCPopUpVC: UIViewController {
             block!()
         })
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }

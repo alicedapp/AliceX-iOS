@@ -92,19 +92,18 @@ extension WCServerHelper: ServerDelegate {
         self.session?.walletInfo = walletInfo
 
         onMainThread {
-            
             let topVC = UIApplication.topViewController()
-           let modal = WCConnectPopupVC.make(portAImage: portAImage, portAName: portAName,
-                                             portBImage: aliceLogo, portBName: "Alice",
-                                             comfirmBlock: {
-                                                completion(walletInfo)
+            let modal = WCConnectPopupVC.make(portAImage: portAImage, portAName: portAName,
+                                              portBImage: aliceLogo, portBName: "Alice",
+                                              comfirmBlock: {
+                                                  completion(walletInfo)
 
-           }) {
-            completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
+            }) {
+                completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
             }
-           let height = 430 - 34 + Constant.SAFE_BOTTOM
-           topVC?.presentAsStork(modal, height: height)
-            
+            let height = 430 - 34 + Constant.SAFE_BOTTOM
+            topVC?.presentAsStork(modal, height: height)
+
 //            let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
 //                                           portBImage: aliceLogo, portBName: "Alice",
 //                                           comfirmBlock: {
