@@ -32,13 +32,17 @@ class WalletCore {
     }
 
     class func address(blockchain: BlockChain) -> String {
+        guard let wallet = WalletCore.wallet, let account = WalletManager.currentAccount else {
+            return ""
+        }
+
         let coinType = blockchain.coinType
 
         switch blockchain {
         case .Ethereum:
-            return WalletManager.currentAccount!.address
+            return account.address
         default:
-            let key = WalletCore.wallet.getKeyForCoin(coin: coinType)
+            let key = wallet.getKeyForCoin(coin: coinType)
             let address = coinType.deriveAddress(privateKey: key)
             return address
         }
