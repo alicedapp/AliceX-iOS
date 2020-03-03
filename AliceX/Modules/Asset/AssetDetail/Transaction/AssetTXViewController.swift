@@ -175,7 +175,8 @@ class AssetTXViewController: UIViewController {
                 self.tableView.es.noticeNoMoreData()
             }
 
-            var appendList = self.data + list.compactMap { $0?.convertToAmberdata() }
+            var appendList = self.data
+            appendList.mergeElements(newElements: list.compactMap { $0?.convertToAmberdata() })
 
             self.data = appendList.sorted(by: { (model1, model2) -> Bool in
                 guard let date1 = model1.timestamp, let date2 = model2.timestamp else {

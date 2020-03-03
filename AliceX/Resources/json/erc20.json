@@ -24,6 +24,12 @@
         "symbol": "HT"
     },
     {
+          "id": "0x543ff227f64aa17ea132bf9886cab5db55dcaddf",
+          "decimals": "18",
+          "name": "DAOstack",
+          "symbol": "GEN"
+    },
+    {
         "id": "0x21ab6c9fac80c59d401b37cb43f81ea9dde7fe34",
         "decimals": "8",
         "name": "Baer Chain",

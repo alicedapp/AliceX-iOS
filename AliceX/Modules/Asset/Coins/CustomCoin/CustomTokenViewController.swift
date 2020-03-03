@@ -22,7 +22,7 @@ class CustomTokenViewController: BaseViewController {
     @IBOutlet var coinImage: UIImageView!
 
     var passed: Bool = false
-//    var info: TokenInfo?
+    var info: TokenInfo?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,7 +77,11 @@ class CustomTokenViewController: BaseViewController {
         testLabel.layer.add(transition, forKey: "country1_animation")
     }
 
-    @IBAction func testClicked() {
+    @IBAction func testClick() {
+        testClicked(block: nil)
+    }
+
+    func testClicked(block: VoidBlock) {
         guard let textStr = textfield.text else {
             testFailed()
             passed = false
@@ -100,7 +104,13 @@ class CustomTokenViewController: BaseViewController {
         }
 
         PriceHelper.shared.getTokenInfo(tokenAdress: string).done { info in
+            self.info = info
             self.updateToken(info: info)
+
+            if let block = block {
+                block()
+            }
+
         }.catch { _ in
             self.testFailed()
             self.passed = false
@@ -126,10 +136,16 @@ class CustomTokenViewController: BaseViewController {
 
         let coin = Coin.ERC20(address: address)
 
-        coinImage.kf.setImage(with: coin.image)
+        coinImage.kf.setImage(with: coin.image) { response in
+            switch response {
+            case .success:
+                self.coinImage.backgroundColor = .clear
+            default:
+                break
+            }
+        }
 
-        CoinInfoCenter.shared.pool.keys.contains(address)
-
+//        CoinInfoCenter.shared.pool.keys.contains(address)
         testSuccess()
         passed = true
     }
@@ -142,16 +158,27 @@ class CustomTokenViewController: BaseViewController {
     }
 
     @IBAction func addClicked() {
-        testClicked()
+        testClicked {
+            guard let address = self.textfield.text, let info = self.info else {
+                self.testFailed()
+                return
+            }
+
+            var data = CoinInfo(id: address)
+            data.name = info.name
+            data.symbol = info.symbol
+            data.decimals = info.decimals
+
+            CoinInfoCenter.shared.add(info: data)
+            CoinInfoCenter.shared.storeInCache()
+            WatchingCoinHelper.shared.add(coin: .ERC20(address: address), updateCache: true, checkIgnore: true)
+            HUDManager.shared.showSuccess(text: "Added new coin")
+            self.navigationController?.popViewController(animated: true)
+        }
         if !passed {
             testFailed()
             return
         }
-
-//        guard let net = testWeb3!.provider.network else {
-//            testFailed()
-//            return
-//        }
     }
 
     @objc func addRPCSuccess() {

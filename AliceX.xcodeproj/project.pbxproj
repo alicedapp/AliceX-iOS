@@ -203,6 +203,7 @@
 		158124DE23EBE29E0021B62E /* AssetPriceVC+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124DD23EBE29E0021B62E /* AssetPriceVC+Chart.swift */; };
 		158124E223EBF3450021B62E /* AssetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158124E023EBF3450021B62E /* AssetInfoViewController.swift */; };
 		158124E323EBF3450021B62E /* AssetInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158124E123EBF3450021B62E /* AssetInfoViewController.xib */; };
+		15818B18240EB9FE0024DE4D /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15818B17240EB9FE0024DE4D /* Array.swift */; };
 		1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */; };
 		1581EC1222D8390D00B74F30 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1581EC1022D8390D00B74F30 /* BrowserViewController.xib */; };
 		1581EC1722D8566E00B74F30 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */; };
@@ -618,6 +619,7 @@
 		158124DD23EBE29E0021B62E /* AssetPriceVC+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetPriceVC+Chart.swift"; sourceTree = "<group>"; };
 		158124E023EBF3450021B62E /* AssetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfoViewController.swift; sourceTree = "<group>"; };
 		158124E123EBF3450021B62E /* AssetInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetInfoViewController.xib; sourceTree = "<group>"; };
+		15818B17240EB9FE0024DE4D /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		1581EC0F22D8390D00B74F30 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		1581EC1022D8390D00B74F30 /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 		1581EC1522D8566E00B74F30 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
@@ -1936,6 +1938,7 @@
 				15E71E0E2373284E0069BFD2 /* Date.swift */,
 				15F197B523816B6F00960DE1 /* ENS.swift */,
 				15D572E7238FB751009BB9BE /* UITapGestureRecognizer.swift */,
+				15818B17240EB9FE0024DE4D /* Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2992,6 +2995,7 @@
 				15E18FAB23E867E4007C0263 /* AssetDetailView.swift in Sources */,
 				152151EA22ECB76200A4613A /* LBXPermissions.swift in Sources */,
 				1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */,
+				15818B18240EB9FE0024DE4D /* Array.swift in Sources */,
 				1562602523F0553700A53E8D /* AssetDetailHeader+Chart.swift in Sources */,
 				15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,

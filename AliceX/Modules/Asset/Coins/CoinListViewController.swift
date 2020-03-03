@@ -37,7 +37,13 @@ class CoinListViewController: BaseViewController {
         let coinInfoList = [CoinInfo].deserialize(from: jsonString) as! [CoinInfo]
         let coinList = coinInfoList.compactMap { $0.coin }
         let chainList = BlockChain.allCases.compactMap { Coin.coin(chain: $0) }
-        data = chainList + coinList
+        let centerList = CoinInfoCenter.shared.pool.values.compactMap { $0.coin }
+
+        var list = chainList
+        list.mergeElements(newElements: coinList)
+        list.mergeElements(newElements: centerList)
+
+        data = list
         filteredData = data
         tableView.reloadData()
     }
