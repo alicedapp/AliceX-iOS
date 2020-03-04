@@ -29,8 +29,10 @@ extension AssetDetailChildVC: JXPagingViewDelegate {
         return titles.count
     }
 
-    func pagingView(_: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
+    func pagingView(_ pageView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         let tab = AssetTab(rawValue: index)
+
+        pageView.listContainerView.backgroundColor = AliceColor.white()
 
         switch tab {
         case .transaction:
