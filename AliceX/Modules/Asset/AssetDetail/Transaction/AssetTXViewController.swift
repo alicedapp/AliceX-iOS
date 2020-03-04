@@ -32,6 +32,7 @@ class AssetTXViewController: UIViewController {
         view.addSubview(tableView)
         tableView.fillSuperview()
 
+        tableView.backgroundColor = AliceColor.white()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCell(nibName: AssetTXCell.nameOfClass)
@@ -223,6 +224,11 @@ extension AssetTXViewController: UIGestureRecognizerDelegate {
 
 extension AssetTXViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in _: UITableView) -> Int {
+        if group.count == 0 {
+            tableView.setEmptyMessage("No transactions yet")
+        } else {
+            tableView.restore()
+        }
         return group.count
     }
 
