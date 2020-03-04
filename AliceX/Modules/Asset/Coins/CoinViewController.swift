@@ -26,8 +26,8 @@ class CoinViewController: BaseViewController {
         segmentedContainer.addSubview(segmentedView)
 
         dataSource = JXSegmentedTitleDataSource()
-        dataSource.titleNormalColor = UIColor(hex: "AAAAAA", alpha: 1)
-        dataSource.titleSelectedColor = AliceColor.dark
+        dataSource.titleNormalColor = AliceColor.greyNew()
+        dataSource.titleSelectedColor = AliceColor.darkGrey()
         dataSource.isTitleColorGradientEnabled = true
         dataSource.titles = tabs
         segmentedView.dataSource = dataSource
@@ -35,7 +35,7 @@ class CoinViewController: BaseViewController {
         let indicator = JXSegmentedIndicatorLineView()
         indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
         indicator.lineStyle = .lengthenOffset
-        indicator.indicatorColor = AliceColor.dark
+        indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
 
         listContainerView = JXSegmentedListContainerView(dataSource: self, type: .scrollView)
@@ -52,22 +52,22 @@ extension CoinViewController: JXSegmentedListContainerViewDataSource, JXSegmente
         return tabs.count
     }
 
-    func listContainerView(_: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+    func listContainerView(_: JXSegmentedListContainerView, initListAt _: Int) -> JXSegmentedListContainerViewListDelegate {
 //        let chain = chains[index]
         let vc = CoinListViewController()
-        var data: [Coin] = []
-        switch index {
-        case 0:
-//            WatchingHelper.shared.
-            data = BlockChain.allCases.compactMap { Coin.coin(chain: $0) }
-        case 1:
-            data = WatchingCoinHelper.shared.list
-        case 2:
-            data = WatchingCoinHelper.shared.list
-        default:
-            break
-        }
-        vc.data = data
+//        var data: [CoinInfo] = []
+//        switch index {
+//        case 0:
+        ////            WatchingHelper.shared.
+//            data = BlockChain.allCases.compactMap { $0.info }
+//        case 1:
+//            data = WatchingCoinHelper.shared.list
+//        case 2:
+//            data = WatchingCoinHelper.shared.list
+//        default:
+//            break
+//        }
+//        vc.data = data
 //        let view = BlockChainQRCodeView.instanceFromNib()
 //        view.chain = chain
 //        view.configure()

@@ -16,6 +16,12 @@ class CoinInfoCenter {
 
     init() {
         // TODO:
+        let bundlePath = Bundle.main.path(forResource: "erc20", ofType: "json")
+        let jsonString = try! String(contentsOfFile: bundlePath!)
+        let coinInfoList = [CoinInfo].deserialize(from: jsonString) as! [CoinInfo]
+        for info in coinInfoList {
+            pool[info.id] = info
+        }
     }
 
     func add(info: CoinInfo) {

@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-text" translatesAutoresizingMaskIntoConstraints="NO" id="7e2-6q-KTf">
-                                <rect key="frame" x="58.666666666666657" y="364" width="258" height="84"/>
+                                <rect key="frame" x="20" y="322" width="335" height="168"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zed" translatesAutoresizingMaskIntoConstraints="NO" id="x0Q-mq-AOa">
-                                <rect key="frame" x="160.33333333333334" y="729" width="54.333333333333343" height="29"/>
+                                <rect key="frame" x="133" y="700" width="109" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="x0Q-mq-AOa" secondAttribute="height" multiplier="47:25" id="kKf-d0-7SB"/>
                                 </constraints>
@@ -29,6 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" name="Alice-LightBackground"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7e2-6q-KTf" secondAttribute="trailing" constant="20" id="5Bd-xc-EQi"/>
                             <constraint firstItem="x0Q-mq-AOa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5nB-9L-JE2"/>
                             <constraint firstItem="7e2-6q-KTf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="M1F-FL-4vh"/>
                             <constraint firstItem="7e2-6q-KTf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vnA-5B-iwP"/>

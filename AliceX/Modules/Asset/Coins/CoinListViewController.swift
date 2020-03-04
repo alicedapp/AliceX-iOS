@@ -15,8 +15,8 @@ class CoinListViewController: BaseViewController {
 
     var isFromPopup: Bool = false
 
-    var data: [Coin] = []
-    var filteredData: [Coin] = []
+    var data: [CoinInfo] = []
+    var filteredData: [CoinInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +35,9 @@ class CoinListViewController: BaseViewController {
         let bundlePath = Bundle.main.path(forResource: "erc20", ofType: "json")
         let jsonString = try! String(contentsOfFile: bundlePath!)
         let coinInfoList = [CoinInfo].deserialize(from: jsonString) as! [CoinInfo]
-        let coinList = coinInfoList.compactMap { $0.coin }
-        let chainList = BlockChain.allCases.compactMap { Coin.coin(chain: $0) }
-        let centerList = CoinInfoCenter.shared.pool.values.compactMap { $0.coin }
+        let coinList = coinInfoList.compactMap { $0 }
+        let chainList = BlockChain.allCases.compactMap { Coin.coin(chain: $0).info! }
+        let centerList = CoinInfoCenter.shared.pool.values.compactMap { $0 }
 
         var list = chainList
         list.mergeElements(newElements: coinList)
@@ -85,17 +85,17 @@ extension CoinListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoinListCell.nameOfClass)
             as! CoinListCell
-        let coin = filteredData[indexPath.row]
-        cell.configure(coin: coin)
+        let info = filteredData[indexPath.row]
+        cell.configure(info: info)
         return cell
     }
 }
 
 extension CoinListViewController: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? data : data.filter { (coin: Coin) -> Bool in
-            coin.info!.name.range(of: searchText, options: .caseInsensitive) != nil ||
-                coin.info!.symbol.range(of: searchText, options: .caseInsensitive) != nil
+        filteredData = searchText.isEmpty ? data : data.filter { (coin: CoinInfo) -> Bool in
+            coin.name.range(of: searchText, options: .caseInsensitive) != nil ||
+                coin.symbol.range(of: searchText, options: .caseInsensitive) != nil
         }
 
         tableView.reloadData()

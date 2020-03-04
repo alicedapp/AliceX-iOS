@@ -52,8 +52,8 @@ class AddressQRCodeViewController: UIViewController {
         segmentedContainer.addSubview(segmentedView)
 
         dataSource = JXSegmentedTitleImageDataSource()
-        dataSource.titleNormalColor = UIColor(hex: "AAAAAA", alpha: 1)
-        dataSource.titleSelectedColor = AliceColor.dark
+        dataSource.titleNormalColor = AliceColor.greyNew()
+        dataSource.titleSelectedColor = AliceColor.darkGrey()
         dataSource.isTitleColorGradientEnabled = true
         dataSource.titleImageType = .topImage
         dataSource.isImageZoomEnabled = false

@@ -65,8 +65,8 @@ class CoinListCell: UITableViewCell {
         }
     }
 
-    func configure(coin: Coin) {
-        self.coin = coin
+    func configure(info: CoinInfo) {
+        coin = info.coin
 //        if {
 //        }
 
@@ -88,9 +88,9 @@ class CoinListCell: UITableViewCell {
             }
         }
 
-        guard let info = coin.info else {
-            return
-        }
+//        guard let info = coin.info else {
+//            return
+//        }
 
         nameLabel.text = info.name
 //        iconView.kf.setImage(with: coin.image, placeholder: Constant.placeholder)
