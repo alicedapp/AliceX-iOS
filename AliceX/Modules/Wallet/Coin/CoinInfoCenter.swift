@@ -9,6 +9,7 @@
 import Foundation
 import Haneke
 import PromiseKit
+import SwiftyUserDefaults
 
 class CoinInfoCenter {
     static let shared = CoinInfoCenter()
@@ -113,9 +114,8 @@ extension CoinInfoCenter {
                 seal.fulfill(true)
 
             }.onFailure { error in
-                seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
-                Shared.stringCache.remove(key: cacheKey)
 
+                Shared.stringCache.remove(key: cacheKey)
                 BlockChain.allCases.forEach { chain in
                     //            let coin = Coin.coin(chain: chain)
                     var info = CoinInfo()
@@ -144,6 +144,14 @@ extension CoinInfoCenter {
                 coinInfoList.forEach { info in
                     self.pool[info.id] = info
                 }
+
+                self.storeInCache()
+
+                if !Defaults[\.isFirstTimeOpen] {
+                    seal.reject(error ?? MyError.FoundNil("Fetch Cache Failed: \(cacheKey)"))
+                }
+
+                seal.fulfill(true)
             }
         }
     }

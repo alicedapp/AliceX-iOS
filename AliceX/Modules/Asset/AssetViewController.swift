@@ -73,7 +73,6 @@ class AssetViewController: BaseViewController {
         })
 
         coins = WatchingCoinHelper.shared.list
-        Defaults[\.isFirstTimeOpen] = false
     }
 
     deinit {
@@ -124,23 +123,19 @@ class AssetViewController: BaseViewController {
                 when(fulfilled: CoinInfoCenter.shared.loadFromCache(),
                      WatchingCoinHelper.shared.loadFromCache(),
                      loadNTFFromCache())
-            }.done { _ in
+            }.ensure {
                 IgnoreCoinHelper.shared.loadFromCache()
                 self.coins = WatchingCoinHelper.shared.list
-                //            self.collectionView.reloadData()
-                //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coinHeader.rawValue))
                 self.coinSectionShowAnimation()
                 self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
+                Defaults[\.isFirstTimeOpen] = false
+            }.done { _ in
                 seal.fulfill(())
             }.catch { error in
-                IgnoreCoinHelper.shared.loadFromCache()
-                self.coins = WatchingCoinHelper.shared.list
-                //            self.collectionView.reloadData()
-                //            self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-                self.coinSectionShowAnimation()
-                self.collectionView.reloadSections(IndexSet(arrayLiteral: Asset.balance.rawValue))
-                print(error)
-                seal.reject(error)
+                if !Defaults[\.isFirstTimeOpen] {
+                    print(error)
+                    seal.reject(error)
+                }
             }
         }
     }
@@ -157,7 +152,10 @@ class AssetViewController: BaseViewController {
                 self.NFTSectionShowAimation()
                 seal.fulfill(())
             }.onFailure { error in
-                seal.reject(error ?? MyError.FoundNil("Cache Failed in NFT"))
+                if !Defaults[\.isFirstTimeOpen] {
+                    seal.reject(error ?? MyError.FoundNil("Cache Failed in NFT"))
+                }
+                seal.fulfill(())
             }
         }
     }
