@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-text" translatesAutoresizingMaskIntoConstraints="NO" id="7e2-6q-KTf">
-                                <rect key="frame" x="20" y="322" width="335" height="168"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text-logo" translatesAutoresizingMaskIntoConstraints="NO" id="7e2-6q-KTf">
+                                <rect key="frame" x="20" y="327" width="335" height="158"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zed" translatesAutoresizingMaskIntoConstraints="NO" id="x0Q-mq-AOa">
                                 <rect key="frame" x="133" y="700" width="109" height="58"/>
@@ -44,7 +44,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-text" width="258" height="84"/>
+        <image name="text-logo" width="252" height="79"/>
         <image name="zed" width="29" height="29"/>
         <namedColor name="Alice-LightBackground">
             <color red="0.94499999284744263" green="0.9570000171661377" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
