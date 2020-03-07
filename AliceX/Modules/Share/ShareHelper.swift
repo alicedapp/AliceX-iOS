@@ -33,9 +33,11 @@ class ShareHelper {
         }
 
         let objectsToShare = shareArray
+//        let type = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
+//        UIActivity().activityType = .
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
-        activityVC.excludedActivityTypes = [.airDrop, .assignToContact, .copyToPasteboard, .postToTwitter]
+//        activityVC.excludedActivityTypes = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
 //        activityVC.popoverPresentationController?.sourceView =
         guard let topVC = UIApplication.topViewController() else {
             return
