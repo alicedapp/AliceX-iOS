@@ -21,7 +21,7 @@ class ShareHelper {
         }
 
         if let urlStr = urlString, let url = URL(string: urlStr) {
-            shareArray.append(url)
+            shareArray.append(urlStr)
         }
 
         if let shareImage = image {

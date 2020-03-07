@@ -48,7 +48,7 @@ class BrowserPanelView: BaseView {
 
     @IBAction func shareButton() {
         HUDManager.shared.dismiss()
-        ShareHelper.share(text: vcRef?.webview.url?.absoluteString, image: nil, urlString: vcRef?.webview.url?.absoluteString)
+        ShareHelper.share(text: "", image: nil, urlString: vcRef?.webview.url?.absoluteString)
     }
 
     @IBAction func pinButton() {
