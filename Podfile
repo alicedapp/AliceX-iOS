@@ -26,7 +26,6 @@ def vendor
     pod 'BonMot'
     pod 'SwiftyUserDefaults',  git: 'https://github.com/sunshinejr/SwiftyUserDefaults', branch: 'master'
     pod 'TrustWalletCore'
-     
     pod 'VBFPopFlatButton'
     pod "ViewAnimator"
   #  pod 'SVGKit'
@@ -111,6 +110,12 @@ target 'AliceX' do
 end
 
 post_install do |installer|
+  
+  rnfirebase = installer.pods_project.targets.find { |target| target.name == 'RNFirebase' }
+  rnfirebase.build_configurations.each do |config|
+    config.build_settings['HEADER_SEARCH_PATHS'] = '$(inherited) ${PODS_ROOT}/Headers/Public/**'
+  end
+  
   installer.pods_project.build_configurations.each do |config|
     config.build_settings.delete('CODE_SIGNING_ALLOWED')
     config.build_settings.delete('CODE_SIGNING_REQUIRED')
