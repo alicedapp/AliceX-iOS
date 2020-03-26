@@ -14,7 +14,7 @@ extension AssetDetailChildVC: JXPagingViewDelegate {
     }
 
     func tableHeaderView(in _: JXPagingView) -> UIView {
-        return userHeaderContainerView
+        return userHeaderView
     }
 
     func heightForPinSectionHeader(in _: JXPagingView) -> Int {

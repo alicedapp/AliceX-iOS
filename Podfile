@@ -33,7 +33,7 @@ def vendor
   #  pod 'RxCocoa', '~> 5'
   #  pod 'lottie-ios'
     pod "ESPullToRefresh"
-    pod 'JXSegmentedView', '~> 1.0.2'
+    pod 'JXSegmentedView', git: 'https://github.com/pujiaxin33/JXSegmentedView', branch: 'master'
     pod 'FoldingCell'
     pod 'Pageboy', '~> 3.5.0'
   #  pod 'AwaitKit'
@@ -120,6 +120,7 @@ post_install do |installer|
     config.build_settings.delete('CODE_SIGNING_ALLOWED')
     config.build_settings.delete('CODE_SIGNING_REQUIRED')
   end
+  
   installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
           config.build_settings['ENABLE_BITCODE'] = 'YES'

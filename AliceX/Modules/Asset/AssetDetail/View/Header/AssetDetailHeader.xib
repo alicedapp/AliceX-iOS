@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AssetDetailHeader" customModule="AliceX" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9MC-wY-gf6">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
@@ -244,6 +244,9 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="TZS-7C-Mpy"/>
+                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -251,9 +254,44 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-uk-qNg">
                             <rect key="frame" x="0.0" y="140" width="414" height="50"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irG-Kd-zyP">
+                                    <rect key="frame" x="15" y="10" width="64" height="30"/>
+                                    <color key="backgroundColor" name="Alice-DarkGrey"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWS-O1-0tJ">
                                     <rect key="frame" x="5" y="5" width="404" height="40"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hYy-fG-8Ya">
+                                            <rect key="frame" x="10" y="5" width="384" height="31"/>
+                                            <color key="backgroundColor" name="Alice-White"/>
+                                            <segments>
+                                                <segment title="24H"/>
+                                                <segment title="1W"/>
+                                                <segment title="1M"/>
+                                                <segment title="3M"/>
+                                                <segment title="1Y"/>
+                                                <segment title="All"/>
+                                            </segments>
+                                            <color key="tintColor" name="Alice-White"/>
+                                            <color key="selectedSegmentTintColor" name="Alice-DarkGrey"/>
+                                            <connections>
+                                                <action selector="segementClick:" destination="iN0-l3-epB" eventType="valueChanged" id="Hbf-17-Nw1"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="hYy-fG-8Ya" firstAttribute="top" secondItem="bWS-O1-0tJ" secondAttribute="top" constant="5" id="ReL-99-xP3"/>
+                                        <constraint firstAttribute="trailing" secondItem="hYy-fG-8Ya" secondAttribute="trailing" constant="10" id="USO-CG-wI1"/>
+                                        <constraint firstItem="hYy-fG-8Ya" firstAttribute="leading" secondItem="bWS-O1-0tJ" secondAttribute="leading" constant="10" id="nNY-5R-vy9"/>
+                                        <constraint firstAttribute="bottom" secondItem="hYy-fG-8Ya" secondAttribute="bottom" constant="5" id="tkj-ud-UKC"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtx-vy-Xmw">
                                     <rect key="frame" x="0.0" y="49.5" width="414" height="0.5"/>
@@ -265,12 +303,16 @@
                             </subviews>
                             <color key="backgroundColor" name="Alice-White"/>
                             <constraints>
+                                <constraint firstItem="irG-Kd-zyP" firstAttribute="height" secondItem="hYy-fG-8Ya" secondAttribute="height" id="6Kd-uL-uvS"/>
+                                <constraint firstItem="irG-Kd-zyP" firstAttribute="width" secondItem="hYy-fG-8Ya" secondAttribute="width" multiplier="1/6" id="MPD-TS-8lX"/>
                                 <constraint firstAttribute="trailing" secondItem="rtx-vy-Xmw" secondAttribute="trailing" id="Mlz-cd-gYY"/>
                                 <constraint firstAttribute="bottom" secondItem="rtx-vy-Xmw" secondAttribute="bottom" id="NQt-Eg-IhO"/>
+                                <constraint firstItem="irG-Kd-zyP" firstAttribute="centerY" secondItem="hYy-fG-8Ya" secondAttribute="centerY" id="OxK-7g-qaJ"/>
                                 <constraint firstItem="bWS-O1-0tJ" firstAttribute="top" secondItem="uTV-uk-qNg" secondAttribute="top" constant="5" id="SvG-ld-Xwl"/>
                                 <constraint firstAttribute="bottom" secondItem="bWS-O1-0tJ" secondAttribute="bottom" constant="5" id="UKG-Og-fQx"/>
                                 <constraint firstItem="rtx-vy-Xmw" firstAttribute="leading" secondItem="uTV-uk-qNg" secondAttribute="leading" id="XDd-1e-V34"/>
                                 <constraint firstAttribute="height" constant="50" id="dUS-sK-sLw"/>
+                                <constraint firstItem="irG-Kd-zyP" firstAttribute="leading" secondItem="uTV-uk-qNg" secondAttribute="leading" constant="15" id="nl6-oz-BXX"/>
                                 <constraint firstAttribute="trailing" secondItem="bWS-O1-0tJ" secondAttribute="trailing" constant="5" id="pzT-DU-dPA"/>
                                 <constraint firstItem="bWS-O1-0tJ" firstAttribute="leading" secondItem="uTV-uk-qNg" secondAttribute="leading" constant="5" id="q71-6g-Ozp"/>
                             </constraints>
@@ -343,6 +385,7 @@
                                 <constraint firstItem="dGE-D4-C4t" firstAttribute="top" secondItem="I2p-jc-MYH" secondAttribute="top" id="FsQ-vv-NeI"/>
                                 <constraint firstItem="dGE-D4-C4t" firstAttribute="leading" secondItem="I2p-jc-MYH" secondAttribute="leading" id="Myp-m2-jkF"/>
                                 <constraint firstAttribute="trailing" secondItem="dGE-D4-C4t" secondAttribute="trailing" id="YAF-sc-NmB"/>
+                                <constraint firstAttribute="height" constant="220" id="eUg-dv-8HY"/>
                                 <constraint firstAttribute="bottom" secondItem="dGE-D4-C4t" secondAttribute="bottom" id="fTy-fS-nE4"/>
                                 <constraint firstItem="0jP-sa-Dc0" firstAttribute="top" secondItem="I2p-jc-MYH" secondAttribute="top" id="nP0-W2-cuE"/>
                             </constraints>
@@ -954,6 +997,9 @@
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" name="Alice-White"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="500" id="elg-30-JIx"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" name="Alice-White"/>
@@ -975,6 +1021,7 @@
                 <outlet property="coinNameLabel" destination="RzN-r4-PkL" id="Gyg-5w-Nwd"/>
                 <outlet property="coinSymbolLabel" destination="yip-fe-Xll" id="2WX-6p-9WX"/>
                 <outlet property="coinTypeLabel" destination="sg9-Xu-Zoa" id="rUM-Xt-fAX"/>
+                <outlet property="containerView" destination="9MC-wY-gf6" id="Nxv-h7-eeq"/>
                 <outlet property="loadingIndicator" destination="TpN-8b-wP4" id="va6-rz-51t"/>
                 <outlet property="loadingView" destination="dGE-D4-C4t" id="BiI-qg-4yV"/>
                 <outlet property="logoImageView" destination="Esb-3z-dyQ" id="IsZ-pI-2Hx"/>
@@ -984,6 +1031,8 @@
                 <outlet property="openLabel" destination="tLx-GV-Dsj" id="xhC-BE-NuM"/>
                 <outlet property="precentageLabel" destination="I8e-kJ-vyj" id="aXf-SX-3MK"/>
                 <outlet property="priceLabel" destination="Np4-Jh-X9k" id="6Ri-Yw-cl0"/>
+                <outlet property="segmentControl" destination="hYy-fG-8Ya" id="jD6-sm-cRa"/>
+                <outlet property="segmentIndicator" destination="irG-Kd-zyP" id="Z7O-VA-t4e"/>
                 <outlet property="segmentedContainer" destination="bWS-O1-0tJ" id="vnH-eZ-Irb"/>
                 <outlet property="supplyLabel" destination="wiC-Wb-AkF" id="ctA-Ka-uZI"/>
                 <outlet property="timeLabel" destination="gUg-ND-IXx" id="94J-ib-lBr"/>

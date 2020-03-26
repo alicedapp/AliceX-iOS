@@ -12,6 +12,8 @@ import UIKit
 import web3swift
 
 class AssetDetailHeader: BaseView {
+    @IBOutlet var containerView: UIStackView!
+
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
@@ -38,6 +40,9 @@ class AssetDetailHeader: BaseView {
     @IBOutlet var timeLabel: UILabel!
 
     @IBOutlet var marketLabel: UILabel!
+    @IBOutlet var segmentControl: UISegmentedControl!
+
+    @IBOutlet var segmentIndicator: UIView!
 
     @IBOutlet var loadingView: UIView!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
@@ -52,6 +57,8 @@ class AssetDetailHeader: BaseView {
 
     var gradient: CGGradient!
 
+    var containerFrame: CGRect!
+
     override class func instanceFromNib() -> AssetDetailHeader {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! AssetDetailHeader
 //        view.configure()
@@ -61,38 +68,66 @@ class AssetDetailHeader: BaseView {
     }
 
     func scrollViewDidScroll(contentOffsetY: CGFloat) {
-        var frame = self.frame
-        frame.size.height -= contentOffsetY
+        print("height:\(frame.size.height)")
+        print("Y: \(contentOffsetY)")
+//        var frame =
+//        frame.size.height -= contentOffsetY
         frame.origin.y = contentOffsetY
-        self.frame = frame
+//        self.frame = frame
+//        layoutIfNeeded()
+//        view.layoutSubview()
     }
 
     override func awakeFromNib() {
-        segmentedViewDataSource = JXSegmentedTitleDataSource()
-        segmentedViewDataSource.titles = Period.allCases.compactMap { $0.text }
-        segmentedViewDataSource.titleSelectedColor = AliceColor.white()
-        segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
-        segmentedViewDataSource.isTitleColorGradientEnabled = true
-//        segmentedViewDataSource.isTitleZoomEnabled = true
-        segmentedViewDataSource.reloadData(selectedIndex: 0)
+//        segmentedViewDataSource = JXSegmentedTitleDataSource()
+//        segmentedViewDataSource.titles = Period.allCases.compactMap { $0.text }
+//        segmentedViewDataSource.titleSelectedColor = AliceColor.white()
+//        segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
+//        segmentedViewDataSource.isTitleColorGradientEnabled = true
+        ////        segmentedViewDataSource.isTitleZoomEnabled = true
+//        segmentedViewDataSource.reloadData(selectedIndex: 0)
+//
+//        segmentedView = JXSegmentedView()
+//        segmentedView.backgroundColor = AliceColor.white()
+//        segmentedView.dataSource = segmentedViewDataSource
+//        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
+//        segmentedView.delegate = self
+//
+//        segmentedContainer.addSubview(segmentedView)
+//        segmentedView.fillSuperview()
+//
+//        let indicator = JXSegmentedIndicatorBackgroundView()
+//        indicator.isIndicatorConvertToItemFrameEnabled = true
+//        indicator.indicatorHeight = 30
+//        indicator.indicatorColor = AliceColor.darkGrey()
+//        segmentedView.indicators = [indicator]
 
-        segmentedView = JXSegmentedView()
-        segmentedView.backgroundColor = AliceColor.white()
-        segmentedView.dataSource = segmentedViewDataSource
-        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
-        segmentedView.delegate = self
+        if #available(iOS 13, *) {
+            segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.lightBackground()], for: .selected)
+            segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.darkGrey()], for: .normal)
 
-        segmentedContainer.addSubview(segmentedView)
-        segmentedView.fillSuperview()
+//            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .normal, barMetrics: .default)
+//            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .selected, barMetrics: .default)
+//            segmentControl.setDividerImage(.imageWithColor(color: .clear),
+//                                           forLeftSegmentState: .normal,
+//                                           rightSegmentState: .normal, barMetrics: .default)
+//            segmentControl.backgroundColor = .clear
+//
+//            segmentControl.layer.cornerRadius = segmentControl.bounds.height / 2
+//            segmentControl.layer.masksToBounds = true
+//            segmentControl.tintColor = .clear // background
 
-        let indicator = JXSegmentedIndicatorBackgroundView()
-        indicator.isIndicatorConvertToItemFrameEnabled = true
-        indicator.indicatorHeight = 30
-        indicator.indicatorColor = AliceColor.darkGrey()
-        segmentedView.indicators = [indicator]
+        } else {
+            segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.darkGrey()], for: .selected)
+            segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.greyNew()], for: .normal)
+        }
     }
 
     func configure(coin: Coin) {
+        layoutIfNeeded()
+
+        containerFrame = containerView.frame
+
         self.coin = coin
 
         guard let info = coin.info else {
@@ -182,6 +217,17 @@ class AssetDetailHeader: BaseView {
         let vc = BrowserWrapperViewController.make(urlString: url)
         let topVC = UIApplication.topViewController()
         topVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @IBAction func segementClick(_ segement: UISegmentedControl) {
+        let sigleWidth = segement.frame.width / CGFloat(segement.numberOfSegments)
+        let width = sigleWidth * (CGFloat(segement.selectedSegmentIndex) + 0.5) + 15
+
+        UIView.animate(withDuration: 0.2) {
+            self.segmentIndicator.center = CGPoint(x: width, y: self.segmentIndicator.frame.midY)
+        }
+        currentPeriod = Period.allCases[segement.selectedSegmentIndex]
+        requestData()
     }
 }
 

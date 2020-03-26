@@ -18,7 +18,6 @@ class AssetDetailChildVC: UIViewController {
 
     var pagingView: JXPagingView!
     var userHeaderView: AssetDetailHeader!
-    var userHeaderContainerView: UIView!
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     var segmentedView: JXSegmentedView!
     let titles = ["Transactions", "Info"]
@@ -34,12 +33,12 @@ class AssetDetailChildVC: UIViewController {
 
         navigationController?.interactivePopGestureRecognizer?.delegate = self
 
-        userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
-        let header = AssetDetailHeader.instanceFromNib()
-        header.configure(coin: coin)
-        userHeaderView = header
-        userHeaderContainerView.addSubview(userHeaderView)
-        userHeaderView.fillSuperview()
+        userHeaderView = AssetDetailHeader.instanceFromNib()
+        userHeaderView.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
+                                      height: CGFloat(JXTableHeaderViewHeight))
+//        userHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        userHeaderView.layoutIfNeeded()
+        userHeaderView.configure(coin: coin)
 
         // segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
@@ -50,7 +49,7 @@ class AssetDetailChildVC: UIViewController {
         segmentedViewDataSource.isItemSpacingAverageEnabled = true
         segmentedViewDataSource.reloadData(selectedIndex: 0)
 
-        segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXheightForHeaderInSection)))
+        segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH, height: CGFloat(JXheightForHeaderInSection)))
         segmentedView.backgroundColor = AliceColor.white()
         segmentedView.dataSource = segmentedViewDataSource
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
@@ -76,13 +75,22 @@ class AssetDetailChildVC: UIViewController {
         pagingView = JXPagingView(delegate: self)
 
         view.addSubview(pagingView)
-
         segmentedView.contentScrollView = pagingView.listContainerView.collectionView
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        userHeaderView.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
+                                      height: CGFloat(JXTableHeaderViewHeight))
         pagingView.frame = view.bounds
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        view.bringSubviewToFront(pagingView)
+//        view.insertSubview(userHeaderContainerView, at: 2)
+//        view.insertSubview(pagingView, aboveSubview: userHeaderView)
+//        view.insertSubview(<#T##view: UIView##UIView#>, belowSubview: <#T##UIView#>)
     }
 }
 
