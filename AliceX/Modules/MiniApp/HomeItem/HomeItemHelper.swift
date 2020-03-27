@@ -73,7 +73,7 @@ extension HomeItemHelper {
                 if let err = error, err._code == -100 { // No Key
                     self.list = [.app(name: "DAOstack"),
 //                                 .app(name: "Test"),
-                                 .app(name: "CryptoKitties"),
+//                                 .app(name: "CryptoKitties"),
                                  //                                 .app(name: "Foam"),
                                  .web(url: URL(string: "https://uniswap.exchange")!),
                                  .web(url: URL(string: "https://opensea.io/assets")!),
