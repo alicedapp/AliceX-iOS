@@ -71,7 +71,7 @@ def rn
     'CxxBridge',
     'DevSupport',
     'RCTText',
-    'RCTGeolocation',
+#    'RCTGeolocation',
     'RCTAnimation',
     'RCTImage',
     'RCTActionSheet',

@@ -268,7 +268,25 @@ class WalletManager {
         guard let mnemonic = KeychainHepler.shared.fetchKeychain(key: Setting.MnemonicsKey) else {
             /// Mnemonics LOST !!!
 
-            HUDManager.shared.showErrorAlert(text: "Mnemonic can't be found in your Keychain, Please import Mnemonic again ", isAlert: true)
+            do {
+                let keystore = try WalletManager.shared.loadKeystore()
+                let jsonData = try JSONEncoder().encode(keystore.keystoreParams)
+                let jsonString = String(data: jsonData, encoding: .utf8)!
+
+                let view = BaseAlertView.instanceFromNib(title: "Dangerous",
+                                                         content: "We can't found Mnemonic, but you can export your keystore file, the password is 'web3swift'",
+                                                         confirmText: "Export",
+                                                         cancelText: "Cancel", confirmBlock: {
+                                                             HUDManager.shared.dismiss()
+                                                             ShareHelper.share(text: jsonString, image: nil, urlString: nil)
+                }) {}
+
+                HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none, type: .centerFloat, widthIsFull: false, canDismiss: true)
+
+            } catch {
+                HUDManager.shared.showErrorAlert(text: "Mnemonic can't be found in your Keychain, Please import Mnemonic again ",
+                                                 isAlert: true)
+            }
 
             return
         }

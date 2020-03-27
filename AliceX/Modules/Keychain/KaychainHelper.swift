@@ -16,13 +16,25 @@ class KeychainHepler {
 
     private init() {
         keychain = Keychain(service: Setting.AliceKeychainPrefix)
+            .label("Alice Mnemonic")
+            .synchronizable(true)
     }
 
     func saveToKeychain(value: String, key: String) {
-        keychain![key] = value
+        do {
+            try keychain?.synchronizable(true).set(value, key: key)
+        } catch {
+            HUDManager.shared.showError(text: "Save mnemonic to keychain failed")
+        }
     }
 
     func fetchKeychain(key: String) -> String? {
-        return keychain![key]
+        do {
+            let value = try keychain?.get(key)
+            return value
+        } catch {
+            HUDManager.shared.showError(text: "Fetch mnemonic from keychain failed")
+        }
+        return nil
     }
 }
