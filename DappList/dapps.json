@@ -89,6 +89,14 @@
         "link": "https://cdp.makerdao.com"
     },
     {
+        "img": "https://ethhub.io/images/logo.png",
+        "name": "ETH Hub",
+        "description": "A trusted source in a trusted world",
+        "category": "News",
+        "type": 1,
+        "link": "https://ethhub.io/"
+    },
+    {
         "img": "https://cdn.stateofthedapps.com/dapps/my-crypto-heroes/icon_small_my-crypto-heroes_688aeecec4ac630cac6ea634e40002bdea7c4e186d04b5403fa447c09e5a8842_opti.png",
         "name": "My Crypto Heroes",
         "description": "Hero worker-placement RPG.",
