@@ -18,6 +18,8 @@ class MnemonicTableViewCell: UITableViewCell {
     @IBOutlet var firstImage: UIImageView!
     @IBOutlet var secondImage: UIImageView!
 
+    var vcRef: UIViewController?
+
     var isMnemonic: Bool = true
 
     override func awakeFromNib() {
@@ -69,7 +71,16 @@ class MnemonicTableViewCell: UITableViewCell {
         }
 
         let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
-        UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController.pushViewController(vc, animated: true)
+        guard let ref = self.vcRef else {
+            if let topVC = UIApplication.topViewController(), let navi = topVC.navigationController {
+                navi.pushViewController(vc, animated: true)
+            } else {
+                HUDManager.shared.showError(text: "Navigation is Empty")
+            }
+            return
+        }
+        ref.navigationController?.pushViewController(vc, animated: true)
     }
 
     func biometricsVerify() {
@@ -77,7 +88,15 @@ class MnemonicTableViewCell: UITableViewCell {
             FaceIDHelper.shared.faceID()
         }.done { _ in
             let vc = MnemonicsViewController()
-            UIApplication.topViewController()!.navigationController?.pushViewController(vc, animated: true)
+            guard let ref = self.vcRef else {
+                if let topVC = UIApplication.topViewController(), let navi = topVC.navigationController {
+                    navi.pushViewController(vc, animated: true)
+                } else {
+                    HUDManager.shared.showError(text: "Navigation is Empty")
+                }
+                return
+            }
+            ref.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -115,7 +115,6 @@ class WalletManager {
             let wallet = Account(address: address, name: name, imageName: animal)
 
             WalletManager.Accounts = [wallet]
-
             WalletManager.currentAccount = wallet
             WalletManager.shared.keystore = keystore
             try! WalletManager.shared.saveKeystore(keystore!)

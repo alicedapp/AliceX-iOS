@@ -141,6 +141,7 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
         case Cells.mnemonic.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: MnemonicTableViewCell.nameOfClass, for: indexPath) as! MnemonicTableViewCell
 //            let account = data[indexPath.row]
+            cell.vcRef = self
             cell.configure(isMnemonic: indexPath.row == 0)
             return cell
         case Cells.account.rawValue:
