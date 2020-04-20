@@ -8,7 +8,7 @@ def vendor
   #  pod 'web3.swift.pod', '~> 2.2.1'
 
     # Fix release build problem
-    pod 'Web3swift.pod', git: 'https://github.com/matter-labs/web3swift', branch: 'master'
+    pod 'web3swift', git: 'https://github.com/matter-labs/web3swift', branch: 'master'
     
     pod 'KeychainAccess'
     pod 'SPStorkController', git: 'https://github.com/lmcmz/SPStorkController', branch: 'master'
