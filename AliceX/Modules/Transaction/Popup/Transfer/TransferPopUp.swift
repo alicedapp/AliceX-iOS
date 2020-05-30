@@ -189,7 +189,8 @@ class TransferPopUp: UIViewController {
             TransactionManager.showTokenView(token: coin,
                                              toAddress: addr,
                                              amount: amount,
-                                             data: Data()) { _ in
+                                             data: Data(),
+                                             decimal: coin.info?.decimals) { _ in
                 self.cancelBtnClicked()
             }
         } else {

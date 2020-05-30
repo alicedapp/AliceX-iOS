@@ -156,12 +156,14 @@ class TransactionManager {
                              toAddress: String,
                              amount: BigUInt,
                              data: Data,
+                             decimal: Int? = BlockChain.Ethereum.decimal,
                              success: @escaping StringBlock) {
         let topVC = UIApplication.topViewController()
         let modal = SendERC20PopUp.make(token: token,
                                         toAddress: toAddress,
                                         amount: amount,
                                         data: data,
+                                        decimal: decimal!,
                                         success: success)
         let height = 430 - 34 + Constant.SAFE_BOTTOM
         topVC?.presentAsStork(modal, height: height)

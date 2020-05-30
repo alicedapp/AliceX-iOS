@@ -31,6 +31,7 @@ class SendERC20PopUp: UIViewController {
     var toAddress: String!
     var amount: BigUInt!
     var data: Data!
+    var decimal: Int!
 
     var gasLimit: BigUInt?
     var gasPrice: GasPrice = GasPrice.average
@@ -44,9 +45,11 @@ class SendERC20PopUp: UIViewController {
                     toAddress: String,
                     amount: BigUInt,
                     data: Data,
+                    decimal: Int = BlockChain.Ethereum.decimal,
                     success: @escaping StringBlock) -> SendERC20PopUp {
         let vc = SendERC20PopUp()
         vc.token = token
+        vc.decimal = decimal
         vc.toAddress = toAddress
         vc.amount = amount
         vc.data = data
@@ -59,8 +62,7 @@ class SendERC20PopUp: UIViewController {
 
         addressLabel.text = toAddress
 
-        let value = amount.readableValue
-        amountLabel.text = value.round(decimal: 4)
+        amountLabel.text = amount.readableValue(decimals: decimal)
 //        let price = Float(value)! * PriceHelper.shared.exchangeRate
 //        priceLabel.text = price.currencyString
 
@@ -82,7 +84,7 @@ class SendERC20PopUp: UIViewController {
             tokenImage.kf.setImage(with: info.coin.image)
 
             if let price = info.price {
-                let rate = price * Double(amount.readableValue)!
+                let rate = price * Double(amount.readableValue(decimals: decimal))!
                 priceLabel.text = rate.currencyString
             } else {
                 priceLabel.text = ""
@@ -174,17 +176,17 @@ extension SendERC20PopUp: PayButtonDelegate {
     }
 
     func send() {
-        guard let value = Web3Utils.parseToBigUInt(amount.readableValue, units: .eth) else {
-            HUDManager.shared.showError(text: "Value is invalid")
-            return
-        }
+//        guard let value = Web3Utils.parseToBigUInt(amount.readableValue(decimals: decimal), units: .eth) else {
+//            HUDManager.shared.showError(text: "Value is invalid")
+//            return
+//        }
 
         payView!.showLoading()
 
         firstly {
             TransactionManager.shared.sendERC20Token(tokenAddrss: token.id,
                                                      to: toAddress,
-                                                     amount: value,
+                                                     amount: amount,
                                                      data: data,
                                                      password: "",
                                                      gasPrice: gasPrice)
