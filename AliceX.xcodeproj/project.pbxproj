@@ -3252,7 +3252,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				ENABLE_BITCODE = YES;
@@ -3453,7 +3453,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				ENABLE_BITCODE = YES;
@@ -3651,7 +3651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				INFOPLIST_FILE = AliceNotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -3673,7 +3673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 48TPT4QN6K;
 				INFOPLIST_FILE = AliceNotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
