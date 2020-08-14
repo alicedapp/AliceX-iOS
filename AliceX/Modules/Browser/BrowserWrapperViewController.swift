@@ -92,7 +92,10 @@ class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDeleg
     }
 
     @objc func changeNetwork() {
-        urlString = vc.webview.url!.absoluteString
+        guard let url = vc.webview.url else {
+            return
+        }
+        urlString = url.absoluteString
         vc.willMove(toParent: nil)
         vc.view.removeFromSuperview()
         vc.removeFromParent()

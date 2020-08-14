@@ -124,10 +124,13 @@ extension EditAddressViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_: UITextField) -> Bool {
-        var urlString = addressField.text!
-        urlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
-        let url = URL(string: urlString)
-        browerRef!.goTo(url: url!)
+        guard let urlString = addressField.text,
+            let browerRef = browerRef else {
+            return false
+        }
+        let newUrlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)
+        let url = URL(string: newUrlString)
+        browerRef.goTo(url: url!)
         backButtonClicked()
         return true
     }

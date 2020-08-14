@@ -31,7 +31,8 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
             let toVC = transitionContext.viewController(forKey: .to),
             let fromView = transitionContext.view(forKey: .from),
             let toView = transitionContext.view(forKey: .to),
-            let snapshot = toView.snapshotView(afterScreenUpdates: true)
+            let snapshot = toView.snapshotView(afterScreenUpdates: true),
+            let pushCellFrame = PinTransitionPush.pushCellFrame
         else {
             return
         }
@@ -43,7 +44,7 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
 
         fromView.addSubview(coverView)
 
-        let maskStartBP = UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!, cornerRadius: 30)
+        let maskStartBP = UIBezierPath(roundedRect: pushCellFrame, cornerRadius: 30)
 //            UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!,
 //                                       byRoundingCorners: [.topLeft, .bottomLeft],
 //                                       cornerRadii: CGSize(width: PinTransitionPush.pushCellFrame!.height / 2,

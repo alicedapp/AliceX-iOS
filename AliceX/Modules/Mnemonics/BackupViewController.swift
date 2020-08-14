@@ -32,8 +32,12 @@ class BackupViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        shuffled = mnemonic!.shuffled()
+        guard let mnemonic = mnemonic else {
+            WalletManager.shared.checkMnemonic()
+            return
+        }
 
+        shuffled = mnemonic.shuffled()
         selectCollection = TTGTextTagCollectionView()
         selectCollection.delegate = self
         selectCollection.alignment = .fillByExpandingWidthExceptLastLine

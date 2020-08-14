@@ -133,8 +133,6 @@
 		155456DF23C8A6AF0082BC2F /* WalletImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155456DD23C8A6AF0082BC2F /* WalletImageCell.swift */; };
 		155456E023C8A6AF0082BC2F /* WalletImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155456DE23C8A6AF0082BC2F /* WalletImageCell.xib */; };
 		1559C5FB236974EC008ADCB1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1559C5FA236974EC008ADCB1 /* UIViewController.swift */; };
-		155FACEC233910DE0002B478 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACEA233910DD0002B478 /* TestViewController.swift */; };
-		155FACED233910DE0002B478 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACEB233910DD0002B478 /* TestViewController.xib */; };
 		155FACF2233947EB0002B478 /* PayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FACF0233947EB0002B478 /* PayButtonView.swift */; };
 		155FACF3233947EB0002B478 /* PayButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 155FACF1233947EB0002B478 /* PayButtonView.xib */; };
 		1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561A03A236B492A00962949 /* AddressQRViewController.xib */; };
@@ -549,8 +547,6 @@
 		155456DD23C8A6AF0082BC2F /* WalletImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImageCell.swift; sourceTree = "<group>"; };
 		155456DE23C8A6AF0082BC2F /* WalletImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletImageCell.xib; sourceTree = "<group>"; };
 		1559C5FA236974EC008ADCB1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		155FACEA233910DD0002B478 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		155FACEB233910DD0002B478 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		155FACF0233947EB0002B478 /* PayButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayButtonView.swift; sourceTree = "<group>"; };
 		155FACF1233947EB0002B478 /* PayButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayButtonView.xib; sourceTree = "<group>"; };
 		1561A03A236B492A00962949 /* AddressQRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressQRViewController.xib; sourceTree = "<group>"; };
@@ -1308,15 +1304,6 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
-		155FACE9233910C50002B478 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				155FACEA233910DD0002B478 /* TestViewController.swift */,
-				155FACEB233910DD0002B478 /* TestViewController.xib */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		155FACEE2339445D0002B478 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1996,7 +1983,6 @@
 				15E3C8FC2344729500DCADBF /* Mnemonics */,
 				15E3C8EE23421A5100DCADBF /* Share */,
 				15072529233A0EB6009C9D51 /* Util */,
-				155FACE9233910C50002B478 /* Test */,
 				15A1817A232A4F9400DFE686 /* Cache */,
 				153B2803231B74940062B2E8 /* Pin */,
 				15CB1F2A22F16C4900E3075C /* WalletConnect */,
@@ -2673,7 +2659,6 @@
 				151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */,
 				1526B62522E89526007663E5 /* HideMaskViewController.xib in Resources */,
 				150BF1F923C4D4CE00AD00EC /* SwitchAccountLarkController.xib in Resources */,
-				155FACED233910DE0002B478 /* TestViewController.xib in Resources */,
 				152151F022ECB7CC00A4613A /* QRCodeReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2824,7 +2809,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				155FACEC233910DE0002B478 /* TestViewController.swift in Sources */,
 				15E71E092371CCF10069BFD2 /* WatchingCoinModel.swift in Sources */,
 				159085D922CCAC32000BA7E4 /* CGRect.swift in Sources */,
 				1526B62722E89C6A007663E5 /* HideHelper.swift in Sources */,

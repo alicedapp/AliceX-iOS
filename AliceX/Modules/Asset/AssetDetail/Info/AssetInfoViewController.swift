@@ -41,12 +41,13 @@ class AssetInfoViewController: UIViewController {
     }
 
     func configure() {
-        guard let model = data else {
+        guard let model = data,
+            let decimals = model.decimals else {
             return
         }
 
         nameLabel.text = model.name
-        decimalLabel.text = String(model.decimals)
+        decimalLabel.text = String(decimals)
         addressLabel.text = model.address
 
         symbolLabel.text = model.symbol

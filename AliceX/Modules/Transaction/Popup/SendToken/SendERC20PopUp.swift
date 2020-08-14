@@ -153,8 +153,11 @@ class SendERC20PopUp: UIViewController {
     }
 
     func updateGas() {
+        guard let gasLimit = gasLimit else {
+            return
+        }
         gasTimeLabel.text = "Arrive in ~ \(gasPrice.time) mins"
-        gasPriceLabel.text = gasPrice.toCurrencyFullString(gasLimit: gasLimit!)
+        gasPriceLabel.text = gasPrice.toCurrencyFullString(gasLimit: gasLimit)
     }
 }
 
