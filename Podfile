@@ -40,6 +40,7 @@ def vendor
     pod 'Instructions', '~> 1.4.0'
     pod "SkeletonView"
     pod 'SwiftDate', '~> 5.0'
+    pod 'MessageKit'
 end
 
 
@@ -60,6 +61,9 @@ def remote
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
   pod 'Firebase/Performance'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 end
 
 

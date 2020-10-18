@@ -9,13 +9,14 @@
 import UIKit
 
 class LBXScanNetAnimation: UIImageView {
+
     var isAnimationing = false
-    var animationRect: CGRect = CGRect.zero
+    var animationRect = CGRect.zero
 
     public static func instance() -> LBXScanNetAnimation {
         return LBXScanNetAnimation()
     }
-
+    
     func startAnimatingWithRect(animationRect: CGRect, parentView: UIView, image: UIImage?) {
         self.image = image
         self.animationRect = animationRect
@@ -31,10 +32,9 @@ class LBXScanNetAnimation: UIImageView {
     }
 
     @objc func stepAnimation() {
-        if !isAnimationing {
+        guard isAnimationing else {
             return
         }
-
         var frame = animationRect
 
         let hImg = image!.size.height * animationRect.size.width / image!.size.width
@@ -45,8 +45,7 @@ class LBXScanNetAnimation: UIImageView {
 
         alpha = 0.0
 
-        UIView.animate(withDuration: 1.2, animations: { () -> Void in
-
+        UIView.animate(withDuration: 1.2, animations: {
             self.alpha = 1.0
 
             var frame = self.animationRect
@@ -54,13 +53,11 @@ class LBXScanNetAnimation: UIImageView {
 
             frame.origin.y += (frame.size.height - hImg)
             frame.size.height = hImg
-
+            
             self.frame = frame
 
-        }, completion: { (_: Bool) -> Void in
-
+        }, completion: { _ in
             self.perform(#selector(LBXScanNetAnimation.stepAnimation), with: nil, afterDelay: 0.3)
-
         })
     }
 
@@ -68,4 +65,5 @@ class LBXScanNetAnimation: UIImageView {
         isHidden = true
         isAnimationing = false
     }
+
 }

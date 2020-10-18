@@ -9,18 +9,19 @@
 import UIKit
 
 open class LBXScanView: UIView {
+    
     // 扫码区域各种参数
-    var viewStyle: LBXScanViewStyle = LBXScanViewStyle()
+    var viewStyle = LBXScanViewStyle()
 
     // 扫码区域
-    var scanRetangleRect: CGRect = CGRect.zero
+    var scanRetangleRect = CGRect.zero
 
     // 线条扫码动画封装
     var scanLineAnimation: LBXScanLineAnimation?
 
     // 网格扫码动画封装
     var scanNetAnimation: LBXScanNetAnimation?
-
+    
     // 线条在中间位置，不移动
     var scanLineStill: UIImageView?
 
@@ -31,15 +32,15 @@ open class LBXScanView: UIView {
     var labelReadying: UILabel?
 
     // 记录动画状态
-    var isAnimationing: Bool = false
-
+    var isAnimationing = false
+    
     /**
-     初始化扫描界面
-     - parameter frame:  界面大小，一般为视频显示区域
-     - parameter vstyle: 界面效果参数
-
-     - returns: instancetype
-     */
+    初始化扫描界面
+    - parameter frame:  界面大小，一般为视频显示区域
+    - parameter vstyle: 界面效果参数
+    
+    - returns: instancetype
+    */
     public init(frame: CGRect, vstyle: LBXScanViewStyle) {
         viewStyle = vstyle
 
@@ -51,7 +52,6 @@ open class LBXScanView: UIView {
         case LBXScanViewAnimationStyle.LineStill:
             scanLineStill = UIImageView()
             scanLineStill?.image = viewStyle.animationImage
-
         default:
             break
         }
@@ -63,7 +63,7 @@ open class LBXScanView: UIView {
 
         backgroundColor = UIColor.clear
     }
-
+    
     override init(frame: CGRect) {
         var frameTmp = frame
         frameTmp.origin = CGPoint.zero
@@ -72,8 +72,8 @@ open class LBXScanView: UIView {
 
         backgroundColor = UIColor.clear
     }
-
-    public required init?(coder _: NSCoder) {
+    
+    public required init?(coder aDecoder: NSCoder) {
         self.init()
     }
 
@@ -84,33 +84,28 @@ open class LBXScanView: UIView {
         if scanNetAnimation != nil {
             scanNetAnimation!.stopStepAnimating()
         }
-
-//        print("LBXScanView deinit")
     }
-
-    /**
-     *  开始扫描动画
-     */
+    
+    
+    // 开始扫描动画
     func startScanAnimation() {
-        if isAnimationing {
+        guard !isAnimationing else {
             return
         }
-
         isAnimationing = true
 
-        let cropRect: CGRect = getScanRectForAnimation()
+        let cropRect = getScanRectForAnimation()
 
         switch viewStyle.anmiationStyle {
-        case LBXScanViewAnimationStyle.LineMove:
-
-//            print(NSStringFromCGRect(cropRect))
-
-            scanLineAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image: viewStyle.animationImage)
-        case LBXScanViewAnimationStyle.NetGrid:
-
-            scanNetAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image: viewStyle.animationImage)
-        case LBXScanViewAnimationStyle.LineStill:
-
+        case .LineMove:
+            scanLineAnimation?.startAnimatingWithRect(animationRect: cropRect,
+                                                      parentView: self,
+                                                      image: viewStyle.animationImage)
+        case .NetGrid:
+            scanNetAnimation?.startAnimatingWithRect(animationRect: cropRect,
+                                                     parentView: self,
+                                                     image: viewStyle.animationImage)
+        case .LineStill:
             let stillRect = CGRect(x: cropRect.origin.x + 20,
                                    y: cropRect.origin.y + cropRect.size.height / 2,
                                    width: cropRect.size.width - 40,
@@ -119,62 +114,51 @@ open class LBXScanView: UIView {
 
             addSubview(scanLineStill!)
             scanLineStill?.isHidden = false
-
         default: break
         }
     }
-
-    /**
-     *  开始扫描动画
-     */
+    
+    // 开始扫描动画
     func stopScanAnimation() {
         isAnimationing = false
-
         switch viewStyle.anmiationStyle {
-        case LBXScanViewAnimationStyle.LineMove:
-
+        case .LineMove:
             scanLineAnimation?.stopStepAnimating()
-        case LBXScanViewAnimationStyle.NetGrid:
-
+        case .NetGrid:
             scanNetAnimation?.stopStepAnimating()
-        case LBXScanViewAnimationStyle.LineStill:
+        case .LineStill:
             scanLineStill?.isHidden = true
-
         default: break
         }
     }
-
+    
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    open override func draw(_: CGRect) {
-        // Drawing code
+    open override func draw(_ rect: CGRect) {
         drawScanRect()
     }
-
-    // MARK: ----- 绘制扫码效果-----
-
+    
+    //MARK: ----- 绘制扫码效果-----
     func drawScanRect() {
         let XRetangleLeft = viewStyle.xScanRetangleOffset
         var sizeRetangle = CGSize(width: frame.size.width - XRetangleLeft * 2.0, height: frame.size.width - XRetangleLeft * 2.0)
+        
         if viewStyle.whRatio != 1.0 {
             let w = sizeRetangle.width
-            var h: CGFloat = w / viewStyle.whRatio
-
-            let hInt: Int = Int(h)
-            h = CGFloat(hInt)
-
+            var h = w / viewStyle.whRatio
+            h = CGFloat(Int(h))
             sizeRetangle = CGSize(width: w, height: h)
         }
-
+        
         // 扫码区域Y轴最小坐标
         let YMinRetangle = frame.size.height / 2.0 - sizeRetangle.height / 2.0 - viewStyle.centerUpOffset
         let YMaxRetangle = YMinRetangle + sizeRetangle.height
         let XRetangleRight = frame.size.width - XRetangleLeft
-
-//        print("frame:%@",NSStringFromCGRect(self.frame))
-
-        let context = UIGraphicsGetCurrentContext()!
-
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        
         // 非扫码区域半透明
         // 设置非识别区域颜色
         context.setFillColor(viewStyle.color_NotRecoginitonArea.cgColor)
@@ -196,12 +180,11 @@ open class LBXScanView: UIView {
         context.fill(rect)
         // 执行绘画
         context.strokePath()
-
+        
         if viewStyle.isNeedShowRetangle {
             // 中间画矩形(正方形)
             context.setStrokeColor(viewStyle.colorRetangleLine.cgColor)
-            context.setLineWidth(1)
-
+            context.setLineWidth(viewStyle.widthRetangleLine)
             context.addRect(CGRect(x: XRetangleLeft, y: YMinRetangle, width: sizeRetangle.width, height: sizeRetangle.height))
 
             // CGContextMoveToPoint(context, XRetangleLeft, YMinRetangle);
@@ -209,8 +192,10 @@ open class LBXScanView: UIView {
 
             context.strokePath()
         }
-        scanRetangleRect = CGRect(x: XRetangleLeft, y: YMinRetangle, width: sizeRetangle.width, height: sizeRetangle.height)
 
+        scanRetangleRect = CGRect(x: XRetangleLeft, y: YMinRetangle, width: sizeRetangle.width, height: sizeRetangle.height)
+        
+        
         // 画矩形框4格外围相框角
 
         // 相框角的宽度和高度
@@ -225,24 +210,20 @@ open class LBXScanView: UIView {
         diffAngle = linewidthAngle / 2 // 框外面4个角，与框有缝隙
         diffAngle = linewidthAngle / 2 // 框4个角 在线上加4个角效果
         diffAngle = 0 // 与矩形框重合
-
+        
         switch viewStyle.photoframeAngleStyle {
-        case LBXScanViewPhotoframeAngleStyle.Outer:
-            diffAngle = linewidthAngle / 3 // 框外面4个角，与框紧密联系在一起
-
-        case LBXScanViewPhotoframeAngleStyle.On:
-            diffAngle = 0
-
-        case LBXScanViewPhotoframeAngleStyle.Inner:
-            diffAngle = -viewStyle.photoframeLineW / 2
+        case .Outer: diffAngle = linewidthAngle / 3 // 框外面4个角，与框紧密联系在一起
+        case .On: diffAngle = 0
+        case .Inner: diffAngle = -viewStyle.photoframeLineW / 2
         }
-
+        
         context.setStrokeColor(viewStyle.colorAngle.cgColor)
         context.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
         // Draw them with a 2.0 stroke width so they are a bit more visible.
         context.setLineWidth(linewidthAngle)
-
+        
+        
         //
         let leftX = XRetangleLeft - diffAngle
         let topY = YMinRetangle - diffAngle
@@ -252,15 +233,15 @@ open class LBXScanView: UIView {
         // 左上角水平线
         context.move(to: CGPoint(x: leftX - linewidthAngle / 2, y: topY))
         context.addLine(to: CGPoint(x: leftX + wAngle, y: topY))
-
+        
         // 左上角垂直线
         context.move(to: CGPoint(x: leftX, y: topY - linewidthAngle / 2))
         context.addLine(to: CGPoint(x: leftX, y: topY + hAngle))
-
+        
         // 左下角水平线
         context.move(to: CGPoint(x: leftX - linewidthAngle / 2, y: bottomY))
         context.addLine(to: CGPoint(x: leftX + wAngle, y: bottomY))
-
+        
         // 左下角垂直线
         context.move(to: CGPoint(x: leftX, y: bottomY + linewidthAngle / 2))
         context.addLine(to: CGPoint(x: leftX, y: bottomY - hAngle))
@@ -268,48 +249,28 @@ open class LBXScanView: UIView {
         // 右上角水平线
         context.move(to: CGPoint(x: rightX + linewidthAngle / 2, y: topY))
         context.addLine(to: CGPoint(x: rightX - wAngle, y: topY))
-
+        
         // 右上角垂直线
         context.move(to: CGPoint(x: rightX, y: topY - linewidthAngle / 2))
         context.addLine(to: CGPoint(x: rightX, y: topY + hAngle))
 
-//        右下角水平线
+        // 右下角水平线
         context.move(to: CGPoint(x: rightX + linewidthAngle / 2, y: bottomY))
         context.addLine(to: CGPoint(x: rightX - wAngle, y: bottomY))
 
         // 右下角垂直线
         context.move(to: CGPoint(x: rightX, y: bottomY + linewidthAngle / 2))
         context.addLine(to: CGPoint(x: rightX, y: bottomY - hAngle))
-
+        
         context.strokePath()
     }
-
-    func getScanRectForAnimation() -> CGRect {
-        let XRetangleLeft = viewStyle.xScanRetangleOffset
-        var sizeRetangle = CGSize(width: frame.size.width - XRetangleLeft * 2, height: frame.size.width - XRetangleLeft * 2)
-
-        if viewStyle.whRatio != 1 {
-            let w = sizeRetangle.width
-            var h = w / viewStyle.whRatio
-
-            let hInt: Int = Int(h)
-            h = CGFloat(hInt)
-
-            sizeRetangle = CGSize(width: w, height: h)
-        }
-
-        // 扫码区域Y轴最小坐标
-        let YMinRetangle = frame.size.height / 2.0 - sizeRetangle.height / 2.0 - viewStyle.centerUpOffset
-        // 扫码区域坐标
-        let cropRect = CGRect(x: XRetangleLeft, y: YMinRetangle, width: sizeRetangle.width, height: sizeRetangle.height)
-
-        return cropRect
-    }
-
+    
     // 根据矩形区域，获取识别区域
     static func getScanRectWithPreView(preView: UIView, style: LBXScanViewStyle) -> CGRect {
         let XRetangleLeft = style.xScanRetangleOffset
-        var sizeRetangle = CGSize(width: preView.frame.size.width - XRetangleLeft * 2, height: preView.frame.size.width - XRetangleLeft * 2)
+        let width = preView.frame.size.width - XRetangleLeft * 2
+        let height = width
+        var sizeRetangle = CGSize(width: width, height: height)
 
         if style.whRatio != 1 {
             let w = sizeRetangle.width
@@ -350,28 +311,24 @@ open class LBXScanView: UIView {
                                     width: cropRect.size.height / size.height,
                                     height: cropRect.size.width / fixWidth)
         }
+
         return rectOfInterest
     }
-
+    
     func getRetangeSize() -> CGSize {
         let XRetangleLeft = viewStyle.xScanRetangleOffset
-
         var sizeRetangle = CGSize(width: frame.size.width - XRetangleLeft * 2, height: frame.size.width - XRetangleLeft * 2)
 
         let w = sizeRetangle.width
         var h = w / viewStyle.whRatio
-
-        let hInt: Int = Int(h)
-        h = CGFloat(hInt)
-
+        h = CGFloat(Int(h))
         sizeRetangle = CGSize(width: w, height: h)
 
         return sizeRetangle
     }
-
+    
     func deviceStartReadying(readyStr: String) {
         let XRetangleLeft = viewStyle.xScanRetangleOffset
-
         let sizeRetangle = getRetangeSize()
 
         // 扫码区域Y轴最小坐标
@@ -386,8 +343,10 @@ open class LBXScanView: UIView {
 
             addSubview(activityView!)
 
-            let labelReadyRect = CGRect(x: activityView!.frame.origin.x + activityView!.frame.size.width + 10, y: activityView!.frame.origin.y, width: 100, height: 30)
-            // print("%@",NSStringFromCGRect(labelReadyRect))
+            let labelReadyRect = CGRect(x: activityView!.frame.origin.x + activityView!.frame.size.width + 10,
+                                        y: activityView!.frame.origin.y,
+                                        width: 100,
+                                        height: 30)
             labelReadying = UILabel(frame: labelReadyRect)
             labelReadying?.text = readyStr
             labelReadying?.backgroundColor = UIColor.clear
@@ -399,7 +358,7 @@ open class LBXScanView: UIView {
         addSubview(labelReadying!)
         activityView?.startAnimating()
     }
-
+    
     func deviceStopReadying() {
         if activityView != nil {
             activityView?.stopAnimating()
@@ -410,4 +369,30 @@ open class LBXScanView: UIView {
             labelReadying = nil
         }
     }
+
+}
+
+//MARK: - 公开方法
+public extension LBXScanView {
+    
+    /// 获取扫描动画的Rect
+    func getScanRectForAnimation() -> CGRect {
+        let XRetangleLeft = viewStyle.xScanRetangleOffset
+        var sizeRetangle = CGSize(width: frame.size.width - XRetangleLeft * 2,
+                                  height: frame.size.width - XRetangleLeft * 2)
+        
+        if viewStyle.whRatio != 1 {
+            let w = sizeRetangle.width
+            let h = w / viewStyle.whRatio
+            sizeRetangle = CGSize(width: w, height: CGFloat(Int(h)))
+        }
+        
+        // 扫码区域Y轴最小坐标
+        let YMinRetangle = frame.size.height / 2.0 - sizeRetangle.height / 2.0 - viewStyle.centerUpOffset
+        // 扫码区域坐标
+        let cropRect = CGRect(x: XRetangleLeft, y: YMinRetangle, width: sizeRetangle.width, height: sizeRetangle.height)
+        
+        return cropRect
+    }
+    
 }

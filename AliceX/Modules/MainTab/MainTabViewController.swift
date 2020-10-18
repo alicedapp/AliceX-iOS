@@ -115,20 +115,17 @@ extension MainTabViewController: PageboyViewControllerDelegate {
                                willScrollToPageAt _: PageboyViewController.PageIndex,
                                direction _: PageboyViewController.NavigationDirection,
                                animated _: Bool) {
-        //        print("willScrollToPageAtIndex: \(index)")
     }
 
     func pageboyViewController(_: PageboyViewController,
                                didCancelScrollToPageAt _: PageboyViewController.PageIndex,
                                returnToPageAt _: PageboyViewController.PageIndex) {
-//            print("didCancelScrollToPageAt: \(index), returnToPageAt: \(previousIndex)")
     }
 
     func pageboyViewController(_: PageboyViewController,
                                didScrollTo position: CGPoint,
                                direction _: PageboyViewController.NavigationDirection,
                                animated _: Bool) {
-//            print("didScrollToPosition: \(position)")
         let x = position.x
         if x >= 0, x <= 1.0 {
             let alpha = x
@@ -152,8 +149,6 @@ extension MainTabViewController: PageboyViewControllerDelegate {
                                didScrollToPageAt index: PageboyViewController.PageIndex,
                                direction _: PageboyViewController.NavigationDirection,
                                animated _: Bool) {
-//            print("didScrollToPageAtIndex: \(index)")
-
         if index != MainTab.mini.rawValue {
             tabcontainer.alpha = 1
             return

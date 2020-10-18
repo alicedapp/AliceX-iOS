@@ -6,34 +6,29 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import BigInt
 import CodePush
-import Firebase
+import FirebaseCore
+import FirebaseInstanceID
+import FirebaseMessaging
 import IQKeyboardManagerSwift
+import PromiseKit
 import React
-// import RNFirebase
 import SPStorkController
 import UserNotifications
-
-import BigInt
-import PromiseKit
 
 private var navi: UINavigationController?
 private var bridge: RCTBridge?
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_: UIApplication, didFinishLaunchingWithOptions
         launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        var jsCodeLocation: URL?
-
         FirebaseApp.configure()
-
         Messaging.messaging().delegate = self
-
         IQKeyboardManager.shared.enable = true
 
         WalletManager.loadFromCache()
@@ -76,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if DEBUG
             test()
-            Fabric.sharedSDK().debug = true
         #endif
         if let option = launchOption,
             let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any],
