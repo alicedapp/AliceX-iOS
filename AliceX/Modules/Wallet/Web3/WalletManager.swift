@@ -194,7 +194,6 @@ class WalletManager {
             WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
 
             HUDManager.shared.showSuccess(text: "Replace wallet success")
-            CallRNModule.sendWalletChangedEvent(address: address)
             NotificationCenter.default.post(name: .walletChange, object: nil)
 
             WalletManager.shared.walletChange()
@@ -218,8 +217,6 @@ class WalletManager {
 
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
-
-            CallRNModule.sendNetworkChangedEvent(network: type)
 
             UIView.animate(withDuration: 0.3) {
                 UIApplication.shared.keyWindow?.backgroundColor = type.backgroundColor

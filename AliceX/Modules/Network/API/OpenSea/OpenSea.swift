@@ -9,8 +9,7 @@
 import Foundation
 import Moya
 
-let OpenSeaAPI = MoyaProvider<OpenSea>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let OpenSeaAPI = MoyaProvider<OpenSea>(plugins: [VerbosePlugin(verbose: true)])
 
 enum OpenSea {
     case assets(address: String)

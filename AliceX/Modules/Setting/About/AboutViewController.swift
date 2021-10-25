@@ -56,12 +56,12 @@ class AboutViewController: BaseViewController {
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            InstanceID.instanceID().instanceID { result, error in
+            Messaging.messaging().token { token, error in
                 if let error = error {
                     print("Error fetching remote instance ID: \(error)")
-                } else if let result = result {
-                    print("Remote instance ID token: \(result.token)")
-                    UIPasteboard.general.string = result.token
+                } else if let token = token {
+                    print("Remote instance ID token: \(token)")
+                    UIPasteboard.general.string = token
                     HUDManager.shared.showSuccess(text: "FCM Token Copied")
                 }
             }

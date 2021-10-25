@@ -10,7 +10,7 @@ import Moya
 
 // Doc Address: https://docs.binance.org/api-reference/dex-api/paths.html
 
-let BNBProvider = MoyaProvider<BNBAPI>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let BNBProvider = MoyaProvider<BNBAPI>(plugins: [VerbosePlugin(verbose: true)])
 
 enum BNBAPI {
     case nodeInfo

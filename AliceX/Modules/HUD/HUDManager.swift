@@ -6,7 +6,6 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
-import QuickLayout
 import SwiftEntryKit
 import web3swift
 

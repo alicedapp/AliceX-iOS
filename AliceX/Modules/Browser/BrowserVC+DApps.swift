@@ -9,6 +9,7 @@
 import BigInt
 import Foundation
 import web3swift
+import WebKit
 
 extension BrowserViewController: WKScriptMessageHandler {
     func notifyFinish(callbackID: Int64, value: String) {

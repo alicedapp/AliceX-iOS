@@ -62,18 +62,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate {
     func router(path: String) {
-        let component = path.split(separator: "/")
-        if let first = component.first, String(first) == "rn" {
-            let remainStr = component.dropFirst()
-            let router = remainStr.joined(separator: "/")
-            let dict = ["navigationRoute": router]
-            let vc = BaseRNViewController()
-            let rnView = RCTRootView(bridge: AppDelegate.rnBridge(), moduleName: "alice", initialProperties: dict)
-            vc.view = rnView
-            let topVC = UIApplication.topViewController()
-            topVC?.navigationController?.pushViewController(vc, animated: true)
-        }
-
         if path.hasPrefix("browser/") {
             let remainStr = path.dropFirst(8)
             let vc = BrowserWrapperViewController.make(urlString: String(remainStr))

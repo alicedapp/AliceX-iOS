@@ -65,7 +65,8 @@ enum HomeItem {
         case let .app(name):
             let index = PinManager.shared.containItem(id: name)
             if index == -1 {
-                return RNModule.makeVCwithApp(item: HomeItem.app(name: name))
+                assert(false, "RN code before")
+                break
             }
             let item = PinManager.shared.pinList[index]
             PinManager.shared.currentPin = item

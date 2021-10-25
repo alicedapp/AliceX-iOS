@@ -38,7 +38,6 @@
 		151E346222D5967B0037157C /* SignTransactionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346022D5967B0037157C /* SignTransactionPopUp.swift */; };
 		151E346322D5967B0037157C /* SignTransactionPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151E346122D5967B0037157C /* SignTransactionPopUp.xib */; };
 		151E346522D59C9A0037157C /* EthereumTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E346422D59C9A0037157C /* EthereumTransaction.swift */; };
-		151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */; };
 		152151E522ECB76200A4613A /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151DE22ECB76200A4613A /* LBXScanNetAnimation.swift */; };
 		152151E622ECB76200A4613A /* LBXScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151DF22ECB76200A4613A /* LBXScanView.swift */; };
 		152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152151E022ECB76200A4613A /* LBXScanViewController.swift */; };
@@ -64,8 +63,6 @@
 		1527872922ADF6F800D63C7F /* WalletError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872822ADF6F800D63C7F /* WalletError.swift */; };
 		1527872C22AE080C00D63C7F /* KaychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872B22AE080C00D63C7F /* KaychainHelper.swift */; };
 		1527872E22AE16D400D63C7F /* WalletManager+Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */; };
-		1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873222AE20C800D63C7F /* RNCustomPopUp.swift */; };
-		1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1527873322AE20C800D63C7F /* RNCustomPopUp.xib */; };
 		1527873722AE210200D63C7F /* RPCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873622AE210200D63C7F /* RPCircularProgress.swift */; };
 		1527873A22AE216C00D63C7F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873922AE216C00D63C7F /* TransactionManager.swift */; };
 		1527873C22AE21B200D63C7F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527873B22AE21B200D63C7F /* UIApplication.swift */; };
@@ -78,7 +75,6 @@
 		152FAE0B2344BA7200D6305C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152FAE0A2344BA7200D6305C /* UserDefaults.swift */; };
 		15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E52233E25D0004E9144 /* WC+CustomHandler.swift */; };
 		15300E59233E2887004E9144 /* WC+CustomSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E58233E2887004E9144 /* WC+CustomSender.swift */; };
-		15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E5A233E2D03004E9144 /* WallectConnectModule.swift */; };
 		15300E64233E373F004E9144 /* WCCustomMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15300E62233E373F004E9144 /* WCCustomMethodVC.swift */; };
 		15300E65233E373F004E9144 /* WCCustomMethodVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15300E63233E373F004E9144 /* WCCustomMethodVC.xib */; };
 		1533C9942379B0330052010A /* erc20.json in Resources */ = {isa = PBXBuildFile; fileRef = 1533C9932379B0320052010A /* erc20.json */; };
@@ -139,7 +135,6 @@
 		1562602023EFDBF900A53E8D /* Etherscan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562601F23EFDBF900A53E8D /* Etherscan.swift */; };
 		1562602323F0400100A53E8D /* TransactionRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562602223F0400100A53E8D /* TransactionRecordHelper.swift */; };
 		1562602523F0553700A53E8D /* AssetDetailHeader+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562602423F0553700A53E8D /* AssetDetailHeader+Chart.swift */; };
-		156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E622CDB6B4005C8B2D /* NativeVCModule.swift */; };
 		156548EA22CDBD6E005C8B2D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548E922CDBD6E005C8B2D /* String.swift */; };
 		156548ED22CDC27E005C8B2D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */; };
 		156548F122CDC330005C8B2D /* NetworkSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156548EF22CDC330005C8B2D /* NetworkSwitchViewController.swift */; };
@@ -227,8 +222,6 @@
 		158A909523713756002F9F18 /* BlockchainNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A909423713756002F9F18 /* BlockchainNetwork.swift */; };
 		158A90972371388D002F9F18 /* Blockchain+NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A90962371388D002F9F18 /* Blockchain+NetworkLayer.swift */; };
 		158A909923713ACF002F9F18 /* AmberdataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A909823713ACF002F9F18 /* AmberdataModel.swift */; };
-		158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158B375622AF5C8B005FECAB /* WalletModule.swift */; };
-		158B375922AF5DB3005FECAB /* RNBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B375822AF5DB3005FECAB /* RNBridge.m */; };
 		158E1CF8236553240081C1AA /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E1CF7236553240081C1AA /* Asset.swift */; };
 		158E1D00236554520081C1AA /* AssetCoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158E1CFE236554520081C1AA /* AssetCoinCell.swift */; };
 		158E1D01236554520081C1AA /* AssetCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158E1CFF236554520081C1AA /* AssetCoinCell.xib */; };
@@ -297,7 +290,6 @@
 		15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */; };
 		15DE8E3B22C9DD45004B45A2 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */; };
 		15DE8E3C22C9DD45004B45A2 /* ImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */; };
-		15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE8E3D22CA1B96004B45A2 /* RNModule.swift */; };
 		15DF29F22386F0640013664E /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF29F12386F0640013664E /* Cacheable.swift */; };
 		15DF29F42386F6F40013664E /* MiniAppViewController+Drag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF29F32386F6F40013664E /* MiniAppViewController+Drag.swift */; };
 		15DF29F623871DF30013664E /* PinManager+Favicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF29F523871DF30013664E /* PinManager+Favicon.swift */; };
@@ -352,7 +344,6 @@
 		15E3C9042344A12A00DCADBF /* MnemonicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3C9022344A12A00DCADBF /* MnemonicsViewController.xib */; };
 		15E5152624081E5E008A717B /* soundA.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 15E5152424081E5D008A717B /* soundA.aiff */; };
 		15E5152724081E5E008A717B /* soundB.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 15E5152524081E5E008A717B /* soundB.aiff */; };
-		15E71E05237161E00069BFD2 /* env.json in Resources */ = {isa = PBXBuildFile; fileRef = 15E71E04237161E00069BFD2 /* env.json */; };
 		15E71E072371C6600069BFD2 /* WatchingCoinHelper+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E062371C65F0069BFD2 /* WatchingCoinHelper+Network.swift */; };
 		15E71E092371CCF10069BFD2 /* WatchingCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */; };
 		15E71E0B2372845F0069BFD2 /* CoinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E71E0A2372845F0069BFD2 /* CoinInfo.swift */; };
@@ -381,7 +372,6 @@
 		15F67C33236B2B5D00E00CDE /* AssetImgeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F67C32236B2B5D00E00CDE /* AssetImgeAnimator.swift */; };
 		15F6E1F922E591F70006A24A /* SendERC20PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */; };
 		15F6E1FA22E591F70006A24A /* SendERC20PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */; };
-		15F985DB22C3205700942357 /* ContractModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DA22C3205700942357 /* ContractModule.swift */; };
 		15F985DF22C33E9300942357 /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985DE22C33E9300942357 /* HUDManager.swift */; };
 		15F985E422C34DAF00942357 /* ContractPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F985E322C34DAF00942357 /* ContractPopUp.xib */; };
 		15F985E622C34E1400942357 /* ContractPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F985E522C34E1400942357 /* ContractPopUp.swift */; };
@@ -396,7 +386,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15DAD08B240B5A25000AA702 /* PBXContainerItemProxy */ = {
+		6A9FE1D82723BA2200DE2CDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15B86B4D22AA043F00110C06 /* Project object */;
 			proxyType = 1;
@@ -452,7 +442,6 @@
 		151E346022D5967B0037157C /* SignTransactionPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTransactionPopUp.swift; sourceTree = "<group>"; };
 		151E346122D5967B0037157C /* SignTransactionPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignTransactionPopUp.xib; sourceTree = "<group>"; };
 		151E346422D59C9A0037157C /* EthereumTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumTransaction.swift; sourceTree = "<group>"; };
-		151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRNModule.swift; sourceTree = "<group>"; };
 		152151DE22ECB76200A4613A /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
 		152151DF22ECB76200A4613A /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
 		152151E022ECB76200A4613A /* LBXScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
@@ -478,8 +467,6 @@
 		1527872822ADF6F800D63C7F /* WalletError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletError.swift; sourceTree = "<group>"; };
 		1527872B22AE080C00D63C7F /* KaychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaychainHelper.swift; sourceTree = "<group>"; };
 		1527872D22AE16D400D63C7F /* WalletManager+Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletManager+Keystore.swift"; sourceTree = "<group>"; };
-		1527873222AE20C800D63C7F /* RNCustomPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCustomPopUp.swift; sourceTree = "<group>"; };
-		1527873322AE20C800D63C7F /* RNCustomPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNCustomPopUp.xib; sourceTree = "<group>"; };
 		1527873622AE210200D63C7F /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		1527873922AE216C00D63C7F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1527873B22AE21B200D63C7F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -492,7 +479,6 @@
 		152FAE0A2344BA7200D6305C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		15300E52233E25D0004E9144 /* WC+CustomHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomHandler.swift"; sourceTree = "<group>"; };
 		15300E58233E2887004E9144 /* WC+CustomSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WC+CustomSender.swift"; sourceTree = "<group>"; };
-		15300E5A233E2D03004E9144 /* WallectConnectModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallectConnectModule.swift; sourceTree = "<group>"; };
 		15300E62233E373F004E9144 /* WCCustomMethodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCCustomMethodVC.swift; sourceTree = "<group>"; };
 		15300E63233E373F004E9144 /* WCCustomMethodVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCCustomMethodVC.xib; sourceTree = "<group>"; };
 		1533C9932379B0320052010A /* erc20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = erc20.json; sourceTree = "<group>"; };
@@ -553,7 +539,6 @@
 		1562601F23EFDBF900A53E8D /* Etherscan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etherscan.swift; sourceTree = "<group>"; };
 		1562602223F0400100A53E8D /* TransactionRecordHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRecordHelper.swift; sourceTree = "<group>"; };
 		1562602423F0553700A53E8D /* AssetDetailHeader+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetDetailHeader+Chart.swift"; sourceTree = "<group>"; };
-		156548E622CDB6B4005C8B2D /* NativeVCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeVCModule.swift; sourceTree = "<group>"; };
 		156548E922CDBD6E005C8B2D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		156548EC22CDC27E005C8B2D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		156548EF22CDC330005C8B2D /* NetworkSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSwitchViewController.swift; sourceTree = "<group>"; };
@@ -642,8 +627,6 @@
 		158A90962371388D002F9F18 /* Blockchain+NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blockchain+NetworkLayer.swift"; sourceTree = "<group>"; };
 		158A909823713ACF002F9F18 /* AmberdataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmberdataModel.swift; sourceTree = "<group>"; };
 		158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AliceX-Bridging-Header.h"; sourceTree = "<group>"; };
-		158B375622AF5C8B005FECAB /* WalletModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModule.swift; sourceTree = "<group>"; };
-		158B375822AF5DB3005FECAB /* RNBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridge.m; sourceTree = "<group>"; };
 		158E1CF7236553240081C1AA /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		158E1CFE236554520081C1AA /* AssetCoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCoinCell.swift; sourceTree = "<group>"; };
 		158E1CFF236554520081C1AA /* AssetCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCoinCell.xib; sourceTree = "<group>"; };
@@ -715,7 +698,6 @@
 		15DE8E3622C9D8BB004B45A2 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		15DE8E3922C9DD45004B45A2 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		15DE8E3A22C9DD45004B45A2 /* ImportWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletViewController.xib; sourceTree = "<group>"; };
-		15DE8E3D22CA1B96004B45A2 /* RNModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModule.swift; sourceTree = "<group>"; };
 		15DF29F12386F0640013664E /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		15DF29F32386F6F40013664E /* MiniAppViewController+Drag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniAppViewController+Drag.swift"; sourceTree = "<group>"; };
 		15DF29F523871DF30013664E /* PinManager+Favicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PinManager+Favicon.swift"; sourceTree = "<group>"; };
@@ -772,7 +754,6 @@
 		15E5152524081E5E008A717B /* soundB.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = soundB.aiff; sourceTree = "<group>"; };
 		15E5152D24082614008A717B /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		15E5152F24082614008A717B /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		15E71E04237161E00069BFD2 /* env.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = env.json; path = ../../../env.json; sourceTree = "<group>"; };
 		15E71E062371C65F0069BFD2 /* WatchingCoinHelper+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchingCoinHelper+Network.swift"; sourceTree = "<group>"; };
 		15E71E082371CCF10069BFD2 /* WatchingCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingCoinModel.swift; sourceTree = "<group>"; };
 		15E71E0A2372845F0069BFD2 /* CoinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfo.swift; sourceTree = "<group>"; };
@@ -802,7 +783,6 @@
 		15F67C32236B2B5D00E00CDE /* AssetImgeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImgeAnimator.swift; sourceTree = "<group>"; };
 		15F6E1F722E591F70006A24A /* SendERC20PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendERC20PopUp.swift; sourceTree = "<group>"; };
 		15F6E1F822E591F70006A24A /* SendERC20PopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendERC20PopUp.xib; sourceTree = "<group>"; };
-		15F985DA22C3205700942357 /* ContractModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModule.swift; sourceTree = "<group>"; };
 		15F985DE22C33E9300942357 /* HUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 		15F985E322C34DAF00942357 /* ContractPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractPopUp.xib; sourceTree = "<group>"; };
 		15F985E522C34E1400942357 /* ContractPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractPopUp.swift; sourceTree = "<group>"; };
@@ -1047,7 +1027,6 @@
 				156BCD5C22C4A3F600B380DF /* SignMessage */,
 				15F985E022C34D6000942357 /* Contract */,
 				1587395522B9E12A00F36F92 /* Payment */,
-				1587395422B9E11000F36F92 /* RNCustomView */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1593,15 +1572,6 @@
 			path = Asset;
 			sourceTree = "<group>";
 		};
-		1587395422B9E11000F36F92 /* RNCustomView */ = {
-			isa = PBXGroup;
-			children = (
-				1527873222AE20C800D63C7F /* RNCustomPopUp.swift */,
-				1527873322AE20C800D63C7F /* RNCustomPopUp.xib */,
-			);
-			path = RNCustomView;
-			sourceTree = "<group>";
-		};
 		1587395522B9E12A00F36F92 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1670,13 +1640,6 @@
 			isa = PBXGroup;
 			children = (
 				158B375122AF5C13005FECAB /* AliceX-Bridging-Header.h */,
-				158B375622AF5C8B005FECAB /* WalletModule.swift */,
-				15F985DA22C3205700942357 /* ContractModule.swift */,
-				156548E622CDB6B4005C8B2D /* NativeVCModule.swift */,
-				15DE8E3D22CA1B96004B45A2 /* RNModule.swift */,
-				158B375822AF5DB3005FECAB /* RNBridge.m */,
-				151EDA9D22CEFB5E00F65980 /* CallRNModule.swift */,
-				15300E5A233E2D03004E9144 /* WallectConnectModule.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -1812,7 +1775,6 @@
 				15B86B5622AA043F00110C06 /* Products */,
 				876CA3F15BC9D26DB41AD374 /* Pods */,
 				D2EB78AA33124BBD99B1B7DB /* Libraries */,
-				15E584C123E026D00047FD2D /* Recovered References */,
 				DA2C65F6CDB90D221AABF906 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1958,7 +1920,6 @@
 			isa = PBXGroup;
 			children = (
 				1528139023BEC50000EE847D /* GoogleService-Info.plist */,
-				15E71E04237161E00069BFD2 /* env.json */,
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
 				1527871C22ADEBEE00D63C7F /* Constant.swift */,
@@ -2271,13 +2232,6 @@
 			path = Mnemonics;
 			sourceTree = "<group>";
 		};
-		15E584C123E026D00047FD2D /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		15E71E10237409ED0069BFD2 /* Reorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -2466,19 +2420,14 @@
 				15B86BA422AA09D200110C06 /* Headers */,
 				15B86B5122AA043F00110C06 /* Sources */,
 				15B86B5222AA043F00110C06 /* Frameworks */,
-				15B86BA522AA09DE00110C06 /* Bundle React Native code and images */,
-				BD80632022C9CD8100C1D25F /* Launch React Native Packager */,
 				15B86B5322AA043F00110C06 /* Resources */,
-				152B192C22F407E200EBDA9E /* Swift Format */,
-				1587395F22B9F9FB00F36F92 /* Swift Lint */,
-				1577DDD5238093FD00225DE6 /* Fabric - Firebase */,
 				15E5153E24082614008A717B /* Embed App Extensions */,
 				58BDE0FB43F3EA26DC269424 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				15DAD08C240B5A25000AA702 /* PBXTargetDependency */,
+				6A9FE1D92723BA2200DE2CDC /* PBXTargetDependency */,
 			);
 			name = AliceX;
 			productName = AliceX;
@@ -2570,7 +2519,6 @@
 				1578EE2323C5A75000ED69CB /* MnemonicTableViewCell.xib in Resources */,
 				15E18F9323E6F211007C0263 /* TraitCell.xib in Resources */,
 				15015DA92365AD27008DDD80 /* AssetCoinHeaderCell.xib in Resources */,
-				15E71E05237161E00069BFD2 /* env.json in Resources */,
 				158124D823EBB6D30021B62E /* AssetTXViewController.xib in Resources */,
 				157E350A240E999800C23AD7 /* MiniAppSearchVC.xib in Resources */,
 				15BFA5A022DEF594006BB60D /* Assets.xcassets in Resources */,
@@ -2622,7 +2570,6 @@
 				15BC4DBE22DAD82E00313CA9 /* DappTableViewCell.xib in Resources */,
 				1533C99D237ABB140052010A /* MiniAppViewController.xib in Resources */,
 				154F609A238442C60011200F /* MiniAppCollectionViewCell.xib in Resources */,
-				1527873522AE20C800D63C7F /* RNCustomPopUp.xib in Resources */,
 				156548F622CDC5BB005C8B2D /* NetworkTableViewCell.xib in Resources */,
 				1561A03B236B492A00962949 /* AddressQRViewController.xib in Resources */,
 				15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */,
@@ -2673,78 +2620,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		152B192C22F407E200EBDA9E /* Swift Format */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Format";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    swiftformat .\n#echo \"disable swiftformat\"\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
-		};
-		1577DDD5238093FD00225DE6 /* Fabric - Firebase */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Fabric - Firebase";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n \"${PODS_ROOT}/Fabric/run\"\n";
-		};
-		1587395F22B9F9FB00F36F92 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		15B86BA522AA09DE00110C06 /* Bundle React Native code and images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native code and images";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
 		58BDE0FB43F3EA26DC269424 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2761,24 +2636,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		BD80632022C9CD8100C1D25F /* Launch React Native Packager */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Launch React Native Packager";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Launch React Native Packager\nif nc -w 5 -z localhost 8081 ; then\nif ! curl -s \"http://localhost:8081/status\" | grep -q \"packager-status:running\" ; then\necho \"Port 8081 already in use, packager is either not running or not running correctly\"\nexit 2\nfi\nelse\nopen -a Terminal $SRCROOT/../node_modules/react-native/scripts/launchPackager.command || echo \"Can't start packager automatically\"\nfi\n";
 		};
 		EF6E04F7138E2EA4A8E96E93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2878,7 +2735,6 @@
 				15F197BA238182F000960DE1 /* CustomTokenViewController.swift in Sources */,
 				158124C423EAE0540021B62E /* AssetDetailChildVC.swift in Sources */,
 				153B281C231D465D0062B2E8 /* PinTransitionPush.swift in Sources */,
-				15300E5B233E2D03004E9144 /* WallectConnectModule.swift in Sources */,
 				152151E722ECB76200A4613A /* LBXScanViewController.swift in Sources */,
 				152151EB22ECB76200A4613A /* LBXScanWrapper.swift in Sources */,
 				158FA3AC23EA8D80002FFC76 /* JXPagingListContainerView.swift in Sources */,
@@ -2902,7 +2758,6 @@
 				1527872922ADF6F800D63C7F /* WalletError.swift in Sources */,
 				154F609E238444A00011200F /* MiniAppViewController+CollectionView.swift in Sources */,
 				15FFCF872366073000E0BB80 /* CoinListViewController.swift in Sources */,
-				156548E722CDB6B4005C8B2D /* NativeVCModule.swift in Sources */,
 				158E1CF8236553240081C1AA /* Asset.swift in Sources */,
 				15CE301F2365E15A00A5BD1A /* Blockchain.swift in Sources */,
 				15E18F8F23E690C5007C0263 /* TagCellLayoutDelegate.swift in Sources */,
@@ -2932,17 +2787,14 @@
 				15DF29F42386F6F40013664E /* MiniAppViewController+Drag.swift in Sources */,
 				15C7D0FC237CE9700037E418 /* WalletManager+ENS.swift in Sources */,
 				154CDB7C23604BF5006D76B2 /* SettingViewController+DarkMode.swift in Sources */,
-				15DE8E3E22CA1B96004B45A2 /* RNModule.swift in Sources */,
 				15C7D0FE237D10760037E418 /* BinanceModel.swift in Sources */,
 				15E18FA723E710A4007C0263 /* BEMSimpleLineGraphView.m in Sources */,
 				15DF2A012387AE920013664E /* HomeWebPanelView.swift in Sources */,
-				158B375922AF5DB3005FECAB /* RNBridge.m in Sources */,
 				15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */,
 				15E18FA523E710A4007C0263 /* BEMPermanentPopupView.m in Sources */,
 				158A90972371388D002F9F18 /* Blockchain+NetworkLayer.swift in Sources */,
 				151446502364466A005E87CE /* MainTab.swift in Sources */,
 				1577DDD0237E684300225DE6 /* Cosmos.swift in Sources */,
-				15F985DB22C3205700942357 /* ContractModule.swift in Sources */,
 				15F985DF22C33E9300942357 /* HUDManager.swift in Sources */,
 				15E18FA323E710A4007C0263 /* BEMAverageLine.m in Sources */,
 				158A905C237025AE002F9F18 /* Cryptocompare.swift in Sources */,
@@ -2959,7 +2811,6 @@
 				15DF2A142387CBA60013664E /* BrowserSettingViewController.swift in Sources */,
 				1573B52E2375A7C300257A1A /* KDDragAndDropCollectionView.swift in Sources */,
 				159B72D223C43712006556C3 /* WalletManager+Account.swift in Sources */,
-				1527873422AE20C800D63C7F /* RNCustomPopUp.swift in Sources */,
 				157AA67D22CCAA63008AF3A5 /* MnemonicsView.swift in Sources */,
 				159B72D023C41D72006556C3 /* AddAccountCell.swift in Sources */,
 				15477B3A22E15B03008E3230 /* EthGasStation.swift in Sources */,
@@ -2970,7 +2821,6 @@
 				1581EC1122D8390D00B74F30 /* BrowserViewController.swift in Sources */,
 				153A654B22C9D1A30035EB2C /* BaseRNViewController.swift in Sources */,
 				1507252D233A113D009C9D51 /* WCServerHandler.swift in Sources */,
-				151EDA9E22CEFB5E00F65980 /* CallRNModule.swift in Sources */,
 				1572598D22E0B628004D0CC4 /* CurrencyTableViewCell.swift in Sources */,
 				157A2EFD23657DA3006EC0EA /* AssetViewController+ScrollViewDelegate.swift in Sources */,
 				153B044E236D9701008A2139 /* ERC20.swift in Sources */,
@@ -2984,7 +2834,6 @@
 				15E18F8E23E690C5007C0263 /* LayoutInfo.swift in Sources */,
 				152151EF22ECB7CC00A4613A /* QRCodeReaderViewController.swift in Sources */,
 				15DF2A0E2387C3FE0013664E /* EditAddressViewController+TableVIew.swift in Sources */,
-				158B375722AF5C8B005FECAB /* WalletModule.swift in Sources */,
 				1581EC2622D8AE6D00B74F30 /* Double.swift in Sources */,
 				15300E53233E25D0004E9144 /* WC+CustomHandler.swift in Sources */,
 				15764E1222E9E12900784848 /* TransferPopUp.swift in Sources */,
@@ -3092,10 +2941,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		15DAD08C240B5A25000AA702 /* PBXTargetDependency */ = {
+		6A9FE1D92723BA2200DE2CDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 15DAD085240B5A25000AA702 /* AliceNotificationService */;
-			targetProxy = 15DAD08B240B5A25000AA702 /* PBXContainerItemProxy */;
+			targetProxy = 6A9FE1D82723BA2200DE2CDC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3231,24 +3080,85 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01C9955E29AD06685142C243 /* Pods-AliceX.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				DEVELOPMENT_TEAM = 43G9ZW34K3;
 				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BigInt/BigInt.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BonMot/BonMot.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC/openssl_grpc.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CryptoSwift/CryptoSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ESPullToRefresh/ESPullToRefresh.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseABTesting/FirebaseABTesting.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth/FirebaseAuth.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/FirebaseFirestore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebasePerformance/FirebasePerformance.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseRemoteConfig/FirebaseRemoteConfig.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage/FirebaseStorage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FoldingCell/FoldingCell.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON/HandyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HanekeSwift/Haneke.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Hero/Hero.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Instructions/Instructions.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KeychainAccess/KeychainAccess.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MarqueeLabel/MarqueeLabel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit/MessageKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Moya/Moya.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Pageboy/Pageboy.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SPLarkController/SPLarkController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SPStorkController/SPStorkController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SipHash/SipHash.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SkeletonView/SkeletonView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftDate/SwiftDate.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftEntryKit/SwiftEntryKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf/SwiftProtobuf.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TrustWalletCore/WalletCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ViewAnimator/ViewAnimator.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WalletConnectSwift/WalletConnectSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/abseil/absl.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/grpcpp.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core/grpc.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library/leveldb.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/libsodium/libsodium.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/pop/pop.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/secp256k1_ios/secp256k1_ios.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/web3swift/web3swift.framework/Headers\"",
+				);
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AliceX/ReactNative",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				MARKETING_VERSION = 1.0.2;
@@ -3269,41 +3179,25 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"Base64\"",
-					"-framework",
 					"\"BigInt\"",
 					"-framework",
 					"\"BonMot\"",
 					"-framework",
 					"\"CFNetwork\"",
 					"-framework",
-					"\"CodePush\"",
-					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
 					"\"CoreImage\"",
 					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
 					"\"CryptoSwift\"",
 					"-framework",
-					"\"DVAssetLoaderDelegate\"",
-					"-framework",
-					"\"DoubleConversion\"",
-					"-framework",
 					"\"ESPullToRefresh\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
 					"-framework",
 					"\"FirebaseAnalytics\"",
 					"-framework",
 					"\"FirebaseCore\"",
 					"-framework",
 					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
 					"-framework",
 					"\"FirebaseMessaging\"",
 					"-framework",
@@ -3322,8 +3216,6 @@
 					"\"Hero\"",
 					"-framework",
 					"\"IQKeyboardManagerSwift\"",
-					"-framework",
-					"\"JWT\"",
 					"-framework",
 					"\"JXSegmentedView\"",
 					"-framework",
@@ -3345,27 +3237,9 @@
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
-					"\"QuickLayout\"",
-					"-framework",
-					"\"RNFirebase\"",
-					"-framework",
-					"\"RNGestureHandler\"",
-					"-framework",
-					"\"RNReactNativeHapticFeedback\"",
-					"-framework",
-					"\"RNSVG\"",
-					"-framework",
-					"\"React\"",
-					"-framework",
-					"\"Result\"",
-					"-framework",
 					"\"SPLarkController\"",
 					"-framework",
 					"\"SPStorkController\"",
-					"-framework",
-					"\"SPTPersistentCache\"",
-					"-framework",
-					"\"SSZipArchive\"",
 					"-framework",
 					"\"Security\"",
 					"-framework",
@@ -3381,7 +3255,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"TrustWalletCore\"",
+					"\"WalletCore\"",
 					"-framework",
 					"\"UIKit\"",
 					"-framework",
@@ -3393,31 +3267,19 @@
 					"-framework",
 					"\"WalletConnectSwift\"",
 					"-framework",
-					"\"folly\"",
-					"-framework",
-					"\"glog\"",
-					"-framework",
 					"\"nanopb\"",
 					"-framework",
 					"\"pop\"",
 					"-framework",
-					"\"protobuf\"",
-					"-framework",
-					"\"react_native_camera\"",
-					"-framework",
-					"\"react_native_video\"",
-					"-framework",
 					"\"secp256k1\"",
 					"-framework",
 					"\"web3swift\"",
-					"-framework",
-					"\"yoga\"",
 					"-weak_framework",
 					"\"UserNotifications\"",
 					"-weak_framework",
 					"\"Combine\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alice.dapp-debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3430,25 +3292,86 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76740DF06D13B75E44EBB99E /* Pods-AliceX.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AliceX/Support/AliceX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				DEVELOPMENT_TEAM = 43G9ZW34K3;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BigInt/BigInt.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BonMot/BonMot.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC/openssl_grpc.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CryptoSwift/CryptoSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ESPullToRefresh/ESPullToRefresh.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseABTesting/FirebaseABTesting.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth/FirebaseAuth.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/FirebaseFirestore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebasePerformance/FirebasePerformance.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseRemoteConfig/FirebaseRemoteConfig.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage/FirebaseStorage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FoldingCell/FoldingCell.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON/HandyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HanekeSwift/Haneke.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Hero/Hero.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Instructions/Instructions.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KeychainAccess/KeychainAccess.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MarqueeLabel/MarqueeLabel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit/MessageKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Moya/Moya.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Pageboy/Pageboy.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SPLarkController/SPLarkController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SPStorkController/SPStorkController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SipHash/SipHash.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SkeletonView/SkeletonView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftDate/SwiftDate.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftEntryKit/SwiftEntryKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf/SwiftProtobuf.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TrustWalletCore/WalletCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ViewAnimator/ViewAnimator.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WalletConnectSwift/WalletConnectSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/abseil/absl.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/grpcpp.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core/grpc.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library/leveldb.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/libsodium/libsodium.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/pop/pop.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/secp256k1_ios/secp256k1_ios.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/web3swift/web3swift.framework/Headers\"",
+				);
 				INFOPLIST_FILE = AliceX/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AliceX/ReactNative",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				MARKETING_VERSION = 1.0.2;
@@ -3469,41 +3392,25 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"Base64\"",
-					"-framework",
 					"\"BigInt\"",
 					"-framework",
 					"\"BonMot\"",
 					"-framework",
 					"\"CFNetwork\"",
 					"-framework",
-					"\"CodePush\"",
-					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
 					"\"CoreImage\"",
 					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
 					"\"CryptoSwift\"",
 					"-framework",
-					"\"DVAssetLoaderDelegate\"",
-					"-framework",
-					"\"DoubleConversion\"",
-					"-framework",
 					"\"ESPullToRefresh\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
 					"-framework",
 					"\"FirebaseAnalytics\"",
 					"-framework",
 					"\"FirebaseCore\"",
 					"-framework",
 					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
 					"-framework",
 					"\"FirebaseMessaging\"",
 					"-framework",
@@ -3522,8 +3429,6 @@
 					"\"Hero\"",
 					"-framework",
 					"\"IQKeyboardManagerSwift\"",
-					"-framework",
-					"\"JWT\"",
 					"-framework",
 					"\"JXSegmentedView\"",
 					"-framework",
@@ -3545,27 +3450,9 @@
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
-					"\"QuickLayout\"",
-					"-framework",
-					"\"RNFirebase\"",
-					"-framework",
-					"\"RNGestureHandler\"",
-					"-framework",
-					"\"RNReactNativeHapticFeedback\"",
-					"-framework",
-					"\"RNSVG\"",
-					"-framework",
-					"\"React\"",
-					"-framework",
-					"\"Result\"",
-					"-framework",
 					"\"SPLarkController\"",
 					"-framework",
 					"\"SPStorkController\"",
-					"-framework",
-					"\"SPTPersistentCache\"",
-					"-framework",
-					"\"SSZipArchive\"",
 					"-framework",
 					"\"Security\"",
 					"-framework",
@@ -3581,7 +3468,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"TrustWalletCore\"",
+					"\"WalletCore\"",
 					"-framework",
 					"\"UIKit\"",
 					"-framework",
@@ -3593,31 +3480,19 @@
 					"-framework",
 					"\"WalletConnectSwift\"",
 					"-framework",
-					"\"folly\"",
-					"-framework",
-					"\"glog\"",
-					"-framework",
 					"\"nanopb\"",
 					"-framework",
 					"\"pop\"",
 					"-framework",
-					"\"protobuf\"",
-					"-framework",
-					"\"react_native_camera\"",
-					"-framework",
-					"\"react_native_video\"",
-					"-framework",
 					"\"secp256k1\"",
 					"-framework",
 					"\"web3swift\"",
-					"-framework",
-					"\"yoga\"",
 					"-weak_framework",
 					"\"UserNotifications\"",
 					"-weak_framework",
 					"\"Combine\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alice.dapp-debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "AliceX/ReactNative/AliceX-Bridging-Header.h";
@@ -3630,18 +3505,19 @@
 		15DAD08F240B5A25000AA702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
-				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				DEVELOPMENT_TEAM = 43G9ZW34K3;
 				INFOPLIST_FILE = AliceNotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.AliceNotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alice.dapp-debug.AliceNotificationService";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -3652,18 +3528,19 @@
 		15DAD090240B5A25000AA702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 62;
-				DEVELOPMENT_TEAM = 48TPT4QN6K;
+				DEVELOPMENT_TEAM = 43G9ZW34K3;
 				INFOPLIST_FILE = AliceNotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alice.dapp.AliceNotificationService;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alice.dapp-debug.AliceNotificationService";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

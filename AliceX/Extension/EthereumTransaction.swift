@@ -37,7 +37,9 @@ extension EthereumTransaction {
         model.gasPrice = String(gasPrice)
         model.gasLimit = String(describing: gasLimit)
         model.to = to.address
-        model.value = String(value)
+        if let v = value {
+            model.value = String(v)
+        }
         model.data = data.toHexString().addHexPrefix().lowercased()
         model.v = String(v)
         model.r = String(r)

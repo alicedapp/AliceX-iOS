@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import TrustWalletCore
 import web3swift
+import WalletCore
 
 enum BlockChain: String, CaseIterable {
     case Ethereum

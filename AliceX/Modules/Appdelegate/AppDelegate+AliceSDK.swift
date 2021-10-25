@@ -19,7 +19,7 @@ func handleAliceURL(url: URL) -> Bool {
     let components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
 
     if components.host == "rn" {
-        CallRNModule.deeplinkEvent(url: url.absoluteString)
+        assert(false, "rn code")
         return true
     }
 

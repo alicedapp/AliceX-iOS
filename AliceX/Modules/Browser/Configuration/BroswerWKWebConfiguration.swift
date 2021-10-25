@@ -8,6 +8,7 @@
 
 import Foundation
 import web3swift
+import WebKit
 
 struct ETHWeb3ScriptWKConfig {
     let address: String

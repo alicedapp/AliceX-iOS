@@ -137,19 +137,6 @@ class TransactionManager {
                                                      gasLimit: gasLimit)
     }
 
-    // MARK: - Payment Popup
-
-    class func showRNCustomPaymentView(toAddress: String,
-                                       amount: BigUInt,
-                                       height: CGFloat = 500,
-                                       data: Data,
-                                       success: @escaping StringBlock) {
-        let topVC = UIApplication.topViewController()
-        let modal = RNCustomPopUp.make(toAddress: toAddress, amount: amount,
-                                       height: height, data: data, successBlock: success)
-        topVC?.presentAsStork(modal, height: height)
-    }
-
     // MARK: - Send ERC20
 
     class func showTokenView(token: Coin,

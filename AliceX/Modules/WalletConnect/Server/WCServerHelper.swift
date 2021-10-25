@@ -67,6 +67,10 @@ class WCServerHelper {
 }
 
 extension WCServerHelper: ServerDelegate {
+    func server(_ server: Server, didUpdate session: Session) {
+        
+    }
+    
     func server(_: Server, didFailToConnect _: WCURL) {
         HUDManager.shared.showErrorAlert(text: "Wallect Connect Faild to Connect")
     }

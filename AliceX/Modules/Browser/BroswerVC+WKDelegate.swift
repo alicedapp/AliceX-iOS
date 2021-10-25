@@ -8,6 +8,7 @@
 
 import Foundation
 import Kingfisher
+import WebKit
 
 extension BrowserViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
