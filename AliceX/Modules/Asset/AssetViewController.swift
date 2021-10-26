@@ -219,21 +219,15 @@ class AssetViewController: BaseViewController {
             firstly { () -> Promise<OpenSeaReponse> in
                 API(OpenSea.assets(address: currentAddress))
             }.done { model in
-
-                var hasNew = true
-                if self.NFTData != nil {
-                    hasNew = model.assets!.count > self.NFTData.count
+                guard let assets = model.assets else {
+                    return
                 }
-                self.NFTData = model.assets?.filter({ asset -> Bool in
+                
+                self.NFTData = assets.filter({ asset -> Bool in
                     asset.image_preview_url != nil
                 })
+                
                 Shared.stringCache.set(value: model.toJSONString()!, key: cacheKey)
-//                if hasNew {
-//                    self.NFTSectionAimation()
-//                } else {
-//                    self.collectionView.reloadSections(IndexSet(integer: Asset.NFT.rawValue))
-//                }
-
                 self.collectionView.reloadData()
 
                 seal.fulfill(true)
