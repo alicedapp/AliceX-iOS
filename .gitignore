@@ -95,7 +95,7 @@ AlphaWalletTests/Snapshots/FailureDiffs
 
 # Additions
 .idea/
-Podfile.lock
 /AliceX/Support/Keys.plist
 /AliceX/Support/GoogleService-Info.plist
 /AliceX/Support/AuthKey_57ZXP36V53.p8
+/AliceX/Support/env.json

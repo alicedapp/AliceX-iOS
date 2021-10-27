@@ -380,6 +380,7 @@
 		15FFCF882366073000E0BB80 /* CoinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF862366073000E0BB80 /* CoinListViewController.xib */; };
 		15FFCF8B236607E900E0BB80 /* CoinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FFCF89236607E900E0BB80 /* CoinListCell.swift */; };
 		15FFCF8C236607E900E0BB80 /* CoinListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FFCF8A236607E900E0BB80 /* CoinListCell.xib */; };
+		6A110D5B272841B6004D383D /* env.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A110D5A272841B6004D383D /* env.json */; };
 		B0C602DE44CFDF2204379827 /* Pods_AliceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8362295B097EBCCD7FF04636 /* Pods_AliceX.framework */; };
 		BD3A7A6F23027828006BEA0C /* exocet-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6D23027828006BEA0C /* exocet-light.ttf */; };
 		BD3A7A7023027828006BEA0C /* exocet-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD3A7A6E23027828006BEA0C /* exocet-heavy.ttf */; };
@@ -791,6 +792,7 @@
 		15FFCF862366073000E0BB80 /* CoinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListViewController.xib; sourceTree = "<group>"; };
 		15FFCF89236607E900E0BB80 /* CoinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListCell.swift; sourceTree = "<group>"; };
 		15FFCF8A236607E900E0BB80 /* CoinListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinListCell.xib; sourceTree = "<group>"; };
+		6A110D5A272841B6004D383D /* env.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = env.json; sourceTree = "<group>"; };
 		76740DF06D13B75E44EBB99E /* Pods-AliceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliceX.release.xcconfig"; path = "Target Support Files/Pods-AliceX/Pods-AliceX.release.xcconfig"; sourceTree = "<group>"; };
 		8362295B097EBCCD7FF04636 /* Pods_AliceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AliceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3A7A6D23027828006BEA0C /* exocet-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "exocet-light.ttf"; sourceTree = "<group>"; };
@@ -1919,6 +1921,7 @@
 		15B86BB322AA1D9100110C06 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				6A110D5A272841B6004D383D /* env.json */,
 				1528139023BEC50000EE847D /* GoogleService-Info.plist */,
 				15EF382522D5835B00C4A2C1 /* AliceX.entitlements */,
 				15B86B6422AA044000110C06 /* Info.plist */,
@@ -2423,6 +2426,7 @@
 				15B86B5322AA043F00110C06 /* Resources */,
 				15E5153E24082614008A717B /* Embed App Extensions */,
 				58BDE0FB43F3EA26DC269424 /* [CP] Embed Pods Frameworks */,
+				6A40D30927290D8500CF7A66 /* Upload dSYM */,
 			);
 			buildRules = (
 			);
@@ -2575,6 +2579,7 @@
 				15DF2A152387CBA60013664E /* BrowserSettingViewController.xib in Resources */,
 				15764E1322E9E12900784848 /* TransferPopUp.xib in Resources */,
 				1535C2CD22F1643500C62FDC /* BaseAlertView.xib in Resources */,
+				6A110D5B272841B6004D383D /* env.json in Resources */,
 				157E3505240D692F00C23AD7 /* WCPopUpVC.xib in Resources */,
 				15DE8E3722C9D8BF004B45A2 /* PlayfairDisplay-Black.ttf in Resources */,
 				15E8030123D1BF3F00CBE7FB /* NFTDetailViewController.xib in Resources */,
@@ -2636,6 +2641,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliceX/Pods-AliceX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6A40D30927290D8500CF7A66 /* Upload dSYM */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Upload dSYM";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n";
 		};
 		EF6E04F7138E2EA4A8E96E93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

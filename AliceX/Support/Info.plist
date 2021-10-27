@@ -102,7 +102,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>firebase_crashlytics_collection_enabled</key>
-	<true/>
 </dict>
 </plist>

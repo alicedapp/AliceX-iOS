@@ -13,17 +13,24 @@ import IQKeyboardManagerSwift
 import PromiseKit
 import SPStorkController
 import UserNotifications
+import FirebaseCrashlytics
 
 private var navi: UINavigationController?
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_: UIApplication, didFinishLaunchingWithOptions
         launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+#if DEBUG
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(false)
+#else
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+#endif
+        
         Messaging.messaging().delegate = self
         IQKeyboardManager.shared.enable = true
 
@@ -162,5 +169,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
     }
 }
