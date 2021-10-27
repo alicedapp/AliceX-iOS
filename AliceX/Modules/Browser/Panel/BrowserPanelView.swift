@@ -74,24 +74,24 @@ class BrowserPanelView: BaseView {
     }
 
     @IBAction func configureButton() {
-//        HUDManager.shared.dismiss()
+        //        HUDManager.shared.dismiss()
         let vc = BrowserSettingViewController()
         vc.vcRef = vcRef
         HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
 
-//        vc.modalPresentationStyle = .overCurrentContext
-//        vcRef?.present(vc, animated: true, completion: nil)
-//        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
+        //        vc.modalPresentationStyle = .overCurrentContext
+        //        vcRef?.present(vc, animated: true, completion: nil)
+        //        HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }
 
     @IBAction func networkButton() {
         HUDManager.shared.dismiss()
 
-//        if #available(iOS 13.0, *) {
-//            let vc = NetworkSwitchViewController()
-//            vcRef!.present(vc, animated: true, completion: nil)
-//            return
-//        }
+        //        if #available(iOS 13.0, *) {
+        //            let vc = NetworkSwitchViewController()
+        //            vcRef!.present(vc, animated: true, completion: nil)
+        //            return
+        //        }
 
         let vc = NetworkSwitchViewController()
         let topVC = UIApplication.topViewController()

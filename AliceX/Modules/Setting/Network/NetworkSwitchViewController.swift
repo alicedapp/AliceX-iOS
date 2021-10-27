@@ -88,13 +88,13 @@ extension NetworkSwitchViewController: UITableViewDataSource, UITableViewDelegat
         return footerView
     }
 
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let netName = self.data[indexPath.row]
-//        if netName.lowercased() == Web3Net.currentNetwork.rawValue {
-//            cell.setSelected(true, animated: true)
-//            return
-//        }
-//
-//        cell.setSelected(false, animated: false)
-//    }
+    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //        let netName = self.data[indexPath.row]
+    //        if netName.lowercased() == Web3Net.currentNetwork.rawValue {
+    //            cell.setSelected(true, animated: true)
+    //            return
+    //        }
+    //
+    //        cell.setSelected(false, animated: false)
+    //    }
 }

@@ -24,7 +24,7 @@ class AssetCoinHeaderCell: UICollectionViewCell {
         animationButton.currentButtonStyle = .buttonRoundedStyle
         animationButton.lineThickness = 5
         animationButton.tintColor = AliceColor.lightGrey
-//        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
+        //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
 
@@ -44,10 +44,10 @@ class AssetCoinHeaderCell: UICollectionViewCell {
         vc.isFromPopup = true
         let topVC = UIApplication.topViewController()
         let navi = BaseNavigationController(rootViewController: vc)
-//        let transitionDelegate = SPStorkTransitioningDelegate()
-//        navi.transitioningDelegate = transitionDelegate
-//        navi.modalPresentationStyle = .custom
-//        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
+        //        let transitionDelegate = SPStorkTransitioningDelegate()
+        //        navi.transitioningDelegate = transitionDelegate
+        //        navi.modalPresentationStyle = .custom
+        //        topVC!.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
 
         topVC?.presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
     }

@@ -52,11 +52,11 @@ class SettingViewController: BaseViewController {
         newBackupView.isHidden = isBackuped
         accountLabel.isHidden = !newBackupView.isHidden
         if !isBackuped {
-//            UIView.animate(withDuration: 0.1, delay: 0.5, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
-//                self.backupView.transform = .init(translationX: 0, y: -2)
-//            }) { _ in
-//                self.backupView.transform = .identity
-//            }
+            //            UIView.animate(withDuration: 0.1, delay: 0.5, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
+            //                self.backupView.transform = .init(translationX: 0, y: -2)
+            //            }) { _ in
+            //                self.backupView.transform = .identity
+            //            }
         }
 
         accountLabel.text = WalletManager.currentAccount?.name
@@ -100,14 +100,14 @@ class SettingViewController: BaseViewController {
     @IBAction func netButtonClicked() {
         let vc = NetworkSwitchViewController()
         navigationController?.pushViewController(vc, animated: true)
-//        HUDManager.shared.showAlertViewController(viewController: vc)
+        //        HUDManager.shared.showAlertViewController(viewController: vc)
     }
 
     @IBAction func cacheButtonClicked() {
         let view = BaseAlertView.instanceFromNib(content: "Clean browser cache ?",
                                                  confirmBlock: {
-                                                     BrowserViewController.cleanCache()
-        }, cancelBlock: nil)
+                                                    BrowserViewController.cleanCache()
+                                                 }, cancelBlock: nil)
 
         HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
                                         type: .centerFloat, widthIsFull: false, canDismiss: true)
@@ -145,11 +145,11 @@ class SettingViewController: BaseViewController {
 
     @IBAction func mnemonicsClicked() {
         #if DEBUG
-//            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
-            let vc = MnemonicsViewController()
-            navigationController?.pushViewController(vc, animated: true)
+        //            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+        let vc = MnemonicsViewController()
+        navigationController?.pushViewController(vc, animated: true)
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 

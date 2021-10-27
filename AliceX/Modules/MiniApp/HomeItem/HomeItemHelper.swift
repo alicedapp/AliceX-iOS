@@ -71,15 +71,16 @@ extension HomeItemHelper {
                 seal.fulfill(itemList)
             }.onFailure { error in
                 if let err = error, err._code == -100 { // No Key
-                    self.list = [.app(name: "DAOstack"),
-                                 //                                 .app(name: "Test"),
-//                                 .app(name: "CryptoKitties"),
-                                 //                                 .app(name: "Foam"),
-                                 .web(url: URL(string: "https://uniswap.exchange")!),
-                                 .web(url: URL(string: "https://opensea.io/assets")!),
-                                 .web(url: URL(string: "https://www.mycryptoheroes.net")!),
-                                 .web(url: URL(string: "https://peepeth.com/a/login")!),
-                                 .web(url: URL(string: "https://app.compound.finance")!)]
+                    self.list = [
+                        //                                 .app(name: "Test"),
+                        //                                 .app(name: "CryptoKitties"),
+                        //                                 .app(name: "Foam"),
+                        .web(url: URL(string: "http://www.cryptokitties.co")!),
+                        .web(url: URL(string: "https://uniswap.exchange")!),
+                        .web(url: URL(string: "https://opensea.io/assets")!),
+                        .web(url: URL(string: "https://www.mycryptoheroes.net")!),
+                        .web(url: URL(string: "https://peepeth.com/a/login")!),
+                        .web(url: URL(string: "https://app.compound.finance")!)]
                     self.storeInCache()
                     seal.fulfill(self.list)
                     return

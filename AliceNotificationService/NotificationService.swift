@@ -16,13 +16,13 @@ class NotificationService: UNNotificationServiceExtension {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
-//        bestAttemptContent?.body = "\(bestAttemptContent?.body ?? "Default Body") by pro648"
-//        contentHandler(bestAttemptContent!)
+        //        bestAttemptContent?.body = "\(bestAttemptContent?.body ?? "Default Body") by pro648"
+        //        contentHandler(bestAttemptContent!)
 
         // Dig in the payload to get the attachment-url.
         guard let bestAttemptContent = bestAttemptContent,
-            let attachmentURLAsString = request.content.userInfo["gcm.notification.media-url"] as? String,
-            let attachmentURL = URL(string: attachmentURLAsString) else {
+              let attachmentURLAsString = request.content.userInfo["gcm.notification.media-url"] as? String,
+              let attachmentURL = URL(string: attachmentURLAsString) else {
             return
         }
 
@@ -39,7 +39,7 @@ class NotificationService: UNNotificationServiceExtension {
     override func serviceExtensionTimeWillExpire() {
         // Called just before the extension will be terminated by the system.
         if let contentHandler = contentHandler, let bestAttemptContent = bestAttemptContent {
-//            bestAttemptContent.title = "Incoming Image"
+            //            bestAttemptContent.title = "Incoming Image"
             contentHandler(bestAttemptContent)
         }
     }

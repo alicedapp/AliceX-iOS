@@ -22,15 +22,15 @@ class CameraContainerViewController: LBXScanViewController {
         return .lightContent
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
+    //    override func viewWillAppear(_ animated: Bool) {
 
-//        if qRScanView == nil {
-//            return
-//        }
-//
-//        qRScanView?.startScanAnimation()
-//        scanObj?.start()
-//    }
+    //        if qRScanView == nil {
+    //            return
+    //        }
+    //
+    //        qRScanView?.startScanAnimation()
+    //        scanObj?.start()
+    //    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,12 @@ class CameraContainerViewController: LBXScanViewController {
         scanResultDelegate = self
 
         var style = LBXScanViewStyle()
-//        style.animationImage = UIImage(named: "qrcode_scan_light_white")
+        //        style.animationImage = UIImage(named: "qrcode_scan_light_white")
         style.colorAngle = UIColor.lightGray
         scanStyle = style
         setNeedCodeImage(needCodeImg: false)
         scanStyle?.centerUpOffset += 10
-//        isOpenInterestRect = true
+        //        isOpenInterestRect = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -68,7 +68,7 @@ class CameraContainerViewController: LBXScanViewController {
     }
 
     func disableCamera() {
-//        qRScanView?.removeFromSuperview()
+        //        qRScanView?.removeFromSuperview()
         qRScanView?.stopScanAnimation()
         scanObj?.stop()
         isActive = false

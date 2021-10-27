@@ -90,10 +90,10 @@ class NFTDetailViewController: BaseViewController {
             NFTImageView.backgroundColor = UIColor(hex: color)
         } else {
             NFTImageView.backgroundColor = AliceColor.white()
-//                UIColor(hex: "D5D5D5", alpha: 0.15)
+            //                UIColor(hex: "D5D5D5", alpha: 0.15)
         }
 
-//        traitsView.backgroundColor = NFTImageView.backgroundColor
+        //        traitsView.backgroundColor = NFTImageView.backgroundColor
 
         if let image = model.asset_contract!.image_url, let imageURL = URL(string: image) {
             contractImageView.kf.setImage(with: imageURL) { result in
@@ -117,7 +117,7 @@ class NFTDetailViewController: BaseViewController {
         descTextView.sizeToFit()
         textViewHeight.constant = descTextView.contentSize.height
 
-//        contractAddressLabel.text = model?.asset_contract?.address
+        //        contractAddressLabel.text = model?.asset_contract?.address
 
         if let lastSell = model.last_sale, let payment_token = lastSell.payment_token {
             var price = BigUInt(lastSell.total_price!)
@@ -140,9 +140,9 @@ class NFTDetailViewController: BaseViewController {
             NFTScrollView.isScrollEnabled = true
 
             for trait in traits {
-//                let view = TraitView.instanceFromNib()
-//                view.translatesAutoresizingMaskIntoConstraints = false
-//                view.configure(type: trait.trait_type, name: trait.value)
+                //                let view = TraitView.instanceFromNib()
+                //                view.translatesAutoresizingMaskIntoConstraints = false
+                //                view.configure(type: trait.trait_type, name: trait.value)
                 let view = viewForTratis(model: trait)
                 tagView?.append(view)
             }
@@ -162,7 +162,7 @@ class NFTDetailViewController: BaseViewController {
 
     @IBAction func contractClick() {
         guard let model = self.model, let contract = model.asset_contract,
-            let url = contract.external_link else {
+              let url = contract.external_link else {
             return
         }
 

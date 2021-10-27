@@ -37,7 +37,7 @@ extension PriceHelper {
         return chainData[id]!
     }
 
-//    func getChainPric
+    //    func getChainPric
 
     func postPriceNotification() {
         NotificationCenter.default.post(name: .priceUpdate, object: nil)

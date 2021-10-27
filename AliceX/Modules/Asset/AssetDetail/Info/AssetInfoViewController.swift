@@ -42,7 +42,7 @@ class AssetInfoViewController: UIViewController {
 
     func configure() {
         guard let model = data,
-            let decimals = model.decimals else {
+              let decimals = model.decimals else {
             return
         }
 

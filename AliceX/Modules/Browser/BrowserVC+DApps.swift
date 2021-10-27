@@ -22,8 +22,8 @@ extension BrowserViewController: WKScriptMessageHandler {
         let json = message.json
         print(json)
         guard let name = json["name"] as? String,
-            let method = ETHDAppMethod(rawValue: name),
-            let id = json["id"] as? Int64 else {
+              let method = ETHDAppMethod(rawValue: name),
+              let id = json["id"] as? Int64 else {
             return
         }
 
@@ -42,16 +42,16 @@ extension BrowserViewController: WKScriptMessageHandler {
         case .signMessage:
             print("signMessage")
         case .signTransaction:
-//             .sendTransaction:
+            //             .sendTransaction:
             guard let body = message.body as? [String: AnyObject] else { return }
             var transactionJSON = body["object"] as! [String: Any]
             if !transactionJSON.keys.contains("value") {
                 transactionJSON["value"] = String(BigUInt(0))
             }
 
-//            let result = WalletManager.web3Net.browserFunctions.sendTransaction(transactionJSON)
-//
-//            self.notifyFinish(callbackID: 8888, value: result!["txhash"] as! String)
+            //            let result = WalletManager.web3Net.browserFunctions.sendTransaction(transactionJSON)
+            //
+            //            self.notifyFinish(callbackID: 8888, value: result!["txhash"] as! String)
 
             guard let tx = EthereumTransaction.fromJSON(transactionJSON) else { return }
             guard let options = TransactionOptions.fromJSON(transactionJSON) else { return }
@@ -60,7 +60,7 @@ extension BrowserViewController: WKScriptMessageHandler {
             var gasLimit = BigUInt(0)
 
             if transactionJSON.keys.contains("gas"), let gas = transactionJSON["gas"] as? String,
-                let gasInt = BigUInt(gas.stripHexPrefix(), radix: 16) {
+               let gasInt = BigUInt(gas.stripHexPrefix(), radix: 16) {
                 gasLimit = gasInt
             }
 
@@ -90,9 +90,9 @@ extension BrowserViewController: WKScriptMessageHandler {
 extension WKScriptMessage {
     var json: [String: Any] {
         if let string = body as? String,
-            let data = string.data(using: .utf8),
-            let object = try? JSONSerialization.jsonObject(with: data, options: []),
-            let dict = object as? [String: Any] {
+           let data = string.data(using: .utf8),
+           let object = try? JSONSerialization.jsonObject(with: data, options: []),
+           let dict = object as? [String: Any] {
             return dict
         } else if let object = body as? [String: Any] {
             return object

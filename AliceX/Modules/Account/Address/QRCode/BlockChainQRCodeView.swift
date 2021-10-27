@@ -23,16 +23,16 @@ class BlockChainQRCodeView: BaseView {
     }
 
     override class func awakeFromNib() {
-//        frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH - 20, height: 440)
+        //        frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH - 20, height: 440)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-//        frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH - 20, height: 440)
-//        layoutIfNeeded()
+        //        frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH - 20, height: 440)
+        //        layoutIfNeeded()
         logoContainer.layer.cornerRadius = logoContainer.frame.height / 2
-//        logoImageView.layer.cornerRadius = logoImageView.frame.height / 2
-//        logoImageView.kf.setImage(with: URL(string: chain.image)!, placeholder: Constant.placeholder)
+        //        logoImageView.layer.cornerRadius = logoImageView.frame.height / 2
+        //        logoImageView.kf.setImage(with: URL(string: chain.image)!, placeholder: Constant.placeholder)
     }
 
     override func configure() {

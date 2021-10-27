@@ -33,9 +33,9 @@ extension WatchingCoinHelper {
             var count = 0
             blockchainList().forEach { chain in
                 chain.getBalance().done { balance in
-//                    info.amount = String(balance)
+                    //                    info.amount = String(balance)
                     guard let _ = CoinInfoCenter.shared.pool[chain.rawValue] else {
-//                        seal.reject()
+                        //                        seal.reject()
                         throw MyError.FoundNil("chain not found")
                     }
                     count += 1
@@ -52,7 +52,7 @@ extension WatchingCoinHelper {
                     }
                 }
             }
-//            CoinInfoCenter.shared.storeInCache()
+            //            CoinInfoCenter.shared.storeInCache()
         }
     }
 
@@ -82,9 +82,9 @@ extension WatchingCoinHelper {
                             } else {
                                 self.add(coin: coin, updateCache: true)
                             }
-//                            return info
+                            //                            return info
                         }
-//                        return nil
+                        //                        return nil
                     }
 
                     CoinInfoCenter.shared.storeInCache()

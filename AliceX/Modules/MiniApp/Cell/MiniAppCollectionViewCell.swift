@@ -57,20 +57,20 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                     self.emojiLabel.isHidden = false
                     self.textColorView.isHidden = false
                     self.emojiLabel.text = String(domain.first!)
-//                        Constant.randomEmoji()
+                //                        Constant.randomEmoji()
                 case .failure:
                     self.emojiLabel.isHidden = false
                     self.textColorView.isHidden = false
                     self.emojiLabel.text = String(domain.first!)
-//                        Constant.randomEmoji()
+                //                        Constant.randomEmoji()
                 }
             }
         }
     }
 
-//    override func layoutSubviews() {
-//        iconView.layer.cornerRadius = iconView.bounds.height/2
-//    }
+    //    override func layoutSubviews() {
+    //        iconView.layer.cornerRadius = iconView.bounds.height/2
+    //    }
 
     func setup(item: HomeItem) {
         layoutIfNeeded()
@@ -126,7 +126,7 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
             guard let url = item.url, let domain = url.host else {
                 emojiLabel.isHidden = false
                 emojiLabel.text = String(item.name.first!)
-//                    Constant.randomEmoji()
+                //                    Constant.randomEmoji()
                 return
             }
 
@@ -144,12 +144,12 @@ class MiniAppCollectionViewCell: UICollectionViewCell {
                         self.emojiLabel.isHidden = false
                         self.textColorView.isHidden = false
                         self.emojiLabel.text = String(item.name.first!)
-//                            Constant.randomEmoji()
+                    //                            Constant.randomEmoji()
                     case let .failure:
                         self.emojiLabel.isHidden = false
                         self.textColorView.isHidden = false
                         self.emojiLabel.text = String(item.name.first!)
-//                            Constant.randomEmoji()
+                    //                            Constant.randomEmoji()
                     }
                 }
             }

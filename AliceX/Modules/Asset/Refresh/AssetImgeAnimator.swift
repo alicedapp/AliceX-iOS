@@ -59,13 +59,13 @@ class AssetImgeAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol {
 
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.refresh(view: view, progressDidChange: 0.0)
-//            self.imageView.alpha = 0.0
-//            self.imageView.frame = CGRect.init(x: (self.bounds.size.width) / 2.0,
-//                                          y: self.bounds.size.height,
-//                                          width: 50.0,
-//                                          height: 50.0)
+            //            self.imageView.alpha = 0.0
+            //            self.imageView.frame = CGRect.init(x: (self.bounds.size.width) / 2.0,
+            //                                          y: self.bounds.size.height,
+            //                                          width: 50.0,
+            //                                          height: 50.0)
         }, completion: { _ in
-//            self.imageView.alpha = 1.0
+            //            self.imageView.alpha = 1.0
         })
     }
 

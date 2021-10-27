@@ -14,7 +14,7 @@ class BrowserViewController: BaseViewController {
     @IBOutlet var webContainer: UIView!
     @IBOutlet var navBarContainer: UIView!
     @IBOutlet var navBar: UIView!
-//    @IBOutlet weak var navBarShadowView: UIView!
+    //    @IBOutlet weak var navBarShadowView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var progressView: UIView!
 
@@ -25,8 +25,8 @@ class BrowserViewController: BaseViewController {
 
     var webview: WKWebView!
     var urlString: String = "https://uniswap.exchange"
-//    "https://app.compound.finance/"
-//    "http://www.google.com"
+    //    "https://app.compound.finance/"
+    //    "http://www.google.com"
 
     var forceHide: Bool = false {
         didSet {
@@ -68,7 +68,7 @@ class BrowserViewController: BaseViewController {
         webview = WKWebView(frame: .zero, configuration: config)
 
         // TODO: Conflict with Pin
-//        webview.allowsBackForwardNavigationGestures = true
+        //        webview.allowsBackForwardNavigationGestures = true
 
         navBarContainer.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.2).cgColor
         navBarContainer.layer.shadowOpacity = 0.5
@@ -87,9 +87,9 @@ class BrowserViewController: BaseViewController {
         swipeGesture.direction = .down
         navBar.addGestureRecognizer(swipeGesture)
 
-//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(navBarPan(pan:)))
+        //        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(navBarPan(pan:)))
         ////        panGesture.
-//        navBar.addGestureRecognizer(panGesture)
+        //        navBar.addGestureRecognizer(panGesture)
 
         let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
         gesture.edges = .right
@@ -125,7 +125,7 @@ class BrowserViewController: BaseViewController {
         }
 
         print("AAAAA")
-//        vc.forceShowBar()
+        //        vc.forceShowBar()
     }
 
     func forceHideBar() {
@@ -210,7 +210,7 @@ class BrowserViewController: BaseViewController {
     }
 
     @IBAction func closeButtonClick() {
-//        self.navigationController?.popViewController(animated: true)
+        //        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func addressButtonClick() {
@@ -218,7 +218,7 @@ class BrowserViewController: BaseViewController {
         vc.address = webview.url?.absoluteString
         vc.hero.modalAnimationType = .fade
         vc.browerRef = self
-//        titleLabel.isHidden = true
+        //        titleLabel.isHidden = true
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }

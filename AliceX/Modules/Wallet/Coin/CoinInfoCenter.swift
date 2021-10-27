@@ -26,8 +26,8 @@ class CoinInfoCenter {
     }
 
     func add(info: CoinInfo) {
-//        if pool.keys.contains(info.id) {
-//        }
+        //        if pool.keys.contains(info.id) {
+        //        }
         pool[info.id] = info
     }
 
@@ -51,7 +51,7 @@ class CoinInfoCenter {
         }
         info.isPined = true
         pool[info.id] = info
-//        storeInCache()
+        //        storeInCache()
     }
 
     func unpin(coin: Coin) {
@@ -60,22 +60,22 @@ class CoinInfoCenter {
         }
         info.isPined = false
         pool[info.id] = info
-//        storeInCache()
+        //        storeInCache()
     }
 
-//    func fetchingCoin(coin: Coin) -> Promise<CoinInfo> {
-//
-//        return Promise<CoinInfo> { seal in
-//
-//            if pool.keys.contains(coin.id) {
-//                seal.fulfill(pool[coin.id]!)
-//                return
-//            }
-//
-//            // TODO
-//
-//        }
-//    }
+    //    func fetchingCoin(coin: Coin) -> Promise<CoinInfo> {
+    //
+    //        return Promise<CoinInfo> { seal in
+    //
+    //            if pool.keys.contains(coin.id) {
+    //                seal.fulfill(pool[coin.id]!)
+    //                return
+    //            }
+    //
+    //            // TODO
+    //
+    //        }
+    //    }
 
     func requestToken(address: String) -> Promise<CoinInfo> {
         return Promise<CoinInfo> { seal in
@@ -93,14 +93,14 @@ class CoinInfoCenter {
 
 extension CoinInfoCenter {
     func loadFromCache() -> Promise<Bool> {
-//        if !WalletManager.hasWallet() {
-//            return Promise<Void> { seal in seal.reject(MyError.FoundNil("No wallet")) }
-//        }
+        //        if !WalletManager.hasWallet() {
+        //            return Promise<Void> { seal in seal.reject(MyError.FoundNil("No wallet")) }
+        //        }
 
         return Promise<Bool> { seal in
 
             let cacheKey = CacheKey.coinInfoList
-//            "\(CacheKey.coinInfoList).\(WalletManager.currentAccount!.address)"
+            //            "\(CacheKey.coinInfoList).\(WalletManager.currentAccount!.address)"
             Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
                 guard let modelArray = [CoinInfo].deserialize(from: result) else {
                     seal.reject(MyError.DecodeFailed)
@@ -161,7 +161,7 @@ extension CoinInfoCenter {
             return
         }
 
-//        let cacheKey = "\(CacheKey.).\(WalletManager.currentAccount!.address)"
+        //        let cacheKey = "\(CacheKey.).\(WalletManager.currentAccount!.address)"
         let values = Array(pool.values)
         guard let jsonString = values.toJSONString() else {
             return

@@ -15,6 +15,6 @@ struct BalanceInfo {
 }
 
 protocol NetworkLayer {
-//    func getBalance() -> Promise<Double>
+    //    func getBalance() -> Promise<Double>
     func getBalance() -> Promise<BigUInt>
 }

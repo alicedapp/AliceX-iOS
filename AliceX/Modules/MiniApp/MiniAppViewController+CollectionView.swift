@@ -60,8 +60,8 @@ extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataS
         case MiniAppTab.add.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MiniAppAddCell.nameOfClass,
                                                           for: indexPath) as! MiniAppAddCell
-//            let item = data[indexPath.item]
-//            cell.configure(item: item)
+            //            let item = data[indexPath.item]
+            //            cell.configure(item: item)
             return cell
         default:
             guard let type = MiniAppTab(rawValue: section) else {
@@ -89,9 +89,9 @@ extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataS
 
         let item = data[sourceIndex]
 
-//        if item == nil {
-//            return
-//        }
+        //        if item == nil {
+        //            return
+        //        }
 
         data.remove(at: sourceIndex)
         data.insert(item, at: destIndex)

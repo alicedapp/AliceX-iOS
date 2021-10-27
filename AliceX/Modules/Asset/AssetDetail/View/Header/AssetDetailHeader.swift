@@ -61,7 +61,7 @@ class AssetDetailHeader: BaseView {
 
     override class func instanceFromNib() -> AssetDetailHeader {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! AssetDetailHeader
-//        view.configure()
+        //        view.configure()
         view.isHeroEnabledForSubviews = true
         view.isHeroEnabled = true
         return view
@@ -70,52 +70,52 @@ class AssetDetailHeader: BaseView {
     func scrollViewDidScroll(contentOffsetY: CGFloat) {
         print("height:\(frame.size.height)")
         print("Y: \(contentOffsetY)")
-//        var frame =
-//        frame.size.height -= contentOffsetY
+        //        var frame =
+        //        frame.size.height -= contentOffsetY
         frame.origin.y = contentOffsetY
-//        self.frame = frame
-//        layoutIfNeeded()
-//        view.layoutSubview()
+        //        self.frame = frame
+        //        layoutIfNeeded()
+        //        view.layoutSubview()
     }
 
     override func awakeFromNib() {
-//        segmentedViewDataSource = JXSegmentedTitleDataSource()
-//        segmentedViewDataSource.titles = Period.allCases.compactMap { $0.text }
-//        segmentedViewDataSource.titleSelectedColor = AliceColor.white()
-//        segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
-//        segmentedViewDataSource.isTitleColorGradientEnabled = true
+        //        segmentedViewDataSource = JXSegmentedTitleDataSource()
+        //        segmentedViewDataSource.titles = Period.allCases.compactMap { $0.text }
+        //        segmentedViewDataSource.titleSelectedColor = AliceColor.white()
+        //        segmentedViewDataSource.titleNormalColor = AliceColor.darkGrey()
+        //        segmentedViewDataSource.isTitleColorGradientEnabled = true
         ////        segmentedViewDataSource.isTitleZoomEnabled = true
-//        segmentedViewDataSource.reloadData(selectedIndex: 0)
-//
-//        segmentedView = JXSegmentedView()
-//        segmentedView.backgroundColor = AliceColor.white()
-//        segmentedView.dataSource = segmentedViewDataSource
-//        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
-//        segmentedView.delegate = self
-//
-//        segmentedContainer.addSubview(segmentedView)
-//        segmentedView.fillSuperview()
-//
-//        let indicator = JXSegmentedIndicatorBackgroundView()
-//        indicator.isIndicatorConvertToItemFrameEnabled = true
-//        indicator.indicatorHeight = 30
-//        indicator.indicatorColor = AliceColor.darkGrey()
-//        segmentedView.indicators = [indicator]
+        //        segmentedViewDataSource.reloadData(selectedIndex: 0)
+        //
+        //        segmentedView = JXSegmentedView()
+        //        segmentedView.backgroundColor = AliceColor.white()
+        //        segmentedView.dataSource = segmentedViewDataSource
+        //        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
+        //        segmentedView.delegate = self
+        //
+        //        segmentedContainer.addSubview(segmentedView)
+        //        segmentedView.fillSuperview()
+        //
+        //        let indicator = JXSegmentedIndicatorBackgroundView()
+        //        indicator.isIndicatorConvertToItemFrameEnabled = true
+        //        indicator.indicatorHeight = 30
+        //        indicator.indicatorColor = AliceColor.darkGrey()
+        //        segmentedView.indicators = [indicator]
 
         if #available(iOS 13, *) {
             segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.lightBackground()], for: .selected)
             segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.darkGrey()], for: .normal)
 
-//            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .normal, barMetrics: .default)
-//            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .selected, barMetrics: .default)
-//            segmentControl.setDividerImage(.imageWithColor(color: .clear),
-//                                           forLeftSegmentState: .normal,
-//                                           rightSegmentState: .normal, barMetrics: .default)
-//            segmentControl.backgroundColor = .clear
-//
-//            segmentControl.layer.cornerRadius = segmentControl.bounds.height / 2
-//            segmentControl.layer.masksToBounds = true
-//            segmentControl.tintColor = .clear // background
+            //            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .normal, barMetrics: .default)
+            //            segmentControl.setBackgroundImage(.imageWithColor(color: .clear), for: .selected, barMetrics: .default)
+            //            segmentControl.setDividerImage(.imageWithColor(color: .clear),
+            //                                           forLeftSegmentState: .normal,
+            //                                           rightSegmentState: .normal, barMetrics: .default)
+            //            segmentControl.backgroundColor = .clear
+            //
+            //            segmentControl.layer.cornerRadius = segmentControl.bounds.height / 2
+            //            segmentControl.layer.masksToBounds = true
+            //            segmentControl.tintColor = .clear // background
 
         } else {
             segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AliceColor.darkGrey()], for: .selected)
@@ -167,7 +167,7 @@ class AssetDetailHeader: BaseView {
         let currencySymbol = PriceHelper.shared.currentCurrency.symbol
 
         if let balance = info.amount, let balanceInt = BigUInt(balance),
-            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 4, decimalSeparator: ".", fallbackToScientific: false), let amountInDouble = Double(amount) {
+           let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 4, decimalSeparator: ".", fallbackToScientific: false), let amountInDouble = Double(amount) {
             let removeZero = String(format: "%g", amountInDouble)
             amountLabel.text = "\(removeZero) \(info.symbol!)"
 

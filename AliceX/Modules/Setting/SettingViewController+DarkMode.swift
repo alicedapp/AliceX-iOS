@@ -23,7 +23,7 @@ extension SettingViewController: CAAnimationDelegate {
         snapshotView.tag = 10
         window.addSubview(snapshotView)
 
-//        window.bringSubviewToFront(darkSwitch)
+        //        window.bringSubviewToFront(darkSwitch)
 
         let switchFrame = CGRect(x: frame.origin.x, y: -frame.origin.y + 30,
                                  width: frame.width,
@@ -34,12 +34,12 @@ extension SettingViewController: CAAnimationDelegate {
 
         let maskLayer = CAShapeLayer()
 
-//        let path = CGMutablePath()
-//        path.addPath(maskFinalBP.cgPath)
-//        path.addPath(maskStartBP.cgPath)
-//
-//        maskLayer.path = path
-//        maskLayer.fillRule = .evenOdd
+        //        let path = CGMutablePath()
+        //        path.addPath(maskFinalBP.cgPath)
+        //        path.addPath(maskStartBP.cgPath)
+        //
+        //        maskLayer.path = path
+        //        maskLayer.fillRule = .evenOdd
         maskLayer.path = maskStartBP.cgPath
         snapshotView.layer.mask = maskLayer
 
@@ -51,12 +51,12 @@ extension SettingViewController: CAAnimationDelegate {
         maskLayerAnimation.delegate = self
         maskLayer.add(maskLayerAnimation, forKey: "path")
 
-//        UIView.animate(withDuration: 0.79999, delay: 0.7998, options: [], animations: {
-//            snapshotView.alpha = 0
-//        }) { (_) in
-//            snapshotView.isHidden = true
-//            snapshotView.removeFromSuperview()
-//        }
+        //        UIView.animate(withDuration: 0.79999, delay: 0.7998, options: [], animations: {
+        //            snapshotView.alpha = 0
+        //        }) { (_) in
+        //            snapshotView.isHidden = true
+        //            snapshotView.removeFromSuperview()
+        //        }
     }
 
     func animationDidStart(_: CAAnimation) {
@@ -74,8 +74,8 @@ extension SettingViewController: CAAnimationDelegate {
         if let snapshot = UIApplication.shared.keyWindow!.viewWithTag(10) {
             snapshot.removeFromSuperview()
         }
-//        if let snapshot = view.viewWithTag(11) {
-//            snapshot.removeFromSuperview()
-//        }
+        //        if let snapshot = view.viewWithTag(11) {
+        //            snapshot.removeFromSuperview()
+        //        }
     }
 }

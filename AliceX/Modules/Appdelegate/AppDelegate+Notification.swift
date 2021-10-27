@@ -41,7 +41,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
 
-//        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
+        //        RNFirebaseMessaging.instance().didReceiveRemoteNotification(response.notification.request.content.userInfo)
 
         // Print full message.
         print(userInfo)

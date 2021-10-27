@@ -60,18 +60,18 @@ class MnemonicTableViewCell: UITableViewCell {
     @IBAction func mnemonicsClicked() {
         if isMnemonic {
             #if DEBUG
-                //            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
-                let vc = MnemonicsViewController()
-                UIApplication.topViewController()!.navigationController?.pushViewController(vc, animated: true)
+            //            HUDManager.shared.showAlertView(view: MnemonicsView.instanceFromNib())
+            let vc = MnemonicsViewController()
+            UIApplication.topViewController()!.navigationController?.pushViewController(vc, animated: true)
             #else
-                biometricsVerify()
+            biometricsVerify()
             #endif
 
             return
         }
 
         let vc = ImportWalletViewController.make(buttonText: "Replace Wallet", mnemonic: "")
-//        self.navigationController.pushViewController(vc, animated: true)
+        //        self.navigationController.pushViewController(vc, animated: true)
         guard let ref = self.vcRef else {
             if let topVC = UIApplication.topViewController(), let navi = topVC.navigationController {
                 navi.pushViewController(vc, animated: true)

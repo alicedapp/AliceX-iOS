@@ -22,26 +22,26 @@ extension PinManager {
 
         for item in matched {}
 
-//        guard let url = self.pinList, let localDomain = url.host, localDomain == domain else {
-//             return
-//         }
-//
-//        ImageCache.default.retrieveImage(forKey: domain) { result in
-//         onMainThread {
-//            switch result {
-//            case let .success(respone):
-//                 if let image = respone.image {
-//                    self.iconView.image = image
-//                     self.emojiLabel.isHidden = true
-//                    return
-//                }
-//                self.emojiLabel.isHidden = false
-//                self.emojiLabel.text = Constant.randomEmoji()
-//            case .failure:
-//                self.emojiLabel.isHidden = false
-//                self.emojiLabel.text = Constant.randomEmoji()
-//            }
-//         }
-//        }
+        //        guard let url = self.pinList, let localDomain = url.host, localDomain == domain else {
+        //             return
+        //         }
+        //
+        //        ImageCache.default.retrieveImage(forKey: domain) { result in
+        //         onMainThread {
+        //            switch result {
+        //            case let .success(respone):
+        //                 if let image = respone.image {
+        //                    self.iconView.image = image
+        //                     self.emojiLabel.isHidden = true
+        //                    return
+        //                }
+        //                self.emojiLabel.isHidden = false
+        //                self.emojiLabel.text = Constant.randomEmoji()
+        //            case .failure:
+        //                self.emojiLabel.isHidden = false
+        //                self.emojiLabel.text = Constant.randomEmoji()
+        //            }
+        //         }
+        //        }
     }
 }

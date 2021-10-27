@@ -26,7 +26,7 @@ extension UIApplication {
     /// EZSE: Get the top most view controller from the base view controller;
     /// default param is UIWindow's rootViewController
     public class func topViewController(_ base: UIViewController? =
-        UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+                                            UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }

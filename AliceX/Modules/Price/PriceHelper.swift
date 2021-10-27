@@ -68,7 +68,7 @@ class PriceHelper {
 
     // TODO: MORE THAN SUPPORT ETH
     func getExchangePrice(currency: Currency, callback: VoidBlock) {
-//        DispatchQueue.global(qos: .background).async {
+        //        DispatchQueue.global(qos: .background).async {
         coinMarketCapAPI.request(.latest(currency: currency)) { result in
             switch result {
             case let .success(response):
@@ -89,7 +89,7 @@ class PriceHelper {
                 HUDManager.shared.showError(text: "Fetch currency fail")
             }
         }
-//        }
+        //        }
     }
 
     func getTokenInfo(tokenAdress: String) -> Promise<TokenInfo> {

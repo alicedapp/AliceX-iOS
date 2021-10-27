@@ -42,7 +42,7 @@ class DappTableViewCell: UITableViewCell {
 
         let isAdd = addButton.currentButtonType == .buttonAddType
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
-//        addButton.tintColor = isAdd ? AliceColor.red : .white
+        //        addButton.tintColor = isAdd ? AliceColor.red : .white
         addLabel.text = isAdd ? "Added" : "Add"
         UIView.animate(withDuration: 0.3) {
             self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)
@@ -82,7 +82,7 @@ class DappTableViewCell: UITableViewCell {
         self.item = item
         let isAdd = HomeItemHelper.shared.contain(item: item)
         addButton.currentButtonType = isAdd ? .buttonOkType : .buttonAddType
-//        addButton.tintColor = isAdd ? AliceColor.red : .white
+        //        addButton.tintColor = isAdd ? AliceColor.red : .white
         addLabel.text = isAdd ? "Added" : "Add"
         UIView.animate(withDuration: 0.3) {
             self.addBackground.backgroundColor = isAdd ? AliceColor.green : UIColor(hex: "9A9A9A", alpha: 0.5)

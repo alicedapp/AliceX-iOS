@@ -22,7 +22,7 @@ class MiniAppViewController: BaseViewController {
     var scrollViewBG: UIView!
     var collectionColor: UIColor = UIColor(hex: "F1F4F5")
 
-//    @IBOutlet var backIndicator: UIImageView!
+    //    @IBOutlet var backIndicator: UIImageView!
     @IBOutlet var backButton: VBFPopFlatButton!
 
     @IBOutlet var titleLabel: UILabel!
@@ -105,7 +105,7 @@ class MiniAppViewController: BaseViewController {
         scrollViewBG.layer.zPosition = -1
         collectionView.insertSubview(scrollViewBG, belowSubview: collectionView)
         scrollViewBG.fillSuperview()
-//        collectionView.backgroundView = scrollViewBG
+        //        collectionView.backgroundView = scrollViewBG
 
         scrollViewCover = UIView()
         scrollViewCover.backgroundColor = UIColor(white: 0, alpha: 0.3)
@@ -124,14 +124,14 @@ class MiniAppViewController: BaseViewController {
         backButton.lineThickness = 5
         backButton.lineRadius = 4
 
-//        scrollViewBG.isHidden = true
+        //        scrollViewBG.isHidden = true
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(coverClick))
         scrollViewCover.addGestureRecognizer(tap)
         scrollViewCover.isUserInteractionEnabled = false
 
-//        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
-//        scrollViewCover.addGestureRecognizer(pan)
+        //        let pan = UIPanGestureRecognizer(target: self, action: #selector(panHandler(gesture:)))
+        //        scrollViewCover.addGestureRecognizer(pan)
 
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
 
@@ -175,20 +175,20 @@ class MiniAppViewController: BaseViewController {
     }
 
     @IBAction func cameraButtonClick() {
-//        let vc = QRCodeReaderViewController.make { result in
-//            if result.isValidURL {
-//                let vc = BrowserWrapperViewController.make(urlString: result)
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            } else {
-//                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
-//            }
-//        }
-//        vc.modalPresentationStyle = .fullScreen
-//        present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
+        //        let vc = QRCodeReaderViewController.make { result in
+        //            if result.isValidURL {
+        //                let vc = BrowserWrapperViewController.make(urlString: result)
+        //                self.navigationController?.pushViewController(vc, animated: true)
+        //            } else {
+        //                HUDManager.shared.showErrorAlert(text: result, isAlert: true)
+        //            }
+        //        }
+        //        vc.modalPresentationStyle = .fullScreen
+        //        present(vc, animated: true, completion: nil)
+        //        navigationController?.pushViewController(vc, animated: true)
 
-//        let vc = DAppListViewController()
-//        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
+        //        let vc = DAppListViewController()
+        //        HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
         let vc = MiniAppSearchVC()
         vc.isFromPopup = true
         let topVC = UIApplication.topViewController()
@@ -197,20 +197,20 @@ class MiniAppViewController: BaseViewController {
 
     @available(iOS 12.0, *)
     override func themeDidChange(style _: UIUserInterfaceStyle) {
-//        naviColor = style == .dark ? .black : .white
-//        collectionColor = collectionView.backgroundColor as! UIColor
+        //        naviColor = style == .dark ? .black : .white
+        //        collectionColor = collectionView.backgroundColor as! UIColor
         scrollViewBG.backgroundColor = AliceColor.lightBackground()
     }
 
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        if #available(iOS 12.0, *) {
-//            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
-//                return
-//            }
-//
+    //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    //        super.traitCollectionDidChange(previousTraitCollection)
+    //        if #available(iOS 12.0, *) {
+    //            guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else {
+    //                return
+    //            }
+    //
     ////            let userInterfaceStyle = traitCollection.userInterfaceStyle
-//            scrollViewBG.backgroundColor = AliceColor.lightBackground()
-//        }
-//    }
+    //            scrollViewBG.backgroundColor = AliceColor.lightBackground()
+    //        }
+    //    }
 }

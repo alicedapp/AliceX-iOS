@@ -21,7 +21,7 @@ extension UIViewController: JXSegmentedListContainerViewListDelegate {
         }
         addChild(childController)
         holderView!.addSubview(childController.view)
-//        constrainViewEqual(hfuolderView, view: childController.view)
+        //        constrainViewEqual(hfuolderView, view: childController.view)
         childController.view.fillSuperview()
         childController.didMove(toParent: self)
         childController.willMove(toParent: self)

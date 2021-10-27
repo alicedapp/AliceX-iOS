@@ -138,7 +138,7 @@ class PaymentPopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-            let gasPrice = GasPrice.make(string: text) else { return }
+              let gasPrice = GasPrice.make(string: text) else { return }
 
         self.gasPrice = gasPrice
         updateGas()
@@ -155,9 +155,9 @@ extension PaymentPopUp: PayButtonDelegate {
 
     func verifyAndSend() {
         #if DEBUG
-            send()
+        send()
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 
@@ -173,9 +173,9 @@ extension PaymentPopUp: PayButtonDelegate {
         payView!.showLoading()
 
         let chain = coin.blockchain
-//        guard  else {
-//            return
-//        }
+        //        guard  else {
+        //            return
+        //        }
 
         var gasLimitOption = TransactionOptions.GasLimitPolicy.automatic
         if isCustomGasLimit {
@@ -194,21 +194,21 @@ extension PaymentPopUp: PayButtonDelegate {
             HUDManager.shared.showError(error: error)
         }
 
-//        firstly {
-//            TransactionManager.shared.sendEtherSync(
-//                to: toAddress!,
-//                amount: amount!,
-//                data: data!,
-//                password: "",
-//                gasPrice: gasPrice
-//            )
-//        }.done { hash in
-//            print(hash)
-//            self.successBlock!(hash)
-//            self.dismiss(animated: true, completion: nil)
-//        }.catch { error in
-//            self.payView!.failed()
-//            HUDManager.shared.showError(error: error)
-//        }
+        //        firstly {
+        //            TransactionManager.shared.sendEtherSync(
+        //                to: toAddress!,
+        //                amount: amount!,
+        //                data: data!,
+        //                password: "",
+        //                gasPrice: gasPrice
+        //            )
+        //        }.done { hash in
+        //            print(hash)
+        //            self.successBlock!(hash)
+        //            self.dismiss(animated: true, completion: nil)
+        //        }.catch { error in
+        //            self.payView!.failed()
+        //            HUDManager.shared.showError(error: error)
+        //        }
     }
 }

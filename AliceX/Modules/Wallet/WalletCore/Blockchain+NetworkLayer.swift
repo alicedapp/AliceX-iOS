@@ -37,7 +37,7 @@ extension BlockChain: NetworkLayer {
                 }.done { model in
                     seal.fulfill(BigUInt(model.value) as! BigUInt)
                 }.catch { _ in
-//                    seal.reject(error)
+                    //                    seal.reject(error)
                     seal.fulfill(BigUInt(0))
                 }
             case .Binance:
@@ -60,7 +60,7 @@ extension BlockChain: NetworkLayer {
                     seal.fulfill(BigUInt(balanceDouble) as! BigUInt)
 
                 }.catch { _ in
-//                    seal.reject(error)
+                    //                    seal.reject(error)
                     seal.fulfill(BigUInt(0))
                 }
             default:

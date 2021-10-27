@@ -35,7 +35,7 @@ class WCPopUpVC: UIViewController {
         logoView.kf.setImage(with: logo, placeholder: Constant.placeholder)
 
         let aliceStyle = StringStyle(
-//            .font(UIFont(name: "PlayfairDisplay-Black", size: 17)!)
+            //            .font(UIFont(name: "PlayfairDisplay-Black", size: 17)!)
             .font(UIFont.systemFont(ofSize: 17))
         )
 
@@ -55,7 +55,7 @@ class WCPopUpVC: UIViewController {
             .xmlRules([
                 .style("alice", aliceStyle),
                 .style("red", redStyle),
-                .style("blue", blueStyle),
+                .style("blue", blueStyle)
             ])
         )
 

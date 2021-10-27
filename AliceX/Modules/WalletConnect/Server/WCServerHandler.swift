@@ -63,8 +63,8 @@ class SignTransactionHandler: WCHandler {
                            title: "Request To Sign Transaction",
                            content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
                            comfirmBlock: {
-                               self.signTx(request: request)
-            }) {
+                            self.signTx(request: request)
+                           }) {
                 self.server.send(.reject(request))
             }
         }
@@ -94,7 +94,7 @@ class SignTransactionHandler: WCHandler {
             TransactionManager.showSignTransactionView(to: tx.to.address, value: value, data: tx.data) { signData in
                 let response = try! Response(url: request.url, value: signData, id: request.id!)
                 self.server.send(response)
-//                HUDManager.shared.dismiss()
+                //                HUDManager.shared.dismiss()
             }
         } catch {
             server.send(.invalid(request))
@@ -119,8 +119,8 @@ class SendTransactionHandler: WCHandler {
                            title: "Request To Send Transaction",
                            content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
                            comfirmBlock: {
-                               self.sendTx(request: request)
-            }) {
+                            self.sendTx(request: request)
+                           }) {
                 self.server.send(.reject(request))
             }
         }
@@ -157,11 +157,11 @@ class SendTransactionHandler: WCHandler {
                                                coin: Coin.coin(chain: .Ethereum)) { signData in
                 let response = try! Response(url: request.url, value: signData, id: request.id!)
                 self.server.send(response)
-//                HUDManager.shared.dismiss()
+                //                HUDManager.shared.dismiss()
             }
         } catch {
             server.send(.invalid(request))
-//            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
+            //            HUDManager.shared.showError(text: "Handle Wallect Connect Request Faild")
             HUDManager.shared.showError(error: error)
             return
         }
@@ -203,13 +203,13 @@ class PersonalSignHandler: WCHandler {
                                title: "Request To Sign Message",
                                content: "<alice>Alice</alice> received a request from <blue>\(name)</blue>, if that is not your operation.\nPlease <red>reject</red> it.",
                                comfirmBlock: {
-                                   self.signMessage(request: request, message: messageBytes)
-                }) {
+                                self.signMessage(request: request, message: messageBytes)
+                               }) {
                     self.server.send(.reject(request))
                 }
             }
 
-//            let signed = try TransactionManager.signMessage(message: Data.fromHex(messageBytes)!)
+            //            let signed = try TransactionManager.signMessage(message: Data.fromHex(messageBytes)!)
         } catch {
             server.send(.invalid(request))
             return

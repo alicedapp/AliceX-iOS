@@ -78,7 +78,7 @@ class WCClient {
 
     func reconnectIfNeeded() {
         if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data,
-            let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
+           let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
             client = Client(delegate: self, dAppInfo: session.dAppInfo)
             try? client.reconnect(to: session)
         }
@@ -105,9 +105,9 @@ extension WCClient: ClientDelegate {
         delegate.failedToConnect()
         isConnecting = false
     }
-    
+
     func client(_ client: Client, didConnect url: WCURL) {
-        
+
     }
 
     func client(_: Client, didConnect session: Session) {
@@ -123,22 +123,22 @@ extension WCClient: ClientDelegate {
         delegate.didDisconnect()
         isConnecting = false
     }
-    
+
     func client(_ client: Client, didUpdate session: Session) {
-        
+
     }
 
-//    func client(_ client: Client, didReciveAliceSocket request: Request) {
-//        guard let walletConnect = WCClientHelper.shared.walletConnect,
-//            let client = walletConnect.client else {
-//            return
-//        }
-//
-//        do {
-//            let message = try request.parameter(of: String.self, at: 0)
-//            CallRNModule.walletConnectEvent(rawData: message)
-//        } catch {
-//            HUDManager.shared.showError(text: "Handle message failed")
-//        }
-//    }
+    //    func client(_ client: Client, didReciveAliceSocket request: Request) {
+    //        guard let walletConnect = WCClientHelper.shared.walletConnect,
+    //            let client = walletConnect.client else {
+    //            return
+    //        }
+    //
+    //        do {
+    //            let message = try request.parameter(of: String.self, at: 0)
+    //            CallRNModule.walletConnectEvent(rawData: message)
+    //        } catch {
+    //            HUDManager.shared.showError(text: "Handle message failed")
+    //        }
+    //    }
 }

@@ -33,7 +33,7 @@ class BaseControl: UIControl {
 
     open override var isHighlighted: Bool {
         didSet {
-//            backgroundColor = isHighlighted ? highlightColor : normalColor
+            //            backgroundColor = isHighlighted ? highlightColor : normalColor
             self.alpha = self.isHighlighted ? 0.6 : 1.0
         }
     }

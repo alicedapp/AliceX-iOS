@@ -31,7 +31,7 @@ extension AmberData: TargetType {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
             if let jsonResult = jsonResult as? [String: Any],
-                let apiKey = jsonResult["amberdata"] as? String {
+               let apiKey = jsonResult["amberdata"] as? String {
                 var dict = ["x-api-key": apiKey]
                 switch self {
                 case let .getTransactions(_, chain):

@@ -24,10 +24,10 @@ class CoinReOrderViewController: BaseViewController {
         ignoreCollectionView.registerCell(nibName: CoinReOrderCell.nameOfClass)
 
         let watchList = WatchingCoinHelper.shared.list
-//        let pinedList = Array(CoinInfoCenter.shared.pool.values).filter {($0.isPined ?? false)}.map { info -> Coin in
-//            return info.coin
-//        }
-//        let unPinedList = watchList.filter { !($0.info!.isPined ?? false) }
+        //        let pinedList = Array(CoinInfoCenter.shared.pool.values).filter {($0.isPined ?? false)}.map { info -> Coin in
+        //            return info.coin
+        //        }
+        //        let unPinedList = watchList.filter { !($0.info!.isPined ?? false) }
 
         var pinList: [Coin] = []
         var unPinedList: [Coin] = []
@@ -55,12 +55,12 @@ class CoinReOrderViewController: BaseViewController {
     @IBAction func sortButtonClick() {
         let view = BaseAlertView.instanceFromNib(content: "Sort coins by balance?",
                                                  confirmBlock: {
-                                                     WatchingCoinHelper.shared.noCache = true
-                                                     NotificationCenter.default.post(name: .currencyChange, object: nil)
-                                                     HUDManager.shared.dismiss()
-                                                     self.dismiss(animated: true, completion: nil)
+                                                    WatchingCoinHelper.shared.noCache = true
+                                                    NotificationCenter.default.post(name: .currencyChange, object: nil)
+                                                    HUDManager.shared.dismiss()
+                                                    self.dismiss(animated: true, completion: nil)
 
-        }, cancelBlock: nil)
+                                                 }, cancelBlock: nil)
 
         HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
                                         type: .centerFloat, widthIsFull: false, canDismiss: true)
@@ -129,42 +129,42 @@ extension CoinReOrderViewController: KDDragAndDropCollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, insertDataItem dataItem: AnyObject, atIndexPath indexPath: IndexPath) {
         if let coin = dataItem as? Coin {
-//            let tag = collectionView.tag
-//            switch tag {
-//            case 0:
-//                CoinInfoCenter.shared.pin(coin: coin)
-//            case 1:
-//                WatchingCoinHelper.shared.add(coin: coin, updateCache: true)
-//            case 2:
-//                IgnoreCoinHelper.shared.add(coin: coin)
-//            default:
-//                break
-//            }
+            //            let tag = collectionView.tag
+            //            switch tag {
+            //            case 0:
+            //                CoinInfoCenter.shared.pin(coin: coin)
+            //            case 1:
+            //                WatchingCoinHelper.shared.add(coin: coin, updateCache: true)
+            //            case 2:
+            //                IgnoreCoinHelper.shared.add(coin: coin)
+            //            default:
+            //                break
+            //            }
 
             data[collectionView.tag].insert(coin, at: indexPath.item)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, deleteDataItemAtIndexPath indexPath: IndexPath) {
-//        let tag = collectionView.tag
-//        let coin = data[collectionView.tag][indexPath.item]
-//
-//        switch tag {
-//        case 0:
-//            CoinInfoCenter.shared.unpin(coin: coin)
-//        case 1:
-//
-//            if coin.info!.isPined {
-//                WatchingCoinHelper.shared.remove(coin: coin, updateCache: true)
-//            } else {
-//
-//            }
-//
-//        case 2:
-//            IgnoreCoinHelper.shared.remove(coin: coin)
-//        default:
-//            break
-//        }
+        //        let tag = collectionView.tag
+        //        let coin = data[collectionView.tag][indexPath.item]
+        //
+        //        switch tag {
+        //        case 0:
+        //            CoinInfoCenter.shared.unpin(coin: coin)
+        //        case 1:
+        //
+        //            if coin.info!.isPined {
+        //                WatchingCoinHelper.shared.remove(coin: coin, updateCache: true)
+        //            } else {
+        //
+        //            }
+        //
+        //        case 2:
+        //            IgnoreCoinHelper.shared.remove(coin: coin)
+        //        default:
+        //            break
+        //        }
 
         data[collectionView.tag].remove(at: indexPath.item)
     }

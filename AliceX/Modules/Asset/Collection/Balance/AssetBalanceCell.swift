@@ -83,7 +83,7 @@ class AssetBalanceCell: UICollectionViewCell {
 
         currencyLabel.text = PriceHelper.shared.currentCurrency.rawValue
         hideLabel.text = isHidden ? "Show" : "Hide"
-//            "🐵" : "🙈"
+        //            "🐵" : "🙈"
 
         let oldBalance = Defaults[\.lastAssetBalance]
         if newBalance >= oldBalance {
@@ -103,7 +103,7 @@ class AssetBalanceCell: UICollectionViewCell {
 
         if isHidden {
             balanceLabel.text = "***"
-//            "🙉🙈🙊"
+            //            "🙉🙈🙊"
             return
         }
 

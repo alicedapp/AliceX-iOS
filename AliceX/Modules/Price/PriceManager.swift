@@ -25,7 +25,7 @@ class PriceManager {
     }
 
     @objc func updateWatchingList() {
-//        getCoinsPrice(coins: WatchingCoinHelper.shared.list)
+        //        getCoinsPrice(coins: WatchingCoinHelper.shared.list)
     }
 
     func getCoinsPrice(coins: [Coin], currency: Currency = PriceHelper.shared.currentCurrency) -> Promise<Void> {
@@ -82,7 +82,7 @@ class PriceManager {
     func getCoinsPriceWithPromise(coins: [CoinInfo], currency: Currency = PriceManager.shared.currentCurrency) -> Promise<[CryptocompareModel]> {
         return Promise<[CryptocompareModel]> { seal in
 
-//            let priceList = []
+            //            let priceList = []
             let symbols = coins.compactMap { $0.symbol }
             CryptocompareAPI.request(.fullPrice(symbol: symbols, currency: currency)) { result in
                 switch result {

@@ -12,7 +12,7 @@ import Moya
 extension Response {
     func mapObject<T: HandyJSON>(_: T.Type) -> T? {
         guard let dataString = String(data: self.data, encoding: .utf8),
-            let object = JSONDeserializer<T>.deserializeFrom(json: dataString)
+              let object = JSONDeserializer<T>.deserializeFrom(json: dataString)
         else {
             return nil
         }
@@ -22,7 +22,7 @@ extension Response {
 
     func mapObject<T: HandyJSON>(_: T.Type, designatedPath: String) -> T? {
         guard let dataString = String(data: self.data, encoding: .utf8),
-            let object = JSONDeserializer<T>.deserializeFrom(json: dataString, designatedPath: designatedPath)
+              let object = JSONDeserializer<T>.deserializeFrom(json: dataString, designatedPath: designatedPath)
         else {
             return nil
         }
@@ -32,7 +32,7 @@ extension Response {
 
     func mapArray<T: HandyJSON>(_: T.Type) -> [T?]? {
         guard let dataString = String(data: self.data, encoding: .utf8),
-            let object = JSONDeserializer<T>.deserializeModelArrayFrom(json: dataString)
+              let object = JSONDeserializer<T>.deserializeModelArrayFrom(json: dataString)
         else {
             return nil
         }
@@ -41,9 +41,9 @@ extension Response {
 
     func mapArray<T: HandyJSON>(_: T.Type, designatedPath: String) -> [T?]? {
         guard let dataString = String(data: self.data, encoding: .utf8),
-            let object = JSONDeserializer<T>.deserializeModelArrayFrom(
+              let object = JSONDeserializer<T>.deserializeModelArrayFrom(
                 json: dataString, designatedPath: designatedPath
-            )
+              )
         else {
             return nil
         }

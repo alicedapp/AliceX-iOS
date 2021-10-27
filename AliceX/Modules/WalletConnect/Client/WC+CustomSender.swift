@@ -14,7 +14,7 @@ extension WCClientHelper {
                            message: [String],
                            responseBlock: @escaping Client.RequestResponse) {
         guard let walletConnect = WCClientHelper.shared.walletConnect,
-            let client = walletConnect.client else {
+              let client = walletConnect.client else {
             return
         }
 

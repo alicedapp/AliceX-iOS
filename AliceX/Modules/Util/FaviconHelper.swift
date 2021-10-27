@@ -13,20 +13,20 @@ import PromiseKit
 class FaviconHelper {
     class func getBestFavicon(domain: String) -> Promise<URL> {
         return Promise<URL> { seal in
-//           guard let domain = url.host else {
-//            throw MyError.FoundNil("Can't find domain")
-//           }
+            //           guard let domain = url.host else {
+            //            throw MyError.FoundNil("Can't find domain")
+            //           }
             FaviconGrabberAPI.request(.favicon(domain: domain)) { result in
                 switch result {
                 case let .success(response):
                     guard let modelArray = response.mapArray(FaviconGrabberModel.self, designatedPath: "icons") else {
                         seal.fulfill(FaviconHelper.bestIcon(domain: domain))
-//                        seal.reject(MyError.DecodeFailed)
+                        //                        seal.reject(MyError.DecodeFailed)
                         return
                     }
 
                     if modelArray.count == 0 {
-//                        seal.fulfill(URL(string: "http://\(domain)/favicon.ico")!)
+                        //                        seal.fulfill(URL(string: "http://\(domain)/favicon.ico")!)
                         seal.fulfill(FaviconHelper.bestIcon(domain: domain))
                         return
                     }
@@ -37,10 +37,10 @@ class FaviconHelper {
                         let first = hasSize.sorted { (model1, model2) -> Bool in
 
                             guard let size1Str = model1?.sizes, let size2Str = model2?.sizes,
-                                let size1First = size1Str.split(separator: "x").first,
-                                let size2First = size2Str.split(separator: "x").first,
-                                let size1Int = Int(String(size1First)),
-                                let size2Int = Int(String(size2First)) else {
+                                  let size1First = size1Str.split(separator: "x").first,
+                                  let size2First = size2Str.split(separator: "x").first,
+                                  let size1Int = Int(String(size1First)),
+                                  let size2Int = Int(String(size2First)) else {
                                 return false
                             }
                             return size1Int > size2Int
@@ -48,7 +48,7 @@ class FaviconHelper {
 
                         guard let firstURL = first, let imageURL = URL(string: firstURL.src) else {
                             seal.fulfill(FaviconHelper.bestIcon(domain: domain))
-//                            seal.reject(MyError.FoundNil("Image URL convert failed"))
+                            //                            seal.reject(MyError.FoundNil("Image URL convert failed"))
                             return
                         }
 
@@ -62,24 +62,24 @@ class FaviconHelper {
 
                             guard let firstURL = model, let imageURL = URL(string: firstURL.src) else {
                                 seal.fulfill(FaviconHelper.bestIcon(domain: domain))
-//                                seal.reject(MyError.FoundNil("Image URL convert failed"))
+                                //                                seal.reject(MyError.FoundNil("Image URL convert failed"))
                                 return
                             }
 
                             seal.fulfill(imageURL)
                         }
 
-//                        guard let firstModel = modelArray.first else {
-//                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
-//                            return
-//                        }
-//
-//                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
-//                            seal.reject(MyError.FoundNil("Image URL convert failed"))
-//                            return
-//                        }
-//
-//                        seal.fulfill(imageURL)
+                        //                        guard let firstModel = modelArray.first else {
+                        //                            seal.reject(MyError.FoundNil("\(domain) Not favicon found"))
+                        //                            return
+                        //                        }
+                        //
+                        //                        guard let firstURL = firstModel, let imageURL = URL(string: firstURL.src) else {
+                        //                            seal.reject(MyError.FoundNil("Image URL convert failed"))
+                        //                            return
+                        //                        }
+                        //
+                        //                        seal.fulfill(imageURL)
                     }
 
                 case let .failure(error):

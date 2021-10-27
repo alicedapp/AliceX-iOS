@@ -55,8 +55,8 @@ struct CoinInfo: HandyJSON {
 
     var balance: Double {
         if let balance = amount, let balanceInt = BigUInt(balance),
-            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: false),
-            let price = price, let doubleAmount = Double(amount) {
+           let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: decimals, formattingDecimals: 3, decimalSeparator: ".", fallbackToScientific: false),
+           let price = price, let doubleAmount = Double(amount) {
             return doubleAmount * price
         }
         return 0

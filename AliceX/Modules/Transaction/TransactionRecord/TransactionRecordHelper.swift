@@ -15,10 +15,10 @@ class TransactionRecordHelper {
     var list = Set<AmberdataTXModel>()
 
     init() {
-//        loadFromCache().done { list in
-//            let setList = Set(list.compactMap{ $0 })
-//            TransactionRecordHelper.shared.list = setList
-//        }
+        //        loadFromCache().done { list in
+        //            let setList = Set(list.compactMap{ $0 })
+        //            TransactionRecordHelper.shared.list = setList
+        //        }
         NotificationCenter.default.addObserver(self, selector: #selector(accountChange), name: .accountChange, object: nil)
     }
 
@@ -46,7 +46,7 @@ class TransactionRecordHelper {
                 seal.fulfill(array)
             }.catch { error in
                 seal.reject(error)
-//                print(error.localizedDescription)
+                //                print(error.localizedDescription)
             }
         }
     }

@@ -20,11 +20,11 @@ class SwitchAccountCell: FoldingCell {
     @IBOutlet var selectView: UIView!
 
     var account: Account!
-//    @IBOutlet var : UITextField!
+    //    @IBOutlet var : UITextField!
 
     override func awakeFromNib() {
-//        foregroundView.layer.cornerRadius = 10
-//        foregroundView.layer.masksToBounds = true
+        //        foregroundView.layer.cornerRadius = 10
+        //        foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
 
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))

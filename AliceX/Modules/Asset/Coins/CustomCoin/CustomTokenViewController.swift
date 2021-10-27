@@ -145,7 +145,7 @@ class CustomTokenViewController: BaseViewController {
             }
         }
 
-//        CoinInfoCenter.shared.pool.keys.contains(address)
+        //        CoinInfoCenter.shared.pool.keys.contains(address)
         testSuccess()
         passed = true
     }

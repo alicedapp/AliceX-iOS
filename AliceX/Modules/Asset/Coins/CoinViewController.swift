@@ -53,27 +53,27 @@ extension CoinViewController: JXSegmentedListContainerViewDataSource, JXSegmente
     }
 
     func listContainerView(_: JXSegmentedListContainerView, initListAt _: Int) -> JXSegmentedListContainerViewListDelegate {
-//        let chain = chains[index]
+        //        let chain = chains[index]
         let vc = CoinListViewController()
-//        var data: [CoinInfo] = []
-//        switch index {
-//        case 0:
+        //        var data: [CoinInfo] = []
+        //        switch index {
+        //        case 0:
         ////            WatchingHelper.shared.
-//            data = BlockChain.allCases.compactMap { $0.info }
-//        case 1:
-//            data = WatchingCoinHelper.shared.list
-//        case 2:
-//            data = WatchingCoinHelper.shared.list
-//        default:
-//            break
-//        }
-//        vc.data = data
-//        let view = BlockChainQRCodeView.instanceFromNib()
-//        view.chain = chain
-//        view.configure()
-//        vc.view.addSubview(view)
-//        view.fillSuperview()
-//        view.layoutIfNeeded()
+        //            data = BlockChain.allCases.compactMap { $0.info }
+        //        case 1:
+        //            data = WatchingCoinHelper.shared.list
+        //        case 2:
+        //            data = WatchingCoinHelper.shared.list
+        //        default:
+        //            break
+        //        }
+        //        vc.data = data
+        //        let view = BlockChainQRCodeView.instanceFromNib()
+        //        view.chain = chain
+        //        view.configure()
+        //        vc.view.addSubview(view)
+        //        view.fillSuperview()
+        //        view.layoutIfNeeded()
         return vc
     }
 }

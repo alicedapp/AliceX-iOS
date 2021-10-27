@@ -24,8 +24,8 @@ class AssetDetailViewController: BaseViewController {
     var currentCoin: Coin = .coin(chain: .Ethereum) {
         didSet {
             if currentCoin != oldValue {
-//                requestData()
-//                updateCoin()
+                //                requestData()
+                //                updateCoin()
             }
         }
     }
@@ -55,7 +55,7 @@ class AssetDetailViewController: BaseViewController {
         segmentedView.dataSource = dataSource
 
         let indicator = JXSegmentedIndicatorBackgroundView()
-//        indicator.isIndicatorConvertToItemFrameEnabled = true
+        //        indicator.isIndicatorConvertToItemFrameEnabled = true
         indicator.indicatorHeight = 30
         indicator.indicatorColor = AliceColor.darkGrey()
         segmentedView.indicators = [indicator]
@@ -64,32 +64,32 @@ class AssetDetailViewController: BaseViewController {
         segmentedView.listContainer = listContainerView
         segmentedView.contentScrollView = listContainerView.scrollView
 
-//        segmentedView.contentScrollView?.delegate = self
+        //        segmentedView.contentScrollView?.delegate = self
 
         container.addSubview(listContainerView)
         listContainerView.fillSuperview()
 
-//       if let index = chains.firstIndex(of: selectBlockCahin) {
-//           segmentedView.defaultSelectedIndex = index
-//       }
-//        setupChartView()
-//        requestData()
+        //       if let index = chains.firstIndex(of: selectBlockCahin) {
+        //           segmentedView.defaultSelectedIndex = index
+        //       }
+        //        setupChartView()
+        //        requestData()
 
         if let index = coins.firstIndex(of: currentCoin) {
             segmentedView.defaultSelectedIndex = index
         }
 
-//        updateCoin()
+        //        updateCoin()
     }
 
     override func viewDidLayoutSubviews() {
-//        segmentedView.indicators.first!.centerInSuperview()
+        //        segmentedView.indicators.first!.centerInSuperview()
     }
 
-//    func updateCoin() {
-//        titleText.text = currentCoin.info?.name
-//        titleAnimation()
-//    }
+    //    func updateCoin() {
+    //        titleText.text = currentCoin.info?.name
+    //        titleAnimation()
+    //    }
 
     func titleAnimation() {
         let transition = CATransition()

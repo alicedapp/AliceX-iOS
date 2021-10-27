@@ -68,7 +68,7 @@ extension WalletCore {
             sendOrder.outputs = [output]
 
             signingInput.sendOrder = sendOrder
-            
+
             let data: BinanceSigningOutput = AnySigner.sign(input: input, coin: .binance)
 
             BNBProvider.request(.broadcast(data: data.encoded.hexdata)) { result in
@@ -119,7 +119,7 @@ extension WalletCore {
                                                   txHash: result.hash,
                                                   title: "Pending BNB",
                                                   viewcontroller: browser)
-//                PendingTransactionHelper.shared.add(item: pinItem)
+                //                PendingTransactionHelper.shared.add(item: pinItem)
                 PinManager.shared.addPinItem(item: pinItem)
             }.catch { error in
                 seal.reject(error)

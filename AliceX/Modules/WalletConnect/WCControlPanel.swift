@@ -76,7 +76,7 @@ extension WCControlPanel {
             .lineHeightMultiple(1.2),
             .color(.darkGray),
             .xmlRules([
-                .style("blue", blueStyle),
+                .style("blue", blueStyle)
             ])
         )
 
@@ -156,13 +156,13 @@ extension WCControlPanel {
             .lineHeightMultiple(1.2),
             .color(.darkGray),
             .xmlRules([
-                .style("blue", blueStyle),
+                .style("blue", blueStyle)
             ])
         )
 
         guard let walletConnecnt = WCClientHelper.shared.walletConnect,
-            let session = walletConnecnt.session,
-            let clientInfo = session.walletInfo?.peerMeta else {
+              let session = walletConnecnt.session,
+              let clientInfo = session.walletInfo?.peerMeta else {
             clientView.image = Constant.placeholder
             clientLabel.text = "No connection"
             clientDesc.text = "No description"

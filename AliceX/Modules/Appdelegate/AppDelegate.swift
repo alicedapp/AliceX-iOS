@@ -23,14 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_: UIApplication, didFinishLaunchingWithOptions
-        launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+                        launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-#if DEBUG
+        #if DEBUG
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(false)
-#else
+        #else
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
-#endif
-        
+        #endif
+
         Messaging.messaging().delegate = self
         IQKeyboardManager.shared.enable = true
 
@@ -68,12 +68,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
 
         #if DEBUG
-            test()
+        test()
         #endif
         if let option = launchOption,
-            let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any],
-            let aps = userInfo["aps"] as? [AnyHashable: Any],
-            let path = aps["path"] as? String {
+           let userInfo = option[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any],
+           let aps = userInfo["aps"] as? [AnyHashable: Any],
+           let path = aps["path"] as? String {
             router(path: path)
             print(userInfo)
         }
@@ -124,26 +124,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         if application.applicationState != .active,
-            let path = userInfo["path"] as? String {
+           let path = userInfo["path"] as? String {
             router(path: path)
         }
 
-//        Messaging.messaging().appDidReceiveMessage(userInfo)
+        //        Messaging.messaging().appDidReceiveMessage(userInfo)
         print(userInfo)
     }
 
     func application(application _: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(" Push notification received:")
 
-//        if (application.applicationState == .active) {
+        //        if (application.applicationState == .active) {
         /// Foreground
         // TODO:
-//            return
-//        }
+        //            return
+        //        }
 
-//        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
+        //        RNFirebaseNotifications.instance().didReceiveRemoteNotification(userInfo, fetchCompletionHandler: completionHandler)
 
-//        Messaging.messaging().appDidReceiveMessage(userInfo)
+        //        Messaging.messaging().appDidReceiveMessage(userInfo)
 
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
@@ -164,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_: UIApplication, didRegister _: UIUserNotificationSettings) {
-//        RNFirebaseMessaging.instance().didRegister(notificationSettings)
+        //        RNFirebaseMessaging.instance().didRegister(notificationSettings)
     }
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -174,6 +174,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        
+
     }
 }

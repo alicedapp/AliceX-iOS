@@ -66,11 +66,11 @@ extension PinManager: UIGestureRecognizerDelegate {
             }) { _ in
                 self.floatArea.removeFromSuperview()
                 self.link!.invalidate()
-//                self.link = nil
+                //                self.link = nil
                 if !self.shouldShow {
                     return
                 }
-//                self.ball.alpha = 1
+                //                self.ball.alpha = 1
 
                 self.floatVC = self.tempFloatVC
                 if let vc = self.floatVC as? PinDelegate, let item = vc.pinItem() {
@@ -89,7 +89,7 @@ extension PinManager: UINavigationControllerDelegate {
                               animationControllerFor operation: UINavigationController.Operation,
                               from fromVC: UIViewController,
                               to toVC: UIViewController)
-        -> UIViewControllerAnimatedTransitioning? {
+    -> UIViewControllerAnimatedTransitioning? {
         if pinList.count == 0 {
             return nil
         }

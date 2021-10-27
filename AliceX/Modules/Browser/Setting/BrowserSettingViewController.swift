@@ -24,11 +24,11 @@ class BrowserSettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        homepageField.delegate = self
+        //        homepageField.delegate = self
 
         configureLogo()
 
-//        googleLogo.kf.setImage(with: FaviconHelper.bestIcon(domain: "googleLogo.com"))
+        //        googleLogo.kf.setImage(with: FaviconHelper.bestIcon(domain: "googleLogo.com"))
 
         let homeURL = Defaults[\.homepage]
         homepageField.text = homeURL.absoluteString
@@ -49,14 +49,14 @@ class BrowserSettingViewController: UIViewController {
 
     @IBAction func dismissView() {
         HUDManager.shared.dismiss()
-//        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cacheButtonClicked() {
         let view = BaseAlertView.instanceFromNib(content: "Do you wanna clean browser cache?",
                                                  confirmBlock: {
-                                                     BrowserViewController.cleanCache()
-        }, cancelBlock: nil)
+                                                    BrowserViewController.cleanCache()
+                                                 }, cancelBlock: nil)
 
         HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
                                         type: .centerFloat, widthIsFull: false, canDismiss: true)
@@ -191,16 +191,16 @@ class BrowserSettingViewController: UIViewController {
 }
 
 extension BrowserSettingViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        guard let text = textField.text else {
-//            return true
-//        }
-//
-//        guard let url = URL(string: text) else {
-//            //TODO
-//            return false
-//        }
-//
-//        return true
-//    }
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //        guard let text = textField.text else {
+    //            return true
+    //        }
+    //
+    //        guard let url = URL(string: text) else {
+    //            //TODO
+    //            return false
+    //        }
+    //
+    //        return true
+    //    }
 }

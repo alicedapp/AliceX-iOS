@@ -129,9 +129,9 @@ class PinListCell: UITableViewCell {
         guard let frame = sender.superview?.convert(sender.frame, from: UIApplication.topViewController()?.view) else {
             return
         }
-//        if (frame?.origin.y)! < CGFloat(0) {
-//            frame?.origin.y = -(frame?.origin.y)!
-//        }
+        //        if (frame?.origin.y)! < CGFloat(0) {
+        //            frame?.origin.y = -(frame?.origin.y)!
+        //        }
 
         // TODO:
         guard let previousVC = self.previousVC else {
@@ -170,8 +170,8 @@ class PinListCell: UITableViewCell {
         PinManager.shared.removePinItem(item: item)
 
         if let vc = self.parentVC as? PinListViewController {
-//            vc.pinList = PinManager.shared.pinList
-//            vc.tableView.deleteRows(at: [index], with: .automatic)
+            //            vc.pinList = PinManager.shared.pinList
+            //            vc.tableView.deleteRows(at: [index], with: .automatic)
 
             vc.updateIfNeeded()
 

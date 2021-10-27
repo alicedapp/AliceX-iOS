@@ -38,7 +38,7 @@ class LandingViewController: BaseViewController {
         let blueStyle = StringStyle(
             .color(AliceColor.blue),
             .font(UIFont.systemFont(ofSize: 15, weight: .bold))
-//            .underline(.patternDashDot, .blue)
+            //            .underline(.patternDashDot, .blue)
         )
 
         let fishStyle = StringStyle(
@@ -46,7 +46,7 @@ class LandingViewController: BaseViewController {
             .lineHeightMultiple(1.2),
             .color(AliceColor.darkGrey()),
             .xmlRules([
-                .style("blue", blueStyle),
+                .style("blue", blueStyle)
             ])
         )
 
@@ -71,12 +71,12 @@ class LandingViewController: BaseViewController {
             checkBox.tintColor = AliceColor.green
             UIView.animate(withDuration: 0.3) {
                 self.checkBox.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-//                self.checkBox.frame = CGRect(x: self.checkBoxFrame.minX,
-//                                             y: self.checkBoxFrame.minY,
-//                                             width: self.checkBoxFrame.width*0.6,
-//                                             height: self.checkBoxFrame.height*0.6)
-//
-//                self.checkBox.center = CGPoint(x: self.checkBoxFrame.midX, y: self.checkBoxFrame.midY)
+                //                self.checkBox.frame = CGRect(x: self.checkBoxFrame.minX,
+                //                                             y: self.checkBoxFrame.minY,
+                //                                             width: self.checkBoxFrame.width*0.6,
+                //                                             height: self.checkBoxFrame.height*0.6)
+                //
+                //                self.checkBox.center = CGPoint(x: self.checkBoxFrame.midX, y: self.checkBoxFrame.midY)
             }
             return
         }
@@ -86,7 +86,7 @@ class LandingViewController: BaseViewController {
 
         UIView.animate(withDuration: 0.3) {
             self.checkBox.transform = .identity
-//            self.checkBox.frame = self.checkBoxFrame
+            //            self.checkBox.frame = self.checkBoxFrame
         }
     }
 

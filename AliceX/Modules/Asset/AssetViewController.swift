@@ -91,9 +91,9 @@ class AssetViewController: BaseViewController {
         firstly {
             WatchingCoinHelper.shared.update()
         }.done { _ in
-//            self.coins = WatchingCoinHelper.shared.list
-//            self.collectionView.reloadData()
-//            self.lastUpdateDate = Date()
+            //            self.coins = WatchingCoinHelper.shared.list
+            //            self.collectionView.reloadData()
+            //            self.lastUpdateDate = Date()
             Defaults[\.lastTimeUpdateAsset] = Date()
 
             var balance = 0.0
@@ -111,7 +111,7 @@ class AssetViewController: BaseViewController {
             self.collectionView.es.stopPullToRefresh()
         }.catch { error in
             print("AAA: - \(error.localizedDescription)")
-//            self.collectionView.es.stopPullToRefresh()
+            //            self.collectionView.es.stopPullToRefresh()
         }
 
         requestNFT()
@@ -167,9 +167,9 @@ class AssetViewController: BaseViewController {
     }
 
     @IBAction func settingClick() {
-//        let vc = SettingViewController()
-//        let navi = BaseNavigationController(rootViewController: vc)
-//        presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
+        //        let vc = SettingViewController()
+        //        let navi = BaseNavigationController(rootViewController: vc)
+        //        presentAsStork(navi, height: nil, showIndicator: false, showCloseButton: false)
 
         let vc = QRCodeReaderViewController.make { result in
             if result.isValidURL {
@@ -181,14 +181,14 @@ class AssetViewController: BaseViewController {
         }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
+        //        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func addressButtonClick() {
         let vc = AddressQRCodeViewController()
         vc.selectBlockCahin = .Ethereum
-//        vc.modalPresentationStyle = .overCurrentContext
-//        present(vc, animated: true, completion: nil)
+        //        vc.modalPresentationStyle = .overCurrentContext
+        //        present(vc, animated: true, completion: nil)
         HUDManager.shared.showAlertVCNoBackground(viewController: vc, haveBG: true)
     }
 
@@ -198,12 +198,12 @@ class AssetViewController: BaseViewController {
             firstly {
                 WatchingCoinHelper.shared.update()
             }.done { _ in
-//                self.coins = WatchingCoinHelper.shared.list
-//                self.collectionView.reloadData()
+                //                self.coins = WatchingCoinHelper.shared.list
+                //                self.collectionView.reloadData()
                 seal.fulfill(())
             }.catch { error in
-//                self.coins = WatchingCoinHelper.shared.list
-//                self.collectionView.reloadData()
+                //                self.coins = WatchingCoinHelper.shared.list
+                //                self.collectionView.reloadData()
                 seal.reject(error)
             }
         }
@@ -222,11 +222,11 @@ class AssetViewController: BaseViewController {
                 guard let assets = model.assets else {
                     return
                 }
-                
+
                 self.NFTData = assets.filter({ asset -> Bool in
                     asset.image_preview_url != nil
                 })
-                
+
                 Shared.stringCache.set(value: model.toJSONString()!, key: cacheKey)
                 self.collectionView.reloadData()
 
@@ -238,15 +238,15 @@ class AssetViewController: BaseViewController {
         }
     }
 
-//    @objc func priceUpdate() {
-//        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
-//    }
+    //    @objc func priceUpdate() {
+    //        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue))
+    //    }
 
     @objc func listChange() {
         coins = WatchingCoinHelper.shared.list
         collectionView.reloadData()
-//        requestData()
-//        watchChains = WatchingCoinHelper.shared.blockchainList()
-//        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue, Asset.erc20.rawValue))
+        //        requestData()
+        //        watchChains = WatchingCoinHelper.shared.blockchainList()
+        //        collectionView.reloadSections(IndexSet(arrayLiteral: Asset.coin.rawValue, Asset.erc20.rawValue))
     }
 }

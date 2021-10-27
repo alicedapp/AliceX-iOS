@@ -42,9 +42,9 @@ class SwitchAccountLarkController: UIViewController {
 }
 
 extension SwitchAccountLarkController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func numberOfSections(in _: UICollectionView) -> Int {
-//        return Asset.allCases.count
-//    }
+    //    func numberOfSections(in _: UICollectionView) -> Int {
+    //        return Asset.allCases.count
+    //    }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return data.count

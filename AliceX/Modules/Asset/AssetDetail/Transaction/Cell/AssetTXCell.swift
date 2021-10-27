@@ -22,12 +22,12 @@ class AssetTXCell: UITableViewCell {
 
     @IBOutlet var statusButton: VBFPopFlatButton!
 
-//    var coin: Coin = .coin(chain: .Ethereum)
+    //    var coin: Coin = .coin(chain: .Ethereum)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        statusButton.roundBackgroundColor = AliceColor.darkGrey()
+        //        statusButton.roundBackgroundColor = AliceColor.darkGrey()
         statusButton.currentButtonStyle = .buttonRoundedStyle
         statusButton.currentButtonType = .buttonMinusType
         statusButton.tintColor = AliceColor.darkGrey()
@@ -35,7 +35,7 @@ class AssetTXCell: UITableViewCell {
         statusButton.lineThickness = 3
         statusButton.backgroundColor = .clear
         statusButton.roundBackgroundColor = .clear
-//        statusButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 4))
+        //        statusButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 4))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -109,7 +109,7 @@ class AssetTXCell: UITableViewCell {
         }
 
         if to.address.lowercased() == currentAddress,
-            from.address.lowercased() == currentAddress {
+           from.address.lowercased() == currentAddress {
             logoView.image = UIImage(named: WalletManager.currentAccount!.imageName)
             addressLabel.text = "Self"
         }
@@ -127,12 +127,12 @@ class AssetTXCell: UITableViewCell {
         }
 
         if let date = model.timestamp {
-//            let time = Date.getTimeComponentString(olderDate: date, newerDate: Date())
+            //            let time = Date.getTimeComponentString(olderDate: date, newerDate: Date())
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy 'at' HH:mm"
             hashLabel.text = dateFormatter.string(from: date)
-//            "\(time ?? "unknow") ago"
+            //            "\(time ?? "unknow") ago"
         }
 
         if coin.isERC20, let transfers = model.tokenTransfers, let transfer = transfers.last {

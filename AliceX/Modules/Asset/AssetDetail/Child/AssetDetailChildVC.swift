@@ -12,7 +12,7 @@ import UIKit
 class AssetDetailChildVC: UIViewController {
     enum AssetTab: Int, CaseIterable {
         case transaction = 0
-//        case price
+        //        case price
         case info
     }
 
@@ -36,7 +36,7 @@ class AssetDetailChildVC: UIViewController {
         userHeaderView = AssetDetailHeader.instanceFromNib()
         userHeaderView.frame = CGRect(x: 0, y: 0, width: Constant.SCREEN_WIDTH,
                                       height: CGFloat(JXTableHeaderViewHeight))
-//        userHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        //        userHeaderView.translatesAutoresizingMaskIntoConstraints = false
         userHeaderView.layoutIfNeeded()
         userHeaderView.configure(coin: coin)
 
@@ -54,11 +54,11 @@ class AssetDetailChildVC: UIViewController {
         segmentedView.dataSource = segmentedViewDataSource
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
 
-//        let indicator = JXSegmentedIndicatorLineView()
-//        indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
-//        indicator.lineStyle = .lengthenOffset
-//        indicator.indicatorColor = AliceColor.dark
-//        segmentedView.indicators = [indicator]
+        //        let indicator = JXSegmentedIndicatorLineView()
+        //        indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
+        //        indicator.lineStyle = .lengthenOffset
+        //        indicator.indicatorColor = AliceColor.dark
+        //        segmentedView.indicators = [indicator]
 
         let indicator = JXSegmentedIndicatorBackgroundView()
         indicator.isIndicatorConvertToItemFrameEnabled = true
@@ -87,10 +87,10 @@ class AssetDetailChildVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        view.bringSubviewToFront(pagingView)
-//        view.insertSubview(userHeaderContainerView, at: 2)
-//        view.insertSubview(pagingView, aboveSubview: userHeaderView)
-//        view.insertSubview(<#T##view: UIView##UIView#>, belowSubview: <#T##UIView#>)
+        //        view.bringSubviewToFront(pagingView)
+        //        view.insertSubview(userHeaderContainerView, at: 2)
+        //        view.insertSubview(pagingView, aboveSubview: userHeaderView)
+        //        view.insertSubview(<#T##view: UIView##UIView#>, belowSubview: <#T##UIView#>)
     }
 }
 

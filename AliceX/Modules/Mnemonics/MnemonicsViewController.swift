@@ -76,15 +76,15 @@ class MnemonicsViewController: BaseViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-//        if #available(iOS 12.0, *) {
-//            let userInterfaceStyle = traitCollection.userInterfaceStyle
-//            switch userInterfaceStyle {
-//            case .dark:
-//
-//            default:
-//                <#code#>
-//            }
-//        }
+        //        if #available(iOS 12.0, *) {
+        //            let userInterfaceStyle = traitCollection.userInterfaceStyle
+        //            switch userInterfaceStyle {
+        //            case .dark:
+        //
+        //            default:
+        //                <#code#>
+        //            }
+        //        }
     }
 }
 

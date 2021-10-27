@@ -8,20 +8,17 @@
 
 import HandyJSON
 
-enum DAppType: Int, HandyJSONEnum {
+enum DAppType: Int, Codable {
     case MiniApp = 0
     case Website = 1
 }
 
-class DAppModel: HandyJSON {
+class DAppModel: Codable {
     var name: String!
     var description: String?
     var link: String!
     var img: String?
     var category: String?
     var type: DAppType!
-
     var dappName: String?
-
-    required init() {}
 }

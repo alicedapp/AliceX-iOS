@@ -27,9 +27,9 @@ extension Github: TargetType {
         switch self {
         case .dappList:
             #if DEBUG
-                return "AliceX-iOS/Dev/DappList/dapps.json"
+            return "AliceX-iOS/Dev/DappList/dapps.json"
             #else
-                return "AliceX-iOS/master/DappList/dapps.json"
+            return "AliceX-iOS/master/DappList/dapps.json"
             #endif
         }
     }

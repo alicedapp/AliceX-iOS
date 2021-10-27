@@ -34,13 +34,13 @@ class BaseRNAppViewController: BaseViewController {
 extension BaseRNAppViewController: PinDelegate {
     func pinItem() -> PinItem? {
         guard let item = self.item, item.isApp else {
-//            let url =
+            //            let url =
             return .dapplet(image: URL(string: "https://alicedapp.com")!, url: URL(string: "https://alicedapp.com")!, name: "Dapp", viewcontroller: self)
         }
 
-//        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
-//            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-//        }
+        //        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
+        //            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+        //        }
         return .dapplet(image: item.appImage!, url: URL(string: "https://alicedapp.com")!, name: item.name, viewcontroller: self)
     }
 }

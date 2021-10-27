@@ -93,9 +93,9 @@ class PayButtonView: UIControl {
             process = 0
 
         default:
-//            if link != nil {
-//                link!.invalidate()
-//            }
+            //            if link != nil {
+            //                link!.invalidate()
+            //            }
             break
         }
     }
@@ -145,7 +145,7 @@ class PayButtonView: UIControl {
 
         UIView.animate(withDuration: 0.3) {
             self.transform = CGAffineTransform.identity
-//            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
+            //            self.payButtonContainer.backgroundColor? = UIColor(hex: "333333")
         }
     }
 

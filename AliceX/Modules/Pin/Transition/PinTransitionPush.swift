@@ -39,16 +39,16 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
         self.transitionContext = transitionContext
 
         let contView = transitionContext.containerView
-//        contView.addSubview(fromView)
+        //        contView.addSubview(fromView)
         contView.addSubview(toView)
 
         fromView.addSubview(coverView)
 
         let maskStartBP = UIBezierPath(roundedRect: pushCellFrame, cornerRadius: 30)
-//            UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!,
-//                                       byRoundingCorners: [.topLeft, .bottomLeft],
-//                                       cornerRadii: CGSize(width: PinTransitionPush.pushCellFrame!.height / 2,
-//                                                           height: PinTransitionPush.pushCellFrame!.height / 2))
+        //            UIBezierPath(roundedRect: PinTransitionPush.pushCellFrame!,
+        //                                       byRoundingCorners: [.topLeft, .bottomLeft],
+        //                                       cornerRadii: CGSize(width: PinTransitionPush.pushCellFrame!.height / 2,
+        //                                                           height: PinTransitionPush.pushCellFrame!.height / 2))
         let maskFinalBP = UIBezierPath(roundedRect: UIScreen.main.bounds, cornerRadius: 30)
 
         let maskLayer = CAShapeLayer()
@@ -70,21 +70,21 @@ class PinTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
             self.coverView.alpha = 0.5
         }
 
-//        UIView.animate(withDuration: duration - 0.5, delay: 0, options: [], animations: {
-//            self.coverView.alpha = 0.5
-//        }) { _ in
-//            contView.subviews.first?.removeFromSuperview()
-//        }
+        //        UIView.animate(withDuration: duration - 0.5, delay: 0, options: [], animations: {
+        //            self.coverView.alpha = 0.5
+        //        }) { _ in
+        //            contView.subviews.first?.removeFromSuperview()
+        //        }
     }
 }
 
 extension PinTransitionPush: CAAnimationDelegate {
     func animationDidStart(_: CAAnimation) {
-//        UIView.animate(withDuration: duration - 0.05, delay: 0, options: [], animations: {
-//            self.coverView.alpha = 0
-//        }) { _ in
-//            self.transitionContext?.containerView.subviews.first?.removeFromSuperview()
-//        }
+        //        UIView.animate(withDuration: duration - 0.05, delay: 0, options: [], animations: {
+        //            self.coverView.alpha = 0
+        //        }) { _ in
+        //            self.transitionContext?.containerView.subviews.first?.removeFromSuperview()
+        //        }
     }
 
     func animationDidStop(_: CAAnimation, finished _: Bool) {

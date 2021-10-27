@@ -49,7 +49,7 @@ class MainTabViewController: PageboyViewController {
         delegate = self
         bounces = false
         view.backgroundColor = .clear
-//        Defaults[\.isFirstTimeOpen] = false
+        //        Defaults[\.isFirstTimeOpen] = false
 
         for tag in 1 ... 3 {
             guard let tagView = view.viewWithTag(tag) else {
@@ -101,7 +101,7 @@ extension MainTabViewController: PageboyViewControllerDataSource {
 
     func viewController(for _: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
-//        let tab = tabs[index]
+        //        let tab = tabs[index]
         return vcs[index]
     }
 

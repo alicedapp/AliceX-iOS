@@ -32,7 +32,7 @@ class BlockChainQRCodeViewController: BaseViewController {
         let halfLength = address.count / 2
         let index = address.index(address.startIndex, offsetBy: halfLength)
         address.insert("\n", at: index)
-//        let result = address.split(separator: "\n")
+        //        let result = address.split(separator: "\n")
         addressLabel.text = address
         logoImageView.kf.setImage(with: URL(string: chain.image)!, placeholder: Constant.placeholder)
     }

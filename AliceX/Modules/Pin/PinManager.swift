@@ -71,7 +71,7 @@ class PinManager: NSObject {
                             height: ballSize)
         ball.delegate = self
 
-//        interactivePopGestureRecognizer.delegate
+        //        interactivePopGestureRecognizer.delegate
         UIApplication.topNavigationController()?.delegate = self
         UIApplication.topNavigationController()?.interactivePopGestureRecognizer?.delegate = self
 
@@ -246,7 +246,7 @@ extension PinManager: FloatBallDelegate {
     func floatBallEndMove(floatBall _: FloatBall) {
         if cancelFloatArea.highlight {
             tempFloatVC = nil
-//            floatVC = nil
+            //            floatVC = nil
             currentPin = nil
 
             for item in pinList where item.isWalletConnect {
@@ -255,7 +255,7 @@ extension PinManager: FloatBallDelegate {
             }
 
             pinList.removeAll()
-//            ball = nil;
+            //            ball = nil;
 
             // Reset pin ball to init position
             UIView.animate(withDuration: 0, delay: 0.5, options: [], animations: {

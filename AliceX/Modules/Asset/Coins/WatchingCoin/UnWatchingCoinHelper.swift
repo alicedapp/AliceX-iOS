@@ -17,7 +17,7 @@ class IgnoreCoinHelper {
     var isEmpty: Bool = true
 
     init() {
-//        loadFromCache()
+        //        loadFromCache()
     }
 
     func add(coin: Coin) {
@@ -31,13 +31,13 @@ class IgnoreCoinHelper {
     }
 
     // TODO:
-//    func add(list: [Coin]) {
-//        if list.contains(coin) {
-//            return
-//        }
-//        list.append(lis)
-//        storeInCache()
-//    }
+    //    func add(list: [Coin]) {
+    //        if list.contains(coin) {
+    //            return
+    //        }
+    //        list.append(lis)
+    //        storeInCache()
+    //    }
 
     func remove(coin: Coin) {
         if !list.contains(coin) {
@@ -54,7 +54,7 @@ class IgnoreCoinHelper {
         list = newList
         storeInCache()
 
-//        postNotification()
+        //        postNotification()
     }
 
     func blockchainList() -> [Coin] {

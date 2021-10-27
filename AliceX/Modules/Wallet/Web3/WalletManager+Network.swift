@@ -18,9 +18,9 @@ struct Web3NetModel: HandyJSON, Equatable {
     var color: String!
     var rpcURL: String!
 
-//    static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
-//        return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL
-//    }
+    //    static func == (lhs: Web3NetEnum, rhs: Web3NetEnum) -> Bool {
+    //        return lhs.chainID == rhs.chainID && lhs.rpcURL == rhs.rpcURL
+    //    }
 }
 
 struct Web3NetModelList: HandyJSON {
@@ -140,7 +140,7 @@ extension Web3NetEnum {
         case .poa: return 99
         case .xDai: return 100
         case .goerli: return 5
-//        case .custom(let chainID): return chainID
+        //        case .custom(let chainID): return chainID
         case let .custom(model):
             return model.chainID
         }
@@ -199,7 +199,7 @@ extension Web3NetEnum {
         case .xDai: return .Custom(networkID: 100)
         case let .custom(model):
             return .Custom(networkID: BigUInt(model.chainID))
-//        case .custom(let chainID): return .Custom(networkID: chainID)
+        //        case .custom(let chainID): return .Custom(networkID: chainID)
         }
     }
 }
@@ -226,7 +226,7 @@ extension WalletManager {
             }
         }
 
-//        return Web3.InfuraMainnetWeb3()
+        //        return Web3.InfuraMainnetWeb3()
     }
 
     class func make(url: String) -> Promise<web3> {
@@ -269,7 +269,7 @@ extension WalletManager {
         }
 
         guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
-            let model = Web3NetModel.deserialize(from: typeString) else {
+              let model = Web3NetModel.deserialize(from: typeString) else {
             // TODO:
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return Web3.InfuraMainnetWeb3()
@@ -292,7 +292,7 @@ extension WalletManager {
 
     class func fetchFromCache() -> String {
         guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
-            let model = Web3NetModel.deserialize(from: typeString) else {
+              let model = Web3NetModel.deserialize(from: typeString) else {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return "Main"
         }
@@ -302,7 +302,7 @@ extension WalletManager {
 
     class func fetchFromCache() -> Web3NetEnum {
         guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),
-            let model = Web3NetModel.deserialize(from: typeString) else {
+              let model = Web3NetModel.deserialize(from: typeString) else {
             HUDManager.shared.showError(text: WalletError.netCacheFailure.errorDescription)
             return .main
         }

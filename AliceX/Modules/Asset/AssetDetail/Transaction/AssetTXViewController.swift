@@ -38,14 +38,14 @@ class AssetTXViewController: UIViewController {
         tableView.registerCell(nibName: AssetTXCell.nameOfClass)
 
         tableView.separatorStyle = .none
-//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 104, right: 0)
+        //        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 104, right: 0)
 
         tableView.es.addInfiniteScrolling {
             self.requestData(page: self.page)
         }
 
-//        view.isSkeletonable = true
-//        tableView.isSkeletonable = true
+        //        view.isSkeletonable = true
+        //        tableView.isSkeletonable = true
         tableView.estimatedRowHeight = 70
     }
 
@@ -72,9 +72,9 @@ class AssetTXViewController: UIViewController {
     }
 
     func requestData(page: Int) {
-//        if page == 0 {
-//            view.showAnimatedGradientSkeleton()
-//        }
+        //        if page == 0 {
+        //            view.showAnimatedGradientSkeleton()
+        //        }
 
         if coin == .coin(chain: .Binance) {
             binanceTXRequestData(page: page)
@@ -95,12 +95,12 @@ class AssetTXViewController: UIViewController {
                 self.group = self.groupRecordByMonth(list: list)
             }
 
-//            self.view.hideSkeleton()
+            //            self.view.hideSkeleton()
             self.tableView.reloadData()
             self.page += 1
         }.ensure {
             self.tableView.es.stopLoadingMore()
-//            self.view.hideSkeleton()
+            //            self.view.hideSkeleton()
         }.catch { error in
             //            print("BBBB")
             print(error.localizedDescription)
@@ -136,9 +136,9 @@ class AssetTXViewController: UIViewController {
         if coin.isERC20 {
             return list.filter { model in
                 guard let fromList = model.from,
-                    let from = fromList.first,
-                    let toList = model.to,
-                    let to = toList.first else {
+                      let from = fromList.first,
+                      let toList = model.to,
+                      let to = toList.first else {
                     return false
                 }
 
@@ -188,12 +188,12 @@ class AssetTXViewController: UIViewController {
 
             self.group = self.groupRecordByMonth(list: self.data)
 
-//            self.view.hideSkeleton()
+            //            self.view.hideSkeleton()
             self.tableView.reloadData()
             self.page += 1
         }.ensure {
             self.tableView.es.stopLoadingMore()
-//            self.view.hideSkeleton()
+            //            self.view.hideSkeleton()
         }.catch { error in
             //            print("BBBB")
             print(error.localizedDescription)

@@ -39,10 +39,10 @@ extension AssetDetailChildVC: JXPagingViewDelegate {
             let vc = AssetTXViewController.loadFromNib()
             vc.coin = coin
             return vc
-//        case .price:
-//            let vc = AssetPriceViewController()
-//            vc.loadViewIfNeeded()
-//            return vc
+        //        case .price:
+        //            let vc = AssetPriceViewController()
+        //            vc.loadViewIfNeeded()
+        //            return vc
         case .info:
             let vc = AssetInfoViewController()
             vc.coin = coin

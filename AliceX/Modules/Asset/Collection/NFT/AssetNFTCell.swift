@@ -14,8 +14,8 @@ class AssetNFTCell: UICollectionViewCell {
     @IBOutlet var contractImageView: UIImageView!
     @IBOutlet var contractName: UILabel!
     @IBOutlet var NFTImageView: UIImageView!
-//    @IBOutlet var NFTSVGView: SVGKFastImageView!
-//    @IBOutlet var backgroundImageView: UIView!
+    //    @IBOutlet var NFTSVGView: SVGKFastImageView!
+    //    @IBOutlet var backgroundImageView: UIView!
 
     var model: OpenSeaModel?
 
@@ -30,15 +30,15 @@ class AssetNFTCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
 
-//        let shadowLayer = CAShapeLayer()
-//        shadowLayer.path = UIBezierPath(roundedRect: viewShadow.bounds, cornerRadius: 25).cgPath
-//        shadowLayer.fillColor = UIColor.clear.cgColor
-//        shadowLayer.shadowColor = UIColor(hex: "#000000", alpha: 0.3).cgColor
-//        shadowLayer.shadowPath = shadowLayer.path
-//        shadowLayer.shadowOffset = CGSize(width: 0, height: 1.0)
-//        shadowLayer.shadowOpacity = 0.3
-//        shadowLayer.shadowRadius = 5
-//        viewShadow.layer.insertSublayer(shadowLayer, at: 0)
+        //        let shadowLayer = CAShapeLayer()
+        //        shadowLayer.path = UIBezierPath(roundedRect: viewShadow.bounds, cornerRadius: 25).cgPath
+        //        shadowLayer.fillColor = UIColor.clear.cgColor
+        //        shadowLayer.shadowColor = UIColor(hex: "#000000", alpha: 0.3).cgColor
+        //        shadowLayer.shadowPath = shadowLayer.path
+        //        shadowLayer.shadowOffset = CGSize(width: 0, height: 1.0)
+        //        shadowLayer.shadowOpacity = 0.3
+        //        shadowLayer.shadowRadius = 5
+        //        viewShadow.layer.insertSublayer(shadowLayer, at: 0)
 
         viewShadow.layer.shadowColor = UIColor(hex: "#000000", alpha: 0.3).cgColor
         viewShadow.layer.shadowOffset = CGSize(width: 0, height: 1.0)
@@ -46,7 +46,7 @@ class AssetNFTCell: UICollectionViewCell {
         viewShadow.layer.shadowOpacity = 0.3
 
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
-//        longPress.minimumPressDuration = 0.3
+        //        longPress.minimumPressDuration = 0.3
         addGestureRecognizer(longPress)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
@@ -64,7 +64,7 @@ class AssetNFTCell: UICollectionViewCell {
         case .began:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//                self.background.alpha = 1
+                //                self.background.alpha = 1
             }
             if let NFTModel = self.model {
                 addressVC.address = nil
@@ -77,7 +77,7 @@ class AssetNFTCell: UICollectionViewCell {
         case .ended:
             UIView.animate(withDuration: 0.3) {
                 self.transform = CGAffineTransform.identity
-//                self.background.alpha = 0
+                //                self.background.alpha = 0
             }
         default:
             break
@@ -89,17 +89,17 @@ class AssetNFTCell: UICollectionViewCell {
 
         if let image = model.image_url, let imageURL = URL(string: image) {
             if image.hasSuffix(".svg") {
-//                NFTSVGView.isHidden = false
-//                NFTImageView.isHidden = true
+                //                NFTSVGView.isHidden = false
+                //                NFTImageView.isHidden = true
 
-//                let svg = UIView(SVGURL: imageURL, parser: nil) { svgLayer in
-//                    svgLayer.resizeToFit(self.NFTImageView.bounds)
-//                }
-//                NFTSVGView.image = SVGKImage(contentsOf: imageURL)
+                //                let svg = UIView(SVGURL: imageURL, parser: nil) { svgLayer in
+                //                    svgLayer.resizeToFit(self.NFTImageView.bounds)
+                //                }
+                //                NFTSVGView.image = SVGKImage(contentsOf: imageURL)
 
                 NFTImageView.kf.setImage(with: URL(string: model.image_preview_url!)!)
             } else {
-//                NFTSVGView.isHidden = true
+                //                NFTSVGView.isHidden = true
                 NFTImageView.kf.setImage(with: imageURL)
             }
         } else {

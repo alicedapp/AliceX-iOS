@@ -22,9 +22,9 @@ extension AssetViewController: UIScrollViewDelegate {
             percent = 0
         }
 
-//        let color = UIColor.interpolate(between: .white, and: UIColor(hex: "F5F5F5"), percent: percent)
+        //        let color = UIColor.interpolate(between: .white, and: UIColor(hex: "F5F5F5"), percent: percent)
         navBar.alpha = percent
-//        navLabel.alpha = percent
-//        navLine.alpha = percent
+        //        navLabel.alpha = percent
+        //        navLine.alpha = percent
     }
 }

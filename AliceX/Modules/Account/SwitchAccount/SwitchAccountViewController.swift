@@ -32,16 +32,16 @@ class SwitchAccountViewController: BaseViewController {
             }
         }
 
-//        var height: CGFloat {
-//            switch self {
-//            case .mnemonic:
-//                return CGSize(width: , height: <#T##CGFloat#>)
-//            case .account:
-//                return SwitchAccountCell.nameOfClass
-//            case .create:
-//                return AddAccountCell.nameOfClass
-//            }
-//        }
+        //        var height: CGFloat {
+        //            switch self {
+        //            case .mnemonic:
+        //                return CGSize(width: , height: <#T##CGFloat#>)
+        //            case .account:
+        //                return SwitchAccountCell.nameOfClass
+        //            case .create:
+        //                return AddAccountCell.nameOfClass
+        //            }
+        //        }
     }
 
     var cellHeights: [CGFloat] = []
@@ -57,7 +57,7 @@ class SwitchAccountViewController: BaseViewController {
         tableView.registerCell(nibName: SwitchAccountCell.nameOfClass)
         tableView.registerCell(nibName: AddAccountCell.nameOfClass)
         tableView.registerCell(nibName: MnemonicTableViewCell.nameOfClass)
-//        tableView.registerHeaderFooter(nibName: AddAccountFooter.nameOfClass)
+        //        tableView.registerHeaderFooter(nibName: AddAccountFooter.nameOfClass)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
 
         cellHeights = Array(repeating: Const.closeCellHeight, count: data.count)
@@ -88,9 +88,9 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == Cells.account.rawValue {
-//            return cellHeights[indexPath.row]
-//        }
+        //        if indexPath.section == Cells.account.rawValue {
+        //            return cellHeights[indexPath.row]
+        //        }
 
         switch indexPath.section {
         case Cells.account.rawValue:
@@ -133,14 +133,14 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
             cell.unfold(true, animated: false, completion: nil)
         }
 
-//        cell.number = indexPath.row
+        //        cell.number = indexPath.row
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case Cells.mnemonic.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: MnemonicTableViewCell.nameOfClass, for: indexPath) as! MnemonicTableViewCell
-//            let account = data[indexPath.row]
+            //            let account = data[indexPath.row]
             cell.vcRef = self
             cell.configure(isMnemonic: indexPath.row == 0)
             return cell
@@ -198,16 +198,16 @@ extension SwitchAccountViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
 
-//    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
-//       return 100
-//    }
-//
+    //    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
+    //       return 100
+    //    }
+    //
     //   func tableView(_ tableView: UITableView, viewForFooterInSection _: Int) -> UIView? {
-//       var footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AddAccountFooter.nameOfClass)
-//       if footerView == nil {
-//           footerView = AddAccountFooter.instanceFromNib()
-//       }
-//       return footerView
+    //       var footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AddAccountFooter.nameOfClass)
+    //       if footerView == nil {
+    //           footerView = AddAccountFooter.instanceFromNib()
+    //       }
+    //       return footerView
     //   }
 
     func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

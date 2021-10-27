@@ -24,9 +24,9 @@ class CoinListViewController: BaseViewController {
         tableView.delegate = self
         searchBar.delegate = self
 
-//        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
-//        searchBarBackground?.removeFromSuperview()
-//        searchBar.backgroundColor = .clear
+        //        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
+        //        searchBarBackground?.removeFromSuperview()
+        //        searchBar.backgroundColor = .clear
         searchBar.backgroundImage = UIImage()
         loadData()
     }

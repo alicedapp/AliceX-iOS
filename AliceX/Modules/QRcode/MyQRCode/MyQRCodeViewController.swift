@@ -13,9 +13,9 @@ class MyQRCodeViewController: BaseViewController {
     @IBOutlet var shareConver: UIView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var qrcodeView: UIImageView!
-//    @IBOutlet weak var lightButton: UIImageView!
+    //    @IBOutlet weak var lightButton: UIImageView!
 
-//    var address: String!
+    //    var address: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class MyQRCodeViewController: BaseViewController {
         let halfLength = address.count / 2
         let index = address.index(address.startIndex, offsetBy: halfLength)
         address.insert("\n", at: index)
-//        let result = address.split(separator: "\n")
+        //        let result = address.split(separator: "\n")
         addressLabel.text = address
     }
 

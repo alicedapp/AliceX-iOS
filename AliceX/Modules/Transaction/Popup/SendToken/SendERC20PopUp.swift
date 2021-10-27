@@ -63,8 +63,8 @@ class SendERC20PopUp: UIViewController {
         addressLabel.text = toAddress
 
         amountLabel.text = amount.readableValue(decimals: decimal)
-//        let price = Float(value)! * PriceHelper.shared.exchangeRate
-//        priceLabel.text = price.currencyString
+        //        let price = Float(value)! * PriceHelper.shared.exchangeRate
+        //        priceLabel.text = price.currencyString
 
         payView = PayButtonView.instanceFromNib()
         payButton.addSubview(payView!)
@@ -147,7 +147,7 @@ class SendERC20PopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-            let gasPrice = GasPrice.make(string: text) else { return }
+              let gasPrice = GasPrice.make(string: text) else { return }
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -164,9 +164,9 @@ class SendERC20PopUp: UIViewController {
 extension SendERC20PopUp: PayButtonDelegate {
     func verifyAndSend() {
         #if DEBUG
-            send()
+        send()
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 
@@ -179,10 +179,10 @@ extension SendERC20PopUp: PayButtonDelegate {
     }
 
     func send() {
-//        guard let value = Web3Utils.parseToBigUInt(amount.readableValue(decimals: decimal), units: .eth) else {
-//            HUDManager.shared.showError(text: "Value is invalid")
-//            return
-//        }
+        //        guard let value = Web3Utils.parseToBigUInt(amount.readableValue(decimals: decimal), units: .eth) else {
+        //            HUDManager.shared.showError(text: "Value is invalid")
+        //            return
+        //        }
 
         payView!.showLoading()
 

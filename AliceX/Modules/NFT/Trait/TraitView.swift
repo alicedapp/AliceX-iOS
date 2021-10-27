@@ -14,7 +14,7 @@ class TraitView: UIView {
 
     class func instanceFromNib() -> TraitView {
         let view = UINib(nibName: nameOfClass, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TraitView
-//        view.configure()
+        //        view.configure()
         return view
     }
 

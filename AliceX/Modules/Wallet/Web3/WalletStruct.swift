@@ -11,12 +11,12 @@ import HandyJSON
 
 struct Account: Codable {
     let address: String
-//    let data: Data
-//    let isHD: Bool
+    //    let data: Data
+    //    let isHD: Bool
 
     var name: String
     var imageName: String
-//    var color: UIColor
+    //    var color: UIColor
 }
 
 extension Account: Hashable, Equatable {

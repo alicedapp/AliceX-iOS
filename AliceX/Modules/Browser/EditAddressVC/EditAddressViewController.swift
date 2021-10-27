@@ -34,10 +34,10 @@ class EditAddressViewController: BaseViewController {
         addressField.becomeFirstResponder()
     }
 
-//    @IBAction func closeButtonClicked(){
-//        view.endEditing(true)
-//        self.hero.dismissViewController()
-//    }
+    //    @IBAction func closeButtonClicked(){
+    //        view.endEditing(true)
+    //        self.hero.dismissViewController()
+    //    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,7 +49,7 @@ class EditAddressViewController: BaseViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        view.becomeFirstResponder()
+        //        view.becomeFirstResponder()
         view.endEditing(true)
     }
 
@@ -125,7 +125,7 @@ extension EditAddressViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_: UITextField) -> Bool {
         guard let urlString = addressField.text,
-            let browerRef = browerRef else {
+              let browerRef = browerRef else {
             return false
         }
         let newUrlString = EditAddressViewController.makeUrlIfNeeded(urlString: urlString)

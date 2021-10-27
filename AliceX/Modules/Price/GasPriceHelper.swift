@@ -130,22 +130,22 @@ class GasPriceHelper {
     var avgWait: Float?
     var fastWait: Float?
 
-//    func getGasPrice() {
-//        gasStationAPI.request(.gas) { (result) in
-//            switch result {
-//            case let .success(response):
-//                guard let model = response.mapObject(EthGasStationModel.self) else {
-//                    HUDManager.shared.showError(text: "Fetch gas station failed")
-//                    return
-//                }
-//                self.model = model
-//                self.update(model: model)
+    //    func getGasPrice() {
+    //        gasStationAPI.request(.gas) { (result) in
+    //            switch result {
+    //            case let .success(response):
+    //                guard let model = response.mapObject(EthGasStationModel.self) else {
+    //                    HUDManager.shared.showError(text: "Fetch gas station failed")
+    //                    return
+    //                }
+    //                self.model = model
+    //                self.update(model: model)
     ////                HUDManager.shared.showSuccess(text: "GET GAS")
-//            case let .failure(error):
-//                HUDManager.shared.showError(text: "Fech gas station failed")
-//            }
-//        }
-//    }
+    //            case let .failure(error):
+    //                HUDManager.shared.showError(text: "Fech gas station failed")
+    //            }
+    //        }
+    //    }
 
     func getGasPrice() -> Promise<Void> {
         return Promise { seal in firstly { () -> Promise<EthGasStationModel> in

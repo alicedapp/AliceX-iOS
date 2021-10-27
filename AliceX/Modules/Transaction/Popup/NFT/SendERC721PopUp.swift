@@ -141,7 +141,7 @@ class SendERC721PopUp: UIViewController {
             self.gasTimeLabel.text = "Arrive in ~ \(self.gasPrice.time) mins"
         }.catch { error in
             #if DEBUG
-                HUDManager.shared.showError(error: error)
+            HUDManager.shared.showError(error: error)
             #endif
             if let error = error as? Web3Error {
                 error.errorDescription
@@ -158,7 +158,7 @@ class SendERC721PopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-            let gasPrice = GasPrice.make(string: text) else { return }
+              let gasPrice = GasPrice.make(string: text) else { return }
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -172,9 +172,9 @@ class SendERC721PopUp: UIViewController {
 extension SendERC721PopUp: PayButtonDelegate {
     func verifyAndSend() {
         #if DEBUG
-            send()
+        send()
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 

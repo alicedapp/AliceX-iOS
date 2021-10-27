@@ -29,14 +29,14 @@ extension WalletManager {
         if !FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
             do {
                 try FileManager.default.createDirectory(atPath: userDir +
-                    Setting.KeystoreDirectoryName, withIntermediateDirectories: true, attributes: nil)
+                                                            Setting.KeystoreDirectoryName, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 throw WalletError.invalidPath
             }
         }
 
         FileManager.default.createFile(atPath: userDir + Setting.KeystoreDirectoryName +
-            Setting.KeystoreFileName, contents: encryp, attributes: [.protectionKey: FileProtectionType.complete])
+                                        Setting.KeystoreFileName, contents: encryp, attributes: [.protectionKey: FileProtectionType.complete])
     }
 
     func loadKeystore() throws -> BIP32Keystore {
@@ -49,10 +49,10 @@ extension WalletManager {
             throw WalletError.invalidPath
         }
 
-//        guard let keystoreManager = KeystoreManager.managerForPath(userDir + Setting.KeystoreDirectoryName,
-//                                                                   scanForHDwallets: true) else {
-//            throw WalletError.malformedKeystore
-//        }
+        //        guard let keystoreManager = KeystoreManager.managerForPath(userDir + Setting.KeystoreDirectoryName,
+        //                                                                   scanForHDwallets: true) else {
+        //            throw WalletError.malformedKeystore
+        //        }
 
         guard let keystoreManager = try? loadFile(path: userDir + Setting.KeystoreDirectoryName, scanForHDwallets: true, suffix: nil) else {
             throw WalletError.malformedKeystore
@@ -77,7 +77,7 @@ extension WalletManager {
             if FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
                 do {
                     try FileManager.default.removeItem(atPath: userDir +
-                        Setting.KeystoreDirectoryName + Setting.KeystoreFileName)
+                                                        Setting.KeystoreDirectoryName + Setting.KeystoreFileName)
                     keystore = nil
                 } catch {
                     print(error.localizedDescription)

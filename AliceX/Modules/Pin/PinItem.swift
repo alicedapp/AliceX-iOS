@@ -97,7 +97,7 @@ enum PinItem {
                 return network.rpcURL
             }
             if network == .main {
-//                return URL(string: "https://etherscan.io/tx/\(txHash)")
+                //                return URL(string: "https://etherscan.io/tx/\(txHash)")
                 return Foundation.URL(string: "https://etherscan.io/tx/\(txHash)")
             }
             return Foundation.URL(string: "https://\(network.name).etherscan.io/tx/\(txHash)")

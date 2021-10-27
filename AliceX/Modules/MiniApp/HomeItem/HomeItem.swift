@@ -30,9 +30,9 @@ enum HomeItem {
             guard let domain = url.host else {
                 return url.absoluteString
             }
-//            guard let first = domain.split(separator: ".").first else {
-//                return url.absoluteString
-//            }
+            //            guard let first = domain.split(separator: ".").first else {
+            //                return url.absoluteString
+            //            }
 
             var urls = domain.split(separator: ".").dropLast(1)
 

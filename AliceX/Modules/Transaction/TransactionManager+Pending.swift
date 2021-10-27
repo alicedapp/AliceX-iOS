@@ -82,7 +82,7 @@ class PendingTransactionHelper {
     }
 
     func fetchSingleTX(txHash: String, rpcURL: String)
-        -> Promise<TransactionReceipt> {
+    -> Promise<TransactionReceipt> {
         return Promise<TransactionReceipt> { seal in
 
             // TODO: Recently, listen to tx, got node error in First Time
@@ -99,7 +99,7 @@ class PendingTransactionHelper {
     }
 
     func fetchSingleTX(txHash: String, network: Web3NetEnum)
-        -> Promise<TransactionReceipt> {
+    -> Promise<TransactionReceipt> {
         let web3 = try! WalletManager.make(type: network)
 
         return Promise<TransactionReceipt> { seal in

@@ -18,7 +18,7 @@ extension WalletManager {
     class func storeAccountsToCache() {
         do {
             let data = try JSONEncoder().encode(WalletManager.Accounts!)
-//            Shared.dataCache.set(value: data, key: IMPCacheKey.accountCacheKey)
+            //            Shared.dataCache.set(value: data, key: IMPCacheKey.accountCacheKey)
             Defaults[\.accountsData] = data
 
         } catch {
@@ -67,7 +67,7 @@ extension WalletManager {
             let account = Account(address: address, name: name, imageName: animal)
             WalletManager.Accounts?.append(account)
 
-//            WalletManager.storeAccountsToCache()
+            //            WalletManager.storeAccountsToCache()
         } catch {
             HUDManager.shared.showError(error: WalletError.createAccountFailure)
         }

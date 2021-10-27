@@ -59,6 +59,6 @@ class WCConnectPopupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        arrowImage.transform = CGAffineTransform(scaleX: -1, y: 1)
+        //        arrowImage.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
 }

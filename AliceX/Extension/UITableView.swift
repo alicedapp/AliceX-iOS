@@ -28,7 +28,7 @@ extension UITableView {
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.font = .systemFont(ofSize: 17)
-//            UIFont(name: "TrebuchetMS", size: 15)
+        //            UIFont(name: "TrebuchetMS", size: 15)
         messageLabel.sizeToFit()
 
         backgroundView = messageLabel

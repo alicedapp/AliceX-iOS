@@ -27,7 +27,7 @@ class WCPopUp: UIView {
     }
 
     override func awakeFromNib() {
-//        layer.cornerRadius = 20
+        //        layer.cornerRadius = 20
     }
 
     func configure(logo: URL?, name: String, title: String, content: String) {
@@ -39,7 +39,7 @@ class WCPopUp: UIView {
         logoView.kf.setImage(with: logo, placeholder: Constant.placeholder)
 
         let aliceStyle = StringStyle(
-//            .font(UIFont(name: "PlayfairDisplay-Black", size: 17)!)
+            //            .font(UIFont(name: "PlayfairDisplay-Black", size: 17)!)
             .font(UIFont.systemFont(ofSize: 17))
         )
 
@@ -59,7 +59,7 @@ class WCPopUp: UIView {
             .xmlRules([
                 .style("alice", aliceStyle),
                 .style("red", redStyle),
-                .style("blue", blueStyle),
+                .style("blue", blueStyle)
             ])
         )
 

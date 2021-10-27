@@ -1,4 +1,3 @@
-
 //  AssetDetailHeader+Chart.swift
 //  AliceX
 
@@ -77,21 +76,21 @@ extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
         let bottomColor = AliceColor.lightBackground()
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let locations: [CGFloat] = [0.0, 0.7]
-//
-//       let topColor1 = UIColor(hex: "85D7E2", alpha: 0.1)
-//       let bottomColor1 = UIColor(hex: "FFFFFF", alpha: 1.0)
-//       let gradientColors1 : [CGColor] = [topColor1.cgColor,bottomColor1.cgColor]
-//       let locations1 : [CGFloat] = [0.0, 1.0]
-//
+        //
+        //       let topColor1 = UIColor(hex: "85D7E2", alpha: 0.1)
+        //       let bottomColor1 = UIColor(hex: "FFFFFF", alpha: 1.0)
+        //       let gradientColors1 : [CGColor] = [topColor1.cgColor,bottomColor1.cgColor]
+        //       let locations1 : [CGFloat] = [0.0, 1.0]
+        //
         gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors as CFArray, locations: locations)
-//        self.lineGradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors1 as CFArray, locations: locations1)
+        //        self.lineGradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors1 as CFArray, locations: locations1)
 
         chartView.gradientBottom = gradient!
-//        chartView.gradientLine = self.lineGradient!
+        //        chartView.gradientLine = self.lineGradient!
 
         chartView.enableTouchReport = true
         chartView.enablePopUpReport = true
-//        chartView.enableReferenceAxisFrame = true
+        //        chartView.enableReferenceAxisFrame = true
 
         chartView.formatStringForValues = "%.3f"
 
@@ -105,9 +104,9 @@ extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
         chartView.noDataLabelColor = AliceColor.darkGrey()
         chartView.colorTouchInputLine = AliceColor.darkGrey()
 
-//        chartView.alwaysDisplayPopUpLabels = true
-//        chartView.colorBackgroundPopUplabel =
-//        chartView.displayDotsWhileAnimating = false
+        //        chartView.alwaysDisplayPopUpLabels = true
+        //        chartView.colorBackgroundPopUplabel =
+        //        chartView.displayDotsWhileAnimating = false
 
         chartView.colorBackgroundPopUplabel = AliceColor.white()
         chartView.enableBottomReferenceAxisFrameLine = false
@@ -124,13 +123,13 @@ extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
         return CGFloat(info.close)
     }
 
-//     MARK: - Request DATA
+    // MARK: - Request DATA
 
     func requestData() {
-//        if let list = data[coin], list.count > 0 {
-//            chartView.reloadGraph()
-//            return
-//        }
+        //        if let list = data[coin], list.count > 0 {
+        //            chartView.reloadGraph()
+        //            return
+        //        }
 
         guard let symbol = coin.info?.symbol.lowercased() else {
             return
@@ -139,9 +138,9 @@ extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
         startGraphLoading()
 
         firstly { () -> Promise<CryptocompareHistoryModel> in
-//            API(Cryptocompare.historyDay(symbol: symbol,
-//                                         currency: PriceHelper.shared.currentCurrency,
-//                                         limit: 30, allData: false), path: "Data")
+            //            API(Cryptocompare.historyDay(symbol: symbol,
+            //                                         currency: PriceHelper.shared.currentCurrency,
+            //                                         limit: 30, allData: false), path: "Data")
             currentPeriod.requestMethod(symbol: symbol)
         }.done { model in
             if let data = model.Data {
@@ -193,18 +192,18 @@ extension AssetDetailHeader: BEMSimpleLineGraphDataSource {
         timeLabel.text = dateFormatter.string(from: date)
     }
 
-//    func popUpSuffixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
-//
-//    }
+    //    func popUpSuffixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
+    //
+    //    }
 
-//    func popUpPrefixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
-//        let currency = PriceHelper.shared.currentCurrency
-//        return "\(currency.rawValue) \(currency.symbol)"
-//    }
+    //    func popUpPrefixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
+    //        let currency = PriceHelper.shared.currentCurrency
+    //        return "\(currency.rawValue) \(currency.symbol)"
+    //    }
 
-//    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
-//
-//    }
+    //    func lineGraphDidBeginLoading(_ graph: BEMSimpleLineGraphView) {
+    //
+    //    }
 
     func lineGraphDidBeginLoading(_: BEMSimpleLineGraphView) {}
 

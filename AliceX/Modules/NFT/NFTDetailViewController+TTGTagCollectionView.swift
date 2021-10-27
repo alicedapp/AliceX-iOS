@@ -93,7 +93,7 @@ extension NFTDetailViewController {
 
         container.addSubview(label)
         container.sizeToFit()
-//        container.translatesAutoresizingMaskIntoConstraints = false
+        //        container.translatesAutoresizingMaskIntoConstraints = false
 
         return label
     }

@@ -6,6 +6,7 @@
 //  Copyright © 2019 lmcmz. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 typealias VoidBlock = (() -> Void)?
@@ -50,13 +51,13 @@ extension Notification.Name {
     static let walletChange = Notification.Name("walletChange")
     static let accountChange = Notification.Name("accountChange")
 
-//    static let accountChange = Notification.Name("accountCreate")
+    //    static let accountChange = Notification.Name("accountCreate")
 
     static let networkChange = Notification.Name("networkChange")
     static let currencyChange = Notification.Name("currencyChange")
     static let gasSelectionCahnge = Notification.Name("gasSelectionCahnge")
-//    static let addCustomRPC = Notification.Name("addCustomRPC")
-//    static let updateCustomRPC = Notification.Name("updateRPC")
+    //    static let addCustomRPC = Notification.Name("addCustomRPC")
+    //    static let updateCustomRPC = Notification.Name("updateRPC")
     static let customRPCChange = Notification.Name("customRPCChange")
     static let newPendingTransaction = Notification.Name("newPendingTransaction")
     static let removePendingTransaction = Notification.Name("removePendingTransaction")
@@ -82,7 +83,7 @@ class CacheKey {
     static let web3CustomRPCKey = "alice.web3.custom.rpc"
 
     static let assetNFTKey = "alice.asset.NFT"
-//    static let assetERC20Key = "alice.asset.erc20"
+    //    static let assetERC20Key = "alice.asset.erc20"
 
     static let homeItemList = "alice.miniApp.list"
     static let browserDappList = "alice.browser.dapp.list"
@@ -143,6 +144,6 @@ class Constant {
 }
 
 class APIKey {
-    static let infuraKey = "da3717f25f824cc1baa32d812386d93f"
+    static let infuraKey = "5a1ef20e2f4f4410b25cca27e0a1ad75"
     static let etherscanKey = "HKFT391NVPRQTI4348DRSCWZPMA4JJPR9R"
 }

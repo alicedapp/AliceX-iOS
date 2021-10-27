@@ -18,14 +18,14 @@ class TransactionManager {
 
     // MARK: - Smart Contract Popup
 
-//    class func showContractWriteView(contractAddress: String,
-//                                     functionName: String,
-//                                     abi: String,
-//                                     parameters: [Any],
-//                                     value: BigUInt,
-//                                     extraData: Data,
-//                                     success: @escaping StringBlock) {
-//    }
+    //    class func showContractWriteView(contractAddress: String,
+    //                                     functionName: String,
+    //                                     abi: String,
+    //                                     parameters: [Any],
+    //                                     value: BigUInt,
+    //                                     extraData: Data,
+    //                                     success: @escaping StringBlock) {
+    //    }
 
     class func showContractWriteView(contractAddress: String,
                                      functionName: String,
@@ -91,12 +91,12 @@ class TransactionManager {
                 seal.fulfill(balanceInEtherUnitStr)
             }
         }
-//        DispatchQueue.global().async {
-//            let balance = try? self.etherBalanceSync()
-//            DispatchQueue.main.async {
-//                completion(balance)
-//            }
-//        }
+        //        DispatchQueue.global().async {
+        //            let balance = try? self.etherBalanceSync()
+        //            DispatchQueue.main.async {
+        //                completion(balance)
+        //            }
+        //        }
     }
 
     // MARK: - Send Transaction
@@ -164,7 +164,7 @@ class TransactionManager {
                                gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
         return Promise<String> { seal in
             guard let toAddress = EthereumAddress(address),
-                let token = EthereumAddress(tokenAddrss) else {
+                  let token = EthereumAddress(tokenAddrss) else {
                 throw WalletError.invalidAddress
             }
 
@@ -441,7 +441,7 @@ class TransactionManager {
                                   account: walletAddress,
                                   password: Setting.password)
 
-//            print(tx.description)
+            //            print(tx.description)
             if detailObject {
                 return tx.toJsonString()
             }
@@ -472,30 +472,30 @@ class TransactionManager {
                                 password: String?,
                                 gasPrice _: GasPrice = GasPrice.average) -> Promise<String> {
         let ETHAddress = EthereumAddress(WalletManager.currentAccount!.address)!
-//        let erc = ERC721(web3: WalletManager.web3Net, provider: WalletManager.web3Net.provider, address: ETHAddress)
-//        let id = BigUInt("705")
-//
-//        erc.readProperties()
-//
-//
-//        do {
-//
+        //        let erc = ERC721(web3: WalletManager.web3Net, provider: WalletManager.web3Net.provider, address: ETHAddress)
+        //        let id = BigUInt("705")
+        //
+        //        erc.readProperties()
+        //
+        //
+        //        do {
+        //
         ////            let contract = try erc.transfer(from: ETHAddress,
         ////                                            to: EthereumAddress("0xA1b02d8c67b0FDCF4E379855868DeB470E169cfB")!,
         ////                                            tokenId: id)
-//            let contract = try erc.safeTransferFrom(from: ETHAddress,
-//                                                    to: EthereumAddress("0x56519083C3cfeAE833B93a93c843C993bE1D74EA")!,
-//                                                    originalOwner: ETHAddress,
-//                                                    tokenId: id, data: [])
-//
-//            let result = try contract.send()
-//            print("AAAAAA")
-//
-//            print(result.hash)
-//
-//        } catch let error {
-//            print(error)
-//        }
+        //            let contract = try erc.safeTransferFrom(from: ETHAddress,
+        //                                                    to: EthereumAddress("0x56519083C3cfeAE833B93a93c843C993bE1D74EA")!,
+        //                                                    originalOwner: ETHAddress,
+        //                                                    tokenId: id, data: [])
+        //
+        //            let result = try contract.send()
+        //            print("AAAAAA")
+        //
+        //            print(result.hash)
+        //
+        //        } catch let error {
+        //            print(error)
+        //        }
 
         return Promise<String> { seal in
             TransactionManager.writeSmartContract(contractAddress: contractAddress,
@@ -504,45 +504,45 @@ class TransactionManager {
                                                   parameters: [WalletManager.currentAccount!.address, toAddress, tokenId, data],
                                                   extraData: Data(),
                                                   value: BigUInt(0)).done { txHash in
-                seal.fulfill(txHash)
-            }.catch { error in
-                seal.reject(error)
-            }
+                                                    seal.fulfill(txHash)
+                                                  }.catch { error in
+                                                    seal.reject(error)
+                                                  }
         }
     }
 
     // MARK: - Validator
 
-//    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {
-//        guard let toAddress = EthereumAddress(address) else {
-//            throw WalletError.invalidAddress
-//        }
-//
-//        guard let address = WalletManager.currentAccount?.address else {
-//            throw WalletError.invalidAddress
-//        }
-//
-//        guard let walletAddress = EthereumAddress(address) else {
-//            throw WalletError.invalidAddress
-//        }
-//
-//        let etherBalance = try TransactionManager.shared.etherBalanceSync()
-//        guard let etherBalanceInDouble = Double(etherBalance) else {
-//            throw WalletError.conversionFailure
-//        }
-//
-//        guard let amountInDouble = Double(value.readableValue) else {
-//            throw WalletError.conversionFailure
-//        }
-//
-//        guard etherBalanceInDouble >= amountInDouble else {
-//            throw WalletError.insufficientBalance
-//        }
-//
-//        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
-//            throw WalletError.malformedKeystore
-//        }
-//
-//        return true
-//    }
+    //    func validator(address: String, data _: Data, value: BigUInt) throws -> Bool {
+    //        guard let toAddress = EthereumAddress(address) else {
+    //            throw WalletError.invalidAddress
+    //        }
+    //
+    //        guard let address = WalletManager.currentAccount?.address else {
+    //            throw WalletError.invalidAddress
+    //        }
+    //
+    //        guard let walletAddress = EthereumAddress(address) else {
+    //            throw WalletError.invalidAddress
+    //        }
+    //
+    //        let etherBalance = try TransactionManager.shared.etherBalanceSync()
+    //        guard let etherBalanceInDouble = Double(etherBalance) else {
+    //            throw WalletError.conversionFailure
+    //        }
+    //
+    //        guard let amountInDouble = Double(value.readableValue) else {
+    //            throw WalletError.conversionFailure
+    //        }
+    //
+    //        guard etherBalanceInDouble >= amountInDouble else {
+    //            throw WalletError.insufficientBalance
+    //        }
+    //
+    //        guard let keystore = WalletManager.web3Net.provider.attachedKeystoreManager else {
+    //            throw WalletError.malformedKeystore
+    //        }
+    //
+    //        return true
+    //    }
 }

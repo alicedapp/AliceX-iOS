@@ -57,7 +57,7 @@ class RPCCustomViewController: BaseViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(addRPCSuccess), name: .customRPCChange, object: nil)
 
-//        NotificationCenter.default.addObserver(self, selector: #selector(addRPCSuccess), name: .updateCustomRPC, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(addRPCSuccess), name: .updateCustomRPC, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -164,14 +164,14 @@ class RPCCustomViewController: BaseViewController {
     }
 
     @IBAction func deleteButtonClick() {
-//        title: "Alert",
-//        content: "Are you sure, you want delete this RPC?",
-//        confirmText: "confirm",
-//        cancelText: "Cancel"
+        //        title: "Alert",
+        //        content: "Are you sure, you want delete this RPC?",
+        //        confirmText: "confirm",
+        //        cancelText: "Cancel"
         let view = BaseAlertView.instanceFromNib(content: "Are you sure, you want delete this RPC?",
                                                  confirmBlock: {
-                                                     self.deleteRPC()
-        }) {
+                                                    self.deleteRPC()
+                                                 }) {
             HUDManager.shared.dismiss()
         }
 

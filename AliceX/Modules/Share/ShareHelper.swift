@@ -10,7 +10,7 @@ import Foundation
 
 class ShareHelper {
     static func share(text: String?, image: UIImage?, urlString: String?) {
-//        HUDManager.shared.dismiss()
+        //        HUDManager.shared.dismiss()
 
         var shareArray: [Any] = []
 
@@ -33,12 +33,12 @@ class ShareHelper {
         }
 
         let objectsToShare = shareArray
-//        let type = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
-//        UIActivity().activityType = .
+        //        let type = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
+        //        UIActivity().activityType = .
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
-//        activityVC.excludedActivityTypes = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
-//        activityVC.popoverPresentationController?.sourceView =
+        //        activityVC.excludedActivityTypes = [.copyToPasteboard, .airDrop, .assignToContact, .postToTwitter]
+        //        activityVC.popoverPresentationController?.sourceView =
         guard let topVC = UIApplication.topViewController() else {
             return
         }

@@ -20,12 +20,12 @@ class WCClientHelper {
     var connectedDate: Date?
 
     var showDisAlert: Bool = true
-//    lazy var clientInfo = {
-//        return walletConnect.session.walletInfo?.peerMeta
-//    }()
+    //    lazy var clientInfo = {
+    //        return walletConnect.session.walletInfo?.peerMeta
+    //    }()
 
     init() {
-//        walletConnect.reconnectIfNeeded()
+        //        walletConnect.reconnectIfNeeded()
     }
 
     func create() {
@@ -34,10 +34,10 @@ class WCClientHelper {
                 onMainThread {
                     let view = BaseAlertView.instanceFromNib(content: "Do you wanna disconnect current session?",
                                                              confirmBlock: {
-                                                                 self.disconnect()
-                                                                 self.urlString = self.walletConnect?.connect()
-                                                                 self.showQRCode()
-                    }) {
+                                                                self.disconnect()
+                                                                self.urlString = self.walletConnect?.connect()
+                                                                self.showQRCode()
+                                                             }) {
                         HUDManager.shared.dismiss()
                     }
                     HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none,
@@ -62,8 +62,8 @@ class WCClientHelper {
 
     func disconnect() {
         guard let walletConnect = self.walletConnect,
-            let session = walletConnect.session,
-            let client = walletConnect.client else {
+              let session = walletConnect.session,
+              let client = walletConnect.client else {
             return
         }
         do {
@@ -75,7 +75,7 @@ class WCClientHelper {
 
     func disconnect(key: String) {
         guard let walletConnect = self.walletConnect,
-            let session = walletConnect.session else {
+              let session = walletConnect.session else {
             return
         }
         if session.url.key == key {

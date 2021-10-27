@@ -53,7 +53,7 @@ class AssetCoinCell: UICollectionViewCell {
 
         // TODO:
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(gesture:)))
-//        longPress.minimumPressDuration = 0
+        //        longPress.minimumPressDuration = 0
         addGestureRecognizer(longPress)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
@@ -64,33 +64,33 @@ class AssetCoinCell: UICollectionViewCell {
     }
 
     @objc func tapAction(gesture _: UITapGestureRecognizer) {
-//        || coin == Coin.coin(chain: .Cosmos)
+        //        || coin == Coin.coin(chain: .Cosmos)
 
         let vc = AssetDetailViewController()
         vc.currentCoin = coin
         let topVC = UIApplication.topViewController()
         topVC?.navigationController?.pushViewController(vc, animated: true)
 
-//        switch gesture.state {
-//        case .began:
-//            UIView.animate(withDuration: 0.3) {
-//                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//                self.background.alpha = 1
-//            }
-//
-//        case .ended:
-//            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-//            let vc = TransferPopUp.make(address: "", coin: coin)
-//            vc.modalPresentationStyle = .overCurrentContext
-//            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
-//            UIView.animate(withDuration: 0.3) {
-//                self.transform = CGAffineTransform.identity
-//                self.background.alpha = 0
-//            }
-//
-//        default:
-//            break
-//        }
+        //        switch gesture.state {
+        //        case .began:
+        //            UIView.animate(withDuration: 0.3) {
+        //                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        //                self.background.alpha = 1
+        //            }
+        //
+        //        case .ended:
+        //            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        //            let vc = TransferPopUp.make(address: "", coin: coin)
+        //            vc.modalPresentationStyle = .overCurrentContext
+        //            UIApplication.topViewController()?.present(vc, animated: false, completion: nil)
+        //            UIView.animate(withDuration: 0.3) {
+        //                self.transform = CGAffineTransform.identity
+        //                self.background.alpha = 0
+        //            }
+        //
+        //        default:
+        //            break
+        //        }
     }
 
     @objc func longPress(gesture: UILongPressGestureRecognizer) {
@@ -169,7 +169,7 @@ class AssetCoinCell: UICollectionViewCell {
                 .font(UIFont.systemFont(ofSize: 17)),
                 .xmlRules([
                     .style("name", nameStyle),
-                    .style("network", networkStyle),
+                    .style("network", networkStyle)
                 ])
             )
             let text = "<name>Ethereum</name> <network>\(network.name)</network>".styled(with: finalStyle)
@@ -183,7 +183,7 @@ class AssetCoinCell: UICollectionViewCell {
         }
 
         if let balance = info.amount, let balanceInt = BigUInt(balance),
-            let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 4, decimalSeparator: ".", fallbackToScientific: false), let amountInDouble = Double(amount) {
+           let amount = Web3.Utils.formatToPrecision(balanceInt, numberDecimals: info.decimals, formattingDecimals: 4, decimalSeparator: ".", fallbackToScientific: false), let amountInDouble = Double(amount) {
             let removeZero = String(format: "%g", amountInDouble)
             amountLabel.text = "\(removeZero) \(info.symbol!)"
 

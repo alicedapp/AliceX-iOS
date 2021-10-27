@@ -113,14 +113,14 @@ class HUDManager: NSObject {
             attributes.positionConstraints.verticalOffset = 0
             attributes.positionConstraints.size = .init(width: .offset(value: 0), height: .fill)
             attributes.positionConstraints.safeArea = .overridden
-//                .empty(fillSafeArea: true)
+            //                .empty(fillSafeArea: true)
 
-//            let edge = .constant(value: UIScreen.main.bounds.minEdge)
-//            if widthIsFull {
-//                edge = .constant(value: UIScreen.main.bounds.minEdge)
-//            }
+            //            let edge = .constant(value: UIScreen.main.bounds.minEdge)
+            //            if widthIsFull {
+            //                edge = .constant(value: UIScreen.main.bounds.minEdge)
+            //            }
             attributes.positionConstraints.maxSize = .init(width: widthIsFull ?
-                .constant(value: UIScreen.main.bounds.minEdge) : .ratio(value: 0.8),
+                                                            .constant(value: UIScreen.main.bounds.minEdge) : .ratio(value: 0.8),
                                                            height: .intrinsic)
 
             if #available(iOS 13.0, *) {

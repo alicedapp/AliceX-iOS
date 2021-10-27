@@ -13,7 +13,7 @@ import SwiftyUserDefaults
 class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDelegate {
     var vc: BrowserViewController!
     var urlString: String = ""
-//    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
+    //    @objc var hk_iconImage: UIImage = UIImage.imageWithColor(color: UIColor(hex: "D5D5D5"))
 
     private var observer: NSObjectProtocol?
 
@@ -30,8 +30,8 @@ class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDeleg
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
 
-//        setNeedsUpdateOfHomeIndicatorAutoHidden()
-//        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+        //        setNeedsUpdateOfHomeIndicatorAutoHidden()
+        //        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
     }
 
     override func viewDidLoad() {
@@ -48,29 +48,29 @@ class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(changeNetwork),
                                                name: .walletChange, object: nil)
 
-//        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
-//        gesture.edges = .bottom
-//        gesture.delegate = self
-//        self.view.addGestureRecognizer(gesture)
-//
+        //        let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeUp))
+        //        gesture.edges = .bottom
+        //        gesture.delegate = self
+        //        self.view.addGestureRecognizer(gesture)
+        //
         ////        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
-//
-//        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
-//            self.setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
-//        }
+        //
+        //        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+        //            self.setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+        //        }
     }
 
-//    @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-//        //TODO: Force show
-//
-//        if recognizer.state == .recognized {
-//            print("Screen edge swiped!")
-//        }
-//
-//        print("DDDDDD")
+    //    @objc func swipeUp(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+    //        //TODO: Force show
+    //
+    //        if recognizer.state == .recognized {
+    //            print("Screen edge swiped!")
+    //        }
+    //
+    //        print("DDDDDD")
     ////        vc.forceShowBar()
-//        vc.forceHide = false
-//    }
+    //        vc.forceHide = false
+    //    }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -102,13 +102,13 @@ class BrowserWrapperViewController: BaseViewController, UIGestureRecognizerDeleg
         addBrowser()
     }
 
-//    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
-//        return .bottom
-//    }
+    //    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+    //        return .bottom
+    //    }
 
-//    override var childForScreenEdgesDeferringSystemGestures: UIViewController? {
-//        return vc
-//    }
+    //    override var childForScreenEdgesDeferringSystemGestures: UIViewController? {
+    //        return vc
+    //    }
 }
 
 extension BrowserWrapperViewController: PinDelegate {
@@ -119,9 +119,9 @@ extension BrowserWrapperViewController: PinDelegate {
 
         let imageURL = FaviconHelper.bestIcon(url: url)
 
-//        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
-//            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
-//        }
+        //        if let urlStr = vc.webview.url, let hostURL = urlStr.host {
+        //            url = URL(string: "\(hostURL.addHttpPrefix())/favicon.ico")!
+        //        }
 
         FaviconHelper.prefetchFavicon(urls: [url])
         return .website(image: imageURL,

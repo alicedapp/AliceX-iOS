@@ -59,23 +59,23 @@ enum Coin {
         }
     }
 
-//    var name: String {
-//        switch self {
-//        case .coin(let chain):
-//            return chain.rawValue.firstUppercased
-//        case .ERC20(let token):
-//            return token.name
-//        }
-//    }
-//
-//    var symbol: String {
-//        switch self {
-//        case .coin(let chain):
-//            return chain.symbol
-//        case .ERC20(let token):
-//            return CoinInfoCenter.shared.
-//        }
-//    }
+    //    var name: String {
+    //        switch self {
+    //        case .coin(let chain):
+    //            return chain.rawValue.firstUppercased
+    //        case .ERC20(let token):
+    //            return token.name
+    //        }
+    //    }
+    //
+    //    var symbol: String {
+    //        switch self {
+    //        case .coin(let chain):
+    //            return chain.symbol
+    //        case .ERC20(let token):
+    //            return CoinInfoCenter.shared.
+    //        }
+    //    }
 
     var info: CoinInfo? {
         if CoinInfoCenter.shared.pool.keys.contains(id) {
@@ -85,15 +85,15 @@ enum Coin {
         return nil
     }
 
-//    func info() -> CoinInfo {
-//        firstly {
-//
-//        }.done { info in
+    //    func info() -> CoinInfo {
+    //        firstly {
+    //
+    //        }.done { info in
     ////            self.info = info
-//            return info
-//        }
-//
-//    }
+    //            return info
+    //        }
+    //
+    //    }
 
     func verify(address: String) -> Bool {
         switch self {

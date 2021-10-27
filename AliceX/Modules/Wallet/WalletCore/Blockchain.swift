@@ -14,8 +14,8 @@ enum BlockChain: String, CaseIterable {
     case Ethereum
     case Bitcoin
     case Binance
-//    case Cosmos
-//    case unknow
+    //    case Cosmos
+    //    case unknow
 }
 
 extension BlockChain {
@@ -27,8 +27,8 @@ extension BlockChain {
             return 1839
         case .Bitcoin:
             return 1
-//        case .Cosmos:
-//            return 3794
+        //        case .Cosmos:
+        //            return 3794
         }
     }
 
@@ -40,9 +40,9 @@ extension BlockChain {
         return Coin.coin(chain: self).image.absoluteString
     }
 
-//    var price: Double {
-//        PriceHelper.shared
-//    }
+    //    var price: Double {
+    //        PriceHelper.shared
+    //    }
 
     var coinType: CoinType {
         switch self {
@@ -52,8 +52,8 @@ extension BlockChain {
             return .binance
         case .Bitcoin:
             return .bitcoin
-//        case .Cosmos:
-//            return .cosmos
+        //        case .Cosmos:
+        //            return .cosmos
         }
     }
 
@@ -65,8 +65,8 @@ extension BlockChain {
             return "BNB"
         case .Bitcoin:
             return "BTC"
-//        case .Cosmos:
-//            return "ATOM"
+        //        case .Cosmos:
+        //            return "ATOM"
         }
     }
 
@@ -89,8 +89,8 @@ extension BlockChain {
             return 8
         case .Ethereum:
             return 18
-//        case .Cosmos:
-//            return 9
+        //        case .Cosmos:
+        //            return 9
         }
     }
 
@@ -100,8 +100,8 @@ extension BlockChain {
             return URL(string: "https://etherscan.io")!
         case .Binance:
             return URL(string: "https://explorer.binance.org")!
-//        case .Cosmos:
-//            return URL(string: "https://www.mintscan.io")!
+        //        case .Cosmos:
+        //            return URL(string: "https://www.mintscan.io")!
         case .Bitcoin:
             return URL(string: "https://btc.com")!
         }
@@ -133,8 +133,8 @@ extension BlockChain {
             return PinItem.txURL(network: network ?? WalletManager.currentNetwork, txHash: txHash)
         case .Binance:
             return URL(string: "https://explorer.binance.org/tx/\(txHash)")!
-//        case .Cosmos:
-//            return URL(string: "https://www.mintscan.io/txs/\(txHash)")!
+        //        case .Cosmos:
+        //            return URL(string: "https://www.mintscan.io/txs/\(txHash)")!
         case .Bitcoin:
             return URL(string: "https://btc.com/\(txHash)")!
         }
@@ -150,8 +150,8 @@ extension BlockChain {
         case .Binance, .Bitcoin:
             return self.coinType.validate(address: address)
 
-//        case .Cosmos:
-//            return self.coinType.validate(address: address)
+        //        case .Cosmos:
+        //            return self.coinType.validate(address: address)
         }
     }
 }

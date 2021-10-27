@@ -47,14 +47,14 @@ class BaseAlertView: BaseView {
     }
 
     @IBAction func confirmBtnClicked() {
-//        if let block = confirmBlock!() {
-//            block!()
-//        }
+        //        if let block = confirmBlock!() {
+        //            block!()
+        //        }
         if confirmBlock != nil {
             confirmBlock!()
         }
 
-//        HUDManager.shared.dismiss()
+        //        HUDManager.shared.dismiss()
     }
 
     @IBAction func cancelBtnClicked() {

@@ -54,9 +54,9 @@ class SignMessagePopUp: UIViewController {
 extension SignMessagePopUp: PayButtonDelegate {
     func verifyAndSend() {
         #if DEBUG
-            send()
+        send()
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 

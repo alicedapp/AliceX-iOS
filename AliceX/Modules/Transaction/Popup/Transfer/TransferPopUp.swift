@@ -48,14 +48,14 @@ class TransferPopUp: UIViewController {
         addressField.text = address
         valueField.text = value == BigUInt(0) ? "" : value.readableValue
 
-//        symbolLabel.text = coin.
+        //        symbolLabel.text = coin.
         symbolLabel.text = coin.info!.symbol
         symbolImageView.kf.setImage(with: coin.image)
 
         valueFieldDidChange(valueField)
 
         if let info = coin.info, let amountStr = info.amount,
-            let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 5, decimalSeparator: ".", fallbackToScientific: false) {
+           let bigAmount = BigUInt(amountStr), let amount = Web3.Utils.formatToPrecision(bigAmount, numberDecimals: info.decimals, formattingDecimals: 5, decimalSeparator: ".", fallbackToScientific: false) {
             balanceLabel.text = amount
         } else {
             balanceLabel.text = "0.0"
@@ -80,30 +80,30 @@ class TransferPopUp: UIViewController {
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                           self.bgView.alpha = 1
-                           self.containView.transform = CGAffineTransform.identity
+                        self.bgView.alpha = 1
+                        self.containView.transform = CGAffineTransform.identity
                        }, completion: { _ in
-                           if self.address!.isEmptyAfterTrim() {
-                               self.addressField.becomeFirstResponder()
-                               return
-                           }
-                           self.valueField.becomeFirstResponder()
+                        if self.address!.isEmptyAfterTrim() {
+                            self.addressField.becomeFirstResponder()
+                            return
+                        }
+                        self.valueField.becomeFirstResponder()
 
-        })
+                       })
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        UIView.animate(withDuration: 0.3,
-//                       delay: 0,
-//                       usingSpringWithDamping: 0.9,
-//                       initialSpringVelocity: 0,
-//                       options: [],
-//                       animations: {
-//            self.bgView.alpha = 0
-//            self.containView.transform = CGAffineTransform(translationX: 0, y: 400)
-//        }, completion: nil)
-//    }
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillAppear(true)
+    //        UIView.animate(withDuration: 0.3,
+    //                       delay: 0,
+    //                       usingSpringWithDamping: 0.9,
+    //                       initialSpringVelocity: 0,
+    //                       options: [],
+    //                       animations: {
+    //            self.bgView.alpha = 0
+    //            self.containView.transform = CGAffineTransform(translationX: 0, y: 400)
+    //        }, completion: nil)
+    //    }
 
     @IBAction func cancelBtnClicked() {
         view.endEditing(true)
@@ -113,19 +113,19 @@ class TransferPopUp: UIViewController {
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                           self.bgView.alpha = 0
-                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+                        self.bgView.alpha = 0
+                        self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
                        }, completion: { _ in
-                           self.dismiss(animated: false, completion: nil)
-        })
+                        self.dismiss(animated: false, completion: nil)
+                       })
 
-//        self.dismiss(animated: true, completion: nil)
+        //        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func maxBtnClicked() {
         if let info = coin.info, let amountStr = info.amount,
-            let bigAmount = BigUInt(amountStr),
-            let amount = bigAmount.formatToPrecision(decimals: info.decimals) {
+           let bigAmount = BigUInt(amountStr),
+           let amount = bigAmount.formatToPrecision(decimals: info.decimals) {
             valueField.text = amount
             self.amount = bigAmount
             valueFieldDidChange(valueField)
@@ -137,7 +137,7 @@ class TransferPopUp: UIViewController {
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
         guard let addr = address,
-            coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
+              coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
             if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
                 errorAlert(text: "Address invalid")
             }
@@ -175,10 +175,10 @@ class TransferPopUp: UIViewController {
         }
 
         // TODO:
-//        guard let amount = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
-//            errorAlert(text: "Value invalid")
-//            return
-//        }
+        //        guard let amount = Web3Utils.parseToBigUInt(valueField.text!, decimals: decimals) else {
+        //            errorAlert(text: "Value invalid")
+        //            return
+        //        }
 
         if amount <= 0 {
             errorAlert(text: "Can't be zero")
@@ -207,9 +207,9 @@ class TransferPopUp: UIViewController {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
 
-//        if let addStr = textField.text {
-//            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
-//        }
+        //        if let addStr = textField.text {
+        //            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
+        //        }
 
         address = textField.text
 
@@ -237,7 +237,7 @@ class TransferPopUp: UIViewController {
 
             }.catch { _ in
                 onMainThread {
-//                    self.errorAlert(text: error.localizedDescription)
+                    //                    self.errorAlert(text: error.localizedDescription)
                     self.addressLabel.text = "Address ❌"
                 }
             }
@@ -295,7 +295,7 @@ class TransferPopUp: UIViewController {
         transition.type = CATransitionType(rawValue: "cube")
         transition.subtype = CATransitionSubtype.fromBottom
         titleLabel.layer.add(transition, forKey: "country1_animation")
-//        transition.subtype = CATransitionSubtype.fromTop
-//        country2.layer.add(transition, forKey: "country2_animation")
+        //        transition.subtype = CATransitionSubtype.fromTop
+        //        country2.layer.add(transition, forKey: "country2_animation")
     }
 }

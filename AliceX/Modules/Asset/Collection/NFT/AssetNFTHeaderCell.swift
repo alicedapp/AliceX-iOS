@@ -23,7 +23,7 @@ class AssetNFTHeaderCell: UICollectionViewCell {
         animationButton.currentButtonStyle = .buttonRoundedStyle
         animationButton.lineThickness = 5
         animationButton.tintColor = AliceColor.grey
-//        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
+        //        animationButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         animationButton.lineRadius = 10
     }
 

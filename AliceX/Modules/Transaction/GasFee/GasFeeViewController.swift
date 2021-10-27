@@ -65,7 +65,7 @@ class GasFeeViewController: BaseViewController {
     }
 
     override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
+        //        super.viewDidLayoutSubviews()
         view.layoutIfNeeded()
         container.roundCorners(corners: [.topLeft, .topRight], radius: 10)
     }

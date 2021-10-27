@@ -23,11 +23,11 @@ extension CosmosAPI: TargetType {
     }
 
     var baseURL: URL {
-//        #if DEBUG
-//        return URL(string: "https://testnet-dex.binance.org/api/v1/")!
-//        #else
+        //        #if DEBUG
+        //        return URL(string: "https://testnet-dex.binance.org/api/v1/")!
+        //        #else
         return URL(string: "https://stargate.cosmos.network/")!
-//        #endif
+        //        #endif
     }
 
     var path: String {

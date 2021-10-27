@@ -11,7 +11,7 @@ import Foundation
 
 func handleAliceURL(url: URL) -> Bool {
     guard let scheme = url.scheme,
-        scheme.localizedCaseInsensitiveCompare("alice") == .orderedSame else {
+          scheme.localizedCaseInsensitiveCompare("alice") == .orderedSame else {
         return false
     }
 
@@ -54,12 +54,12 @@ func handleAliceURL(url: URL) -> Bool {
         }
     case "signTransaction":
         guard let to = dict["to"],
-            let valueRaw = dict["value"],
-            let dataRaw = dict["data"] else {
+              let valueRaw = dict["value"],
+              let dataRaw = dict["data"] else {
             return false
         }
         guard let value = BigUInt(valueRaw.stripHexPrefix(), radix: 16),
-            let data = Data.fromHex(dataRaw) else {
+              let data = Data.fromHex(dataRaw) else {
             HUDManager.shared.showError(text: "Parameters is invaild")
             return false
         }
@@ -72,7 +72,7 @@ func handleAliceURL(url: URL) -> Bool {
 
     case "sendTransaction":
         guard let to = dict["to"],
-            let valueRaw = dict["value"] else {
+              let valueRaw = dict["value"] else {
             return false
         }
         guard let value = BigUInt(valueRaw.stripHexPrefix(), radix: 16) else {

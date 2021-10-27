@@ -12,9 +12,9 @@ import Haneke
 extension WalletManager {
     func addRPC(model: Web3NetModel) {
         WalletManager.customNetworkList.append(model)
-//        let modelList = WalletManager.customNetworkList.map{
-//            $0.model
-//        }
+        //        let modelList = WalletManager.customNetworkList.map{
+        //            $0.model
+        //        }
         storeRPCToCache()
     }
 

@@ -21,16 +21,16 @@ extension AssetPriceViewController: BEMSimpleLineGraphDataSource {
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let locations: [CGFloat] = [0.0, 1.0]
 
-//       let topColor1 = UIColor(hex: "85D7E2", alpha: 0.1)
-//       let bottomColor1 = UIColor(hex: "FFFFFF", alpha: 1.0)
-//       let gradientColors1 : [CGColor] = [topColor1.cgColor,bottomColor1.cgColor]
-//       let locations1 : [CGFloat] = [0.0, 1.0]
+        //       let topColor1 = UIColor(hex: "85D7E2", alpha: 0.1)
+        //       let bottomColor1 = UIColor(hex: "FFFFFF", alpha: 1.0)
+        //       let gradientColors1 : [CGColor] = [topColor1.cgColor,bottomColor1.cgColor]
+        //       let locations1 : [CGFloat] = [0.0, 1.0]
 
         gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors as CFArray, locations: locations)
-//        self.lineGradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors1 as CFArray, locations: locations1)
+        //        self.lineGradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors1 as CFArray, locations: locations1)
 
         chartView.gradientBottom = gradient!
-//        chartView.gradientLine = self.lineGradient!
+        //        chartView.gradientLine = self.lineGradient!
 
         chartView.enableTouchReport = true
         chartView.enablePopUpReport = true
@@ -51,8 +51,8 @@ extension AssetPriceViewController: BEMSimpleLineGraphDataSource {
 
     func lineGraph(_: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
         if data.keys.contains(currentCoin), let list = data[currentCoin],
-            let model = list[index],
-            let price = model.price {
+           let model = list[index],
+           let price = model.price {
             return CGFloat(price)
         }
 

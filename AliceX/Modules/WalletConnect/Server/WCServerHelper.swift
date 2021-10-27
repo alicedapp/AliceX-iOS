@@ -19,14 +19,14 @@ class WCServerHelper {
     var isConnecting: Bool = false
     var connectedDate: Date?
 
-//    var dappInfo = {
-//        return session?.dAppInfo.peerMeta
-//    }()
+    //    var dappInfo = {
+    //        return session?.dAppInfo.peerMeta
+    //    }()
 
-//    typealias dappaInfo = session?.dAppInfo.peerMeta
+    //    typealias dappaInfo = session?.dAppInfo.peerMeta
 
     init() {
-//        server.register(handler: SignHandler(server: server))
+        //        server.register(handler: SignHandler(server: server))
     }
 
     func connect(url: String) {
@@ -68,9 +68,9 @@ class WCServerHelper {
 
 extension WCServerHelper: ServerDelegate {
     func server(_ server: Server, didUpdate session: Session) {
-        
+
     }
-    
+
     func server(_: Server, didFailToConnect _: WCURL) {
         HUDManager.shared.showErrorAlert(text: "Wallect Connect Faild to Connect")
     }
@@ -100,28 +100,28 @@ extension WCServerHelper: ServerDelegate {
             let modal = WCConnectPopupVC.make(portAImage: portAImage, portAName: portAName,
                                               portBImage: aliceLogo, portBName: "Alice",
                                               comfirmBlock: {
-                                                  completion(walletInfo)
+                                                completion(walletInfo)
 
-            }) {
+                                              }) {
                 completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
             }
             let height = 430 - 34 + Constant.SAFE_BOTTOM
             topVC?.presentAsStork(modal, height: height)
 
-//            let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
-//                                           portBImage: aliceLogo, portBName: "Alice",
-//                                           comfirmBlock: {
-//                                               completion(walletInfo)
-//            }) {
-//                completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
-//            }
-//
-//            HUDManager.shared.showAlertView(view: view,
-//                                            backgroundColor: .clear,
-//                                            haptic: .none,
-//                                            type: .bottomFloat,
-//                                            widthIsFull: true,
-//                                            canDismiss: false)
+            //            let view = WCConnectPopup.make(portAImage: portAImage, portAName: portAName,
+            //                                           portBImage: aliceLogo, portBName: "Alice",
+            //                                           comfirmBlock: {
+            //                                               completion(walletInfo)
+            //            }) {
+            //                completion(Session.WalletInfo(approved: false, accounts: [], chainId: WalletManager.currentNetwork.chainID, peerId: "", peerMeta: walletMeta))
+            //            }
+            //
+            //            HUDManager.shared.showAlertView(view: view,
+            //                                            backgroundColor: .clear,
+            //                                            haptic: .none,
+            //                                            type: .bottomFloat,
+            //                                            widthIsFull: true,
+            //                                            canDismiss: false)
         }
     }
 

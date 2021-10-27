@@ -15,7 +15,7 @@ class WatchingCoinHelper {
     static let shared = WatchingCoinHelper()
 
     var list: [Coin] = []
-//    var balance: [String: Double] = [:]
+    //    var balance: [String: Double] = [:]
     var noCache: Bool = false
 
     init() {
@@ -66,13 +66,13 @@ class WatchingCoinHelper {
     }
 
     // TODO:
-//    func add(list: [Coin]) {
-//        if list.contains(coin) {
-//            return
-//        }
-//        list.append(lis)
-//        storeInCache()
-//    }
+    //    func add(list: [Coin]) {
+    //        if list.contains(coin) {
+    //            return
+    //        }
+    //        list.append(lis)
+    //        storeInCache()
+    //    }
 
     func remove(coin: Coin, updateCache: Bool = false) {
         if !list.contains(coin) {
@@ -90,9 +90,9 @@ class WatchingCoinHelper {
     }
 
     func updateList(newList: [Coin]) {
-//        for coin in newList {
-//            if
-//        }
+        //        for coin in newList {
+        //            if
+        //        }
 
         list = newList
         storeInCache()
@@ -155,14 +155,14 @@ extension WatchingCoinHelper {
                 for id in idList {
                     if id.count == 42, id.hasPrefix("0x") { // ERC20
                         let coin = Coin.ERC20(address: String(id))
-//                        self.add(coin: coin)
+                        //                        self.add(coin: coin)
                         watchingList.append(coin)
                     } else {
                         guard let chain = BlockChain(rawValue: String(id)) else {
                             continue
                         }
                         let coin = Coin.coin(chain: chain)
-//                        self.add(coin: coin)
+                        //                        self.add(coin: coin)
                         watchingList.append(coin)
                     }
                 }

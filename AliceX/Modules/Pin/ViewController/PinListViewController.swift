@@ -31,8 +31,8 @@ class PinListViewController: BaseViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.registerCell(nibName: PinListCell.nameOfClass)
-//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
-//        tableView.estimatedRowHeight = 100
+        //        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+        //        tableView.estimatedRowHeight = 100
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
         tableView.backgroundView = UIView()
@@ -70,8 +70,8 @@ class PinListViewController: BaseViewController {
                            initialAlpha: 1.0,
                            finalAlpha: 0.0,
                            completion: {
-                               self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .none)
-            })
+                            self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .none)
+                           })
 
             self.view.alpha = 1
             UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
@@ -98,15 +98,15 @@ class PinListViewController: BaseViewController {
         cellAnimate()
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        view.alpha = 1
-//        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-//            self.view.alpha = 0
-//        }) { _ in
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillAppear(true)
+    //        view.alpha = 1
+    //        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+    //            self.view.alpha = 0
+    //        }) { _ in
     ////            self.view.alpha = 1
-//        }
-//    }
+    //        }
+    //    }
 
     @available(iOS 12.0, *)
     override func themeDidChange(style: UIUserInterfaceStyle) {
@@ -130,7 +130,7 @@ extension PinListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PinListCell.nameOfClass, for: indexPath) as! PinListCell
-//        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        //        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         cell.previousVC = previousVC
         cell.parentVC = self
 

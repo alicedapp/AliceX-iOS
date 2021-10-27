@@ -33,10 +33,10 @@ enum MainTab: Int, CaseIterable {
             return UIImage(named: "back")!
         case .setting:
             return UIImage(named: "back")!
-//        case .transaction:
-//            return UIImage(named: "back")!
-//        case .profile:
-//            return UIImage(named: "back")!
+        //        case .transaction:
+        //            return UIImage(named: "back")!
+        //        case .profile:
+        //            return UIImage(named: "back")!
         }
     }
 }

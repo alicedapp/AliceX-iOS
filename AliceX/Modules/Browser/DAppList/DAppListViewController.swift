@@ -33,10 +33,12 @@ class DAppListViewController: BaseViewController {
         GithubAPI.request(.dappList) { result in
             switch result {
             case let .success(response):
-                guard let modelArray = response.mapArray(DAppModel.self) else {
+                guard let modelArray = try? JSONDecoder().decode([DAppModel].self,
+                                                                 from: response.data) else {
                     return
                 }
-                self.dappList = modelArray as! [DAppModel]
+
+                self.dappList = modelArray
                 self.tableView.reloadData()
                 self.storeInCache()
             case let .failure(error):
@@ -47,9 +49,12 @@ class DAppListViewController: BaseViewController {
     }
 
     func loadData() {
-        let bundlePath = Bundle.main.path(forResource: "dapps", ofType: "json")
-        let jsonString = try! String(contentsOfFile: bundlePath!)
-        dappList = [DAppModel].deserialize(from: jsonString) as! [DAppModel]
+        let bundlePath = Bundle.main.url(forResource: "dapps", withExtension: "json")
+        guard let jsonData = try? Data(contentsOf: bundlePath!),
+              let model = try? JSONDecoder().decode([DAppModel].self, from: jsonData) else {
+            return
+        }
+        dappList = model
         tableView.reloadData()
     }
 }
@@ -86,10 +91,12 @@ extension DAppListViewController: UITableViewDelegate, UITableViewDataSource {
 extension DAppListViewController {
     func loadFromCache() {
         let cacheKey = CacheKey.browserDappList
-        Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
-            guard let modelArray = [DAppModel].deserialize(from: result) else {
+        Shared.dataCache.fetch(key: cacheKey).onSuccess { result in
+            guard let modelArray = try? JSONDecoder().decode([DAppModel].self,
+                                                             from: result) else {
                 return
             }
+
             self.dappList = modelArray as! [DAppModel]
             self.tableView.reloadData()
         }.onFailure { _ in
@@ -98,7 +105,10 @@ extension DAppListViewController {
     }
 
     func storeInCache() {
+        guard let data = try? JSONEncoder().encode(dappList) else {
+            return
+        }
         let cacheKey = CacheKey.browserDappList
-        Shared.stringCache.set(value: (dappList?.toJSONString())!, key: cacheKey)
+        Shared.dataCache.set(value: data, key: cacheKey)
     }
 }

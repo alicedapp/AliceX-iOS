@@ -46,7 +46,7 @@ class QRCodeReaderViewController: LBXScanViewController {
         scanStyle = style
         setNeedCodeImage(needCodeImg: false)
         scanStyle?.centerUpOffset += 10
-//        isOpenInterestRect = true
+        //        isOpenInterestRect = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -71,8 +71,8 @@ class QRCodeReaderViewController: LBXScanViewController {
 
     @IBAction func myqrcodeClicked() {
         let vc = MyQRCodeViewController()
-//        vc.modalPresentationStyle = .currentContext
-//        present(vc, animated: true, completion: nil)
+        //        vc.modalPresentationStyle = .currentContext
+        //        present(vc, animated: true, completion: nil)
 
         HUDManager.shared.showAlertVCNoBackground(viewController: vc)
     }

@@ -39,7 +39,7 @@ class AddressPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addressField.text = address
-//        self.addressField.becomeFirstResponder()
+        //        self.addressField.becomeFirstResponder()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -54,11 +54,11 @@ class AddressPopUp: UIViewController {
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                           self.bgView.alpha = 1
-                           self.containView.transform = CGAffineTransform.identity
+                        self.bgView.alpha = 1
+                        self.containView.transform = CGAffineTransform.identity
                        }, completion: { _ in
-                           self.addressField.becomeFirstResponder()
-        })
+                        self.addressField.becomeFirstResponder()
+                       })
     }
 
     @IBAction func cancelBtnClicked() {
@@ -69,17 +69,17 @@ class AddressPopUp: UIViewController {
                        initialSpringVelocity: 0,
                        options: [],
                        animations: {
-                           self.bgView.alpha = 0
-                           self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
+                        self.bgView.alpha = 0
+                        self.containView.transform = CGAffineTransform(translationX: 0, y: -400)
                        }, completion: { _ in
-                           self.dismiss(animated: false, completion: nil)
-        })
+                        self.dismiss(animated: false, completion: nil)
+                       })
     }
 
     @IBAction func pasteBtnClicked() {
         let address = UIPasteboard.general.string
         guard let addr = address,
-            coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
+              coin.verify(address: addr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
             if !coin.isERC20, coin != Coin.coin(chain: .Ethereum) {
                 errorAlert(text: "Address invalid")
             }
@@ -101,8 +101,8 @@ class AddressPopUp: UIViewController {
 
         if let delegate = self.delegate {
             delegate.comfirmedAddress(address: addr)
-//            cancelBtnClicked()
-//            HUDManager.shared.dismiss()
+            //            cancelBtnClicked()
+            //            HUDManager.shared.dismiss()
         }
     }
 
@@ -127,9 +127,9 @@ class AddressPopUp: UIViewController {
         addressLabel.text = "Address"
         ensAddressLabel.text = ""
 
-//        if let addStr = textField.text {
-//            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
-//        }
+        //        if let addStr = textField.text {
+        //            self.address = addStr.trimmingCharacters(in: .whitespacesAndNewlines)
+        //        }
 
         address = textField.text
 
@@ -153,7 +153,7 @@ class AddressPopUp: UIViewController {
 
             }.catch { _ in
                 onMainThread {
-//                    self.errorAlert(text: error.localizedDescription)
+                    //                    self.errorAlert(text: error.localizedDescription)
                     self.addressLabel.text = "Address ❌"
                 }
             }
@@ -180,7 +180,7 @@ class AddressPopUp: UIViewController {
         transition.type = CATransitionType(rawValue: "cube")
         transition.subtype = CATransitionSubtype.fromBottom
         titleLabel.layer.add(transition, forKey: "country1_animation")
-//        transition.subtype = CATransitionSubtype.fromTop
-//        country2.layer.add(transition, forKey: "country2_animation")
+        //        transition.subtype = CATransitionSubtype.fromTop
+        //        country2.layer.add(transition, forKey: "country2_animation")
     }
 }

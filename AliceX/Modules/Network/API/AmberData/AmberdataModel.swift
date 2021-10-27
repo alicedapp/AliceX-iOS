@@ -152,7 +152,7 @@ struct AmberdataTXModel: HandyJSON {
     var tokenTransfers: [AmberdataTXTokenTransfers]?
 
     mutating func mapping(mapper: HelpingMapper) {
-//        2019-07-26T08:06:29.000Z"
+        //        2019-07-26T08:06:29.000Z"
         mapper <<<
             timestamp <-- CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
     }

@@ -28,9 +28,9 @@ class MiniAppSearchVC: BaseViewController {
         tableView.dataSource = self
         searchBar.delegate = self
 
-//        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
-//        searchBarBackground?.removeFromSuperview()
-//        searchBar.backgroundColor = .clear
+        //        let searchBarBackground: UIView? = searchBar.value(forKey: "background") as? UIView
+        //        searchBarBackground?.removeFromSuperview()
+        //        searchBar.backgroundColor = .clear
         searchBar.backgroundImage = UIImage()
         loadFromCache()
         requestData()
@@ -40,15 +40,17 @@ class MiniAppSearchVC: BaseViewController {
         GithubAPI.request(.dappList) { result in
             switch result {
             case let .success(response):
-                guard let modelArray = response.mapArray(DAppModel.self) else {
+                guard let modelArray = try? JSONDecoder().decode([DAppModel].self,
+                                                                 from: response.data) else {
                     return
                 }
+
                 self.data = modelArray as! [DAppModel]
                 self.filteredData = self.data
                 self.tableView.reloadData()
                 self.storeInCache()
             case let .failure(error):
-//                self.loadFromCache()
+                //                self.loadFromCache()
                 print(error.errorDescription)
             }
         }
@@ -156,11 +158,12 @@ extension MiniAppSearchVC: UISearchBarDelegate {
 extension MiniAppSearchVC {
     func loadFromCache() {
         let cacheKey = CacheKey.browserDappList
-        Shared.stringCache.fetch(key: cacheKey).onSuccess { result in
-            guard let modelArray = [DAppModel].deserialize(from: result) else {
+        Shared.dataCache.fetch(key: cacheKey).onSuccess { result in
+            guard let modelArray = try? JSONDecoder().decode([DAppModel].self,
+                                                             from: result) else {
                 return
             }
-            self.data = modelArray as! [DAppModel]
+            self.data = modelArray
             self.filteredData = self.data
             self.tableView.reloadData()
         }.onFailure { error in
@@ -169,7 +172,10 @@ extension MiniAppSearchVC {
     }
 
     func storeInCache() {
+        guard let data = try? JSONEncoder().encode(data) else {
+            return
+        }
         let cacheKey = CacheKey.browserDappList
-        Shared.stringCache.set(value: (data.toJSONString())!, key: cacheKey)
+        Shared.dataCache.set(value: data, key: cacheKey)
     }
 }

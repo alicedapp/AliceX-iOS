@@ -51,24 +51,24 @@ class FloatBall: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 5
 
-//        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
-//        updateImage()
+        //        walletConnect.image? = walletConnect.image!.filled(with: .init(white: 1, alpha: 0.8))
+        //        updateImage()
     }
 
     func updateImage() {
         if let pinItem = PinManager.shared.pinList.last {
             let image = pinItem.image
             imageView.kf.setImage(with: image)
-//            { result in
-//                switch result {
-//                case let .failure(error):
-//                    break
-//                    // TODO
+            //            { result in
+            //                switch result {
+            //                case let .failure(error):
+            //                    break
+            //                    // TODO
             ////                    self.imageView.image = UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
-//                case .success:
-//                    break
-//                }
-//            }
+            //                case .success:
+            //                    break
+            //                }
+            //            }
 
             if pinItem.isWebSite {
                 guard let url = pinItem.URL, let domain = url.host else {
@@ -92,20 +92,20 @@ class FloatBall: UIView {
 
         } else {
             imageView.image = nil
-//                UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
+            //                UIImage.imageWithColor(color: WalletManager.currentNetwork.color)
         }
     }
 
     func updateIfNeeded() {
         var shouldShow = false
-//        walletConnect.isHidden = true
+        //        walletConnect.isHidden = true
         for item in PinManager.shared.pinList {
             if item.txHash.count > 0 {
                 shouldShow = true
             }
-//            if item.isWalletConnect {
-//                walletConnect.isHidden = false
-//            }
+            //            if item.isWalletConnect {
+            //                walletConnect.isHidden = false
+            //            }
         }
         showPending = shouldShow
         updateImage()

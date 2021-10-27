@@ -103,7 +103,7 @@ class SignTransactionPopUp: UIViewController {
 
     @objc func gasChange(_ notification: Notification) {
         guard let text = notification.userInfo?["gasPrice"] as? String,
-            let gasPrice = GasPrice.make(string: text) else { return }
+              let gasPrice = GasPrice.make(string: text) else { return }
         self.gasPrice = gasPrice
         updateGas()
     }
@@ -117,9 +117,9 @@ class SignTransactionPopUp: UIViewController {
 extension SignTransactionPopUp: PayButtonDelegate {
     func verifyAndSend() {
         #if DEBUG
-            send()
+        send()
         #else
-            biometricsVerify()
+        biometricsVerify()
         #endif
     }
 

@@ -28,11 +28,11 @@ class WalletManager {
     static var currentNetwork: Web3NetEnum = .main
     static var customNetworkList: [Web3NetModel] = []
 
-//    #if DEBUG
-//        static var web3Net = Web3.InfuraRinkebyWeb3()
-//    #else
+    //    #if DEBUG
+    //        static var web3Net = Web3.InfuraRinkebyWeb3()
+    //    #else
     static var web3Net = Web3.InfuraMainnetWeb3()
-//    #endif
+    //    #endif
 
     var keystore: BIP32Keystore?
 
@@ -70,8 +70,8 @@ class WalletManager {
 
         WalletManager.shared.keystore = keystore
 
-//        let result = try! await(WalletManager.fetchAccountsFromCache())
-//        print(result)
+        //        let result = try! await(WalletManager.fetchAccountsFromCache())
+        //        print(result)
 
         // Wait for acccunt loaded
         do {
@@ -93,7 +93,7 @@ class WalletManager {
     // MARK: - Wallet
 
     class func createWallet(completion: VoidBlock?) {
-//        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
+        //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
 
         if WalletManager.hasWallet() {
             HUDManager.shared.showError(text: "You already had a wallet")
@@ -109,7 +109,7 @@ class WalletManager {
             let keystore = try BIP32Keystore(mnemonics: mnemonics)
             let animal = Constant.randomAnimal()
             let name = "\(animal.firstUppercased) Wallet"
-//            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
+            //            let keyData = try JSONEncoder().encode(keystore!.keystoreParams)
             let defaultAccount = Defaults[\.defaultAccountIndex]
             let address = keystore!.addresses![defaultAccount].address
             let wallet = Account(address: address, name: name, imageName: animal)
@@ -130,11 +130,11 @@ class WalletManager {
 
     class func importWallet(mnemonics: String, completion: VoidBlock?) throws {
         if WalletManager.hasWallet() {
-//            throw WalletError.hasAccount
+            //            throw WalletError.hasAccount
             let vc = SignYesViewController.make {
                 WalletManager.replaceWallet(mnemonics: mnemonics, completion: nil)
             }
-//            HUDManager.shared.showAlertVCNoBackground(viewController: vc, entryInteraction: .absorbTouches)
+            //            HUDManager.shared.showAlertVCNoBackground(viewController: vc, entryInteraction: .absorbTouches)
             HUDManager.shared.showAlertVCNoBackground(viewController: vc)
             return
         }
@@ -148,12 +148,12 @@ class WalletManager {
 
             let animal = Constant.randomAnimal()
             let name = "\(animal.firstUppercased) Wallet"
-//            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
 
             WalletManager.Accounts = [wallet]
-//            WalletManager.storeAccountsToCache()
+            //            WalletManager.storeAccountsToCache()
             WalletManager.currentAccount = wallet
 
             WalletManager.shared.keystore = keystore
@@ -171,7 +171,7 @@ class WalletManager {
     class func replaceWallet(mnemonics: String, completion _: VoidBlock?) {
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
-//            throw WalletError.malformedKeystore
+            //            throw WalletError.malformedKeystore
             HUDManager.shared.showError(text: WalletError.malformedKeystore.errorDescription)
             return
         }
@@ -180,13 +180,13 @@ class WalletManager {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
             let animal = Constant.randomAnimal()
             let name = "\(animal.firstUppercased) Wallet"
-//            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+            //            let keyData = try JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
 
             WalletManager.currentAccount = wallet
             WalletManager.Accounts = [wallet]
-//            WalletManager.storeAccountsToCache()
+            //            WalletManager.storeAccountsToCache()
 
             WalletManager.shared.keystore = keystore
             try WalletManager.shared.saveKeystore(keystore)
@@ -206,7 +206,7 @@ class WalletManager {
     // MARK: - Notification
 
     class func updateNetwork(type: Web3NetEnum) {
-//        let web3:web3 = Web3Net.fetchFromCache()
+        //        let web3:web3 = Web3Net.fetchFromCache()
         do {
             let net = try WalletManager.make(type: type)
             WalletManager.web3Net = net
@@ -249,11 +249,11 @@ class WalletManager {
                                                      content: "We found your Mnemonic, Do you want to recover your wallet?",
                                                      confirmText: "Recover",
                                                      cancelText: "Cancel", confirmBlock: {
-                                                         HUDManager.shared.dismiss()
-                                                         let vc = ImportWalletViewController.make(buttonText: "Recover Wallet", mnemonic: mnemonic)
-                                                         let topVC = UIApplication.topViewController()!
-                                                         topVC.navigationController?.pushViewController(vc, animated: true)
-            }) {}
+                                                        HUDManager.shared.dismiss()
+                                                        let vc = ImportWalletViewController.make(buttonText: "Recover Wallet", mnemonic: mnemonic)
+                                                        let topVC = UIApplication.topViewController()!
+                                                        topVC.navigationController?.pushViewController(vc, animated: true)
+                                                     }) {}
 
             HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none, type: .centerFloat, widthIsFull: false, canDismiss: true)
 
@@ -273,9 +273,9 @@ class WalletManager {
                                                          content: "We can't found Mnemonic, but you can export your keystore file, the password is 'web3swift'",
                                                          confirmText: "Export",
                                                          cancelText: "Cancel", confirmBlock: {
-                                                             HUDManager.shared.dismiss()
-                                                             ShareHelper.share(text: jsonString, image: nil, urlString: nil)
-                }) {}
+                                                            HUDManager.shared.dismiss()
+                                                            ShareHelper.share(text: jsonString, image: nil, urlString: nil)
+                                                         }) {}
 
                 HUDManager.shared.showAlertView(view: view, backgroundColor: .clear, haptic: .none, type: .centerFloat, widthIsFull: false, canDismiss: true)
 
