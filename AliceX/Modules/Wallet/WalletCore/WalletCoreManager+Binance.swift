@@ -9,7 +9,7 @@
 import BigInt
 import Foundation
 import PromiseKit
-import TrustWalletCore
+import WalletCore
 
 extension WalletCore {
     func binanceAccountInfo(address: String) -> Promise<BinanceAccount> {
@@ -68,7 +68,8 @@ extension WalletCore {
             sendOrder.outputs = [output]
 
             signingInput.sendOrder = sendOrder
-            let data = BinanceSigner.sign(input: signingInput)
+            
+            let data: BinanceSigningOutput = AnySigner.sign(input: input, coin: .binance)
 
             BNBProvider.request(.broadcast(data: data.encoded.hexdata)) { result in
                 switch result {

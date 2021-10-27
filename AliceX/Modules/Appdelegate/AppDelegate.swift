@@ -7,27 +7,30 @@
 //
 
 import BigInt
-import CodePush
 import FirebaseCore
-import FirebaseInstanceID
 import FirebaseMessaging
 import IQKeyboardManagerSwift
 import PromiseKit
-import React
 import SPStorkController
 import UserNotifications
+import FirebaseCrashlytics
 
 private var navi: UINavigationController?
-private var bridge: RCTBridge?
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_: UIApplication, didFinishLaunchingWithOptions
         launchOption: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+#if DEBUG
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(false)
+#else
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+#endif
+        
         Messaging.messaging().delegate = self
         IQKeyboardManager.shared.enable = true
 
@@ -36,11 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             PriceHelper.shared.fetchFromCache()
             TransactionRecordHelper.shared.loadFromCache()
         }
-
-        bridge = RCTBridge(bundleURL: sourceURL(bridge: bridge), moduleProvider: nil, launchOptions: nil)
-        #if RCT_DEV
-            bridge?.moduleClasses = RCTDevLoadingView.self
-        #endif
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -85,21 +83,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
 
     func test() {
-        InstanceID.instanceID().instanceID { result, error in
+        Messaging.messaging().token { token, error in
             if let error = error {
                 print("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
+            } else if let token = token {
+                print("Remote instance ID token: \(token)")
             }
         }
-    }
-
-    func sourceURL(bridge _: RCTBridge?) -> URL? {
-        #if DEBUG
-            return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
-        #else
-            return CodePush.bundleURL()
-        #endif
     }
 
     func applicationWillResignActive(_: UIApplication) {
@@ -115,10 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
 
     func applicationWillTerminate(_: UIApplication) {}
-
-    class func rnBridge() -> RCTBridge {
-        return bridge!
-    }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return handleAliceURL(url: url)
@@ -183,5 +169,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
     }
 }

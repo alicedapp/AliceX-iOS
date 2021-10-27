@@ -17,12 +17,13 @@ class WCCustomHandler: WCHandler {
     override func handle(request: Request) {
         do {
             let message = try request.parameter(of: String.self, at: 0)
+            assert(false, "rn code")
 //            let response = try Response(url: request.url,
 //                                         value: "Success: \(message)",
 //                id: request.id!)
 //            self.server.send(response)
 
-            CallRNModule.walletConnectEvent(rawData: message)
+//            CallRNModule.walletConnectEvent(rawData: message)
         } catch {
             HUDManager.shared.showError(text: "Handle message failed")
         }

@@ -10,8 +10,7 @@ import Moya
 
 // Doc Address: https://github.com/EverexIO/Ethplorer/wiki/Ethplorer-API
 
-let ethplorerAPI = MoyaProvider<Ethplorer>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let ethplorerAPI = MoyaProvider<Ethplorer>(plugins: [VerbosePlugin(verbose: true)])
 
 enum Ethplorer {
     case getTokenInfo(address: String)

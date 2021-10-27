@@ -9,8 +9,7 @@
 import Foundation
 import Moya
 
-let gasStationAPI = MoyaProvider<EthGasStation>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let gasStationAPI = MoyaProvider<EthGasStation>(plugins: [VerbosePlugin(verbose: true)])
 
 enum EthGasStation {
     case gas

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import TrustWalletCore
+import WalletCore
 
 class WalletCore {
     static let shared = WalletCore()

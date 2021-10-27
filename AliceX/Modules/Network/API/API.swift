@@ -104,7 +104,7 @@ enum MyError: Error {
 
 func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil) -> Promise<T> {
     return Promise<T> { seal in
-        let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+        let provider = MoyaProvider<U>(plugins: [VerbosePlugin(verbose: true)])
         provider.request(target, completion: { result in
             switch result {
             case let .success(response):
@@ -134,7 +134,7 @@ func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil) -> Promi
 func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil) -> Promise<[T?]> {
     return Promise<[T?]> { seal in
 
-        let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+        let provider = MoyaProvider<U>(plugins: [VerbosePlugin(verbose: true)])
 
         provider.request(target, completion: { result in
             switch result {
@@ -165,7 +165,7 @@ func API<T: HandyJSON, U: TargetType>(_ target: U, path: String? = nil) -> Promi
 func API<U: TargetType>(_ target: U, path _: String? = nil) -> Promise<String> {
     return Promise<String> { seal in
 
-        let provider = MoyaProvider<U>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+        let provider = MoyaProvider<U>(plugins: [VerbosePlugin(verbose: true)])
 
         provider.request(target, completion: { result in
             switch result {

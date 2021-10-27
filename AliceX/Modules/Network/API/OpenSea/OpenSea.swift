@@ -9,8 +9,7 @@
 import Foundation
 import Moya
 
-let OpenSeaAPI = MoyaProvider<OpenSea>(plugins:
-    [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let OpenSeaAPI = MoyaProvider<OpenSea>(plugins: [VerbosePlugin(verbose: true)])
 
 enum OpenSea {
     case assets(address: String)
@@ -19,7 +18,7 @@ enum OpenSea {
 extension OpenSea: TargetType {
     var headers: [String: String]? {
         return ["Content-Type": "application/json",
-                "X-CMC_PRO_API_KEY": "bef62b077b104cee981849a010b70da2"]
+                "X-API-KEY": "bef62b077b104cee981849a010b70da2"]
     }
 
     var baseURL: URL {
@@ -47,7 +46,7 @@ extension OpenSea: TargetType {
         switch self {
         case let .assets(address):
             // TODO:
-            let dict = ["owner": address, "limit": 200, "offset": 0] as [String: Any]
+            let dict = ["owner": address, "limit": 50, "offset": 0] as [String: Any]
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         }
     }
