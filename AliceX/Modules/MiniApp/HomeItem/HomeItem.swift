@@ -72,6 +72,7 @@ enum HomeItem {
             PinManager.shared.currentPin = item
             return item.vc
         }
+        return UIViewController()
     }
 
     var url: URL? {
